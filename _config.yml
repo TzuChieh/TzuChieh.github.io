@@ -9,7 +9,7 @@ topnav_title: Photon Renderer
 site_title: Photon Renderer
 # this appears in the html browser tab for the site title (seen mostly by search engines, not users)
 
-company_name: Photon Renderer
+company_name: Tzu-Chieh Chang
 # this appears in the footer
 
 github_editme_path: 
@@ -106,8 +106,9 @@ sidebars:
 - product1_sidebar
 - product2_sidebar
 - other
+- features_sidebar
 
-description: "Intended as a documentation theme based on Jekyll for technical writers documenting software and other technical products, this theme has all the elements you would need to handle multiple products with both multi-level sidebar navigation, tags, and other documentation features."
+description: "Photon Renderer is a simple photorealistic renderer for hobbyists and researchers."
 # the description is used in the feed.xml file
 
 # needed for sitemap.xml file only
