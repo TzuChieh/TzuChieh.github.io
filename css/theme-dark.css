@@ -212,3 +212,7 @@ button, input, optgroup, select, textarea {
 ul#results-container a {
     background-color: #222222;
 }
+
+ul#results-container a:hover {
+    color: white;
+}
