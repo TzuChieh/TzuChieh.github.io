@@ -176,7 +176,7 @@ li.sidebarTitle {
 }
 
 .nav li a {
-    background-color: #111111;
+    background-color: #101010;
 }
 
 .nav > li.active > a  {
@@ -188,14 +188,19 @@ li.sidebarTitle {
 }
 
 .dropdown-menu {
-    background-color: #404A50;
+    color: #FC0;
+    background-color: #404A50 !important;
 }
 
 .dropdown-menu > li > a {
     color: #FC0;
-    background-color: #000000;
+    background-color: #000000 !important;
 }
 
 .dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
-    color: #F90;
+    color: #F90 !important;
+}
+
+table > tbody > tr:nth-of-type(odd) {
+    background-color: #505050;
 }
