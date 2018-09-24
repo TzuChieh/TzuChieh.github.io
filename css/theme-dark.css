@@ -208,3 +208,7 @@ table > tbody > tr:nth-of-type(odd) {
 button, input, optgroup, select, textarea {
     color: #333333;
 }
+
+ul#results-container a {
+    background-color: #222222;
+}
