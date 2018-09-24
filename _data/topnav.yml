@@ -4,7 +4,7 @@ topnav:
 - title: Topnav
   items:
     - title: GitHub
-      external_url: https://github.com/tomjoht/documentation-theme-jekyll
+      external_url: https://github.com/TzuChieh/Photon-v2
     - title: News
       url: /news
 
@@ -12,21 +12,19 @@ topnav:
 topnav_dropdowns:
 - title: Topnav dropdowns
   folders:
-    - title: Jekyll Help
+    - title: Documentations
       folderitems:
-        - title: Jekyll Talk
-          external_url: https://talk.jekyllrb.com
-        - title: Jekyll documentation
-          external_url: http://jekyllrb.com/docs/home/
-        - title: Jekyll on Stack Overflow
-          external_url: http://stackoverflow.com/questions/tagged/jekyll
-        - title: Jekyll on my blog
-          external_url: http://idratherbewriting.com/category-jekyll/
-    - title: Products
-      folderitems:
-        - title: Jekyll Documentation Theme
+        - title: Features
           url: /mydoc_introduction.html
-        - title: Product 1
+        - title: Editor
+          url: /p2_landing_page.html
+        - title: Scene Description Language
           url: /p1_landing_page.html
-        - title: Product 2
+        - title: Core Engine
+          url: /p2_landing_page.html
+    - title: Misc
+      folderitems:
+        - title: Blog
+          external_url: http://tcchangs.blogspot.com/
+        - title: About
           url: /p2_landing_page.html
