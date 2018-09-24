@@ -188,12 +188,12 @@ li.sidebarTitle {
 }
 
 .dropdown-menu {
-    color: #FC0;
+    color: #FC0 !important;
     background-color: #404A50 !important;
 }
 
 .dropdown-menu > li > a {
-    color: #FC0;
+    color: #FC0 !important;
     background-color: #000000 !important;
 }
 
