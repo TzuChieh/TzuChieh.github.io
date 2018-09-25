@@ -31,7 +31,7 @@ entries:
       type: frontmatter
 
     - title: Thin Lens
-      url: /features_camera_thinlens.html
+      url: /features_camera_thin_lens.html
       output: web
       type: frontmatter
 
