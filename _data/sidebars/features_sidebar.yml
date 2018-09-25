@@ -6,13 +6,13 @@ entries:
   version: 2.0
   folders:
 
-  - title: Introduction
+  - title: Overview
     output: web
     type: frontmatter
     folderitems:
 
     - title: What is Photon
-      url: /features_what_is_photon.html
+      url: /features_overview_what_is_photon.html
       output: web
       type: frontmatter
 
@@ -20,8 +20,18 @@ entries:
     output: web
     folderitems:
 
+    - title: Introduction
+      url: /features_camera_introduction.html
+      output: web
+      type: frontmatter
+
     - title: Pinhole
-      url: /features_pinhole.html
+      url: /features_camera_pinhole.html
+      output: web
+      type: frontmatter
+
+    - title: Thin Lens
+      url: /features_camera_thinlens.html
       output: web
       type: frontmatter
 

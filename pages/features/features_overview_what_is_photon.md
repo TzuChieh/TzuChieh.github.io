@@ -4,7 +4,7 @@ keywords:
 last_updated: September 25, 2018
 summary: "Photon is a simple renderer for hobbyists and researchers."
 sidebar: features_sidebar
-permalink: features_what_is_photon.html
+permalink: features_overview_what_is_photon.html
 ---
 
 Thank you for using Photon! Photon is a photorealistic renderer developed by T.C. Chang, a game engine and computer graphics enthusiast. Here, you will learn about the features Photon currently have as well as when to use them.
