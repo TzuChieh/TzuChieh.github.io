@@ -216,3 +216,9 @@ ul#results-container a {
 ul#results-container a:hover {
     color: white;
 }
+
+figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
