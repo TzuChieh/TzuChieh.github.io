@@ -8,13 +8,11 @@ entries:
 
   - title: Overview
     output: web
-    type: frontmatter
     folderitems:
 
     - title: What is Photon
       url: /features_overview_what_is_photon.html
       output: web
-      type: frontmatter
 
   - title: Camera
     output: web
@@ -23,26 +21,22 @@ entries:
     - title: Introduction
       url: /features_camera_introduction.html
       output: web
-      type: frontmatter
 
     - title: Pinhole
       url: /features_camera_pinhole.html
       output: web
-      type: frontmatter
 
     - title: Thin Lens
       url: /features_camera_thin_lens.html
       output: web
-      type: frontmatter
 
   - title: Geometry
     output: web
     folderitems:
 
     - title: Introduction
-        url: /features_geometry_introduction.html
-        output: web
-        type: frontmatter
+      url: /features_geometry_introduction.html
+      output: web
 
     - title: Triangle
       url: /features_geometry_triangle.html
