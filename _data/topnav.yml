@@ -15,7 +15,7 @@ topnav_dropdowns:
     - title: Documentations
       folderitems:
         - title: Features
-          url: /features_what_is_photon.html
+          url: /features_overview_what_is_photon.html
         - title: Editor
           url: /wip.html
         - title: Scene Description Language
