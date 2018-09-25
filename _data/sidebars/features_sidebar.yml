@@ -39,20 +39,25 @@ entries:
     output: web
     folderitems:
 
+    - title: Introduction
+        url: /features_geometry_introduction.html
+        output: web
+        type: frontmatter
+
     - title: Triangle
-      url: /features_triangle.html
+      url: /features_geometry_triangle.html
       output: web
 
     - title: Rectangle
-      url: /features_rectangle.html
+      url: /features_geometry_rectangle.html
       output: web
 
     - title: Sphere
-      url: /features_sphere.html
+      url: /features_geometry_sphere.html
       output: web
 
     - title: Triangle Mesh
-      url: /features_triangle_mesh.html
+      url: /features_geometry_triangle_mesh.html
       output: web
 
   - title: Material
