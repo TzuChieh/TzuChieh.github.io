@@ -10,6 +10,9 @@ entries:
     output: web
     folderitems:
 
+    - title: Introduction
+      url: /index.html
+      output: web
     - title: Features
       url: /features_overview_what_is_photon.html
       output: web

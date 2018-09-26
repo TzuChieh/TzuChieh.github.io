@@ -1,7 +1,7 @@
 ---
 title: "Photon Renderer"
 keywords: introduction
-tags: [introduction]
+tags: 
 sidebar: topics_sidebar
 permalink: index.html
 summary: 
