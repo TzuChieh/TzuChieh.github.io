@@ -21,11 +21,9 @@ entries:
     - title: Introduction
       url: /features_camera_introduction.html
       output: web
-
     - title: Pinhole
       url: /features_camera_pinhole.html
       output: web
-
     - title: Thin Lens
       url: /features_camera_thin_lens.html
       output: web
@@ -37,19 +35,15 @@ entries:
     - title: Introduction
       url: /features_geometry_introduction.html
       output: web
-
     - title: Triangle
       url: /features_geometry_triangle.html
       output: web
-
     - title: Rectangle
       url: /features_geometry_rectangle.html
       output: web
-
     - title: Sphere
       url: /features_geometry_sphere.html
       output: web
-
     - title: Triangle Mesh
       url: /features_geometry_triangle_mesh.html
       output: web
@@ -61,11 +55,9 @@ entries:
     - title: Matte Opaque
       url: /features_matte_opaque.html
       output: web
-
     - title: Abraded Opaque
       url: /features_abraded_opaque.html
       output: web
-
     - title: Ideal Substance
       url: /features_ideal_substance.html
       output: web
@@ -77,11 +69,9 @@ entries:
     - title: Picture
       url: /features_picture.html
       output: web
-
     - title: Constant and Checkerboard
       url: /features_constant_and_checkerboard.html
       output: web
-
     - title: Real Math
       url: /features_real_math.html
       output: web
@@ -93,15 +83,12 @@ entries:
     - title: Point
       url: /features_point.html
       output: web
-
     - title: Area
       url: /features_area.html
       output: web
-
     - title: Model
       url: /features_model.html
       output: web
-
     - title: IES
       url: /features_ies.html
       output: web
@@ -121,7 +108,6 @@ entries:
     - title: Forward Path Tracing
       url: /features_forward_path_tracing.html
       output: web
-    
     - title: Forward Path Tracing with NEE
       url: /features_forward_path_tracing_with_nee.html
       output: web

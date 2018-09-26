@@ -1,0 +1,24 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+entries:
+- title: sidebar
+  product: Photon Renderer
+  version:
+  folders:
+
+  - title: Topics
+    output: web
+    folderitems:
+
+    - title: Features
+      url: /features_overview_what_is_photon.html
+      output: web
+    - title: Editor
+      url: /wip.html
+      output: web
+    - title: Scene Description Language
+      url: /wip.html
+      output: web
+    - title: Core Engine
+      url: /wip.html
+      output: web
