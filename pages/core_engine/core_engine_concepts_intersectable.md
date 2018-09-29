@@ -4,7 +4,7 @@ keywords:
 last_updated: September 29, 2018
 summary: "Representing elements on which intersection tests can be performed."
 sidebar: core_engine_sidebar
-permalink: core_engine_intersectable.html
+permalink: core_engine_concepts_intersectable.html
 ---
 
 To construct a scene, we must populate it with some *objects*. Imagining you are beside a table with a mug on it, how would you describe the shape of those two objects? Specifically, how to represent them digitally in a computer? One way to do this is to model them using many triangles or quads. Take a triangle for example, in a renderer like Photon, merely store the three vertices of it is not enough: we need to support opearations on the stored data for it to be useful.

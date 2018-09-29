@@ -23,5 +23,5 @@ entries:
       url: /wip.html
       output: web
     - title: Core Engine
-      url: /wip.html
+      url: /core_engine_concepts.html
       output: web
