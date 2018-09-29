@@ -1,0 +1,27 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+entries:
+- title: sidebar
+  product: Features
+  version: 2.0
+  folders:
+
+  - title: Concepts
+    output: web
+    folderitems:
+
+    - title: Preface
+      url: /core_engine_concepts.html
+      output: web
+
+    - title: Intersectable
+      url: /core_engine_concepts_intersectable.html
+      output: web
+
+    - title: Intersector
+      url: /core_engine_concepts_intersector.html
+      output: web
+
+    - title: Primitive
+      url: /core_engine_concepts_primitive.html
+      output: web

@@ -107,6 +107,7 @@ sidebars:
 - product2_sidebar
 - other
 - features_sidebar
+- core_engine_sidebar
 
 description: "Photon Renderer is a simple photorealistic renderer for hobbyists and researchers."
 # the description is used in the feed.xml file

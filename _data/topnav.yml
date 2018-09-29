@@ -21,7 +21,7 @@ topnav_dropdowns:
         - title: Scene Description Language
           url: /wip.html
         - title: Core Engine
-          url: /wip.html
+          url: /core_engine_concepts.html
     - title: Misc
       folderitems:
         - title: Blog
