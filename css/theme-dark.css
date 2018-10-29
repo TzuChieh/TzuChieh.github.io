@@ -192,6 +192,10 @@ li.sidebarTitle {
     padding-left: 10px;
 }
 
+.nav li a:active {
+    background-color: #248ec2;
+}
+
 .dropdown-menu {
     color: #FC0 !important;
     background-color: #404A50 !important;
