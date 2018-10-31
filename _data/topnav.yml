@@ -4,7 +4,7 @@ topnav:
 - title: Topnav
   items:
     - title: Blog
-      url: /blog/blog.html
+      url: /blog.html
     - title: GitHub
       external_url: https://github.com/TzuChieh/Photon-v2
 
