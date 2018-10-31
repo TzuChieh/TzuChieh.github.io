@@ -3,10 +3,10 @@ repository: TzuChieh/Photon-v2-site
 output: web
 # this property is useful for conditional filtering of content that is separate from the PDF.
 
-topnav_title: Photon Renderer
+topnav_title: Rendering the Matrix
 # this appears on the top navigation bar next to the home button
 
-site_title: Photon Renderer
+site_title: Rendering the Matrix
 # this appears in the html browser tab for the site title (seen mostly by search engines, not users)
 
 company_name: Tzu-Chieh Chang
@@ -35,7 +35,7 @@ exclude:
   - .gitignore
 # these are the files and directories that jekyll will exclude from the build
 
-feedback_subject_line: Photon Renderer
+feedback_subject_line: Rendering the Matrix
 
 feedback_email: r05922176@ntu.edu.tw
 # used as a contact email for the Feedback link in the top navigation bar
@@ -95,7 +95,7 @@ defaults:
       layout: "post"
       comments: true
       search: true
-      sidebar: home_sidebar
+      sidebar: topics_sidebar
       topnav: topnav
 
 # these are defaults used for the frontmatter for these file types

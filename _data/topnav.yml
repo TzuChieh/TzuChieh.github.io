@@ -3,8 +3,8 @@
 topnav:
 - title: Topnav
   items:
-    - title: News
-      url: /news
+    - title: Blog
+      url: /blog/blog.html
     - title: GitHub
       external_url: https://github.com/TzuChieh/Photon-v2
 
@@ -24,7 +24,7 @@ topnav_dropdowns:
           url: /core_engine_concepts.html
     - title: Misc
       folderitems:
-        - title: Blog
-          external_url: http://tcchangs.blogspot.com/
+        - title: YouTube Channel
+          external_url: https://www.youtube.com/channel/UCKdlogjqjuFsuv06wajp-2g
         - title: About
           url: /wip.html
