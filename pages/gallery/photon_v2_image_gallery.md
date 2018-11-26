@@ -4,7 +4,7 @@ keywords:
 last_updated: September 25, 2018
 summary: "These are images rendered by Photon-v2 Renderer."
 sidebar: gallery_sidebar
-permalink: photon_v2_gallery.html
+permalink: photon_v2_image_gallery.html
 ---
 
 {% include image_custom.html file="gallery/bathroom_(based on Salle de bain by nacimus)" alt="" caption="Cozy Bathroom (based on \"Salle de bain\" by nacimus)" width="100%" %}
