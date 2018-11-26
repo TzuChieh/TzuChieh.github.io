@@ -2,7 +2,7 @@
 title: What is Photon
 keywords: 
 last_updated: September 25, 2018
-summary: "Photon is a simple renderer for hobbyists and researchers."
+summary: "Photon is a simple renderer I created out of my love of computer graphics."
 sidebar: features_sidebar
 permalink: features_overview_what_is_photon.html
 ---

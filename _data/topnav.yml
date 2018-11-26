@@ -24,6 +24,8 @@ topnav_dropdowns:
           url: /core_engine_concepts.html
     - title: Misc
       folderitems:
+        - title: Gallery
+          url: /photon_v2_image_gallery.html
         - title: YouTube Channel
           external_url: https://www.youtube.com/channel/UCKdlogjqjuFsuv06wajp-2g
         - title: About
