@@ -1,7 +1,7 @@
 ---
-title: What is Photon
+title: Rendered Images
 keywords: 
-last_updated: September 25, 2018
+last_updated: November 27, 2018
 summary: "These are images rendered by Photon-v2 Renderer."
 sidebar: gallery_sidebar
 permalink: photon_v2_image_gallery.html
