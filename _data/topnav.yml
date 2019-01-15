@@ -28,5 +28,7 @@ topnav_dropdowns:
           url: /photon_v2_image_gallery.html
         - title: YouTube Channel
           external_url: https://www.youtube.com/channel/UCKdlogjqjuFsuv06wajp-2g
+        - title: Download Scenes
+          url: /download_scenes_metallic_chess.html
         - title: About
           url: /wip.html
