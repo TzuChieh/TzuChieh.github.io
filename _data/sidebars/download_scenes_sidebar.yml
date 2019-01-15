@@ -6,10 +6,23 @@ entries:
   version: 2.0
   folders:
 
-  - title: Featured
+  - title: Exterior Scenes
+    output: web
+    folderitems:
+    - title: Metallic Chess
+      url: /download_scenes_metallic_chess.html
+      output: web
+
+  - title: Simple Scenes
     output: web
     folderitems:
 
-    - title: Metallic Chess
-      url: /download_scenes_metallic_chess.html
+  - title: Material Test Scenes
+    output: web
+    folderitems:
+    - title: Ideal Glass (Photon Ball)
+      url: /download_scenes_ideal_glass_photon_ball.html
+      output: web
+    - title: Belcour Teaser (Photon Ball)
+      url: /download_scenes_belcour_teaser_photon_ball.html
       output: web
