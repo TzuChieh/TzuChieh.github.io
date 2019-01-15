@@ -16,4 +16,4 @@ permalink: download_scenes_ideal_glass_photon_ball.html
 
 * [**DOWNLOAD**](https://drive.google.com/uc?export=download&id=1bqdnvmC5GjrHSKbPeJS0EBtmgd4Jhsal)
 
-{% include image_gallery.html file="gallery/download_scenes/pure_dielectric_photon_ball.jpg" alt="" caption="" width="100%" %}
+{% include image_gallery.html file="download_scenes/pure_dielectric_photon_ball.jpg" alt="" caption="" width="100%" %}

@@ -16,6 +16,6 @@ permalink: download_scenes_belcour_teaser_photon_ball.html
 
 * [**DOWNLOAD**](https://drive.google.com/uc?export=download&id=1gZ6ciKiIEaKmjg0HqDlWoyKJ4Fkon15z)
 
-{% include image_gallery.html file="gallery/download_scenes/belcour_teaser_photon_ball.jpg" alt="" caption="" width="100%" %}
+{% include image_gallery.html file="download_scenes/belcour_teaser_photon_ball.jpg" alt="" caption="" width="100%" %}
 
 The material properties are the ones specified by Laurent Belcour in his paper "[Efficient Rendering of Layered Materials using an Atomic Decomposition with Statistical Operators](https://belcour.github.io/blog/research/2018/05/05/brdf-realtime-layered.html)" on SIGGRAPH 2018.
