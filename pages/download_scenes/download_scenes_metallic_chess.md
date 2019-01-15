@@ -15,7 +15,7 @@ permalink: download_scenes_metallic_chess.html
   * Triangles: 208,978 (approx.)
   * Size: 95 MB (195 MB unzipped)
 
-## [**DOWNLOAD**](https://drive.google.com/uc?export=download&id=1T5j1RGu9wQCgdRYolTQPmNd9nDCRioBi)
+* [**DOWNLOAD**](https://drive.google.com/uc?export=download&id=1T5j1RGu9wQCgdRYolTQPmNd9nDCRioBi)
 
 {% include image_gallery.html file="gallery/054_chess (based on _Transparent Chess For Cycle_ by yayel59).jpg" alt="" caption="" width="100%" %}
 
