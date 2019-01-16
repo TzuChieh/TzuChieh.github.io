@@ -75,7 +75,7 @@ defaults:
       layout: "page"
       comments: true
       search: true
-      sidebar: home_sidebar
+      sidebar: topics_sidebar
       topnav: topnav
   -
     scope:
