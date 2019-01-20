@@ -2,26 +2,28 @@
 
 entries:
 - title: sidebar
-  product: Features
-  version: 2.0
+  product: Core Engine
+  version: 
   folders:
 
   - title: Concepts
     output: web
     folderitems:
-
     - title: Preface
       url: /core_engine_concepts.html
       output: web
-
     - title: Intersectable
       url: /core_engine_concepts_intersectable.html
       output: web
-
     - title: Intersector
       url: /core_engine_concepts_intersector.html
       output: web
-
     - title: Primitive
       url: /core_engine_concepts_primitive.html
+      output: web
+  - title: Contributing
+    output: web
+    folderitems:
+    - title: Coding Standard
+      url: /core_engine_contributing_coding_standard.html
       output: web
