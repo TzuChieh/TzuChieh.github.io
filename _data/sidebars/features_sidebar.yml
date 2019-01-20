@@ -11,7 +11,7 @@ entries:
     folderitems:
 
     - title: What is Photon
-      url: /features_overview_what_is_photon.html
+      url: /features_overview.html
       output: web
 
   - title: Camera

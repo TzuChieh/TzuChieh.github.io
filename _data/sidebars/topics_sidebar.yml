@@ -14,7 +14,7 @@ entries:
       url: /index.html
       output: web
     - title: Features
-      url: /features_overview_what_is_photon.html
+      url: /features_overview.html
       output: web
     - title: Editor
       url: /wip.html
