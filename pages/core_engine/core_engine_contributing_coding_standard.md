@@ -72,7 +72,7 @@ This guideline is for coding in C++ since most of the code for engine is written
 * Perform explicit captures for lambda expressions.
 * Pass by `const` reference if the parameter is not intended to be modified.
 * Pass by non-`const` reference and a `out_` prefix for partially modified parameters.
-* Pass by non-`const` pointer and a `out_` prefix completely modified parameters.
+* Pass by non-`const` pointer and a `out_` prefix for completely modified parameters.
 * Strongly-typed enum should always be used, and with a `E` prefix, e.g., `enum class EUnit`.
 * Use of anonymous namespaces is encouraged for implementation specific helpers.
 * Use `final` when the target is designed **not** to be inherited.
@@ -81,7 +81,7 @@ This guideline is for coding in C++ since most of the code for engine is written
 * Pointers and references:
   * Declare like this `ICommand* command`
   * **Not** like this `ICommand *command`
-* Define functions/methods as `inline`, not when declaring them.
+* If needed, define functions/methods as `inline`, not when declaring them.
 * Do **not** to use `new` and `delete` directly.
 
 ## Primitive Type Aliasing
