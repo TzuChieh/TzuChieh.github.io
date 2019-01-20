@@ -1,5 +1,5 @@
 ---
-title: What is Photon
+title: Features Overview
 keywords: 
 last_updated: September 25, 2018
 summary: "A quick overview of all non-trivial features Photon currently has."
