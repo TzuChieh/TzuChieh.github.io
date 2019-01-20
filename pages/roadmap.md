@@ -7,8 +7,6 @@ sidebar: topics_sidebar
 permalink: roadmap.html
 ---
 
-GPU Accelerated Rendering
-
 * **Near Future (in 1 ~ 3 months)**
   * stabilize core engine structure
   * advanced addon for Blender (with render preview)
