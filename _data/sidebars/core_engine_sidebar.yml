@@ -25,7 +25,7 @@ entries:
     output: web
     folderitems:
     - title: Build from Source
-      url: /core_engine_contributing_build.html
+      url: /core_engine_contributing_build_from_source.html
       output: web
     - title: Coding Standard
       url: /core_engine_contributing_coding_standard.html
