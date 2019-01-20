@@ -7,6 +7,8 @@ sidebar: core_engine_sidebar
 permalink: core_engine_contributing_coding_standard.html
 ---
 
+## Why
+
 It is benefitial to have a common coding style to follow with, the reasons are:
 
 * readability
@@ -33,7 +35,7 @@ This guideline is for coding in C++ since most of the code for engine is written
   * common abbreviations in mathematics
   * formulae in referenced papers
 * Classes that defines an interfaces should have a `I` prefix, e.g., `IFileSystem`.
-* Name a variable in plural if it is an array-like type.
+* Name a variable in plural if it is a collection.
 * Boolean variables and methods should ask a question, e.g., `m_isRunning`, `hasMaterial()`.
 * Use `#pragma once`. Do **not** use macro-based header guards.
 * Use `PH_ASSERT` for runtime assertions. See [`Engine/Source/Common/assertion.h`](https://github.com/TzuChieh/Photon-v2/blob/master/Engine/Source/Common/assertion.h).
@@ -54,9 +56,9 @@ This guideline is for coding in C++ since most of the code for engine is written
 * Curly braces should have their own line.
 * Operators surrounded by spaces.
 * No spaces around brackets and parentheses.
-* Try not to declare multiple variables in a single line.
+* Try not to declare multiple variables in single line.
 * Indent with tabs and align with spaces.
-* Do **not** write comments that states obvious thing.
+* Do **not** write comments that states obvious things.
 
 ## C++ Syntax
 
