@@ -11,12 +11,9 @@ permalink: core_engine_contributing_coding_standard.html
 
 It is benefitial to have a common coding style to follow with, the reasons are:
 
-* readability
 * code is written by one person, but viewed multiple times by others
 * 80% of the lifetime cost of a piece of software goes to maintenance (from UE4)
-* readability
 * sometimes higher level concepts can be implied by the layouts
-* readability
 
 This guideline is for coding in C++ since most of the code for engine is written in it; nonetheless, some concepts can be applied to other parts of Photon (and is encouraged). You do not need to follow all these rules strictly as long as you have a good reason that doing the other way is better for the context.
 
