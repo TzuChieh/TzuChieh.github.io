@@ -25,3 +25,6 @@ entries:
     - title: Core Engine
       url: /core_engine_concepts.html
       output: web
+    - title: Roadmap
+      url: /roadmap.html
+      output: web

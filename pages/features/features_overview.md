@@ -1,7 +1,7 @@
 ---
 title: Features Overview
 keywords: 
-last_updated: September 25, 2018
+last_updated: January 20, 2019
 summary: "A quick overview of all non-trivial features Photon currently has."
 sidebar: features_sidebar
 permalink: features_overview.html
