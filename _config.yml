@@ -115,3 +115,6 @@ description: "Photon Renderer is a simple photorealistic renderer for hobbyists 
 # needed for sitemap.xml file only
 # url: http://idratherbewriting.com
 # baseurl: /documentation-theme-jekyll
+
+plugins:
+  - jekyll-seo-tag
