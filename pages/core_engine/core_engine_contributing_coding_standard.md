@@ -1,7 +1,7 @@
 ---
 title: Coding Standard
 keywords: 
-last_updated: January 20, 2019
+last_updated: January 22, 2019
 summary: "The development of the core of Photon complies to a collection of rules."
 sidebar: core_engine_sidebar
 permalink: core_engine_contributing_coding_standard.html
@@ -47,6 +47,8 @@ This guideline is for coding in C++ since most of the code for engine is written
   2. Library Headers
   3. Third-party Library Headers
   4. Standard Headers
+* Include engine headers with quotes (`""`) and absolute path, relative to `Engine/Source/`.
+* Include non-engine headers with angle brackets (`<>`).
 
 ## Formatting
 
@@ -55,7 +57,8 @@ This guideline is for coding in C++ since most of the code for engine is written
 * No spaces around brackets and parentheses.
 * Try not to declare multiple variables in single line.
 * Indent with tabs and align with spaces.
-* Do **not** write comments that states obvious things.
+* Do not write comments that state obvious things.
+* Do not indent namespace body.
 
 ## C++ Syntax
 
@@ -65,6 +68,8 @@ This guideline is for coding in C++ since most of the code for engine is written
 * Add a virtual destructor if the object is intended to be used polymorphically.
 * Use `static_assert` if you have assumptions that can be verified in compile time.
 * Use `nullptr`, do **not** use `NULL`.
+* Use `typename` for template type parameters, do **not** use `class`.
+* Use `constexpr` for constants where you can.
 * `auto` should not be used, except for
   * range based for loops (only when the iterated target is verbose)
   * variable type is obvious, such as constructing smart pointers via `std::make_shared<T>`
@@ -75,14 +80,15 @@ This guideline is for coding in C++ since most of the code for engine is written
 * Pass by non-`const` pointer and a `out_` prefix for completely modified parameters.
 * Strongly-typed enum should always be used, and with a `E` prefix, e.g., `enum class EUnit`.
 * Use of anonymous namespaces is encouraged for implementation specific helpers.
-* Use `final` when the target is designed **not** to be inherited.
+* Do not use `final` everywhere; use it only when the target is **designed not to be** inherited.
 * Always use a pair of braces for statements (`if`, `for`, `while`, etc.) that contains only a single line.
 * Do not put `using` declarations in global scope.
 * Pointers and references:
   * Declare like this `ICommand* command`
   * **Not** like this `ICommand *command`
 * If needed, define functions/methods as `inline`, not when declaring them.
-* Do **not** to use `new` and `delete` directly.
+* Do not use `new` and `delete` directly.
+* Make constructor `explicit` if it has single input parameter.
 
 ## Primitive Type Aliasing
 
@@ -91,3 +97,28 @@ Photon uses aliased types most of the time for cross platform compatibilities an
 * Use `real` for reals, and a `_r` suffix for real literals.
 * Use `integer` for integers.
 * If you need specific precision and Photon has it, use it; otherwise use standard types.
+
+## Others
+
+* All engine code should be under `ph` namespace, preferably with an ending comment:
+
+```cpp
+namespace ph
+{
+  // some code
+}// end namespace ph
+```
+
+* Any function/method with empty body should be formatted like this:
+
+```cpp
+void someMeaningfulName()
+{}
+```
+
+* Uninitialized variable/object should have its initializing routine follows immediately, without any blank lines:
+
+```cpp
+TimeStamp someTime;// uninitialized
+m_timeMachine.getTime(&someTime);// <someTime> initialized
+```
