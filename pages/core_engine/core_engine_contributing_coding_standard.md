@@ -31,7 +31,7 @@ This guideline is for coding in C++ since most of the code for engine is written
   * common abbreviations in graphics
   * common abbreviations in mathematics
   * formulae in referenced papers
-* Classes that defines an interfaces should have a `I` prefix, e.g., `IFileSystem`.
+* Classes that defines an interfaces should have an `I` prefix, e.g., `IFileSystem`.
 * Name a variable in plural if it is a collection.
 * Boolean variables and methods should ask a question, e.g., `m_isRunning`, `hasMaterial()`.
 * Use `#pragma once`. Do **not** use macro-based header guards.
