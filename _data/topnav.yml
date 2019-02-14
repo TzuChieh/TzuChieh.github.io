@@ -6,7 +6,7 @@ topnav:
     - title: Blog
       url: /blog.html
     - title: GitHub
-      external_url: https://github.com/TzuChieh/Photon-v2
+      external_url: https://github.com/TzuChieh/
 
 # Topnav dropdowns
 topnav_dropdowns:
@@ -16,7 +16,7 @@ topnav_dropdowns:
     - title: Personal Projects
       folderitems:
         - title: Photon-v2 Renderer
-          url: /photon_v2_overview_what_is_photon.html
+          url: /photon_v2_what_is_photon.html
         - title: Tokzin Game Engine
           url: /wip.html
         - title: Others
