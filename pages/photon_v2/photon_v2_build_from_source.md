@@ -3,8 +3,8 @@ title: Build from Source
 keywords: 
 last_updated: January 20, 2019
 summary: 
-sidebar: core_engine_sidebar
-permalink: core_engine_contributing_build_from_source.html
+sidebar: photon_v2_sidebar
+permalink: photon_v2_build_from_source.html
 ---
 
 ## Prerequisites

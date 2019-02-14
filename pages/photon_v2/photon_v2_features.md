@@ -3,19 +3,22 @@ title: Features Overview
 keywords: 
 last_updated: January 20, 2019
 summary: "A quick overview of all non-trivial features Photon currently has."
-sidebar: features_sidebar
-permalink: features_overview.html
+sidebar: photon_v2_sidebar
+permalink: photon_v2_features.html
 ---
 
 * **Rendering**
-  * Backward Path Tracing
-  * Backward Path Tracing with Next Event Estimation
+  * Backward Unidirectional Path Tracing
+  * Backward Unidirectional Path Tracing with Next Event Estimation
   * Photon Mapping
   * Progressive Photon Mapping
   * Stochastic Progressive Photon Mapping
   * RGB and Spectral Rendering
-  * AOV Rendering (normal)
-  * Random and Stratified Sampling
+  * AOV Rendering (normal, sample time, sample count)
+  * Random and Stratified Sample Generating
+  * Image Block Rendering
+    * Bulk, Tile, Grid and Spiral Modes
+    * Adaptive Sampling
 
 * **Imaging and Film**
   * Pinhole and Thin Lens Cameras
@@ -43,7 +46,7 @@ permalink: features_overview.html
   * Acceleration Structures
     * BVH
     * kD-tree (point, indexed, referenced)
-  * Linearly Interpolated Motion
+  * Linear Motions
 
 * **Light**
   * Point Light, Area Light (sphere, rectangle)
@@ -63,5 +66,6 @@ permalink: features_overview.html
   * CLI for Server Usages
   * Loading and Rendering Minecraft Maps
   * Hierarchical Scene Graph
+  * Script for Generated SDL Interface (currently supports Python, Java)
 
 For corresponding references, please see the [source code](https://github.com/TzuChieh/Photon-v2).

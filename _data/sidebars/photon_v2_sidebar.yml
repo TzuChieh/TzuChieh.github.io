@@ -2,16 +2,28 @@
 
 entries:
 - title: sidebar
-  product: Features
-  version: 2.0
+  product: Photon-v2 Renderer
+  version:
   folders:
 
-  - title: Overview
+  - title: Photon-v2 Renderer
     output: web
     folderitems:
 
     - title: What is Photon
-      url: /features_overview.html
+      url: /photon_v2_what_is_photon.html
+      output: web
+    - title: Features Overview
+      url: /photon_v2_features.html
+      output: web
+    - title: Coding Standard
+      url: /photon_v2_coding_standard.html
+      output: web
+    - title: Build from Source
+      url: /photon_v2_build_from_source.html
+      output: web
+    - title: Roadmap
+      url: /photon_v2_roadmap.html
       output: web
 
   - title: Camera
@@ -19,13 +31,13 @@ entries:
     folderitems:
 
     - title: Introduction
-      url: /features_camera_introduction.html
+      url: /photon_v2_camera_introduction.html
       output: web
     - title: Pinhole
-      url: /features_camera_pinhole.html
+      url: /photon_v2_camera_pinhole.html
       output: web
     - title: Thin Lens
-      url: /features_camera_thin_lens.html
+      url: /photon_v2_camera_thin_lens.html
       output: web
 
   - title: Geometry
@@ -33,33 +45,41 @@ entries:
     folderitems:
 
     - title: Introduction
-      url: /features_geometry_introduction.html
+      url: /photon_v2_geometry_introduction.html
       output: web
     - title: Triangle
-      url: /features_geometry_triangle.html
+      url: /wip.html
       output: web
     - title: Rectangle
-      url: /features_geometry_rectangle.html
+      url: /wip.html
       output: web
     - title: Sphere
-      url: /features_geometry_sphere.html
+      url: /wip.html
       output: web
     - title: Triangle Mesh
-      url: /features_geometry_triangle_mesh.html
+      url: /wip.html
       output: web
+
+    - title: Core Concepts
+      outout: web
+      folderitems:
+      
+      - title: Intersectable
+        url: /photon_v2_core_intersectable.html
+        output: web
 
   - title: Material
     output: web
     folderitems:
 
     - title: Matte Opaque
-      url: /features_matte_opaque.html
+      url: /wip.html
       output: web
     - title: Abraded Opaque
-      url: /features_abraded_opaque.html
+      url: /wip.html
       output: web
     - title: Ideal Substance
-      url: /features_ideal_substance.html
+      url: /wip.html
       output: web
 
   - title: Image
@@ -67,13 +87,13 @@ entries:
     folderitems:
 
     - title: Picture
-      url: /features_picture.html
+      url: /wip.html
       output: web
     - title: Constant and Checkerboard
-      url: /features_constant_and_checkerboard.html
+      url: /wip.html
       output: web
     - title: Real Math
-      url: /features_real_math.html
+      url: /wip.html
       output: web
 
   - title: Light Source
@@ -81,16 +101,16 @@ entries:
     folderitems:
 
     - title: Point
-      url: /features_point.html
+      url: /wip.html
       output: web
     - title: Area
-      url: /features_area.html
+      url: /wip.html
       output: web
     - title: Model
-      url: /features_model.html
+      url: /wip.html
       output: web
     - title: IES
-      url: /features_ies.html
+      url: /wip.html
       output: web
 
   - title: Motion Source
@@ -98,16 +118,16 @@ entries:
     folderitems:
 
     - title: Constant Velocity
-      url: /features_constant_velocity.html
+      url: /wip.html
       output: web
 
   - title: Render Method
     output: web
     folderitems:
 
-    - title: Forward Path Tracing
-      url: /features_forward_path_tracing.html
+    - title: Backward UPT
+      url: /wip.html
       output: web
-    - title: Forward Path Tracing with NEE
-      url: /features_forward_path_tracing_with_nee.html
+    - title: Backward UPT with NEE
+      url: /wip.html
       output: web

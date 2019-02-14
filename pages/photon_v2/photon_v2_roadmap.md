@@ -3,8 +3,8 @@ title: Roadmap
 keywords: 
 last_updated: January 20, 2019
 summary: 
-sidebar: topics_sidebar
-permalink: roadmap.html
+sidebar: photon_v2_sidebar
+permalink: photon_v2_roadmap.html
 ---
 
 * **Near Future (in 1 ~ 3 months)**

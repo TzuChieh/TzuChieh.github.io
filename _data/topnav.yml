@@ -8,20 +8,20 @@ topnav:
     - title: GitHub
       external_url: https://github.com/TzuChieh/Photon-v2
 
-#Topnav dropdowns
+# Topnav dropdowns
 topnav_dropdowns:
 - title: Topnav dropdowns
   folders:
-    - title: Documentations
+
+    - title: Personal Projects
       folderitems:
-        - title: Features
-          url: /features_overview_what_is_photon.html
-        - title: Editor
+        - title: Photon-v2 Renderer
+          url: /photon_v2_overview_what_is_photon.html
+        - title: Tokzin Game Engine
           url: /wip.html
-        - title: Scene Description Language
+        - title: Others
           url: /wip.html
-        - title: Core Engine
-          url: /core_engine_concepts.html
+
     - title: Misc
       folderitems:
         - title: Gallery
@@ -30,5 +30,5 @@ topnav_dropdowns:
           external_url: https://www.youtube.com/channel/UCKdlogjqjuFsuv06wajp-2g
         - title: Download Scenes
           url: /download_scenes_metallic_chess.html
-        - title: About
-          url: /wip.html
+        - title: About Me
+          url: /index.html

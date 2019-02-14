@@ -101,13 +101,13 @@ defaults:
 # these are defaults used for the frontmatter for these file types
 
 sidebars:
+- photon_v2_sidebar
+- topics_sidebar
 - home_sidebar
 - mydoc_sidebar
 - product1_sidebar
 - product2_sidebar
 - other
-- features_sidebar
-- core_engine_sidebar
 
 description: "Photon Renderer is a simple photorealistic renderer for hobbyists and researchers."
 # the description is used in the feed.xml file

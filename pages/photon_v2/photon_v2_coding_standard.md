@@ -3,8 +3,8 @@ title: Coding Standard
 keywords: 
 last_updated: January 22, 2019
 summary: "The development of the core of Photon complies to a collection of rules."
-sidebar: core_engine_sidebar
-permalink: core_engine_contributing_coding_standard.html
+sidebar: photon_v2_sidebar
+permalink: photon_v2_coding_standard.html
 ---
 
 ## Why

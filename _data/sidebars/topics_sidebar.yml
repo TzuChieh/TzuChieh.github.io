@@ -2,7 +2,7 @@
 
 entries:
 - title: sidebar
-  product: Photon Renderer
+  product: 張子捷 (Tzu-Chieh Chang)
   version:
   folders:
 
@@ -10,21 +10,6 @@ entries:
     output: web
     folderitems:
 
-    - title: Introduction
+    - title: About Me
       url: /index.html
-      output: web
-    - title: Features
-      url: /features_overview.html
-      output: web
-    - title: Editor
-      url: /wip.html
-      output: web
-    - title: Scene Description Language
-      url: /wip.html
-      output: web
-    - title: Core Engine
-      url: /core_engine_concepts.html
-      output: web
-    - title: Roadmap
-      url: /roadmap.html
       output: web
