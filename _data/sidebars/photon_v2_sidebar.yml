@@ -16,6 +16,8 @@ entries:
     - title: Features Overview
       url: /photon_v2_features.html
       output: web
+    - title: Engine Documentation
+      url: /engine_docs/v2.0.0/index.html
     - title: Coding Standard
       url: /photon_v2_coding_standard.html
       output: web
@@ -59,14 +61,6 @@ entries:
     - title: Triangle Mesh
       url: /wip.html
       output: web
-
-    - title: Core Concepts
-      outout: web
-      folderitems:
-      
-      - title: Intersectable
-        url: /photon_v2_core_intersectable.html
-        output: web
 
   - title: Material
     output: web
