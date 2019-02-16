@@ -18,6 +18,7 @@ entries:
       output: web
     - title: Engine Documentation
       url: /engine_docs/v2.0.0/index.html
+      output: web
     - title: Coding Standard
       url: /photon_v2_coding_standard.html
       output: web
