@@ -26,9 +26,10 @@
       <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
         <div class="m-row">
           <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
             <li><a href="namespaces.html">Namespaces</a></li>
           </ol>
-          <ol class="m-col-t-6 m-col-m-none" start="2">
+          <ol class="m-col-t-6 m-col-m-none" start="3">
             <li><a href="annotated.html">Classes</a></li>
             <li><a href="files.html">Files</a></li>
             <li class="m-show-m"><a href="#search" class="m-dox-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
@@ -59,7 +60,7 @@
             </li>
           </ul>
         </div>
-<p>To construct a scene, we must populate it with some <em>objects</em>. Imagining you are beside a table with a mug on it, how would you describe the shape of those two objects? Specifically, how to represent them digitally in a computer? One way to do this is to model them using many triangles or quads. Take a triangle for example, in a renderer like Photon, simply store the three vertices of it is not enough: we need to support opearations on the stored data for it to be useful, this is what intersectables are meant for.</p><p>The most common operation is <strong>ray intersection test</strong>. We need to know whether a given ray is intersecting a triangle for the rest of the system to work. Remember that we can also model the table and mug using other shapes such as quads, they should support the same operation set as triangles. Photon supports many kinds of <em>object</em> that can be intersected by rays, such as just-mentioned triangles and quads, and they are named after their capability: <strong>intersectable</strong>.</p>
+<p>To construct a scene, we must populate it with some <em>objects</em>. Imagining you are beside a table with a mug on it, how would you describe the shape of those two objects? Specifically, how to represent them digitally in a computer? One way to do this is to model them using many triangles or quads. Take a triangle for example, in a renderer like Photon, simply store the three vertices of it is not enough: we need to support opearations on the stored data for it to be useful, this is what intersectables are meant for.</p><p>The most common operation is <strong>ray intersection test</strong>. We need to know whether a given ray is intersecting a triangle for the rest of the system to work. Remember that we can also model the table and mug using other shapes such as quads, they should support the same operation set as triangles. Photon supports many kinds of <em>object</em> that can be intersected by rays, such as just-mentioned triangles and quads, and they are named after their capability &quot;intersectable&quot;.</p>
         <section id="pub-methods">
           <h2><a href="#pub-methods">Public functions</a></h2>
           <dl class="m-dox">
@@ -112,7 +113,7 @@
               <span class="m-dox-wrap-bumper">bool ph::<wbr />Intersectable::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a1eb09f39aae40984c44813d1e68745ab" class="m-dox-self">isIntersecting</a>(</span><span class="m-dox-wrap">const <a href="classph_1_1_ray.html" class="m-dox">Ray</a>&amp; ray) const <span class="m-label m-warning">virtual</span></span></span>
             </h3>
             <p>Determines whether this object blocks the ray.</p>
-<p>If greater performance is desired, you can override the default implementation which simply calls <a href="classph_1_1_intersectable.html#ae445743ad48751b06f89a08cd8910b3e" class="m-dox">isIntersecting(const Ray&amp;, HitProbe&amp;) const</a> to do the job.</p>
+<p>If greater performance is desired, you can override the default implementation which simply calls isIntersecting(const Ray&amp;, HitProbe&amp;) const to do the job.</p>
           </div></section>
           <section class="m-dox-details" id="acdac5915535942ee18f87c25cdcff7e7"><div>
             <h3>

@@ -26,9 +26,10 @@
       <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
         <div class="m-row">
           <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
             <li><a href="namespaces.html">Namespaces</a></li>
           </ol>
-          <ol class="m-col-t-6 m-col-m-none" start="2">
+          <ol class="m-col-t-6 m-col-m-none" start="3">
             <li><a href="annotated.html">Classes</a></li>
             <li><a href="files.html">Files</a></li>
             <li class="m-show-m"><a href="#search" class="m-dox-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
@@ -54,20 +55,13 @@
             <li>
               Reference
               <ul>
-                <li><a href="#namespaces">Namespaces</a></li>
                 <li><a href="#func-members">Functions</a></li>
                 <li><a href="#defines">Defines</a></li>
               </ul>
             </li>
           </ul>
         </div>
-        <section id="namespaces">
-          <h2><a href="#namespaces">Namespaces</a></h2>
-          <dl class="m-dox">
-            <dt>namespace <a href="namespaceph.html" class="m-dox">ph</a></dt>
-            <dd>The root for all renderer implementations.</dd>
-          </dl>
-        </section>
+<p>To correctly use Photon-v2 API, please read the following notes:</p><ul><li>phInit() and phExit() must be called before and after the use of the API, and should be called on the same thread.</li><li>phCreate/Delete&lt;X&gt;() and phAsync&lt;X&gt;() functions can be used in a multithreaded environment, namely, they are thread-safe. An exception would be that create &amp; delete should be on the same thread.</li><li>Resources created by phCreate&lt;X&gt;() cannot be manipulated concurrently. Any function requiring some resource ID inputs (except phAsync&lt;X&gt;() functions) is considered a resource manipulating operation on those resources.</li></ul>
         <section id="func-members">
           <h2><a href="#func-members">Functions</a></h2>
           <dl class="m-dox">
