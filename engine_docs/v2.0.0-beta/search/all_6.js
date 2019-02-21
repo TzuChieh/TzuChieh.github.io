@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['gammacorrection',['GammaCorrection',['../classph_1_1_gamma_correction.html',1,'ph']]],
+  ['gcuboid',['GCuboid',['../classph_1_1_g_cuboid.html',1,'ph']]],
+  ['gempty',['GEmpty',['../classph_1_1_g_empty.html',1,'ph']]],
+  ['geometry',['Geometry',['../classph_1_1_geometry.html',1,'ph']]],
+  ['geometrysoup',['GeometrySoup',['../classph_1_1_geometry_soup.html',1,'ph']]],
+  ['getcentroid',['getCentroid',['../classph_1_1_t_a_a_b_b3_d.html#a8ba42fbec4d26aa468eb542ddb3777a4',1,'ph::TAABB3D']]],
+  ['getextents',['getExtents',['../classph_1_1_t_a_a_b_b3_d.html#ad0e249f6f0b4d8eda625b20297a216ea',1,'ph::TAABB3D']]],
+  ['getmaxvertex',['getMaxVertex',['../classph_1_1_t_a_a_b_b3_d.html#af03d21b7841584b37ff93ff3d45e957d',1,'ph::TAABB3D']]],
+  ['getminmaxvertices',['getMinMaxVertices',['../classph_1_1_t_a_a_b_b3_d.html#a78422be26704f0d452b37225ae4fc08d',1,'ph::TAABB3D']]],
+  ['getminvertex',['getMinVertex',['../classph_1_1_t_a_a_b_b3_d.html#aebb11aaefe83c4146b5962befad3a21c',1,'ph::TAABB3D']]],
+  ['getsplitted',['getSplitted',['../classph_1_1_t_a_a_b_b3_d.html#a8a8b7506137cd298fc87dbb82bd4e8ca',1,'ph::TAABB3D']]],
+  ['getsurfacearea',['getSurfaceArea',['../classph_1_1_t_a_a_b_b3_d.html#a7de126592688c09c5e6bc887f0015cf0',1,'ph::TAABB3D']]],
+  ['getvertices',['getVertices',['../classph_1_1_t_a_a_b_b3_d.html#a42a28294ee8f970e064137ce71b96a4b',1,'ph::TAABB3D']]],
+  ['getvolume',['getVolume',['../classph_1_1_t_a_a_b_b3_d.html#a47514bcda32b59fa3ff3307c8576771e',1,'ph::TAABB3D']]],
+  ['ginfinitesphere',['GInfiniteSphere',['../classph_1_1_g_infinite_sphere.html',1,'ph']]],
+  ['gmengersponge',['GMengerSponge',['../classph_1_1_g_menger_sponge.html',1,'ph']]],
+  ['grectangle',['GRectangle',['../classph_1_1_g_rectangle.html',1,'ph']]],
+  ['gridscheduler',['GridScheduler',['../classph_1_1_grid_scheduler.html',1,'ph']]],
+  ['gsphere',['GSphere',['../classph_1_1_g_sphere.html',1,'ph']]],
+  ['gtriangle',['GTriangle',['../classph_1_1_g_triangle.html',1,'ph']]],
+  ['gtrianglemesh',['GTriangleMesh',['../classph_1_1_g_triangle_mesh.html',1,'ph']]],
+  ['gwave',['GWave',['../classph_1_1_g_wave.html',1,'ph']]]
+];
