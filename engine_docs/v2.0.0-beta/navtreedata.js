@@ -25,7 +25,8 @@ var NAVTREE =
 [
   [ "Photon", "index.html", [
     [ "Photon-v2 Renderer", "index.html", [
-      [ "Releases", "index.html#releases", null ]
+      [ "Releases", "index.html#releases", null ],
+      [ "About", "index.html#about", null ]
     ] ],
     [ "Directories", "directories.html", [
       [ "Root Directories", "directories.html#root", null ],
@@ -35,7 +36,9 @@ var NAVTREE =
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
-        [ "Functions", "namespacemembers_func.html", null ]
+        [ "Functions", "namespacemembers_func.html", null ],
+        [ "Variables", "namespacemembers_vars.html", null ],
+        [ "Typedefs", "namespacemembers_type.html", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.html", [

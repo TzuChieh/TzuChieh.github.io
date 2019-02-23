@@ -10,7 +10,7 @@ var classph_1_1_t_a_a_b_b3_d =
     [ "getMaxVertex", "classph_1_1_t_a_a_b_b3_d.html#af03d21b7841584b37ff93ff3d45e957d", null ],
     [ "getMinMaxVertices", "classph_1_1_t_a_a_b_b3_d.html#a78422be26704f0d452b37225ae4fc08d", null ],
     [ "getMinVertex", "classph_1_1_t_a_a_b_b3_d.html#aebb11aaefe83c4146b5962befad3a21c", null ],
-    [ "getSplitted", "classph_1_1_t_a_a_b_b3_d.html#a8a8b7506137cd298fc87dbb82bd4e8ca", null ],
+    [ "getSplitted", "classph_1_1_t_a_a_b_b3_d.html#a614565c4b70ff93ebb61ac49cbf5a3f5", null ],
     [ "getSurfaceArea", "classph_1_1_t_a_a_b_b3_d.html#a7de126592688c09c5e6bc887f0015cf0", null ],
     [ "getVertices", "classph_1_1_t_a_a_b_b3_d.html#a42a28294ee8f970e064137ce71b96a4b", null ],
     [ "getVolume", "classph_1_1_t_a_a_b_b3_d.html#a47514bcda32b59fa3ff3307c8576771e", null ],

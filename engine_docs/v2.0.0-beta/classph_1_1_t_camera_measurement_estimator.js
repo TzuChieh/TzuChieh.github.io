@@ -12,7 +12,7 @@ var classph_1_1_t_camera_measurement_estimator =
     [ "getFilmDimensions", "classph_1_1_t_camera_measurement_estimator.html#ade0dc2e77b5dca46f109afd4ec68a51a", null ],
     [ "getFilmEffectiveWindowPx", "classph_1_1_t_camera_measurement_estimator.html#a6029d43f0a64430e5cc0faaf4a138a31", null ],
     [ "isSoftEdgedFilm", "classph_1_1_t_camera_measurement_estimator.html#aafb3f50a21c5e581d19cda8b49177ffa", null ],
-    [ "mergeFilmTo", "classph_1_1_t_camera_measurement_estimator.html#a48e18da685c59d74231c41a918f63748", null ],
+    [ "mergeFilmTo", "classph_1_1_t_camera_measurement_estimator.html#a99d6ade4d7d1a5393fde2483c4f69e56", null ],
     [ "numEstimations", "classph_1_1_t_camera_measurement_estimator.html#a7f1015b27f080be809a418852cf649e0", null ],
     [ "operator=", "classph_1_1_t_camera_measurement_estimator.html#af17b10971d86a95b277bc02a6806c59c", null ],
     [ "process", "classph_1_1_t_camera_measurement_estimator.html#a60ff7c3bc133579716d74757591063e6", null ],

@@ -46,6 +46,7 @@ var searchData=
   ['sphericalmapper',['SphericalMapper',['../classph_1_1_spherical_mapper.html',1,'ph']]],
   ['spiralgridscheduler',['SpiralGridScheduler',['../classph_1_1_spiral_grid_scheduler.html',1,'ph']]],
   ['spiralscheduler',['SpiralScheduler',['../classph_1_1_spiral_scheduler.html',1,'ph']]],
+  ['sqrt_5f2',['sqrt_2',['../namespaceph_1_1constant.html#ad0269a94474accc7ad589daf1e3aaad7',1,'ph::constant']]],
   ['staticaffinetransform',['StaticAffineTransform',['../classph_1_1_static_affine_transform.html',1,'ph']]],
   ['staticrigidtransform',['StaticRigidTransform',['../classph_1_1_static_rigid_transform.html',1,'ph']]],
   ['statistics',['Statistics',['../classph_1_1_statistics.html',1,'ph']]],

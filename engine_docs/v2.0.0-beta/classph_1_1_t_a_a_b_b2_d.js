@@ -11,7 +11,7 @@ var classph_1_1_t_a_a_b_b2_d =
     [ "getExtents", "classph_1_1_t_a_a_b_b2_d.html#a763295eb9173bd13bd966730a648b140", null ],
     [ "getHeight", "classph_1_1_t_a_a_b_b2_d.html#a478dd70f22cd157f7d2bc3724de10c55", null ],
     [ "getIntersected", "classph_1_1_t_a_a_b_b2_d.html#af3a76f7caf9f4589cc0c4d70c1944599", null ],
-    [ "getSplitted", "classph_1_1_t_a_a_b_b2_d.html#a07006bb3672c5648c5e8a972530c2528", null ],
+    [ "getSplitted", "classph_1_1_t_a_a_b_b2_d.html#a2a5eec97c72269c96a7bb437deab4e9b", null ],
     [ "getUnioned", "classph_1_1_t_a_a_b_b2_d.html#a01bbe0efad3e06076ef3641d3d91a913", null ],
     [ "getWidth", "classph_1_1_t_a_a_b_b2_d.html#a709db20a8cb4170c630138f5553d86fd", null ],
     [ "intersectWith", "classph_1_1_t_a_a_b_b2_d.html#a8430666b290bcf1901f9291bbfdb6f45", null ],

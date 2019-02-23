@@ -22,9 +22,5 @@ var math_8h =
     [ "squared", "math_8h.html#a3d95f12613138cf607ca4b4b0c04ea48", null ],
     [ "to_degrees", "math_8h.html#a3b5aeb6bb0f2f3339e033d34fa70a894", null ],
     [ "to_radians", "math_8h.html#a8d924d614efcdd92fcce816a3f8eebf3", null ],
-    [ "wrap", "math_8h.html#a48cf078fd719072dfc9c27d67a730c3c", null ],
-    [ "UNKNOWN_AXIS", "math_8h.html#a1704bb7941f343b3bac2e7bfa926c44e", null ],
-    [ "X_AXIS", "math_8h.html#ae6b1f0eda9c68ab34b511da72a574f3f", null ],
-    [ "Y_AXIS", "math_8h.html#a3ed2ce0927d594400484885d4c173331", null ],
-    [ "Z_AXIS", "math_8h.html#aaa4e24b6a4ef2304c79445d9d7a398ef", null ]
+    [ "wrap", "math_8h.html#a48cf078fd719072dfc9c27d67a730c3c", null ]
 ];

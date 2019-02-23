@@ -11,6 +11,6 @@ Photon-v2 is a rendering engine made out of my love for computer graphics. A ren
 
 Releases:
 
-* [Photon 2.0.0]() (2019.01.20)
+* [Photon 2.0.0 beta]() (2019.01.20)
 
 If you spot any error or see some room for improvements, please send me an email (r05922176@ntu.edu.tw).
