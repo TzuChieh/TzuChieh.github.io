@@ -30,5 +30,3 @@ This is a recursive process where a light particle can bounce infinite amount of
 Many people wrote tutorials or blog posts about these lighting simulation stuff. Since I had no experiences on this before, I googled a lot and wrote Photon as an exercise to see if I have picked up what I read correctly. Sadly, I am not developing Photon anymore, but the good news is I have started another project called Photon-v2, the second version of Photon, which is actively being developed. Stay tuned!
 
 The complete engine source is here: \[[Source Code](https://github.com/TzuChieh/Photon)\]
-
-{% include links.html %}

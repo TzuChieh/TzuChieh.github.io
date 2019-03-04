@@ -103,11 +103,6 @@ defaults:
 sidebars:
 - photon_v2_sidebar
 - topics_sidebar
-- home_sidebar
-- mydoc_sidebar
-- product1_sidebar
-- product2_sidebar
-- other
 
 description: "Photon Renderer is a simple photorealistic renderer for hobbyists and researchers."
 # the description is used in the feed.xml file

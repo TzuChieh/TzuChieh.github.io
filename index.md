@@ -2,6 +2,7 @@
 title: "About"
 keywords: introduction
 tags: 
+toc: false
 sidebar: topics_sidebar
 permalink: index.html
 summary: 
