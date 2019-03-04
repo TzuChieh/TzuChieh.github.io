@@ -10,6 +10,6 @@ entries:
     output: web
     folderitems:
 
-    - title: About Me
+    - title: About
       url: /index.html
       output: web
