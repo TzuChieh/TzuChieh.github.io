@@ -37,3 +37,21 @@ For Linux and macOS, run the following commands:
 ## Step 3: Have Fun
 
 The compiled binaries will be in the `./build/bin/` folder.
+
+## Appendix A: Available CMake Options
+
+Several options are available for fine-tuning the built binaries. To specify a CMake option named `SOME_OPTION` with value `SOME_VALUE`, you should add it as an additional argument in the form
+
+```shell
+cmake -DSOME_OPTION=SOME_VALUE (other arguments...)
+```
+
+and substitute `SOME_OPTION` and `SOME_VALUE` with the options listed below.
+
+*(do not forget the -D prefix)*
+
+| Options          | Values        | Effects  |
+| -------------    | ------------- | ----- |
+| CMAKE_BUILD_TYPE | release | When set, build binaries with optimizations enabled; otherwise no optimization is done. |
+| BUILD_ENGINE_TEST | ON (default: OFF)     | Build unit tests. They should be executed from the build folder. |
+| BUILD_EDITOR_JNI | ON (default: OFF)     | Build JNI for Photon Studio. |
