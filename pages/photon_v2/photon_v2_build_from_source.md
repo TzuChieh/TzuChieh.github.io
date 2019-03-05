@@ -55,3 +55,5 @@ and substitute `SOME_OPTION` and `SOME_VALUE` with the options listed below.
 | CMAKE_BUILD_TYPE | release | When set, build binaries with optimizations enabled; otherwise no optimization is done. |
 | BUILD_ENGINE_TEST | ON (default: OFF)     | Build unit tests. They should be executed from the build folder. |
 | BUILD_EDITOR_JNI | ON (default: OFF)     | Build JNI for Photon Studio. |
+
+You can also obtain a complete list of options with descriptions by running `cmake -LAH` in the project root.
