@@ -1,5 +1,5 @@
 ---
-title: Blogs
+title: Tutorials
 keywords: 
 last_updated: March 10, 2019
 summary: Tutorials for rendering.

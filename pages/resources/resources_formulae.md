@@ -1,5 +1,5 @@
 ---
-title: Blogs
+title: Formulae
 keywords: 
 last_updated: March 10, 2019
 summary: Useful formulae in rendering.
