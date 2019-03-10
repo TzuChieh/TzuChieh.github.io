@@ -1,0 +1,21 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+entries:
+- title: sidebar
+  product: Resources
+  version:
+  folders:
+
+  - title: Good References
+    output: web
+    folderitems:
+
+    - title: Blogs
+      url: /resources_blogs.html
+      output: web
+    - title: Formulae
+      url: /resources_formulae.html
+      output: web
+    - title: Tutorials
+      url: /resources_tutorials.html
+      output: web
