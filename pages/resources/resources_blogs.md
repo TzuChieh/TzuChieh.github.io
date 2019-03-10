@@ -32,7 +32,7 @@ permalink: resources_blogs.html
 * [The ART Homepage @ CGG](https://cgg.mff.cuni.cz/ART/)
   * The only renderer that supports polarisation and fluorescence in its core, to my knowledge.
 * [Rendering Memo](http://rendering-memo.blogspot.com/)
-  * Good reference on BSSRDF and Bi-directional path tracing. Not being updated since 2016.
+  * Good reference on BSSRDF and bi-directional path tracing. Not being updated since 2016.
 * [Mitsuba Development Blog](http://www.mitsuba-renderer.org/devblog/)
   * Wenzel Jakob's blog about Mitsuba renderer. Not being updated since 2014.
 * [john-chapman-graphics](http://john-chapman-graphics.blogspot.com/)
