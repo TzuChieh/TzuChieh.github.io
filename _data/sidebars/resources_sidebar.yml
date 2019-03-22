@@ -19,3 +19,9 @@ entries:
     - title: Tutorials
       url: /resources_tutorials.html
       output: web
+    - title: Documentations
+      url: /resources_documentations.html
+      output: web
+    - title: Communities
+      url: /resources_communities.html
+      output: web
