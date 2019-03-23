@@ -23,5 +23,7 @@ permalink: resources_documentations.html
   * Redshift renderer.
 * [Unreal Engine 4 - Release Notes](https://docs.unrealengine.com/en-us/Support/Builds/ReleaseNotes)
   * Release notes of UE4, each version is worth a read if you are a fan of rendering technologies (real-time).
+* [filament](https://google.github.io/filament/documentation/)
+  * Compact and feature-rich real-time renderer with extremely nice documentation.
 
 *Entries listed with no specific order.*
