@@ -25,3 +25,6 @@ entries:
     - title: Communities
       url: /resources_communities.html
       output: web
+    - title: Other Useful Stuff
+      url: /resources_other_useful_stuff.html
+      output: web
