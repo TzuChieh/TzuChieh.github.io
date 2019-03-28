@@ -16,14 +16,17 @@ entries:
     - title: Features Overview
       url: /photon_v2_features.html
       output: web
-    - title: Engine Documentation
-      external_url: https://tzuchieh.github.io/engine_docs/v2.0.0-beta/index.html
+    - title: Build from Source
+      url: /photon_v2_build_from_source.html
+      output: web
+    - title: Command-line Interface
+      url: /photon_v2_cli.html
       output: web
     - title: Coding Standard
       url: /photon_v2_coding_standard.html
       output: web
-    - title: Build from Source
-      url: /photon_v2_build_from_source.html
+    - title: Engine Documentation
+      external_url: https://tzuchieh.github.io/engine_docs/v2.0.0-beta/index.html
       output: web
     - title: Roadmap
       url: /photon_v2_roadmap.html
