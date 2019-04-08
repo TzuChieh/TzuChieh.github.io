@@ -16,15 +16,20 @@ permalink: photon_v2_features.html
   * RGB and Spectral Rendering
   * AOV Rendering (normal, sample time, sample count)
   * Random and Stratified Sample Generating
-  * Image Block Rendering
+  * Image Rendering
     * Bulk, Tile, Grid and Spiral Modes
     * Adaptive Sampling
 
 * **Imaging and Film**
   * Pinhole and Thin Lens Cameras
   * Film Filtering
-    * (box, Gaussian, Mitchell-Netravali, Blackman-Harris)
-  * Tone-mapping (Jim Hejl and Richard Burgess-Dawson)
+    * box, Gaussian, Mitchell-Netravali, Blackman-Harris
+  * Tone-mapping
+    * naive Reinhard
+    * Jim Hejl and Richard Burgess-Dawson mapping
+  * Various IO Formats
+    * LDR: .png, .jpg, .bmp, .tga
+    * HDR: .hdr, .exr
 
 * **Material**
   * Lambertian Diffuse
@@ -33,10 +38,12 @@ permalink: photon_v2_features.html
     * anisotropic-GGX distribution
   * Microfacet-based Translucent Model
     * isotropic-GGX distribution
-  * Ideal Reflector, Transmitter and Absorber
+  * Idealized Surface
+    * absorber, reflector, transmitter
+    * dielectric with controllable reflectance and transmittance
   * Spectral Complex IoR
   * Layered Surface Material (Belcour's model)
-  * Lerped BSDF
+  * Blending Arbitrary BSDFs
   * Schlick and Exact Fresnel Models
 
 * **Geometry**
@@ -56,16 +63,19 @@ permalink: photon_v2_features.html
   * IES Light Profiles
 
 * **Texture**
-  * Texturing with Ordinary File Formats (.jpg, .png, etc)
-  * Mathematical Modifiers (add, multiply)
+  * Nearest and Bilinear Filtering
+  * Procedural Generators
+    * constants and checkerboard
+  * Procedural Operators
+    * mathematical modifiers: add, multiply
 
 * **Misc.**
   * Blender Addon for Scene Creation
   * Easy-to-write Custom Scene Description Language
   * GUI for Rendering and Scene Management
-  * CLI for Server Usages
+  * CLI for Server Usage
   * Loading and Rendering Minecraft Maps
   * Hierarchical Scene Graph
-  * Script for Generated SDL Interface (currently supports Python, Java)
+  * Automatically Generate SDL Interface (currently supports Python, Java)
 
 For corresponding references, please see the [source code](https://github.com/TzuChieh/Photon-v2).

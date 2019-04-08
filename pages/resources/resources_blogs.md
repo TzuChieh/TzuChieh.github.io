@@ -22,7 +22,7 @@ permalink: resources_blogs.html
 * [KlayGE](http://www.klayge.org/)
   * About the development of a game engine. Mostly in Simplified Chinese.
 * [A Graphics Guy's Note](https://agraphicsguy.wordpress.com/)
-  * Development of a renderer called SORT.
+  * Development of a renderer called SORT, which is [available on GitHub](https://github.com/JerryCao1985/SORT).
 * [Íñigo Quílez's Blog](https://www.iquilezles.org/index.html)
   * Distance field rendering and all kinds of interesting math.
 * [Matt Pharr's Blog](https://pharr.org/matt/blog/)
