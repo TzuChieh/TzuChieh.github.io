@@ -14,6 +14,13 @@ I am currently studying for a Master's degree at the Department of Computer Scie
 
 Previously, I did my undergraduate studies at the Department of Mechanical Engineering in National Taiwan University.
 
+## Finding Me Online
+
+* [Discord](https://discord.gg/tqkdSDt)
+* [Twitter (@TzuChieh_Chang)](https://twitter.com/TzuChieh_Chang)
+* [YouTube Channel](https://www.youtube.com/channel/UCKdlogjqjuFsuv06wajp-2g)
+* [GitHub](https://github.com/TzuChieh)
+
 ## Contact
 
 Email: r05922176 &lt;at&gt; ntu &lt;dot&gt; edu &lt;dot&gt; tw

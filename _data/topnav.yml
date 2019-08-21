@@ -5,8 +5,6 @@ topnav:
   items:
     - title: Blog
       url: /blog.html
-    - title: GitHub
-      external_url: https://github.com/TzuChieh/
 
 # Topnav dropdowns
 topnav_dropdowns:
@@ -28,6 +26,8 @@ topnav_dropdowns:
           url: /photon_v2_image_gallery.html
         - title: YouTube Channel
           external_url: https://www.youtube.com/channel/UCKdlogjqjuFsuv06wajp-2g
+        - title: GitHub
+          external_url: https://github.com/TzuChieh/
         - title: Download Scenes
           url: /download_scenes_metallic_chess.html
         - title: Resources

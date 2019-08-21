@@ -13,14 +13,14 @@ entries:
     - title: About
       url: /index.html
       output: web
+    - title: Blog
+      url: /blog.html
+      output: web
     - title: Photon-v2 Renderer
       url: /photon_v2_what_is_photon.html
       output: web
     - title: Gallery
       url: /photon_v2_image_gallery.html
-      output: web
-    - title: YouTube Channel
-      external_url: https://www.youtube.com/channel/UCKdlogjqjuFsuv06wajp-2g
       output: web
     - title: Download Scenes
       url: /download_scenes_metallic_chess.html
