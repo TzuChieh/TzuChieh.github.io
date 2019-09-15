@@ -1,0 +1,13 @@
+---
+title: Scene Description Language
+keywords: 
+last_updated: September 15, 2019
+summary: "Introducing the basics about scene description in Photon."
+sidebar: photon_v2_sidebar
+permalink: photon_v2_sdl_introduction.html
+---
+
+# Introduction
+
+Here, you will learn about the scene description language used in Photon (sometimes we call it PSDL for convenience, which stands for **P**hoton **S**cene **D**escription **L**anguage). It is a special format created for storing scene data as well as controlling the behavior of the render engine. Currently we have Python and Java APIs for users to programmatically build scene descriptions, and a documentation for engine features exposed as PSDL can be found [here](photon_v2_sdl_documentation.html).
+
