@@ -6,7 +6,6 @@ summary: "Full documentation of PSDL."
 sidebar: photon_v2_sidebar
 permalink: photon_v2_sdl_documentation.html
 ---
-
 # Photon Scene Description Language
 
 ## Actor
@@ -23,13 +22,13 @@ Represents an entity in the scene. Every entity that participates in a scene is 
 
 A large energy emitting source encompassing the whole scene.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
 | env-map | `string` | Resource identifier for a HDRI describing the energy distribution. |
 
-### Operation __translate__: 
+> Operation **translate**:
 
 Moves the actor away from the original location with a specified amount.
 
@@ -37,7 +36,7 @@ Moves the actor away from the original location with a specified amount.
 | --- | --- | --- |
 | factor | `vector3` | The amount to move in each axis. |
 
-### Operation __rotate__: 
+> Operation **rotate**:
 
 Rotates the actor along an axis with a specified amount.
 
@@ -47,7 +46,7 @@ Rotates the actor along an axis with a specified amount.
 | degree | `real` | The amount of the rotation. |
 | factor | `quaternion` | Specifying the rotation with a quaternion directly. |
 
-### Operation __scale__: 
+> Operation **scale**:
 
 Enlarges or shrinks the actor with some specified amount.
 
@@ -62,13 +61,13 @@ Enlarges or shrinks the actor with some specified amount.
 
 An actor that represents a light in the scene.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
 | light-source | `light-source` | The source of the energy. |
 
-### Operation __translate__: 
+> Operation **translate**:
 
 Moves the actor away from the original location with a specified amount.
 
@@ -76,7 +75,7 @@ Moves the actor away from the original location with a specified amount.
 | --- | --- | --- |
 | factor | `vector3` | The amount to move in each axis. |
 
-### Operation __rotate__: 
+> Operation **rotate**:
 
 Rotates the actor along an axis with a specified amount.
 
@@ -86,7 +85,7 @@ Rotates the actor along an axis with a specified amount.
 | degree | `real` | The amount of the rotation. |
 | factor | `quaternion` | Specifying the rotation with a quaternion directly. |
 
-### Operation __scale__: 
+> Operation **scale**:
 
 Enlarges or shrinks the actor with some specified amount.
 
@@ -101,14 +100,14 @@ Enlarges or shrinks the actor with some specified amount.
 
 An actor that has a certain 3-D shape in the scene.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
 | geometry | `geometry` | A geometry that represent this actor's shape. |
 | material | `material` | A material that describes this actor's surface appearance. |
 
-### Operation __translate__: 
+> Operation **translate**:
 
 Moves the actor away from the original location with a specified amount.
 
@@ -116,7 +115,7 @@ Moves the actor away from the original location with a specified amount.
 | --- | --- | --- |
 | factor | `vector3` | The amount to move in each axis. |
 
-### Operation __rotate__: 
+> Operation **rotate**:
 
 Rotates the actor along an axis with a specified amount.
 
@@ -126,7 +125,7 @@ Rotates the actor along an axis with a specified amount.
 | degree | `real` | The amount of the rotation. |
 | factor | `quaternion` | Specifying the rotation with a quaternion directly. |
 
-### Operation __scale__: 
+> Operation **scale**:
 
 Enlarges or shrinks the actor with some specified amount.
 
@@ -141,7 +140,7 @@ Enlarges or shrinks the actor with some specified amount.
 
 An actor that itself will not appear in the scene, but its cooked result can be referenced by others.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -149,7 +148,7 @@ An actor that itself will not appear in the scene, but its cooked result can be 
 | geometry | `geometry` | A geometry that represent this actor's shape. |
 | material | `material` | A material that describes this actor's surface appearance. |
 
-### Operation __translate__: 
+> Operation **translate**:
 
 Moves the actor away from the original location with a specified amount.
 
@@ -157,7 +156,7 @@ Moves the actor away from the original location with a specified amount.
 | --- | --- | --- |
 | factor | `vector3` | The amount to move in each axis. |
 
-### Operation __rotate__: 
+> Operation **rotate**:
 
 Rotates the actor along an axis with a specified amount.
 
@@ -167,7 +166,7 @@ Rotates the actor along an axis with a specified amount.
 | degree | `real` | The amount of the rotation. |
 | factor | `quaternion` | Specifying the rotation with a quaternion directly. |
 
-### Operation __scale__: 
+> Operation **scale**:
 
 Enlarges or shrinks the actor with some specified amount.
 
@@ -182,13 +181,13 @@ Enlarges or shrinks the actor with some specified amount.
 
 An actor that applies a transformation effect on a phantom.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
 | name | `string` | Target phantom's name. |
 
-### Operation __translate__: 
+> Operation **translate**:
 
 Moves the actor away from the original location with a specified amount.
 
@@ -196,7 +195,7 @@ Moves the actor away from the original location with a specified amount.
 | --- | --- | --- |
 | factor | `vector3` | The amount to move in each axis. |
 
-### Operation __rotate__: 
+> Operation **rotate**:
 
 Rotates the actor along an axis with a specified amount.
 
@@ -206,7 +205,7 @@ Rotates the actor along an axis with a specified amount.
 | degree | `real` | The amount of the rotation. |
 | factor | `quaternion` | Specifying the rotation with a quaternion directly. |
 
-### Operation __scale__: 
+> Operation **scale**:
 
 Enlarges or shrinks the actor with some specified amount.
 
@@ -221,7 +220,7 @@ Enlarges or shrinks the actor with some specified amount.
 
 An actor that is visible and can be transformed.
 
-### Operation __translate__: 
+> Operation **translate**:
 
 Moves the actor away from the original location with a specified amount.
 
@@ -229,7 +228,7 @@ Moves the actor away from the original location with a specified amount.
 | --- | --- | --- |
 | factor | `vector3` | The amount to move in each axis. |
 
-### Operation __rotate__: 
+> Operation **rotate**:
 
 Rotates the actor along an axis with a specified amount.
 
@@ -239,7 +238,7 @@ Rotates the actor along an axis with a specified amount.
 | degree | `real` | The amount of the rotation. |
 | factor | `quaternion` | Specifying the rotation with a quaternion directly. |
 
-### Operation __scale__: 
+> Operation **scale**:
 
 Enlarges or shrinks the actor with some specified amount.
 
@@ -254,7 +253,7 @@ Enlarges or shrinks the actor with some specified amount.
 
 A shape that is similar to cube but may contain rectangular faces. It is centered around origin.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -274,7 +273,7 @@ A shape that is similar to cube but may contain rectangular faces. It is centere
 
 It is just an empty geometry. Nothing is there.
 
-### Creation: 
+> Creation:
 
 No input.
 
@@ -292,11 +291,11 @@ Defining the shape of scene elements.
 
 A collection of geometry.
 
-### Creation: 
+> Creation:
 
 No input.
 
-### Operation __add__: 
+> Operation **add**:
 
 Adds a geometry to the soup.
 
@@ -304,7 +303,7 @@ Adds a geometry to the soup.
 | --- | --- | --- |
 | geometry | `geometry` | The geometry to be added. |
 
-### Operation __add-transformed__: 
+> Operation **add-transformed**:
 
 Applies transformations on a geometry then add it to the soup.
 
@@ -323,7 +322,7 @@ Applies transformations on a geometry then add it to the soup.
 
 A rectangular shape on xy-plane. It is centered around origin.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -338,7 +337,7 @@ A rectangular shape on xy-plane. It is centered around origin.
 
 A perfectly round shape centering around origin.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -351,7 +350,7 @@ A perfectly round shape centering around origin.
 
 A cluster of triangles forming a singe shape in 3-D space.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -366,7 +365,7 @@ A cluster of triangles forming a singe shape in 3-D space.
 
 An image that stores constant value. It can be a single real, a vector or a spectrum.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -388,7 +387,7 @@ A block of data.
 
 Low dynamic range images.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -408,7 +407,7 @@ This kind of image is similar to ordinary color image formats.
 
 This image applies mathematical modifications on other images.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -430,7 +429,7 @@ This type of light source has a finite area. Energy is allowed to emit as long a
 
 A large energy emitting source encompassing the whole scene.
 
-### Creation: 
+> Creation:
 
 No input.
 
@@ -448,7 +447,7 @@ The source of all energy emitting entity in the scene.
 
 A light source that emits energy from the surface of a geometry. A surface material model can also be given to describe its surface appearance.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -465,7 +464,7 @@ A light source that emits energy from the surface of a geometry. A surface mater
 
 Power emitting source from a small but not infinitesimal region. Resembling a small light bulb.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -479,7 +478,7 @@ Power emitting source from a small but not infinitesimal region. Resembling a sm
 
 This type of light emits energy from a rectangular shape. Note that energy is only allowed to emit from one side of the rectangle, not both sides.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -495,7 +494,7 @@ This type of light emits energy from a rectangular shape. Note that energy is on
 
 This type of light emits energy from a spherical shape.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -510,7 +509,7 @@ This type of light emits energy from a spherical shape.
 
 Able to model surfaces ranging from nearly specular to extremely rough appearances.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -531,7 +530,7 @@ Able to model surfaces ranging from nearly specular to extremely rough appearanc
 
 Able to model translucent surfaces with variable roughnesses. Such as frosted glass.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -553,7 +552,7 @@ Able to model translucent surfaces with variable roughnesses. Such as frosted gl
 
 Mixing two surface materials in various ways.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -570,7 +569,7 @@ Mixing two surface materials in various ways.
 
 A material model that combines surface and volume properties.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -585,7 +584,7 @@ A material model that combines surface and volume properties.
 
 Models a perfectly smooth surface with various physical properties.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -603,17 +602,17 @@ Models a perfectly smooth surface with various physical properties.
 
 A material model for surfaces with matte look, such as chalk and moon.
 
-### Creation: 
+> Creation:
 
 No input.
 
-### Operation __add__: 
+> Operation **add**:
 
 Appends a layer to the bottom of the existing layers.
 
 No input.
 
-### Operation __set__: 
+> Operation **set**:
 
 Creates a new surface layer and set it to a specified layer index. If there are N layers, the top one will have index 0 and the bottom one will have index N-1.
 
@@ -644,7 +643,7 @@ Defines and models the appearance of scene elements.
 
 A material model for surfaces with matte look, such as chalk and moon.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -674,7 +673,7 @@ For cameras that have perspective effect.
 
 This type of camera is simply composed of a hole (which serves as its lens system) and a film. Images captured by this camera is similar to how a normal human perceives the world but with several simplifications.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -695,7 +694,7 @@ This type of camera is simply composed of a hole (which serves as its lens syste
 
 As its name suggests, the lens system in this camera is assumed to be a single lens with negligible thickness. The biggest advantage of it is that depth of field effects are possible under this model.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -725,7 +724,7 @@ The main engine component for producing images.
 
 This renderer produces various type of attributes which can be useful for compositing. The attributes are also known as AOVs (arbitrary output variables).
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -744,7 +743,7 @@ This renderer produces various type of attributes which can be useful for compos
 
 This renderer renders images by utilizing a precomputed photon map. Like all caching based methods, this render technique is biased; rendered result converges to ground truth in the limit.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -767,7 +766,7 @@ This renderer renders images by utilizing a precomputed photon map. Like all cac
 
 This renderer renders images by path sampling techniques, but the samples will be concentrated on noisy regions. Normally, this renderer has better utilization of computational power.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -787,7 +786,7 @@ This renderer renders images by path sampling techniques, but the samples will b
 
 This renderer renders images by path sampling techniques and distributes them equally. Typically, this means the rendering technique used is unbiased, and the the image converges as a whole.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -824,7 +823,7 @@ Engine component for generating sample values.
 
 Generating samples based on engine provided dimensional hints.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -837,20 +836,20 @@ Generating samples based on engine provided dimensional hints.
 
 Generating samples in a completely random fashion.
 
-### Creation: 
+> Creation:
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
 | sample-amount | `integer` | Controls the number of sample batches that will be generated. |
 
-## Data Structure `%s`:conductive-interface-info
+## Data Structure `conductive-interface-info`
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
 | fresnel-model | `string` | Controls the Fresnel model used. Possible values are "exact" and "schlick". |
 | f0 | `vector3` | Surface reflectance on normal incidence. This value is expected to be given in linear-SRGB space. When this parameter is used, the underlying Fresnel model will be an approximated one (schlick) which is pretty popular in real-time graphics. |
 
-## Data Structure `%s`:dielectric-interface-info
+## Data Structure `dielectric-interface-info`
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -858,7 +857,7 @@ Generating samples in a completely random fashion.
 | ior-outer | `real` | The index of refraction outside of this material. |
 | ior-inner | `real` | The index of refraction inside of this material. |
 
-## Data Structure `%s`:microsurface-info
+## Data Structure `microsurface-info`
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
