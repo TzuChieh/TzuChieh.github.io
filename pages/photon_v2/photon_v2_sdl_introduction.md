@@ -111,6 +111,8 @@ A command usually represents an element from the scene. As you may notice from t
 
 It is worth pointing out that a `<parameter-name>` does not need to start with `@`. The `<values>` section can have many forms such as numerical values (you have already seen that), arrays, and even stand-alone data files (we call them **PSDL Resource Identifier**). Details of this section will be introduced in later part of the guide.
 
+TODO: reference & struct types
+
 {% include note.html content="You can place multiple clauses one after another in case of multiple parameters are required." %}
 
 ```csharp
