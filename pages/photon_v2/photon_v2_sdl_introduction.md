@@ -74,6 +74,6 @@ Note that in most cases, core commands no not have the `<name>` part.
 //-> geometry(rectangle) @plane [real width 1] [real height 1]
 ```
 
-{% include important.html content="You must start a command with either "##" or "->", and at least a white space after them." %}
+{% include important.html content="You must start a command with either \"##\" or \"->\", and at least a white space after them." %}
 
 In the next sections, we will focus on the remaining structures of PSDL commands.
