@@ -32,6 +32,18 @@ entries:
       url: /photon_v2_roadmap.html
       output: web
 
+  - title: Scene Description Language
+    output: web
+    folderitems:
+
+    - title: Introduction
+      url: /photon_v2_sdl_introduction.html
+      output: web
+
+    - title: Documentation
+      url: /photon_v2_sdl_documentation.html
+      output: web
+
   - title: Camera
     output: web
     folderitems:
