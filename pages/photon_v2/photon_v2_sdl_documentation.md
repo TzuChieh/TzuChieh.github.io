@@ -275,7 +275,7 @@ It is just an empty geometry. Nothing is there.
 
 > Creation:
 
-No input.
+(no input)
 
 ## Geometry
 
@@ -293,7 +293,7 @@ A collection of geometry.
 
 > Creation:
 
-No input.
+(no input)
 
 > Operation **add**:
 
@@ -431,7 +431,7 @@ A large energy emitting source encompassing the whole scene.
 
 > Creation:
 
-No input.
+(no input)
 
 ## Light Source
 
@@ -604,13 +604,13 @@ A material model for surfaces with matte look, such as chalk and moon.
 
 > Creation:
 
-No input.
+(no input)
 
 > Operation **add**:
 
 Appends a layer to the bottom of the existing layers.
 
-No input.
+(no input)
 
 > Operation **set**:
 
@@ -842,14 +842,14 @@ Generating samples in a completely random fashion.
 | --- | --- | --- |
 | sample-amount | `integer` | Controls the number of sample batches that will be generated. |
 
-## Data Structure `conductive-interface-info`
+## Data Structure: `conductive-interface-info`
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
 | fresnel-model | `string` | Controls the Fresnel model used. Possible values are "exact" and "schlick". |
 | f0 | `vector3` | Surface reflectance on normal incidence. This value is expected to be given in linear-SRGB space. When this parameter is used, the underlying Fresnel model will be an approximated one (schlick) which is pretty popular in real-time graphics. |
 
-## Data Structure `dielectric-interface-info`
+## Data Structure: `dielectric-interface-info`
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -857,7 +857,7 @@ Generating samples in a completely random fashion.
 | ior-outer | `real` | The index of refraction outside of this material. |
 | ior-inner | `real` | The index of refraction inside of this material. |
 
-## Data Structure `microsurface-info`
+## Data Structure: `microsurface-info`
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
