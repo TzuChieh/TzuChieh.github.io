@@ -13,7 +13,8 @@ var searchData=
   ['commandentry',['CommandEntry',['../classph_1_1_command_entry.html',1,'ph']]],
   ['commandregister',['CommandRegister',['../classph_1_1_command_register.html',1,'ph']]],
   ['compositeintersectable',['CompositeIntersectable',['../classph_1_1_composite_intersectable.html',1,'ph']]],
-  ['conductordielectricfresnel',['ConductorDielectricFresnel',['../classph_1_1_conductor_dielectric_fresnel.html',1,'ph']]],
+  ['conductiveinterfaceinfo',['ConductiveInterfaceInfo',['../classph_1_1_conductive_interface_info.html',1,'ph']]],
+  ['conductorfresnel',['ConductorFresnel',['../classph_1_1_conductor_fresnel.html',1,'ph']]],
   ['config',['Config',['../classph_1_1_config.html',1,'ph']]],
   ['constantimage',['ConstantImage',['../classph_1_1_constant_image.html',1,'ph']]],
   ['constantvelocitymotion',['ConstantVelocityMotion',['../classph_1_1_constant_velocity_motion.html',1,'ph']]],
@@ -22,5 +23,6 @@ var searchData=
   ['cookingcontext',['CookingContext',['../classph_1_1_cooking_context.html',1,'ph']]],
   ['cooksettings',['CookSettings',['../classph_1_1_cook_settings.html',1,'ph']]],
   ['coreresource',['CoreResource',['../classph_1_1_core_resource.html',1,'ph']]],
+  ['coslobeweightedunithemisphere',['CosLobeWeightedUnitHemisphere',['../classph_1_1_cos_lobe_weighted_unit_hemisphere.html',1,'ph']]],
   ['costhetaweightedunithemisphere',['CosThetaWeightedUnitHemisphere',['../classph_1_1_cos_theta_weighted_unit_hemisphere.html',1,'ph']]]
 ];

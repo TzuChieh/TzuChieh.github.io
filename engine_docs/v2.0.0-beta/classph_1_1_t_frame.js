@@ -1,6 +1,6 @@
 var classph_1_1_t_frame =
 [
-    [ "Pixel", "classph_1_1_t_frame.html#a408ab0734095f336c208de7aa54073d9", null ],
+    [ "Pixel", "classph_1_1_t_frame.html#aba5aaeedbe590647a03609d13e33555b", null ],
     [ "TPixel", "classph_1_1_t_frame.html#a47263c639bbc16473797e738e5497927", null ],
     [ "TFrame", "classph_1_1_t_frame.html#a4d4576141cf399e01733a3ca87fcb4e6", null ],
     [ "TFrame", "classph_1_1_t_frame.html#a9efd7ecf8a7f37d67b24848aa30051d0", null ],
@@ -15,6 +15,7 @@ var classph_1_1_t_frame =
     [ "forEachPixel", "classph_1_1_t_frame.html#af432c003884319df09e882e1645b6f01", null ],
     [ "forEachPixel", "classph_1_1_t_frame.html#a22e4681e3351d1d12da7845113b5e6c8", null ],
     [ "forEachPixel", "classph_1_1_t_frame.html#aede206f1522efcc3c1b4a7d8a5220b26", null ],
+    [ "getMonochromaticPixel", "classph_1_1_t_frame.html#a1e8e8a33bbf8f9a2908a61dd6c0ee36d", null ],
     [ "getPixel", "classph_1_1_t_frame.html#adfca2b03cec4c958072f23f9195943a2", null ],
     [ "getPixel", "classph_1_1_t_frame.html#a42328d4b8010c050fa74cdcb3f6a87d1", null ],
     [ "getPixelData", "classph_1_1_t_frame.html#afe53bd1af1c2884a5741712f98b03286", null ],
@@ -29,5 +30,6 @@ var classph_1_1_t_frame =
     [ "setPixel", "classph_1_1_t_frame.html#aff2d91390a24ec48d898cd451cade541", null ],
     [ "setPixel", "classph_1_1_t_frame.html#a4326fda29c9af29184d15ac047582ced", null ],
     [ "setSize", "classph_1_1_t_frame.html#ae7c8a68b09bb8a9ef7848ac483d9e289", null ],
+    [ "setSize", "classph_1_1_t_frame.html#a4663ca7720be0e33e148e7d441399990", null ],
     [ "widthPx", "classph_1_1_t_frame.html#ab5d17e08684e85a4b644c1d678f0bd0c", null ]
 ];

@@ -8,6 +8,7 @@ var dir_b2f2ccebd7de97b4cca38cf775bbdab0 =
     [ "LambertianDiffuse.h", "_lambertian_diffuse_8h_source.html", null ],
     [ "LerpedSurfaceOptics.h", "_lerped_surface_optics_8h_source.html", null ],
     [ "OpaqueMicrofacet.h", "_opaque_microfacet_8h_source.html", null ],
+    [ "OrenNayar.h", "_oren_nayar_8h_source.html", null ],
     [ "ThinDielectricFilm.h", "_thin_dielectric_film_8h_source.html", null ],
     [ "TranslucentMicrofacet.h", "_translucent_microfacet_8h_source.html", null ]
 ];

@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -94,19 +100,17 @@ $(document).ready(function(){initNavTree('classph_1_1_api_database.html','');});
 
 <p>This is the complete list of members for <a class="el" href="classph_1_1_api_database.html">ph::ApiDatabase</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>addEngine</b>(std::unique_ptr&lt; Engine &gt; engine) (defined in <a class="el" href="classph_1_1_api_database.html">ph::ApiDatabase</a>)</td><td class="entry"><a class="el" href="classph_1_1_api_database.html">ph::ApiDatabase</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>addFrame</b>(std::unique_ptr&lt; HdrRgbFrame &gt; frame) (defined in <a class="el" href="classph_1_1_api_database.html">ph::ApiDatabase</a>)</td><td class="entry"><a class="el" href="classph_1_1_api_database.html">ph::ApiDatabase</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>exit_api_database</b> (defined in <a class="el" href="classph_1_1_api_database.html">ph::ApiDatabase</a>)</td><td class="entry"><a class="el" href="classph_1_1_api_database.html">ph::ApiDatabase</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getEngine</b>(const std::size_t engineId) (defined in <a class="el" href="classph_1_1_api_database.html">ph::ApiDatabase</a>)</td><td class="entry"><a class="el" href="classph_1_1_api_database.html">ph::ApiDatabase</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getFrame</b>(const std::size_t frameId) (defined in <a class="el" href="classph_1_1_api_database.html">ph::ApiDatabase</a>)</td><td class="entry"><a class="el" href="classph_1_1_api_database.html">ph::ApiDatabase</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>removeEngine</b>(const std::size_t engineId) (defined in <a class="el" href="classph_1_1_api_database.html">ph::ApiDatabase</a>)</td><td class="entry"><a class="el" href="classph_1_1_api_database.html">ph::ApiDatabase</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>removeFrame</b>(const std::size_t frameId) (defined in <a class="el" href="classph_1_1_api_database.html">ph::ApiDatabase</a>)</td><td class="entry"><a class="el" href="classph_1_1_api_database.html">ph::ApiDatabase</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>addResource</b>(std::unique_ptr&lt; Resource &gt; resource, Logger *logger=nullptr) (defined in <a class="el" href="classph_1_1_api_database.html">ph::ApiDatabase</a>)</td><td class="entry"><a class="el" href="classph_1_1_api_database.html">ph::ApiDatabase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>clear</b>() (defined in <a class="el" href="classph_1_1_api_database.html">ph::ApiDatabase</a>)</td><td class="entry"><a class="el" href="classph_1_1_api_database.html">ph::ApiDatabase</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getResource</b>(std::size_t id, Logger *logger=nullptr) (defined in <a class="el" href="classph_1_1_api_database.html">ph::ApiDatabase</a>)</td><td class="entry"><a class="el" href="classph_1_1_api_database.html">ph::ApiDatabase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>removeResource</b>(std::size_t id, Logger *logger=nullptr) (defined in <a class="el" href="classph_1_1_api_database.html">ph::ApiDatabase</a>)</td><td class="entry"><a class="el" href="classph_1_1_api_database.html">ph::ApiDatabase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>useResource</b>(std::size_t id) (defined in <a class="el" href="classph_1_1_api_database.html">ph::ApiDatabase</a>)</td><td class="entry"><a class="el" href="classph_1_1_api_database.html">ph::ApiDatabase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:29 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:53:15 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

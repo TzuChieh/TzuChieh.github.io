@@ -15,5 +15,6 @@ var searchData=
   ['apihelper',['ApiHelper',['../classph_1_1_api_helper.html',1,'ph']]],
   ['areasource',['AreaSource',['../classph_1_1_area_source.html',1,'ph']]],
   ['atransformedinstance',['ATransformedInstance',['../classph_1_1_a_transformed_instance.html',1,'ph']]],
+  ['attributerenderer',['AttributeRenderer',['../classph_1_1_attribute_renderer.html',1,'ph']]],
   ['attributetags',['AttributeTags',['../classph_1_1_attribute_tags.html',1,'ph']]]
 ];

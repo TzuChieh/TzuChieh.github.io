@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -88,7 +94,6 @@ $(document).ready(function(){initNavTree('classph_1_1_hit_detail.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classph_1_1_hit_detail-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -96,62 +101,56 @@ $(document).ready(function(){initNavTree('classph_1_1_hit_detail.html','');});
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a37590281d6a702796601bb784d013ef4"><td class="memItemLeft" align="right" valign="top"><a id="a37590281d6a702796601bb784d013ef4"></a>
-typedef <a class="el" href="classph_1_1_t_orthonormal_basis3.html">TOrthonormalBasis3</a>&lt; real &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Basis</b></td></tr>
-<tr class="separator:a37590281d6a702796601bb784d013ef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2b350b9062e30093fa0ea2d483bcace6"><td class="memItemLeft" align="right" valign="top"><a id="a2b350b9062e30093fa0ea2d483bcace6"></a>
-const <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getPosition</b> (const ECoordSys coordSys=ECoordSys::WORLD) const</td></tr>
-<tr class="separator:a2b350b9062e30093fa0ea2d483bcace6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeeaec5324f99b218633d49c01352d389"><td class="memItemLeft" align="right" valign="top"><a id="aeeaec5324f99b218633d49c01352d389"></a>
-const <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getShadingNormal</b> (const ECoordSys coordSys=ECoordSys::WORLD) const</td></tr>
-<tr class="separator:aeeaec5324f99b218633d49c01352d389"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6666b6071383af374d77b76ad522d310"><td class="memItemLeft" align="right" valign="top"><a id="a6666b6071383af374d77b76ad522d310"></a>
-const <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getGeometryNormal</b> (const ECoordSys coordSys=ECoordSys::WORLD) const</td></tr>
-<tr class="separator:a6666b6071383af374d77b76ad522d310"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94c1bedc3bde247d8ba36251124db972"><td class="memItemLeft" align="right" valign="top"><a id="a94c1bedc3bde247d8ba36251124db972"></a>
-const <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getdPdU</b> (const ECoordSys coordSys=ECoordSys::WORLD) const</td></tr>
-<tr class="separator:a94c1bedc3bde247d8ba36251124db972"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73fc4b6bd23bd4070f7c912d7ab3352f"><td class="memItemLeft" align="right" valign="top"><a id="a73fc4b6bd23bd4070f7c912d7ab3352f"></a>
-const <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getdPdV</b> (const ECoordSys coordSys=ECoordSys::WORLD) const</td></tr>
-<tr class="separator:a73fc4b6bd23bd4070f7c912d7ab3352f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace20510261b6a8ce9b1d268663d995dd"><td class="memItemLeft" align="right" valign="top"><a id="ace20510261b6a8ce9b1d268663d995dd"></a>
-const <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getdNdU</b> (const ECoordSys coordSys=ECoordSys::WORLD) const</td></tr>
-<tr class="separator:ace20510261b6a8ce9b1d268663d995dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05714245a0e659c859afa8bcc643ae8d"><td class="memItemLeft" align="right" valign="top"><a id="a05714245a0e659c859afa8bcc643ae8d"></a>
-const <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getdNdV</b> (const ECoordSys coordSys=ECoordSys::WORLD) const</td></tr>
-<tr class="separator:a05714245a0e659c859afa8bcc643ae8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad204c2301e64560e057d850fb98beae5"><td class="memItemLeft" align="right" valign="top"><a id="ad204c2301e64560e057d850fb98beae5"></a>
-const <a class="el" href="classph_1_1_t_orthonormal_basis3.html">Basis</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getGeometryBasis</b> (const ECoordSys coordSys=ECoordSys::WORLD) const</td></tr>
-<tr class="separator:ad204c2301e64560e057d850fb98beae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5922a61956c82c9ee63bfa1ae49c5ffe"><td class="memItemLeft" align="right" valign="top"><a id="a5922a61956c82c9ee63bfa1ae49c5ffe"></a>
-const <a class="el" href="classph_1_1_t_orthonormal_basis3.html">Basis</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getShadingBasis</b> (const ECoordSys coordSys=ECoordSys::WORLD) const</td></tr>
-<tr class="separator:a5922a61956c82c9ee63bfa1ae49c5ffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3dede6dce1e8dbff595646e5c89101a"><td class="memItemLeft" align="right" valign="top"><a id="aa3dede6dce1e8dbff595646e5c89101a"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><b>getRayT</b> () const</td></tr>
-<tr class="separator:aa3dede6dce1e8dbff595646e5c89101a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ad6042b822ff8aa1e8af961b165ece0"><td class="memItemLeft" align="right" valign="top"><a id="a9ad6042b822ff8aa1e8af961b165ece0"></a>
-const <a class="el" href="classph_1_1_primitive.html">Primitive</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getPrimitive</b> () const</td></tr>
-<tr class="separator:a9ad6042b822ff8aa1e8af961b165ece0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90ec2e3d1ce55bec275f6aff0fb0ef8d"><td class="memItemLeft" align="right" valign="top"><a id="a90ec2e3d1ce55bec275f6aff0fb0ef8d"></a>
-const <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getUvw</b> () const</td></tr>
-<tr class="separator:a90ec2e3d1ce55bec275f6aff0fb0ef8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6af1d9c1893804f16d69d5533e07896"><td class="memItemLeft" align="right" valign="top"><a id="af6af1d9c1893804f16d69d5533e07896"></a>
-const <a class="el" href="classph_1_1_hit_info.html">HitInfo</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getHitInfo</b> (const ECoordSys coordSys=ECoordSys::WORLD) const</td></tr>
-<tr class="separator:af6af1d9c1893804f16d69d5533e07896"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae27cb88f4475d37236b11f56ec1751e8"><td class="memItemLeft" align="right" valign="top"><a id="ae27cb88f4475d37236b11f56ec1751e8"></a>
-<a class="el" href="classph_1_1_hit_info.html">HitInfo</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getHitInfo</b> (const ECoordSys coordSys=ECoordSys::WORLD)</td></tr>
-<tr class="separator:ae27cb88f4475d37236b11f56ec1751e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8593e92ee81cfe5b2ae1b2bf38fb359c"><td class="memItemLeft" align="right" valign="top"><a id="a8593e92ee81cfe5b2ae1b2bf38fb359c"></a>
-<a class="el" href="classph_1_1_hit_detail.html">HitDetail</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>setMisc</b> (const <a class="el" href="classph_1_1_primitive.html">Primitive</a> *const primitive, const <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> &amp;uvw, const real rayT)</td></tr>
-<tr class="separator:a8593e92ee81cfe5b2ae1b2bf38fb359c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f75bca02414ec62466e18f1adc21f1d"><td class="memItemLeft" align="right" valign="top"><a id="a0f75bca02414ec62466e18f1adc21f1d"></a>
+<a class="el" href="classph_1_1_hit_detail.html">HitDetail</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>setMisc</b> (const <a class="el" href="classph_1_1_primitive.html">Primitive</a> *primitive, const <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> &amp;uvw, real rayT)</td></tr>
+<tr class="separator:a0f75bca02414ec62466e18f1adc21f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d6b13b545866a192fcece1d2df022b8"><td class="memItemLeft" align="right" valign="top"><a id="a7d6b13b545866a192fcece1d2df022b8"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>computeBases</b> ()</td></tr>
 <tr class="separator:a7d6b13b545866a192fcece1d2df022b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7d98493ffc9459deb31d1b23cf7732e"><td class="memItemLeft" align="right" valign="top"><a id="ab7d98493ffc9459deb31d1b23cf7732e"></a>
+<a class="el" href="classph_1_1_t_vector3.html">Vector3R</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getPosition</b> (ECoordSys coordSys=ECoordSys::WORLD) const</td></tr>
+<tr class="separator:ab7d98493ffc9459deb31d1b23cf7732e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b8f7203eb4026270921a8c7ec1e0a32"><td class="memItemLeft" align="right" valign="top"><a id="a7b8f7203eb4026270921a8c7ec1e0a32"></a>
+<a class="el" href="classph_1_1_t_vector3.html">Vector3R</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getShadingNormal</b> (ECoordSys coordSys=ECoordSys::WORLD) const</td></tr>
+<tr class="separator:a7b8f7203eb4026270921a8c7ec1e0a32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc6b164bc3aa97048fe0efc4c24fd4cc"><td class="memItemLeft" align="right" valign="top"><a id="acc6b164bc3aa97048fe0efc4c24fd4cc"></a>
+<a class="el" href="classph_1_1_t_vector3.html">Vector3R</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getGeometryNormal</b> (ECoordSys coordSys=ECoordSys::WORLD) const</td></tr>
+<tr class="separator:acc6b164bc3aa97048fe0efc4c24fd4cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05ccf21bcb89a7c4b64f41488c0d7bae"><td class="memItemLeft" align="right" valign="top"><a id="a05ccf21bcb89a7c4b64f41488c0d7bae"></a>
+<a class="el" href="classph_1_1_t_vector3.html">Vector3R</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getdPdU</b> (ECoordSys coordSys=ECoordSys::WORLD) const</td></tr>
+<tr class="separator:a05ccf21bcb89a7c4b64f41488c0d7bae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab96490387e254e37ad6f61c3b6eb7f6b"><td class="memItemLeft" align="right" valign="top"><a id="ab96490387e254e37ad6f61c3b6eb7f6b"></a>
+<a class="el" href="classph_1_1_t_vector3.html">Vector3R</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getdPdV</b> (ECoordSys coordSys=ECoordSys::WORLD) const</td></tr>
+<tr class="separator:ab96490387e254e37ad6f61c3b6eb7f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bf60cff606c001b6379b1b6ebce53ff"><td class="memItemLeft" align="right" valign="top"><a id="a6bf60cff606c001b6379b1b6ebce53ff"></a>
+<a class="el" href="classph_1_1_t_vector3.html">Vector3R</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getdNdU</b> (ECoordSys coordSys=ECoordSys::WORLD) const</td></tr>
+<tr class="separator:a6bf60cff606c001b6379b1b6ebce53ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43564993aab59bd76a8bc80f05072d93"><td class="memItemLeft" align="right" valign="top"><a id="a43564993aab59bd76a8bc80f05072d93"></a>
+<a class="el" href="classph_1_1_t_vector3.html">Vector3R</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getdNdV</b> (ECoordSys coordSys=ECoordSys::WORLD) const</td></tr>
+<tr class="separator:a43564993aab59bd76a8bc80f05072d93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a71a4761ef32418791482742d5b458f"><td class="memItemLeft" align="right" valign="top"><a id="a7a71a4761ef32418791482742d5b458f"></a>
+<a class="el" href="classph_1_1_t_vector3.html">Vector3R</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getUvw</b> () const</td></tr>
+<tr class="separator:a7a71a4761ef32418791482742d5b458f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2dee33d60f23e756835600f703cfc04"><td class="memItemLeft" align="right" valign="top"><a id="ae2dee33d60f23e756835600f703cfc04"></a>
+const <a class="el" href="classph_1_1_t_orthonormal_basis3.html">Basis3R</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getGeometryBasis</b> (ECoordSys coordSys=ECoordSys::WORLD) const</td></tr>
+<tr class="separator:ae2dee33d60f23e756835600f703cfc04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26cc4c19925d70c39187f8e4f22f6faa"><td class="memItemLeft" align="right" valign="top"><a id="a26cc4c19925d70c39187f8e4f22f6faa"></a>
+const <a class="el" href="classph_1_1_t_orthonormal_basis3.html">Basis3R</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getShadingBasis</b> (ECoordSys coordSys=ECoordSys::WORLD) const</td></tr>
+<tr class="separator:a26cc4c19925d70c39187f8e4f22f6faa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3dede6dce1e8dbff595646e5c89101a"><td class="memItemLeft" align="right" valign="top"><a id="aa3dede6dce1e8dbff595646e5c89101a"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>getRayT</b> () const</td></tr>
+<tr class="separator:aa3dede6dce1e8dbff595646e5c89101a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4227114111e5325f96dfdc83e8a98da3"><td class="memItemLeft" align="right" valign="top"><a id="a4227114111e5325f96dfdc83e8a98da3"></a>
+const <a class="el" href="classph_1_1_primitive.html">Primitive</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getPrimitive</b> () const</td></tr>
+<tr class="separator:a4227114111e5325f96dfdc83e8a98da3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab82ae9640e16c49316ae5bd7a35dce2"><td class="memItemLeft" align="right" valign="top"><a id="aab82ae9640e16c49316ae5bd7a35dce2"></a>
+const <a class="el" href="classph_1_1_hit_info.html">HitInfo</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getHitInfo</b> (ECoordSys coordSys=ECoordSys::WORLD) const</td></tr>
+<tr class="separator:aab82ae9640e16c49316ae5bd7a35dce2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4373da404b85787111fc0960fd7a80b1"><td class="memItemLeft" align="right" valign="top"><a id="a4373da404b85787111fc0960fd7a80b1"></a>
+<a class="el" href="classph_1_1_hit_info.html">HitInfo</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getHitInfo</b> (ECoordSys coordSys=ECoordSys::WORLD)</td></tr>
+<tr class="separator:a4373da404b85787111fc0960fd7a80b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Source/Core/<a class="el" href="_hit_detail_8h_source.html">HitDetail.h</a></li>
@@ -163,7 +162,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>computeBases</b> ()</
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceph.html">ph</a></li><li class="navelem"><a class="el" href="classph_1_1_hit_detail.html">HitDetail</a></li>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:30 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:54:15 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

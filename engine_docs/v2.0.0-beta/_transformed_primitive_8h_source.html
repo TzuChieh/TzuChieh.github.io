@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -96,7 +102,7 @@ $(document).ready(function(){initNavTree('_transformed_primitive_8h_source.html'
 <div class="ttc" id="classph_1_1_transformed_primitive_html_ab37790a32250d0a2afdc206d88766df4"><div class="ttname"><a href="classph_1_1_transformed_primitive.html#ab37790a32250d0a2afdc206d88766df4">ph::TransformedPrimitive::calcAABB</a></div><div class="ttdeci">void calcAABB(AABB3D *const out_aabb) const override</div><div class="ttdoc">Calculates Axis-Aligned Bounding Box (AABB) of itself.</div><div class="ttdef"><b>Definition:</b> TransformedPrimitive.h:63</div></div>
 <div class="ttc" id="namespaceph_html"><div class="ttname"><a href="namespaceph.html">ph</a></div><div class="ttdoc">The root for all renderer implementations.</div><div class="ttdef"><b>Definition:</b> Actor.cpp:5</div></div>
 <div class="ttc" id="classph_1_1_rigid_transform_html"><div class="ttname"><a href="classph_1_1_rigid_transform.html">ph::RigidTransform</a></div><div class="ttdef"><b>Definition:</b> RigidTransform.h:13</div></div>
-<div class="ttc" id="classph_1_1_ray_html"><div class="ttname"><a href="classph_1_1_ray.html">ph::Ray</a></div><div class="ttdoc">Representing a ray in space.</div><div class="ttdef"><b>Definition:</b> Ray.h:22</div></div>
+<div class="ttc" id="classph_1_1_ray_html"><div class="ttname"><a href="classph_1_1_ray.html">ph::Ray</a></div><div class="ttdoc">Representing a ray in space.</div><div class="ttdef"><b>Definition:</b> Ray.h:25</div></div>
 <div class="ttc" id="classph_1_1_transformed_primitive_html_ae2c5dbff16bda80d6942d392765a9d57"><div class="ttname"><a href="classph_1_1_transformed_primitive.html#ae2c5dbff16bda80d6942d392765a9d57">ph::TransformedPrimitive::isIntersectingVolumeConservative</a></div><div class="ttdeci">bool isIntersectingVolumeConservative(const AABB3D &amp;aabb) const override</div><div class="ttdoc">Conservatively checks whether this object overlaps a volume.</div><div class="ttdef"><b>Definition:</b> TransformedPrimitive.h:58</div></div>
 <div class="ttc" id="classph_1_1_transformed_primitive_html_a5d6b087a1bf1d860ce99e735611f29ea"><div class="ttname"><a href="classph_1_1_transformed_primitive.html#a5d6b087a1bf1d860ce99e735611f29ea">ph::TransformedPrimitive::calcIntersectionDetail</a></div><div class="ttdeci">void calcIntersectionDetail(const Ray &amp;ray, HitProbe &amp;probe, HitDetail *const out_detail) const override</div><div class="ttdoc">Calculates properties of a hit, such as coordinates and normal.</div><div class="ttdef"><b>Definition:</b> TransformedPrimitive.h:46</div></div>
 <div class="ttc" id="classph_1_1_transformed_primitive_html_a91ff66358fe5f29049b834ecd6f519c5"><div class="ttname"><a href="classph_1_1_transformed_primitive.html#a91ff66358fe5f29049b834ecd6f519c5">ph::TransformedPrimitive::isIntersecting</a></div><div class="ttdeci">bool isIntersecting(const Ray &amp;ray) const override</div><div class="ttdoc">Determines whether this object blocks the ray.</div><div class="ttdef"><b>Definition:</b> TransformedPrimitive.h:28</div></div>
@@ -107,7 +113,7 @@ $(document).ready(function(){initNavTree('_transformed_primitive_8h_source.html'
 <div class="ttc" id="classph_1_1_primitive_html"><div class="ttname"><a href="classph_1_1_primitive.html">ph::Primitive</a></div><div class="ttdef"><b>Definition:</b> Primitive.h:17</div></div>
 <div class="ttc" id="classph_1_1_position_sample_html"><div class="ttname"><a href="classph_1_1_position_sample.html">ph::PositionSample</a></div><div class="ttdef"><b>Definition:</b> PositionSample.h:8</div></div>
 <div class="ttc" id="classph_1_1_transformed_intersectable_html_aae56ef8dbd5085f1dc3c6637077c5a5f"><div class="ttname"><a href="classph_1_1_transformed_intersectable.html#aae56ef8dbd5085f1dc3c6637077c5a5f">ph::TransformedIntersectable::calcIntersectionDetail</a></div><div class="ttdeci">void calcIntersectionDetail(const Ray &amp;ray, HitProbe &amp;probe, HitDetail *out_detail) const override</div><div class="ttdoc">Calculates properties of a hit, such as coordinates and normal.</div><div class="ttdef"><b>Definition:</b> TransformedIntersectable.cpp:53</div></div>
-<div class="ttc" id="classph_1_1_t_vector3_html"><div class="ttname"><a href="classph_1_1_t_vector3.html">ph::TVector3</a></div><div class="ttdef"><b>Definition:</b> math_fwd.h:14</div></div>
+<div class="ttc" id="classph_1_1_t_vector3_html"><div class="ttname"><a href="classph_1_1_t_vector3.html">ph::TVector3&lt; real &gt;</a></div></div>
 <div class="ttc" id="classph_1_1_hit_detail_html"><div class="ttname"><a href="classph_1_1_hit_detail.html">ph::HitDetail</a></div><div class="ttdef"><b>Definition:</b> HitDetail.h:15</div></div>
 <div class="ttc" id="classph_1_1_transformed_intersectable_html_af7a198e63f79159ccfe4cd8f82bc49b7"><div class="ttname"><a href="classph_1_1_transformed_intersectable.html#af7a198e63f79159ccfe4cd8f82bc49b7">ph::TransformedIntersectable::calcAABB</a></div><div class="ttdeci">void calcAABB(AABB3D *out_aabb) const override</div><div class="ttdoc">Calculates Axis-Aligned Bounding Box (AABB) of itself.</div><div class="ttdef"><b>Definition:</b> TransformedIntersectable.cpp:78</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -116,7 +122,7 @@ $(document).ready(function(){initNavTree('_transformed_primitive_8h_source.html'
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_1ad6433457b0067ef8f54a4fa85f5c9a.html">Core</a></li><li class="navelem"><a class="el" href="dir_cc6e3f97b10816d4262167301b0d09ed.html">Intersectable</a></li><li class="navelem"><b>TransformedPrimitive.h</b></li>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:28 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:53:03 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

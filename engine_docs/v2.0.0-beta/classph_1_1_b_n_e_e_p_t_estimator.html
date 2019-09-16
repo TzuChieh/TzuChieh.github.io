@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -114,10 +120,23 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (const <a 
 <tr class="memitem:a7c880efab46ba482aea3d63fdb90dab6"><td class="memItemLeft" align="right" valign="top"><a id="a7c880efab46ba482aea3d63fdb90dab6"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>estimate</b> (const <a class="el" href="classph_1_1_ray.html">Ray</a> &amp;ray, const <a class="el" href="classph_1_1_integrand.html">Integrand</a> &amp;integrand, <a class="el" href="classph_1_1_t_estimation_array.html">EnergyEstimation</a> &amp;out_estimation) const override</td></tr>
 <tr class="separator:a7c880efab46ba482aea3d63fdb90dab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca01f63ad105c42ae4f2b1a8dfc0564e"><td class="memItemLeft" align="right" valign="top"><a id="aca01f63ad105c42ae4f2b1a8dfc0564e"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> () const override</td></tr>
+<tr class="separator:aca01f63ad105c42ae4f2b1a8dfc0564e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classph_1_1_full_ray_energy_estimator"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classph_1_1_full_ray_energy_estimator')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classph_1_1_full_ray_energy_estimator.html">ph::FullRayEnergyEstimator</a></td></tr>
+<tr class="memitem:a73c22853577e60aa69498c968f93f426 inherit pub_methods_classph_1_1_full_ray_energy_estimator"><td class="memItemLeft" align="right" valign="top"><a id="a73c22853577e60aa69498c968f93f426"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>mapAttributeToEstimation</b> (std::size_t attributeId, std::size_t estimationIndex) override</td></tr>
+<tr class="separator:a73c22853577e60aa69498c968f93f426 inherit pub_methods_classph_1_1_full_ray_energy_estimator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54590e6dda7edd84bc0dd5da823dff08 inherit pub_methods_classph_1_1_full_ray_energy_estimator"><td class="memItemLeft" align="right" valign="top"><a id="a54590e6dda7edd84bc0dd5da823dff08"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setEstimationIndex</b> (std::size_t index)</td></tr>
 <tr class="separator:a54590e6dda7edd84bc0dd5da823dff08 inherit pub_methods_classph_1_1_full_ray_energy_estimator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa36e5822c6186531cd7a49e5e883d208 inherit pub_methods_classph_1_1_full_ray_energy_estimator"><td class="memItemLeft" align="right" valign="top"><a id="aa36e5822c6186531cd7a49e5e883d208"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> () const override</td></tr>
+<tr class="separator:aa36e5822c6186531cd7a49e5e883d208 inherit pub_methods_classph_1_1_full_ray_energy_estimator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classph_1_1_i_ray_energy_estimator"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classph_1_1_i_ray_energy_estimator')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classph_1_1_i_ray_energy_estimator.html">ph::IRayEnergyEstimator</a></td></tr>
+<tr class="memitem:ae3d21ed22dda523ecf70fe3542a5fdf1 inherit pub_methods_classph_1_1_i_ray_energy_estimator"><td class="memItemLeft" align="right" valign="top"><a id="ae3d21ed22dda523ecf70fe3542a5fdf1"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> () const override</td></tr>
+<tr class="separator:ae3d21ed22dda523ecf70fe3542a5fdf1 inherit pub_methods_classph_1_1_i_ray_energy_estimator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classph_1_1_t_i_ray_estimator"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classph_1_1_t_i_ray_estimator')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classph_1_1_t_i_ray_estimator.html">ph::TIRayEstimator&lt; SpectralStrength &gt;</a></td></tr>
 <tr class="memitem:a2f0ff926351e50a9cb83941123159dda inherit pub_methods_classph_1_1_t_i_ray_estimator"><td class="memItemLeft" align="right" valign="top"><a id="a2f0ff926351e50a9cb83941123159dda"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>estimate</b> (const <a class="el" href="classph_1_1_ray.html">Ray</a> &amp;ray, const <a class="el" href="classph_1_1_integrand.html">Integrand</a> &amp;integrand, <a class="el" href="classph_1_1_t_estimation_array.html">TEstimationArray</a>&lt; <a class="el" href="classph_1_1_linear_srgb_spectral_strength.html">SpectralStrength</a> &gt; &amp;out_estimation) const=0</td></tr>
@@ -144,7 +163,7 @@ std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_estimationIn
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceph.html">ph</a></li><li class="navelem"><a class="el" href="classph_1_1_b_n_e_e_p_t_estimator.html">BNEEPTEstimator</a></li>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:29 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:53:23 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

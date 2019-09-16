@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -88,7 +94,6 @@ $(document).ready(function(){initNavTree('classph_1_1_hit_info.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classph_1_1_hit_info-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -96,41 +101,8 @@ $(document).ready(function(){initNavTree('classph_1_1_hit_info.html','');});
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a606cfcb9b5d0bb285e5b9cc0a4f8b10e"><td class="memItemLeft" align="right" valign="top"><a id="a606cfcb9b5d0bb285e5b9cc0a4f8b10e"></a>
-typedef <a class="el" href="classph_1_1_t_orthonormal_basis3.html">TOrthonormalBasis3</a>&lt; real &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Basis</b></td></tr>
-<tr class="separator:a606cfcb9b5d0bb285e5b9cc0a4f8b10e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:adc8f9aee7a4d5d9c7e75f86cb368feb7"><td class="memItemLeft" align="right" valign="top"><a id="adc8f9aee7a4d5d9c7e75f86cb368feb7"></a>
-const <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getPosition</b> () const</td></tr>
-<tr class="separator:adc8f9aee7a4d5d9c7e75f86cb368feb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa609f48db8ca869fa8c6d818c7f7bc01"><td class="memItemLeft" align="right" valign="top"><a id="aa609f48db8ca869fa8c6d818c7f7bc01"></a>
-const <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getShadingNormal</b> () const</td></tr>
-<tr class="separator:aa609f48db8ca869fa8c6d818c7f7bc01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afab1f530d46076479e5bd6424b8521a3"><td class="memItemLeft" align="right" valign="top"><a id="afab1f530d46076479e5bd6424b8521a3"></a>
-const <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getGeometryNormal</b> () const</td></tr>
-<tr class="separator:afab1f530d46076479e5bd6424b8521a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35aae9a4310ee4d8c5c85fd49c2962f6"><td class="memItemLeft" align="right" valign="top"><a id="a35aae9a4310ee4d8c5c85fd49c2962f6"></a>
-const <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getdPdU</b> () const</td></tr>
-<tr class="separator:a35aae9a4310ee4d8c5c85fd49c2962f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace4c39799a867e192d8aef35182771ba"><td class="memItemLeft" align="right" valign="top"><a id="ace4c39799a867e192d8aef35182771ba"></a>
-const <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getdPdV</b> () const</td></tr>
-<tr class="separator:ace4c39799a867e192d8aef35182771ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f575ff3dd38a021cb6677795a651941"><td class="memItemLeft" align="right" valign="top"><a id="a3f575ff3dd38a021cb6677795a651941"></a>
-const <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getdNdU</b> () const</td></tr>
-<tr class="separator:a3f575ff3dd38a021cb6677795a651941"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b2bafc2b1e6746ebe8688c3fe88aa43"><td class="memItemLeft" align="right" valign="top"><a id="a7b2bafc2b1e6746ebe8688c3fe88aa43"></a>
-const <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getdNdV</b> () const</td></tr>
-<tr class="separator:a7b2bafc2b1e6746ebe8688c3fe88aa43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af261a0c59c06aed66311acd32dea702c"><td class="memItemLeft" align="right" valign="top"><a id="af261a0c59c06aed66311acd32dea702c"></a>
-const <a class="el" href="classph_1_1_t_orthonormal_basis3.html">Basis</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getGeometryBasis</b> () const</td></tr>
-<tr class="separator:af261a0c59c06aed66311acd32dea702c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c7a77b524783a25eb5642c906ad0da2"><td class="memItemLeft" align="right" valign="top"><a id="a4c7a77b524783a25eb5642c906ad0da2"></a>
-const <a class="el" href="classph_1_1_t_orthonormal_basis3.html">Basis</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getShadingBasis</b> () const</td></tr>
-<tr class="separator:a4c7a77b524783a25eb5642c906ad0da2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac428a6c9b0d6e15171006a49b3236685"><td class="memItemLeft" align="right" valign="top"><a id="ac428a6c9b0d6e15171006a49b3236685"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setAttributes</b> (const <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> &amp;position, const <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> &amp;geometryNormal, const <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> &amp;shadingNormal)</td></tr>
 <tr class="separator:ac428a6c9b0d6e15171006a49b3236685"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -140,6 +112,33 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDerivatives</b> (c
 <tr class="memitem:a839c58a247e34151b338f602303e16a1"><td class="memItemLeft" align="right" valign="top"><a id="a839c58a247e34151b338f602303e16a1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>computeBases</b> ()</td></tr>
 <tr class="separator:a839c58a247e34151b338f602303e16a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cc1432158fcdd80f9f826f4d6eefb79"><td class="memItemLeft" align="right" valign="top"><a id="a1cc1432158fcdd80f9f826f4d6eefb79"></a>
+<a class="el" href="classph_1_1_t_vector3.html">Vector3R</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getPosition</b> () const</td></tr>
+<tr class="separator:a1cc1432158fcdd80f9f826f4d6eefb79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0b3dc40537c80e5820be30d3c31745c"><td class="memItemLeft" align="right" valign="top"><a id="aa0b3dc40537c80e5820be30d3c31745c"></a>
+<a class="el" href="classph_1_1_t_vector3.html">Vector3R</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getShadingNormal</b> () const</td></tr>
+<tr class="separator:aa0b3dc40537c80e5820be30d3c31745c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb8e246ff842a0951598e2646034ab59"><td class="memItemLeft" align="right" valign="top"><a id="abb8e246ff842a0951598e2646034ab59"></a>
+<a class="el" href="classph_1_1_t_vector3.html">Vector3R</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getGeometryNormal</b> () const</td></tr>
+<tr class="separator:abb8e246ff842a0951598e2646034ab59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebefcf2f81166c47b0c62f818dda9b0d"><td class="memItemLeft" align="right" valign="top"><a id="aebefcf2f81166c47b0c62f818dda9b0d"></a>
+<a class="el" href="classph_1_1_t_vector3.html">Vector3R</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getdPdU</b> () const</td></tr>
+<tr class="separator:aebefcf2f81166c47b0c62f818dda9b0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07a4ba6e8cb466cebe0e33eefa5415c5"><td class="memItemLeft" align="right" valign="top"><a id="a07a4ba6e8cb466cebe0e33eefa5415c5"></a>
+<a class="el" href="classph_1_1_t_vector3.html">Vector3R</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getdPdV</b> () const</td></tr>
+<tr class="separator:a07a4ba6e8cb466cebe0e33eefa5415c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc4adfb8ad829a75ec339ec63c15c4e1"><td class="memItemLeft" align="right" valign="top"><a id="afc4adfb8ad829a75ec339ec63c15c4e1"></a>
+<a class="el" href="classph_1_1_t_vector3.html">Vector3R</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getdNdU</b> () const</td></tr>
+<tr class="separator:afc4adfb8ad829a75ec339ec63c15c4e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a9484e0923503e65be33a880cc3d91a"><td class="memItemLeft" align="right" valign="top"><a id="a5a9484e0923503e65be33a880cc3d91a"></a>
+<a class="el" href="classph_1_1_t_vector3.html">Vector3R</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getdNdV</b> () const</td></tr>
+<tr class="separator:a5a9484e0923503e65be33a880cc3d91a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2195272d1d13d753cc9fd7eee57b701a"><td class="memItemLeft" align="right" valign="top"><a id="a2195272d1d13d753cc9fd7eee57b701a"></a>
+const <a class="el" href="classph_1_1_t_orthonormal_basis3.html">Basis3R</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getGeometryBasis</b> () const</td></tr>
+<tr class="separator:a2195272d1d13d753cc9fd7eee57b701a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5e5750dc06699e3152a927ca0442cbc"><td class="memItemLeft" align="right" valign="top"><a id="ac5e5750dc06699e3152a927ca0442cbc"></a>
+const <a class="el" href="classph_1_1_t_orthonormal_basis3.html">Basis3R</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getShadingBasis</b> () const</td></tr>
+<tr class="separator:ac5e5750dc06699e3152a927ca0442cbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Source/Core/<a class="el" href="_hit_info_8h_source.html">HitInfo.h</a></li>
@@ -151,7 +150,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>computeBases</b> ()</
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceph.html">ph</a></li><li class="navelem"><a class="el" href="classph_1_1_hit_info.html">HitInfo</a></li>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:30 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:54:15 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

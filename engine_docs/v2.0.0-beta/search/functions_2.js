@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['equals',['equals',['../classph_1_1_t_a_a_b_b3_d.html#a7c13debd6b0c9b539b568e68c533b634',1,'ph::TAABB3D']]],
-  ['expand',['expand',['../classph_1_1_t_a_a_b_b3_d.html#a9fb38e07789c77ef91a647de135085c6',1,'ph::TAABB3D']]]
+  ['dispatch',['dispatch',['../classph_1_1_dammertz_dispatcher.html#a0ae150f900747b00f989872c96b9b1ac',1,'ph::DammertzDispatcher::dispatch()'],['../classph_1_1_i_work_dispatcher.html#ad935a7c1108afeab33bf2d59b9dd3fee',1,'ph::IWorkDispatcher::dispatch()'],['../classph_1_1_work_scheduler.html#ad8b870d2489a6e249ab156f445c80114',1,'ph::WorkScheduler::dispatch()']]]
 ];

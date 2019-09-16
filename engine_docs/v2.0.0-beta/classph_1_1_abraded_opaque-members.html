@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -100,24 +106,21 @@ $(document).ready(function(){initNavTree('classph_1_1_abraded_opaque.html','');}
   <tr bgcolor="#f0f0f0"><td class="entry"><b>ciTypeInfo</b>() (defined in <a class="el" href="classph_1_1_abraded_opaque.html">ph::AbradedOpaque</a>)</td><td class="entry"><a class="el" href="classph_1_1_abraded_opaque.html">ph::AbradedOpaque</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>genBehaviors</b>(CookingContext &amp;context, PrimitiveMetadata &amp;metadata) const override (defined in <a class="el" href="classph_1_1_surface_material.html">ph::SurfaceMaterial</a>)</td><td class="entry"><a class="el" href="classph_1_1_surface_material.html">ph::SurfaceMaterial</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>genSurface</b>(CookingContext &amp;context, SurfaceBehavior &amp;behavior) const override (defined in <a class="el" href="classph_1_1_abraded_opaque.html">ph::AbradedOpaque</a>)</td><td class="entry"><a class="el" href="classph_1_1_abraded_opaque.html">ph::AbradedOpaque</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>loadATR</b>(const InputPacket &amp;packet) (defined in <a class="el" href="classph_1_1_abraded_opaque.html">ph::AbradedOpaque</a>)</td><td class="entry"><a class="el" href="classph_1_1_abraded_opaque.html">ph::AbradedOpaque</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>loadFresnelEffect</b>(const InputPacket &amp;packet) (defined in <a class="el" href="classph_1_1_abraded_opaque.html">ph::AbradedOpaque</a>)</td><td class="entry"><a class="el" href="classph_1_1_abraded_opaque.html">ph::AbradedOpaque</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>loadITR</b>(const InputPacket &amp;packet) (defined in <a class="el" href="classph_1_1_abraded_opaque.html">ph::AbradedOpaque</a>)</td><td class="entry"><a class="el" href="classph_1_1_abraded_opaque.html">ph::AbradedOpaque</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>Material</b>()=default (defined in <a class="el" href="classph_1_1_material.html">ph::Material</a>)</td><td class="entry"><a class="el" href="classph_1_1_material.html">ph::Material</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Material</b>(const InputPacket &amp;packet) (defined in <a class="el" href="classph_1_1_material.html">ph::Material</a>)</td><td class="entry"><a class="el" href="classph_1_1_material.html">ph::Material</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>SurfaceMaterial</b>() (defined in <a class="el" href="classph_1_1_surface_material.html">ph::SurfaceMaterial</a>)</td><td class="entry"><a class="el" href="classph_1_1_surface_material.html">ph::SurfaceMaterial</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>SurfaceMaterial</b>(const InputPacket &amp;packet) (defined in <a class="el" href="classph_1_1_surface_material.html">ph::SurfaceMaterial</a>)</td><td class="entry"><a class="el" href="classph_1_1_surface_material.html">ph::SurfaceMaterial</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>~ISdlResource</b>()=0 (defined in <a class="el" href="classph_1_1_i_sdl_resource.html">ph::ISdlResource</a>)</td><td class="entry"><a class="el" href="classph_1_1_i_sdl_resource.html">ph::ISdlResource</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~Material</b>()=default (defined in <a class="el" href="classph_1_1_material.html">ph::Material</a>)</td><td class="entry"><a class="el" href="classph_1_1_material.html">ph::Material</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>~TCommandInterface</b>() (defined in <a class="el" href="classph_1_1_t_command_interface.html">ph::TCommandInterface&lt; Material &gt;</a>)</td><td class="entry"><a class="el" href="classph_1_1_t_command_interface.html">ph::TCommandInterface&lt; Material &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~TCommandInterface</b>() (defined in <a class="el" href="classph_1_1_t_command_interface.html">ph::TCommandInterface&lt; SurfaceMaterial &gt;</a>)</td><td class="entry"><a class="el" href="classph_1_1_t_command_interface.html">ph::TCommandInterface&lt; SurfaceMaterial &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>~TCommandInterface</b>() (defined in <a class="el" href="classph_1_1_t_command_interface.html">ph::TCommandInterface&lt; AbradedOpaque &gt;</a>)</td><td class="entry"><a class="el" href="classph_1_1_t_command_interface.html">ph::TCommandInterface&lt; AbradedOpaque &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Material</b>()=default (defined in <a class="el" href="classph_1_1_material.html">ph::Material</a>)</td><td class="entry"><a class="el" href="classph_1_1_material.html">ph::Material</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>Material</b>(const InputPacket &amp;packet) (defined in <a class="el" href="classph_1_1_material.html">ph::Material</a>)</td><td class="entry"><a class="el" href="classph_1_1_material.html">ph::Material</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>SurfaceMaterial</b>() (defined in <a class="el" href="classph_1_1_surface_material.html">ph::SurfaceMaterial</a>)</td><td class="entry"><a class="el" href="classph_1_1_surface_material.html">ph::SurfaceMaterial</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>SurfaceMaterial</b>(const InputPacket &amp;packet) (defined in <a class="el" href="classph_1_1_surface_material.html">ph::SurfaceMaterial</a>)</td><td class="entry"><a class="el" href="classph_1_1_surface_material.html">ph::SurfaceMaterial</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~ISdlResource</b>()=0 (defined in <a class="el" href="classph_1_1_i_sdl_resource.html">ph::ISdlResource</a>)</td><td class="entry"><a class="el" href="classph_1_1_i_sdl_resource.html">ph::ISdlResource</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>~Material</b>()=default (defined in <a class="el" href="classph_1_1_material.html">ph::Material</a>)</td><td class="entry"><a class="el" href="classph_1_1_material.html">ph::Material</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~TCommandInterface</b>() (defined in <a class="el" href="classph_1_1_t_command_interface.html">ph::TCommandInterface&lt; Material &gt;</a>)</td><td class="entry"><a class="el" href="classph_1_1_t_command_interface.html">ph::TCommandInterface&lt; Material &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>~TCommandInterface</b>() (defined in <a class="el" href="classph_1_1_t_command_interface.html">ph::TCommandInterface&lt; SurfaceMaterial &gt;</a>)</td><td class="entry"><a class="el" href="classph_1_1_t_command_interface.html">ph::TCommandInterface&lt; SurfaceMaterial &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~TCommandInterface</b>() (defined in <a class="el" href="classph_1_1_t_command_interface.html">ph::TCommandInterface&lt; AbradedOpaque &gt;</a>)</td><td class="entry"><a class="el" href="classph_1_1_t_command_interface.html">ph::TCommandInterface&lt; AbradedOpaque &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:29 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:53:07 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

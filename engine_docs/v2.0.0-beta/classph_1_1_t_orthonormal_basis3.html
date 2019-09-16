@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -89,10 +95,10 @@ $(document).ready(function(){initNavTree('classph_1_1_t_orthonormal_basis3.html'
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classph_1_1_t_orthonormal_basis3-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">ph::TOrthonormalBasis3&lt; T &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
+<div class="title">ph::TOrthonormalBasis3&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
@@ -107,6 +113,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a416ccc1a67fabe25b6ccfc5a44ed648e"><td class="memItemLeft" align="right" valign="top"><a id="a416ccc1a67fabe25b6ccfc5a44ed648e"></a>
 <a class="el" href="classph_1_1_t_vector3.html">TVector3</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>worldToLocal</b> (const <a class="el" href="classph_1_1_t_vector3.html">TVector3</a>&lt; T &gt; &amp;worldVec) const</td></tr>
 <tr class="separator:a416ccc1a67fabe25b6ccfc5a44ed648e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a989da0b05edc0a64124394e650299ca4"><td class="memItemLeft" align="right" valign="top"><a id="a989da0b05edc0a64124394e650299ca4"></a>
+<a class="el" href="classph_1_1_t_vector3.html">TVector3</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>localToWorld</b> (const <a class="el" href="classph_1_1_t_vector3.html">TVector3</a>&lt; T &gt; &amp;localVec) const</td></tr>
+<tr class="separator:a989da0b05edc0a64124394e650299ca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b589b9c3b0d64b027806d485d5ef67e"><td class="memItemLeft" align="right" valign="top"><a id="a0b589b9c3b0d64b027806d485d5ef67e"></a>
 T&#160;</td><td class="memItemRight" valign="bottom"><b>cosPhi</b> (const <a class="el" href="classph_1_1_t_vector3.html">TVector3</a>&lt; T &gt; &amp;unitVec) const</td></tr>
 <tr class="separator:a0b589b9c3b0d64b027806d485d5ef67e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,26 +161,48 @@ T&#160;</td><td class="memItemRight" valign="bottom"><b>absSinTheta</b> (const <
 <tr class="memitem:ad39fd74ce787210bdce2ac15147b5034"><td class="memItemLeft" align="right" valign="top"><a id="ad39fd74ce787210bdce2ac15147b5034"></a>
 <a class="el" href="classph_1_1_t_orthonormal_basis3.html">TOrthonormalBasis3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>renormalize</b> ()</td></tr>
 <tr class="separator:ad39fd74ce787210bdce2ac15147b5034"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4bba929acf261cb816920a1b67e9123"><td class="memItemLeft" align="right" valign="top"><a id="ac4bba929acf261cb816920a1b67e9123"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set</b> (const <a class="el" href="classph_1_1_t_vector3.html">TVector3</a>&lt; T &gt; &amp;xAxis, const <a class="el" href="classph_1_1_t_vector3.html">TVector3</a>&lt; T &gt; &amp;yAxis, const <a class="el" href="classph_1_1_t_vector3.html">TVector3</a>&lt; T &gt; &amp;zAxis)</td></tr>
-<tr class="separator:ac4bba929acf261cb816920a1b67e9123"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8e66acff40607735d90766451318c6e"><td class="memItemLeft" align="right" valign="top"><a id="ae8e66acff40607735d90766451318c6e"></a>
+<a class="el" href="classph_1_1_t_orthonormal_basis3.html">TOrthonormalBasis3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>renormalizeXAxis</b> ()</td></tr>
+<tr class="separator:ae8e66acff40607735d90766451318c6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6629a8d52fd2f65779c09cbb4bee101a"><td class="memItemLeft" align="right" valign="top"><a id="a6629a8d52fd2f65779c09cbb4bee101a"></a>
+<a class="el" href="classph_1_1_t_orthonormal_basis3.html">TOrthonormalBasis3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>renormalizeYAxis</b> ()</td></tr>
+<tr class="separator:a6629a8d52fd2f65779c09cbb4bee101a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10ec2de76a7bd2eb0295f46159efd02d"><td class="memItemLeft" align="right" valign="top"><a id="a10ec2de76a7bd2eb0295f46159efd02d"></a>
+<a class="el" href="classph_1_1_t_orthonormal_basis3.html">TOrthonormalBasis3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>renormalizeZAxis</b> ()</td></tr>
+<tr class="separator:a10ec2de76a7bd2eb0295f46159efd02d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9731000bb5992b6be60cd6cec994cb7a"><td class="memItemLeft" align="right" valign="top"><a id="a9731000bb5992b6be60cd6cec994cb7a"></a>
+<a class="el" href="classph_1_1_t_orthonormal_basis3.html">TOrthonormalBasis3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>setXAxis</b> (const <a class="el" href="classph_1_1_t_vector3.html">TVector3</a>&lt; T &gt; &amp;axis)</td></tr>
+<tr class="separator:a9731000bb5992b6be60cd6cec994cb7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af45d15979e977b678f78b381781fd852"><td class="memItemLeft" align="right" valign="top"><a id="af45d15979e977b678f78b381781fd852"></a>
+<a class="el" href="classph_1_1_t_orthonormal_basis3.html">TOrthonormalBasis3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>setYAxis</b> (const <a class="el" href="classph_1_1_t_vector3.html">TVector3</a>&lt; T &gt; &amp;axis)</td></tr>
+<tr class="separator:af45d15979e977b678f78b381781fd852"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6287884a1d4d7e87c1ba2f798ae51d71"><td class="memItemLeft" align="right" valign="top"><a id="a6287884a1d4d7e87c1ba2f798ae51d71"></a>
+<a class="el" href="classph_1_1_t_orthonormal_basis3.html">TOrthonormalBasis3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>setZAxis</b> (const <a class="el" href="classph_1_1_t_vector3.html">TVector3</a>&lt; T &gt; &amp;axis)</td></tr>
+<tr class="separator:a6287884a1d4d7e87c1ba2f798ae51d71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a463c2553668c7c0111aa44eeeb64418d"><td class="memItemLeft" align="right" valign="top"><a id="a463c2553668c7c0111aa44eeeb64418d"></a>
+<a class="el" href="classph_1_1_t_orthonormal_basis3.html">TOrthonormalBasis3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>set</b> (const <a class="el" href="classph_1_1_t_vector3.html">TVector3</a>&lt; T &gt; &amp;xAxis, const <a class="el" href="classph_1_1_t_vector3.html">TVector3</a>&lt; T &gt; &amp;yAxis, const <a class="el" href="classph_1_1_t_vector3.html">TVector3</a>&lt; T &gt; &amp;zAxis)</td></tr>
+<tr class="separator:a463c2553668c7c0111aa44eeeb64418d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a806a414b36f7fe72fc7c098d698de811"><td class="memItemLeft" align="right" valign="top"><a id="a806a414b36f7fe72fc7c098d698de811"></a>
+<a class="el" href="classph_1_1_t_vector3.html">TVector3</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getXAxis</b> () const</td></tr>
+<tr class="separator:a806a414b36f7fe72fc7c098d698de811"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1b9671086c973ec0af2a6d75bfde9e6"><td class="memItemLeft" align="right" valign="top"><a id="aa1b9671086c973ec0af2a6d75bfde9e6"></a>
+<a class="el" href="classph_1_1_t_vector3.html">TVector3</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getYAxis</b> () const</td></tr>
+<tr class="separator:aa1b9671086c973ec0af2a6d75bfde9e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0f9e8e211b74f4c60e90d4fe538bb94"><td class="memItemLeft" align="right" valign="top"><a id="ab0f9e8e211b74f4c60e90d4fe538bb94"></a>
+<a class="el" href="classph_1_1_t_vector3.html">TVector3</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getZAxis</b> () const</td></tr>
+<tr class="separator:ab0f9e8e211b74f4c60e90d4fe538bb94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88b895020d9c15ea80f76b8c055b3e60"><td class="memItemLeft" align="right" valign="top"><a id="a88b895020d9c15ea80f76b8c055b3e60"></a>
 <a class="el" href="classph_1_1_t_orthonormal_basis3.html">TOrthonormalBasis3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classph_1_1_t_orthonormal_basis3.html">TOrthonormalBasis3</a> &amp;rhs)</td></tr>
 <tr class="separator:a88b895020d9c15ea80f76b8c055b3e60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:ad7a1e0ce26334cae48c16fb28b5e2b52"><td class="memItemLeft" align="right" valign="top"><a id="ad7a1e0ce26334cae48c16fb28b5e2b52"></a>
-<a class="el" href="classph_1_1_t_vector3.html">TVector3</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>xAxis</b></td></tr>
-<tr class="separator:ad7a1e0ce26334cae48c16fb28b5e2b52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16455c4b67337f9c1affee214cc771dc"><td class="memItemLeft" align="right" valign="top"><a id="a16455c4b67337f9c1affee214cc771dc"></a>
-<a class="el" href="classph_1_1_t_vector3.html">TVector3</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>yAxis</b></td></tr>
-<tr class="separator:a16455c4b67337f9c1affee214cc771dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a260973caf07ff020cad6f2cbcd59c903"><td class="memItemLeft" align="right" valign="top"><a id="a260973caf07ff020cad6f2cbcd59c903"></a>
-<a class="el" href="classph_1_1_t_vector3.html">TVector3</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>zAxis</b></td></tr>
-<tr class="separator:a260973caf07ff020cad6f2cbcd59c903"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a077a7deb4ae6974a734ac539015cea7f"><td class="memItemLeft" align="right" valign="top"><a id="a077a7deb4ae6974a734ac539015cea7f"></a>
+static <a class="el" href="classph_1_1_t_orthonormal_basis3.html">TOrthonormalBasis3</a>&#160;</td><td class="memItemRight" valign="bottom"><b>makeFromUnitY</b> (const <a class="el" href="classph_1_1_t_vector3.html">TVector3</a>&lt; T &gt; &amp;unitYAxis)</td></tr>
+<tr class="separator:a077a7deb4ae6974a734ac539015cea7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
+<li>Source/Math/<a class="el" href="math__fwd_8h_source.html">math_fwd.h</a></li>
 <li>Source/Math/<a class="el" href="_t_orthonormal_basis3_8h_source.html">TOrthonormalBasis3.h</a></li>
 <li>Source/Math/TOrthonormalBasis3.ipp</li>
 </ul>
@@ -181,7 +212,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceph.html">ph</a></li><li class="navelem"><a class="el" href="classph_1_1_t_orthonormal_basis3.html">TOrthonormalBasis3</a></li>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:31 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:56:09 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

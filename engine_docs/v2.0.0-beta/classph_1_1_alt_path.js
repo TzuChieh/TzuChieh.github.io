@@ -5,6 +5,7 @@ var classph_1_1_alt_path =
     [ "append", "classph_1_1_alt_path.html#ad043cc04f192f8a97b3a0a01115e9f1a", null ],
     [ "getExtension", "classph_1_1_alt_path.html#a1d2852501b8e91154e07876b181b0b2f", null ],
     [ "isAbsolute", "classph_1_1_alt_path.html#ad383db9e01a4bb160e359aa2c3b55610", null ],
+    [ "isEmpty", "classph_1_1_alt_path.html#add731df8006f1ae61c8758e3e7e7427c", null ],
     [ "isRelative", "classph_1_1_alt_path.html#a2b5cc03f74cd7531c946257013c9e03a", null ],
     [ "operator==", "classph_1_1_alt_path.html#aeb9c7610a097841392183177a2166ac0", null ],
     [ "removeLeadingSeparator", "classph_1_1_alt_path.html#a542e3e8b213166e8fddc3ae601105879", null ],

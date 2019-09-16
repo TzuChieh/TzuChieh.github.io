@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -94,14 +100,19 @@ $(document).ready(function(){initNavTree('classph_1_1_exact_dielectric_fresnel.h
 <div class="title">ph::ExactDielectricFresnel Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Dielectric-dielectric interface Fresnel effect.  
+ <a href="classph_1_1_exact_dielectric_fresnel.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_exact_dielectric_fresnel_8h_source.html">ExactDielectricFresnel.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ph::ExactDielectricFresnel:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classph_1_1_exact_dielectric_fresnel.png" usemap="#ph::ExactDielectricFresnel_map" alt=""/>
   <map id="ph::ExactDielectricFresnel_map" name="ph::ExactDielectricFresnel_map">
-<area href="classph_1_1_dielectric_fresnel.html" alt="ph::DielectricFresnel" shape="rect" coords="0,56,160,80"/>
-<area href="classph_1_1_fresnel_effect.html" alt="ph::FresnelEffect" shape="rect" coords="0,0,160,24"/>
+<area href="classph_1_1_dielectric_fresnel.html" title="Dielectric-dielectric interface Fresnel effect." alt="ph::DielectricFresnel" shape="rect" coords="0,56,160,80"/>
+<area href="classph_1_1_fresnel_effect.html" title="Modeling Fresnel effects that occur on interfaces." alt="ph::FresnelEffect" shape="rect" coords="0,0,160,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -141,7 +152,10 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>m_iorOuter</b></td></
 real&#160;</td><td class="memItemRight" valign="bottom"><b>m_iorInner</b></td></tr>
 <tr class="separator:a4641bdef3aa4d89b3fa0de5f8f3f997b inherit pro_attribs_classph_1_1_dielectric_fresnel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Dielectric-dielectric interface Fresnel effect. </p>
+<p>The formulae used are exact ones, i.e., no approximation is made. </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>Source/Core/SurfaceBehavior/Property/<a class="el" href="_exact_dielectric_fresnel_8h_source.html">ExactDielectricFresnel.h</a></li>
 <li>Source/Core/SurfaceBehavior/Property/ExactDielectricFresnel.cpp</li>
 </ul>
@@ -151,7 +165,7 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>m_iorInner</b></td></
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceph.html">ph</a></li><li class="navelem"><a class="el" href="classph_1_1_exact_dielectric_fresnel.html">ExactDielectricFresnel</a></li>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:29 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:53:48 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

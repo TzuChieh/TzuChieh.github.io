@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -106,9 +112,9 @@ Inheritance diagram for ph::OpaqueMicrofacet:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad39a9aeb75ea82b2159904582f131119"><td class="memItemLeft" align="right" valign="top"><a id="ad39a9aeb75ea82b2159904582f131119"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>OpaqueMicrofacet</b> (const std::shared_ptr&lt; <a class="el" href="classph_1_1_fresnel_effect.html">FresnelEffect</a> &gt; &amp;fresnel, const std::shared_ptr&lt; <a class="el" href="classph_1_1_microfacet.html">Microfacet</a> &gt; &amp;microfacet)</td></tr>
-<tr class="separator:ad39a9aeb75ea82b2159904582f131119"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a618eef048be46a7d5be17da28c35760c"><td class="memItemLeft" align="right" valign="top"><a id="a618eef048be46a7d5be17da28c35760c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>OpaqueMicrofacet</b> (const std::shared_ptr&lt; <a class="el" href="classph_1_1_conductor_fresnel.html">ConductorFresnel</a> &gt; &amp;fresnel, const std::shared_ptr&lt; <a class="el" href="classph_1_1_microfacet.html">Microfacet</a> &gt; &amp;microfacet)</td></tr>
+<tr class="separator:a618eef048be46a7d5be17da28c35760c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79923fc581ad00ff09fb766313310b5f"><td class="memItemLeft" align="right" valign="top"><a id="a79923fc581ad00ff09fb766313310b5f"></a>
 ESurfacePhenomenon&#160;</td><td class="memItemRight" valign="bottom"><b>getPhenomenonOf</b> (SurfaceElemental elemental) const override</td></tr>
 <tr class="separator:a79923fc581ad00ff09fb766313310b5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,7 +158,7 @@ SurfaceElemental&#160;</td><td class="memItemRight" valign="bottom"><b>m_numElem
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceph.html">ph</a></li><li class="navelem"><a class="el" href="classph_1_1_opaque_microfacet.html">OpaqueMicrofacet</a></li>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:30 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:54:59 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -98,9 +104,10 @@ $(document).ready(function(){initNavTree('ph__core_8h.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p>Contains main APIs of the render engine.  
+<p>Contains main C APIs of the render engine.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;stddef.h&gt;</code><br />
 </div>
 <p><a href="ph__core_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -243,9 +250,30 @@ Functions</h2></td></tr>
 <tr class="memitem:a4cc6f225263c34308b6dabf05b19cb0d"><td class="memItemLeft" align="right" valign="top"><a id="a4cc6f225263c34308b6dabf05b19cb0d"></a>
 <a class="el" href="ph__core_8h.html#acd4c7607ab6cc12a3b82937dc17d4cb3">PH_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><b>phDeleteFrame</b> (PHuint64 frameId)</td></tr>
 <tr class="separator:a4cc6f225263c34308b6dabf05b19cb0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a236724d137139be353f55f3f3aeffbdd"><td class="memItemLeft" align="right" valign="top"><a id="a236724d137139be353f55f3f3aeffbdd"></a>
-<a class="el" href="ph__core_8h.html#acd4c7607ab6cc12a3b82937dc17d4cb3">PH_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><b>phSaveFrame</b> (PHuint64 frameId, const PHchar *filePath)</td></tr>
-<tr class="separator:a236724d137139be353f55f3f3aeffbdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af17509e8684b62e611205062efc1cc6b"><td class="memItemLeft" align="right" valign="top"><a id="af17509e8684b62e611205062efc1cc6b"></a>
+<a class="el" href="ph__core_8h.html#acd4c7607ab6cc12a3b82937dc17d4cb3">PH_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><b>phLoadFrame</b> (PHuint64 frameId, const PHchar *filePath)</td></tr>
+<tr class="separator:af17509e8684b62e611205062efc1cc6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a322ff66d396d407147e472609b4a22bc"><td class="memItemLeft" align="right" valign="top"><a id="a322ff66d396d407147e472609b4a22bc"></a>
+<a class="el" href="ph__core_8h.html#acd4c7607ab6cc12a3b82937dc17d4cb3">PH_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><b>phSaveFrame</b> (PHuint64 frameId, const PHchar *filePath)</td></tr>
+<tr class="separator:a322ff66d396d407147e472609b4a22bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab5fade4a2cb5dae8eea3a2786224661"><td class="memItemLeft" align="right" valign="top"><a id="aab5fade4a2cb5dae8eea3a2786224661"></a>
+<a class="el" href="ph__core_8h.html#acd4c7607ab6cc12a3b82937dc17d4cb3">PH_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><b>phSaveFrameToBuffer</b> (PHuint64 frameId, PHuint64 bufferId)</td></tr>
+<tr class="separator:aab5fade4a2cb5dae8eea3a2786224661"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a964c21912d789d78d29bf362aec027d0"><td class="memItemLeft" align="right" valign="top"><a id="a964c21912d789d78d29bf362aec027d0"></a>
+<a class="el" href="ph__core_8h.html#acd4c7607ab6cc12a3b82937dc17d4cb3">PH_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><b>phFrameOpAbsDifference</b> (PHuint64 frameAId, PHuint64 frameBId, PHuint64 resultFrameId)</td></tr>
+<tr class="separator:a964c21912d789d78d29bf362aec027d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8421cda37e2490df364e4dfd3d85142"><td class="memItemLeft" align="right" valign="top"><a id="ad8421cda37e2490df364e4dfd3d85142"></a>
+<a class="el" href="ph__core_8h.html#acd4c7607ab6cc12a3b82937dc17d4cb3">PH_API</a> float&#160;</td><td class="memItemRight" valign="bottom"><b>phFrameOpMSE</b> (PHuint64 expectedFrameId, PHuint64 estimatedFramIde)</td></tr>
+<tr class="separator:ad8421cda37e2490df364e4dfd3d85142"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3e69c2b71bde4517b0ed257dcfcb7f4"><td class="memItemLeft" align="right" valign="top"><a id="ae3e69c2b71bde4517b0ed257dcfcb7f4"></a>
+<a class="el" href="ph__core_8h.html#acd4c7607ab6cc12a3b82937dc17d4cb3">PH_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><b>phCreateBuffer</b> (PHuint64 *out_bufferId)</td></tr>
+<tr class="separator:ae3e69c2b71bde4517b0ed257dcfcb7f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cdf11972a619014b13891c2e8ef4bcc"><td class="memItemLeft" align="right" valign="top"><a id="a4cdf11972a619014b13891c2e8ef4bcc"></a>
+<a class="el" href="ph__core_8h.html#acd4c7607ab6cc12a3b82937dc17d4cb3">PH_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><b>phGetBufferBytes</b> (PHuint64 bufferId, const unsigned char **out_bytesPtr, size_t *out_numBytes)</td></tr>
+<tr class="separator:a4cdf11972a619014b13891c2e8ef4bcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61d3e2834c58d57f2da14f92c7582481"><td class="memItemLeft" align="right" valign="top"><a id="a61d3e2834c58d57f2da14f92c7582481"></a>
+<a class="el" href="ph__core_8h.html#acd4c7607ab6cc12a3b82937dc17d4cb3">PH_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><b>phDeleteBuffer</b> (PHuint64 bufferId)</td></tr>
+<tr class="separator:a61d3e2834c58d57f2da14f92c7582481"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad39393aa91b9a4942f85947d08d55c72"><td class="memItemLeft" align="right" valign="top"><a id="ad39393aa91b9a4942f85947d08d55c72"></a>
 <a class="el" href="ph__core_8h.html#acd4c7607ab6cc12a3b82937dc17d4cb3">PH_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><b>phAsyncGetRendererStatistics</b> (PHuint64 engineId, PHfloat32 *out_percentageProgress, PHfloat32 *out_samplesPerSecond)</td></tr>
 <tr class="separator:ad39393aa91b9a4942f85947d08d55c72"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -258,13 +286,16 @@ Functions</h2></td></tr>
 <tr class="memitem:a312add76d3d5daa162f02aeb2ffd97fd"><td class="memItemLeft" align="right" valign="top"><a id="a312add76d3d5daa162f02aeb2ffd97fd"></a>
 <a class="el" href="ph__core_8h.html#acd4c7607ab6cc12a3b82937dc17d4cb3">PH_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><b>phAsyncPeekFrame</b> (PHuint64 engineId, PHuint64 channelIndex, PHuint32 xPx, PHuint32 yPx, PHuint32 widthPx, PHuint32 heightPx, PHuint64 frameId)</td></tr>
 <tr class="separator:a312add76d3d5daa162f02aeb2ffd97fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe31488de0ebe6f9cf3faee2fd96407c"><td class="memItemLeft" align="right" valign="top"><a id="abe31488de0ebe6f9cf3faee2fd96407c"></a>
+<a class="el" href="ph__core_8h.html#acd4c7607ab6cc12a3b82937dc17d4cb3">PH_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><b>phAsyncPeekFrameRaw</b> (PHuint64 engineId, PHuint64 channelIndex, PHuint32 xPx, PHuint32 yPx, PHuint32 widthPx, PHuint32 heightPx, PHuint64 frameId)</td></tr>
+<tr class="separator:abe31488de0ebe6f9cf3faee2fd96407c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Contains main APIs of the render engine. </p>
+<div class="textblock"><p>Contains main C APIs of the render engine. </p>
 <p>To correctly use Photon-v2 API, please read the following notes:</p>
 <ul>
 <li>phInit() and phExit() must be called before and after the use of the API, and should be called on the same thread.</li>
-<li>phCreate/Delete&lt;X&gt;() and phAsync&lt;X&gt;() functions can be used in a multithreaded environment, namely, they are thread-safe. An exception would be that create &amp; delete should be on the same thread.</li>
+<li>phCreate/Delete&lt;X&gt;() and phAsync&lt;X&gt;() functions can be used in a multithreaded environment, namely, they are thread-safe. An exception would be that create and delete should be called from the same thread.</li>
 <li>Resources created by phCreate&lt;X&gt;() cannot be manipulated concurrently. Any function requiring some resource ID inputs (except phAsync&lt;X&gt;() functions) is considered a resource manipulating operation on those resources. </li>
 </ul>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
@@ -291,7 +322,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_856524284ebe840938865dc061f982fb.html">Include</a></li><li class="navelem"><a class="el" href="ph__core_8h.html">ph_core.h</a></li>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:29 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:53:04 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

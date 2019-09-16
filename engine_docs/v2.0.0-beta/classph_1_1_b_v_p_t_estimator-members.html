@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -98,7 +104,9 @@ $(document).ready(function(){initNavTree('classph_1_1_b_v_p_t_estimator.html',''
   <tr bgcolor="#f0f0f0"><td class="entry"><b>estimate</b>(const Ray &amp;ray, const Integrand &amp;integrand, EnergyEstimation &amp;out_estimation) const override (defined in <a class="el" href="classph_1_1_b_v_p_t_estimator.html">ph::BVPTEstimator</a>)</td><td class="entry"><a class="el" href="classph_1_1_b_v_p_t_estimator.html">ph::BVPTEstimator</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>estimate</b>(const Ray &amp;ray, const Integrand &amp;integrand, TEstimationArray&lt; SpectralStrength &gt; &amp;out_estimation) const=0 (defined in <a class="el" href="classph_1_1_t_i_ray_estimator.html">ph::TIRayEstimator&lt; SpectralStrength &gt;</a>)</td><td class="entry"><a class="el" href="classph_1_1_t_i_ray_estimator.html">ph::TIRayEstimator&lt; SpectralStrength &gt;</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>m_estimationIndex</b> (defined in <a class="el" href="classph_1_1_full_ray_energy_estimator.html">ph::FullRayEnergyEstimator</a>)</td><td class="entry"><a class="el" href="classph_1_1_full_ray_energy_estimator.html">ph::FullRayEnergyEstimator</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setEstimationIndex</b>(std::size_t index) (defined in <a class="el" href="classph_1_1_full_ray_energy_estimator.html">ph::FullRayEnergyEstimator</a>)</td><td class="entry"><a class="el" href="classph_1_1_full_ray_energy_estimator.html">ph::FullRayEnergyEstimator</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>mapAttributeToEstimation</b>(std::size_t attributeId, std::size_t estimationIndex) override (defined in <a class="el" href="classph_1_1_full_ray_energy_estimator.html">ph::FullRayEnergyEstimator</a>)</td><td class="entry"><a class="el" href="classph_1_1_full_ray_energy_estimator.html">ph::FullRayEnergyEstimator</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>setEstimationIndex</b>(std::size_t index) (defined in <a class="el" href="classph_1_1_full_ray_energy_estimator.html">ph::FullRayEnergyEstimator</a>)</td><td class="entry"><a class="el" href="classph_1_1_full_ray_energy_estimator.html">ph::FullRayEnergyEstimator</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>toString</b>() const override (defined in <a class="el" href="classph_1_1_b_v_p_t_estimator.html">ph::BVPTEstimator</a>)</td><td class="entry"><a class="el" href="classph_1_1_b_v_p_t_estimator.html">ph::BVPTEstimator</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>update</b>(const Integrand &amp;integrand) override (defined in <a class="el" href="classph_1_1_b_v_p_t_estimator.html">ph::BVPTEstimator</a>)</td><td class="entry"><a class="el" href="classph_1_1_b_v_p_t_estimator.html">ph::BVPTEstimator</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~TIRayEstimator</b>()=default (defined in <a class="el" href="classph_1_1_t_i_ray_estimator.html">ph::TIRayEstimator&lt; SpectralStrength &gt;</a>)</td><td class="entry"><a class="el" href="classph_1_1_t_i_ray_estimator.html">ph::TIRayEstimator&lt; SpectralStrength &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
@@ -106,7 +114,7 @@ $(document).ready(function(){initNavTree('classph_1_1_b_v_p_t_estimator.html',''
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:29 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:53:26 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

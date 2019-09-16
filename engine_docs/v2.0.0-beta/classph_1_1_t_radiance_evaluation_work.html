@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -108,7 +114,7 @@ Inheritance diagram for ph::TRadianceEvaluationWork&lt; Photon &gt;:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a37f6c94986f4800a0f2ac9e5b659e8a7"><td class="memItemLeft" align="right" valign="top"><a id="a37f6c94986f4800a0f2ac9e5b659e8a7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TRadianceEvaluationWork</b> (const <a class="el" href="classph_1_1_t_center_kdtree.html">TPhotonMap</a>&lt; Photon &gt; *photonMap, std::size_t numPhotonPaths)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TRadianceEvaluationWork</b> (const <a class="el" href="classph_1_1_t_indexed_point_kdtree.html">TPhotonMap</a>&lt; Photon &gt; *photonMap, std::size_t numPhotonPaths)</td></tr>
 <tr class="separator:a37f6c94986f4800a0f2ac9e5b659e8a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc9b9334a177f0e3b49e2755d9ca9456"><td class="memItemLeft" align="right" valign="top"><a id="acc9b9334a177f0e3b49e2755d9ca9456"></a>
 <a class="el" href="classph_1_1_linear_srgb_spectral_strength.html">SpectralStrength</a>&#160;</td><td class="memItemRight" valign="bottom"><b>evaluateRadiance</b> (const <a class="el" href="classph_1_1_surface_hit.html">SurfaceHit</a> &amp;location, const <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> &amp;excitant, real kernelRadius)</td></tr>
@@ -127,7 +133,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>work</b> ()</td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a9cbd61e40456da50cd14c6e7907d5665"><td class="memItemLeft" align="right" valign="top"><a id="a9cbd61e40456da50cd14c6e7907d5665"></a>
-const <a class="el" href="classph_1_1_t_center_kdtree.html">TPhotonMap</a>&lt; Photon &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>getPhotonMap</b> () const</td></tr>
+const <a class="el" href="classph_1_1_t_indexed_point_kdtree.html">TPhotonMap</a>&lt; Photon &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>getPhotonMap</b> () const</td></tr>
 <tr class="separator:a9cbd61e40456da50cd14c6e7907d5665"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab18ef8adc170b5436ec233a179356301"><td class="memItemLeft" align="right" valign="top"><a id="ab18ef8adc170b5436ec233a179356301"></a>
 const std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>numPhotonPaths</b> () const</td></tr>
@@ -159,7 +165,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setElapsedMs</b> (std
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceph.html">ph</a></li><li class="navelem"><a class="el" href="classph_1_1_t_radiance_evaluation_work.html">TRadianceEvaluationWork</a></li>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:31 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:56:13 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

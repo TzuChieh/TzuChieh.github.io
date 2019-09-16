@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -94,6 +100,11 @@ $(document).ready(function(){initNavTree('classph_1_1_i_work_dispatcher.html',''
 <div class="title">ph::IWorkDispatcher Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A manager that distributes work.  
+ <a href="classph_1_1_i_work_dispatcher.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_i_work_dispatcher_8h_source.html">IWorkDispatcher.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ph::IWorkDispatcher:</div>
 <div class="dyncontent">
@@ -101,7 +112,7 @@ Inheritance diagram for ph::IWorkDispatcher:</div>
   <img src="classph_1_1_i_work_dispatcher.png" usemap="#ph::IWorkDispatcher_map" alt=""/>
   <map id="ph::IWorkDispatcher_map" name="ph::IWorkDispatcher_map">
 <area href="classph_1_1_dammertz_dispatcher.html" alt="ph::DammertzDispatcher" shape="rect" coords="0,56,148,80"/>
-<area href="classph_1_1_work_scheduler.html" alt="ph::WorkScheduler" shape="rect" coords="395,56,543,80"/>
+<area href="classph_1_1_work_scheduler.html" title="A manager that distributes a fixed amount of work to workers." alt="ph::WorkScheduler" shape="rect" coords="395,56,543,80"/>
 <area href="classph_1_1_grid_scheduler.html" alt="ph::GridScheduler" shape="rect" coords="0,112,148,136"/>
 <area href="classph_1_1_plate_scheduler.html" alt="ph::PlateScheduler" shape="rect" coords="158,112,306,136"/>
 <area href="classph_1_1_spiral_grid_scheduler.html" alt="ph::SpiralGridScheduler" shape="rect" coords="316,112,464,136"/>
@@ -113,10 +124,45 @@ Inheritance diagram for ph::IWorkDispatcher:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad935a7c1108afeab33bf2d59b9dd3fee"><td class="memItemLeft" align="right" valign="top"><a id="ad935a7c1108afeab33bf2d59b9dd3fee"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>dispatch</b> (<a class="el" href="classph_1_1_work_unit.html">WorkUnit</a> *out_workUnit)=0</td></tr>
+<tr class="memitem:ad935a7c1108afeab33bf2d59b9dd3fee"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classph_1_1_i_work_dispatcher.html#ad935a7c1108afeab33bf2d59b9dd3fee">dispatch</a> (<a class="el" href="classph_1_1_work_unit.html">WorkUnit</a> *out_workUnit)=0</td></tr>
+<tr class="memdesc:ad935a7c1108afeab33bf2d59b9dd3fee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get some amount of work.  <a href="#ad935a7c1108afeab33bf2d59b9dd3fee">More...</a><br /></td></tr>
 <tr class="separator:ad935a7c1108afeab33bf2d59b9dd3fee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A manager that distributes work. </p>
+<p>The dispatcher will deliver some amount of work on demand. The sizes of each delivered work and the total amount of work is implementation defined. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad935a7c1108afeab33bf2d59b9dd3fee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad935a7c1108afeab33bf2d59b9dd3fee">&#9670;&nbsp;</a></span>dispatch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool ph::IWorkDispatcher::dispatch </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classph_1_1_work_unit.html">WorkUnit</a> *&#160;</td>
+          <td class="paramname"><em>out_workUnit</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get some amount of work. </p>
+<p>The meaning of the work dimensions is depending on the use case. </p><dl class="section return"><dt>Returns</dt><dd>True if work has been dispatched. </dd></dl>
+
+<p>Implemented in <a class="el" href="classph_1_1_dammertz_dispatcher.html#a0ae150f900747b00f989872c96b9b1ac">ph::DammertzDispatcher</a>, and <a class="el" href="classph_1_1_work_scheduler.html#ad8b870d2489a6e249ab156f445c80114">ph::WorkScheduler</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>Source/Core/Renderer/Region/<a class="el" href="_i_work_dispatcher_8h_source.html">IWorkDispatcher.h</a></li>
 </ul>
@@ -126,7 +172,7 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>dispatch</b> 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceph.html">ph</a></li><li class="navelem"><a class="el" href="classph_1_1_i_work_dispatcher.html">IWorkDispatcher</a></li>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:30 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:54:36 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

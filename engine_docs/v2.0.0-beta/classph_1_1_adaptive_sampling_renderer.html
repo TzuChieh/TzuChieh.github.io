@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -165,9 +171,9 @@ uint32&#160;</td><td class="memItemRight" valign="bottom"><b>getRenderWidthPx</b
 <tr class="memitem:a3839ef7de1541e84379f860835e7efb9 inherit pub_methods_classph_1_1_renderer"><td class="memItemLeft" align="right" valign="top"><a id="a3839ef7de1541e84379f860835e7efb9"></a>
 uint32&#160;</td><td class="memItemRight" valign="bottom"><b>getRenderHeightPx</b> () const</td></tr>
 <tr class="separator:a3839ef7de1541e84379f860835e7efb9 inherit pub_methods_classph_1_1_renderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2a3cfaa1b35a482aa2361b7c12dfe74 inherit pub_methods_classph_1_1_renderer"><td class="memItemLeft" align="right" valign="top"><a id="ab2a3cfaa1b35a482aa2361b7c12dfe74"></a>
-<a class="el" href="classph_1_1_t_a_a_b_b2_d.html">TAABB2D</a>&lt; int64 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getRenderWindowPx</b> () const</td></tr>
-<tr class="separator:ab2a3cfaa1b35a482aa2361b7c12dfe74 inherit pub_methods_classph_1_1_renderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3de8c000ac6c877ab7068790f8b99aab inherit pub_methods_classph_1_1_renderer"><td class="memItemLeft" align="right" valign="top"><a id="a3de8c000ac6c877ab7068790f8b99aab"></a>
+<a class="el" href="classph_1_1_t_a_a_b_b2_d.html">TAABB2D</a>&lt; int64 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getCropWindowPx</b> () const</td></tr>
+<tr class="separator:a3de8c000ac6c877ab7068790f8b99aab inherit pub_methods_classph_1_1_renderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a970abb912298c1357ff3cb55200c95 inherit pub_methods_classph_1_1_renderer"><td class="memItemLeft" align="right" valign="top"><a id="a4a970abb912298c1357ff3cb55200c95"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>asyncIsUpdating</b> () const</td></tr>
 <tr class="separator:a4a970abb912298c1357ff3cb55200c95 inherit pub_methods_classph_1_1_renderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -200,6 +206,16 @@ static <a class="el" href="classph_1_1_sdl_type_info.html">SdlTypeInfo</a>&#160;
 <tr class="memitem:ab6b02ece46d4b1a0872bb9179f75f4f1 inherit pub_static_methods_classph_1_1_renderer"><td class="memItemLeft" align="right" valign="top"><a id="ab6b02ece46d4b1a0872bb9179f75f4f1"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>ciRegister</b> (<a class="el" href="classph_1_1_command_register.html">CommandRegister</a> &amp;cmdRegister)</td></tr>
 <tr class="separator:ab6b02ece46d4b1a0872bb9179f75f4f1 inherit pub_static_methods_classph_1_1_renderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_classph_1_1_sampling_renderer"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classph_1_1_sampling_renderer')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classph_1_1_sampling_renderer.html">ph::SamplingRenderer</a></td></tr>
+<tr class="memitem:a7ead3e84ac14aa7cf5c2f90a3bcd4d18 inherit pro_attribs_classph_1_1_sampling_renderer"><td class="memItemLeft" align="right" valign="top"><a id="a7ead3e84ac14aa7cf5c2f90a3bcd4d18"></a>
+<a class="el" href="classph_1_1_sample_filter.html">SampleFilter</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_filter</b></td></tr>
+<tr class="separator:a7ead3e84ac14aa7cf5c2f90a3bcd4d18 inherit pro_attribs_classph_1_1_sampling_renderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09e90be1b2f016d0a9df55f36c2276b3 inherit pro_attribs_classph_1_1_sampling_renderer"><td class="memItemLeft" align="right" valign="top"><a id="a09e90be1b2f016d0a9df55f36c2276b3"></a>
+std::unique_ptr&lt; <a class="el" href="classph_1_1_i_ray_energy_estimator.html">IRayEnergyEstimator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_estimator</b></td></tr>
+<tr class="separator:a09e90be1b2f016d0a9df55f36c2276b3 inherit pro_attribs_classph_1_1_sampling_renderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Source/Core/Renderer/Sampling/<a class="el" href="_adaptive_sampling_renderer_8h_source.html">AdaptiveSamplingRenderer.h</a></li>
@@ -211,7 +227,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>ciRegister</b>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceph.html">ph</a></li><li class="navelem"><a class="el" href="classph_1_1_adaptive_sampling_renderer.html">AdaptiveSamplingRenderer</a></li>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:29 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:53:11 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

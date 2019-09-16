@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -89,7 +95,6 @@ $(document).ready(function(){initNavTree('classph_1_1_api_database.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#friends">Friends</a> &#124;
 <a href="classph_1_1_api_database-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ph::ApiDatabase Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
@@ -98,30 +103,25 @@ $(document).ready(function(){initNavTree('classph_1_1_api_database.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ac528109d08e56bbb86e9c9da81eb181a"><td class="memItemLeft" align="right" valign="top"><a id="ac528109d08e56bbb86e9c9da81eb181a"></a>
-static std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>addEngine</b> (std::unique_ptr&lt; <a class="el" href="classph_1_1_engine.html">Engine</a> &gt; engine)</td></tr>
-<tr class="separator:ac528109d08e56bbb86e9c9da81eb181a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6990ecb95b8a821b453c46e8bcd4d7e0"><td class="memItemLeft" align="right" valign="top"><a id="a6990ecb95b8a821b453c46e8bcd4d7e0"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>removeEngine</b> (const std::size_t engineId)</td></tr>
-<tr class="separator:a6990ecb95b8a821b453c46e8bcd4d7e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01e49182cdd0f2c6e9affb58ee8e4549"><td class="memItemLeft" align="right" valign="top"><a id="a01e49182cdd0f2c6e9affb58ee8e4549"></a>
-static <a class="el" href="classph_1_1_engine.html">Engine</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getEngine</b> (const std::size_t engineId)</td></tr>
-<tr class="separator:a01e49182cdd0f2c6e9affb58ee8e4549"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6614b885d1b4396dbab9badcfcb4ae53"><td class="memItemLeft" align="right" valign="top"><a id="a6614b885d1b4396dbab9badcfcb4ae53"></a>
-static std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>addFrame</b> (std::unique_ptr&lt; <a class="el" href="classph_1_1_t_frame.html">HdrRgbFrame</a> &gt; frame)</td></tr>
-<tr class="separator:a6614b885d1b4396dbab9badcfcb4ae53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a825d9230bdb40a1b9ce751b55303cb06"><td class="memItemLeft" align="right" valign="top"><a id="a825d9230bdb40a1b9ce751b55303cb06"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>removeFrame</b> (const std::size_t frameId)</td></tr>
-<tr class="separator:a825d9230bdb40a1b9ce751b55303cb06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a593b0d10f7dcecc7b22412f44ef086cf"><td class="memItemLeft" align="right" valign="top"><a id="a593b0d10f7dcecc7b22412f44ef086cf"></a>
-static <a class="el" href="classph_1_1_t_frame.html">HdrRgbFrame</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getFrame</b> (const std::size_t frameId)</td></tr>
-<tr class="separator:a593b0d10f7dcecc7b22412f44ef086cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
-Friends</h2></td></tr>
-<tr class="memitem:ad09057025e387ab213e750a44e472820"><td class="memItemLeft" align="right" valign="top"><a id="ad09057025e387ab213e750a44e472820"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>exit_api_database</b> ()</td></tr>
-<tr class="separator:ad09057025e387ab213e750a44e472820"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e2eada8b04561835552c28916bfee37"><td class="memTemplParams" colspan="2"><a id="a2e2eada8b04561835552c28916bfee37"></a>
+template&lt;typename Resource &gt; </td></tr>
+<tr class="memitem:a2e2eada8b04561835552c28916bfee37"><td class="memTemplItemLeft" align="right" valign="top">static std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><b>addResource</b> (std::unique_ptr&lt; Resource &gt; resource, <a class="el" href="classph_1_1_logger.html">Logger</a> *logger=nullptr)</td></tr>
+<tr class="separator:a2e2eada8b04561835552c28916bfee37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01cdbe66d76f7bdb904e1ecd361caecf"><td class="memTemplParams" colspan="2"><a id="a01cdbe66d76f7bdb904e1ecd361caecf"></a>
+template&lt;typename Resource &gt; </td></tr>
+<tr class="memitem:a01cdbe66d76f7bdb904e1ecd361caecf"><td class="memTemplItemLeft" align="right" valign="top">static Resource *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>getResource</b> (std::size_t id, <a class="el" href="classph_1_1_logger.html">Logger</a> *logger=nullptr)</td></tr>
+<tr class="separator:a01cdbe66d76f7bdb904e1ecd361caecf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10fdcf09c90a555fc552dce8dd12b420"><td class="memTemplParams" colspan="2"><a id="a10fdcf09c90a555fc552dce8dd12b420"></a>
+template&lt;typename Resource &gt; </td></tr>
+<tr class="memitem:a10fdcf09c90a555fc552dce8dd12b420"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>removeResource</b> (std::size_t id, <a class="el" href="classph_1_1_logger.html">Logger</a> *logger=nullptr)</td></tr>
+<tr class="separator:a10fdcf09c90a555fc552dce8dd12b420"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad09cd2b241f971e9343b09c08e39e59b"><td class="memTemplParams" colspan="2"><a id="ad09cd2b241f971e9343b09c08e39e59b"></a>
+template&lt;typename Resource &gt; </td></tr>
+<tr class="memitem:ad09cd2b241f971e9343b09c08e39e59b"><td class="memTemplItemLeft" align="right" valign="top">static std::weak_ptr&lt; Resource &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>useResource</b> (std::size_t id)</td></tr>
+<tr class="separator:ad09cd2b241f971e9343b09c08e39e59b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8c6a9153bda23022f5521f5dacd4700"><td class="memItemLeft" align="right" valign="top"><a id="aa8c6a9153bda23022f5521f5dacd4700"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
+<tr class="separator:aa8c6a9153bda23022f5521f5dacd4700"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Source/Api/<a class="el" href="_api_database_8h_source.html">ApiDatabase.h</a></li>
@@ -133,7 +133,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>exit_api_database</b>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceph.html">ph</a></li><li class="navelem"><a class="el" href="classph_1_1_api_database.html">ApiDatabase</a></li>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:29 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:53:15 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

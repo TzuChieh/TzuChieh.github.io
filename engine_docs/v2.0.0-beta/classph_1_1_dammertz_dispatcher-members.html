@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -100,7 +106,7 @@ $(document).ready(function(){initNavTree('classph_1_1_dammertz_dispatcher.html',
   <tr bgcolor="#f0f0f0"><td class="entry"><b>DammertzDispatcher</b>(uint32 numWorkers, const Region &amp;fullRegion) (defined in <a class="el" href="classph_1_1_dammertz_dispatcher.html">ph::DammertzDispatcher</a>)</td><td class="entry"><a class="el" href="classph_1_1_dammertz_dispatcher.html">ph::DammertzDispatcher</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>DammertzDispatcher</b>(uint32 numWorkers, const Region &amp;fullRegion, real precisionStandard, std::size_t initialDepthPerRegion) (defined in <a class="el" href="classph_1_1_dammertz_dispatcher.html">ph::DammertzDispatcher</a>)</td><td class="entry"><a class="el" href="classph_1_1_dammertz_dispatcher.html">ph::DammertzDispatcher</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>DammertzDispatcher</b>(uint32 numWorkers, const Region &amp;fullRegion, real precisionStandard, std::size_t initialDepthPerRegion, std::size_t standardDepthPerRegion, std::size_t terminusDepthPerRegion) (defined in <a class="el" href="classph_1_1_dammertz_dispatcher.html">ph::DammertzDispatcher</a>)</td><td class="entry"><a class="el" href="classph_1_1_dammertz_dispatcher.html">ph::DammertzDispatcher</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>dispatch</b>(WorkUnit *out_workUnit) override (defined in <a class="el" href="classph_1_1_dammertz_dispatcher.html">ph::DammertzDispatcher</a>)</td><td class="entry"><a class="el" href="classph_1_1_dammertz_dispatcher.html">ph::DammertzDispatcher</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classph_1_1_dammertz_dispatcher.html#a0ae150f900747b00f989872c96b9b1ac">dispatch</a>(WorkUnit *out_workUnit) override</td><td class="entry"><a class="el" href="classph_1_1_dammertz_dispatcher.html">ph::DammertzDispatcher</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>ERefineMode</b> enum name (defined in <a class="el" href="classph_1_1_dammertz_dispatcher.html">ph::DammertzDispatcher</a>)</td><td class="entry"><a class="el" href="classph_1_1_dammertz_dispatcher.html">ph::DammertzDispatcher</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>numPendingRegions</b>() const (defined in <a class="el" href="classph_1_1_dammertz_dispatcher.html">ph::DammertzDispatcher</a>)</td><td class="entry"><a class="el" href="classph_1_1_dammertz_dispatcher.html">ph::DammertzDispatcher</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>~IWorkDispatcher</b>()=default (defined in <a class="el" href="classph_1_1_i_work_dispatcher.html">ph::IWorkDispatcher</a>)</td><td class="entry"><a class="el" href="classph_1_1_i_work_dispatcher.html">ph::IWorkDispatcher</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
@@ -109,7 +115,7 @@ $(document).ready(function(){initNavTree('classph_1_1_dammertz_dispatcher.html',
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:29 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:53:37 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

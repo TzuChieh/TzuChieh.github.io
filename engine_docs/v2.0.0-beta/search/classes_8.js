@@ -26,6 +26,7 @@ var searchData=
   ['is_5fconvertible_5fv_3c_20decltype_28std_3a_3adeclval_3c_20a_20_3e_28_29_2bstd_3a_3adeclval_3c_20b_20_3e_28_29_29_2c_20c_20_3e_20_3e_3e',['is_convertible_v&lt; decltype(std::declval&lt; A &gt;()+std::declval&lt; B &gt;()), C &gt; &gt;&gt;',['../structph_1_1has__add__operator_3_01_a_00_01_b_00_01_c_00_01std_1_1enable__if__t_3_01std_1_1is__c733af3c580edf7196a55cc8ba772e41b.html',1,'ph']]],
   ['isdlresource',['ISdlResource',['../classph_1_1_i_sdl_resource.html',1,'ph']]],
   ['isensedrayprocessor',['ISensedRayProcessor',['../classph_1_1_i_sensed_ray_processor.html',1,'ph']]],
+  ['isobeckmann',['IsoBeckmann',['../classph_1_1_iso_beckmann.html',1,'ph']]],
   ['isotrowbridgereitz',['IsoTrowbridgeReitz',['../classph_1_1_iso_trowbridge_reitz.html',1,'ph']]],
   ['iworkdispatcher',['IWorkDispatcher',['../classph_1_1_i_work_dispatcher.html',1,'ph']]]
 ];

@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -101,7 +107,7 @@ $(document).ready(function(){initNavTree('_t_a_a_b_b3_d_8h_source.html','');});
 <div class="ttc" id="classph_1_1_t_a_a_b_b3_d_html_a9fb38e07789c77ef91a647de135085c6"><div class="ttname"><a href="classph_1_1_t_a_a_b_b3_d.html#a9fb38e07789c77ef91a647de135085c6">ph::TAABB3D::expand</a></div><div class="ttdeci">void expand(const TVector3&lt; T &gt; &amp;amount)</div><div class="ttdoc">Makes the bounds grow by some amount.</div><div class="ttdef"><b>Definition:</b> TAABB3D.ipp:327</div></div>
 <div class="ttc" id="classph_1_1_t_a_a_b_b3_d_html_a7de126592688c09c5e6bc887f0015cf0"><div class="ttname"><a href="classph_1_1_t_a_a_b_b3_d.html#a7de126592688c09c5e6bc887f0015cf0">ph::TAABB3D::getSurfaceArea</a></div><div class="ttdeci">T getSurfaceArea() const</div><div class="ttdoc">Get the surface area of the bound.</div><div class="ttdef"><b>Definition:</b> TAABB3D.ipp:301</div></div>
 <div class="ttc" id="namespaceph_html"><div class="ttname"><a href="namespaceph.html">ph</a></div><div class="ttdoc">The root for all renderer implementations.</div><div class="ttdef"><b>Definition:</b> Actor.cpp:5</div></div>
-<div class="ttc" id="classph_1_1_ray_html"><div class="ttname"><a href="classph_1_1_ray.html">ph::Ray</a></div><div class="ttdoc">Representing a ray in space.</div><div class="ttdef"><b>Definition:</b> Ray.h:22</div></div>
+<div class="ttc" id="classph_1_1_ray_html"><div class="ttname"><a href="classph_1_1_ray.html">ph::Ray</a></div><div class="ttdoc">Representing a ray in space.</div><div class="ttdef"><b>Definition:</b> Ray.h:25</div></div>
 <div class="ttc" id="classph_1_1_t_a_a_b_b3_d_html_aebb11aaefe83c4146b5962befad3a21c"><div class="ttname"><a href="classph_1_1_t_a_a_b_b3_d.html#aebb11aaefe83c4146b5962befad3a21c">ph::TAABB3D::getMinVertex</a></div><div class="ttdeci">const TVector3&lt; T &gt; &amp; getMinVertex() const</div><div class="ttdoc">Get the corner vertex with the minimum values.</div><div class="ttdef"><b>Definition:</b> TAABB3D.ipp:277</div></div>
 <div class="ttc" id="classph_1_1_t_a_a_b_b3_d_html_a7c13debd6b0c9b539b568e68c533b634"><div class="ttname"><a href="classph_1_1_t_a_a_b_b3_d.html#a7c13debd6b0c9b539b568e68c533b634">ph::TAABB3D::equals</a></div><div class="ttdeci">bool equals(const TAABB3D &amp;other) const</div><div class="ttdoc">Checks whether this bound is equal to another bound.</div><div class="ttdef"><b>Definition:</b> TAABB3D.ipp:362</div></div>
 <div class="ttc" id="classph_1_1_t_a_a_b_b3_d_html_a42a28294ee8f970e064137ce71b96a4b"><div class="ttname"><a href="classph_1_1_t_a_a_b_b3_d.html#a42a28294ee8f970e064137ce71b96a4b">ph::TAABB3D::getVertices</a></div><div class="ttdeci">std::vector&lt; TVector3&lt; T &gt; &gt; getVertices() const</div><div class="ttdoc">Get the 8 vertices of the bound.</div><div class="ttdef"><b>Definition:</b> TAABB3D.ipp:255</div></div>
@@ -123,7 +129,7 @@ $(document).ready(function(){initNavTree('_t_a_a_b_b3_d_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_1ad6433457b0067ef8f54a4fa85f5c9a.html">Core</a></li><li class="navelem"><a class="el" href="dir_cf7557183cc2deabfca361e9078b2d91.html">Bound</a></li><li class="navelem"><b>TAABB3D.h</b></li>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:28 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:53:03 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

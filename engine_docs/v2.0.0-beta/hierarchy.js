@@ -23,16 +23,20 @@ var hierarchy =
     [ "ph::BvhIntersectableInfo", "classph_1_1_bvh_intersectable_info.html", null ],
     [ "ph::BvhLinearNode", "classph_1_1_bvh_linear_node.html", null ],
     [ "ph::BvhSahBucket", "classph_1_1_bvh_sah_bucket.html", null ],
+    [ "ph::ByteBuffer", "classph_1_1_byte_buffer.html", null ],
     [ "ph::Color", "classph_1_1_color.html", null ],
     [ "ph::ColorSpace", "classph_1_1_color_space.html", null ],
     [ "ph::CommandEntry", "classph_1_1_command_entry.html", null ],
     [ "ph::CommandRegister", "classph_1_1_command_register.html", null ],
+    [ "ph::ConductiveInterfaceInfo", "classph_1_1_conductive_interface_info.html", null ],
     [ "ph::Config", "classph_1_1_config.html", null ],
     [ "ph::CookedDataStorage", "classph_1_1_cooked_data_storage.html", null ],
     [ "ph::CookedUnit", "classph_1_1_cooked_unit.html", null ],
     [ "ph::CoreResource", "classph_1_1_core_resource.html", null ],
+    [ "ph::CosLobeWeightedUnitHemisphere", "classph_1_1_cos_lobe_weighted_unit_hemisphere.html", null ],
     [ "ph::CosThetaWeightedUnitHemisphere", "classph_1_1_cos_theta_weighted_unit_hemisphere.html", null ],
     [ "ph::DataTreatment", "classph_1_1_data_treatment.html", null ],
+    [ "ph::DielectricInterfaceInfo", "classph_1_1_dielectric_interface_info.html", null ],
     [ "ph::DirectLightSample", "classph_1_1_direct_light_sample.html", null ],
     [ "ph::EmitFunction", "classph_1_1_emit_function.html", null ],
     [ "ph::Emitter", "classph_1_1_emitter.html", [
@@ -50,6 +54,8 @@ var hierarchy =
     ] ],
     [ "ph::Engine", "classph_1_1_engine.html", null ],
     [ "ph::ExitStatus", "classph_1_1_exit_status.html", null ],
+    [ "ph::ExrFileReader", "classph_1_1_exr_file_reader.html", null ],
+    [ "ph::ExrFileWriter", "classph_1_1_exr_file_writer.html", null ],
     [ "false_type", null, [
       [ "ph::has_add_operator< A, B, C, typename >", "structph_1_1has__add__operator.html", null ],
       [ "ph::has_multiply_operator< A, B, C, typename >", "structph_1_1has__multiply__operator.html", null ],
@@ -63,9 +69,9 @@ var hierarchy =
     [ "ph::FrameProcessingPipeline", "classph_1_1_frame_processing_pipeline.html", null ],
     [ "ph::FrameProcessor", "classph_1_1_frame_processor.html", null ],
     [ "ph::FresnelEffect", "classph_1_1_fresnel_effect.html", [
-      [ "ph::ConductorDielectricFresnel", "classph_1_1_conductor_dielectric_fresnel.html", [
-        [ "ph::ExactConductorDielectricFresnel", "classph_1_1_exact_conductor_dielectric_fresnel.html", null ],
-        [ "ph::SchlickApproxConductorDielectricFresnel", "classph_1_1_schlick_approx_conductor_dielectric_fresnel.html", null ]
+      [ "ph::ConductorFresnel", "classph_1_1_conductor_fresnel.html", [
+        [ "ph::ExactConductorFresnel", "classph_1_1_exact_conductor_fresnel.html", null ],
+        [ "ph::SchlickApproxConductorFresnel", "classph_1_1_schlick_approx_conductor_fresnel.html", null ]
       ] ],
       [ "ph::DielectricFresnel", "classph_1_1_dielectric_fresnel.html", [
         [ "ph::ExactDielectricFresnel", "classph_1_1_exact_dielectric_fresnel.html", null ],
@@ -170,6 +176,9 @@ var hierarchy =
       [ "ph::TCommandInterface< ATransformedInstance >", "classph_1_1_t_command_interface.html", [
         [ "ph::ATransformedInstance", "classph_1_1_a_transformed_instance.html", null ]
       ] ],
+      [ "ph::TCommandInterface< AttributeRenderer >", "classph_1_1_t_command_interface.html", [
+        [ "ph::AttributeRenderer", "classph_1_1_attribute_renderer.html", null ]
+      ] ],
       [ "ph::TCommandInterface< BinaryMixedSurfaceMaterial >", "classph_1_1_t_command_interface.html", [
         [ "ph::BinaryMixedSurfaceMaterial", "classph_1_1_binary_mixed_surface_material.html", null ]
       ] ],
@@ -273,10 +282,10 @@ var hierarchy =
       ] ],
       [ "ph::TCommandInterface< Material >", "classph_1_1_t_command_interface.html", [
         [ "ph::Material", "classph_1_1_material.html", [
-          [ "ph::AbradedSurface", "classph_1_1_abraded_surface.html", null ],
           [ "ph::FullMaterial", "classph_1_1_full_material.html", null ],
           [ "ph::SurfaceMaterial", "classph_1_1_surface_material.html", [
             [ "ph::AbradedOpaque", "classph_1_1_abraded_opaque.html", null ],
+            [ "ph::AbradedSurface", "classph_1_1_abraded_surface.html", null ],
             [ "ph::AbradedTranslucent", "classph_1_1_abraded_translucent.html", null ],
             [ "ph::BinaryMixedSurfaceMaterial", "classph_1_1_binary_mixed_surface_material.html", null ],
             [ "ph::IdealSubstance", "classph_1_1_ideal_substance.html", null ],
@@ -326,6 +335,7 @@ var hierarchy =
       ] ],
       [ "ph::TCommandInterface< Renderer >", "classph_1_1_t_command_interface.html", [
         [ "ph::Renderer", "classph_1_1_renderer.html", [
+          [ "ph::AttributeRenderer", "classph_1_1_attribute_renderer.html", null ],
           [ "ph::PMRenderer", "classph_1_1_p_m_renderer.html", null ],
           [ "ph::SamplingRenderer", "classph_1_1_sampling_renderer.html", [
             [ "ph::AdaptiveSamplingRenderer", "classph_1_1_adaptive_sampling_renderer.html", null ],
@@ -386,8 +396,10 @@ var hierarchy =
     [ "ph::LogSender", "classph_1_1_log_sender.html", null ],
     [ "ph::Microfacet", "classph_1_1_microfacet.html", [
       [ "ph::AnisoTrowbridgeReitz", "classph_1_1_aniso_trowbridge_reitz.html", null ],
+      [ "ph::IsoBeckmann", "classph_1_1_iso_beckmann.html", null ],
       [ "ph::IsoTrowbridgeReitz", "classph_1_1_iso_trowbridge_reitz.html", null ]
     ] ],
+    [ "ph::MicrosurfaceInfo", "classph_1_1_microsurface_info.html", null ],
     [ "ph::ModelParser", "classph_1_1_model_parser.html", null ],
     [ "ph::NamedResourceStorage", "classph_1_1_named_resource_storage.html", null ],
     [ "ph::ObservableRenderData", "classph_1_1_observable_render_data.html", null ],
@@ -459,7 +471,7 @@ var hierarchy =
     [ "ph::Statistics", "classph_1_1_statistics.html", null ],
     [ "ph::SurfaceBehavior", "classph_1_1_surface_behavior.html", null ],
     [ "ph::SurfaceHit", "classph_1_1_surface_hit.html", null ],
-    [ "ph::SurfaceLayerProperty", "classph_1_1_surface_layer_property.html", null ],
+    [ "ph::SurfaceLayerInfo", "classph_1_1_surface_layer_info.html", null ],
     [ "ph::SurfaceOptics", "classph_1_1_surface_optics.html", [
       [ "ph::IdealAbsorber", "classph_1_1_ideal_absorber.html", null ],
       [ "ph::IdealDielectric", "classph_1_1_ideal_dielectric.html", null ],
@@ -469,6 +481,7 @@ var hierarchy =
       [ "ph::LbLayeredSurface", "classph_1_1_lb_layered_surface.html", null ],
       [ "ph::LerpedSurfaceOptics", "classph_1_1_lerped_surface_optics.html", null ],
       [ "ph::OpaqueMicrofacet", "classph_1_1_opaque_microfacet.html", null ],
+      [ "ph::OrenNayar", "classph_1_1_oren_nayar.html", null ],
       [ "ph::ThinDielectricFilm", "classph_1_1_thin_dielectric_film.html", null ],
       [ "ph::TranslucentMicrofacet", "classph_1_1_translucent_microfacet.html", null ]
     ] ],
@@ -493,10 +506,6 @@ var hierarchy =
     [ "ph::TArithmeticArray< real, N >", "classph_1_1_t_arithmetic_array.html", null ],
     [ "ph::TBitFlags< Value, Input >", "classph_1_1_t_bit_flags.html", null ],
     [ "ph::TBitFlags< uint32, ESurfacePhenomenon >", "classph_1_1_t_bit_flags.html", null ],
-    [ "ph::TCenterKdtree< Item, Index, CenterCalculator >", "classph_1_1_t_center_kdtree.html", null ],
-    [ "ph::TCenterKdtree< FullPhoton >", "classph_1_1_t_center_kdtree.html", null ],
-    [ "ph::TCenterKdtree< ph::FullPhoton >", "classph_1_1_t_center_kdtree.html", null ],
-    [ "ph::TCenterKdtree< Photon >", "classph_1_1_t_center_kdtree.html", null ],
     [ "ph::TConstIteratorProxy< ContainerType >", "classph_1_1_t_const_iterator_proxy.html", null ],
     [ "ph::TCoordinate2_i0e1< T >", "classph_1_1_t_coordinate2__i0e1.html", null ],
     [ "ph::TDecomposedTransform< T >", "classph_1_1_t_decomposed_transform.html", null ],
@@ -520,6 +529,10 @@ var hierarchy =
     [ "ph::Timestamp", "classph_1_1_timestamp.html", null ],
     [ "ph::TIndexedKdtree< Item, Index >", "classph_1_1_t_indexed_kdtree.html", null ],
     [ "ph::TIndexedKdtreeNode< Index, USE_SINGLE_ITEM_OPT >", "classph_1_1_t_indexed_kdtree_node.html", null ],
+    [ "ph::TIndexedPointKdtree< Item, Index, PointCalculator >", "classph_1_1_t_indexed_point_kdtree.html", null ],
+    [ "ph::TIndexedPointKdtree< FullPhoton >", "classph_1_1_t_indexed_point_kdtree.html", null ],
+    [ "ph::TIndexedPointKdtree< ph::FullPhoton >", "classph_1_1_t_indexed_point_kdtree.html", null ],
+    [ "ph::TIndexedPointKdtree< Photon >", "classph_1_1_t_indexed_point_kdtree.html", null ],
     [ "ph::TIndexedVector3< T >", "classph_1_1_t_indexed_vector3.html", null ],
     [ "ph::TIRayEstimator< EstimationType >", "classph_1_1_t_i_ray_estimator.html", null ],
     [ "ph::TIRayEstimator< SpectralStrength >", "classph_1_1_t_i_ray_estimator.html", [
@@ -527,8 +540,14 @@ var hierarchy =
         [ "ph::FullRayEnergyEstimator", "classph_1_1_full_ray_energy_estimator.html", [
           [ "ph::BNEEPTEstimator", "classph_1_1_b_n_e_e_p_t_estimator.html", null ],
           [ "ph::BVPTEstimator", "classph_1_1_b_v_p_t_estimator.html", null ]
+        ] ],
+        [ "ph::PartialRayEnergyEstimator", "classph_1_1_partial_ray_energy_estimator.html", [
+          [ "ph::BVPTDLEstimator", "classph_1_1_b_v_p_t_d_l_estimator.html", null ]
         ] ]
       ] ]
+    ] ],
+    [ "ph::TIRayEstimator< Vector3R >", "classph_1_1_t_i_ray_estimator.html", [
+      [ "ph::SurfaceAttributeEstimator", "classph_1_1_surface_attribute_estimator.html", null ]
     ] ],
     [ "ph::TIteratorProxy< ContainerType >", "classph_1_1_t_iterator_proxy.html", null ],
     [ "ph::TManagedResource< T >", "classph_1_1_t_managed_resource.html", null ],

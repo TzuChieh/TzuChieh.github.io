@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -109,6 +115,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1cdcc5ac8e8c01b339552698b7757a84"><td class="memItemLeft" align="right" valign="top"><a id="a1cdcc5ac8e8c01b339552698b7757a84"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>operate</b> (<a class="el" href="classph_1_1_t_frame.html">HdrRgbFrame</a> &amp;frame) const override</td></tr>
 <tr class="separator:a1cdcc5ac8e8c01b339552698b7757a84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad13cfdcf9308fef5db2e10768f65ff15"><td class="memItemLeft" align="right" valign="top"><a id="ad13cfdcf9308fef5db2e10768f65ff15"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>operateLocal</b> (<a class="el" href="classph_1_1_t_frame.html">HdrRgbFrame</a> &amp;frame, const <a class="el" href="classph_1_1_t_a_a_b_b2_d.html">TAABB2D</a>&lt; uint32 &gt; &amp;region) const</td></tr>
+<tr class="separator:ad13cfdcf9308fef5db2e10768f65ff15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47d41f381bf4b4e591682572e28d2792"><td class="memItemLeft" align="right" valign="top"><a id="a47d41f381bf4b4e591682572e28d2792"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setExposure</b> (real exposure)</td></tr>
 <tr class="separator:a47d41f381bf4b4e591682572e28d2792"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,7 +132,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setExposure</b> (real
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceph.html">ph</a></li><li class="navelem"><a class="el" href="classph_1_1_j_r_tone_mapping.html">JRToneMapping</a></li>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:30 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:54:37 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

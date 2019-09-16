@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -101,12 +107,13 @@ Inheritance diagram for ph::Renderer:</div>
  <div class="center">
   <img src="classph_1_1_renderer.png" usemap="#ph::Renderer_map" alt=""/>
   <map id="ph::Renderer_map" name="ph::Renderer_map">
-<area href="classph_1_1_t_command_interface.html" alt="ph::TCommandInterface&lt; Renderer &gt;" shape="rect" coords="115,56,336,80"/>
-<area href="classph_1_1_i_sdl_resource.html" alt="ph::ISdlResource" shape="rect" coords="115,0,336,24"/>
-<area href="classph_1_1_p_m_renderer.html" alt="ph::PMRenderer" shape="rect" coords="0,168,221,192"/>
-<area href="classph_1_1_sampling_renderer.html" alt="ph::SamplingRenderer" shape="rect" coords="231,168,452,192"/>
-<area href="classph_1_1_adaptive_sampling_renderer.html" alt="ph::AdaptiveSamplingRenderer" shape="rect" coords="115,224,336,248"/>
-<area href="classph_1_1_equal_sampling_renderer.html" alt="ph::EqualSamplingRenderer" shape="rect" coords="346,224,567,248"/>
+<area href="classph_1_1_t_command_interface.html" alt="ph::TCommandInterface&lt; Renderer &gt;" shape="rect" coords="231,56,452,80"/>
+<area href="classph_1_1_i_sdl_resource.html" alt="ph::ISdlResource" shape="rect" coords="231,0,452,24"/>
+<area href="classph_1_1_attribute_renderer.html" alt="ph::AttributeRenderer" shape="rect" coords="0,168,221,192"/>
+<area href="classph_1_1_p_m_renderer.html" alt="ph::PMRenderer" shape="rect" coords="231,168,452,192"/>
+<area href="classph_1_1_sampling_renderer.html" alt="ph::SamplingRenderer" shape="rect" coords="462,168,683,192"/>
+<area href="classph_1_1_adaptive_sampling_renderer.html" alt="ph::AdaptiveSamplingRenderer" shape="rect" coords="346,224,567,248"/>
+<area href="classph_1_1_equal_sampling_renderer.html" alt="ph::EqualSamplingRenderer" shape="rect" coords="577,224,798,248"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -154,9 +161,9 @@ uint32&#160;</td><td class="memItemRight" valign="bottom"><b>getRenderWidthPx</b
 <tr class="memitem:a3839ef7de1541e84379f860835e7efb9"><td class="memItemLeft" align="right" valign="top"><a id="a3839ef7de1541e84379f860835e7efb9"></a>
 uint32&#160;</td><td class="memItemRight" valign="bottom"><b>getRenderHeightPx</b> () const</td></tr>
 <tr class="separator:a3839ef7de1541e84379f860835e7efb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2a3cfaa1b35a482aa2361b7c12dfe74"><td class="memItemLeft" align="right" valign="top"><a id="ab2a3cfaa1b35a482aa2361b7c12dfe74"></a>
-<a class="el" href="classph_1_1_t_a_a_b_b2_d.html">TAABB2D</a>&lt; int64 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getRenderWindowPx</b> () const</td></tr>
-<tr class="separator:ab2a3cfaa1b35a482aa2361b7c12dfe74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3de8c000ac6c877ab7068790f8b99aab"><td class="memItemLeft" align="right" valign="top"><a id="a3de8c000ac6c877ab7068790f8b99aab"></a>
+<a class="el" href="classph_1_1_t_a_a_b_b2_d.html">TAABB2D</a>&lt; int64 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getCropWindowPx</b> () const</td></tr>
+<tr class="separator:a3de8c000ac6c877ab7068790f8b99aab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a970abb912298c1357ff3cb55200c95"><td class="memItemLeft" align="right" valign="top"><a id="a4a970abb912298c1357ff3cb55200c95"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>asyncIsUpdating</b> () const</td></tr>
 <tr class="separator:a4a970abb912298c1357ff3cb55200c95"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -186,7 +193,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>ciRegister</b>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceph.html">ph</a></li><li class="navelem"><a class="el" href="classph_1_1_renderer.html">Renderer</a></li>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:30 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:55:17 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

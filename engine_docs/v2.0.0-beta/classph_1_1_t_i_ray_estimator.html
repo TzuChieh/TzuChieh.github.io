@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -103,6 +109,12 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (c
 <tr class="memitem:a2f0ff926351e50a9cb83941123159dda"><td class="memItemLeft" align="right" valign="top"><a id="a2f0ff926351e50a9cb83941123159dda"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>estimate</b> (const <a class="el" href="classph_1_1_ray.html">Ray</a> &amp;ray, const <a class="el" href="classph_1_1_integrand.html">Integrand</a> &amp;integrand, <a class="el" href="classph_1_1_t_estimation_array.html">TEstimationArray</a>&lt; EstimationType &gt; &amp;out_estimation) const =0</td></tr>
 <tr class="separator:a2f0ff926351e50a9cb83941123159dda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77707afab84b2b836400625c86bfcc85"><td class="memItemLeft" align="right" valign="top"><a id="a77707afab84b2b836400625c86bfcc85"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>mapAttributeToEstimation</b> (std::size_t attributeId, std::size_t estimationIndex)</td></tr>
+<tr class="separator:a77707afab84b2b836400625c86bfcc85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab45648c6dcc4ea8a8ea4c3b0ea84d601"><td class="memItemLeft" align="right" valign="top"><a id="ab45648c6dcc4ea8a8ea4c3b0ea84d601"></a>
+virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> () const</td></tr>
+<tr class="separator:ab45648c6dcc4ea8a8ea4c3b0ea84d601"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Source/Core/Estimator/<a class="el" href="estimator__fwd_8h_source.html">estimator_fwd.h</a></li>
@@ -114,7 +126,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>estimate</b> 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceph.html">ph</a></li><li class="navelem"><a class="el" href="classph_1_1_t_i_ray_estimator.html">TIRayEstimator</a></li>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:31 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:56:02 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

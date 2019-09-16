@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -99,9 +105,6 @@ $(document).ready(function(){initNavTree('namespaceph_1_1math.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae89a6690e173656920ce445c823d4eb8"><td class="memItemLeft" align="right" valign="top"><a id="ae89a6690e173656920ce445c823d4eb8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>form_orthonormal_basis</b> (const <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> &amp;unitYaxis, <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> *const out_unitXaxis, <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> *const out_unitZaxis)</td></tr>
-<tr class="separator:ae89a6690e173656920ce445c823d4eb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14234263f1191fde0644069273c63a87"><td class="memItemLeft" align="right" valign="top"><a id="a14234263f1191fde0644069273c63a87"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>form_orthonormal_basis_frisvad</b> (const <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> &amp;unitYaxis, <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> *const out_unitXaxis, <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> *const out_unitZaxis)</td></tr>
 <tr class="separator:a14234263f1191fde0644069273c63a87"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -594,7 +597,7 @@ template&lt;typename T , std::enable_if_t&lt; std::is_integral_v&lt; T &gt;, int
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceph.html">ph</a></li><li class="navelem"><a class="el" href="namespaceph_1_1math.html">math</a></li>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:32 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:56:34 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

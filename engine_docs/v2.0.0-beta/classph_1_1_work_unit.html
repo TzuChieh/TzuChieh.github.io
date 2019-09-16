@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -94,14 +100,25 @@ $(document).ready(function(){initNavTree('classph_1_1_work_unit.html','');});
 <div class="title">ph::WorkUnit Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents some amount of work.  
+ <a href="classph_1_1_work_unit.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_work_unit_8h_source.html">WorkUnit.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a191abcf8d0349435c23ed57fcc109688"><td class="memItemLeft" align="right" valign="top"><a id="a191abcf8d0349435c23ed57fcc109688"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classph_1_1_work_unit.html#a191abcf8d0349435c23ed57fcc109688">WorkUnit</a> ()</td></tr>
+<tr class="memdesc:a191abcf8d0349435c23ed57fcc109688"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents zero amount of work. <br /></td></tr>
+<tr class="separator:a191abcf8d0349435c23ed57fcc109688"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b5724a4fc0d7059d37a40ecd93c8197"><td class="memItemLeft" align="right" valign="top"><a id="a4b5724a4fc0d7059d37a40ecd93c8197"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>WorkUnit</b> (const <a class="el" href="classph_1_1_t_a_a_b_b2_d.html">Region</a> &amp;region)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classph_1_1_work_unit.html#a4b5724a4fc0d7059d37a40ecd93c8197">WorkUnit</a> (const <a class="el" href="classph_1_1_t_a_a_b_b2_d.html">Region</a> &amp;region)</td></tr>
+<tr class="memdesc:a4b5724a4fc0d7059d37a40ecd93c8197"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a rectangular region of work with unit depth. <br /></td></tr>
 <tr class="separator:a4b5724a4fc0d7059d37a40ecd93c8197"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab84230b9af44001910b0b120c4af3935"><td class="memItemLeft" align="right" valign="top"><a id="ab84230b9af44001910b0b120c4af3935"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>WorkUnit</b> (const <a class="el" href="classph_1_1_t_a_a_b_b2_d.html">Region</a> &amp;region, std::size_t depth)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classph_1_1_work_unit.html#ab84230b9af44001910b0b120c4af3935">WorkUnit</a> (const <a class="el" href="classph_1_1_t_a_a_b_b2_d.html">Region</a> &amp;region, std::size_t depth)</td></tr>
+<tr class="memdesc:ab84230b9af44001910b0b120c4af3935"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a volume of work with specified dimensions. <br /></td></tr>
 <tr class="separator:ab84230b9af44001910b0b120c4af3935"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53dc72cbe5e24dca1167bf0190038700"><td class="memItemLeft" align="right" valign="top"><a id="a53dc72cbe5e24dca1167bf0190038700"></a>
 <a class="el" href="classph_1_1_t_a_a_b_b2_d.html">Region</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getRegion</b> () const</td></tr>
@@ -125,7 +142,10 @@ float64&#160;</td><td class="memItemRight" valign="bottom"><b>getAspectRatio</b>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> () const</td></tr>
 <tr class="separator:aa322b0be0f490b0e9a409f297442ea64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Represents some amount of work. </p>
+<p>Represents some amount of work as a volume with specific dimensions. The actual units of the dimensions are depend on the use case. </p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>Source/Core/Renderer/Region/<a class="el" href="_work_unit_8h_source.html">WorkUnit.h</a></li>
 </ul>
 </div><!-- contents -->
@@ -134,7 +154,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> (
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceph.html">ph</a></li><li class="navelem"><a class="el" href="classph_1_1_work_unit.html">WorkUnit</a></li>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:32 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:56:34 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

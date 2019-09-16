@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -128,6 +134,15 @@ $(document).ready(function(){initNavTree('functions.html','');});
 </ul>
 
 
+<h3><a id="index_d"></a>- d -</h3><ul>
+<li>dispatch()
+: <a class="el" href="classph_1_1_dammertz_dispatcher.html#a0ae150f900747b00f989872c96b9b1ac">ph::DammertzDispatcher</a>
+, <a class="el" href="classph_1_1_i_work_dispatcher.html#ad935a7c1108afeab33bf2d59b9dd3fee">ph::IWorkDispatcher</a>
+, <a class="el" href="classph_1_1_work_scheduler.html#ad8b870d2489a6e249ab156f445c80114">ph::WorkScheduler</a>
+</li>
+</ul>
+
+
 <h3><a id="index_e"></a>- e -</h3><ul>
 <li>equals()
 : <a class="el" href="classph_1_1_t_a_a_b_b3_d.html#a7c13debd6b0c9b539b568e68c533b634">ph::TAABB3D&lt; T &gt;</a>
@@ -173,6 +188,9 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>INVALID_STABLE_INDEX
 : <a class="el" href="classph_1_1_t_stable_index_dense_array.html#aa3ce385b536d64dc6d12e439a4c08998">ph::TStableIndexDenseArray&lt; T &gt;</a>
 </li>
+<li>isExhausted()
+: <a class="el" href="classph_1_1_work_scheduler.html#ab1055785bbb680ab6f2710e87bc36cdd">ph::WorkScheduler</a>
+</li>
 <li>isFiniteVolume()
 : <a class="el" href="classph_1_1_t_a_a_b_b3_d.html#af09cc4524458d2ffb6d25e6344ea1d35">ph::TAABB3D&lt; T &gt;</a>
 </li>
@@ -193,7 +211,7 @@ $(document).ready(function(){initNavTree('functions.html','');});
 , <a class="el" href="classph_1_1_transformed_primitive.html#a91ff66358fe5f29049b834ecd6f519c5">ph::TransformedPrimitive</a>
 </li>
 <li>isIntersectingVolume()
-: <a class="el" href="classph_1_1_t_a_a_b_b3_d.html#adebb5ee5e710b337f49bf346f909f55b">ph::TAABB3D&lt; T &gt;</a>
+: <a class="el" href="classph_1_1_t_a_a_b_b3_d.html#a1333442d6c1fe6b3c0f46a0b9587d903">ph::TAABB3D&lt; T &gt;</a>
 </li>
 <li>isIntersectingVolumeConservative()
 : <a class="el" href="classph_1_1_intersectable.html#acdac5915535942ee18f87c25cdcff7e7">ph::Intersectable</a>
@@ -253,6 +271,9 @@ $(document).ready(function(){initNavTree('functions.html','');});
 
 
 <h3><a id="index_s"></a>- s -</h3><ul>
+<li>schedule()
+: <a class="el" href="classph_1_1_work_scheduler.html#a2903b9d4d450a47d397d2450ee56d8ee">ph::WorkScheduler</a>
+</li>
 <li>setDirection()
 : <a class="el" href="classph_1_1_ray.html#ab605d8b4a2586b9cb6af90816e54f688">ph::Ray</a>
 </li>
@@ -295,12 +316,22 @@ $(document).ready(function(){initNavTree('functions.html','');});
 : <a class="el" href="classph_1_1_t_a_a_b_b3_d.html#ae9fec7f4ba6a7e299a875f6c1de42d55">ph::TAABB3D&lt; T &gt;</a>
 </li>
 </ul>
+
+
+<h3><a id="index_w"></a>- w -</h3><ul>
+<li>WorkScheduler()
+: <a class="el" href="classph_1_1_work_scheduler.html#a883f80a5c5b0e47d18ba881ab5251b03">ph::WorkScheduler</a>
+</li>
+<li>WorkUnit()
+: <a class="el" href="classph_1_1_work_unit.html#a191abcf8d0349435c23ed57fcc109688">ph::WorkUnit</a>
+</li>
+</ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:32 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:56:34 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

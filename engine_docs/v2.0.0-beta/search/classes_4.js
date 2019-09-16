@@ -8,7 +8,9 @@ var searchData=
   ['equalsamplingrenderer',['EqualSamplingRenderer',['../classph_1_1_equal_sampling_renderer.html',1,'ph']]],
   ['espowerfavoring',['ESPowerFavoring',['../classph_1_1_e_s_power_favoring.html',1,'ph']]],
   ['esuniformrandom',['ESUniformRandom',['../classph_1_1_e_s_uniform_random.html',1,'ph']]],
-  ['exactconductordielectricfresnel',['ExactConductorDielectricFresnel',['../classph_1_1_exact_conductor_dielectric_fresnel.html',1,'ph']]],
+  ['exactconductorfresnel',['ExactConductorFresnel',['../classph_1_1_exact_conductor_fresnel.html',1,'ph']]],
   ['exactdielectricfresnel',['ExactDielectricFresnel',['../classph_1_1_exact_dielectric_fresnel.html',1,'ph']]],
-  ['exitstatus',['ExitStatus',['../classph_1_1_exit_status.html',1,'ph']]]
+  ['exitstatus',['ExitStatus',['../classph_1_1_exit_status.html',1,'ph']]],
+  ['exrfilereader',['ExrFileReader',['../classph_1_1_exr_file_reader.html',1,'ph']]],
+  ['exrfilewriter',['ExrFileWriter',['../classph_1_1_exr_file_writer.html',1,'ph']]]
 ];

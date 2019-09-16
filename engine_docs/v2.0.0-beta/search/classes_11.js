@@ -18,7 +18,7 @@ var searchData=
   ['samplingstatistics',['SamplingStatistics',['../structph_1_1_sampling_statistics.html',1,'ph']]],
   ['scatterfunction',['ScatterFunction',['../classph_1_1_scatter_function.html',1,'ph']]],
   ['scene',['Scene',['../classph_1_1_scene.html',1,'ph']]],
-  ['schlickapproxconductordielectricfresnel',['SchlickApproxConductorDielectricFresnel',['../classph_1_1_schlick_approx_conductor_dielectric_fresnel.html',1,'ph']]],
+  ['schlickapproxconductorfresnel',['SchlickApproxConductorFresnel',['../classph_1_1_schlick_approx_conductor_fresnel.html',1,'ph']]],
   ['schlickapproxdielectricfresnel',['SchlickApproxDielectricFresnel',['../classph_1_1_schlick_approx_dielectric_fresnel.html',1,'ph']]],
   ['sdlapi',['SdlApi',['../classph_1_1_sdl_api.html',1,'ph']]],
   ['sdlexecutor',['SdlExecutor',['../classph_1_1_sdl_executor.html',1,'ph']]],
@@ -42,10 +42,11 @@ var searchData=
   ['statistics',['Statistics',['../classph_1_1_statistics.html',1,'ph']]],
   ['stripescheduler',['StripeScheduler',['../classph_1_1_stripe_scheduler.html',1,'ph']]],
   ['superpositionedprimitive',['SuperpositionedPrimitive',['../classph_1_1_superpositioned_primitive.html',1,'ph']]],
+  ['surfaceattributeestimator',['SurfaceAttributeEstimator',['../classph_1_1_surface_attribute_estimator.html',1,'ph']]],
   ['surfacebehavior',['SurfaceBehavior',['../classph_1_1_surface_behavior.html',1,'ph']]],
   ['surfaceemitter',['SurfaceEmitter',['../classph_1_1_surface_emitter.html',1,'ph']]],
   ['surfacehit',['SurfaceHit',['../classph_1_1_surface_hit.html',1,'ph']]],
-  ['surfacelayerproperty',['SurfaceLayerProperty',['../classph_1_1_surface_layer_property.html',1,'ph']]],
+  ['surfacelayerinfo',['SurfaceLayerInfo',['../classph_1_1_surface_layer_info.html',1,'ph']]],
   ['surfacematerial',['SurfaceMaterial',['../classph_1_1_surface_material.html',1,'ph']]],
   ['surfaceoptics',['SurfaceOptics',['../classph_1_1_surface_optics.html',1,'ph']]]
 ];

@@ -7,7 +7,6 @@ var math_8h =
     [ "clamp", "math_8h.html#a9e5d8a7a977115813ceeba3f0c00cbdb", null ],
     [ "fast_rcp_sqrt", "math_8h.html#acc970fbe8bc77521af0103b29e524baa", null ],
     [ "fast_sqrt", "math_8h.html#a26b792d366713902b782e1b73b5a5869", null ],
-    [ "form_orthonormal_basis", "math_8h.html#ae89a6690e173656920ce445c823d4eb8", null ],
     [ "form_orthonormal_basis_frisvad", "math_8h.html#a14234263f1191fde0644069273c63a87", null ],
     [ "fractional_part", "math_8h.html#a9460c87b6dab3097ee4d084d9b59a604", null ],
     [ "is_power_of_2", "math_8h.html#af9fb1f9314d18089be60ace0690b5de6", null ],

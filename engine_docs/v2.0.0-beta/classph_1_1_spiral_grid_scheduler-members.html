@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -94,30 +100,30 @@ $(document).ready(function(){initNavTree('classph_1_1_spiral_grid_scheduler.html
 
 <p>This is the complete list of members for <a class="el" href="classph_1_1_spiral_grid_scheduler.html">ph::SpiralGridScheduler</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>dispatch</b>(WorkUnit *out_workUnit) override (defined in <a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a>)</td><td class="entry"><a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classph_1_1_work_scheduler.html#ad8b870d2489a6e249ab156f445c80114">dispatch</a>(WorkUnit *out_workUnit) override</td><td class="entry"><a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>getScheduledFraction</b>() const (defined in <a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a>)</td><td class="entry"><a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getSubmittedFraction</b>() const (defined in <a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a>)</td><td class="entry"><a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>isExhausted</b>() const (defined in <a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a>)</td><td class="entry"><a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classph_1_1_work_scheduler.html#ab1055785bbb680ab6f2710e87bc36cdd">isExhausted</a>() const</td><td class="entry"><a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>m_numWorkers</b> (defined in <a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a>)</td><td class="entry"><a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>m_scheduledVolume</b> (defined in <a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a>)</td><td class="entry"><a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>m_submittedVolume</b> (defined in <a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a>)</td><td class="entry"><a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>m_totalVolume</b> (defined in <a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a>)</td><td class="entry"><a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>m_totalWorkUnit</b> (defined in <a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a>)</td><td class="entry"><a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>schedule</b>(WorkUnit *out_workUnit) (defined in <a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a>)</td><td class="entry"><a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classph_1_1_work_scheduler.html#a2903b9d4d450a47d397d2450ee56d8ee">schedule</a>(WorkUnit *out_workUnit)</td><td class="entry"><a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>scheduleAll</b>(std::vector&lt; WorkUnit &gt; &amp;out_workUnits) (defined in <a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a>)</td><td class="entry"><a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>SpiralGridScheduler</b>() (defined in <a class="el" href="classph_1_1_spiral_grid_scheduler.html">ph::SpiralGridScheduler</a>)</td><td class="entry"><a class="el" href="classph_1_1_spiral_grid_scheduler.html">ph::SpiralGridScheduler</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>SpiralGridScheduler</b>(std::size_t numWorkers, const WorkUnit &amp;totalWorkUnit, std::size_t spiralSquareSize) (defined in <a class="el" href="classph_1_1_spiral_grid_scheduler.html">ph::SpiralGridScheduler</a>)</td><td class="entry"><a class="el" href="classph_1_1_spiral_grid_scheduler.html">ph::SpiralGridScheduler</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>SpiralGridScheduler</b>(std::size_t numWorkers, const WorkUnit &amp;totalWorkUnit, const Vector2S &amp;spiralRectangleSize, const Vector2S &amp;numGridCells) (defined in <a class="el" href="classph_1_1_spiral_grid_scheduler.html">ph::SpiralGridScheduler</a>)</td><td class="entry"><a class="el" href="classph_1_1_spiral_grid_scheduler.html">ph::SpiralGridScheduler</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>SpiralGridScheduler</b>(std::size_t numWorkers, const WorkUnit &amp;totalWorkUnit, const Vector2S &amp;spiralTileSize) (defined in <a class="el" href="classph_1_1_spiral_grid_scheduler.html">ph::SpiralGridScheduler</a>)</td><td class="entry"><a class="el" href="classph_1_1_spiral_grid_scheduler.html">ph::SpiralGridScheduler</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>SpiralGridScheduler</b>(std::size_t numWorkers, const WorkUnit &amp;totalWorkUnit, const Vector2S &amp;spiralTileSize, const Vector2S &amp;numGridCells) (defined in <a class="el" href="classph_1_1_spiral_grid_scheduler.html">ph::SpiralGridScheduler</a>)</td><td class="entry"><a class="el" href="classph_1_1_spiral_grid_scheduler.html">ph::SpiralGridScheduler</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>submit</b>(const WorkUnit &amp;workUnit) (defined in <a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a>)</td><td class="entry"><a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>WorkScheduler</b>() (defined in <a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a>)</td><td class="entry"><a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>WorkScheduler</b>(std::size_t numWorkers, const WorkUnit &amp;totalWorkUnit) (defined in <a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a>)</td><td class="entry"><a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classph_1_1_work_scheduler.html#a883f80a5c5b0e47d18ba881ab5251b03">WorkScheduler</a>()</td><td class="entry"><a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classph_1_1_work_scheduler.html#aa171dfa8f9897c544e4342d26883d7e2">WorkScheduler</a>(std::size_t numWorkers, const WorkUnit &amp;totalWorkUnit)</td><td class="entry"><a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>~IWorkDispatcher</b>()=default (defined in <a class="el" href="classph_1_1_i_work_dispatcher.html">ph::IWorkDispatcher</a>)</td><td class="entry"><a class="el" href="classph_1_1_i_work_dispatcher.html">ph::IWorkDispatcher</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:31 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:55:37 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

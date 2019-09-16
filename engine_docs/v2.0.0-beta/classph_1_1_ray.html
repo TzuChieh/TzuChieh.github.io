@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -164,9 +170,11 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>getMaxT</b> () const<
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Representing a ray in space. </p>
-<p>Points $\vec{P}$ on a ray can be modeled using the equation</p>
-<p>$$\vec{P}=\vec{O}+t\vec{D}$$</p>
-<p>where $\vec{O}$ is ray origin and $\vec{D}$ is ray direction, and $t$ is a parameter in $[t_{min}, t_{max}]$. This class also records the time the ray was set on. Note the direction vector of the ray does not need to be normalized. </p>
+<p>Points \( \overrightarrow{P} \) on a ray can be modeled using the equation</p>
+<p class="formulaDsp">
+\[ \overrightarrow{P}=\overrightarrow{O}+t\overrightarrow{D} \]
+</p>
+<p>where \( \overrightarrow{O} \) is ray origin and \( \overrightarrow{D} \) is ray direction, and \( t \) is a parameter in \( [t_{min}, t_{max}] \). This class also records the time the ray was set on. Note the direction vector of the ray does not need to be normalized. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4b558e1fac00586025734619c1b0ec7b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4b558e1fac00586025734619c1b0ec7b">&#9670;&nbsp;</a></span>Ray() <span class="overload">[1/3]</span></h2>
@@ -377,7 +385,7 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>getMaxT</b> () const<
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceph.html">ph</a></li><li class="navelem"><a class="el" href="classph_1_1_ray.html">Ray</a></li>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:30 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:55:14 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

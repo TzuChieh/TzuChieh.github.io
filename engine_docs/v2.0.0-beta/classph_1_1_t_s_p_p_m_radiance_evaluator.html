@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -107,7 +113,7 @@ Inheritance diagram for ph::TSPPMRadianceEvaluator&lt; Viewpoint, Photon &gt;:</
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:afb348926dd0701d380c34f0437c5b393"><td class="memItemLeft" align="right" valign="top"><a id="afb348926dd0701d380c34f0437c5b393"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TSPPMRadianceEvaluator</b> (Viewpoint *viewpoints, std::size_t numViewpoints, const <a class="el" href="classph_1_1_t_center_kdtree.html">TPhotonMap</a>&lt; Photon &gt; *photonMap, std::size_t numPhotonPaths, const <a class="el" href="classph_1_1_scene.html">Scene</a> *scene, <a class="el" href="classph_1_1_hdr_rgb_film.html">HdrRgbFilm</a> *film, const <a class="el" href="classph_1_1_t_a_a_b_b2_d.html">Region</a> &amp;filmRegion, std::size_t numSamplesPerPixel, std::size_t maxViewpointDepth)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TSPPMRadianceEvaluator</b> (Viewpoint *viewpoints, std::size_t numViewpoints, const <a class="el" href="classph_1_1_t_indexed_point_kdtree.html">TPhotonMap</a>&lt; Photon &gt; *photonMap, std::size_t numPhotonPaths, const <a class="el" href="classph_1_1_scene.html">Scene</a> *scene, <a class="el" href="classph_1_1_hdr_rgb_film.html">HdrRgbFilm</a> *film, const <a class="el" href="classph_1_1_t_a_a_b_b2_d.html">Region</a> &amp;filmRegion, std::size_t numSamplesPerPixel, std::size_t maxViewpointDepth)</td></tr>
 <tr class="separator:afb348926dd0701d380c34f0437c5b393"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a297e2fdbbc863ff35c563b7191ee9be0"><td class="memItemLeft" align="right" valign="top"><a id="a297e2fdbbc863ff35c563b7191ee9be0"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>impl_onCameraSampleStart</b> (const <a class="el" href="classph_1_1_t_vector2.html">Vector2R</a> &amp;filmNdc, const <a class="el" href="classph_1_1_linear_srgb_spectral_strength.html">SpectralStrength</a> &amp;pathThroughput)</td></tr>
@@ -144,7 +150,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>onSampleBatchFinished
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceph.html">ph</a></li><li class="navelem"><a class="el" href="classph_1_1_t_s_p_p_m_radiance_evaluator.html">TSPPMRadianceEvaluator</a></li>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:31 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:56:20 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

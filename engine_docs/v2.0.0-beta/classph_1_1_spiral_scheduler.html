@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -100,28 +106,33 @@ Inheritance diagram for ph::SpiralScheduler:</div>
  <div class="center">
   <img src="classph_1_1_spiral_scheduler.png" usemap="#ph::SpiralScheduler_map" alt=""/>
   <map id="ph::SpiralScheduler_map" name="ph::SpiralScheduler_map">
-<area href="classph_1_1_work_scheduler.html" alt="ph::WorkScheduler" shape="rect" coords="0,56,125,80"/>
-<area href="classph_1_1_i_work_dispatcher.html" alt="ph::IWorkDispatcher" shape="rect" coords="0,0,125,24"/>
+<area href="classph_1_1_work_scheduler.html" title="A manager that distributes a fixed amount of work to workers." alt="ph::WorkScheduler" shape="rect" coords="0,56,125,80"/>
+<area href="classph_1_1_i_work_dispatcher.html" title="A manager that distributes work." alt="ph::IWorkDispatcher" shape="rect" coords="0,0,125,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ace89d29bcd5e19a50812267740608558"><td class="memItemLeft" align="right" valign="top"><a id="ace89d29bcd5e19a50812267740608558"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SpiralScheduler</b> (std::size_t numWorkers, const <a class="el" href="classph_1_1_work_unit.html">WorkUnit</a> &amp;totalWorkUnit, std::size_t squareSize)</td></tr>
-<tr class="separator:ace89d29bcd5e19a50812267740608558"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cf3021252f525bba0a7f695137eb406"><td class="memItemLeft" align="right" valign="top"><a id="a2cf3021252f525bba0a7f695137eb406"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SpiralScheduler</b> (std::size_t numWorkers, const <a class="el" href="classph_1_1_work_unit.html">WorkUnit</a> &amp;totalWorkUnit, const <a class="el" href="classph_1_1_t_vector2.html">Vector2S</a> &amp;rectangleSize)</td></tr>
-<tr class="separator:a2cf3021252f525bba0a7f695137eb406"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae761ad94a85009d960fa11f9b8830b17"><td class="memItemLeft" align="right" valign="top"><a id="ae761ad94a85009d960fa11f9b8830b17"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>SpiralScheduler</b> (std::size_t numWorkers, const <a class="el" href="classph_1_1_work_unit.html">WorkUnit</a> &amp;totalWorkUnit, std::size_t tileSize)</td></tr>
+<tr class="separator:ae761ad94a85009d960fa11f9b8830b17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6f0d0ef92279abc5162cb765db1d02b"><td class="memItemLeft" align="right" valign="top"><a id="ad6f0d0ef92279abc5162cb765db1d02b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>SpiralScheduler</b> (std::size_t numWorkers, const <a class="el" href="classph_1_1_work_unit.html">WorkUnit</a> &amp;totalWorkUnit, const <a class="el" href="classph_1_1_t_vector2.html">Vector2S</a> &amp;tileSize)</td></tr>
+<tr class="separator:ad6f0d0ef92279abc5162cb765db1d02b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classph_1_1_work_scheduler"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classph_1_1_work_scheduler')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classph_1_1_work_scheduler.html">ph::WorkScheduler</a></td></tr>
+<tr class="memitem:a883f80a5c5b0e47d18ba881ab5251b03 inherit pub_methods_classph_1_1_work_scheduler"><td class="memItemLeft" align="right" valign="top"><a id="a883f80a5c5b0e47d18ba881ab5251b03"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classph_1_1_work_scheduler.html#a883f80a5c5b0e47d18ba881ab5251b03">WorkScheduler</a> ()</td></tr>
+<tr class="memdesc:a883f80a5c5b0e47d18ba881ab5251b03 inherit pub_methods_classph_1_1_work_scheduler"><td class="mdescLeft">&#160;</td><td class="mdescRight">A scheduler with no work load. <br /></td></tr>
+<tr class="separator:a883f80a5c5b0e47d18ba881ab5251b03 inherit pub_methods_classph_1_1_work_scheduler"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa171dfa8f9897c544e4342d26883d7e2 inherit pub_methods_classph_1_1_work_scheduler"><td class="memItemLeft" align="right" valign="top"><a id="aa171dfa8f9897c544e4342d26883d7e2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>WorkScheduler</b> (std::size_t numWorkers, const <a class="el" href="classph_1_1_work_unit.html">WorkUnit</a> &amp;totalWorkUnit)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classph_1_1_work_scheduler.html#aa171dfa8f9897c544e4342d26883d7e2">WorkScheduler</a> (std::size_t numWorkers, const <a class="el" href="classph_1_1_work_unit.html">WorkUnit</a> &amp;totalWorkUnit)</td></tr>
+<tr class="memdesc:aa171dfa8f9897c544e4342d26883d7e2 inherit pub_methods_classph_1_1_work_scheduler"><td class="mdescLeft">&#160;</td><td class="mdescRight">A scheduler specific number of workers and work load. <br /></td></tr>
 <tr class="separator:aa171dfa8f9897c544e4342d26883d7e2 inherit pub_methods_classph_1_1_work_scheduler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8b870d2489a6e249ab156f445c80114 inherit pub_methods_classph_1_1_work_scheduler"><td class="memItemLeft" align="right" valign="top"><a id="ad8b870d2489a6e249ab156f445c80114"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>dispatch</b> (<a class="el" href="classph_1_1_work_unit.html">WorkUnit</a> *out_workUnit) override</td></tr>
+<tr class="memitem:ad8b870d2489a6e249ab156f445c80114 inherit pub_methods_classph_1_1_work_scheduler"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classph_1_1_work_scheduler.html#ad8b870d2489a6e249ab156f445c80114">dispatch</a> (<a class="el" href="classph_1_1_work_unit.html">WorkUnit</a> *out_workUnit) override</td></tr>
+<tr class="memdesc:ad8b870d2489a6e249ab156f445c80114 inherit pub_methods_classph_1_1_work_scheduler"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get some amount of work.  <a href="classph_1_1_work_scheduler.html#ad8b870d2489a6e249ab156f445c80114">More...</a><br /></td></tr>
 <tr class="separator:ad8b870d2489a6e249ab156f445c80114 inherit pub_methods_classph_1_1_work_scheduler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2903b9d4d450a47d397d2450ee56d8ee inherit pub_methods_classph_1_1_work_scheduler"><td class="memItemLeft" align="right" valign="top"><a id="a2903b9d4d450a47d397d2450ee56d8ee"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>schedule</b> (<a class="el" href="classph_1_1_work_unit.html">WorkUnit</a> *out_workUnit)</td></tr>
+<tr class="memitem:a2903b9d4d450a47d397d2450ee56d8ee inherit pub_methods_classph_1_1_work_scheduler"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classph_1_1_work_scheduler.html#a2903b9d4d450a47d397d2450ee56d8ee">schedule</a> (<a class="el" href="classph_1_1_work_unit.html">WorkUnit</a> *out_workUnit)</td></tr>
+<tr class="memdesc:a2903b9d4d450a47d397d2450ee56d8ee inherit pub_methods_classph_1_1_work_scheduler"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get some amount of work.  <a href="classph_1_1_work_scheduler.html#a2903b9d4d450a47d397d2450ee56d8ee">More...</a><br /></td></tr>
 <tr class="separator:a2903b9d4d450a47d397d2450ee56d8ee inherit pub_methods_classph_1_1_work_scheduler"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9141abbc241f0973781488d037244c76 inherit pub_methods_classph_1_1_work_scheduler"><td class="memItemLeft" align="right" valign="top"><a id="a9141abbc241f0973781488d037244c76"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>scheduleAll</b> (std::vector&lt; <a class="el" href="classph_1_1_work_unit.html">WorkUnit</a> &gt; &amp;out_workUnits)</td></tr>
@@ -135,8 +146,8 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>getScheduledFraction
 <tr class="memitem:ac4273bef355b7d256d24a20b16bb3bae inherit pub_methods_classph_1_1_work_scheduler"><td class="memItemLeft" align="right" valign="top"><a id="ac4273bef355b7d256d24a20b16bb3bae"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>getSubmittedFraction</b> () const</td></tr>
 <tr class="separator:ac4273bef355b7d256d24a20b16bb3bae inherit pub_methods_classph_1_1_work_scheduler"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1055785bbb680ab6f2710e87bc36cdd inherit pub_methods_classph_1_1_work_scheduler"><td class="memItemLeft" align="right" valign="top"><a id="ab1055785bbb680ab6f2710e87bc36cdd"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isExhausted</b> () const</td></tr>
+<tr class="memitem:ab1055785bbb680ab6f2710e87bc36cdd inherit pub_methods_classph_1_1_work_scheduler"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classph_1_1_work_scheduler.html#ab1055785bbb680ab6f2710e87bc36cdd">isExhausted</a> () const</td></tr>
+<tr class="memdesc:ab1055785bbb680ab6f2710e87bc36cdd inherit pub_methods_classph_1_1_work_scheduler"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if all works had been scheduled.  <a href="classph_1_1_work_scheduler.html#ab1055785bbb680ab6f2710e87bc36cdd">More...</a><br /></td></tr>
 <tr class="separator:ab1055785bbb680ab6f2710e87bc36cdd inherit pub_methods_classph_1_1_work_scheduler"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
@@ -167,7 +178,7 @@ std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_submittedVol
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceph.html">ph</a></li><li class="navelem"><a class="el" href="classph_1_1_spiral_scheduler.html">SpiralScheduler</a></li>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:31 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:55:39 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

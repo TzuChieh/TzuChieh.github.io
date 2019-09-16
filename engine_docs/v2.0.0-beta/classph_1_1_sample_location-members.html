@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -96,10 +102,10 @@ $(document).ready(function(){initNavTree('classph_1_1_sample_location.html','');
 <table class="directory">
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>expectedQuantity</b>() const (defined in <a class="el" href="classph_1_1_sample_location.html">ph::SampleLocation</a>)</td><td class="entry"><a class="el" href="classph_1_1_sample_location.html">ph::SampleLocation</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>getUvwScaled</b>(const Vector3R &amp;scale) const (defined in <a class="el" href="classph_1_1_sample_location.html">ph::SampleLocation</a>)</td><td class="entry"><a class="el" href="classph_1_1_sample_location.html">ph::SampleLocation</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>SampleLocation</b>(const Vector3R &amp;uvw, const EQuantity quantity) (defined in <a class="el" href="classph_1_1_sample_location.html">ph::SampleLocation</a>)</td><td class="entry"><a class="el" href="classph_1_1_sample_location.html">ph::SampleLocation</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>SampleLocation</b>(const Vector2R &amp;uv, const EQuantity quantity) (defined in <a class="el" href="classph_1_1_sample_location.html">ph::SampleLocation</a>)</td><td class="entry"><a class="el" href="classph_1_1_sample_location.html">ph::SampleLocation</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>SampleLocation</b>(const HitDetail &amp;hit) (defined in <a class="el" href="classph_1_1_sample_location.html">ph::SampleLocation</a>)</td><td class="entry"><a class="el" href="classph_1_1_sample_location.html">ph::SampleLocation</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>SampleLocation</b>(const HitDetail &amp;hit, const EQuantity quantity) (defined in <a class="el" href="classph_1_1_sample_location.html">ph::SampleLocation</a>)</td><td class="entry"><a class="el" href="classph_1_1_sample_location.html">ph::SampleLocation</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>SampleLocation</b>(const Vector3R &amp;uvw, EQuantity quantity) (defined in <a class="el" href="classph_1_1_sample_location.html">ph::SampleLocation</a>)</td><td class="entry"><a class="el" href="classph_1_1_sample_location.html">ph::SampleLocation</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>SampleLocation</b>(const Vector2R &amp;uv, EQuantity quantity) (defined in <a class="el" href="classph_1_1_sample_location.html">ph::SampleLocation</a>)</td><td class="entry"><a class="el" href="classph_1_1_sample_location.html">ph::SampleLocation</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>SampleLocation</b>(const HitDetail &amp;hit) (defined in <a class="el" href="classph_1_1_sample_location.html">ph::SampleLocation</a>)</td><td class="entry"><a class="el" href="classph_1_1_sample_location.html">ph::SampleLocation</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>SampleLocation</b>(const HitDetail &amp;hit, EQuantity quantity) (defined in <a class="el" href="classph_1_1_sample_location.html">ph::SampleLocation</a>)</td><td class="entry"><a class="el" href="classph_1_1_sample_location.html">ph::SampleLocation</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>SampleLocation</b>(const SampleLocation &amp;other) (defined in <a class="el" href="classph_1_1_sample_location.html">ph::SampleLocation</a>)</td><td class="entry"><a class="el" href="classph_1_1_sample_location.html">ph::SampleLocation</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>setUv</b>(const Vector2R &amp;uv) (defined in <a class="el" href="classph_1_1_sample_location.html">ph::SampleLocation</a>)</td><td class="entry"><a class="el" href="classph_1_1_sample_location.html">ph::SampleLocation</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setUvw</b>(const Vector3R &amp;uvw) (defined in <a class="el" href="classph_1_1_sample_location.html">ph::SampleLocation</a>)</td><td class="entry"><a class="el" href="classph_1_1_sample_location.html">ph::SampleLocation</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
@@ -109,7 +115,7 @@ $(document).ready(function(){initNavTree('classph_1_1_sample_location.html','');
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:30 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:55:20 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

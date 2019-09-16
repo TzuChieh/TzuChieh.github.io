@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -94,18 +100,23 @@ $(document).ready(function(){initNavTree('classph_1_1_fresnel_effect.html','');}
 <div class="title">ph::FresnelEffect Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Modeling Fresnel effects that occur on interfaces.  
+ <a href="classph_1_1_fresnel_effect.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_fresnel_effect_8h_source.html">FresnelEffect.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ph::FresnelEffect:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classph_1_1_fresnel_effect.png" usemap="#ph::FresnelEffect_map" alt=""/>
   <map id="ph::FresnelEffect_map" name="ph::FresnelEffect_map">
-<area href="classph_1_1_conductor_dielectric_fresnel.html" alt="ph::ConductorDielectricFresnel" shape="rect" coords="140,56,410,80"/>
-<area href="classph_1_1_dielectric_fresnel.html" alt="ph::DielectricFresnel" shape="rect" coords="700,56,970,80"/>
-<area href="classph_1_1_exact_conductor_dielectric_fresnel.html" alt="ph::ExactConductorDielectricFresnel" shape="rect" coords="0,112,270,136"/>
-<area href="classph_1_1_schlick_approx_conductor_dielectric_fresnel.html" alt="ph::SchlickApproxConductorDielectricFresnel" shape="rect" coords="280,112,550,136"/>
-<area href="classph_1_1_exact_dielectric_fresnel.html" alt="ph::ExactDielectricFresnel" shape="rect" coords="560,112,830,136"/>
-<area href="classph_1_1_schlick_approx_dielectric_fresnel.html" alt="ph::SchlickApproxDielectricFresnel" shape="rect" coords="840,112,1110,136"/>
+<area href="classph_1_1_conductor_fresnel.html" title="Conductor-dielectric interface Fresnel effect." alt="ph::ConductorFresnel" shape="rect" coords="113,56,329,80"/>
+<area href="classph_1_1_dielectric_fresnel.html" title="Dielectric-dielectric interface Fresnel effect." alt="ph::DielectricFresnel" shape="rect" coords="565,56,781,80"/>
+<area href="classph_1_1_exact_conductor_fresnel.html" title="Conductor-dielectric interface Fresnel effect." alt="ph::ExactConductorFresnel" shape="rect" coords="0,112,216,136"/>
+<area href="classph_1_1_schlick_approx_conductor_fresnel.html" title="Conductor-dielectric interface Fresnel effect." alt="ph::SchlickApproxConductorFresnel" shape="rect" coords="226,112,442,136"/>
+<area href="classph_1_1_exact_dielectric_fresnel.html" title="Dielectric-dielectric interface Fresnel effect." alt="ph::ExactDielectricFresnel" shape="rect" coords="452,112,668,136"/>
+<area href="classph_1_1_schlick_approx_dielectric_fresnel.html" title="Dielectric-dielectric interface Fresnel effect." alt="ph::SchlickApproxDielectricFresnel" shape="rect" coords="678,112,894,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -118,7 +129,10 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>calcReflectan
 void&#160;</td><td class="memItemRight" valign="bottom"><b>calcTransmittance</b> (real cosThetaIncident, <a class="el" href="classph_1_1_linear_srgb_spectral_strength.html">SpectralStrength</a> *out_transmittance) const</td></tr>
 <tr class="separator:a3ef20e36b1f2d0306aa60e3eca45e6eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Modeling Fresnel effects that occur on interfaces. </p>
+<p>The two sides of a interface are called inner and outer sides, where outer side has $\cos(\theta_{indicent})&gt;0$ and inner side has $\cos(\theta_{indicent})&lt;0$. </p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>Source/Core/SurfaceBehavior/Property/<a class="el" href="_fresnel_effect_8h_source.html">FresnelEffect.h</a></li>
 </ul>
 </div><!-- contents -->
@@ -127,7 +141,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>calcTransmittance</b>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceph.html">ph</a></li><li class="navelem"><a class="el" href="classph_1_1_fresnel_effect.html">FresnelEffect</a></li>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:29 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:53:52 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>

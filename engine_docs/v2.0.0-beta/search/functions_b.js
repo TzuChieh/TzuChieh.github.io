@@ -1,12 +1,7 @@
 var searchData=
 [
-  ['setdirection',['setDirection',['../classph_1_1_ray.html#ab605d8b4a2586b9cb6af90816e54f688',1,'ph::Ray']]],
-  ['setmaxt',['setMaxT',['../classph_1_1_ray.html#a0832b78dbeefe522b0802f148ef726f3',1,'ph::Ray']]],
-  ['setmaxvertex',['setMaxVertex',['../classph_1_1_t_a_a_b_b3_d.html#ae95636cc22206bd34ebdd680ee32ebc3',1,'ph::TAABB3D']]],
-  ['setmint',['setMinT',['../classph_1_1_ray.html#a65e23e96b811467a573b389722415070',1,'ph::Ray']]],
-  ['setminvertex',['setMinVertex',['../classph_1_1_t_a_a_b_b3_d.html#a51cef98b4a0d88d179b8a351006ab38e',1,'ph::TAABB3D']]],
-  ['setorigin',['setOrigin',['../classph_1_1_ray.html#a62eb5edbbeddba2830b758c3e897f665',1,'ph::Ray']]],
-  ['settime',['setTime',['../classph_1_1_ray.html#ab9278b34ed43cf52d0ec6a9fee1880a8',1,'ph::Ray']]],
-  ['sign',['sign',['../namespaceph_1_1math.html#a7377d0dddd537e4e7a04f98bd8e1114e',1,'ph::math']]],
-  ['solve_5flinear_5fsystem_5f2x2',['solve_linear_system_2x2',['../namespaceph_1_1math.html#a83243661013f8ac44607cc5f2a56a9cb',1,'ph::math']]]
+  ['ray',['Ray',['../classph_1_1_ray.html#a430c83b545a0daae6389a9842b4edd45',1,'ph::Ray::Ray()'],['../classph_1_1_ray.html#a4b558e1fac00586025734619c1b0ec7b',1,'ph::Ray::Ray(const Vector3R &amp;origin, const Vector3R &amp;direction)'],['../classph_1_1_ray.html#a80a3a12a8479dc0d060665d9fb4e8bbe',1,'ph::Ray::Ray(const Vector3R &amp;origin, const Vector3R &amp;direction, real minT, real maxT)'],['../classph_1_1_ray.html#a0c421bfd4c1bd820133d838525d8d87b',1,'ph::Ray::Ray(const Vector3R &amp;origin, const Vector3R &amp;direction, real minT, real maxT, const Time &amp;time)']]],
+  ['remove',['remove',['../classph_1_1_t_stable_index_dense_array.html#af3201b5c69895528b86e9a85fa97bd2c',1,'ph::TStableIndexDenseArray']]],
+  ['removeall',['removeAll',['../classph_1_1_t_stable_index_dense_array.html#afd593a0aa0c8446ea95817ea405d04fb',1,'ph::TStableIndexDenseArray']]],
+  ['reverse',['reverse',['../classph_1_1_ray.html#abfcb423ffa8767e5160e8c81a0be9db8',1,'ph::Ray']]]
 ];

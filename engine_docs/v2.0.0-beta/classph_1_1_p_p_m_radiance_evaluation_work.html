@@ -20,6 +20,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -108,7 +114,7 @@ Inheritance diagram for ph::PPMRadianceEvaluationWork:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5aa753913808b4740600970be7c441b7"><td class="memItemLeft" align="right" valign="top"><a id="a5aa753913808b4740600970be7c441b7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PPMRadianceEvaluationWork</b> (const <a class="el" href="classph_1_1_t_center_kdtree.html">TPhotonMap</a>&lt; <a class="el" href="classph_1_1_full_photon.html">FullPhoton</a> &gt; *photonMap, std::size_t numPhotonPaths, <a class="el" href="classph_1_1_hdr_rgb_film.html">HdrRgbFilm</a> *film, <a class="el" href="classph_1_1_full_viewpoint.html">FullViewpoint</a> *viewpoints, std::size_t numViewpoints, const <a class="el" href="classph_1_1_scene.html">Scene</a> *scene)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>PPMRadianceEvaluationWork</b> (const <a class="el" href="classph_1_1_t_indexed_point_kdtree.html">TPhotonMap</a>&lt; <a class="el" href="classph_1_1_full_photon.html">FullPhoton</a> &gt; *photonMap, std::size_t numPhotonPaths, <a class="el" href="classph_1_1_hdr_rgb_film.html">HdrRgbFilm</a> *film, <a class="el" href="classph_1_1_full_viewpoint.html">FullViewpoint</a> *viewpoints, std::size_t numViewpoints, const <a class="el" href="classph_1_1_scene.html">Scene</a> *scene)</td></tr>
 <tr class="separator:a5aa753913808b4740600970be7c441b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abefdff5cf8486e14ce2d095db248621b"><td class="memItemLeft" align="right" valign="top"><a id="abefdff5cf8486e14ce2d095db248621b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setPMStatistics</b> (<a class="el" href="classph_1_1_p_m_statistics.html">PMStatistics</a> *statistics)</td></tr>
@@ -118,7 +124,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setAlpha</b> (real al
 <tr class="separator:a8d2fae193ae94dd0a5eab47cf194452a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classph_1_1_t_radiance_evaluation_work"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classph_1_1_t_radiance_evaluation_work')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classph_1_1_t_radiance_evaluation_work.html">ph::TRadianceEvaluationWork&lt; FullPhoton &gt;</a></td></tr>
 <tr class="memitem:a37f6c94986f4800a0f2ac9e5b659e8a7 inherit pub_methods_classph_1_1_t_radiance_evaluation_work"><td class="memItemLeft" align="right" valign="top"><a id="a37f6c94986f4800a0f2ac9e5b659e8a7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TRadianceEvaluationWork</b> (const <a class="el" href="classph_1_1_t_center_kdtree.html">TPhotonMap</a>&lt; <a class="el" href="classph_1_1_full_photon.html">FullPhoton</a> &gt; *photonMap, std::size_t numPhotonPaths)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TRadianceEvaluationWork</b> (const <a class="el" href="classph_1_1_t_indexed_point_kdtree.html">TPhotonMap</a>&lt; <a class="el" href="classph_1_1_full_photon.html">FullPhoton</a> &gt; *photonMap, std::size_t numPhotonPaths)</td></tr>
 <tr class="separator:a37f6c94986f4800a0f2ac9e5b659e8a7 inherit pub_methods_classph_1_1_t_radiance_evaluation_work"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc9b9334a177f0e3b49e2755d9ca9456 inherit pub_methods_classph_1_1_t_radiance_evaluation_work"><td class="memItemLeft" align="right" valign="top"><a id="acc9b9334a177f0e3b49e2755d9ca9456"></a>
 <a class="el" href="classph_1_1_linear_srgb_spectral_strength.html">SpectralStrength</a>&#160;</td><td class="memItemRight" valign="bottom"><b>evaluateRadiance</b> (const <a class="el" href="classph_1_1_surface_hit.html">SurfaceHit</a> &amp;location, const <a class="el" href="classph_1_1_t_vector3.html">Vector3R</a> &amp;excitant, real kernelRadius)</td></tr>
@@ -138,7 +144,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>work</b> ()</td></tr>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_classph_1_1_t_radiance_evaluation_work"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classph_1_1_t_radiance_evaluation_work')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classph_1_1_t_radiance_evaluation_work.html">ph::TRadianceEvaluationWork&lt; FullPhoton &gt;</a></td></tr>
 <tr class="memitem:a9cbd61e40456da50cd14c6e7907d5665 inherit pro_methods_classph_1_1_t_radiance_evaluation_work"><td class="memItemLeft" align="right" valign="top"><a id="a9cbd61e40456da50cd14c6e7907d5665"></a>
-const <a class="el" href="classph_1_1_t_center_kdtree.html">TPhotonMap</a>&lt; <a class="el" href="classph_1_1_full_photon.html">FullPhoton</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>getPhotonMap</b> () const</td></tr>
+const <a class="el" href="classph_1_1_t_indexed_point_kdtree.html">TPhotonMap</a>&lt; <a class="el" href="classph_1_1_full_photon.html">FullPhoton</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>getPhotonMap</b> () const</td></tr>
 <tr class="separator:a9cbd61e40456da50cd14c6e7907d5665 inherit pro_methods_classph_1_1_t_radiance_evaluation_work"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab18ef8adc170b5436ec233a179356301 inherit pro_methods_classph_1_1_t_radiance_evaluation_work"><td class="memItemLeft" align="right" valign="top"><a id="ab18ef8adc170b5436ec233a179356301"></a>
 const std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>numPhotonPaths</b> () const</td></tr>
@@ -170,7 +176,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setElapsedMs</b> (std
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceph.html">ph</a></li><li class="navelem"><a class="el" href="classph_1_1_p_p_m_radiance_evaluation_work.html">PPMRadianceEvaluationWork</a></li>
-    <li class="footer">Generated on Sat Feb 23 2019 15:16:30 for Photon by
+    <li class="footer">Generated on Mon Sep 16 2019 23:55:11 for Photon by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
   </ul>
