@@ -28,4 +28,7 @@ entries:
     - title: Graphics Resources
       url: /resources_blogs.html
       output: web
+    - title: Portfolio
+      url: /portfolio_index.html
+      output: web
     
