@@ -12,12 +12,7 @@ permalink: portfolio_index.html
 
 {% include image_link.html file="gallery/Mercedes ML63 AMG.jpg" link="portfolio_photon_v2.html" alt="" caption="A physically based render engine. Generates photorealistic images." width="85%" %}
 
-<p style="text-align:left;">
-    &nbsp;
-    <span style="float:right;">
-        <a href="portfolio_photon_v2.html">>> Read more</a>
-    </span>
-</p>
+[>> Read more ...](portfolio_photon_v2.html)
 
 ## Tokzin Game Engine
 
