@@ -13,8 +13,8 @@ entries:
     - title: Overview
       url: /portfolio_index.html
       output: web
-    - title: Features Overview
-      url: /photon_v2_features.html
+    - title: Photon-v2 Renderer
+      url: /portfolio_photon_v2.html
       output: web
     - title: Build from Source
       url: /photon_v2_build_from_source.html
