@@ -1,29 +1,43 @@
 ---
-title: "Photon-v2 Renderer"
+title: "Photon Renderer"
 keywords: 
 tags: 
 toc: true
 sidebar: portfolio_sidebar
-permalink: portfolio_photon_v2.html
+permalink: portfolio_photon.html
 summary: 
 last_updated: August 16, 2020
 ---
 
 ## Introduction
 
-### Technical Showreel
+Photon is a simple Monte-Carlo path tracer made out of my personal interest in computer graphics. The engine served as a playground as I learned and tried to implement new graphics stuff. The core of the renderer is written in Java, and supports path tracing primarily. Its acceleration structure is a kD-tree with optimal SAH splits (when filled with triangle mesh). The material system is based on Cook-Torrance BSDF, which is famous for its physics-based derivation and modulable surface roughness.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/yieawWJ31pw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+## List of Main Features
 
-### About the Project
+* Primitive intersection test
+  * Ray-sphere intersection
+  * Ray-triangle intersection
+* Anti-aliasing samples
+* kD-tree with optimal SAH splits
+* Physically based materials
+  * Lambertian diffuse
+  * Cook-Torrance microfacet model (both BRDF & BTDF variants)
+  * Supports MERL BRDF database
+* Texture for material & emission
+* Fully support .obj model (with .mtl loading)
+* Dynamic camera control during rendering (WASD-style movement)
 
-Photon-v2 is a physically based render engine. The engine tries to generate photorealistic images by leveraging contemporary ray tracing techniques and sticks to physical formulae as close as possible. Its core is written in modern C++ (C++17) and provides a C API for easy integration. The renderer also comes with a Java based studio program for managing render tasks, and a CLI program for server usages. With a custom scene description language, it is possible to automatically generate APIs for scene management in many languages (currently supports Java and Python; markdown for documentation). Notably, the renderer's integration with Blender includes shader nodes, scene exporting and rendering, making the creation and adjustments of complex scenes possible. Photon currently supports Windows, Linux and macOS.
+## Images
+
+{% include image_gallery.html file="portfolio/photon_teaser.jpg" alt="" caption="Crytek Sponza" width="100%" %}
+
+{% include image_gallery.html file="portfolio/photon_stanford.jpg" alt="" caption="Golden Stanford Dragon" width="100%" %}
+
+{% include image_gallery.html file="portfolio/photon_material_matrix.jpg" alt="" caption="Classic Material Matrix" width="100%" %}
+
+{% include image_gallery.html file="portfolio/photon_transparent_bunny.jpg" alt="" caption="Transparent Stanford Bunny" width="100%" %}
 
 ## More on the Project
 
-* The project has been thoroughly documented in its [dedicated website](photon_v2_what_is_photon.html).
-* This is an open-source project. Full [source code](https://github.com/TzuChieh/Photon-v2) available.
-
-## History
-
-Initially, it was a side project where I experiment with some global illumination techniques for my game engine (called Tokzin), and both of them were written in Java. It had occurred to me that Java, although easy to code and sometimes outperforms compiled (to machine code) languages thanks to its JIT system, the restricted accessibilities to system memory makes it hard to implement some of the low level optimizations. In 2016, I decided to rewrite the rendering engine in C++ for better performance, and ported most of the code from the original Java codebase. It is worth noting that the C++ version was more than 20% faster rendering the Crytek Sponza scene than its Java counterpart out of the box. At that time, I bumped Photon’s version number into 2.0.
+* This is an open-source project. Full [source code](https://github.com/TzuChieh/Photon) available.
