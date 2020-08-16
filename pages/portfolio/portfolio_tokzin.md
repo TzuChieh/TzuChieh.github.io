@@ -65,7 +65,7 @@ You can find more videos about Tokzin [here](https://www.youtube.com/playlist?li
 
 ## Images
 
-{% include image_gallery.html file="portfolio/tokzin_custom_site.jpg" alt="" caption="Custom algorithm test site" width="90%" %}
+{% include image_gallery.html file="portfolio/tokzin_custom_test_site.jpg" alt="" caption="Custom algorithm test site" width="90%" %}
 
 {% include image_gallery.html file="portfolio/tokzin_utah_teapot.jpg" alt="" caption="Various Utah teapot with different PBR materials" width="90%" %}
 
