@@ -46,4 +46,6 @@ permalink: portfolio_index.html
 
 ## CUDA Path Tracer
 
+{% include image_link.html file="portfolio/cuda_pt_teaser.jpg" link="portfolio_cuda_pt.html" alt="" caption="A path tracing demo written in CUDA." width="85%" %}
 
+[>> Read more ...](portfolio_cuda_pt.html)

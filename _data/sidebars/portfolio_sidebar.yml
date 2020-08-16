@@ -31,3 +31,6 @@ entries:
     - title: "Tetriss: Tetris in Command Line"
       url: /portfolio_tetriss.html
       output: web
+    - title: CUDA Path Tracer
+      url: /portfolio_cuda_pt.html
+      output: web

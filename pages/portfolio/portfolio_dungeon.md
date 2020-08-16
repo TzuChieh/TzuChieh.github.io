@@ -11,7 +11,7 @@ last_updated: August 17, 2020
 
 ## Introduction
 
-This is a team project for [Prof. Bing-Yu Chen](https://graphics.cmlab.csie.ntu.edu.tw/~robin/)'s course *Game Programming Fall 2016*. I am the programmer of the game, not the author of the artistic materials.
+This was a team project for [Prof. Bing-Yu Chen](https://graphics.cmlab.csie.ntu.edu.tw/~robin/)'s course *Game Programming Fall 2015*. I was the programmer of the game, not the author of the artistic materials.
 
 **Dungeon: Lost Cognition** is a simple 3D game written in C++. It resembles the style of Doom & Quake in the 1990s. Its implementation features a simple ECS (Entity-Component System), where all in-game potions as well as characters/enemies are instances of entities. To avoid building a level editor by ourselves, we use .bmp images to store level data:
 
