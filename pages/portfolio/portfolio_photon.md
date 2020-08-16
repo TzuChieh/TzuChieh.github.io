@@ -38,6 +38,8 @@ Photon is a simple Monte-Carlo path tracer made out of my personal interest in c
 
 {% include image_gallery.html file="portfolio/photon_transparent_bunny.jpg" alt="" caption="Transparent Stanford Bunny" width="100%" %}
 
+{% include image_gallery.html file="portfolio/photon_stanford_dragon_merl.jpg" alt="" caption="Stanford Dragon with MERL Material (gold paint)" width="100%" %}
+
 ## More on the Project
 
 * This is an open-source project. Full [source code](https://github.com/TzuChieh/Photon) available.

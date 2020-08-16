@@ -34,6 +34,10 @@ permalink: portfolio_index.html
 
 ## Dungeon: Lost Cognition
 
+{% include image_link.html file="portfolio/dungeon_teaser.jpg" link="portfolio_dungeon.html" alt="" caption="A fast-paced 3D game written in C++." width="85%" %}
+
+[>> Read more ...](portfolio_dungeon.html)
+
 ## Tetris in CMD
 
 ## CUDA Path Tracer
