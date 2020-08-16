@@ -28,6 +28,10 @@ permalink: portfolio_index.html
 
 ## Photon Renderer
 
+{% include image_link.html file="portfolio/photon_teaser.jpg" link="portfolio_photon.html" alt="" caption="First version of the Photon renderer. Global illumination with path tracing." width="85%" %}
+
+[>> Read more ...](portfolio_photon.html)
+
 ## Dungeon: Lost Cognition
 
 ## Tetris in CMD
