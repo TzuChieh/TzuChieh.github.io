@@ -16,11 +16,11 @@ entries:
     - title: Photon-v2 Renderer
       url: /portfolio_photon_v2.html
       output: web
-    - title: Build from Source
-      url: /photon_v2_build_from_source.html
+    - title: Tokzin Game Engine
+      url: /portfolio_tokzin.html
       output: web
-    - title: Command-line Interface
-      url: /photon_v2_cli.html
+    - title: "Photon: A Modular, Research-Oriented Rendering System"
+      url: /portfolio_sig2019_photon.html
       output: web
     - title: Coding Standard
       url: /photon_v2_coding_standard.html
@@ -30,113 +30,4 @@ entries:
       output: web
     - title: Roadmap
       url: /photon_v2_roadmap.html
-      output: web
-
-  - title: Scene Description Language
-    output: web
-    folderitems:
-
-    - title: Introduction
-      url: /photon_v2_sdl_introduction.html
-      output: web
-    - title: Documentation
-      url: /photon_v2_sdl_documentation.html
-      output: web
-
-  - title: Camera
-    output: web
-    folderitems:
-
-    - title: Introduction
-      url: /photon_v2_camera_introduction.html
-      output: web
-    - title: Pinhole
-      url: /photon_v2_camera_pinhole.html
-      output: web
-    - title: Thin Lens
-      url: /photon_v2_camera_thin_lens.html
-      output: web
-
-  - title: Geometry
-    output: web
-    folderitems:
-
-    - title: Introduction
-      url: /photon_v2_geometry_introduction.html
-      output: web
-    - title: Triangle
-      url: /wip.html
-      output: web
-    - title: Rectangle
-      url: /wip.html
-      output: web
-    - title: Sphere
-      url: /wip.html
-      output: web
-    - title: Triangle Mesh
-      url: /wip.html
-      output: web
-
-  - title: Material
-    output: web
-    folderitems:
-
-    - title: Matte Opaque
-      url: /wip.html
-      output: web
-    - title: Abraded Opaque
-      url: /wip.html
-      output: web
-    - title: Ideal Substance
-      url: /wip.html
-      output: web
-
-  - title: Image
-    output: web
-    folderitems:
-
-    - title: Picture
-      url: /wip.html
-      output: web
-    - title: Constant and Checkerboard
-      url: /wip.html
-      output: web
-    - title: Real Math
-      url: /wip.html
-      output: web
-
-  - title: Light Source
-    output: web
-    folderitems:
-
-    - title: Point
-      url: /wip.html
-      output: web
-    - title: Area
-      url: /wip.html
-      output: web
-    - title: Model
-      url: /wip.html
-      output: web
-    - title: IES
-      url: /wip.html
-      output: web
-
-  - title: Motion Source
-    output: web
-    folderitems:
-
-    - title: Constant Velocity
-      url: /wip.html
-      output: web
-
-  - title: Render Method
-    output: web
-    folderitems:
-
-    - title: Backward UPT
-      url: /wip.html
-      output: web
-    - title: Backward UPT with NEE
-      url: /wip.html
       output: web

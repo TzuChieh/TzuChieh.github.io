@@ -22,6 +22,10 @@ permalink: portfolio_index.html
 
 ## Photon: A Modular, Research-Oriented Rendering System
 
+{% include image_link.html file="portfolio/sig2019_photon.jpg" link="portfolio_sig2019_photon.html" alt="" caption="Render engine presented in ACM SIGGRAPH 2019." width="85%" %}
+
+[>> Read more ...](portfolio_sig2019_photon.html)
+
 ## Photon Renderer
 
 ## Dungeon: Lost Cognition
