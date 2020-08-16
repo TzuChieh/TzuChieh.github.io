@@ -22,12 +22,12 @@ entries:
     - title: "Photon: A Modular, Research-Oriented Rendering System"
       url: /portfolio_sig2019_photon.html
       output: web
-    - title: Coding Standard
-      url: /photon_v2_coding_standard.html
+    - title: "Photon Renderer"
+      url: /portfolio_photon.html
       output: web
-    - title: Engine Documentation
-      external_url: https://tzuchieh.github.io/engine_docs/v2.0.0-beta/index.html
+    - title: "Dungeon: Lost Cognition"
+      url: /portfolio_dungeon.html
       output: web
-    - title: Roadmap
-      url: /photon_v2_roadmap.html
+    - title: "Tetriss: Tetris in Command Line"
+      url: /portfolio_tetriss.html
       output: web

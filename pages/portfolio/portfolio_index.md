@@ -38,7 +38,11 @@ permalink: portfolio_index.html
 
 [>> Read more ...](portfolio_dungeon.html)
 
-## Tetris in CMD
+## Tetriss: Tetris in Command Line
+
+{% include image_link.html file="portfolio/tetriss_teaser.jpg" link="portfolio_tetriss.html" alt="" caption="Play the classic Tetris in ... command line?" width="85%" %}
+
+[>> Read more ...](portfolio_tetriss.html)
 
 ## CUDA Path Tracer
 
