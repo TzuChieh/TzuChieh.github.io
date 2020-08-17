@@ -31,4 +31,7 @@ entries:
     - title: Portfolio
       url: /portfolio_index.html
       output: web
+    - title: Resume
+      url: /resume_index.html
+      output: web
     
