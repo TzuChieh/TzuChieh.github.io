@@ -32,7 +32,7 @@ permalink: resume_index.html
 
 ## Publications & Projects
 
-* [**Photon: A Modular, Research-Oriented Rendering System**](portfolio_sig2019_photon.html) \| **ACM SIGGRAPH 2019** \| **Aug. 2019**
+* [**Photon: A Modular, Research-Oriented Rendering System**](portfolio_sig2019_photon.html) \| [**ACM SIGGRAPH 2019**](https://s2019.siggraph.org/) \| **Aug. 2019**
   * Poster on my offline renderer [Photon](photon_v2_what_is_photon.html)
   * Authors: [Tzu-Chieh Chang](index.html), [Ming Ouhyoung](https://www.csie.ntu.edu.tw/~ming/)
 
