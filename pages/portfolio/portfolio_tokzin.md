@@ -9,6 +9,8 @@ summary:
 last_updated: August 16, 2020
 ---
 
+{% include image_gallery.html file="portfolio/tokzin_teaser.jpg" alt="" caption="This is a custom scene showing bounding volumes of in-game objects for frustum culling." width="90%" %}
+
 ## Introduction
 
 Tokzin is a game engine that features physically based rendering. It supports both forward and deferred render mode and uses OpenGL internally. A great deal of real-time rendering algorithms has been added into the core of the engine. Other than that, audio is implemented via OpenAL and a third-party physics simulator (Bullet) is integrated into the engine. Tokzin was written in Java and took approximately 3 years to develop.
