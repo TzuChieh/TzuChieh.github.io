@@ -11,11 +11,11 @@ last_updated: August 16, 2020
 
 ## Introduction
 
-### Technical Showreel
+## Technical Showreel
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/yieawWJ31pw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### About the Project
+## About the Project
 
 Photon-v2 is a physically based render engine. The engine tries to generate photorealistic images by leveraging contemporary ray tracing techniques and sticks to physical formulae as close as possible. Its core is written in modern C++ (C++17) and provides a C API for easy integration. The renderer also comes with a Java based studio program for managing render tasks, and a CLI program for server usages. With a custom scene description language, it is possible to automatically generate APIs for scene management in many languages (currently supports Java and Python; markdown for documentation). Notably, the renderer's integration with Blender includes shader nodes, scene exporting and rendering, making the creation and adjustments of complex scenes possible. Photon currently supports Windows, Linux and macOS.
 
