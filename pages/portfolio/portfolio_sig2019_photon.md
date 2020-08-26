@@ -10,7 +10,7 @@ last_updated: August 16, 2020
 ---
 
 {% include image_gallery.html file="portfolio/teaser_wt.jpeg" alt="" caption="Several visualization techniques implemented using the building blocks provided by our system. In the center, the buddha features
-Belcour’s BSDF model [\[Belcour 2018\]](https://belcour.github.io/blog/research/publication/2018/05/05/brdf-realtime-layered.html); while the glass brick (left) induces caustics that can be rendered efficiently using particle tracing methods." width="100%" %}
+Belcour’s BSDF model [Belcour 2018]; while the glass brick (left) induces caustics that can be rendered efficiently using particle tracing methods." width="100%" %}
 
 ## Introduction
 
