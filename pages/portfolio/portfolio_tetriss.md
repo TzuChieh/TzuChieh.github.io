@@ -11,7 +11,7 @@ last_updated: August 17, 2020
 
 ## Introduction
 
-Tetris was one of the classic arcade games. In facebook's gaming field, it's also known as "Tetris Battle" and once grabbed a prodigious attention throughout the world. Tetriss is based on C (with conio2 library for colored text), execute as a console application and involved numerous brute-force displaying methods (to be more specific, "printfs"). As the design of Tetriss is to print out each frame as characters, it is easy to port the code into other platforms. The game took official tetris competition rules as a reference.
+Tetris was one of the classic arcade games. In the field of facebook gaming, the game "Tetris Battle" has once grabbed a prodigious attention throughout the world. Tetriss is based on C (with conio2 library for colored text), execute as a console application and involved numerous brute-force displaying methods (to be more specific, "printfs"). As the design of Tetriss is to print out each frame as characters, it is easy to port the code into other platforms. The game took official tetris competition rules as a reference.
 
 ## Screenshots
 

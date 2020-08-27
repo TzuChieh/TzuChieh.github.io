@@ -19,14 +19,6 @@ last_updated: August 16, 2020
 
 Photon-v2 is a physically based render engine. The engine tries to generate photorealistic images by leveraging contemporary ray tracing techniques and sticks to physical formulae as close as possible. Its core is written in modern C++ (C++17) and provides a C API for easy integration. The renderer also comes with a Java based studio program for managing render tasks, and a CLI program for server usages. With a custom scene description language, it is possible to automatically generate APIs for scene management in many languages (currently supports Java and Python; markdown for documentation). Notably, the renderer's integration with Blender includes shader nodes, scene exporting and rendering, making the creation and adjustments of complex scenes possible. Photon currently supports Windows, Linux and macOS.
 
-## Rendered Images
-
-{% include image_gallery.html file="gallery/Mercedes ML63 AMG.jpg" alt="" caption="Mercedes ML63 AMG (car model by LYES94; all models are from BlendSwap, adapted for use with Photon-v2 renderer)" width="100%" %}
-
-{% include image_gallery.html file="gallery/bathroom_(based on Salle de bain by nacimus).jpg" alt="" caption="Cozy Bathroom (based on \"Salle de bain\" by nacimus)" width="100%" %}
-
-{% include image_gallery.html file="gallery/054_chess (based on _Transparent Chess For Cycle_ by yayel59).jpg" alt="" caption="Metallic Chess (based on \"Transparent Chess For Cycle\" by yayel59)" width="100%" %}
-
 ## List of Main Features
 
 * **Rendering**
@@ -103,6 +95,14 @@ Photon-v2 is a physically based render engine. The engine tries to generate phot
   * **Loading and Rendering Minecraft Maps (experimental)**
   * **Hierarchical Scene Graph**
   * **Automatically Generate SDL Interface (currently supports Python, Java)**
+
+## Rendered Images
+
+{% include image_gallery.html file="gallery/Mercedes ML63 AMG.jpg" alt="" caption="Mercedes ML63 AMG (car model by LYES94; all models are from BlendSwap, adapted for use with Photon-v2 renderer)" width="100%" %}
+
+{% include image_gallery.html file="gallery/bathroom_(based on Salle de bain by nacimus).jpg" alt="" caption="Cozy Bathroom (based on \"Salle de bain\" by nacimus)" width="100%" %}
+
+{% include image_gallery.html file="gallery/054_chess (based on _Transparent Chess For Cycle_ by yayel59).jpg" alt="" caption="Metallic Chess (based on \"Transparent Chess For Cycle\" by yayel59)" width="100%" %}
 
 ## A Brief History
 
