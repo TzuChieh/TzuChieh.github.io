@@ -9,8 +9,6 @@ summary:
 last_updated: August 16, 2020
 ---
 
-## Introduction
-
 ## Technical Showreel
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/yieawWJ31pw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
