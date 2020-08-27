@@ -96,11 +96,11 @@ Photon-v2 is a physically based render engine. The engine tries to generate phot
 
 ## Rendered Images
 
-{% include image_gallery.html file="gallery/Mercedes ML63 AMG.jpg" alt="" caption="Mercedes ML63 AMG (car model by LYES94; all models are from BlendSwap, adapted for use with Photon-v2 renderer)" width="100%" %}
+{% include image_gallery.html file="gallery/Mercedes ML63 AMG.jpg" alt="" caption="Mercedes ML63 AMG (car model by LYES94; all models are from BlendSwap, adapted for use with Photon-v2 renderer)" width="90%" %}
 
-{% include image_gallery.html file="gallery/bathroom_(based on Salle de bain by nacimus).jpg" alt="" caption="Cozy Bathroom (based on \"Salle de bain\" by nacimus)" width="100%" %}
+{% include image_gallery.html file="gallery/bathroom_(based on Salle de bain by nacimus).jpg" alt="" caption="Cozy Bathroom (based on \"Salle de bain\" by nacimus)" width="90%" %}
 
-{% include image_gallery.html file="gallery/054_chess (based on _Transparent Chess For Cycle_ by yayel59).jpg" alt="" caption="Metallic Chess (based on \"Transparent Chess For Cycle\" by yayel59)" width="100%" %}
+{% include image_gallery.html file="gallery/054_chess (based on _Transparent Chess For Cycle_ by yayel59).jpg" alt="" caption="Metallic Chess (based on \"Transparent Chess For Cycle\" by yayel59)" width="90%" %}
 
 ## A Brief History
 
