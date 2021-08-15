@@ -1,328 +1,47 @@
 ---
 title: Photon Scene Description Language
 keywords: 
-last_updated: September 15, 2019
+last_updated: August 15, 2021
 summary: "Full documentation of PSDL."
 sidebar: photon_v2_sidebar
 permalink: photon_v2_sdl_documentation.html
 ---
 # Photon Scene Description Language
 
-## Actor
-
-* Category: `actor`
-* Type: `actor`
-
-Represents an entity in the scene. Every entity that participates in a scene is an actor.
-
-## Dome Actor
-
-* Category: `actor`
-* Type: `dome`
-
-A large energy emitting source encompassing the whole scene.
-
-> Creation:
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| env-map | `string` | Resource identifier for a HDRI describing the energy distribution. |
-
-> Operation **translate**:
-
-Moves the actor away from the original location with a specified amount.
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| factor | `vector3` | The amount to move in each axis. |
-
-> Operation **rotate**:
-
-Rotates the actor along an axis with a specified amount.
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| axis | `vector3` | The axis for rotation. |
-| degree | `real` | The amount of the rotation. |
-| factor | `quaternion` | Specifying the rotation with a quaternion directly. |
-
-> Operation **scale**:
-
-Enlarges or shrinks the actor with some specified amount.
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| factor | `vector3` | The amount to scale in each axis. |
-
-## Light Actor
-
-* Category: `actor`
-* Type: `light`
-
-An actor that represents a light in the scene.
-
-> Creation:
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| light-source | `light-source` | The source of the energy. |
-
-> Operation **translate**:
-
-Moves the actor away from the original location with a specified amount.
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| factor | `vector3` | The amount to move in each axis. |
-
-> Operation **rotate**:
-
-Rotates the actor along an axis with a specified amount.
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| axis | `vector3` | The axis for rotation. |
-| degree | `real` | The amount of the rotation. |
-| factor | `quaternion` | Specifying the rotation with a quaternion directly. |
-
-> Operation **scale**:
-
-Enlarges or shrinks the actor with some specified amount.
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| factor | `vector3` | The amount to scale in each axis. |
-
-## Model Actor
-
-* Category: `actor`
-* Type: `model`
-
-An actor that has a certain 3-D shape in the scene.
-
-> Creation:
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| geometry | `geometry` | A geometry that represent this actor's shape. |
-| material | `material` | A material that describes this actor's surface appearance. |
-
-> Operation **translate**:
-
-Moves the actor away from the original location with a specified amount.
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| factor | `vector3` | The amount to move in each axis. |
-
-> Operation **rotate**:
-
-Rotates the actor along an axis with a specified amount.
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| axis | `vector3` | The axis for rotation. |
-| degree | `real` | The amount of the rotation. |
-| factor | `quaternion` | Specifying the rotation with a quaternion directly. |
-
-> Operation **scale**:
-
-Enlarges or shrinks the actor with some specified amount.
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| factor | `vector3` | The amount to scale in each axis. |
-
-## Phantom Model Actor
-
-* Category: `actor`
-* Type: `phantom-model`
-
-An actor that itself will not appear in the scene, but its cooked result can be referenced by others.
-
-> Creation:
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| name | `string` | Phantom's name. |
-| geometry | `geometry` | A geometry that represent this actor's shape. |
-| material | `material` | A material that describes this actor's surface appearance. |
-
-> Operation **translate**:
-
-Moves the actor away from the original location with a specified amount.
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| factor | `vector3` | The amount to move in each axis. |
-
-> Operation **rotate**:
-
-Rotates the actor along an axis with a specified amount.
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| axis | `vector3` | The axis for rotation. |
-| degree | `real` | The amount of the rotation. |
-| factor | `quaternion` | Specifying the rotation with a quaternion directly. |
-
-> Operation **scale**:
-
-Enlarges or shrinks the actor with some specified amount.
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| factor | `vector3` | The amount to scale in each axis. |
-
-## Transformed Instance
-
-* Category: `actor`
-* Type: `transformed-instance`
-
-An actor that applies a transformation effect on a phantom.
-
-> Creation:
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| name | `string` | Target phantom's name. |
-
-> Operation **translate**:
-
-Moves the actor away from the original location with a specified amount.
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| factor | `vector3` | The amount to move in each axis. |
-
-> Operation **rotate**:
-
-Rotates the actor along an axis with a specified amount.
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| axis | `vector3` | The axis for rotation. |
-| degree | `real` | The amount of the rotation. |
-| factor | `quaternion` | Specifying the rotation with a quaternion directly. |
-
-> Operation **scale**:
-
-Enlarges or shrinks the actor with some specified amount.
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| factor | `vector3` | The amount to scale in each axis. |
-
-## Physical Actor
-
-* Category: `actor`
-* Type: `physical`
-
-An actor that is visible and can be transformed.
-
-> Operation **translate**:
-
-Moves the actor away from the original location with a specified amount.
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| factor | `vector3` | The amount to move in each axis. |
-
-> Operation **rotate**:
-
-Rotates the actor along an axis with a specified amount.
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| axis | `vector3` | The axis for rotation. |
-| degree | `real` | The amount of the rotation. |
-| factor | `quaternion` | Specifying the rotation with a quaternion directly. |
-
-> Operation **scale**:
-
-Enlarges or shrinks the actor with some specified amount.
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| factor | `vector3` | The amount to scale in each axis. |
-
-## Cuboid
-
-* Category: `geometry`
-* Type: `cuboid`
-
-A shape that is similar to cube but may contain rectangular faces. It is centered around origin.
-
-> Creation:
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| min-vertex | `vector3` | Vertex in the (---) octant. |
-| max-vertex | `vector3` | Vertex in the (+++) octant. |
-| px-face-uv | `quaternion` | UV coordinates of the +x face (+y as upward), in (min-u, min-v, max-u, max-v). |
-| nx-face-uv | `quaternion` | UV coordinates of the -x face (+y as upward), in (min-u, min-v, max-u, max-v). |
-| pz-face-uv | `quaternion` | UV coordinates of the +z face (+y as upward), in (min-u, min-v, max-u, max-v). |
-| nz-face-uv | `quaternion` | UV coordinates of the -z face (+y as upward), in (min-u, min-v, max-u, max-v). |
-| py-face-uv | `quaternion` | UV coordinates of the +y face (-z as upward), in (min-u, min-v, max-u, max-v). |
-| ny-face-uv | `quaternion` | UV coordinates of the -y face (+z as upward), in (min-u, min-v, max-u, max-v). |
-
-## Empty
-
-* Category: `geometry`
-* Type: `empty`
-
-It is just an empty geometry. Nothing is there.
-
-> Creation:
-
-(no input)
-
 ## Geometry
 
-* Category: `geometry`
-* Type: `geometry`
+* Category: `Geometry`
+* Type: `Geometry`
+* Note: **blueprint only**
 
 Defining the shape of scene elements.
 
-## Geometry Soup
 
-* Category: `geometry`
-* Type: `geometry-soup`
 
-A collection of geometry.
+## Spherical Geometry
 
-> Creation:
+* Category: `Geometry`
+* Type: `Sphere`
+* Note: **concrete**, based on **Geometry**
 
-(no input)
+A perfectly round shape centering around origin.
 
-> Operation **add**:
-
-Adds a geometry to the soup.
+> Creation: `geometry(sphere)`
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
-| geometry | `geometry` | The geometry to be added. |
+| radius | `real` | Size of the sphere. |
 
-> Operation **add-transformed**:
 
-Applies transformations on a geometry then add it to the soup.
+## Rectangular Geometry
 
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| geometry | `geometry` | The geometry to be added. |
-| translation | `vector3` | Offset amount. |
-| rotation-axis | `vector3` | Axis of rotation. |
-| rotation-degrees | `real` | Amount of rotation along the rotation axis in degrees. |
-| scale | `vector3` | Magnify/minify factor to be applied on the geometry. |
-
-## Rectangle
-
-* Category: `geometry`
-* Type: `rectangle`
+* Category: `Geometry`
+* Type: `Rectangle`
+* Note: **concrete**, based on **Geometry**
 
 A rectangular shape on xy-plane. It is centered around origin.
 
-> Creation:
+> Creation: `geometry(rectangle)`
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
@@ -330,540 +49,417 @@ A rectangular shape on xy-plane. It is centered around origin.
 | height | `real` | Height of the rectangle. |
 | texcoord-scale | `real` | A scaling factor that scales the default-generated texture coordinates. |
 
-## Sphere
 
-* Category: `geometry`
-* Type: `sphere`
+## Material
 
-A perfectly round shape centering around origin.
+* Category: `Material`
+* Type: `Material`
+* Note: **blueprint only**
 
-> Creation:
+Defines and models the appearance of scene elements.
 
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| radius | `real` | Size of the sphere. |
 
-## Triangle Mesh
 
-* Category: `geometry`
-* Type: `triangle-mesh`
+## Surface Material
 
-A cluster of triangles forming a singe shape in 3-D space.
+* Category: `Material`
+* Type: `Surface Material`
+* Note: **blueprint only**, based on **Material**
 
-> Creation:
+*(no description)*
 
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| positions | `vector3-array` | Vertices of all triangles. Every three vector3s in the array represents a single triangle. The vertices are expected to be given in counterclockwise order. |
-| texture-coordinates | `vector3-array` | Similar to positions, except that the array stores texture coordinates for each triangle. |
-| normals | `vector3-array` | Similar to positions, except that the array stores normal vectors for each triangle. |
 
-## Constant Image
 
-* Category: `image`
-* Type: `constant`
+## Matte Opaque Material
 
-An image that stores constant value. It can be a single real, a vector or a spectrum.
+* Category: `Material`
+* Type: `Matte Opaque`
+* Note: **concrete**, based on **Surface Material**
 
-> Creation:
+A material model for surfaces with matte look, such as chalk and moon.
+
+> Creation: `material(matte-opaque)`
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
-| value-type | `string` | Specifying what the stored constant represents. "raw": the value will be used directly without any conversion; "emr-linear-srgb": the value represents energy magnitudes in linear-SRGB; "ecf-linear-srgb": the value represents energy conserving coefficients in linear-SRGB. |
-| value | `real` | A single constant value. |
-| value | `vector3` | Vectorized constant value with three elements. |
+| albedo | `image` | An image or constant color that will be used for describing albedo. |
+| sigma-degrees | `image` | Roughness in standard deviation of surface orientation (unit: degrees). |
 
-## Image
 
-* Category: `image`
-* Type: `image`
+## Abraded Opaque Material
 
-A block of data.
+* Category: `Material`
+* Type: `Abraded Opaque`
+* Note: **concrete**, based on **Surface Material**
 
-## LDR Picture Image
+Able to model surfaces ranging from nearly specular to extremely rough appearances.
 
-* Category: `image`
-* Type: `ldr-picture`
-
-Low dynamic range images.
-
-> Creation:
+> Creation: `material(abraded-opaque)`
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
-| image | `string` | Resource identifier for a LDR image file. |
+| fresnel | `enum` | Type of the Fresnel for the conductive interface. |
+| f0 | `spectrum` | Surface reflectance on normal incidence. This value is expected to be given in linear-SRGB space. When this parameter is used, the underlying Fresnel model will be an approximated one (schlick) which is pretty popular in real-time graphics. |
+| ior-outer | `real` | The index of refraction outside of this interface. |
+| ior-inner-n | `spectrum` | The complex index of refraction (real part) inside of this interface. |
+| ior-inner-k | `spectrum` | The complex index of refraction (imaginary part) inside of this interface. |
+| microsurface | `enum` | Type of the microsurface of the material. |
+| roughness-to-alpha | `enum` | Type of the mapping to transform roughness into alpha value. |
+| roughness | `real` | Isotropic surface roughness in [0, 1], the material will appear to be smoother with smaller roughness value. |
+| roughness-v | `real` | Similar to the `roughness` parameter, but is used for anisotropic surface appearances. This value controls the V component of surface roughness. If this value is provided, the `roughness` parameter is interpreted as the U component of surface roughness. |
 
-## Picture Image
-
-* Category: `image`
-* Type: `picture`
-
-This kind of image is similar to ordinary color image formats.
-
-## Real Math Image
-
-* Category: `image`
-* Type: `real-math`
-
-This image applies mathematical modifications on other images.
-
-> Creation:
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| math-op | `string` | The mathematical operation used. "multiply": multiplying a value to the target; "add": add a value to the target. |
-| value | `real` | The value that is going to be applied to the target. How it will be applied depends on the math-op specified. |
-| operand | `image` | The target image that is going to be operated on. |
-
-## Area Source
-
-* Category: `light-source`
-* Type: `area`
-
-This type of light source has a finite area. Energy is allowed to emit as long as the emitting source is within the area.
-
-## Dome Source
-
-* Category: `light-source`
-* Type: `dome`
-
-A large energy emitting source encompassing the whole scene.
-
-> Creation:
-
-(no input)
 
 ## Light Source
 
-* Category: `light-source`
-* Type: `light-source`
+* Category: `Light Source`
+* Type: `Light Source`
+* Note: **blueprint only**
 
 The source of all energy emitting entity in the scene.
 
-## Model Source
 
-* Category: `light-source`
-* Type: `model`
 
-A light source that emits energy from the surface of a geometry. A surface material model can also be given to describe its surface appearance.
+## Area Light Source
 
-> Creation:
+* Category: `Light Source`
+* Type: `Area`
+* Note: **blueprint only**, based on **Light Source**
 
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| geometry | `geometry` | A geometry that defines the surface energy is going to emit from. |
-| material | `material` | A material that describes this source's surface appearance. |
-| emitted-radiance | `image` | An image that describes the emitted radiance across the surface. |
-| emitted-radiance | `vector3` | Specify a constant emitted radiance across the surface in linear-SRGB. |
-| emit-mode | `string` | Selects the side where the energy is allowed to emit. It can be "front" or "back". |
+This type of light source has a finite area. Energy is allowed toemit as long as the emitting source is within the area.
 
-## Point Source
 
-* Category: `light-source`
-* Type: `point`
 
-Power emitting source from a small but not infinitesimal region. Resembling a small light bulb.
+## Spherical Light Source
 
-> Creation:
+* Category: `Light Source`
+* Type: `Sphere`
+* Note: **concrete**, based on **Area Light Source**
+
+This type of light emits energy from a spherical shape.
+
+> Creation: `light-source(sphere)`
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
-| linear-srgb | `vector3` | The color of this light source in linear-SRGB. |
-| watts | `real` | Energy emitted by this light source. |
+| radius | `real` | The radius of the sphere. |
 
-## Rectangle Source
 
-* Category: `light-source`
-* Type: `rectangle`
+## Rectangular Light Source
 
-This type of light emits energy from a rectangular shape. Note that energy is only allowed to emit from one side of the rectangle, not both sides.
+* Category: `Light Source`
+* Type: `Rectangle`
+* Note: **concrete**, based on **Area Light Source**
 
-> Creation:
+This type of light emits energy from a rectangular shape.Note that energyis only allowed to emit from one side of the rectangle, not both sides.
+
+> Creation: `light-source(rectangle)`
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
 | width | `real` | The width of the rectangle. |
 | height | `real` | The height of the rectangle. |
-| linear-srgb | `vector3` | The color of this light source in linear-SRGB. |
-| watts | `real` | Energy emitted by this light source. |
 
-## Sphere Source
 
-* Category: `light-source`
-* Type: `sphere`
+## Observer
 
-This type of light emits energy from a spherical shape.
+* Category: `Observer`
+* Type: `Observer`
+* Note: **blueprint only**
 
-> Creation:
+A tool for observing the incoming energy of the scene.
 
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| radius | `real` | The radius of the sphere. |
-| linear-srgb | `vector3` | The color of this light source in linear-SRGB. |
-| watts | `real` | Energy emitted by this light source. |
 
-## Abraded Opaque
 
-* Category: `material`
-* Type: `abraded-opaque`
+## Oriented Raster Observer
 
-Able to model surfaces ranging from nearly specular to extremely rough appearances.
+* Category: `Observer`
+* Type: `Oriented Raster`
+* Note: **blueprint only**, based on **Observer**
 
-> Creation:
+Observers that work by projecting incoming energy in certain ways. Projective observers face the -z axis (+y up) and reside on (0, 0, 0) by default.
 
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| microsurface | `microsurface-info` | Describes the appearance model of surface microstructure. |
-| fresnel | `conductive-interface-info` | Fresnel model for the surface microstructure. |
-| distribution-model | `string` | Possible value are "trowbridge-reitz" (or equivalently "ggx", for both isotropic and anisotropic surface appearances), and "beckmann" (isotropic only). |
-| roughness | `real` | Isotropic surface roughness in [0, 1], the material will appear to be smoother with smaller roughness value. |
-| roughness-u | `real` | Similar to the roughness parameter, but is used for anisotropic surface appearances. This value controls the U component of surface roughness. |
-| roughness-v | `real` | Similar to the roughness parameter, but is used for anisotropic surface appearances. This value controls the V component of surface roughness. |
-| mapping | `string` | Method for transforming roughness value into an internal parameter "alpha". Possible values are "squared", "pbrt-v3", and "equaled". |
-| fresnel-model | `string` | Controls the Fresnel model used. Possible values are "exact" and "schlick". |
-| f0 | `vector3` | Surface reflectance on normal incidence. This value is expected to be given in linear-SRGB space. When this parameter is used, the underlying Fresnel model will be an approximated one (schlick) which is pretty popular in real-time graphics. |
 
-## Abraded Translucent
 
-* Category: `material`
-* Type: `abraded-translucent`
+## Single-Lens Observer
 
-Able to model translucent surfaces with variable roughnesses. Such as frosted glass.
+* Category: `Observer`
+* Type: `Single Lens`
+* Note: **concrete**, based on **Oriented Raster Observer**
 
-> Creation:
+As its name suggests, the lens system in this observer is assumed to have just a single lens. The biggest advantage of it is that depth of field effects are possible under this model. In case of the lens radius is zero, the lens system will be reduced to a pinhole. Images captured by this observer is similar to how a normal human perceives the world but with several simplifications.
 
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| microsurface | `microsurface-info` | Describes the appearance model of surface microstructure. |
-| fresnel | `dielectric-interface-info` | Fresnel model for the surface microstructure. |
-| distribution-model | `string` | Possible value are "trowbridge-reitz" (or equivalently "ggx", for both isotropic and anisotropic surface appearances), and "beckmann" (isotropic only). |
-| roughness | `real` | Isotropic surface roughness in [0, 1], the material will appear to be smoother with smaller roughness value. |
-| roughness-u | `real` | Similar to the roughness parameter, but is used for anisotropic surface appearances. This value controls the U component of surface roughness. |
-| roughness-v | `real` | Similar to the roughness parameter, but is used for anisotropic surface appearances. This value controls the V component of surface roughness. |
-| mapping | `string` | Method for transforming roughness value into an internal parameter "alpha". Possible values are "squared", "pbrt-v3", and "equaled". |
-| fresnel-model | `string` | Controls the Fresnel model used. Possible values are "exact" and "schlick". |
-| ior-outer | `real` | The index of refraction outside of this material. |
-| ior-inner | `real` | The index of refraction inside of this material. |
-
-## Binary Mixed Surface
-
-* Category: `material`
-* Type: `binary-mixed-surface`
-
-Mixing two surface materials in various ways.
-
-> Creation:
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| mode | `string` | Specifying how two materials are mixed. The only mode supported now is "lerp". |
-| factor | `real` | A number in [0, 1] controlling the contribution from each material. |
-| factor | `image` | An image controlling the contribution from each material. |
-| material-0 | `material` | The material that participates the mixing process. |
-| material-1 | `material` | The material that participates the mixing process. |
-
-## Full Material
-
-* Category: `material`
-* Type: `full`
-
-A material model that combines surface and volume properties.
-
-> Creation:
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| surface | `material` | A surface material. |
-| interior | `material` | A volume material describing the inside of the surface. |
-| exterior | `material` | A volume material describing the outside of the surface. |
-
-## Ideal Substance
-
-* Category: `material`
-* Type: `ideal-substance`
-
-Models a perfectly smooth surface with various physical properties.
-
-> Creation:
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| type | `string` | Specifying the physical behavior of the surface. Available types are "dielectric-reflector", "metallic-reflector", "transmitter", "absorber", and "dielectric". |
-| ior-outer | `real` | The index of refraction outside of this material. |
-| ior-inner | `real` | The index of refraction inside of this material. |
-| f0-rgb | `vector3` | Surface reflectance on normal incidence. This value is expected to be given in linear-SRGB. When this parameter is used, the underlying Fresnel model will be an approximated one which is pretty popular in real-time graphics. |
-| reflection-scale | `vector3` | A scaling factor for reflected energy. Note that this is only for artistic control and is not physically correct. This value is expected to be given in linear-SRGB. |
-| transmission-scale | `vector3` | A scaling factor for transmitted energy. Note that this is only for artistic control and is not physically correct. This value is expected to be given in linear-SRGB. |
-
-## Layered Surface
-
-* Category: `material`
-* Type: `layered-surface`
-
-A material model for surfaces with matte look, such as chalk and moon.
-
-> Creation:
-
-(no input)
-
-> Operation **add**:
-
-Appends a layer to the bottom of the existing layers.
-
-(no input)
-
-> Operation **set**:
-
-Creates a new surface layer and set it to a specified layer index. If there are N layers, the top one will have index 0 and the bottom one will have index N-1.
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| index | `integer` | The target layer index. |
-| roughness | `real` | Isotropic surface roughness in [0, 1], the material will appear to be smoother with smaller roughness value. |
-| ior-n | `vector3` | The real part of the layer's index of refraction in linear-SRGB. |
-| ior-k | `vector3` | The imaginary part of the layer's index of refraction in linear-SRGB. |
-| ior-n | `real` | The real part of the layer's index of refraction as a raw constant. |
-| ior-k | `real` | The imaginary part of the layer's index of refraction as a raw constant. |
-| depth | `real` | Thickness of the layer. |
-| g | `real` | The g variable in Henyey-Greenstein phase function. |
-| sigma-a | `real` | The volume absorption coefficient. |
-| sigma-s | `real` | The volume scattering coefficient. |
-
-## Material
-
-* Category: `material`
-* Type: `material`
-
-Defines and models the appearance of scene elements.
-
-## Matte Opaque
-
-* Category: `material`
-* Type: `matte-opaque`
-
-A material model for surfaces with matte look, such as chalk and moon.
-
-> Creation:
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| albedo | `real` | A constant albedo in linear SRGB. |
-| albedo | `vector3` | An albedo value in linear SRGB. |
-| albedo | `image` | An image that will be used for describing albedo. |
-| sigma-degrees | `real` | Roughness in standard deviation of surface orientation. |
-
-## Camera
-
-* Category: `camera`
-* Type: `camera`
-
-A camera for observing the scene.
-
-## Perspective Camera
-
-* Category: `camera`
-* Type: `perspective`
-
-For cameras that have perspective effect.
-
-## Pinhole Camera
-
-* Category: `camera`
-* Type: `pinhole`
-
-This type of camera is simply composed of a hole (which serves as its lens system) and a film. Images captured by this camera is similar to how a normal human perceives the world but with several simplifications.
-
-> Creation:
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| fov-degree | `real` | Field of view of this camera in degrees. |
-| film-width-mm | `real` | Width of the film used by this camera in millimeters. |
-| film-offset-mm | `real` | Distance from the film to the camera's lens. |
-| position | `vector3` | Position of the camera. |
-| rotation | `quaternion` | The orientation of the camera. |
-| direction | `vector3` | Direction that this camera is looking at. |
-| up-axis | `vector3` | The direction that this camera consider as upward. |
-| yaw-degrees | `real` | Rotation of the camera around +y axis in [0, 360]. |
-| pitch-degrees | `real` | The camera's declination from the horizon in [-90, 90]. |
-
-## Thin Lens Camera
-
-* Category: `camera`
-* Type: `thin-lens`
-
-As its name suggests, the lens system in this camera is assumed to be a single lens with negligible thickness. The biggest advantage of it is that depth of field effects are possible under this model.
-
-> Creation:
+> Creation: `observer(single-lens)`
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
 | lens-radius-mm | `real` | Radius of the lens in millimeters. |
-| focal-distance-mm | `real` | The distance in millimeters that the camera is focusing on. |
-| fov-degree | `real` | Field of view of this camera in degrees. |
-| film-width-mm | `real` | Width of the film used by this camera in millimeters. |
-| film-offset-mm | `real` | Distance from the film to the camera's lens. |
-| position | `vector3` | Position of the camera. |
-| rotation | `quaternion` | The orientation of the camera. |
-| direction | `vector3` | Direction that this camera is looking at. |
-| up-axis | `vector3` | The direction that this camera consider as upward. |
-| yaw-degrees | `real` | Rotation of the camera around +y axis in [0, 360]. |
-| pitch-degrees | `real` | The camera's declination from the horizon in [-90, 90]. |
-
-## Renderer
-
-* Category: `renderer`
-* Type: `renderer`
-
-The main engine component for producing images.
-
-## Attribute Renderer
-
-* Category: `renderer`
-* Type: `attribute`
-
-This renderer produces various type of attributes which can be useful for compositing. The attributes are also known as AOVs (arbitrary output variables).
-
-> Creation:
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| attribute | `string` | The attribute to render. |
-| width | `integer` | Width of the film in pixels. |
-| height | `integer` | Height of the film in pixels. |
-| rect-x | `integer` | X coordinate of the lower-left corner of the film cropping window. |
-| rect-y | `integer` | Y coordinate of the lower-left corner of the film cropping window. |
-| rect-w | `integer` | Width of the film cropping window. |
-| rect-h | `integer` | Height of the film cropping window. |
-
-## Photon Map Renderer
-
-* Category: `renderer`
-* Type: `pm`
-
-This renderer renders images by utilizing a precomputed photon map. Like all caching based methods, this render technique is biased; rendered result converges to ground truth in the limit.
-
-> Creation:
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| mode | `string` | Photon mapping mode. "vanilla": directly compute energy values from photon map, no fancy tricks applied; "progressive": progressively refine the rendered results; "stochastic-progressive": stochastic sampling technique is utilized for energy value computation. |
-| num-photons | `integer` | Number of photons used. For progressive techniques, this value is for single pass. |
-| radius | `real` | Contributing radius for each photon. For progressive techniques, this value is for setting up initial radius. |
-| num-passes | `integer` | Number of passes performed by progressive techniques. |
-| num-samples-per-pixel | `integer` | Number of samples per pixel. Higher values can resolve image aliasing, but can consume large amounts of memory. |
-| width | `integer` | Width of the film in pixels. |
-| height | `integer` | Height of the film in pixels. |
-| rect-x | `integer` | X coordinate of the lower-left corner of the film cropping window. |
-| rect-y | `integer` | Y coordinate of the lower-left corner of the film cropping window. |
-| rect-w | `integer` | Width of the film cropping window. |
-| rect-h | `integer` | Height of the film cropping window. |
-
-## Adaptive Sampling Renderer
-
-* Category: `renderer`
-* Type: `adaptive-sampling`
-
-This renderer renders images by path sampling techniques, but the samples will be concentrated on noisy regions. Normally, this renderer has better utilization of computational power.
-
-> Creation:
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| filter-name | `string` | The type of filter used by the film. "box": box filter, fairly sharp but can have obvious aliasing around edges; "gaussian": Gaussian filter, gives smooth results; "mitchell-netravali" or "mn": Mitchell-Netravali filter, smooth but remains sharp around edges; "blackman-harris" or "bh": Blackman-Harris filter, a good compromise between smoothness and sharpness. |
-| estimator | `string` | The energy estimating component used by the renderer. "bvpt": backward path tracing; "bneept": backward path tracing with next event estimation. |
-| width | `integer` | Width of the film in pixels. |
-| height | `integer` | Height of the film in pixels. |
-| rect-x | `integer` | X coordinate of the lower-left corner of the film cropping window. |
-| rect-y | `integer` | Y coordinate of the lower-left corner of the film cropping window. |
-| rect-w | `integer` | Width of the film cropping window. |
-| rect-h | `integer` | Height of the film cropping window. |
-
-## Equal Sampling Renderer
-
-* Category: `renderer`
-* Type: `equal-sampling`
-
-This renderer renders images by path sampling techniques and distributes them equally. Typically, this means the rendering technique used is unbiased, and the the image converges as a whole.
-
-> Creation:
-
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| scheduler | `string` | Scheduler for rendering, affect the order of rendered regions. Possible values: bulk, stripe, grid, tile, spiral, spiral-grid. |
-| block-width | `integer` | Desired width for render scheduling. |
-| block-height | `integer` | Desired height for render scheduling. |
-| filter-name | `string` | The type of filter used by the film. "box": box filter, fairly sharp but can have obvious aliasing around edges; "gaussian": Gaussian filter, gives smooth results; "mitchell-netravali" or "mn": Mitchell-Netravali filter, smooth but remains sharp around edges; "blackman-harris" or "bh": Blackman-Harris filter, a good compromise between smoothness and sharpness. |
-| estimator | `string` | The energy estimating component used by the renderer. "bvpt": backward path tracing; "bneept": backward path tracing with next event estimation. |
-| width | `integer` | Width of the film in pixels. |
-| height | `integer` | Height of the film in pixels. |
-| rect-x | `integer` | X coordinate of the lower-left corner of the film cropping window. |
-| rect-y | `integer` | Y coordinate of the lower-left corner of the film cropping window. |
-| rect-w | `integer` | Width of the film cropping window. |
-| rect-h | `integer` | Height of the film cropping window. |
-
-## Sampling Renderer
-
-* Category: `renderer`
-* Type: `sampling`
+| focal-distance-mm | `real` | The distance in millimeters that the observer is focusing on. |
+| sensor-width-mm | `real` | Width of the sensor used by this observer in millimeters. |
+| sensor-offset-mm | `real` | Distance between sensor and light entry. Can be overridden if FoV is provided. |
+| fov-degrees | `real` | Field of view of this observer in degrees. If provided, it will be used to adjust sensor offset such that the desired FoV is reached. |
 
 
+## Sample Source
 
-## Sample Generator
-
-* Category: `sample-generator`
-* Type: `sample-generator`
+* Category: `Sample Source`
+* Type: `Sample Source`
+* Note: **blueprint only**
 
 Engine component for generating sample values.
 
-## Stratified Sample Generator
 
-* Category: `sample-generator`
-* Type: `stratified`
 
-Generating samples based on engine provided dimensional hints.
+## Runtime Sample Source
 
-> Creation:
+* Category: `Sample Source`
+* Type: `Runtime`
+* Note: **blueprint only**, based on **Sample Source**
 
-| Inputs | Types | Descriptions |
-| --- | --- | --- |
-| sample-amount | `integer` | Controls the number of sample batches that will be generated. |
+Sample sources that generate samples during render engine execution time.
 
-## Uniform Random Sample Generator
 
-* Category: `sample-generator`
-* Type: `uniform-random`
+
+## Uniform Random Sample Source
+
+* Category: `Sample Source`
+* Type: `Uniform Random`
+* Note: **concrete**, based on **Runtime Sample Source**
 
 Generating samples in a completely random fashion.
 
-> Creation:
+> Creation: `sample-source(uniform-random)`
+
+*(no input)*
+
+
+## Stratified Sample Source
+
+* Category: `Sample Source`
+* Type: `Stratified`
+* Note: **concrete**, based on **Runtime Sample Source**
+
+Generating samples based on engine provided dimensional hints.
+
+> Creation: `sample-source(stratified)`
+
+*(no input)*
+
+
+## Halton Sample Source
+
+* Category: `Sample Source`
+* Type: `Halton`
+* Note: **concrete**, based on **Runtime Sample Source**
+
+Generating samples based on the Halton sequence. The samples generated are somewhat deterministic and can lead to visible patterns if the number of samples is too low.
+
+> Creation: `sample-source(halton)`
+
+*(no input)*
+
+
+## Visualizer
+
+* Category: `Visualizer`
+* Type: `Visualizer`
+* Note: **blueprint only**
+
+The main engine component for producing visual content.
+
+
+
+## Frame Visualizer
+
+* Category: `Visualizer`
+* Type: `Frame`
+* Note: **blueprint only**, based on **Visualizer**
+
+A visualizer that produces frames, a typical example is an image.
+
+
+
+## Path Tracing Visualizer
+
+* Category: `Visualizer`
+* Type: `Path Tracing`
+* Note: **concrete**, based on **Frame Visualizer**
+
+Render frames with common path tracing methods.
+
+> Creation: `visualizer(path-tracing)`
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
-| sample-amount | `integer` | Controls the number of sample batches that will be generated. |
+| scheduler | `enum` | Scheduler for rendering, affect the order of rendered regions. |
+| estimator | `enum` | Scheduler for rendering, affect the order of rendered regions. |
+| sample-filter | `enum` | Sample filter for the film sampling process. |
 
-## Data Structure: `conductive-interface-info`
+
+## Option
+
+* Category: `Option`
+* Type: `Option`
+* Note: **concrete**
+
+Options that control engine runtime behavior.
+
+> Creation: `option(option)`
+
+*(no input)*
+
+
+## Render Session
+
+* Category: `Option`
+* Type: `Render Session`
+* Note: **blueprint only**, based on **Option**
+
+Settings for how to perform a render operation.
+
+
+
+## Single Frame Render Session
+
+* Category: `Option`
+* Type: `Single Frame Render Session`
+* Note: **concrete**, based on **Render Session**
+
+Information regarding the rendering process of a single frame.
+
+> Creation: `option(single-frame-render-session)`
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
-| fresnel-model | `string` | Controls the Fresnel model used. Possible values are "exact" and "schlick". |
-| f0 | `vector3` | Surface reflectance on normal incidence. This value is expected to be given in linear-SRGB space. When this parameter is used, the underlying Fresnel model will be an approximated one (schlick) which is pretty popular in real-time graphics. |
+| frame-size | `vector2` | Width and height of the frame in pixels. |
+| visualizer | `string` | Name of the visualizer resource to use. |
+| observer | `string` | Name of the observer resource to use. |
+| sample-source | `string` | Name of the sample source resource to use. |
+| top-level-accelerator | `enum` | Acceleration structure used on the top level geometries. |
 
-## Data Structure: `dielectric-interface-info`
+
+## Actor
+
+* Category: `Actor`
+* Type: `Actor`
+* Note: **blueprint only**
+
+Represents an entity in the scene. Every entity that participates in a scene is an actor.
+
+
+
+## Physical Actor
+
+* Category: `Actor`
+* Type: `Physical`
+* Note: **blueprint only**, based on **Actor**
+
+An actor that is visible and can be transformed.
+
+
+> Operation: `translate`
+
+Moves the actor away from the original location with a specified amount.
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
-| fresnel-model | `string` | Controls the Fresnel model used. Possible values are "exact" and "schlick". |
-| ior-outer | `real` | The index of refraction outside of this material. |
-| ior-inner | `real` | The index of refraction inside of this material. |
+| amount | `vector3` | The amount to move on each axis. |
 
-## Data Structure: `microsurface-info`
+> Operation: `rotate`
+
+Rotates the actor along an axis with a specified amount.
 
 | Inputs | Types | Descriptions |
 | --- | --- | --- |
-| distribution-model | `string` | Possible value are "trowbridge-reitz" (or equivalently "ggx", for both isotropic and anisotropic surface appearances), and "beckmann" (isotropic only). |
-| roughness | `real` | Isotropic surface roughness in [0, 1], the material will appear to be smoother with smaller roughness value. |
-| roughness-u | `real` | Similar to the roughness parameter, but is used for anisotropic surface appearances. This value controls the U component of surface roughness. |
-| roughness-v | `real` | Similar to the roughness parameter, but is used for anisotropic surface appearances. This value controls the V component of surface roughness. |
-| mapping | `string` | Method for transforming roughness value into an internal parameter "alpha". Possible values are "squared", "pbrt-v3", and "equaled". |
+| axis | `vector3` | The axis for rotation. |
+| degrees | `real` | The amount of the rotation, in degrees. |
+| rotation | `quaternion` | Specify the rotation with a quaternion directly. |
+
+> Operation: `scale`
+
+Enlarges or shrinks the actor with some specified amount.
+
+| Inputs | Types | Descriptions |
+| --- | --- | --- |
+| amount | `vector3` | The amount to scale on each axis. |
+
+
+## Model Actor
+
+* Category: `Actor`
+* Type: `Model`
+* Note: **concrete**, based on **Physical Actor**
+
+An actor that has a certain 3-D shape in the scene.
+
+> Creation: `actor(model)`
+
+| Inputs | Types | Descriptions |
+| --- | --- | --- |
+| geometry | `geometry` | A geometry that represent this actor's shape. |
+| material | `material` | A material that describes this actor's surface appearance. |
+| motion | `motion` | Movement of this actor. |
+
+
+## Light Actor
+
+* Category: `Actor`
+* Type: `Light`
+* Note: **concrete**, based on **Physical Actor**
+
+An actor that represents a light in the scene.
+
+> Creation: `actor(light)`
+
+| Inputs | Types | Descriptions |
+| --- | --- | --- |
+| source | `light-source` | The source of the energy. |
+
+
+
+## Accelerator
+
+Denotes acceleration structure types.
+
+| Entries | Descriptions |
+| --- | --- |
+| *(empty)* | *(no description)* |
+| `brute-force` | *(no description)* |
+| `bvh` | *(no description)* |
+| `kd-tree` | *(no description)* |
+| `indexed-kd-tree` | *(no description)* |
+
+## Estimator
+
+Type of energy estimation algorithms.
+
+| Entries | Descriptions |
+| --- | --- |
+| *(empty)* | *(no description)* |
+| `bvpt` | Backward path tracing. |
+| `bneept` | Backward path tracing with next event estimation. |
+| `bvptdl` | Backward path tracing, evaluate direct lighting only (single bounce) |
+
+## Sample Filter
+
+The type of filter used during the sampling process.
+
+| Entries | Descriptions |
+| --- | --- |
+| *(empty)* | *(no description)* |
+| `box` | Fairly sharp, fast to evaluate, but can have obvious aliasing around edges. |
+| `gaussian` | Gives smooth results, slower to evaluate and can sometimes result in blurry images. |
+| `mn` | Smooth but remains sharp around edges. |
+| `bh` | A good compromise between smoothness and sharpness. |
+
+## Color Space
+
+Marks color space information of input values.
+
+| Entries | Descriptions |
+| --- | --- |
+| *(empty)* | *(no description)* |
+| `LSRGB` | *(no description)* |
+| `SRGB` | *(no description)* |
+| `SPD` | *(no description)* |
+
 
