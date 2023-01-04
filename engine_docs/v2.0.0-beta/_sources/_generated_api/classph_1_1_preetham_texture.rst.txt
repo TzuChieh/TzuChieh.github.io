@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_preetham_texture:
+
+Class PreethamTexture
+=====================
+
+- Defined in :ref:`file_Source_Core_Texture_Sky_PreethamTexture.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::TTexture< math::Spectrum >`` (:ref:`exhale_class_classph_1_1_t_texture`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::PreethamTexture
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

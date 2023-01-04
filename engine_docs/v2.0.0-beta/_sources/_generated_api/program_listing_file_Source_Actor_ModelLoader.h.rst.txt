@@ -1,0 +1,35 @@
+
+.. _program_listing_file_Source_Actor_ModelLoader.h:
+
+Program Listing for File ModelLoader.h
+======================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Actor_ModelLoader.h>` (``Source\Actor\ModelLoader.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   //#pragma once
+   //
+   //#include "Actor/ModelParser/AssimpModelParser.h"
+   //
+   //#include <assimp/importer.hpp>
+   //
+   //#include <memory>
+   //#include <string>
+   //#include <vector>
+   //
+   //namespace ph
+   //{
+   //
+   //class ModelLoader final
+   //{
+   //public:
+   //  bool load(const std::string& fullFilename, std::vector<AModel>* const out_models);
+   //
+   //private:
+   //  AssimpModelParser m_assimpModelParser;
+   //};
+   //
+   //}// end namespace ph

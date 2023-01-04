@@ -1,0 +1,16 @@
+.. _dir_D__dev_Photon-v2_Engine_Source_Core_SurfaceBehavior_Property:
+
+
+Directory Property
+==================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_D__dev_Photon-v2_Engine_Source_Core_SurfaceBehavior>` (``D:\dev\Photon-v2\Engine\Source\Core\SurfaceBehavior``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``D:\dev\Photon-v2\Engine\Source\Core\SurfaceBehavior\Property``
+
+
+

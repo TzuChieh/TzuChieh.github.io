@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1function__detail_1_1_t_function:
+
+Template Class TFunction
+========================
+
+- Defined in :ref:`file_Source_Utility_TFunction.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::function_detail::TFunction
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

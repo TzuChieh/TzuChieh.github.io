@@ -1,0 +1,33 @@
+
+.. _program_listing_file_Source_Common_LogSender.cpp:
+
+Program Listing for File LogSender.cpp
+======================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Common_LogSender.cpp>` (``Source\Common\LogSender.cpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #include "Common/LogSender.h"
+   
+   namespace ph
+   {
+   
+   const LogSender& LogSender::DEFAULT()
+   {
+       static const LogSender defaultSender("PR");
+       return defaultSender;
+   }
+   
+   LogSender::LogSender(const std::string& senderName) :
+       m_senderName(senderName)
+   {}
+   
+   const std::string& LogSender::getSenderName() const
+   {
+       return m_senderName;
+   }
+   
+   }// end namespace ph

@@ -1,0 +1,20 @@
+
+.. _namespace_ph__math__detail__shuffle:
+
+Namespace ph::math::detail::shuffle
+===================================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structph_1_1math_1_1detail_1_1shuffle_1_1_standard_swapper`

@@ -1,0 +1,51 @@
+
+.. _file_Source_Utility_INoCopyAndMove.h:
+
+File INoCopyAndMove.h
+=====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Utility\INoCopyAndMove.h``)
+------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Utility_INoCopyAndMove.h.rst
+
+
+
+
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Utility_Concurrent_TMRSWResource.h`
+
+- :ref:`file_Source_Utility_Concurrent_TSPSCRingBuffer.h`
+
+- :ref:`file_Source_Utility_Concurrent_Workflow.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_i_no_copy_and_move`
+

@@ -1,0 +1,57 @@
+
+.. _file_Source_World_Foundation_ResourceCookReport.h:
+
+File ResourceCookReport.h
+=========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\World\Foundation\ResourceCookReport.h``)
+-------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_World_Foundation_ResourceCookReport.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``DataIO/SDL/SdlResourceId.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_World_Foundation_cook_results.cpp`
+
+- :ref:`file_Source_World_Foundation_CookedResourceCollection.h`
+
+- :ref:`file_Source_World_Foundation_ResourceCookReport.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_resource_cook_report`
+

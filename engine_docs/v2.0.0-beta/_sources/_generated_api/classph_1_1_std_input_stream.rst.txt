@@ -1,0 +1,33 @@
+.. _exhale_class_classph_1_1_std_input_stream:
+
+Class StdInputStream
+====================
+
+- Defined in :ref:`file_Source_DataIO_Stream_StdInputStream.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::IInputStream`` (:ref:`exhale_class_classph_1_1_i_input_stream`)
+
+
+Derived Types
+*************
+
+- ``public ph::BinaryFileInputStream`` (:ref:`exhale_class_classph_1_1_binary_file_input_stream`)
+- ``public ph::FormattedTextInputStream`` (:ref:`exhale_class_classph_1_1_formatted_text_input_stream`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::StdInputStream
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

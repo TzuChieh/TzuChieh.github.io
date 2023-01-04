@@ -1,0 +1,486 @@
+
+.. _namespace_ph__math:
+
+Namespace ph::math
+==================
+
+
+Math functions and utilities. 
+
+
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph__math__constant`
+
+- :ref:`namespace_ph__math__detail`
+
+- :ref:`namespace_ph__math__spectral_data`
+
+- :ref:`namespace_ph__math__table`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structph_1_1math_1_1_indexed_item_endpoint`
+
+- :ref:`exhale_class_classph_1_1math_1_1_color_error`
+
+- :ref:`exhale_class_classph_1_1math_1_1_default_spectral_sample_props`
+
+- :ref:`exhale_class_classph_1_1math_1_1_dynamic_linear_translation`
+
+- :ref:`exhale_class_classph_1_1math_1_1_indexed_kdtree_params`
+
+- :ref:`exhale_class_classph_1_1math_1_1_math_exception`
+
+- :ref:`exhale_class_classph_1_1math_1_1_random`
+
+- :ref:`exhale_class_classph_1_1math_1_1_real`
+
+- :ref:`exhale_class_classph_1_1math_1_1_rigid_transform`
+
+- :ref:`exhale_class_classph_1_1math_1_1_static_affine_transform`
+
+- :ref:`exhale_class_classph_1_1math_1_1_static_rigid_transform`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_a_a_b_b2_d`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_a_a_b_b3_d`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_analytical_integrator1_d`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_arithmetic_array`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_arithmetic_array_base`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_basic_triangle`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_blackman_harris2_d`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_chromatic_adaptation_definition`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_chromatic_adaptation_definition_3_01_e_chromatic_adaptation_1_1_bradford_00_01_t_01_4`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_chromatic_adaptation_definition_3_01_e_chromatic_adaptation_1_1_von_kries_00_01_t_01_4`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_chromatic_adaptation_definition_3_01_e_chromatic_adaptation_1_1_x_y_z_scaling_00_01_t_01_4`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_chromatic_adaptation_definition_helper`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_color_space_definition`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_color_space_definition_3_01_e_color_space_1_1_a_c_e_scg_00_01_t_01_4`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_color_space_definition_3_01_e_color_space_1_1_c_i_e__xy_y_00_01_t_01_4`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_color_space_definition_3_01_e_color_space_1_1_c_i_e___x_y_z_00_01_t_01_4`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_color_space_definition_3_01_e_color_space_1_1_linear__s_r_g_b_00_01_t_01_4`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_color_space_definition_3_01_e_color_space_1_1_spectral___smits_00_01_t_01_4`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_color_space_definition_3_01_e_color_space_1_1s_r_g_b_00_01_t_01_4`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_color_space_definition_helper`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_constant2_d`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_decomposed_transform`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_disk`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_fraction`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_gaussian2_d`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_hemisphere`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_indexed_kdtree`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_indexed_kdtree_node`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_indexed_point_kdtree`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_indexed_vector3`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_line_segment`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_math_function2_d`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_matrix2`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_matrix3`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_matrix4`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_matrix_mx_n_base`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_matrix_n_base`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_m_n_cubic2_d`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_orthonormal_basis3`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_piecewise_linear1_d`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_pwc_distribution1_d`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_pwc_distribution2_d`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_quaternion`
+
+- :ref:`exhale_class_classph_1_1math_1_1_transform`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_sampled_spectrum`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_spectral_color_space_definition_helper`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_spectrum_base`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_sphere`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_triangle`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_tristimulus_color_space_definition_helper`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_tristimulus_spectrum`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_vector2`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_vector3`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_vector4`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_vector_n`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_vector_n_base`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_watertight_triangle`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_namespaceph_1_1math_1aeb6d400f8c4f85be266ab51b3cd65951`
+
+- :ref:`exhale_enum_namespaceph_1_1math_1a957eab3ceed525ebce5c24b6b57eb975`
+
+- :ref:`exhale_enum_namespaceph_1_1math_1a821af6da20aaed56cc09ad440633d067`
+
+- :ref:`exhale_enum_namespaceph_1_1math_1ae7853802be4d35a3625b5f313151d1ba`
+
+- :ref:`exhale_enum_namespaceph_1_1math_1ac8bbf5c13da6b60663011e0be1acb6c4`
+
+- :ref:`exhale_enum_namespaceph_1_1math_1a74a2188a938a5c0a52127f654cfa8b06`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_namespaceph_1_1math_1a9fa31ad274d843ea3ad9020490b82c11`
+
+- :ref:`exhale_function_namespaceph_1_1math_1adbcb1d6dfceda00baebe908358d4121a`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a2da02d8fd55ff426905d97c7297a08ad`
+
+- :ref:`exhale_function_namespaceph_1_1math_1adb4811e9be6e476d37c2db92e3d5a17a`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a510bcaf07562b67f8897a55701399305`
+
+- :ref:`exhale_function_namespaceph_1_1math_1aabf2fd737aa55c1ff9ca0f2315eca5e2`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a37422f0d5ec9007755a40521c7bbf89d`
+
+- :ref:`exhale_function_namespaceph_1_1math_1aa1639a1b307574d4434e62163f699d25`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a57a79918ca16800547722e927119aa60`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a63dd976cb0c4bec50ef701d616a62366`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a1f04588b0cb53e0928c20e843d1af095`
+
+- :ref:`exhale_function_namespaceph_1_1math_1afee4db726ee0c5f8713caffccc29382c`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a9e5d8a7a977115813ceeba3f0c00cbdb`
+
+- :ref:`exhale_function_namespaceph_1_1math_1af11f191a13f32e5ff37ba539bb731029`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a1adffee7416319ef84ebfb7a67a6b347`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a7bf83fdc8c49c4fec93e35a91cb671ca`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a12f4f5d0c9c20519566fcf2ecd83e3c8`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a998fa14a070ac400285bac21caf6f931`
+
+- :ref:`exhale_function_namespaceph_1_1math_1ac86d7ed770b0cd26159dd24b994e26ed`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a51431bac69e57f222993dc58fc2064bd`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a00239751f9737b7fd312429f5832561b`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a2b0482067dc614d1eeafbf75b8b10996`
+
+- :ref:`exhale_function_namespaceph_1_1math_1aab219259171b1d3575da2b5224edcb93`
+
+- :ref:`exhale_function_namespaceph_1_1math_1aa7a94fabb6d38bbc4b24368cd046f523`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a9bd1e5d6b8da7e7cc5d20a008fbae191`
+
+- :ref:`exhale_function_namespaceph_1_1math_1acc970fbe8bc77521af0103b29e524baa`
+
+- :ref:`exhale_function_namespaceph_1_1math_1adb93254f78909d9fef4bc8d7326b7670`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a7c44afb09e2610c07148d4b1120e4614`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a00c7265b62195ee8215d3a07ee97d8a6`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a14234263f1191fde0644069273c63a87`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a050fd048afd360173b15c10a05c21f7c`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a91780ac8e52ddfdd3f0314cc36b882c2`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a9460c87b6dab3097ee4d084d9b59a604`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a3d787dce79dfdd2614927831c40ab231`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a00dacdca0d6501e4506f1e80350c6529`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a2db200d8e62c40799c3fff427b4d869d`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a885a24bd55e37b45410ec47a89bfb55e`
+
+- :ref:`exhale_function_namespaceph_1_1math_1ad515280baf49df27e2a5fef3c4e996ff`
+
+- :ref:`exhale_function_namespaceph_1_1math_1aef693a3af48988419e383d739b935a4b`
+
+- :ref:`exhale_function_namespaceph_1_1math_1af09fabd051200745fc83ab8e6119be17`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a71267e6e44c796151b9e81a747ad4860`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a09832832f991e284ec83b3531bbb2bdf`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a2dd1eb154bffce7df042dbdd88aa161b`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a97fd8863ca133b67190d7d2101f95918`
+
+- :ref:`exhale_function_namespaceph_1_1math_1aaaa5875dae95653f7145e11b81e90459`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a4690860b243fe5e072ff6048732ae2a3`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a413c0ea914fc11e1f26bfabd44d2c162`
+
+- :ref:`exhale_function_namespaceph_1_1math_1ac7efc2f750235a176b61037fdf546cda`
+
+- :ref:`exhale_function_namespaceph_1_1math_1af7fbcc55b07e42eaa4fde991dfeb375a`
+
+- :ref:`exhale_function_namespaceph_1_1math_1aa5b5d7a200e1fac56baf6a626fafecdc`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a56bf3598ef20de4b6333e2987bfc7bda`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a85eb3c66273614f6751cba5c227ee7df`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a536816208c239c8b2e217d70d5ec5d08`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a036e6132c8c8a769c292f29b8427112b`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a403680d6446383625398ed0c057c43fd`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a2982839b6392253fc67bb096add9a44f`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a9f6174bc51d3f6c8d98447fa0150d0a4`
+
+- :ref:`exhale_function_namespaceph_1_1math_1ac3d128c7225063c77e89c60595769355`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a3b208c3dfc7024c379877d689ae7db08`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a8ae6d9df536ec07a0411c503df56fee6`
+
+- :ref:`exhale_function_namespaceph_1_1math_1ae25c59a2b1c21e3de88ce32499d3fa2f`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a2cf56679844b291df412ba311723c828`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a2d19750fd6f6c9c479f07c2c00238a6a`
+
+- :ref:`exhale_function_namespaceph_1_1math_1abbf29a619bc4b2cd6e88bbc5e3380a0f`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a0c2373ae6879d917ab66bd42e199d245`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a03fd4cce00581b5243ec4dcec64cacc7`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a7377d0dddd537e4e7a04f98bd8e1114e`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a4e8c5be354cae25f8639d0ebd4a9df17`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a3d95f12613138cf607ca4b4b0c04ea48`
+
+- :ref:`exhale_function_namespaceph_1_1math_1ad70f4b84a56b15f96d640ee5dfe83c58`
+
+- :ref:`exhale_function_namespaceph_1_1math_1af073289717f681f13febdf1888d38d5b`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a9220fdc9d221a0fa812e96de25be77ff`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a3b5aeb6bb0f2f3339e033d34fa70a894`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a8d924d614efcdd92fcce816a3f8eebf3`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a57a6066f091fead6bc616fb811b42b21`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a9d227a2cbf1065eaa4e4b5d51d71f30c`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a4b760ffa2dd0b2fb8b0c477fffd7c097`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a9a607a63db401274a7e3d77c0895dcaf`
+
+- :ref:`exhale_function_namespaceph_1_1math_1ad3164ab55096d5ac1fd9a7158c8ea6d4`
+
+- :ref:`exhale_function_namespaceph_1_1math_1af8b0e704f3e50c9861e6b066a9dccdf3`
+
+- :ref:`exhale_function_namespaceph_1_1math_1ade79110c31d4daed508e1924de67dac4`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a44b53800c3e68378d4c7e6c051a6e932`
+
+- :ref:`exhale_function_namespaceph_1_1math_1a48cf078fd719072dfc9c27d67a730c3c`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a96c75cf240ec4a49daedde92de85d85a`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a3edcdc1cc0792608777f3af5347b049d`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a388bd0ce5a7018b4f2581429a80fbd3f`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1ae42b8d85bf13dcdaa51b75e58ebc78f3`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1abda040aa9221589e70acd9d9cda09c9d`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a0fa907f6a7dbb940878fe32e4878f180`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1aaba86a71375d63a16a6b7927150ba809`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a84faaa3dbf3717b679161cb477faaea0`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1aeac8e3f084a1d4b5fce47626b77cba36`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a7dd98e5164f4a81c3a7ec206bea647b9`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1ae22bff92da64387f82383fa8a92ee2f7`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1ae233e82e3cf2f5753e4980b6a5fb3097`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a91865e6b4341a28b1db2473638aa8c4c`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a67c3c9985222ceec536d94850029a11b`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1ab31508e0bffd0e6726d4775e2b2490a9`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a992f05c9533a94aea3e794f996720186`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a1181a647d00411baf7a43b02e1b9ccc5`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1ab019060fbbd03c48641fcb9bf4a60888`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1aad5661543f5f387fad5f89d74974139b`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a5f6bf2c1726afc62a8be2e8097e2217d`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a789624425545505142a31fb4f8c6d05e`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1aa3c8666f7e639315fe9f43a203f2dd3e`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1aabc803634304dbac33a019c0becd92a1`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a42275285cd99065c86ce22761ccaab91`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a16d01d3881bf99fa68ce54c1b2587916`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a78918305c463e38495a05b7c0efb05d9`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a0721dbe9c36b91d97864ebe9f17513b6`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a2dcda484656645e4a868c81fc85567cc`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a1b8ea1abf1cbecd31fcc3d02e9c55184`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a90deed444b4e5ee5d1fb5686f127e948`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a83d82b43eca35013ef42c45ec2e62cea`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1ab6e489b4814390fb4f1a68257d8d432d`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1af51eabcf74420455b5d547275572a094`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a5dfce302e9808008ffbce4236fa1d4f0`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1ab3f543108e0a09391989daed490ac7ab`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a9e3bce7c1899a3732170a491fbb1aab9`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a01b4ca24b26a86f517aa22641630f796`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a086e8792ff86381dcfe5ddd3d5915a23`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a06032b9484e96edcbfcea6fdf8c27c9d`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1af1a210b88ca79b8092606cb82e84418b`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1ae4a13e2bfefced1dfef2a8cacd57f061`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a2803f15d85d77cc979957f55bfa6cb25`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1abf8e1463b13d63dcdc46f0cb65e59c5a`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a1667b0a9fc7143d411a6cc59c08a885a`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a55485082b8c641bff5cd91732b8d43d0`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a3538945bff92c7d85b86ff446ca1bb80`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a27c889787aa527836b40016b44630d78`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a899d1fdbbad05eec2dc7188a5cbbdfe1`
+
+- :ref:`exhale_typedef_namespaceph_1_1math_1a9056e7916a74b1bd0615f61f4778db2f`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_namespaceph_1_1math_1a110846310ca54081103b5c49953cde70`
+
+- :ref:`exhale_variable_namespaceph_1_1math_1a98c4d76ea09cd0ece68569b02e1ab110`
+
+- :ref:`exhale_variable_namespaceph_1_1math_1a6271e53740980488cad72b9a407829f6`
+
+- :ref:`exhale_variable_namespaceph_1_1math_1afb8bb742df063cef3a7a118909287586`
+
+- :ref:`exhale_variable_namespaceph_1_1math_1a03626584375c1375fe4d17f44dc5b8b2`
+
+- :ref:`exhale_variable_namespaceph_1_1math_1a4313787ea75d8bfa54ebfecb4ce6428c`
+
+- :ref:`exhale_variable_namespaceph_1_1math_1a941028f65a87b0d9b82bfbd02cc18d49`
+
+- :ref:`exhale_variable_namespaceph_1_1math_1a85b53c02583fcaaca6e12f3f7acdc44c`
+
+- :ref:`exhale_variable_namespaceph_1_1math_1a865e5fde9618b06860aabcacd49e66bc`

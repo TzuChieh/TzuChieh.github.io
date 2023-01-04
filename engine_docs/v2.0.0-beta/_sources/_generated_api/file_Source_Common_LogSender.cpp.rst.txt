@@ -1,0 +1,40 @@
+
+.. _file_Source_Common_LogSender.cpp:
+
+File LogSender.cpp
+==================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Common\LogSender.cpp``)
+--------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Common_LogSender.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/LogSender.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

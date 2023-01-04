@@ -1,0 +1,44 @@
+
+.. _file_Source_Actor_Material_VolumeMaterial.cpp:
+
+File VolumeMaterial.cpp
+=======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\Material\VolumeMaterial.cpp``)
+---------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_Material_VolumeMaterial.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/Material/Volume/VAbsorptionOnly.h``
+
+- ``Common/assertion.h``
+
+- ``Core/Intersectable/PrimitiveMetadata.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

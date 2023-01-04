@@ -1,0 +1,32 @@
+.. _exhale_class_classph_1_1_a_model:
+
+Class AModel
+============
+
+- Defined in :ref:`file_Source_Actor_AModel.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::PhysicalActor`` (:ref:`exhale_class_classph_1_1_physical_actor`)
+
+
+Derived Type
+************
+
+- ``public ph::APhantomModel`` (:ref:`exhale_class_classph_1_1_a_phantom_model`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::AModel
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

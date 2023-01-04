@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_ideal_dielectric:
+
+Class IdealDielectric
+=====================
+
+- Defined in :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_IdealDielectric.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::SurfaceOptics`` (:ref:`exhale_class_classph_1_1_surface_optics`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::IdealDielectric
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

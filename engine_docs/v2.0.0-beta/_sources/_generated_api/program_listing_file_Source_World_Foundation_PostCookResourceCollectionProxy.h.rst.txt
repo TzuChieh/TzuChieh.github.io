@@ -1,0 +1,18 @@
+
+.. _program_listing_file_Source_World_Foundation_PostCookResourceCollectionProxy.h:
+
+Program Listing for File PostCookResourceCollectionProxy.h
+==========================================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_World_Foundation_PostCookResourceCollectionProxy.h>` (``Source\World\Foundation\PostCookResourceCollectionProxy.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   namespace ph
+   {
+   
+   }// end namespace ph

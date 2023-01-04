@@ -1,0 +1,37 @@
+.. _exhale_class_classph_1_1_workflow:
+
+Class Workflow
+==============
+
+- Defined in :ref:`file_Source_Utility_Concurrent_Workflow.h`
+
+
+Nested Relationships
+--------------------
+
+
+Nested Types
+************
+
+- :ref:`exhale_class_classph_1_1_workflow_1_1_managed_work`
+- :ref:`exhale_class_classph_1_1_workflow_1_1_work_handle`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``private ph::INoCopyAndMove`` (:ref:`exhale_class_classph_1_1_i_no_copy_and_move`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::Workflow
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a5a9b4a28e77e0964885aff0ac9522131:
+
+Function ph::PH_DEFINE_EXTERNAL_LOG_GROUP(TableTIR, BSDF)
+=========================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_EXTERNAL_LOG_GROUP(TableTIR, BSDF)
+   :project: Photon

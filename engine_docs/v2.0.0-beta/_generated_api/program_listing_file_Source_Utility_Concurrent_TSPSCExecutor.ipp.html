@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File TSPSCExecutor.ipp &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File TSPSCExecutor.ipp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Utility_Concurrent_TSPSCExecutor.ipp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-tspscexecutor-ipp">
+<span id="program-listing-file-source-utility-concurrent-tspscexecutor-ipp"></span><h1>Program Listing for File TSPSCExecutor.ipp<a class="headerlink" href="#program-listing-for-file-tspscexecutor-ipp" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Utility_Concurrent_TSPSCExecutor.ipp.html#file-source-utility-concurrent-tspscexecutor-ipp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Utility\Concurrent\TSPSCExecutor.ipp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Utility/Concurrent/TSPSCExecutor.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/assertion.h&quot;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Work</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TSPSCExecutor</span><span class="o">&lt;</span><span class="n">Work</span><span class="o">&gt;::~</span><span class="n">TSPSCExecutor</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">terminate</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">m_thread</span><span class="p">.</span><span class="n">hasStarted</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">m_thread</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Work</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TSPSCExecutor</span><span class="o">&lt;</span><span class="n">Work</span><span class="o">&gt;::</span><span class="n">setWorkProcessor</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Work</span><span class="o">&amp;</span><span class="w"> </span><span class="n">work</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">workProcessor</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT_MSG</span><span class="p">(</span><span class="o">!</span><span class="n">m_thread</span><span class="p">.</span><span class="n">hasStarted</span><span class="p">(),</span>
+<span class="w">        </span><span class="s">&quot;cannot set the work processor after the executor has already started&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">m_workProcessor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">workProcessor</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Work</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TSPSCExecutor</span><span class="o">&lt;</span><span class="n">Work</span><span class="o">&gt;::</span><span class="n">setOnConsumerStart</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">onConsumerStart</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT_MSG</span><span class="p">(</span><span class="o">!</span><span class="n">m_thread</span><span class="p">.</span><span class="n">hasStarted</span><span class="p">(),</span>
+<span class="w">        </span><span class="s">&quot;cannot set callback after the executor has already started&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">m_onConsumerStart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">onConsumerStart</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Work</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TSPSCExecutor</span><span class="o">&lt;</span><span class="n">Work</span><span class="o">&gt;::</span><span class="n">setOnConsumerTerminate</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">onConsumerTerminate</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT_MSG</span><span class="p">(</span><span class="o">!</span><span class="n">m_thread</span><span class="p">.</span><span class="n">hasStarted</span><span class="p">(),</span>
+<span class="w">        </span><span class="s">&quot;cannot set callback after the executor has already started&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">m_onConsumerTerminate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">onConsumerTerminate</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Work</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TSPSCExecutor</span><span class="o">&lt;</span><span class="n">Work</span><span class="o">&gt;::</span><span class="n">start</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT_MSG</span><span class="p">(</span><span class="o">!</span><span class="n">m_thread</span><span class="p">.</span><span class="n">hasStarted</span><span class="p">(),</span>
+<span class="w">        </span><span class="s">&quot;cannot start an already-started executor&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">PH_ASSERT_MSG</span><span class="p">(</span><span class="n">m_workProcessor</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;work processor must be set before starting the executor&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">m_producerThreadId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">get_id</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">m_thread</span><span class="p">.</span><span class="n">start</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Work</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">DeducedWork</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TSPSCExecutor</span><span class="o">&lt;</span><span class="n">Work</span><span class="o">&gt;::</span><span class="n">addWork</span><span class="p">(</span><span class="n">DeducedWork</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">work</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_constructible_v</span><span class="o">&lt;</span><span class="n">Work</span><span class="p">,</span><span class="w"> </span><span class="n">DeducedWork</span><span class="o">&gt;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">isProducerThread</span><span class="p">());</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">m_thread</span><span class="p">.</span><span class="n">hasStarted</span><span class="p">());</span>
+
+<span class="w">    </span><span class="n">m_workloadQueue</span><span class="p">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">forward</span><span class="o">&lt;</span><span class="n">DeducedWork</span><span class="o">&gt;</span><span class="p">(</span><span class="n">work</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Work</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TSPSCExecutor</span><span class="o">&lt;</span><span class="n">Work</span><span class="o">&gt;::</span><span class="n">waitAllWorks</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">isProducerThread</span><span class="p">());</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">m_thread</span><span class="p">.</span><span class="n">hasStarted</span><span class="p">());</span>
+
+<span class="w">    </span><span class="c1">// As the work queue is FIFO when observed from any single thread, to wait all works added</span>
+<span class="w">    </span><span class="c1">// by this thread to finish, we add a new work and wait for it to finish (could be slower</span>
+<span class="w">    </span><span class="c1">// because we have one extra work to process, but generally good enough)</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">atomic_flag</span><span class="w"> </span><span class="n">isFinished</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">CustomCallable</span><span class="w"> </span><span class="n">waitWork</span><span class="p">;</span>
+<span class="w">    </span><span class="n">waitWork</span><span class="p">.</span><span class="n">callable</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="p">[</span><span class="o">&amp;</span><span class="n">isFinished</span><span class="p">]()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Memory effects on consumer thread should be made visible</span>
+<span class="w">            </span><span class="n">isFinished</span><span class="p">.</span><span class="n">test_and_set</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_release</span><span class="p">);</span>
+<span class="w">            </span><span class="n">isFinished</span><span class="p">.</span><span class="n">notify_one</span><span class="p">();</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="n">m_workloadQueue</span><span class="p">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">waitWork</span><span class="p">));</span>
+
+<span class="w">    </span><span class="c1">// Wait for works added by this thread to finish; memory effects on consumer thread should be</span>
+<span class="w">    </span><span class="c1">// made visible</span>
+<span class="w">    </span><span class="n">isFinished</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_acquire</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Work</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TSPSCExecutor</span><span class="o">&lt;</span><span class="n">Work</span><span class="o">&gt;::</span><span class="n">requestTermination</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">isProducerThread</span><span class="p">());</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">m_thread</span><span class="p">.</span><span class="n">hasStarted</span><span class="p">());</span>
+
+<span class="w">    </span><span class="n">terminate</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Work</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TSPSCExecutor</span><span class="o">&lt;</span><span class="n">Work</span><span class="o">&gt;::</span><span class="n">waitForTermination</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT_MSG</span><span class="p">(</span><span class="o">!</span><span class="n">isConsumerThread</span><span class="p">(),</span>
+<span class="w">        </span><span class="s">&quot;wait for termination on consumer thread can lead to deadlock&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">PH_ASSERT_MSG</span><span class="p">(</span><span class="o">!</span><span class="n">isProducerThread</span><span class="p">()</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">isProducerThread</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">m_isTerminationRequested</span><span class="p">.</span><span class="n">test</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_relaxed</span><span class="p">)),</span>
+<span class="w">        </span><span class="s">&quot;termination not requested before wait on producer thread, this can lead to deadlock&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Memory effects on consumer thread should be made visible</span>
+<span class="w">    </span><span class="n">m_isTerminated</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_acquire</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Work</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="o">::</span><span class="n">id</span><span class="w"> </span><span class="n">TSPSCExecutor</span><span class="o">&lt;</span><span class="n">Work</span><span class="o">&gt;::</span><span class="n">getId</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">m_thread</span><span class="p">.</span><span class="n">getId</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="o">::</span><span class="n">id</span><span class="p">());</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_thread</span><span class="p">.</span><span class="n">getId</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Work</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">TSPSCExecutor</span><span class="o">&lt;</span><span class="n">Work</span><span class="o">&gt;::</span><span class="n">hasStarted</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_thread</span><span class="p">.</span><span class="n">hasStarted</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Work</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TSPSCExecutor</span><span class="o">&lt;</span><span class="n">Work</span><span class="o">&gt;::</span><span class="n">asyncExecute</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">isConsumerThread</span><span class="p">());</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">m_thread</span><span class="p">.</span><span class="n">hasStarted</span><span class="p">());</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">m_onConsumerStart</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">m_onConsumerStart</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">asyncProcessWorks</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">m_onConsumerTerminate</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">m_onConsumerTerminate</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Memory effects before this should be made visible for waiting threads</span>
+<span class="w">    </span><span class="n">m_isTerminated</span><span class="p">.</span><span class="n">test_and_set</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_release</span><span class="p">);</span>
+<span class="w">    </span><span class="n">m_isTerminated</span><span class="p">.</span><span class="n">notify_all</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Work</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TSPSCExecutor</span><span class="o">&lt;</span><span class="n">Work</span><span class="o">&gt;::</span><span class="n">asyncProcessWorks</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">isConsumerThread</span><span class="p">());</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">m_thread</span><span class="p">.</span><span class="n">hasStarted</span><span class="p">());</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">m_workProcessor</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">Workload</span><span class="w"> </span><span class="n">currentWorkload</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">m_isTerminationRequested</span><span class="p">.</span><span class="n">test</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_relaxed</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">m_workloadQueue</span><span class="p">.</span><span class="n">waitDequeue</span><span class="p">(</span><span class="o">&amp;</span><span class="n">currentWorkload</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">holds_alternative</span><span class="o">&lt;</span><span class="n">Work</span><span class="o">&gt;</span><span class="p">(</span><span class="n">currentWorkload</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">m_workProcessor</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="n">Work</span><span class="o">&gt;</span><span class="p">(</span><span class="n">currentWorkload</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">holds_alternative</span><span class="o">&lt;</span><span class="n">CustomCallable</span><span class="o">&gt;</span><span class="p">(</span><span class="n">currentWorkload</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="n">CustomCallable</span><span class="o">&gt;</span><span class="p">(</span><span class="n">currentWorkload</span><span class="p">).</span><span class="n">callable</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">holds_alternative</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">monostate</span><span class="o">&gt;</span><span class="p">(</span><span class="n">currentWorkload</span><span class="p">));</span>
+<span class="w">            </span><span class="n">PH_ASSERT_UNREACHABLE_SECTION</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Work</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">TSPSCExecutor</span><span class="o">&lt;</span><span class="n">Work</span><span class="o">&gt;::</span><span class="n">isConsumerThread</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">getId</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">get_id</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Work</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">TSPSCExecutor</span><span class="o">&lt;</span><span class="n">Work</span><span class="o">&gt;::</span><span class="n">isProducerThread</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">m_producerThreadId</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="o">::</span><span class="n">id</span><span class="p">());</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">get_id</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">m_producerThreadId</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Work</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TSPSCExecutor</span><span class="o">&lt;</span><span class="n">Work</span><span class="o">&gt;::</span><span class="n">terminate</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Nothing to terminate if the executor was not even started. Basically querying this state is safe as</span>
+<span class="w">    </span><span class="c1">// it is either called on producer thread or on dtor calling thread, and the contract is that the</span>
+<span class="w">    </span><span class="c1">// programmer should ensure a proper ordering of `start()` -&gt; `requestTermination()` -&gt; `dtor()`.</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">m_thread</span><span class="p">.</span><span class="n">hasStarted</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Just try to break the worker loop as soon as possible (and as non-intrusive as possible)</span>
+<span class="w">    </span><span class="n">m_isTerminationRequested</span><span class="p">.</span><span class="n">test_and_set</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_relaxed</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// If the consumer is waiting or is going to wait, adding another work that sets the flag is</span>
+<span class="w">    </span><span class="c1">// required (so the consumer can unwait). The flag will be set on the consumer thread and is</span>
+<span class="w">    </span><span class="c1">// guaranteed to break the loop there as testing the flag is sequentially after setting</span>
+<span class="w">    </span><span class="c1">// the flag.</span>
+<span class="w">    </span><span class="n">CustomCallable</span><span class="w"> </span><span class="n">terminateWork</span><span class="p">;</span>
+<span class="w">    </span><span class="n">terminateWork</span><span class="p">.</span><span class="n">callable</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="p">[</span><span class="k">this</span><span class="p">]()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">m_isTerminationRequested</span><span class="p">.</span><span class="n">test_and_set</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_relaxed</span><span class="p">);</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="n">m_workloadQueue</span><span class="p">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">terminateWork</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

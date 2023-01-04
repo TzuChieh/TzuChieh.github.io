@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_hit_detail:
+
+Class HitDetail
+===============
+
+- Defined in :ref:`file_Source_Core_HitDetail.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::HitDetail
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

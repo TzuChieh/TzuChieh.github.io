@@ -1,0 +1,55 @@
+
+.. _file_Source_Core_SurfaceBehavior_SurfaceOptics_IdealAbsorber.h:
+
+File IdealAbsorber.h
+====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SurfaceBehavior\SurfaceOptics\IdealAbsorber.h``)
+--------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SurfaceBehavior_SurfaceOptics_IdealAbsorber.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/SurfaceBehavior/SurfaceOptics.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_Material_IdealSubstance.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_IdealAbsorber.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_ideal_absorber`
+

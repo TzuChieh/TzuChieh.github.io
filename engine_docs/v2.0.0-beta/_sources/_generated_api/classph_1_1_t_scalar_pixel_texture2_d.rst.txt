@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_t_scalar_pixel_texture2_d:
+
+Template Class TScalarPixelTexture2D
+====================================
+
+- Defined in :ref:`file_Source_Core_Texture_Pixel_TScalarPixelTexture2D.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::TNumericPixelTexture2D< T, 1 >`` (:ref:`exhale_class_classph_1_1_t_numeric_pixel_texture2_d`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TScalarPixelTexture2D
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

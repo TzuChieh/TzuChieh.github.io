@@ -1,6 +1,6 @@
 var classph_1_1_constant_velocity_motion =
 [
-    [ "ConstantVelocityMotion", "classph_1_1_constant_velocity_motion.html#a6c97ac9f68eaa817a4d433773a48dd69", null ],
-    [ "~ConstantVelocityMotion", "classph_1_1_constant_velocity_motion.html#a42ab2532a236feb7739f6067972488fb", null ],
-    [ "genLocalToWorld", "classph_1_1_constant_velocity_motion.html#a9d3bd44330a8e2e239fcb245c9a4c803", null ]
+    [ "ConstantVelocityMotion", "classph_1_1_constant_velocity_motion.html#afce593c82e660c834328ade6c4bccb95", null ],
+    [ "genLocalToWorld", "classph_1_1_constant_velocity_motion.html#ae0ebbc24c945601abef709aeb079e7e9", null ],
+    [ "m_velocity", "classph_1_1_constant_velocity_motion.html#a593d8e68c80709fe691c3210cd973669", null ]
 ];

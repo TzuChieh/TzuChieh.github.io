@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_v_p_m_radiance_evaluator:
+
+Class VPMRadianceEvaluator
+==========================
+
+- Defined in :ref:`file_Source_Core_Renderer_PM_VPMRadianceEvaluator.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::TViewPathHandler< VPMRadianceEvaluator >`` (:ref:`exhale_class_classph_1_1_t_view_path_handler`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::VPMRadianceEvaluator
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

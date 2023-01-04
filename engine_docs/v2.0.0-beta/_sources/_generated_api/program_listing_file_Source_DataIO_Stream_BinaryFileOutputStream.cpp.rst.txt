@@ -1,0 +1,28 @@
+
+.. _program_listing_file_Source_DataIO_Stream_BinaryFileOutputStream.cpp:
+
+Program Listing for File BinaryFileOutputStream.cpp
+===================================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_DataIO_Stream_BinaryFileOutputStream.cpp>` (``Source\DataIO\Stream\BinaryFileOutputStream.cpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #include "DataIO/Stream/BinaryFileOutputStream.h"
+   
+   #include <fstream>
+   #include <memory>
+   
+   namespace ph
+   {
+   
+   BinaryFileOutputStream::BinaryFileOutputStream(const Path& filePath) :
+       StdOutputStream(
+           std::make_unique<std::ofstream>(
+               filePath.toAbsoluteString().c_str(),
+               std::ios_base::out | std::ios_base::binary))
+   {}
+   
+   }// end namespace ph

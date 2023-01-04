@@ -1,0 +1,38 @@
+.. _exhale_class_classph_1_1_i_uninstantiable:
+
+Class IUninstantiable
+=====================
+
+- Defined in :ref:`file_Source_Utility_IUninstantiable.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Types
+*************
+
+- ``private ph::math::TChromaticAdaptationDefinitionHelper< EChromaticAdaptation::VonKries >`` (:ref:`exhale_class_classph_1_1math_1_1_t_chromatic_adaptation_definition_helper`)
+- ``private ph::math::TChromaticAdaptationDefinitionHelper< EChromaticAdaptation::XYZScaling >`` (:ref:`exhale_class_classph_1_1math_1_1_t_chromatic_adaptation_definition_helper`)
+- ``private ph::math::TChromaticAdaptationDefinitionHelper< EChromaticAdaptation::Bradford >`` (:ref:`exhale_class_classph_1_1math_1_1_t_chromatic_adaptation_definition_helper`)
+- ``private ph::math::TSpectralColorSpaceDefinitionHelper< EColorSpace::Spectral_Smits, EColorSpace::Linear_sRGB >`` (:ref:`exhale_class_classph_1_1math_1_1_t_spectral_color_space_definition_helper`)
+- ``private ph::math::TTristimulusColorSpaceDefinitionHelper< EColorSpace::ACEScg, EReferenceWhite::ACES >`` (:ref:`exhale_class_classph_1_1math_1_1_t_tristimulus_color_space_definition_helper`)
+- ``private ph::math::TTristimulusColorSpaceDefinitionHelper< EColorSpace::sRGB, EReferenceWhite::D65 >`` (:ref:`exhale_class_classph_1_1math_1_1_t_tristimulus_color_space_definition_helper`)
+- ``private ph::math::TTristimulusColorSpaceDefinitionHelper< EColorSpace::CIE_xyY, EReferenceWhite::D65 >`` (:ref:`exhale_class_classph_1_1math_1_1_t_tristimulus_color_space_definition_helper`)
+- ``private ph::math::TTristimulusColorSpaceDefinitionHelper< EColorSpace::Linear_sRGB, EReferenceWhite::D65 >`` (:ref:`exhale_class_classph_1_1math_1_1_t_tristimulus_color_space_definition_helper`)
+- ``private ph::math::TTristimulusColorSpaceDefinitionHelper< EColorSpace::CIE_XYZ, EReferenceWhite::D65 >`` (:ref:`exhale_class_classph_1_1math_1_1_t_tristimulus_color_space_definition_helper`)
+- ``private ph::math::TChromaticAdaptationDefinitionHelper< ALGORITHM >`` (:ref:`exhale_class_classph_1_1math_1_1_t_chromatic_adaptation_definition_helper`)
+- ``private ph::math::TColorSpaceDefinitionHelper< COLOR_SPACE, REF_WHITE >`` (:ref:`exhale_class_classph_1_1math_1_1_t_color_space_definition_helper`)
+- ``private ph::math::TSpectralColorSpaceDefinitionHelper< COLOR_SPACE, BOUND_TRISTIMULUS_COLOR_SPACE >`` (:ref:`exhale_class_classph_1_1math_1_1_t_spectral_color_space_definition_helper`)
+- ``private ph::math::TTristimulusColorSpaceDefinitionHelper< COLOR_SPACE, REF_WHITE >`` (:ref:`exhale_class_classph_1_1math_1_1_t_tristimulus_color_space_definition_helper`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::IUninstantiable
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

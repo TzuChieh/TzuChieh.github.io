@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_bsdf_sample_input:
+
+Class BsdfSampleInput
+=====================
+
+- Defined in :ref:`file_Source_Core_SurfaceBehavior_BsdfSampleQuery.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::BsdfSampleInput
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

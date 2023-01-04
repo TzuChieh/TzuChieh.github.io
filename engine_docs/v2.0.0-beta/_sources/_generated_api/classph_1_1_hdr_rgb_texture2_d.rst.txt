@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_hdr_rgb_texture2_d:
+
+Class HdrRgbTexture2D
+=====================
+
+- Defined in :ref:`file_Source_Core_Texture_HdrRgbTexture2D.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::TTexture< math::Spectrum >`` (:ref:`exhale_class_classph_1_1_t_texture`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::HdrRgbTexture2D
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

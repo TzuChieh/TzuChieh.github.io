@@ -1,0 +1,57 @@
+
+.. _file_Source_DataIO_ExrFileReader.h:
+
+File ExrFileReader.h
+====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\ExrFileReader.h``)
+----------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_ExrFileReader.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``DataIO/FileSystem/Path.h``
+
+- ``Frame/TFrame.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_DataIO_ExrFileReader.cpp`
+
+- :ref:`file_Source_DataIO_io_utils.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_exr_file_reader`
+

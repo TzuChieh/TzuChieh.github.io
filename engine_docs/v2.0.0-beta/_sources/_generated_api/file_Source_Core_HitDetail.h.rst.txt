@@ -1,0 +1,107 @@
+
+.. _file_Source_Core_HitDetail.h:
+
+File HitDetail.h
+================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\HitDetail.h``)
+----------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_HitDetail.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/ECoordSys.h``
+
+- ``Core/HitInfo.h``
+
+- ``Math/TOrthonormalBasis3.h``
+
+- ``Math/TVector3.h``
+
+- ``Math/math.h``
+
+- ``cstddef``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Emitter_SurfaceEmitter.cpp`
+
+- :ref:`file_Source_Core_Estimator_BNEEPTEstimator.cpp`
+
+- :ref:`file_Source_Core_Estimator_BVPTDLEstimator.cpp`
+
+- :ref:`file_Source_Core_Estimator_BVPTEstimator.cpp`
+
+- :ref:`file_Source_Core_HitDetail.cpp`
+
+- :ref:`file_Source_Core_HitProbe.cpp`
+
+- :ref:`file_Source_Core_Intersectable_PBasicSphere.cpp`
+
+- :ref:`file_Source_Core_Intersectable_PLatLong01Sphere.cpp`
+
+- :ref:`file_Source_Core_Intersectable_PLatLongEnvSphere.cpp`
+
+- :ref:`file_Source_Core_Intersectable_PTriangle.cpp`
+
+- :ref:`file_Source_Core_Intersectable_Query_PrimitivePosSamplePdfQuery.cpp`
+
+- :ref:`file_Source_Core_Intersectable_Query_PrimitivePosSampleQuery.cpp`
+
+- :ref:`file_Source_Core_Intersectable_TransformedIntersectable.cpp`
+
+- :ref:`file_Source_Core_Intersectable_TransformedPrimitive.cpp`
+
+- :ref:`file_Source_Core_Intersectable_TransformedPrimitive.h`
+
+- :ref:`file_Source_Core_Intersectable_UvwMapper_UvwMapper.h`
+
+- :ref:`file_Source_Core_LTABuildingBlock_TDirectLightEstimator.ipp`
+
+- :ref:`file_Source_Core_Renderer_PM_TPhotonMappingWork.ipp`
+
+- :ref:`file_Source_Core_Renderer_PM_TViewPathTracingWork.ipp`
+
+- :ref:`file_Source_Core_SurfaceHit.h`
+
+- :ref:`file_Source_Core_Texture_SampleLocation.h`
+
+- :ref:`file_Source_World_Scene.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_hit_detail`
+

@@ -1,0 +1,43 @@
+
+.. _program_listing_file_Source_Core_Intersectable_Intersectable.h:
+
+Program Listing for File Intersectable.h
+========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Core_Intersectable_Intersectable.h>` (``Source\Core\Intersectable\Intersectable.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Math/Geometry/TAABB3D.h"
+   
+   namespace ph
+   {
+   
+   class Ray;
+   class HitProbe;
+   class HitDetail;
+   
+   class Intersectable
+   {
+   public:
+       virtual ~Intersectable() = default;
+   
+       virtual bool isIntersecting(const Ray& ray, HitProbe& probe) const = 0;
+   
+       virtual void calcIntersectionDetail(
+           const Ray& ray, 
+           HitProbe&  probe,
+           HitDetail* out_detail) const = 0;
+   
+       virtual math::AABB3D calcAABB() const = 0;
+   
+       virtual bool isOccluding(const Ray& ray) const;
+   
+       virtual bool mayIntersectVolume(const math::AABB3D& volume) const;
+   };
+   
+   }// end namespace ph

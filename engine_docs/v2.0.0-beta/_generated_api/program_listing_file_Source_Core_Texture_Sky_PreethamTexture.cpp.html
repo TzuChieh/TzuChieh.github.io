@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File PreethamTexture.cpp &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File PreethamTexture.cpp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Core_Texture_Sky_PreethamTexture.cpp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-preethamtexture-cpp">
+<span id="program-listing-file-source-core-texture-sky-preethamtexture-cpp"></span><h1>Program Listing for File PreethamTexture.cpp<a class="headerlink" href="#program-listing-for-file-preethamtexture-cpp" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Core_Texture_Sky_PreethamTexture.cpp.html#file-source-core-texture-sky-preethamtexture-cpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Core\Texture\Sky\PreethamTexture.cpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Texture/Sky/PreethamTexture.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/assertion.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/constant.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/Geometry/TSphere.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Texture/SampleLocation.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/Color/color_spaces.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/logging.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;algorithm&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="n">PH_DEFINE_INTERNAL_LOG_GROUP</span><span class="p">(</span><span class="n">PreethamTexture</span><span class="p">,</span><span class="w"> </span><span class="n">Texture</span><span class="p">);</span>
+
+<span class="n">PreethamTexture</span><span class="o">::</span><span class="n">PreethamTexture</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">phiSun</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">thetaSun</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">turbidity</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">energyScale</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
+
+<span class="w">    </span><span class="n">TTexture</span><span class="p">(),</span>
+
+<span class="w">    </span><span class="n">m_phiSun</span><span class="w">     </span><span class="p">(</span><span class="n">phiSun</span><span class="p">),</span>
+<span class="w">    </span><span class="n">m_thetaSun</span><span class="w">   </span><span class="p">(</span><span class="n">thetaSun</span><span class="p">),</span>
+<span class="w">    </span><span class="n">m_energyScale</span><span class="p">(</span><span class="n">energyScale</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">turbidity</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">m_A_xyY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="mf">-0.0193</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.2592</span><span class="n">_r</span><span class="p">,</span>
+<span class="w">        </span><span class="mf">-0.0167</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.2608</span><span class="n">_r</span><span class="p">,</span>
+<span class="w">         </span><span class="mf">0.1787</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1.4630</span><span class="n">_r</span><span class="p">};</span>
+
+<span class="w">    </span><span class="n">m_B_xyY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="mf">-0.0665</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.0008</span><span class="n">_r</span><span class="p">,</span>
+<span class="w">        </span><span class="mf">-0.0950</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.0092</span><span class="n">_r</span><span class="p">,</span>
+<span class="w">        </span><span class="mf">-0.3554</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.4275</span><span class="n">_r</span><span class="p">};</span>
+
+<span class="w">    </span><span class="n">m_C_xyY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="mf">-0.0004</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.2125</span><span class="n">_r</span><span class="p">,</span>
+<span class="w">        </span><span class="mf">-0.0079</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.2102</span><span class="n">_r</span><span class="p">,</span>
+<span class="w">        </span><span class="mf">-0.0227</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">5.3251</span><span class="n">_r</span><span class="p">};</span>
+
+<span class="w">    </span><span class="n">m_D_xyY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="mf">-0.0641</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.8989</span><span class="n">_r</span><span class="p">,</span>
+<span class="w">        </span><span class="mf">-0.0441</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1.6537</span><span class="n">_r</span><span class="p">,</span>
+<span class="w">         </span><span class="mf">0.1206</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">2.5771</span><span class="n">_r</span><span class="p">};</span>
+
+<span class="w">    </span><span class="n">m_E_xyY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="mf">-0.0033</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.0452</span><span class="n">_r</span><span class="p">,</span>
+<span class="w">        </span><span class="mf">-0.0109</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.0529</span><span class="n">_r</span><span class="p">,</span>
+<span class="w">        </span><span class="mf">-0.0670</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.3703</span><span class="n">_r</span><span class="p">};</span>
+
+<span class="w">    </span><span class="c1">// Calculating absolute value of zenith luminance</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">chi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mf">4.0</span><span class="n">_r</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">9.0</span><span class="n">_r</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">120.0</span><span class="n">_r</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">math</span><span class="o">::</span><span class="n">constant</span><span class="o">::</span><span class="n">pi</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">2.0</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">thetaSun</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">Yz</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mf">4.0453</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">4.9710</span><span class="n">_r</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">tan</span><span class="p">(</span><span class="n">chi</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.2155</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">2.4192</span><span class="n">_r</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="n">vecT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">T</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="n">_r</span><span class="p">};</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">thetaSun2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">thetaSun</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">thetaSun</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">thetaSun3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">thetaSun</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">thetaSun</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">thetaSun</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="n">vecSx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="mf">0.0017</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">thetaSun3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.0037</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">thetaSun2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.0021</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">thetaSun</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.000</span><span class="n">_r</span><span class="p">,</span>
+<span class="w">        </span><span class="mf">-0.0290</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">thetaSun3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.0638</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">thetaSun2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.0320</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">thetaSun</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.0039</span><span class="n">_r</span><span class="p">,</span>
+<span class="w">         </span><span class="mf">0.1169</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">thetaSun3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.2120</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">thetaSun2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.0605</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">thetaSun</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.2589</span><span class="n">_r</span><span class="p">};</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="n">vecSy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="mf">0.0028</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">thetaSun3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.0061</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">thetaSun2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.0032</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">thetaSun</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.000</span><span class="n">_r</span><span class="p">,</span>
+<span class="w">        </span><span class="mf">-0.0421</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">thetaSun3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.0897</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">thetaSun2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.0415</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">thetaSun</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.0052</span><span class="n">_r</span><span class="p">,</span>
+<span class="w">         </span><span class="mf">0.1535</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">thetaSun3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.2676</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">thetaSun2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.0667</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">thetaSun</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.2669</span><span class="n">_r</span><span class="p">};</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">xz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vecT</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">vecSx</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">yz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vecT</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">vecSy</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// &lt;Yz&gt; is in luminance in K*cd/m^2</span>
+<span class="w">    </span><span class="n">m_Yabs_xyY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">xz</span><span class="p">,</span><span class="w"> </span><span class="n">yz</span><span class="p">,</span><span class="w"> </span><span class="n">Yz</span><span class="p">};</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">m_Yabs_xyY</span><span class="p">.</span><span class="n">z</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_LOG_WARNING</span><span class="p">(</span><span class="n">PreethamTexture</span><span class="p">,</span>
+<span class="w">            </span><span class="s">&quot;turbidity = {} causes absolute zenith luminance to be negative/zero &quot;</span>
+<span class="w">            </span><span class="s">&quot;(currently = {} K*cd/m^2); consider using values in [2, 10]&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">turbidity</span><span class="p">,</span><span class="w"> </span><span class="n">m_Yabs_xyY</span><span class="p">.</span><span class="n">z</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">PreethamTexture</span><span class="o">::</span><span class="n">sample</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SampleLocation</span><span class="o">&amp;</span><span class="w"> </span><span class="n">sampleLocation</span><span class="p">,</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Spectrum</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">out_value</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">out_value</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Phi &amp; theta for viewing direction</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">viewPhiTheta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">TSphere</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;::</span><span class="n">makeUnit</span><span class="p">().</span><span class="n">latLong01ToPhiTheta</span><span class="p">(</span><span class="n">sampleLocation</span><span class="p">.</span><span class="n">uv</span><span class="p">());</span>
+
+<span class="w">    </span><span class="c1">// Model is defined for top hemisphere only</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">theta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">viewPhiTheta</span><span class="p">.</span><span class="n">y</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">theta</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0.5</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w">  </span><span class="n">math</span><span class="o">::</span><span class="n">constant</span><span class="o">::</span><span class="n">pi</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">theta</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0</span><span class="n">_r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">out_value</span><span class="o">-&gt;</span><span class="n">setColorValues</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Avoid division by zero later</span>
+<span class="w">    </span><span class="n">theta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span><span class="w"> </span><span class="mf">0.499</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">constant</span><span class="o">::</span><span class="n">pi</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">viewDir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">TSphere</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;::</span><span class="n">makeUnit</span><span class="p">().</span><span class="n">phiThetaToSurface</span><span class="p">(</span><span class="n">viewPhiTheta</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">sunDir</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">TSphere</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;::</span><span class="n">makeUnit</span><span class="p">().</span><span class="n">phiThetaToSurface</span><span class="p">({</span><span class="n">m_phiSun</span><span class="p">,</span><span class="w"> </span><span class="n">m_thetaSun</span><span class="p">});</span>
+
+<span class="w">    </span><span class="c1">// Gamma is the angle between direction to sun and view vector</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">cosGamma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sunDir</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">viewDir</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="n">F_view</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">F</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span><span class="w"> </span><span class="n">cosGamma</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="n">F_zenith</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">F</span><span class="p">(</span><span class="mf">0.0</span><span class="n">_r</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cos</span><span class="p">(</span><span class="n">m_thetaSun</span><span class="p">));</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">Y_xyY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_Yabs_xyY</span><span class="p">.</span><span class="n">mul</span><span class="p">(</span><span class="n">F_view</span><span class="p">.</span><span class="n">div</span><span class="p">(</span><span class="n">F_zenith</span><span class="p">));</span>
+
+<span class="w">    </span><span class="c1">// Convert from K*cd/m^2 to radiance</span>
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="n">radiance_xyY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">Y_xyY</span><span class="p">.</span><span class="n">x</span><span class="p">(),</span><span class="w"> </span><span class="n">Y_xyY</span><span class="p">.</span><span class="n">y</span><span class="p">(),</span><span class="w"> </span><span class="n">Y_xyY</span><span class="p">.</span><span class="n">z</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1000.0</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.0079</span><span class="n">_r</span><span class="p">};</span>
+
+<span class="w">    </span><span class="c1">// Apply non-physical scale factor</span>
+<span class="w">    </span><span class="n">radiance_xyY</span><span class="p">.</span><span class="n">z</span><span class="p">()</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">m_energyScale</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">out_value</span><span class="o">-&gt;</span><span class="n">setTransformed</span><span class="o">&lt;</span><span class="n">math</span><span class="o">::</span><span class="n">EColorSpace</span><span class="o">::</span><span class="n">CIE_xyY</span><span class="o">&gt;</span><span class="p">(</span><span class="n">radiance_xyY</span><span class="p">.</span><span class="n">toArray</span><span class="p">(),</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">EColorUsage</span><span class="o">::</span><span class="n">EMR</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">out_value</span><span class="o">-&gt;</span><span class="n">isFinite</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">out_value</span><span class="o">-&gt;</span><span class="n">setColorValues</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

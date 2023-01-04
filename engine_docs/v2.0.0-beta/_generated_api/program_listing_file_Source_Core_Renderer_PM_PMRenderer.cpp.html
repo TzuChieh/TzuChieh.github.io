@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File PMRenderer.cpp &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File PMRenderer.cpp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Core_Renderer_PM_PMRenderer.cpp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-pmrenderer-cpp">
+<span id="program-listing-file-source-core-renderer-pm-pmrenderer-cpp"></span><h1>Program Listing for File PMRenderer.cpp<a class="headerlink" href="#program-listing-for-file-pmrenderer-cpp" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Core_Renderer_PM_PMRenderer.cpp.html#file-source-core-renderer-pm-pmrenderer-cpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Core\Renderer\PM\PMRenderer.cpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Renderer/PM/PMRenderer.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Filmic/SampleFilters.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;EngineEnv/CoreCookedUnit.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;World/VisualWorld.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Renderer/PM/TViewPathTracingWork.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Renderer/PM/TPhotonMappingWork.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Renderer/PM/TPhotonMap.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Renderer/PM/VPMRadianceEvaluator.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Renderer/PM/FullPhoton.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Utility/Concurrent/FixedSizeThreadPool.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Utility/Concurrent/concurrent.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/logging.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Renderer/PM/PPMRadianceEvaluationWork.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Renderer/PM/FullPhoton.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Renderer/PM/FullViewpoint.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Utility/Timer.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Renderer/PM/TPPMViewpointCollector.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Renderer/PM/TSPPMRadianceEvaluator.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;numeric&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="n">PH_DEFINE_INTERNAL_LOG_GROUP</span><span class="p">(</span><span class="n">PhotonMapRenderer</span><span class="p">,</span><span class="w"> </span><span class="n">Renderer</span><span class="p">);</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">PMRenderer::doUpdate</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">CoreCookedUnit</span><span class="o">&amp;</span><span class="w"> </span><span class="n">cooked</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VisualWorld</span><span class="o">&amp;</span><span class="w"> </span><span class="n">world</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_film</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">HdrRgbFilm</span><span class="o">&gt;</span><span class="p">(</span><span class="n">getRenderWidthPx</span><span class="p">(),</span><span class="w"> </span><span class="n">getRenderHeightPx</span><span class="p">(),</span><span class="w"> </span><span class="n">getCropWindowPx</span><span class="p">(),</span><span class="w"> </span><span class="n">m_filter</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">m_scene</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">world</span><span class="p">.</span><span class="n">getScene</span><span class="p">();</span>
+<span class="w">    </span><span class="n">m_receiver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cooked</span><span class="p">.</span><span class="n">getReceiver</span><span class="p">();</span>
+<span class="w">    </span><span class="n">m_sg</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="n">cooked</span><span class="p">.</span><span class="n">getSampleGenerator</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">m_statistics</span><span class="p">.</span><span class="n">zero</span><span class="p">();</span>
+<span class="w">    </span><span class="n">m_photonsPerSecond</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">m_isFilmUpdated</span><span class="p">.</span><span class="n">store</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">PMRenderer::doRender</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">m_mode</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EPMMode</span><span class="o">::</span><span class="n">VANILLA</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">PhotonMapRenderer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;rendering mode: vanilla photon mapping&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">renderWithVanillaPM</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">m_mode</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EPMMode</span><span class="o">::</span><span class="n">PROGRESSIVE</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">PhotonMapRenderer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;rendering mode: progressive photon mapping&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">renderWithProgressivePM</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">m_mode</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EPMMode</span><span class="o">::</span><span class="n">STOCHASTIC_PROGRESSIVE</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">PhotonMapRenderer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;rendering mode: stochastic progressive photon mapping&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">renderWithStochasticProgressivePM</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_LOG_WARNING</span><span class="p">(</span><span class="n">PhotonMapRenderer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;unsupported PM mode, renders nothing&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">PMRenderer::renderWithVanillaPM</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">Photon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FullPhoton</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">PhotonMapRenderer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;photon size: {} bytes&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">Photon</span><span class="p">));</span>
+
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">PhotonMapRenderer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;target number of photons: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">m_numPhotons</span><span class="p">);</span>
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">PhotonMapRenderer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;size of photon buffer: {} MB&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">Photon</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m_numPhotons</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1024</span><span class="p">);</span>
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">PhotonMapRenderer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;start shooting photons...&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Photon</span><span class="o">&gt;</span><span class="w">  </span><span class="n">photonBuffer</span><span class="p">(</span><span class="n">m_numPhotons</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">numPhotonPaths</span><span class="p">(</span><span class="n">numWorkers</span><span class="p">(),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">parallel_work</span><span class="p">(</span><span class="n">m_numPhotons</span><span class="p">,</span><span class="w"> </span><span class="n">numWorkers</span><span class="p">(),</span>
+<span class="w">        </span><span class="p">[</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">photonBuffer</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">numPhotonPaths</span><span class="p">](</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">workerIdx</span><span class="p">,</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">workStart</span><span class="p">,</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">workEnd</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">auto</span><span class="w"> </span><span class="n">sampleGenerator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_sg</span><span class="o">-&gt;</span><span class="n">genCopied</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">            </span><span class="n">TPhotonMappingWork</span><span class="o">&lt;</span><span class="n">Photon</span><span class="o">&gt;</span><span class="w"> </span><span class="n">photonMappingWork</span><span class="p">(</span>
+<span class="w">                </span><span class="n">m_scene</span><span class="p">,</span>
+<span class="w">                </span><span class="n">m_receiver</span><span class="p">,</span>
+<span class="w">                </span><span class="n">sampleGenerator</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span>
+<span class="w">                </span><span class="o">&amp;</span><span class="p">(</span><span class="n">photonBuffer</span><span class="p">[</span><span class="n">workStart</span><span class="p">]),</span>
+<span class="w">                </span><span class="n">workEnd</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">workStart</span><span class="p">,</span>
+<span class="w">                </span><span class="o">&amp;</span><span class="p">(</span><span class="n">numPhotonPaths</span><span class="p">[</span><span class="n">workerIdx</span><span class="p">]));</span>
+<span class="w">            </span><span class="n">photonMappingWork</span><span class="p">.</span><span class="n">setPMStatistics</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m_statistics</span><span class="p">);</span>
+
+<span class="w">            </span><span class="n">photonMappingWork</span><span class="p">.</span><span class="n">work</span><span class="p">();</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">totalPhotonPaths</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">accumulate</span><span class="p">(</span><span class="n">numPhotonPaths</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">numPhotonPaths</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">PhotonMapRenderer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;building photon map...&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">TPhotonMap</span><span class="o">&lt;</span><span class="n">Photon</span><span class="o">&gt;</span><span class="w"> </span><span class="n">photonMap</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">TPhotonCenterCalculator</span><span class="o">&lt;</span><span class="n">Photon</span><span class="o">&gt;</span><span class="p">());</span>
+<span class="w">    </span><span class="n">photonMap</span><span class="p">.</span><span class="n">build</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">photonBuffer</span><span class="p">));</span>
+
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">PhotonMapRenderer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;estimating radiance...&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">parallel_work</span><span class="p">(</span><span class="n">m_numSamplesPerPixel</span><span class="p">,</span><span class="w"> </span><span class="n">numWorkers</span><span class="p">(),</span>
+<span class="w">        </span><span class="p">[</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">photonMap</span><span class="p">,</span><span class="w"> </span><span class="n">totalPhotonPaths</span><span class="p">](</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">workerIdx</span><span class="p">,</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">workStart</span><span class="p">,</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">workEnd</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">auto</span><span class="w"> </span><span class="n">sampleGenerator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_sg</span><span class="o">-&gt;</span><span class="n">genCopied</span><span class="p">(</span><span class="n">workEnd</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">workStart</span><span class="p">);</span>
+<span class="w">            </span><span class="k">auto</span><span class="w"> </span><span class="n">film</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">HdrRgbFilm</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">                </span><span class="n">getRenderWidthPx</span><span class="p">(),</span><span class="w"> </span><span class="n">getRenderHeightPx</span><span class="p">(),</span><span class="w"> </span><span class="n">getCropWindowPx</span><span class="p">(),</span><span class="w"> </span><span class="n">m_filter</span><span class="p">);</span>
+
+<span class="w">            </span><span class="n">VPMRadianceEvaluator</span><span class="w"> </span><span class="n">evaluator</span><span class="p">(</span>
+<span class="w">                </span><span class="o">&amp;</span><span class="n">photonMap</span><span class="p">,</span>
+<span class="w">                </span><span class="n">totalPhotonPaths</span><span class="p">,</span>
+<span class="w">                </span><span class="n">film</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span>
+<span class="w">                </span><span class="n">m_scene</span><span class="p">);</span>
+<span class="w">            </span><span class="n">evaluator</span><span class="p">.</span><span class="n">setPMRenderer</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="w">            </span><span class="n">evaluator</span><span class="p">.</span><span class="n">setPMStatistics</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m_statistics</span><span class="p">);</span>
+<span class="w">            </span><span class="n">evaluator</span><span class="p">.</span><span class="n">setKernelRadius</span><span class="p">(</span><span class="n">m_kernelRadius</span><span class="p">);</span>
+
+<span class="w">            </span><span class="n">TViewPathTracingWork</span><span class="o">&lt;</span><span class="n">VPMRadianceEvaluator</span><span class="o">&gt;</span><span class="w"> </span><span class="n">radianceEvaluator</span><span class="p">(</span>
+<span class="w">                </span><span class="o">&amp;</span><span class="n">evaluator</span><span class="p">,</span>
+<span class="w">                </span><span class="n">m_scene</span><span class="p">,</span>
+<span class="w">                </span><span class="n">m_receiver</span><span class="p">,</span>
+<span class="w">                </span><span class="n">sampleGenerator</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span>
+<span class="w">                </span><span class="n">getCropWindowPx</span><span class="p">());</span>
+
+<span class="w">            </span><span class="n">radianceEvaluator</span><span class="p">.</span><span class="n">work</span><span class="p">();</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">PMRenderer::renderWithProgressivePM</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">Photon</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">FullPhoton</span><span class="p">;</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">Viewpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FullViewpoint</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">PhotonMapRenderer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;photon size: {} bytes&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">Photon</span><span class="p">));</span>
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">PhotonMapRenderer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;viewpoint size: {} bytes&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">Viewpoint</span><span class="p">));</span>
+
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">PhotonMapRenderer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;start gathering viewpoints...&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Viewpoint</span><span class="o">&gt;</span><span class="w"> </span><span class="n">viewpoints</span><span class="p">;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="n">ViewpointCollector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TPPMViewpointCollector</span><span class="o">&lt;</span><span class="n">Viewpoint</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">        </span><span class="n">ViewpointCollector</span><span class="w"> </span><span class="n">viewpointCollector</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="n">m_kernelRadius</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">viewpointSampleGenerator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_sg</span><span class="o">-&gt;</span><span class="n">genCopied</span><span class="p">(</span><span class="n">m_numSamplesPerPixel</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">TViewPathTracingWork</span><span class="o">&lt;</span><span class="n">ViewpointCollector</span><span class="o">&gt;</span><span class="w"> </span><span class="n">viewpointWork</span><span class="p">(</span>
+<span class="w">            </span><span class="o">&amp;</span><span class="n">viewpointCollector</span><span class="p">,</span>
+<span class="w">            </span><span class="n">m_scene</span><span class="p">,</span>
+<span class="w">            </span><span class="n">m_receiver</span><span class="p">,</span>
+<span class="w">            </span><span class="n">viewpointSampleGenerator</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span>
+<span class="w">            </span><span class="n">getCropWindowPx</span><span class="p">());</span>
+
+<span class="w">        </span><span class="n">viewpointWork</span><span class="p">.</span><span class="n">work</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">viewpoints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">viewpointCollector</span><span class="p">.</span><span class="n">claimViewpoints</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">PhotonMapRenderer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;size of viewpoint buffer: {} MiB&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="n">math</span><span class="o">::</span><span class="n">bytes_to_MiB</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Viewpoint</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">viewpoints</span><span class="p">.</span><span class="n">size</span><span class="p">()));</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">numPhotonsPerPass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_numPhotons</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">PhotonMapRenderer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;number of photons per pass: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">numPhotonsPerPass</span><span class="p">);</span>
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">PhotonMapRenderer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;size of photon buffer: {} MiB&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="n">math</span><span class="o">::</span><span class="n">bytes_to_MiB</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Photon</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">numPhotonsPerPass</span><span class="p">));</span>
+
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">PhotonMapRenderer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;start accumulating passes...&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="w"> </span><span class="n">resultFilmMutex</span><span class="p">;</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">resultFilm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">HdrRgbFilm</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">        </span><span class="n">getRenderWidthPx</span><span class="p">(),</span><span class="w"> </span><span class="n">getRenderHeightPx</span><span class="p">(),</span><span class="w"> </span><span class="n">getCropWindowPx</span><span class="p">(),</span><span class="w"> </span><span class="n">m_filter</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">Timer</span><span class="w"> </span><span class="n">passTimer</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">numFinishedPasses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">totalPhotonPaths</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">numFinishedPasses</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m_numPasses</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">passTimer</span><span class="p">.</span><span class="n">start</span><span class="p">();</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Photon</span><span class="o">&gt;</span><span class="w"> </span><span class="n">photonBuffer</span><span class="p">(</span><span class="n">numPhotonsPerPass</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">numPhotonPaths</span><span class="p">(</span><span class="n">numWorkers</span><span class="p">(),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="n">parallel_work</span><span class="p">(</span><span class="n">numPhotonsPerPass</span><span class="p">,</span><span class="w"> </span><span class="n">numWorkers</span><span class="p">(),</span>
+<span class="w">            </span><span class="p">[</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">photonBuffer</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">numPhotonPaths</span><span class="p">](</span>
+<span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">workerIdx</span><span class="p">,</span>
+<span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">workStart</span><span class="p">,</span>
+<span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">workEnd</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">auto</span><span class="w"> </span><span class="n">sampleGenerator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_sg</span><span class="o">-&gt;</span><span class="n">genCopied</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">                </span><span class="n">TPhotonMappingWork</span><span class="o">&lt;</span><span class="n">Photon</span><span class="o">&gt;</span><span class="w"> </span><span class="n">photonMappingWork</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">m_scene</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">m_receiver</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">sampleGenerator</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span>
+<span class="w">                    </span><span class="o">&amp;</span><span class="p">(</span><span class="n">photonBuffer</span><span class="p">[</span><span class="n">workStart</span><span class="p">]),</span>
+<span class="w">                    </span><span class="n">workEnd</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">workStart</span><span class="p">,</span>
+<span class="w">                    </span><span class="o">&amp;</span><span class="p">(</span><span class="n">numPhotonPaths</span><span class="p">[</span><span class="n">workerIdx</span><span class="p">]));</span>
+<span class="w">                </span><span class="n">photonMappingWork</span><span class="p">.</span><span class="n">setPMStatistics</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m_statistics</span><span class="p">);</span>
+
+<span class="w">                </span><span class="n">photonMappingWork</span><span class="p">.</span><span class="n">work</span><span class="p">();</span>
+<span class="w">            </span><span class="p">});</span>
+<span class="w">        </span><span class="n">totalPhotonPaths</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">accumulate</span><span class="p">(</span><span class="n">numPhotonPaths</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">numPhotonPaths</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">totalPhotonPaths</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">TPhotonMap</span><span class="o">&lt;</span><span class="n">Photon</span><span class="o">&gt;</span><span class="w"> </span><span class="n">photonMap</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">TPhotonCenterCalculator</span><span class="o">&lt;</span><span class="n">Photon</span><span class="o">&gt;</span><span class="p">());</span>
+<span class="w">        </span><span class="n">photonMap</span><span class="p">.</span><span class="n">build</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">photonBuffer</span><span class="p">));</span>
+
+<span class="w">        </span><span class="n">parallel_work</span><span class="p">(</span><span class="n">viewpoints</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span><span class="w"> </span><span class="n">numWorkers</span><span class="p">(),</span>
+<span class="w">            </span><span class="p">[</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">photonMap</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">viewpoints</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">resultFilm</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">resultFilmMutex</span><span class="p">,</span><span class="w"> </span><span class="n">totalPhotonPaths</span><span class="p">](</span>
+<span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">workerIdx</span><span class="p">,</span>
+<span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">workStart</span><span class="p">,</span>
+<span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">workEnd</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">auto</span><span class="w"> </span><span class="n">film</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">HdrRgbFilm</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">getRenderWidthPx</span><span class="p">(),</span><span class="w"> </span><span class="n">getRenderHeightPx</span><span class="p">(),</span><span class="w"> </span><span class="n">getCropWindowPx</span><span class="p">(),</span><span class="w"> </span><span class="n">m_filter</span><span class="p">);</span>
+
+<span class="w">                </span><span class="n">PPMRadianceEvaluationWork</span><span class="w"> </span><span class="n">radianceEstimator</span><span class="p">(</span>
+<span class="w">                    </span><span class="o">&amp;</span><span class="n">photonMap</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">totalPhotonPaths</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">film</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span>
+<span class="w">                    </span><span class="o">&amp;</span><span class="p">(</span><span class="n">viewpoints</span><span class="p">[</span><span class="n">workStart</span><span class="p">]),</span>
+<span class="w">                    </span><span class="n">workEnd</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">workStart</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">m_scene</span><span class="p">);</span>
+<span class="w">                </span><span class="n">radianceEstimator</span><span class="p">.</span><span class="n">setPMStatistics</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m_statistics</span><span class="p">);</span>
+
+<span class="w">                </span><span class="n">radianceEstimator</span><span class="p">.</span><span class="n">work</span><span class="p">();</span>
+
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">resultFilmMutex</span><span class="p">);</span>
+
+<span class="w">                    </span><span class="n">resultFilm</span><span class="o">-&gt;</span><span class="n">mergeWith</span><span class="p">(</span><span class="o">*</span><span class="n">film</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">});</span>
+
+<span class="w">        </span><span class="n">asyncReplaceFilm</span><span class="p">(</span><span class="o">*</span><span class="n">resultFilm</span><span class="p">);</span>
+<span class="w">        </span><span class="n">resultFilm</span><span class="o">-&gt;</span><span class="n">clear</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">passTimer</span><span class="p">.</span><span class="n">stop</span><span class="p">();</span>
+
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">passTimeMs</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">passTimer</span><span class="p">.</span><span class="n">getDeltaMs</span><span class="p">());</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">photonsPerMs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">passTimeMs</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">numPhotonsPerPass</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">passTimeMs</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">m_photonsPerSecond</span><span class="p">.</span><span class="n">store</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">uint32_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">photonsPerMs</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.5</span><span class="n">_r</span><span class="p">),</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_relaxed</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">m_statistics</span><span class="p">.</span><span class="n">asyncIncrementNumIterations</span><span class="p">();</span>
+<span class="w">        </span><span class="o">++</span><span class="n">numFinishedPasses</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="c1">// end while more pass needed</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">PMRenderer::renderWithStochasticProgressivePM</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">Photon</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">FullPhoton</span><span class="p">;</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">Viewpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FullViewpoint</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">PhotonMapRenderer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;photon size: {} bytes&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">Photon</span><span class="p">));</span>
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">PhotonMapRenderer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;viewpoint size: {} bytes&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">Viewpoint</span><span class="p">));</span>
+
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">PhotonMapRenderer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;start generating viewpoints...&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Viewpoint</span><span class="o">&gt;</span><span class="w"> </span><span class="n">viewpoints</span><span class="p">(</span><span class="n">getCropWindowPx</span><span class="p">().</span><span class="n">getArea</span><span class="p">());</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">getCropWindowPx</span><span class="p">().</span><span class="n">getHeight</span><span class="p">());</span><span class="w"> </span><span class="o">++</span><span class="n">y</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">getCropWindowPx</span><span class="p">().</span><span class="n">getWidth</span><span class="p">());</span><span class="w"> </span><span class="o">++</span><span class="n">x</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">viewpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">viewpoints</span><span class="p">[</span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">getCropWindowPx</span><span class="p">().</span><span class="n">getWidth</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">];</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="p">(</span><span class="n">Viewpoint</span><span class="o">::</span><span class="k">template</span><span class="w"> </span><span class="n">has</span><span class="o">&lt;</span><span class="n">EViewpointData</span><span class="o">::</span><span class="n">RADIUS</span><span class="o">&gt;</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">viewpoint</span><span class="p">.</span><span class="k">template</span><span class="w"> </span><span class="n">set</span><span class="o">&lt;</span><span class="n">EViewpointData</span><span class="o">::</span><span class="n">RADIUS</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_kernelRadius</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="p">(</span><span class="n">Viewpoint</span><span class="o">::</span><span class="k">template</span><span class="w"> </span><span class="n">has</span><span class="o">&lt;</span><span class="n">EViewpointData</span><span class="o">::</span><span class="n">NUM_PHOTONS</span><span class="o">&gt;</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">viewpoint</span><span class="p">.</span><span class="k">template</span><span class="w"> </span><span class="n">set</span><span class="o">&lt;</span><span class="n">EViewpointData</span><span class="o">::</span><span class="n">NUM_PHOTONS</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">0.0</span><span class="n">_r</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="p">(</span><span class="n">Viewpoint</span><span class="o">::</span><span class="k">template</span><span class="w"> </span><span class="n">has</span><span class="o">&lt;</span><span class="n">EViewpointData</span><span class="o">::</span><span class="n">TAU</span><span class="o">&gt;</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">viewpoint</span><span class="p">.</span><span class="k">template</span><span class="w"> </span><span class="n">set</span><span class="o">&lt;</span><span class="n">EViewpointData</span><span class="o">::</span><span class="n">TAU</span><span class="o">&gt;</span><span class="p">(</span><span class="n">math</span><span class="o">::</span><span class="n">Spectrum</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="p">(</span><span class="n">Viewpoint</span><span class="o">::</span><span class="k">template</span><span class="w"> </span><span class="n">has</span><span class="o">&lt;</span><span class="n">EViewpointData</span><span class="o">::</span><span class="n">VIEW_RADIANCE</span><span class="o">&gt;</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">viewpoint</span><span class="p">.</span><span class="k">template</span><span class="w"> </span><span class="n">set</span><span class="o">&lt;</span><span class="n">EViewpointData</span><span class="o">::</span><span class="n">VIEW_RADIANCE</span><span class="o">&gt;</span><span class="p">(</span><span class="n">math</span><span class="o">::</span><span class="n">Spectrum</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">PhotonMapRenderer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;size of viewpoint buffer: {} MiB&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="n">math</span><span class="o">::</span><span class="n">bytes_to_MiB</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Viewpoint</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">viewpoints</span><span class="p">.</span><span class="n">size</span><span class="p">()));</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">numPhotonsPerPass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_numPhotons</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">PhotonMapRenderer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;number of photons per pass: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">numPhotonsPerPass</span><span class="p">);</span>
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">PhotonMapRenderer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;size of photon buffer: {} MiB&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="n">math</span><span class="o">::</span><span class="n">bytes_to_MiB</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Photon</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">numPhotonsPerPass</span><span class="p">));</span>
+
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">PhotonMapRenderer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;start accumulating passes...&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="w"> </span><span class="n">resultFilmMutex</span><span class="p">;</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">resultFilm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">HdrRgbFilm</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">        </span><span class="n">getRenderWidthPx</span><span class="p">(),</span><span class="w"> </span><span class="n">getRenderHeightPx</span><span class="p">(),</span><span class="w"> </span><span class="n">getCropWindowPx</span><span class="p">(),</span><span class="w"> </span><span class="n">m_filter</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">Timer</span><span class="w"> </span><span class="n">passTimer</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">numFinishedPasses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">totalPhotonPaths</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">numFinishedPasses</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m_numPasses</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">passTimer</span><span class="p">.</span><span class="n">start</span><span class="p">();</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Photon</span><span class="o">&gt;</span><span class="w"> </span><span class="n">photonBuffer</span><span class="p">(</span><span class="n">numPhotonsPerPass</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">numPhotonPaths</span><span class="p">(</span><span class="n">numWorkers</span><span class="p">(),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="n">parallel_work</span><span class="p">(</span><span class="n">numPhotonsPerPass</span><span class="p">,</span><span class="w"> </span><span class="n">numWorkers</span><span class="p">(),</span>
+<span class="w">            </span><span class="p">[</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">photonBuffer</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">numPhotonPaths</span><span class="p">](</span>
+<span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">workerIdx</span><span class="p">,</span>
+<span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">workStart</span><span class="p">,</span>
+<span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">workEnd</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">auto</span><span class="w"> </span><span class="n">sampleGenerator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_sg</span><span class="o">-&gt;</span><span class="n">genCopied</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">                </span><span class="n">TPhotonMappingWork</span><span class="o">&lt;</span><span class="n">Photon</span><span class="o">&gt;</span><span class="w"> </span><span class="n">photonMappingWork</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">m_scene</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">m_receiver</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">sampleGenerator</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span>
+<span class="w">                    </span><span class="o">&amp;</span><span class="p">(</span><span class="n">photonBuffer</span><span class="p">[</span><span class="n">workStart</span><span class="p">]),</span>
+<span class="w">                    </span><span class="n">workEnd</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">workStart</span><span class="p">,</span>
+<span class="w">                    </span><span class="o">&amp;</span><span class="p">(</span><span class="n">numPhotonPaths</span><span class="p">[</span><span class="n">workerIdx</span><span class="p">]));</span>
+<span class="w">                </span><span class="n">photonMappingWork</span><span class="p">.</span><span class="n">setPMStatistics</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m_statistics</span><span class="p">);</span>
+
+<span class="w">                </span><span class="n">photonMappingWork</span><span class="p">.</span><span class="n">work</span><span class="p">();</span>
+<span class="w">            </span><span class="p">});</span>
+<span class="w">        </span><span class="n">totalPhotonPaths</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">accumulate</span><span class="p">(</span><span class="n">numPhotonPaths</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">numPhotonPaths</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">totalPhotonPaths</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">TPhotonMap</span><span class="o">&lt;</span><span class="n">Photon</span><span class="o">&gt;</span><span class="w"> </span><span class="n">photonMap</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">TPhotonCenterCalculator</span><span class="o">&lt;</span><span class="n">Photon</span><span class="o">&gt;</span><span class="p">());</span>
+<span class="w">        </span><span class="n">photonMap</span><span class="p">.</span><span class="n">build</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">photonBuffer</span><span class="p">));</span>
+
+<span class="w">        </span><span class="n">parallel_work</span><span class="p">(</span><span class="n">getCropWindowPx</span><span class="p">().</span><span class="n">getWidth</span><span class="p">(),</span><span class="w"> </span><span class="n">numWorkers</span><span class="p">(),</span>
+<span class="w">            </span><span class="p">[</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">photonMap</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">viewpoints</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">resultFilm</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">resultFilmMutex</span><span class="p">,</span><span class="w"> </span><span class="n">totalPhotonPaths</span><span class="p">,</span><span class="w"> </span><span class="n">numFinishedPasses</span><span class="p">](</span>
+<span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">workerIdx</span><span class="p">,</span>
+<span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">workStart</span><span class="p">,</span>
+<span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">workEnd</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">Region</span><span class="w"> </span><span class="n">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getCropWindowPx</span><span class="p">();</span>
+<span class="w">                </span><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">minVertex</span><span class="p">,</span><span class="w"> </span><span class="n">maxVertex</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">region</span><span class="p">.</span><span class="n">getVertices</span><span class="p">();</span>
+<span class="w">                </span><span class="n">minVertex</span><span class="p">.</span><span class="n">x</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getCropWindowPx</span><span class="p">().</span><span class="n">getMinVertex</span><span class="p">().</span><span class="n">x</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">workStart</span><span class="p">;</span>
+<span class="w">                </span><span class="n">maxVertex</span><span class="p">.</span><span class="n">x</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getCropWindowPx</span><span class="p">().</span><span class="n">getMinVertex</span><span class="p">().</span><span class="n">x</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">workEnd</span><span class="p">;</span>
+<span class="w">                </span><span class="n">region</span><span class="p">.</span><span class="n">setVertices</span><span class="p">({</span><span class="n">minVertex</span><span class="p">,</span><span class="w"> </span><span class="n">maxVertex</span><span class="p">});</span>
+
+<span class="w">                </span><span class="k">auto</span><span class="w"> </span><span class="n">sampleGenerator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_sg</span><span class="o">-&gt;</span><span class="n">genCopied</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">                </span><span class="k">using</span><span class="w"> </span><span class="n">RadianceEvaluator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TSPPMRadianceEvaluator</span><span class="o">&lt;</span><span class="n">Viewpoint</span><span class="p">,</span><span class="w"> </span><span class="n">Photon</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="w">                </span><span class="n">RadianceEvaluator</span><span class="w"> </span><span class="n">radianceEvaluator</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">viewpoints</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span>
+<span class="w">                    </span><span class="n">viewpoints</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span>
+<span class="w">                    </span><span class="o">&amp;</span><span class="n">photonMap</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">totalPhotonPaths</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">m_scene</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">resultFilm</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span>
+<span class="w">                    </span><span class="n">region</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">numFinishedPasses</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">                    </span><span class="mi">16384</span><span class="p">);</span>
+
+<span class="w">                </span><span class="n">TViewPathTracingWork</span><span class="o">&lt;</span><span class="n">RadianceEvaluator</span><span class="o">&gt;</span><span class="w"> </span><span class="n">viewpointWork</span><span class="p">(</span>
+<span class="w">                    </span><span class="o">&amp;</span><span class="n">radianceEvaluator</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">m_scene</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">m_receiver</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">sampleGenerator</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span>
+<span class="w">                    </span><span class="n">region</span><span class="p">);</span>
+
+<span class="w">                </span><span class="n">viewpointWork</span><span class="p">.</span><span class="n">work</span><span class="p">();</span>
+<span class="w">            </span><span class="p">});</span>
+
+<span class="w">        </span><span class="n">asyncReplaceFilm</span><span class="p">(</span><span class="o">*</span><span class="n">resultFilm</span><span class="p">);</span>
+<span class="w">        </span><span class="n">resultFilm</span><span class="o">-&gt;</span><span class="n">clear</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">passTimer</span><span class="p">.</span><span class="n">stop</span><span class="p">();</span>
+
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">passTimeMs</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">passTimer</span><span class="p">.</span><span class="n">getDeltaMs</span><span class="p">());</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">photonsPerMs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">passTimeMs</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">numPhotonsPerPass</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">passTimeMs</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">m_photonsPerSecond</span><span class="p">.</span><span class="n">store</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">uint32_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">photonsPerMs</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.5</span><span class="n">_r</span><span class="p">),</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_relaxed</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">m_statistics</span><span class="p">.</span><span class="n">asyncIncrementNumIterations</span><span class="p">();</span>
+<span class="w">        </span><span class="o">++</span><span class="n">numFinishedPasses</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="c1">// end while more pass needed</span>
+<span class="p">}</span>
+
+<span class="n">ERegionStatus</span><span class="w"> </span><span class="nf">PMRenderer::asyncPollUpdatedRegion</span><span class="p">(</span><span class="n">Region</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">out_region</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">out_region</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">m_isFilmUpdated</span><span class="p">.</span><span class="n">load</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="o">*</span><span class="n">out_region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getCropWindowPx</span><span class="p">();</span>
+<span class="w">        </span><span class="n">m_isFilmUpdated</span><span class="p">.</span><span class="n">store</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ERegionStatus</span><span class="o">::</span><span class="n">UPDATING</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ERegionStatus</span><span class="o">::</span><span class="n">INVALID</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">RenderProgress</span><span class="w"> </span><span class="nf">PMRenderer::asyncQueryRenderProgress</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">RenderProgress</span><span class="p">(</span>
+<span class="w">        </span><span class="n">m_mode</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">EPMMode</span><span class="o">::</span><span class="n">VANILLA</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">m_numPasses</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">m_numSamplesPerPixel</span><span class="p">,</span>
+<span class="w">        </span><span class="n">m_statistics</span><span class="p">.</span><span class="n">asyncGetNumIterations</span><span class="p">(),</span>
+<span class="w">        </span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">PMRenderer::asyncPeekFrame</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">layerIndex</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Region</span><span class="o">&amp;</span><span class="w">     </span><span class="n">region</span><span class="p">,</span>
+<span class="w">    </span><span class="n">HdrRgbFrame</span><span class="o">&amp;</span><span class="w">      </span><span class="n">out_frame</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">m_filmMutex</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">layerIndex</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">m_film</span><span class="o">-&gt;</span><span class="n">develop</span><span class="p">(</span><span class="n">out_frame</span><span class="p">,</span><span class="w"> </span><span class="n">region</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">out_frame</span><span class="p">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">TAABB2D</span><span class="o">&lt;</span><span class="n">uint32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">region</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">PMRenderer::retrieveFrame</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">layerIndex</span><span class="p">,</span><span class="w"> </span><span class="n">HdrRgbFrame</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out_frame</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_film</span><span class="o">-&gt;</span><span class="n">develop</span><span class="p">(</span><span class="n">out_frame</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">ObservableRenderData</span><span class="w"> </span><span class="nf">PMRenderer::getObservableData</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">ObservableRenderData</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">data</span><span class="p">.</span><span class="n">setIntegerState</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">m_mode</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">EPMMode</span><span class="o">::</span><span class="n">VANILLA</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;finished passes&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;finished samples&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">data</span><span class="p">.</span><span class="n">setIntegerState</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;traced photons&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">data</span><span class="p">.</span><span class="n">setIntegerState</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;photons/second&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">RenderState</span><span class="w"> </span><span class="nf">PMRenderer::asyncQueryRenderState</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">RenderState</span><span class="w"> </span><span class="n">state</span><span class="p">;</span>
+<span class="w">    </span><span class="n">state</span><span class="p">.</span><span class="n">setIntegerState</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">m_statistics</span><span class="p">.</span><span class="n">asyncGetNumIterations</span><span class="p">());</span>
+<span class="w">    </span><span class="n">state</span><span class="p">.</span><span class="n">setIntegerState</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">m_statistics</span><span class="p">.</span><span class="n">asyncGetNumTracedPhotons</span><span class="p">());</span>
+<span class="w">    </span><span class="n">state</span><span class="p">.</span><span class="n">setIntegerState</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">RenderState</span><span class="o">::</span><span class="n">IntegerState</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_photonsPerSecond</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_relaxed</span><span class="p">)));</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">state</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">PMRenderer::asyncMergeFilm</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">HdrRgbFilm</span><span class="o">&amp;</span><span class="w"> </span><span class="n">srcFilm</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">m_filmMutex</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">m_film</span><span class="o">-&gt;</span><span class="n">mergeWith</span><span class="p">(</span><span class="n">srcFilm</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">m_isFilmUpdated</span><span class="p">.</span><span class="n">store</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">PMRenderer::asyncReplaceFilm</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">HdrRgbFilm</span><span class="o">&amp;</span><span class="w"> </span><span class="n">srcFilm</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">m_filmMutex</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">m_film</span><span class="o">-&gt;</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">        </span><span class="n">m_film</span><span class="o">-&gt;</span><span class="n">mergeWith</span><span class="p">(</span><span class="n">srcFilm</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">m_isFilmUpdated</span><span class="p">.</span><span class="n">store</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

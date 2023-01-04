@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_ies_file:
+
+Class IesFile
+=============
+
+- Defined in :ref:`file_Source_DataIO_Data_IesFile.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::IesFile
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

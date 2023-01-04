@@ -1,0 +1,59 @@
+
+.. _file_Source_Core_Receiver_PinholeCamera.h:
+
+File PinholeCamera.h
+====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Receiver\PinholeCamera.h``)
+-----------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Receiver_PinholeCamera.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/Receiver/RectangularSensorReceiver.h``
+
+- ``Math/TVector3.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Api_init_and_exit.cpp`
+
+- :ref:`file_Source_Core_Receiver_PinholeCamera.cpp`
+
+- :ref:`file_Source_EngineEnv_Observer_SingleLensObserver.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_pinhole_camera`
+

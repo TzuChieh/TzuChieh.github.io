@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_render_worker:
+
+Class RenderWorker
+==================
+
+- Defined in :ref:`file_Source_Core_Renderer_RenderWorker.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::RenderWorker
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

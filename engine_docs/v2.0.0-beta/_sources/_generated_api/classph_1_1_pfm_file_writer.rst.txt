@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_pfm_file_writer:
+
+Class PfmFileWriter
+===================
+
+- Defined in :ref:`file_Source_DataIO_PfmFileWriter.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::PfmFileWriter
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

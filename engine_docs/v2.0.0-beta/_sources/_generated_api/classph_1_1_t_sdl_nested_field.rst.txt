@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_t_sdl_nested_field:
+
+Template Class TSdlNestedField
+==============================
+
+- Defined in :ref:`file_Source_DataIO_SDL_Introspect_TSdlNestedField.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::TOwnedSdlField< OuterType >`` (:ref:`exhale_class_classph_1_1_t_owned_sdl_field`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TSdlNestedField
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

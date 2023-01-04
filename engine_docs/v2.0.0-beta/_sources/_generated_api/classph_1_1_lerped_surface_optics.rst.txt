@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_lerped_surface_optics:
+
+Class LerpedSurfaceOptics
+=========================
+
+- Defined in :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LerpedSurfaceOptics.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::SurfaceOptics`` (:ref:`exhale_class_classph_1_1_surface_optics`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::LerpedSurfaceOptics
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

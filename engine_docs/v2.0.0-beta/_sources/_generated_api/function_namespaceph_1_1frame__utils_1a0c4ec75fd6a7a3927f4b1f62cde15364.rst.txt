@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1frame__utils_1a0c4ec75fd6a7a3927f4b1f62cde15364:
+
+Function ph::frame_utils::to_HDR
+================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::frame_utils::to_HDR(const LdrRgbFrame&, HdrRgbFrame *const)
+   :project: Photon

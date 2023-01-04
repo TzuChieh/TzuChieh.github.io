@@ -1,0 +1,54 @@
+
+.. _file_Source_Core_Renderer_Sampling_TReceiverMeasurementEstimator.ipp:
+
+File TReceiverMeasurementEstimator.ipp
+======================================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Renderer\Sampling\TReceiverMeasurementEstimator.ipp``)
+--------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Renderer_Sampling_TReceiverMeasurementEstimator.ipp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/Estimator/IRayEnergyEstimator.h``
+
+- ``Core/Filmic/SampleFilters.h``
+
+- ``Core/Ray.h``
+
+- ``Core/Renderer/Sampling/TReceiverMeasurementEstimator.h``
+
+- ``Math/TVector2.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Renderer_Sampling_TReceiverMeasurementEstimator.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

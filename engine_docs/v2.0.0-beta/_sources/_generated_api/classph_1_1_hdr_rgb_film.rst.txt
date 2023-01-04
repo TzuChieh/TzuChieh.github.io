@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_hdr_rgb_film:
+
+Class HdrRgbFilm
+================
+
+- Defined in :ref:`file_Source_Core_Filmic_HdrRgbFilm.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::TSamplingFilm< math::Spectrum >`` (:ref:`exhale_class_classph_1_1_t_sampling_film`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::HdrRgbFilm
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

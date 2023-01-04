@@ -1,0 +1,83 @@
+
+.. _file_Source_Actor_Image_ConstantImage.h:
+
+File ConstantImage.h
+====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\Image\ConstantImage.h``)
+---------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_Image_ConstantImage.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/Image/Image.h``
+
+- ``Actor/SDLExtension/sdl_color_space_type.h``
+
+- ``DataIO/SDL/sdl_interface.h``
+
+- ``Math/math_fwd.h``
+
+- ``type_traits``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_Image_ConstantImage.cpp`
+
+- :ref:`file_Source_Actor_Image_UnifiedColorImage.cpp`
+
+- :ref:`file_Source_Actor_Image_UnifiedNumericImage.cpp`
+
+- :ref:`file_Source_Actor_LightSource_AreaSource.cpp`
+
+- :ref:`file_Source_Actor_LightSource_ModelSource.cpp`
+
+- :ref:`file_Source_Actor_Material_BinaryMixedSurfaceMaterial.cpp`
+
+- :ref:`file_Source_Actor_Material_MatteOpaque.cpp`
+
+- :ref:`file_Source_Actor_SDLExtension_image_loaders.cpp`
+
+- :ref:`file_Source_Api_init_and_exit.cpp`
+
+- :ref:`file_Source_Api_ph_cpp_core.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_constant_image`
+

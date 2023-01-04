@@ -1,0 +1,17 @@
+.. _exhale_struct_structph_1_1_ply_property:
+
+Struct PlyProperty
+==================
+
+- Defined in :ref:`file_Source_DataIO_PlyFile.h`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: ph::PlyProperty
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

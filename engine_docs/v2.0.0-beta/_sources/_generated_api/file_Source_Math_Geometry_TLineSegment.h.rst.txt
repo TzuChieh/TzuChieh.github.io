@@ -1,0 +1,73 @@
+
+.. _file_Source_Math_Geometry_TLineSegment.h:
+
+File TLineSegment.h
+===================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\Geometry\TLineSegment.h``)
+----------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_Geometry_TLineSegment.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Math/Geometry/TLineSegment.ipp``
+
+- ``Math/TVector3.h``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Intersectable_PLatLongEnvSphere.cpp`
+
+- :ref:`file_Source_Core_Ray.h`
+
+- :ref:`file_Source_Math_Algorithm_IndexedKdtree_TIndexedKdtree.h`
+
+- :ref:`file_Source_Math_Geometry_TAABB3D.h`
+
+- :ref:`file_Source_Math_Geometry_TLineSegment.ipp`
+
+- :ref:`file_Source_Math_Geometry_TSphere.h`
+
+- :ref:`file_Source_Math_Geometry_TTriangle.h`
+
+- :ref:`file_Source_Math_Geometry_TWatertightTriangle.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_line_segment`
+

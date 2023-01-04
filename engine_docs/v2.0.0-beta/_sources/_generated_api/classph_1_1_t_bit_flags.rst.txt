@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_t_bit_flags:
+
+Template Class TBitFlags
+========================
+
+- Defined in :ref:`file_Source_Utility_TBitFlags.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TBitFlags
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

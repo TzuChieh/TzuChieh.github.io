@@ -1,0 +1,61 @@
+
+.. _file_Source_World_Foundation_CookedResourceCollection.h:
+
+File CookedResourceCollection.h
+===============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\World\Foundation\CookedResourceCollection.h``)
+-------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_World_Foundation_CookedResourceCollection.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/Intersectable/PrimitiveMetadata.h``
+
+- ``Math/Transform/Transform.h``
+
+- ``Utility/TUniquePtrVector.h``
+
+- ``World/Foundation/ResourceCookReport.h``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_World_Foundation_PreCookResourceCollectionProxy.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_cooked_resource_collection`
+

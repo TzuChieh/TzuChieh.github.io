@@ -1,0 +1,63 @@
+
+.. _file_Source_Actor_Geometry_GeometrySoup.h:
+
+File GeometrySoup.h
+===================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\Geometry\GeometrySoup.h``)
+-----------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_Geometry_GeometrySoup.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/Geometry/Geometry.h``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_Geometry_GeometrySoup.cpp`
+
+- :ref:`file_Source_Actor_Geometry_GTriangleMesh.cpp`
+
+- :ref:`file_Source_Api_init_and_exit.cpp`
+
+- :ref:`file_Source_Api_ph_cpp_core.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_geometry_soup`
+

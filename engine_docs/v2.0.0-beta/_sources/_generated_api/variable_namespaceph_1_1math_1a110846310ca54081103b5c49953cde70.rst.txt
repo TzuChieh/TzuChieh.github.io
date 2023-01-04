@@ -1,0 +1,14 @@
+.. _exhale_variable_namespaceph_1_1math_1a110846310ca54081103b5c49953cde70:
+
+Variable ph::math::CChromaticAdaptationDefinition
+=================================================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: ph::math::CChromaticAdaptationDefinition
+   :project: Photon

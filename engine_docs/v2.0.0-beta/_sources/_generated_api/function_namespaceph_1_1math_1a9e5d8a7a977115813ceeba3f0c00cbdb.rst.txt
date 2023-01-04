@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1a9e5d8a7a977115813ceeba3f0c00cbdb:
+
+Template Function ph::math::clamp
+=================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::clamp(const T, const T, const T)
+   :project: Photon

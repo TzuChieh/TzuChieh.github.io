@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1a63dd976cb0c4bec50ef701d616a62366:
+
+Template Function ph::math::chromaticity_of
+===========================================
+
+- Defined in :ref:`file_Source_Math_Color_color_basics.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::chromaticity_of(const EReferenceWhite)
+   :project: Photon

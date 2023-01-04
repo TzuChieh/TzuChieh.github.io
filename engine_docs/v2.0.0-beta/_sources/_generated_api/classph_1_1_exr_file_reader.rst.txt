@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_exr_file_reader:
+
+Class ExrFileReader
+===================
+
+- Defined in :ref:`file_Source_DataIO_ExrFileReader.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::ExrFileReader
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

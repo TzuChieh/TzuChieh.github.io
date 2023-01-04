@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_cook_results:
+
+Class CookResults
+=================
+
+- Defined in :ref:`file_Source_World_Foundation_cook_results.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::CookResults
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

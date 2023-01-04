@@ -1,0 +1,55 @@
+
+.. _file_Source_DataIO_TextFileLoader.h:
+
+File TextFileLoader.h
+=====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\TextFileLoader.h``)
+-----------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_TextFileLoader.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``DataIO/FileSystem/Path.h``
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_DataIO_TextFileLoader.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_text_file_loader`
+

@@ -1,0 +1,14 @@
+.. _exhale_variable_namespaceph_1_1math_1a6271e53740980488cad72b9a407829f6:
+
+Variable ph::math::CColorTransformInterface
+===========================================
+
+- Defined in :ref:`file_Source_Math_Color_TSpectrumBase.h`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: ph::math::CColorTransformInterface
+   :project: Photon

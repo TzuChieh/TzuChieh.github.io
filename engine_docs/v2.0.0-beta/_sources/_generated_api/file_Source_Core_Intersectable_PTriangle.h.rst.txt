@@ -1,0 +1,69 @@
+
+.. _file_Source_Core_Intersectable_PTriangle.h:
+
+File PTriangle.h
+================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Intersectable\PTriangle.h``)
+------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Intersectable_PTriangle.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/Intersectable/Primitive.h``
+
+- ``Math/Geometry/TWatertightTriangle.h``
+
+- ``Math/TVector3.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_Geometry_GCuboid.cpp`
+
+- :ref:`file_Source_Actor_Geometry_GRectangle.cpp`
+
+- :ref:`file_Source_Actor_Geometry_GSphere.cpp`
+
+- :ref:`file_Source_Actor_Geometry_GTriangle.cpp`
+
+- :ref:`file_Source_Actor_Geometry_GWave.cpp`
+
+- :ref:`file_Source_Core_Intersectable_PTriangle.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_p_triangle`
+

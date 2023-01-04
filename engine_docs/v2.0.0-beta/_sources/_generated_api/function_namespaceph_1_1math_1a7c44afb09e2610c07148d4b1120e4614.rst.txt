@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1a7c44afb09e2610c07148d4b1120e4614:
+
+Function ph::math::flag_bit()
+=============================
+
+- Defined in :ref:`file_Source_Math_math.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::flag_bit()
+   :project: Photon

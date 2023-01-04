@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1a036e6132c8c8a769c292f29b8427112b:
+
+Template Function ph::math::put_color_energy
+============================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::put_color_energy(const auto&, T)
+   :project: Photon

@@ -1,0 +1,56 @@
+
+.. _file_Source_Core_Renderer_Sampling_ReceiverSamplingWork.cpp:
+
+File ReceiverSamplingWork.cpp
+=============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Renderer\Sampling\ReceiverSamplingWork.cpp``)
+-----------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Renderer_Sampling_ReceiverSamplingWork.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/Estimator/Integrand.h``
+
+- ``Core/Filmic/TSamplingFilm.h``
+
+- ``Core/Ray.h``
+
+- ``Core/Receiver/Receiver.h``
+
+- ``Core/Renderer/Sampling/ReceiverSamplingWork.h``
+
+- ``Core/Renderer/Sampling/SamplingRenderer.h``
+
+- ``Core/SampleGenerator/SampleGenerator.h``
+
+- ``Math/Random/sample.h``
+
+- ``Utility/Timer.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

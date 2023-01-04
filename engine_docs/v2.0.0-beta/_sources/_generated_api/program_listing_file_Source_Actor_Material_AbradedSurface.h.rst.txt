@@ -1,0 +1,31 @@
+
+.. _program_listing_file_Source_Actor_Material_AbradedSurface.h:
+
+Program Listing for File AbradedSurface.h
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Actor_Material_AbradedSurface.h>` (``Source\Actor\Material\AbradedSurface.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Actor/Material/SurfaceMaterial.h"
+   
+   #include <memory>
+   
+   namespace ph
+   {
+   
+   class AbradedSurface : public SurfaceMaterial
+   {
+   public:
+       void genSurface(ActorCookingContext& ctx, SurfaceBehavior& behavior) const override = 0;
+   
+   private:
+   
+   };
+   
+   }// end namespace ph

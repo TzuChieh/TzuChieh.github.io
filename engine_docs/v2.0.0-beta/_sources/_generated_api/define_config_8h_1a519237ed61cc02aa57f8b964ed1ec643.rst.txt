@@ -1,0 +1,14 @@
+.. _exhale_define_config_8h_1a519237ed61cc02aa57f8b964ed1ec643:
+
+Define PH_NUMERIC_IMAGE_MAX_ELEMENTS
+====================================
+
+- Defined in :ref:`file_Source_Common_config.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: PH_NUMERIC_IMAGE_MAX_ELEMENTS
+   :project: Photon

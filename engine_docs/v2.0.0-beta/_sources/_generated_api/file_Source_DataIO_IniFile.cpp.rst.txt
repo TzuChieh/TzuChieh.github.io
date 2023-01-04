@@ -1,0 +1,52 @@
+
+.. _file_Source_DataIO_IniFile.cpp:
+
+File IniFile.cpp
+================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\IniFile.cpp``)
+------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_IniFile.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/logging.h``
+
+- ``DataIO/IniFile.h``
+
+- ``DataIO/Stream/FormattedTextFileOutputStream.h``
+
+- ``DataIO/Stream/FormattedTextInputStream.h``
+
+- ``DataIO/io_exceptions.h``
+
+- ``Utility/string_utils.h``
+
+- ``format``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

@@ -1,0 +1,14 @@
+.. _exhale_variable_namespaceph_1_1frame__detail_1a74ff557f5ff4788b990ecb99cbe995df:
+
+Variable ph::frame_detail::CIsGetAndSetPixelWithCoordsOp
+========================================================
+
+- Defined in :ref:`file_Source_Frame_TFrame.ipp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: ph::frame_detail::CIsGetAndSetPixelWithCoordsOp
+   :project: Photon

@@ -1,0 +1,30 @@
+
+.. _program_listing_file_Source_Core_Intersectable_Bvh_BvhIntersectableInfo.cpp:
+
+Program Listing for File BvhIntersectableInfo.cpp
+=================================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Core_Intersectable_Bvh_BvhIntersectableInfo.cpp>` (``Source\Core\Intersectable\Bvh\BvhIntersectableInfo.cpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #include "Core/Intersectable/Bvh/BvhIntersectableInfo.h"
+   #include "Core/Intersectable/Intersectable.h"
+   
+   #include <iostream>
+   
+   namespace ph
+   {
+   
+   BvhIntersectableInfo::BvhIntersectableInfo(
+       const Intersectable* const intersectable, 
+       const std::size_t          index) :
+       index(index), intersectable(intersectable)
+   {
+       aabb         = intersectable->calcAABB();
+       aabbCentroid = aabb.getCentroid();
+   }
+   
+   }// end namespace ph

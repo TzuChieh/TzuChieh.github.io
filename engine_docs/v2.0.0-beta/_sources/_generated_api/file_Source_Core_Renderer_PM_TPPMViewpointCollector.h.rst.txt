@@ -1,0 +1,79 @@
+
+.. _file_Source_Core_Renderer_PM_TPPMViewpointCollector.h:
+
+File TPPMViewpointCollector.h
+=============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Renderer\PM\TPPMViewpointCollector.h``)
+-----------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Renderer_PM_TPPMViewpointCollector.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Common/primitive_type.h``
+
+- ``Core/Emitter/Emitter.h``
+
+- ``Core/Intersectable/Primitive.h``
+
+- ``Core/Intersectable/PrimitiveMetadata.h``
+
+- ``Core/Renderer/PM/TViewPathHandler.h``
+
+- ``Core/Renderer/PM/TViewpoint.h``
+
+- ``Core/SurfaceBehavior/SurfaceBehavior.h``
+
+- ``Core/SurfaceBehavior/SurfaceOptics.h``
+
+- ``Core/SurfaceHit.h``
+
+- ``Math/Random.h``
+
+- ``type_traits``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Renderer_PM_PMRenderer.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_t_p_p_m_viewpoint_collector`
+

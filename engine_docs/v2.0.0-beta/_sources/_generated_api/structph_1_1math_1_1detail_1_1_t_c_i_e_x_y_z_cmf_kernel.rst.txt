@@ -1,0 +1,17 @@
+.. _exhale_struct_structph_1_1math_1_1detail_1_1_t_c_i_e_x_y_z_cmf_kernel:
+
+Template Struct TCIEXYZCmfKernel
+================================
+
+- Defined in :ref:`file_Source_Math_Color_spectral_samples.ipp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: ph::math::detail::TCIEXYZCmfKernel
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

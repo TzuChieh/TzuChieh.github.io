@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_core_cooking_context:
+
+Class CoreCookingContext
+========================
+
+- Defined in :ref:`file_Source_EngineEnv_CoreCookingContext.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::CoreCookingContext
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

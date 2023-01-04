@@ -1,0 +1,14 @@
+.. _exhale_variable_namespaceph_1af652245e369d308be596bbd385e19bd7:
+
+Variable ph::CHasSdlStructDefinition
+====================================
+
+- Defined in :ref:`file_Source_DataIO_SDL_sdl_traits.h`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: ph::CHasSdlStructDefinition
+   :project: Photon

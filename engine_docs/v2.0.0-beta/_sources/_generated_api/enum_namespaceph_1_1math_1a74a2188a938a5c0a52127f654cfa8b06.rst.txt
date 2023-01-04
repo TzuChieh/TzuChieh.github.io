@@ -1,0 +1,14 @@
+.. _exhale_enum_namespaceph_1_1math_1a74a2188a938a5c0a52127f654cfa8b06:
+
+Enum ESpectralResample
+======================
+
+.. did not find file this was defined in
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: ph::math::ESpectralResample
+   :project: Photon

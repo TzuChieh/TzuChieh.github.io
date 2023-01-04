@@ -1,0 +1,126 @@
+
+.. _file_Source_Math_constant.h:
+
+File constant.h
+===============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\constant.h``)
+---------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_constant.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cstddef``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_LightSource_AreaSource.cpp`
+
+- :ref:`file_Source_Actor_LightSource_IesAttenuatedSource.cpp`
+
+- :ref:`file_Source_Core_Emitter_DiffuseSurfaceEmitter.cpp`
+
+- :ref:`file_Source_Core_Emitter_LatLongEnvEmitter.cpp`
+
+- :ref:`file_Source_Core_Estimator_SurfaceAttributeEstimator.cpp`
+
+- :ref:`file_Source_Core_Intersectable_PBasicSphere.cpp`
+
+- :ref:`file_Source_Core_Intersectable_UvwMapper_SphericalMapper.cpp`
+
+- :ref:`file_Source_Core_Renderer_Attribute_AttributeRenderer.cpp`
+
+- :ref:`file_Source_Core_Renderer_PM_TRadianceEvaluationWork.ipp`
+
+- :ref:`file_Source_Core_Renderer_Renderer.cpp`
+
+- :ref:`file_Source_Core_Renderer_Sampling_EqualSamplingRenderer.cpp`
+
+- :ref:`file_Source_Core_Scheduler_GridScheduler.h`
+
+- :ref:`file_Source_Core_Scheduler_StripeScheduler.h`
+
+- :ref:`file_Source_Core_Scheduler_TileScheduler.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_Property_AnisoTrowbridgeReitz.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_Property_IsoBeckmann.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LambertianDiffuse.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_OpaqueMicrofacet.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_OrenNayar.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_TranslucentMicrofacet.cpp`
+
+- :ref:`file_Source_Core_Texture_Sky_PreethamTexture.cpp`
+
+- :ref:`file_Source_Core_VolumeBehavior_ScatterFunction_HenyeyGreenstein.cpp`
+
+- :ref:`file_Source_DataIO_Data_IesData.cpp`
+
+- :ref:`file_Source_DataIO_PlyFile.h`
+
+- :ref:`file_Source_Math_Algorithm_IndexedKdtree_TIndexedKdtreeNode.h`
+
+- :ref:`file_Source_Math_Function_TBlackmanHarris2D.h`
+
+- :ref:`file_Source_Math_Geometry_location.h`
+
+- :ref:`file_Source_Math_Geometry_TAABB2D.h`
+
+- :ref:`file_Source_Math_Geometry_TAABB3D.h`
+
+- :ref:`file_Source_Math_Geometry_TDisk.h`
+
+- :ref:`file_Source_Math_Geometry_THemisphere.h`
+
+- :ref:`file_Source_Math_Geometry_TSphere.ipp`
+
+- :ref:`file_Source_Math_math.cpp`
+
+- :ref:`file_Source_Math_math.h`
+
+- :ref:`file_Source_Math_Physics_black_body.h`
+
+- :ref:`file_Source_Math_time.h`
+
+- :ref:`file_Source_Math_TVector2.h`
+
+- :ref:`file_Source_Math_TVector3.h`
+
+- :ref:`file_Source_Math_TVector4.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+- :ref:`namespace_ph__math__constant`
+

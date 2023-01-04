@@ -1,0 +1,54 @@
+
+.. _file_Source_Core_Receiver_ThinLensCamera.cpp:
+
+File ThinLensCamera.cpp
+=======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Receiver\ThinLensCamera.cpp``)
+--------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Receiver_ThinLensCamera.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/Ray.h``
+
+- ``Core/Receiver/ThinLensCamera.h``
+
+- ``Math/Geometry/TDisk.h``
+
+- ``Math/Random.h``
+
+- ``Math/Transform/RigidTransform.h``
+
+- ``Math/Transform/Transform.h``
+
+- ``iostream``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_time:
+
+Class Time
+==========
+
+- Defined in :ref:`file_Source_Core_Quantity_Time.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::Time
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

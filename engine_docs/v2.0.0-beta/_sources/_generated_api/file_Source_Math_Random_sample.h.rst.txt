@@ -1,0 +1,62 @@
+
+.. _file_Source_Math_Random_sample.h:
+
+File sample.h
+=============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\Random\sample.h``)
+--------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_Random_sample.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Math/math.h``
+
+- ``array``
+
+- ``cstddef``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Renderer_Attribute_AttributeRenderer.cpp`
+
+- :ref:`file_Source_Core_Renderer_PM_TViewPathTracingWork.ipp`
+
+- :ref:`file_Source_Core_Renderer_Sampling_ReceiverSamplingWork.cpp`
+
+- :ref:`file_Source_Core_SampleGenerator_SampleFlow.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+

@@ -1,0 +1,42 @@
+
+.. _file_Source_DataIO_FileSystem_CoreResource.cpp:
+
+File CoreResource.cpp
+=====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\FileSystem\CoreResource.cpp``)
+----------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_FileSystem_CoreResource.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/config.h``
+
+- ``DataIO/FileSystem/CoreResource.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

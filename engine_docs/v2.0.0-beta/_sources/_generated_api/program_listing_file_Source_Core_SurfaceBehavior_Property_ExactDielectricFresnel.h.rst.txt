@@ -1,0 +1,30 @@
+
+.. _program_listing_file_Source_Core_SurfaceBehavior_Property_ExactDielectricFresnel.h:
+
+Program Listing for File ExactDielectricFresnel.h
+=================================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Core_SurfaceBehavior_Property_ExactDielectricFresnel.h>` (``Source\Core\SurfaceBehavior\Property\ExactDielectricFresnel.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Core/SurfaceBehavior/Property/DielectricFresnel.h"
+   
+   namespace ph
+   {
+   
+   class ExactDielectricFresnel : public DielectricFresnel
+   {
+   public:
+       ExactDielectricFresnel(real iorOuter, real iorInner);
+   
+       void calcReflectance(
+           real            cosThetaIncident, 
+           math::Spectrum* out_reflectance) const override;
+   };
+   
+   }// end namespace ph

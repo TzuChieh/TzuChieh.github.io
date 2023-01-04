@@ -1,0 +1,53 @@
+
+.. _program_listing_file_Source_Core_Texture_LdrRgbTexture2D.cpp:
+
+Program Listing for File LdrRgbTexture2D.cpp
+============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Core_Texture_LdrRgbTexture2D.cpp>` (``Source\Core\Texture\LdrRgbTexture2D.cpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #include "Core/Texture/LdrRgbTexture2D.h"
+   #include "Math/math.h"
+   #include "Core/Texture/TextureLoader.h"
+   #include "Common/assertion.h"
+   #include "Core/Texture/SampleLocation.h"
+   #include "Core/Texture/TNearestPixelTex2D.h"
+   
+   #include <iostream>
+   #include <string>
+   
+   namespace ph
+   {
+   
+   LdrRgbTexture2D::LdrRgbTexture2D() :
+       LdrRgbTexture2D(std::make_unique<TNearestPixelTex2D<LdrComponent, 3>>())
+   {}
+   
+   LdrRgbTexture2D::LdrRgbTexture2D(std::unique_ptr<TAbstractPixelTex2D<LdrComponent, 3>> texture) :
+       TTexture(),
+       m_texture(std::move(texture))
+   {
+       PH_ASSERT(m_texture);
+   }
+   
+   void LdrRgbTexture2D::sample(
+       const SampleLocation& sampleLocation, math::Spectrum* const out_value) const
+   {
+       PH_ASSERT(m_texture);
+       PH_ASSERT(out_value);
+   
+       TTexPixel<LdrComponent, 3> rgb255;
+       m_texture->sample(sampleLocation, &rgb255);
+   
+       const math::Vector3R rgb(
+           rgb255[0] / 255.0_r,
+           rgb255[1] / 255.0_r, 
+           rgb255[2] / 255.0_r);
+       out_value->setLinearSRGB(rgb.toArray(), sampleLocation.expectedUsage());// FIXME: check color space
+   }
+   
+   }// end namespace ph

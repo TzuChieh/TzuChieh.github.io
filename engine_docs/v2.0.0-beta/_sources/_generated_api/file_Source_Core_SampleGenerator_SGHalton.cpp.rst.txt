@@ -1,0 +1,62 @@
+
+.. _file_Source_Core_SampleGenerator_SGHalton.cpp:
+
+File SGHalton.cpp
+=================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SampleGenerator\SGHalton.cpp``)
+---------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SampleGenerator_SGHalton.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/Sample.h``
+
+- ``Core/SampleGenerator/Detail/halton.h``
+
+- ``Core/SampleGenerator/SGHalton.h``
+
+- ``Core/SampleGenerator/SampleContext.h``
+
+- ``Core/SampleGenerator/SamplesND.h``
+
+- ``Math/Random.h``
+
+- ``Math/math.h``
+
+- ``algorithm``
+
+- ``array``
+
+- ``iostream``
+
+- ``type_traits``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

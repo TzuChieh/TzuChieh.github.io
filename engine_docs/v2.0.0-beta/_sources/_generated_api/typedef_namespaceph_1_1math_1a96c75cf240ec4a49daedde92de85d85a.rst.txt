@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1_1math_1a96c75cf240ec4a49daedde92de85d85a:
+
+Typedef ph::math::AABB2D
+========================
+
+- Defined in :ref:`file_Source_Actor_Geometry_GCuboid.cpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::math::AABB2D
+   :project: Photon

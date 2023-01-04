@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Class ByteBuffer &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class ByteBufferInputStream" href="classph_1_1_byte_buffer_input_stream.html" />
+    <link rel="prev" title="Class BVPTEstimator" href="classph_1_1_b_v_p_t_estimator.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="library_root.html">Library API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="library_root.html#photon-v2-renderer">Photon-v2 Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="library_root.html#page-hierarchy">Page Hierarchy</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="library_root.html#full-api">Full API</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#namespaces">Namespaces</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="library_root.html#classes-and-structs">Classes and Structs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#enums">Enums</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#unions">Unions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#functions">Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#variables">Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#defines">Defines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#typedefs">Typedefs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="library_root.html">Library API</a></li>
+      <li class="breadcrumb-item active">Class ByteBuffer</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/classph_1_1_byte_buffer.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="class-bytebuffer">
+<span id="exhale-class-classph-1-1-byte-buffer"></span><h1>Class ByteBuffer<a class="headerlink" href="#class-bytebuffer" title="Permalink to this headline"></a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_Source_Utility_ByteBuffer.h.html#file-source-utility-bytebuffer-h"><span class="std std-ref">File ByteBuffer.h</span></a></p></li>
+</ul>
+<section id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline"></a></h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph10ByteBufferE">
+<span id="_CPPv3N2ph10ByteBufferE"></span><span id="_CPPv2N2ph10ByteBufferE"></span><span id="ph::ByteBuffer"></span><span class="target" id="classph_1_1_byte_buffer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ByteBuffer</span></span></span><a class="headerlink" href="#_CPPv4N2ph10ByteBufferE" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph10ByteBuffer10ByteBufferEv">
+<span id="_CPPv3N2ph10ByteBuffer10ByteBufferEv"></span><span id="_CPPv2N2ph10ByteBuffer10ByteBufferEv"></span><span id="ph::ByteBuffer::ByteBuffer"></span><span class="target" id="classph_1_1_byte_buffer_1a653d90758c933f83e61e15c58ba2a8fe"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ByteBuffer</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph10ByteBuffer10ByteBufferEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph10ByteBuffer10ByteBufferENSt6size_tE">
+<span id="_CPPv3N2ph10ByteBuffer10ByteBufferENSt6size_tE"></span><span id="_CPPv2N2ph10ByteBuffer10ByteBufferENSt6size_tE"></span><span id="ph::ByteBuffer::ByteBuffer__std::s"></span><span class="target" id="classph_1_1_byte_buffer_1a09620c91f8ccf2fbc09fdfe13d927c50"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ByteBuffer</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">numExpectedWrittenBytes</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph10ByteBuffer10ByteBufferENSt6size_tE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN2ph10ByteBuffer4readE1Tv">
+<span id="_CPPv3I0EN2ph10ByteBuffer4readEv"></span><span id="_CPPv2I0EN2ph10ByteBuffer4readEv"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classph_1_1_byte_buffer_1a6621c2d5851b338623972fbc368c5208"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN2ph10ByteBuffer4readE1Tv" title="ph::ByteBuffer::read::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN2ph10ByteBuffer4readE1Tv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN2ph10ByteBuffer4readEvP1TNSt6size_tE">
+<span id="_CPPv3I0EN2ph10ByteBuffer4readEP1TNSt6size_tE"></span><span id="_CPPv2I0EN2ph10ByteBuffer4readEP1TNSt6size_tE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classph_1_1_byte_buffer_1a1a10fcef826f45c6c870a59d38491ef9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0EN2ph10ByteBuffer4readEvP1TNSt6size_tE" title="ph::ByteBuffer::read::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">out_data</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">numElements</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN2ph10ByteBuffer4readEvP1TNSt6size_tE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN2ph10ByteBuffer5writeEvRK1T">
+<span id="_CPPv3I0EN2ph10ByteBuffer5writeERK1T"></span><span id="_CPPv2I0EN2ph10ByteBuffer5writeERK1T"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classph_1_1_byte_buffer_1a5a6f3716fd7c2e6426dea56828d7e333"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN2ph10ByteBuffer5writeEvRK1T" title="ph::ByteBuffer::write::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">data</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN2ph10ByteBuffer5writeEvRK1T" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN2ph10ByteBuffer5writeEvPK1TNSt6size_tE">
+<span id="_CPPv3I0EN2ph10ByteBuffer5writeEPK1TNSt6size_tE"></span><span id="_CPPv2I0EN2ph10ByteBuffer5writeEPK1TNSt6size_tE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classph_1_1_byte_buffer_1ad401656531bbf1daada22966a237fcd5"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN2ph10ByteBuffer5writeEvPK1TNSt6size_tE" title="ph::ByteBuffer::write::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">numElements</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN2ph10ByteBuffer5writeEvPK1TNSt6size_tE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph10ByteBuffer10rewindReadEv">
+<span id="_CPPv3N2ph10ByteBuffer10rewindReadEv"></span><span id="_CPPv2N2ph10ByteBuffer10rewindReadEv"></span><span id="ph::ByteBuffer::rewindRead"></span><span class="target" id="classph_1_1_byte_buffer_1ab49240a0eda277b6d8857ba4412aac43"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rewindRead</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph10ByteBuffer10rewindReadEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph10ByteBuffer11rewindWriteEv">
+<span id="_CPPv3N2ph10ByteBuffer11rewindWriteEv"></span><span id="_CPPv2N2ph10ByteBuffer11rewindWriteEv"></span><span id="ph::ByteBuffer::rewindWrite"></span><span class="target" id="classph_1_1_byte_buffer_1a361f905ae1b19cf3364e4e84232f0dc8"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rewindWrite</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph10ByteBuffer11rewindWriteEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph10ByteBuffer5clearEv">
+<span id="_CPPv3N2ph10ByteBuffer5clearEv"></span><span id="_CPPv2N2ph10ByteBuffer5clearEv"></span><span id="ph::ByteBuffer::clear"></span><span class="target" id="classph_1_1_byte_buffer_1ab113aaa8c7c351df7572396f9a72455f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">clear</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph10ByteBuffer5clearEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph10ByteBuffer4fillENSt4byteE">
+<span id="_CPPv3N2ph10ByteBuffer4fillENSt4byteE"></span><span id="_CPPv2N2ph10ByteBuffer4fillENSt4byteE"></span><span id="ph::ByteBuffer::fill__std::byte"></span><span class="target" id="classph_1_1_byte_buffer_1adaf551b998466aed64c9d1889d1c0cea"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">fill</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">byte</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">filledByte</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph10ByteBuffer4fillENSt4byteE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph10ByteBuffer8truncateEv">
+<span id="_CPPv3N2ph10ByteBuffer8truncateEv"></span><span id="_CPPv2N2ph10ByteBuffer8truncateEv"></span><span id="ph::ByteBuffer::truncate"></span><span class="target" id="classph_1_1_byte_buffer_1a5dcf09ce2359aab3606c9ffef3fc1e6e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">truncate</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph10ByteBuffer8truncateEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph10ByteBuffer3fitEv">
+<span id="_CPPv3N2ph10ByteBuffer3fitEv"></span><span id="_CPPv2N2ph10ByteBuffer3fitEv"></span><span id="ph::ByteBuffer::fit"></span><span class="target" id="classph_1_1_byte_buffer_1ab84de094e1e0efbf95bd6029283e3183"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">fit</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph10ByteBuffer3fitEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph10ByteBuffer15setReadPositionENSt6size_tE">
+<span id="_CPPv3N2ph10ByteBuffer15setReadPositionENSt6size_tE"></span><span id="_CPPv2N2ph10ByteBuffer15setReadPositionENSt6size_tE"></span><span id="ph::ByteBuffer::setReadPosition__std::s"></span><span class="target" id="classph_1_1_byte_buffer_1a70390007ffe692eae332839068a0e395"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setReadPosition</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">indexOfByte</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph10ByteBuffer15setReadPositionENSt6size_tE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph10ByteBuffer16setWritePositionENSt6size_tE">
+<span id="_CPPv3N2ph10ByteBuffer16setWritePositionENSt6size_tE"></span><span id="_CPPv2N2ph10ByteBuffer16setWritePositionENSt6size_tE"></span><span id="ph::ByteBuffer::setWritePosition__std::s"></span><span class="target" id="classph_1_1_byte_buffer_1af3039feba0b72596835e372242f85ab6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setWritePosition</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">indexOfByte</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph10ByteBuffer16setWritePositionENSt6size_tE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2ph10ByteBuffer15getReadPositionEv">
+<span id="_CPPv3NK2ph10ByteBuffer15getReadPositionEv"></span><span id="_CPPv2NK2ph10ByteBuffer15getReadPositionEv"></span><span id="ph::ByteBuffer::getReadPositionC"></span><span class="target" id="classph_1_1_byte_buffer_1a53fb75c579ab8292590f263fef8a660a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getReadPosition</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2ph10ByteBuffer15getReadPositionEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2ph10ByteBuffer16getWritePositionEv">
+<span id="_CPPv3NK2ph10ByteBuffer16getWritePositionEv"></span><span id="_CPPv2NK2ph10ByteBuffer16getWritePositionEv"></span><span id="ph::ByteBuffer::getWritePositionC"></span><span class="target" id="classph_1_1_byte_buffer_1a81317bbaff04fb76a0138328e9530a6e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getWritePosition</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2ph10ByteBuffer16getWritePositionEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2ph10ByteBuffer10getDataPtrEv">
+<span id="_CPPv3NK2ph10ByteBuffer10getDataPtrEv"></span><span id="_CPPv2NK2ph10ByteBuffer10getDataPtrEv"></span><span id="ph::ByteBuffer::getDataPtrC"></span><span class="target" id="classph_1_1_byte_buffer_1a3f054b80e8dabfd586f818330c178e21"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">byte</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getDataPtr</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2ph10ByteBuffer10getDataPtrEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2ph10ByteBuffer8numBytesEv">
+<span id="_CPPv3NK2ph10ByteBuffer8numBytesEv"></span><span id="_CPPv2NK2ph10ByteBuffer8numBytesEv"></span><span id="ph::ByteBuffer::numBytesC"></span><span class="target" id="classph_1_1_byte_buffer_1ac1b43bb0beed307bc724f7725319a640"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">numBytes</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2ph10ByteBuffer8numBytesEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2ph10ByteBuffer7isEmptyEv">
+<span id="_CPPv3NK2ph10ByteBuffer7isEmptyEv"></span><span id="_CPPv2NK2ph10ByteBuffer7isEmptyEv"></span><span id="ph::ByteBuffer::isEmptyC"></span><span class="target" id="classph_1_1_byte_buffer_1a594e094555473fdf61290d7795bb9891"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isEmpty</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2ph10ByteBuffer7isEmptyEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2ph10ByteBuffer13hasMoreToReadEv">
+<span id="_CPPv3NK2ph10ByteBuffer13hasMoreToReadEv"></span><span id="_CPPv2NK2ph10ByteBuffer13hasMoreToReadEv"></span><span id="ph::ByteBuffer::hasMoreToReadC"></span><span class="target" id="classph_1_1_byte_buffer_1a5429a08c3fbde247e36386731d618911"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">hasMoreToRead</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2ph10ByteBuffer13hasMoreToReadEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="classph_1_1_b_v_p_t_estimator.html" class="btn btn-neutral float-left" title="Class BVPTEstimator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="classph_1_1_byte_buffer_input_stream.html" class="btn btn-neutral float-right" title="Class ByteBufferInputStream" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

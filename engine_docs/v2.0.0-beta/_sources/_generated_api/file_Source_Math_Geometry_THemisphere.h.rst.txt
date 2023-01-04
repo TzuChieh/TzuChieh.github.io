@@ -1,0 +1,67 @@
+
+.. _file_Source_Math_Geometry_THemisphere.h:
+
+File THemisphere.h
+==================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\Geometry\THemisphere.h``)
+---------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_Geometry_THemisphere.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Math/constant.h``
+
+- ``array``
+
+- ``cmath``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Emitter_DiffuseSurfaceEmitter.cpp`
+
+- :ref:`file_Source_Core_Estimator_SurfaceAttributeEstimator.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LambertianDiffuse.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_OrenNayar.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_hemisphere`
+

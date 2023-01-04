@@ -1,0 +1,59 @@
+
+.. _file_Source_Core_Estimator_BNEEPTEstimator.h:
+
+File BNEEPTEstimator.h
+======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Estimator\BNEEPTEstimator.h``)
+--------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Estimator_BNEEPTEstimator.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/Estimator/FullRayEnergyEstimator.h``
+
+- ``Math/Color/Spectrum.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Estimator_BNEEPTEstimator.cpp`
+
+- :ref:`file_Source_Core_Renderer_Sampling_SamplingRenderer.cpp`
+
+- :ref:`file_Source_EngineEnv_Visualizer_PathTracingVisualizer.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_b_n_e_e_p_t_estimator`
+

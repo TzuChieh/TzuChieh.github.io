@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_pixel_buffer2_d:
+
+Class PixelBuffer2D
+===================
+
+- Defined in :ref:`file_Source_Core_Texture_Pixel_PixelBuffer2D.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Type
+************
+
+- ``public ph::TFrameBuffer2D< T, N >`` (:ref:`exhale_class_classph_1_1_t_frame_buffer2_d`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::PixelBuffer2D
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1_1spectral__data_1a034d31fe682fa4b0ab179729c6e5a07f:
+
+Function ph::math::spectral_data::CIE_D65_wavelengths_nm
+========================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::spectral_data::CIE_D65_wavelengths_nm()
+   :project: Photon

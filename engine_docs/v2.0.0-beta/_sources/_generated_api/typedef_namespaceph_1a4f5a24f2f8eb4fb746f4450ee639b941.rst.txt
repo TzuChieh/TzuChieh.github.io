@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1a4f5a24f2f8eb4fb746f4450ee639b941:
+
+Typedef ph::TSdlOptionalVector2R
+================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::TSdlOptionalVector2R
+   :project: Photon

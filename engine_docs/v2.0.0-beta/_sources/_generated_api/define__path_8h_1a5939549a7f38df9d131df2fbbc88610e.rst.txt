@@ -1,0 +1,14 @@
+.. _exhale_define__path_8h_1a5939549a7f38df9d131df2fbbc88610e:
+
+Define PH_USE_ALTERNATIVE_PATH_IMPL
+===================================
+
+- Defined in :ref:`file_Source_DataIO_FileSystem_Path.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: PH_USE_ALTERNATIVE_PATH_IMPL
+   :project: Photon

@@ -1,0 +1,38 @@
+.. _exhale_class_classph_1_1_image:
+
+Class Image
+===========
+
+- Defined in :ref:`file_Source_Actor_Image_Image.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::TSdlResourceBase< ETypeCategory::Ref_Image >`` (:ref:`exhale_class_classph_1_1_t_sdl_resource_base`)
+
+
+Derived Types
+*************
+
+- ``public ph::BinaryMixedImage`` (:ref:`exhale_class_classph_1_1_binary_mixed_image`)
+- ``public ph::CheckerboardImage`` (:ref:`exhale_class_classph_1_1_checkerboard_image`)
+- ``public ph::ConstantImage`` (:ref:`exhale_class_classph_1_1_constant_image`)
+- ``public ph::MathImage`` (:ref:`exhale_class_classph_1_1_math_image`)
+- ``public ph::RasterImageBase`` (:ref:`exhale_class_classph_1_1_raster_image_base`)
+- ``public ph::UnifiedColorImage`` (:ref:`exhale_class_classph_1_1_unified_color_image`)
+- ``public ph::UnifiedNumericImage`` (:ref:`exhale_class_classph_1_1_unified_numeric_image`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::Image
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

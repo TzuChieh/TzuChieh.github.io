@@ -1,0 +1,82 @@
+
+.. _file_Source_Utility_TFunction.h:
+
+File TFunction.h
+================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Utility\TFunction.h``)
+-------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Utility_TFunction.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Common/config.h``
+
+- ``Utility/exception.h``
+
+- ``cstddef``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+- ``new``
+
+- ``type_traits``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Utility_Concurrent_TSPSCExecutor.h`
+
+- :ref:`file_Source_Utility_MemoryArena.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__function_detail`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structph_1_1function__detail_1_1_t_function_3_01_r_07_args_8_8_8_08_00_01_m_i_n___s_i_z_e___h_i_n_t_01_4_1_1_empty_struct`
+
+- :ref:`exhale_class_classph_1_1function__detail_1_1_t_function`
+
+- :ref:`exhale_class_classph_1_1function__detail_1_1_t_function_3_01_r_07_args_8_8_8_08_00_01_m_i_n___s_i_z_e___h_i_n_t_01_4`
+
+
+Unions
+------
+
+
+- :ref:`exhale_union_unionph_1_1function__detail_1_1_t_function_3_01_r_07_args_8_8_8_08_00_01_m_i_n___s_i_z_e___h_i_n_t_01_4_1_1_data`
+

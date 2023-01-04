@@ -1,0 +1,58 @@
+
+.. _file_Source_Core_SampleGenerator_SGStratified.cpp:
+
+File SGStratified.cpp
+=====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SampleGenerator\SGStratified.cpp``)
+-------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SampleGenerator_SGStratified.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/Sample.h``
+
+- ``Core/SampleGenerator/SGStratified.h``
+
+- ``Core/SampleGenerator/SampleStageReviser.h``
+
+- ``Core/SampleGenerator/SamplesND.h``
+
+- ``Math/Random.h``
+
+- ``Math/TVector2.h``
+
+- ``algorithm``
+
+- ``iostream``
+
+- ``iterator``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

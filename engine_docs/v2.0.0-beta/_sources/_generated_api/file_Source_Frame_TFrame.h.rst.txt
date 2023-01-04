@@ -1,0 +1,117 @@
+
+.. _file_Source_Frame_TFrame.h:
+
+File TFrame.h
+=============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Frame\TFrame.h``)
+--------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Frame_TFrame.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/primitive_type.h``
+
+- ``Core/Texture/texture_fwd.h``
+
+- ``Frame/TFrame.ipp``
+
+- ``Frame/frame_fwd.h``
+
+- ``Math/Function/TMathFunction2D.h``
+
+- ``Math/Geometry/TAABB2D.h``
+
+- ``Math/TArithmeticArray.h``
+
+- ``Math/math_fwd.h``
+
+- ``cstddef``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_Image_RasterFileImage.cpp`
+
+- :ref:`file_Source_Actor_LightSource_IesAttenuatedSource.cpp`
+
+- :ref:`file_Source_Api_ApiDatabase.h`
+
+- :ref:`file_Source_Api_ph_core.cpp`
+
+- :ref:`file_Source_Core_Engine.cpp`
+
+- :ref:`file_Source_Core_Filmic_Film.cpp`
+
+- :ref:`file_Source_Core_Filmic_HdrRgbFilm.cpp`
+
+- :ref:`file_Source_Core_Filmic_TSamplingFilm.ipp`
+
+- :ref:`file_Source_Core_Renderer_Sampling_AdaptiveSamplingRenderer.h`
+
+- :ref:`file_Source_Core_Renderer_Sampling_MetaRecordingProcessor.h`
+
+- :ref:`file_Source_Core_Scheduler_DammertzDispatcher.h`
+
+- :ref:`file_Source_Core_Texture_LdrRgbTexture2D.h`
+
+- :ref:`file_Source_Core_Texture_Pixel_TFrameBuffer2D.h`
+
+- :ref:`file_Source_Core_Texture_TPixelTex2D.h`
+
+- :ref:`file_Source_DataIO_ExrFileReader.h`
+
+- :ref:`file_Source_DataIO_ExrFileWriter.h`
+
+- :ref:`file_Source_DataIO_PfmFileWriter.h`
+
+- :ref:`file_Source_DataIO_PictureSaver.cpp`
+
+- :ref:`file_Source_Frame__mipmap_gen.h`
+
+- :ref:`file_Source_Frame_frame_utils.h`
+
+- :ref:`file_Source_Frame_FrameProcessingPipeline.h`
+
+- :ref:`file_Source_Frame_Operator_FrameOperator.h`
+
+- :ref:`file_Source_Frame_PictureData.ipp`
+
+- :ref:`file_Source_Frame_TFrame.ipp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_t_frame`
+

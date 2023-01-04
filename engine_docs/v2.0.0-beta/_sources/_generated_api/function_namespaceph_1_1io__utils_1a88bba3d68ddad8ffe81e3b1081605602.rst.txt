@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1io__utils_1a88bba3d68ddad8ffe81e3b1081605602:
+
+Function ph::io_utils::load_LDR_picture
+=======================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::io_utils::load_LDR_picture(const Path&)
+   :project: Photon

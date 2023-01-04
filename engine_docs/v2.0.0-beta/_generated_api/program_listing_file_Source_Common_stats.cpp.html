@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File stats.cpp &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File stats.cpp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Common_stats.cpp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-stats-cpp">
+<span id="program-listing-file-source-common-stats-cpp"></span><h1>Program Listing for File stats.cpp<a class="headerlink" href="#program-listing-for-file-stats-cpp" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Common_stats.cpp.html#file-source-common-stats-cpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Common\stats.cpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/stats.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/assertion.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;utility&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;mutex&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;format&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unordered_map&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">detail</span><span class="o">::</span><span class="nn">stats</span>
+<span class="p">{</span>
+
+<span class="k">namespace</span>
+<span class="p">{</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">TIME_STATS_MUTEX</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="w"> </span><span class="n">locker</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">locker</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">TimeCounter</span><span class="o">*&gt;&amp;</span><span class="w"> </span><span class="n">TIME_COUNTERS</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">TimeCounter</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">counters</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">counters</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end anonymous namespace</span>
+
+<span class="n">TimeCounter</span><span class="o">::</span><span class="n">TimeCounter</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">category</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">name</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">name</span><span class="p">)),</span><span class="w"> </span><span class="n">category</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">category</span><span class="p">)),</span><span class="w"> </span><span class="n">totalMicroseconds</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">count</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">TIME_STATS_MUTEX</span><span class="p">());</span>
+
+<span class="w">    </span><span class="n">TIME_COUNTERS</span><span class="p">().</span><span class="n">push_back</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">TimeCounter</span><span class="o">::</span><span class="n">addMicroseconds</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">uint64_t</span><span class="w"> </span><span class="n">microseconds</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">count</span><span class="p">.</span><span class="n">fetch_add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_relaxed</span><span class="p">);</span>
+<span class="w">    </span><span class="n">totalMicroseconds</span><span class="p">.</span><span class="n">fetch_add</span><span class="p">(</span><span class="n">microseconds</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_relaxed</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">ScopedTimer</span><span class="o">::</span><span class="n">ScopedTimer</span><span class="p">(</span><span class="n">TimeCounter</span><span class="o">&amp;</span><span class="w"> </span><span class="n">counter</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">counter</span><span class="p">(</span><span class="n">counter</span><span class="p">),</span><span class="w"> </span><span class="n">startTime</span><span class="p">(</span><span class="n">Clock</span><span class="o">::</span><span class="n">now</span><span class="p">())</span>
+<span class="p">{}</span>
+
+<span class="n">ScopedTimer</span><span class="o">::~</span><span class="n">ScopedTimer</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">TimeUnit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">microseconds</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Clock</span><span class="o">::</span><span class="n">now</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">startTime</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">delta</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">duration_cast</span><span class="o">&lt;</span><span class="n">TimeUnit</span><span class="o">&gt;</span><span class="p">(</span><span class="n">duration</span><span class="p">).</span><span class="n">count</span><span class="p">();</span>
+<span class="w">    </span><span class="n">counter</span><span class="p">.</span><span class="n">addMicroseconds</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">uint64_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">delta</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace detail::stats</span>
+
+<span class="n">TimerStatsReport</span><span class="o">::</span><span class="n">TimeRecord</span><span class="o">::</span><span class="n">TimeRecord</span><span class="p">()</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">name</span><span class="p">(),</span><span class="w"> </span><span class="n">category</span><span class="p">(),</span><span class="w"> </span><span class="n">totalMicroseconds</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">count</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">{}</span>
+
+<span class="n">TimerStatsReport</span><span class="o">::</span><span class="n">GroupedTimeRecord</span><span class="o">::</span><span class="n">GroupedTimeRecord</span><span class="p">()</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">groupName</span><span class="p">(),</span><span class="w"> </span><span class="n">totalMicroseconds</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">count</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">subgroups</span><span class="p">()</span>
+<span class="p">{}</span>
+
+<span class="n">TimerStatsReport</span><span class="o">::</span><span class="n">TimerStatsReport</span><span class="p">()</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">m_records</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">detail</span><span class="o">::</span><span class="n">stats</span><span class="o">::</span><span class="n">TIME_STATS_MUTEX</span><span class="p">());</span>
+
+<span class="w">    </span><span class="n">m_records</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="n">detail</span><span class="o">::</span><span class="n">stats</span><span class="o">::</span><span class="n">TIME_COUNTERS</span><span class="p">().</span><span class="n">size</span><span class="p">());</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">timeCounter</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">detail</span><span class="o">::</span><span class="n">stats</span><span class="o">::</span><span class="n">TIME_COUNTERS</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">TimeRecord</span><span class="w"> </span><span class="n">record</span><span class="p">;</span>
+<span class="w">        </span><span class="n">record</span><span class="p">.</span><span class="n">name</span><span class="w">              </span><span class="o">=</span><span class="w"> </span><span class="n">timeCounter</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">;</span>
+<span class="w">        </span><span class="n">record</span><span class="p">.</span><span class="n">category</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="n">timeCounter</span><span class="o">-&gt;</span><span class="n">category</span><span class="p">;</span>
+<span class="w">        </span><span class="n">record</span><span class="p">.</span><span class="n">totalMicroseconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">timeCounter</span><span class="o">-&gt;</span><span class="n">totalMicroseconds</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_relaxed</span><span class="p">);</span>
+<span class="w">        </span><span class="n">record</span><span class="p">.</span><span class="n">count</span><span class="w">             </span><span class="o">=</span><span class="w"> </span><span class="n">timeCounter</span><span class="o">-&gt;</span><span class="n">count</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_relaxed</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">m_records</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">record</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">TimerStatsReport</span><span class="o">::</span><span class="n">GroupedTimeRecord</span><span class="w"> </span><span class="n">TimerStatsReport</span><span class="o">::</span><span class="n">getGroupedTimeRecord</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">makeGroupedTimeRecordRecursive</span><span class="p">(</span><span class="n">m_records</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">TimerStatsReport</span><span class="o">::</span><span class="n">proportionalReport</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">GroupedTimeRecord</span><span class="w"> </span><span class="n">rootGroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getGroupedTimeRecord</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">rootGroup</span><span class="p">.</span><span class="n">groupName</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">rootGroup</span><span class="p">.</span><span class="n">groupName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Proportional Timing Report&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">makeGroupedReportRecursive</span><span class="p">(</span><span class="n">rootGroup</span><span class="p">,</span><span class="w"> </span><span class="n">EGroupedReport</span><span class="o">::</span><span class="n">ProportionOnly</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;+&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">TimerStatsReport</span><span class="o">::</span><span class="n">averagedReport</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">GroupedTimeRecord</span><span class="w"> </span><span class="n">rootGroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getGroupedTimeRecord</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">rootGroup</span><span class="p">.</span><span class="n">groupName</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">rootGroup</span><span class="p">.</span><span class="n">groupName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Averaged Timing Report&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">makeGroupedReportRecursive</span><span class="p">(</span><span class="n">rootGroup</span><span class="p">,</span><span class="w"> </span><span class="n">EGroupedReport</span><span class="o">::</span><span class="n">AverageOnly</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;+&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">TimerStatsReport</span><span class="o">::</span><span class="n">detailedReport</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">GroupedTimeRecord</span><span class="w"> </span><span class="n">rootGroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getGroupedTimeRecord</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">rootGroup</span><span class="p">.</span><span class="n">groupName</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">rootGroup</span><span class="p">.</span><span class="n">groupName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Detailed Timing Report [% time, avg. time] -&gt; name (total time):&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">makeGroupedReportRecursive</span><span class="p">(</span><span class="n">rootGroup</span><span class="p">,</span><span class="w"> </span><span class="n">EGroupedReport</span><span class="o">::</span><span class="n">ProportionWithAverageAndTotal</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;+&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">TimerStatsReport</span><span class="o">::</span><span class="n">rawReport</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">reportStr</span><span class="p">;</span>
+<span class="w">    </span><span class="n">reportStr</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="mi">128</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m_records</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TimeRecord</span><span class="o">&amp;</span><span class="w"> </span><span class="n">record</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">m_records</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">reportStr</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;category: {}, name: {}, total microseconds: {}, counts: {}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">record</span><span class="p">.</span><span class="n">category</span><span class="p">,</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="n">totalMicroseconds</span><span class="p">,</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="n">count</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">reportStr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">TimerStatsReport</span><span class="o">::</span><span class="n">GroupedTimeRecord</span><span class="w"> </span><span class="n">TimerStatsReport</span><span class="o">::</span><span class="n">makeGroupedTimeRecordRecursive</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">TimeRecord</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">records</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">GroupedTimeRecord</span><span class="w"> </span><span class="n">groupedRecord</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">TimeRecord</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">subgroupNameToRecords</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TimeRecord</span><span class="o">&amp;</span><span class="w"> </span><span class="n">record</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">records</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">groupedRecord</span><span class="p">.</span><span class="n">totalMicroseconds</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="n">totalMicroseconds</span><span class="p">;</span>
+<span class="w">        </span><span class="n">groupedRecord</span><span class="p">.</span><span class="n">count</span><span class="w">             </span><span class="o">+=</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="n">count</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">record</span><span class="p">.</span><span class="n">category</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">GroupedTimeRecord</span><span class="w"> </span><span class="n">leafGroup</span><span class="p">;</span>
+<span class="w">            </span><span class="n">leafGroup</span><span class="p">.</span><span class="n">groupName</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="n">name</span><span class="p">;</span>
+<span class="w">            </span><span class="n">leafGroup</span><span class="p">.</span><span class="n">totalMicroseconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="n">totalMicroseconds</span><span class="p">;</span>
+<span class="w">            </span><span class="n">leafGroup</span><span class="p">.</span><span class="n">count</span><span class="w">             </span><span class="o">=</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="n">count</span><span class="p">;</span>
+
+<span class="w">            </span><span class="n">groupedRecord</span><span class="p">.</span><span class="n">subgroups</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">leafGroup</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">underscorePos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="n">category</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="sc">&#39;_&#39;</span><span class="p">);</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">subgroupName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">underscorePos</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">::</span><span class="n">npos</span>
+<span class="w">                </span><span class="o">?</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="n">category</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">underscorePos</span><span class="p">)</span>
+<span class="w">                </span><span class="o">:</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="n">category</span><span class="p">;</span>
+
+<span class="w">            </span><span class="n">TimeRecord</span><span class="w"> </span><span class="n">subgroupRecord</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">record</span><span class="p">;</span>
+<span class="w">            </span><span class="n">subgroupRecord</span><span class="p">.</span><span class="n">category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">underscorePos</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">::</span><span class="n">npos</span>
+<span class="w">                </span><span class="o">?</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="n">category</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">underscorePos</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">                </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+
+<span class="w">            </span><span class="n">subgroupNameToRecords</span><span class="p">[</span><span class="n">subgroupName</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">subgroupRecord</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="p">[</span><span class="n">subgroupName</span><span class="p">,</span><span class="w"> </span><span class="n">subgroupRecords</span><span class="p">]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">subgroupNameToRecords</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">GroupedTimeRecord</span><span class="w"> </span><span class="n">subgroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">makeGroupedTimeRecordRecursive</span><span class="p">(</span><span class="n">subgroupRecords</span><span class="p">);</span>
+<span class="w">        </span><span class="n">subgroup</span><span class="p">.</span><span class="n">groupName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">subgroupName</span><span class="p">;</span>
+
+<span class="w">        </span><span class="n">groupedRecord</span><span class="p">.</span><span class="n">subgroups</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">subgroup</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">groupedRecord</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">TimerStatsReport</span><span class="o">::</span><span class="n">makeGroupedReportRecursive</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">GroupedTimeRecord</span><span class="o">&amp;</span><span class="w"> </span><span class="n">records</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">EGroupedReport</span><span class="w">     </span><span class="n">reportType</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w">       </span><span class="n">linePrefix</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">reportStr</span><span class="p">;</span>
+<span class="w">    </span><span class="n">reportStr</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="mi">128</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">records</span><span class="p">.</span><span class="n">subgroups</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">reportType</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">EGroupedReport</span><span class="o">::</span><span class="n">ProportionWithAverageAndTotal</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">reportStr</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;{}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">records</span><span class="p">.</span><span class="n">groupName</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">reportStr</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;{} ({}ms)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">records</span><span class="p">.</span><span class="n">groupName</span><span class="p">,</span><span class="w"> </span><span class="n">records</span><span class="p">.</span><span class="n">totalMicroseconds</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1000</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">GroupedTimeRecord</span><span class="o">&amp;</span><span class="w"> </span><span class="n">subgroup</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">records</span><span class="p">.</span><span class="n">subgroups</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">subgroupPercentage</span><span class="w"> </span><span class="o">=</span>
+<span class="w">            </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">subgroup</span><span class="p">.</span><span class="n">totalMicroseconds</span><span class="p">)</span><span class="w"> </span><span class="o">/</span>
+<span class="w">            </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">records</span><span class="p">.</span><span class="n">totalMicroseconds</span><span class="p">)</span><span class="w"> </span><span class="o">*</span>
+<span class="w">            </span><span class="mf">100.0</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">subgroupAverageMS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">subgroup</span><span class="p">.</span><span class="n">count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="o">:</span>
+<span class="w">            </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">subgroup</span><span class="p">.</span><span class="n">totalMicroseconds</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">subgroup</span><span class="p">.</span><span class="n">count</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">subgroupReport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">makeGroupedReportRecursive</span><span class="p">(</span><span class="n">subgroup</span><span class="p">,</span><span class="w"> </span><span class="n">reportType</span><span class="p">,</span><span class="w"> </span><span class="n">linePrefix</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;--&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">switch</span><span class="p">(</span><span class="n">reportType</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">EGroupedReport</span><span class="o">::</span><span class="no">ProportionOnly</span><span class="p">:</span>
+<span class="w">            </span><span class="n">reportStr</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span>
+<span class="w">                </span><span class="s">&quot;{} [{:8.4f}%] -&gt; {}&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="n">linePrefix</span><span class="p">,</span><span class="w"> </span><span class="n">subgroupPercentage</span><span class="p">,</span><span class="w"> </span><span class="n">subgroupReport</span><span class="p">);</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">EGroupedReport</span><span class="o">::</span><span class="no">AverageOnly</span><span class="p">:</span>
+<span class="w">            </span><span class="n">reportStr</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span>
+<span class="w">                </span><span class="s">&quot;{} [{:.2f}ms] -&gt; {}&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="n">linePrefix</span><span class="p">,</span><span class="w"> </span><span class="n">subgroupAverageMS</span><span class="p">,</span><span class="w"> </span><span class="n">subgroupReport</span><span class="p">);</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">EGroupedReport</span><span class="o">::</span><span class="no">ProportionWithAverage</span><span class="p">:</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">EGroupedReport</span><span class="o">::</span><span class="no">ProportionWithAverageAndTotal</span><span class="p">:</span>
+<span class="w">            </span><span class="n">reportStr</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span>
+<span class="w">                </span><span class="s">&quot;{} [{:6.2f}% | {:.2f}ms] -&gt; {}&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="n">linePrefix</span><span class="p">,</span><span class="w"> </span><span class="n">subgroupPercentage</span><span class="p">,</span><span class="w"> </span><span class="n">subgroupAverageMS</span><span class="p">,</span><span class="w"> </span><span class="n">subgroupReport</span><span class="p">);</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">default</span><span class="o">:</span>
+<span class="w">            </span><span class="n">PH_ASSERT_UNREACHABLE_SECTION</span><span class="p">();</span>
+<span class="w">            </span><span class="n">reportStr</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;(report error)&quot;</span><span class="p">;</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">reportStr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

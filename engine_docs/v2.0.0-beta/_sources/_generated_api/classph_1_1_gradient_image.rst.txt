@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_gradient_image:
+
+Class GradientImage
+===================
+
+- Defined in :ref:`file_Source_Actor_Image_GradientImage.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::BinaryMixedImage`` (:ref:`exhale_class_classph_1_1_binary_mixed_image`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::GradientImage
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

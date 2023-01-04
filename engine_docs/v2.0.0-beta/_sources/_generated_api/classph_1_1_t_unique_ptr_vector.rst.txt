@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_t_unique_ptr_vector:
+
+Template Class TUniquePtrVector
+===============================
+
+- Defined in :ref:`file_Source_Utility_TUniquePtrVector.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``private ph::IMoveOnly`` (:ref:`exhale_class_classph_1_1_i_move_only`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TUniquePtrVector
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

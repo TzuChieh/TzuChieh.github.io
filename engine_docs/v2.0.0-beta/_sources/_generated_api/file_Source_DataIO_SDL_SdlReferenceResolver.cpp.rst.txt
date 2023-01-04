@@ -1,0 +1,52 @@
+
+.. _file_Source_DataIO_SDL_SdlReferenceResolver.cpp:
+
+File SdlReferenceResolver.cpp
+=============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\SDL\SdlReferenceResolver.cpp``)
+-----------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_SDL_SdlReferenceResolver.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Common/logging.h``
+
+- ``DataIO/SDL/ISdlResource.h``
+
+- ``DataIO/SDL/Introspect/SdlClass.h``
+
+- ``DataIO/SDL/SceneDescription.h``
+
+- ``DataIO/SDL/SdlReferenceResolver.h``
+
+- ``algorithm``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

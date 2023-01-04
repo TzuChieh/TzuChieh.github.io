@@ -1,0 +1,80 @@
+
+.. _file_Source_DataIO_SDL_ETypeCategory.h:
+
+File ETypeCategory.h
+====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\SDL\ETypeCategory.h``)
+--------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_SDL_ETypeCategory.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``array``
+
+- ``cstddef``
+
+- ``string_view``
+
+- ``unordered_map``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_DataIO_SDL_Introspect_SdlClass.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlReference.h`
+
+- :ref:`file_Source_DataIO_SDL_ISdlResource.h`
+
+- :ref:`file_Source_DataIO_SDL_SceneDescription.cpp`
+
+- :ref:`file_Source_DataIO_SDL_SceneDescription.h`
+
+- :ref:`file_Source_DataIO_SDL_sdl_helpers.h`
+
+- :ref:`file_Source_DataIO_SDL_sdl_traits.h`
+
+- :ref:`file_Source_DataIO_SDL_SdlParser.cpp`
+
+- :ref:`file_Source_DataIO_SDL_SdlResourceBase.h`
+
+- :ref:`file_Source_DataIO_SDL_TSdl.h`
+
+- :ref:`file_Source_DataIO_SDL_TSdlResourceBase.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__sdl`
+
+- :ref:`namespace_ph__sdl__detail`
+

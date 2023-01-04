@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1a8d924d614efcdd92fcce816a3f8eebf3:
+
+Template Function ph::math::to_radians
+======================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::to_radians(const T)
+   :project: Photon

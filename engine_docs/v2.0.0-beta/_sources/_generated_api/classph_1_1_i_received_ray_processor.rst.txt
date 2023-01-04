@@ -1,0 +1,27 @@
+.. _exhale_class_classph_1_1_i_received_ray_processor:
+
+Class IReceivedRayProcessor
+===========================
+
+- Defined in :ref:`file_Source_Core_Renderer_Sampling_IReceivedRayProcessor.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Types
+*************
+
+- ``public ph::MetaRecordingProcessor`` (:ref:`exhale_class_classph_1_1_meta_recording_processor`)
+- ``public ph::TReceiverMeasurementEstimator< SamplingFilmType, EstimationType >`` (:ref:`exhale_class_classph_1_1_t_receiver_measurement_estimator`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::IReceivedRayProcessor
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,38 @@
+
+.. _program_listing_file_Source_DataIO_io_utils.h:
+
+Program Listing for File io_utils.h
+===================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_DataIO_io_utils.h>` (``Source\DataIO\io_utils.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "DataIO/FileSystem/Path.h"
+   #include "Common/primitive_type.h"
+   
+   #include <string>
+   #include <string_view>
+   
+   namespace ph { class RegularPicture; }
+   
+   namespace ph::io_utils
+   {
+   
+   std::string load_text(const Path& filePath);
+   
+   // TODO: loadBytes()
+   
+   bool has_LDR_support(std::string_view filenameExt);
+   
+   bool has_HDR_support(std::string_view filenameExt);
+   
+   RegularPicture load_picture(const Path& picturePath);
+   RegularPicture load_LDR_picture(const Path& picturePath);
+   RegularPicture load_HDR_picture(const Path& picturePath);
+   
+   }// end namespace ph::io_utils

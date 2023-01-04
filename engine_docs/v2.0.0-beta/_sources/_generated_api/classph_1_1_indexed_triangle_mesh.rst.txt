@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_indexed_triangle_mesh:
+
+Class IndexedTriangleMesh
+=========================
+
+- Defined in :ref:`file_Source_Core_Intersectable_DataStructure_IndexedTriangleMesh.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::IndexedTriangleMesh
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_resource_cook_report:
+
+Class ResourceCookReport
+========================
+
+- Defined in :ref:`file_Source_World_Foundation_ResourceCookReport.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::ResourceCookReport
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

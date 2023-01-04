@@ -1,0 +1,69 @@
+
+.. _file_Source_Core_Intersectable_Intersector.h:
+
+File Intersector.h
+==================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Intersectable\Intersector.h``)
+--------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Intersectable_Intersector.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/Intersectable/Intersectable.h``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Intersectable_BruteForceIntersector.h`
+
+- :ref:`file_Source_Core_Intersectable_Bvh_ClassicBvhIntersector.h`
+
+- :ref:`file_Source_Core_Intersectable_Intersector_TIndexedKdtreeIntersector.h`
+
+- :ref:`file_Source_Core_Intersectable_Intersector.cpp`
+
+- :ref:`file_Source_Core_Intersectable_Kdtree_KdtreeIntersector.h`
+
+- :ref:`file_Source_World_Scene.cpp`
+
+- :ref:`file_Source_World_VisualWorld.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_intersector`
+

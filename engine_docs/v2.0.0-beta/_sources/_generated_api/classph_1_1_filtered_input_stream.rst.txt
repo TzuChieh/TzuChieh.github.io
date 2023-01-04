@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_filtered_input_stream:
+
+Class FilteredInputStream
+=========================
+
+- Defined in :ref:`file_Source_DataIO_Stream_FilteredInputStream.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::IInputStream`` (:ref:`exhale_class_classph_1_1_i_input_stream`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::FilteredInputStream
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_sdl_struct_field_stump:
+
+Class SdlStructFieldStump
+=========================
+
+- Defined in :ref:`file_Source_DataIO_SDL_Introspect_SdlStructFieldStump.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::SdlStructFieldStump
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

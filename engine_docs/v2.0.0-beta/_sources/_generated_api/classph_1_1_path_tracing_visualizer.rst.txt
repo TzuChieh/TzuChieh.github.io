@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_path_tracing_visualizer:
+
+Class PathTracingVisualizer
+===========================
+
+- Defined in :ref:`file_Source_EngineEnv_Visualizer_PathTracingVisualizer.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::FrameVisualizer`` (:ref:`exhale_class_classph_1_1_frame_visualizer`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::PathTracingVisualizer
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

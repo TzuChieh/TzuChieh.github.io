@@ -1,0 +1,59 @@
+
+.. _file_Source_Core_SurfaceBehavior_Property_ExactConductorFresnel.h:
+
+File ExactConductorFresnel.h
+============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SurfaceBehavior\Property\ExactConductorFresnel.h``)
+-----------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SurfaceBehavior_Property_ExactConductorFresnel.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/SurfaceBehavior/Property/ConductorFresnel.h``
+
+- ``Math/Color/Spectrum.h``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_Material_Utility_ConductiveInterfaceInfo.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_Property_ExactConductorFresnel.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_exact_conductor_fresnel`
+

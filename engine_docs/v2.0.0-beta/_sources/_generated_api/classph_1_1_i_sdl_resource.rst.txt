@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_i_sdl_resource:
+
+Class ISdlResource
+==================
+
+- Defined in :ref:`file_Source_DataIO_SDL_ISdlResource.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Type
+************
+
+- ``public ph::SdlResourceBase`` (:ref:`exhale_class_classph_1_1_sdl_resource_base`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::ISdlResource
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

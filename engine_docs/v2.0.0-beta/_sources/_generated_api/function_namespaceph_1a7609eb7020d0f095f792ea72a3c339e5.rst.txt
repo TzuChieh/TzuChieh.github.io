@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a7609eb7020d0f095f792ea72a3c339e5:
+
+Function ph::operator""_r
+=========================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::operator""_r(const long double)
+   :project: Photon

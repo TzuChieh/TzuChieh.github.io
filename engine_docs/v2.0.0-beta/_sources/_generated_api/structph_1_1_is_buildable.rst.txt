@@ -1,0 +1,26 @@
+.. _exhale_struct_structph_1_1_is_buildable:
+
+Template Struct IsBuildable
+===========================
+
+- Defined in :ref:`file_Source_Utility_traits.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public std::false_type``
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: ph::IsBuildable
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

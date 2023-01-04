@@ -1,0 +1,48 @@
+
+.. _file_Source_DataIO_SDL_Introspect_TSdlOptionalValue.ipp:
+
+File TSdlOptionalValue.ipp
+==========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\SDL\Introspect\TSdlOptionalValue.ipp``)
+-------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_SDL_Introspect_TSdlOptionalValue.ipp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``DataIO/SDL/Introspect/TSdlOptionalValue.h``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlOptionalValue.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

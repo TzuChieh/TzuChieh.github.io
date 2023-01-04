@@ -1,0 +1,67 @@
+
+.. _file_Source_Utility_TStableIndexDenseVector.h:
+
+File TStableIndexDenseVector.h
+==============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Utility\TStableIndexDenseVector.h``)
+---------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Utility_TStableIndexDenseVector.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Common/primitive_type.h``
+
+- ``concepts``
+
+- ``cstddef``
+
+- ``limits``
+
+- ``optional``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Api_ApiDatabase.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_t_stable_index_dense_vector`
+

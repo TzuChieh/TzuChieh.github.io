@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_regular_picture:
+
+Class RegularPicture
+====================
+
+- Defined in :ref:`file_Source_Frame_RegularPicture.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::RegularPicture
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_primitive_channel:
+
+Class PrimitiveChannel
+======================
+
+- Defined in :ref:`file_Source_Core_Intersectable_PrimitiveChannel.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::PrimitiveChannel
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

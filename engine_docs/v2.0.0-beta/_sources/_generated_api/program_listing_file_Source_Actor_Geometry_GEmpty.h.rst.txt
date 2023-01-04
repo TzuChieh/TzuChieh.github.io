@@ -1,0 +1,33 @@
+
+.. _program_listing_file_Source_Actor_Geometry_GEmpty.h:
+
+Program Listing for File GEmpty.h
+=================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Actor_Geometry_GEmpty.h>` (``Source\Actor\Geometry\GEmpty.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Actor/Geometry/Geometry.h"
+   
+   #include <vector>
+   #include <memory>
+   
+   namespace ph
+   {
+   
+   class GEmpty : public Geometry
+   {
+   public:
+       GEmpty() = default;
+   
+       void genPrimitive(
+           const PrimitiveBuildingMaterial&         data, 
+           std::vector<std::unique_ptr<Primitive>>& out_primitives) const override;
+   };
+   
+   }// end namespace ph

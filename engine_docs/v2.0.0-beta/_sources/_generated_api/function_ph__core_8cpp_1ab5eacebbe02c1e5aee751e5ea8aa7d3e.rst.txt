@@ -1,0 +1,14 @@
+.. _exhale_function_ph__core_8cpp_1ab5eacebbe02c1e5aee751e5ea8aa7d3e:
+
+Function phEnterCommand(const PHuint64, const PHchar \*const)
+=============================================================
+
+- Defined in :ref:`file_Source_Api_ph_core.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: phEnterCommand(const PHuint64, const PHchar *const)
+   :project: Photon

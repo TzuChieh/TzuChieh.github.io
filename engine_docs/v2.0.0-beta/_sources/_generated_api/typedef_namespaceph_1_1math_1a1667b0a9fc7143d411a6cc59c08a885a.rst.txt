@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1_1math_1a1667b0a9fc7143d411a6cc59c08a885a:
+
+Typedef ph::math::Vector3S
+==========================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::math::Vector3S
+   :project: Photon

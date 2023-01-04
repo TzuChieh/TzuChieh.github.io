@@ -1,0 +1,75 @@
+
+.. _file_Source_DataIO_SDL_Introspect_TOwnerSdlClass.h:
+
+File TOwnerSdlClass.h
+=====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\SDL\Introspect\TOwnerSdlClass.h``)
+--------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_SDL_Introspect_TOwnerSdlClass.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/config.h``
+
+- ``DataIO/SDL/Introspect/SdlClass.h``
+
+- ``DataIO/SDL/Introspect/TBasicSdlFieldSet.h``
+
+- ``DataIO/SDL/Introspect/TOwnedSdlField.h``
+
+- ``DataIO/SDL/Introspect/TOwnerSdlClass.ipp``
+
+- ``Utility/TArrayAsVector.h``
+
+- ``array``
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+- ``string_view``
+
+- ``type_traits``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TOwnerSdlClass.ipp`
+
+- :ref:`file_Source_DataIO_SDL_sdl_interface.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_t_owner_sdl_class`
+

@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_sample_context:
+
+Class SampleContext
+===================
+
+- Defined in :ref:`file_Source_Core_SampleGenerator_SampleContext.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::SampleContext
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

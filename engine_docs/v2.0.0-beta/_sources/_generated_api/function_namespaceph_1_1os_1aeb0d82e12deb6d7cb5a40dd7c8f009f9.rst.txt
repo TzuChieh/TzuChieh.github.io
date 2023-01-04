@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1os_1aeb0d82e12deb6d7cb5a40dd7c8f009f9:
+
+Function ph::os::get_L1_cache_line_size_in_bytes
+================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::os::get_L1_cache_line_size_in_bytes()
+   :project: Photon

@@ -1,0 +1,64 @@
+
+.. _file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_LbLayeredSurface.cpp:
+
+File LbLayeredSurface.cpp
+=========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SurfaceBehavior\SurfaceOptics\LaurentBelcour\LbLayeredSurface.cpp``)
+----------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_LbLayeredSurface.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/LTABuildingBlock/SidednessAgreement.h``
+
+- ``Core/SampleGenerator/SampleFlow.h``
+
+- ``Core/SurfaceBehavior/BsdfEvalQuery.h``
+
+- ``Core/SurfaceBehavior/BsdfHelper.h``
+
+- ``Core/SurfaceBehavior/BsdfPdfQuery.h``
+
+- ``Core/SurfaceBehavior/BsdfSampleQuery.h``
+
+- ``Core/SurfaceBehavior/Property/IsoTrowbridgeReitzConstant.h``
+
+- ``Core/SurfaceBehavior/SurfaceOptics/LaurentBelcour/InterfaceStatistics.h``
+
+- ``Core/SurfaceBehavior/SurfaceOptics/LaurentBelcour/LbLayer.h``
+
+- ``Core/SurfaceBehavior/SurfaceOptics/LaurentBelcour/LbLayeredSurface.h``
+
+- ``Math/Random.h``
+
+- ``cmath``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

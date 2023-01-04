@@ -1,0 +1,14 @@
+.. _exhale_enum_namespaceph_1a23ecfa075f794993e5d9436e0d54d5f0:
+
+Enum EPicturePixelComponent
+===========================
+
+.. did not find file this was defined in
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: ph::EPicturePixelComponent
+   :project: Photon

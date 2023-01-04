@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1aa6f64f0671c9673a00df0bd8567aeb78:
+
+Typedef ph::HdrRgbFrame
+=======================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::HdrRgbFrame
+   :project: Photon

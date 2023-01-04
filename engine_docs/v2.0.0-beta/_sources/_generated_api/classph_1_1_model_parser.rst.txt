@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_model_parser:
+
+Class ModelParser
+=================
+
+- Defined in :ref:`file_Source_Actor_ModelParser_ModelParser.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::ModelParser
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

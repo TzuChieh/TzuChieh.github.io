@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_ray_differential:
+
+Class RayDifferential
+=====================
+
+- Defined in :ref:`file_Source_Core_RayDifferential.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::RayDifferential
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

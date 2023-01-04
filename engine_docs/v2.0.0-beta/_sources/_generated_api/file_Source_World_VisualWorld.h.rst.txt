@@ -1,0 +1,97 @@
+
+.. _file_Source_World_VisualWorld.h:
+
+File VisualWorld.h
+==================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\World\VisualWorld.h``)
+-------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_World_VisualWorld.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/Actor.h``
+
+- ``Actor/CookedDataStorage.h``
+
+- ``Actor/CookedUnit.h``
+
+- ``Common/assertion.h``
+
+- ``Common/primitive_type.h``
+
+- ``Core/Emitter/Sampler/EmitterSampler.h``
+
+- ``Core/Intersectable/Intersector.h``
+
+- ``Core/Intersectable/Primitive.h``
+
+- ``EngineEnv/EAccelerator.h``
+
+- ``Math/Geometry/TAABB3D.h``
+
+- ``Math/TVector3.h``
+
+- ``Utility/IMoveOnly.h``
+
+- ``World/Scene.h``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Api_test_scene.cpp`
+
+- :ref:`file_Source_Core_Engine.h`
+
+- :ref:`file_Source_Core_Renderer_Attribute_AttributeRenderer.cpp`
+
+- :ref:`file_Source_Core_Renderer_PM_PMRenderer.cpp`
+
+- :ref:`file_Source_Core_Renderer_Renderer.cpp`
+
+- :ref:`file_Source_Core_Renderer_Sampling_AdaptiveSamplingRenderer.cpp`
+
+- :ref:`file_Source_Core_Renderer_Sampling_EqualSamplingRenderer.cpp`
+
+- :ref:`file_Source_EngineEnv_CoreCookedUnit.cpp`
+
+- :ref:`file_Source_World_VisualWorld.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_visual_world`
+

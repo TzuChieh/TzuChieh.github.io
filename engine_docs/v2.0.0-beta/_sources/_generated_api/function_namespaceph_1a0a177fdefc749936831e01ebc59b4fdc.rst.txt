@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a0a177fdefc749936831e01ebc59b4fdc:
+
+Function ph::PH_DEFINE_INTERNAL_LOG_GROUP(FormattedTextInputStream, DataIO)
+===========================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_INTERNAL_LOG_GROUP(FormattedTextInputStream, DataIO)
+   :project: Photon

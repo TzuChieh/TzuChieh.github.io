@@ -1,0 +1,13 @@
+
+.. _program_listing_file_Source_Math_Geometry_Geometry.dox:
+
+Program Listing for File Geometry.dox
+=====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Math_Geometry_Geometry.dox>` (``Source\Math\Geometry\Geometry.dox``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   

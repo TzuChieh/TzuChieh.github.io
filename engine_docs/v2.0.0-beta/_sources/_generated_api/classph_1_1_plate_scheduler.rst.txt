@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_plate_scheduler:
+
+Class PlateScheduler
+====================
+
+- Defined in :ref:`file_Source_Core_Scheduler_PlateScheduler.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::WorkScheduler`` (:ref:`exhale_class_classph_1_1_work_scheduler`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::PlateScheduler
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

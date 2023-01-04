@@ -1,0 +1,64 @@
+
+.. _program_listing_file_Source_Math_Color_chromatic_adaptations.h:
+
+Program Listing for File chromatic_adaptations.h
+================================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Math_Color_chromatic_adaptations.h>` (``Source\Math\Color\chromatic_adaptations.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Math/Color/color_enums.h"
+   #include "Math/Color/color_basics.h"
+   #include "Math/TMatrix3.h"
+   
+   #include <concepts>
+   
+   namespace ph::math
+   {
+   
+   template<typename DefType, typename T>
+   concept CChromaticAdaptationDefinition = requires (
+       EReferenceWhite       srcRefWhite,
+       EReferenceWhite       dstRefWhite,
+       TTristimulusValues<T> CIEXYZColor)
+   {
+       { DefType::getAlgorithm() } noexcept -> std::same_as<EChromaticAdaptation>;
+       { DefType::adapt(CIEXYZColor, srcRefWhite, dstRefWhite) } -> std::same_as<TTristimulusValues<T>>;
+   };
+   
+   template<EChromaticAdaptation ALGORITHM, typename T>
+   class TChromaticAdaptationDefinition final
+   {
+       // Available algorithms must provide definition and thus should not end up here.
+       static_assert(ALGORITHM == EChromaticAdaptation::Unspecified,
+           "No definition for the specified chromatic adaptation ALGORITHM.");
+   };
+   
+   template<EChromaticAdaptation ALGORITHM, typename T>
+   TTristimulusValues<T> chromatic_adapt(
+       const TTristimulusValues<T>& srcCIEXYZColor,
+       EReferenceWhite              srcRefWhite,
+       EReferenceWhite              dstRefWhite);
+   
+   template<typename T>
+   TMatrix3<T> create_von_kries_linear_CAT_matrix(
+       const TMatrix3<T>&    CIEXYZToConeResponse,
+       const TMatrix3<T>&    ConeResponseToCIEXYZ,
+       const EReferenceWhite srcRefWhite,
+       const EReferenceWhite dstRefWhite);
+   
+   template<typename T>
+   TMatrix3<T> create_von_kries_linear_CAT_matrix(
+       const TMatrix3<T>&           CIEXYZToConeResponse,
+       const TMatrix3<T>&           ConeResponseToCIEXYZ,
+       const TTristimulusValues<T>& srcRefWhite,
+       const TTristimulusValues<T>& dstRefWhite);
+   
+   }// end namespace ph::math
+   
+   #include "Math/Color/chromatic_adaptations.ipp"

@@ -19,5 +19,8 @@ var classph_1_1_byte_buffer =
     [ "setWritePosition", "classph_1_1_byte_buffer.html#af3039feba0b72596835e372242f85ab6", null ],
     [ "truncate", "classph_1_1_byte_buffer.html#a5dcf09ce2359aab3606c9ffef3fc1e6e", null ],
     [ "write", "classph_1_1_byte_buffer.html#a5a6f3716fd7c2e6426dea56828d7e333", null ],
-    [ "write", "classph_1_1_byte_buffer.html#ad401656531bbf1daada22966a237fcd5", null ]
+    [ "write", "classph_1_1_byte_buffer.html#ad401656531bbf1daada22966a237fcd5", null ],
+    [ "m_buffer", "classph_1_1_byte_buffer.html#ab80c06c4845dd9eb6079566195e31230", null ],
+    [ "m_readHead", "classph_1_1_byte_buffer.html#aee36dd037f2fd6a1f51483c2ddf49d33", null ],
+    [ "m_writeHead", "classph_1_1_byte_buffer.html#ab23f0552bc850510388a08b4876d6021", null ]
 ];

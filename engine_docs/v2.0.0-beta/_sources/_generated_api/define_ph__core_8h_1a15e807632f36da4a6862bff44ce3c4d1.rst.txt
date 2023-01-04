@@ -1,0 +1,14 @@
+.. _exhale_define_ph__core_8h_1a15e807632f36da4a6862bff44ce3c4d1:
+
+Define PH_FILM_REGION_STATUS_INVALID
+====================================
+
+- Defined in :ref:`file_Include_CEngine_ph_core.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: PH_FILM_REGION_STATUS_INVALID
+   :project: Photon

@@ -1,0 +1,65 @@
+
+.. _file_Source_Core_LTABuildingBlock_RussianRoulette.h:
+
+File RussianRoulette.h
+======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\LTABuildingBlock\RussianRoulette.h``)
+---------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_LTABuildingBlock_RussianRoulette.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/SampleGenerator/SampleFlow.h``
+
+- ``Math/Color/Spectrum.h``
+
+- ``Math/math.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Estimator_BNEEPTEstimator.cpp`
+
+- :ref:`file_Source_Core_Estimator_BVPTEstimator.cpp`
+
+- :ref:`file_Source_Core_Renderer_PM_TPhotonMappingWork.ipp`
+
+- :ref:`file_Source_Core_Renderer_PM_TViewPathTracingWork.ipp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_russian_roulette`
+

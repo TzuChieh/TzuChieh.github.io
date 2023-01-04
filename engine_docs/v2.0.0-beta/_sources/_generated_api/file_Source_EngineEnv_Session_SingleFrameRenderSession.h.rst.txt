@@ -1,0 +1,65 @@
+
+.. _file_Source_EngineEnv_Session_SingleFrameRenderSession.h:
+
+File SingleFrameRenderSession.h
+===============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\EngineEnv\Session\SingleFrameRenderSession.h``)
+--------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_EngineEnv_Session_SingleFrameRenderSession.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/primitive_type.h``
+
+- ``DataIO/SDL/sdl_interface.h``
+
+- ``EngineEnv/Session/RenderSession.h``
+
+- ``EngineEnv/sdl_accelerator_type.h``
+
+- ``Math/TVector2.h``
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Api_ph_cpp_core.cpp`
+
+- :ref:`file_Source_EngineEnv_Session_SingleFrameRenderSession.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_single_frame_render_session`
+

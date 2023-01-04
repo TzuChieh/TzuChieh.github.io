@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1aaa29b662fca4136b57746c974297246c:
+
+Function ph::PH_DEFINE_INTERNAL_TIMER_STAT(Update, Engine)
+==========================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_INTERNAL_TIMER_STAT(Update, Engine)
+   :project: Photon

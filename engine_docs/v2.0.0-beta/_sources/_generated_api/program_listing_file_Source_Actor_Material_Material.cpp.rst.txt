@@ -1,0 +1,18 @@
+
+.. _program_listing_file_Source_Actor_Material_Material.cpp:
+
+Program Listing for File Material.cpp
+=====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Actor_Material_Material.cpp>` (``Source\Actor\Material\Material.cpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #include "Actor/Material/Material.h"
+   
+   namespace ph
+   {
+   
+   }// end namespace ph

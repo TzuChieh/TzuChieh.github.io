@@ -1,0 +1,71 @@
+
+.. _file_Source_Utility_MemoryArena.h:
+
+File MemoryArena.h
+==================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Utility\MemoryArena.h``)
+---------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Utility_MemoryArena.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/memory.h``
+
+- ``Common/primitive_type.h``
+
+- ``Utility/IMoveOnly.h``
+
+- ``Utility/TFunction.h``
+
+- ``cstddef``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+- ``span``
+
+- ``type_traits``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Utility_MemoryArena.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_memory_arena`
+

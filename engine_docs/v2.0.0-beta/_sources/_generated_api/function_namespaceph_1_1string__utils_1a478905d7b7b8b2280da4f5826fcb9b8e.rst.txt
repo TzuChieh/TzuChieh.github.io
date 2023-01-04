@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1string__utils_1a478905d7b7b8b2280da4f5826fcb9b8e:
+
+Template Function ph::string_utils::trim_head
+=============================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::string_utils::trim_head(const std::string_view)
+   :project: Photon

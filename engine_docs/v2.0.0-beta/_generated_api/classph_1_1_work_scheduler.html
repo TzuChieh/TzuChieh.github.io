@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Class WorkScheduler &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class WorkUnit" href="classph_1_1_work_unit.html" />
+    <link rel="prev" title="Class Workflow::WorkHandle" href="classph_1_1_workflow_1_1_work_handle.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="library_root.html">Library API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="library_root.html#photon-v2-renderer">Photon-v2 Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="library_root.html#page-hierarchy">Page Hierarchy</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="library_root.html#full-api">Full API</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#namespaces">Namespaces</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="library_root.html#classes-and-structs">Classes and Structs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#enums">Enums</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#unions">Unions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#functions">Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#variables">Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#defines">Defines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#typedefs">Typedefs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="library_root.html">Library API</a></li>
+      <li class="breadcrumb-item active">Class WorkScheduler</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/classph_1_1_work_scheduler.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="class-workscheduler">
+<span id="exhale-class-classph-1-1-work-scheduler"></span><h1>Class WorkScheduler<a class="headerlink" href="#class-workscheduler" title="Permalink to this headline"></a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_Source_Core_Scheduler_WorkScheduler.h.html#file-source-core-scheduler-workscheduler-h"><span class="std std-ref">File WorkScheduler.h</span></a></p></li>
+</ul>
+<section id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline"></a></h2>
+<section id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">ph::IWorkDispatcher</span></code> (<a class="reference internal" href="classph_1_1_i_work_dispatcher.html#exhale-class-classph-1-1-i-work-dispatcher"><span class="std std-ref">Class IWorkDispatcher</span></a>)</p></li>
+</ul>
+</section>
+<section id="derived-types">
+<h3>Derived Types<a class="headerlink" href="#derived-types" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">ph::GridScheduler</span></code> (<a class="reference internal" href="classph_1_1_grid_scheduler.html#exhale-class-classph-1-1-grid-scheduler"><span class="std std-ref">Class GridScheduler</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">ph::PlateScheduler</span></code> (<a class="reference internal" href="classph_1_1_plate_scheduler.html#exhale-class-classph-1-1-plate-scheduler"><span class="std std-ref">Class PlateScheduler</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">ph::SpiralGridScheduler</span></code> (<a class="reference internal" href="classph_1_1_spiral_grid_scheduler.html#exhale-class-classph-1-1-spiral-grid-scheduler"><span class="std std-ref">Class SpiralGridScheduler</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">ph::SpiralScheduler</span></code> (<a class="reference internal" href="classph_1_1_spiral_scheduler.html#exhale-class-classph-1-1-spiral-scheduler"><span class="std std-ref">Class SpiralScheduler</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">ph::StripeScheduler</span></code> (<a class="reference internal" href="classph_1_1_stripe_scheduler.html#exhale-class-classph-1-1-stripe-scheduler"><span class="std std-ref">Class StripeScheduler</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">ph::TileScheduler</span></code> (<a class="reference internal" href="classph_1_1_tile_scheduler.html#exhale-class-classph-1-1-tile-scheduler"><span class="std std-ref">Class TileScheduler</span></a>)</p></li>
+</ul>
+</section>
+</section>
+<section id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline"></a></h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph13WorkSchedulerE">
+<span id="_CPPv3N2ph13WorkSchedulerE"></span><span id="_CPPv2N2ph13WorkSchedulerE"></span><span id="ph::WorkScheduler"></span><span class="target" id="classph_1_1_work_scheduler"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WorkScheduler</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">ph</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classph_1_1_i_work_dispatcher.html#_CPPv4N2ph15IWorkDispatcherE" title="ph::IWorkDispatcher"><span class="n"><span class="pre">IWorkDispatcher</span></span></a><a class="headerlink" href="#_CPPv4N2ph13WorkSchedulerE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>A manager that distributes a fixed amount of work to workers. </p>
+<p>The scheduler will deliver some amount of work on demand, where the total amount of work is fixed. The sizes of each delivered work is implementation defined. </p>
+<p>Subclassed by <a class="reference internal" href="classph_1_1_grid_scheduler.html#classph_1_1_grid_scheduler"><span class="std std-ref">ph::GridScheduler</span></a>, <a class="reference internal" href="classph_1_1_plate_scheduler.html#classph_1_1_plate_scheduler"><span class="std std-ref">ph::PlateScheduler</span></a>, <a class="reference internal" href="classph_1_1_spiral_grid_scheduler.html#classph_1_1_spiral_grid_scheduler"><span class="std std-ref">ph::SpiralGridScheduler</span></a>, <a class="reference internal" href="classph_1_1_spiral_scheduler.html#classph_1_1_spiral_scheduler"><span class="std std-ref">ph::SpiralScheduler</span></a>, <a class="reference internal" href="classph_1_1_stripe_scheduler.html#classph_1_1_stripe_scheduler"><span class="std std-ref">ph::StripeScheduler</span></a>, <a class="reference internal" href="classph_1_1_tile_scheduler.html#classph_1_1_tile_scheduler"><span class="std std-ref">ph::TileScheduler</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph13WorkScheduler13WorkSchedulerEv">
+<span id="_CPPv3N2ph13WorkScheduler13WorkSchedulerEv"></span><span id="_CPPv2N2ph13WorkScheduler13WorkSchedulerEv"></span><span id="ph::WorkScheduler::WorkScheduler"></span><span class="target" id="classph_1_1_work_scheduler_1a883f80a5c5b0e47d18ba881ab5251b03"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WorkScheduler</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph13WorkScheduler13WorkSchedulerEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>A scheduler with no work load. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph13WorkScheduler13WorkSchedulerENSt6size_tERK8WorkUnit">
+<span id="_CPPv3N2ph13WorkScheduler13WorkSchedulerENSt6size_tERK8WorkUnit"></span><span id="_CPPv2N2ph13WorkScheduler13WorkSchedulerENSt6size_tERK8WorkUnit"></span><span id="ph::WorkScheduler::WorkScheduler__std::s.WorkUnitCR"></span><span class="target" id="classph_1_1_work_scheduler_1aa171dfa8f9897c544e4342d26883d7e2"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WorkScheduler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">numWorkers</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="classph_1_1_work_unit.html#_CPPv4N2ph8WorkUnitE" title="ph::WorkUnit"><span class="n"><span class="pre">WorkUnit</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">totalWorkUnit</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph13WorkScheduler13WorkSchedulerENSt6size_tERK8WorkUnit" title="Permalink to this definition"></a><br /></dt>
+<dd><p>A scheduler with specific number of workers and work load. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph13WorkScheduler8dispatchEP8WorkUnit">
+<span id="_CPPv3N2ph13WorkScheduler8dispatchEP8WorkUnit"></span><span id="_CPPv2N2ph13WorkScheduler8dispatchEP8WorkUnit"></span><span id="ph::WorkScheduler::dispatch__WorkUnitP"></span><span class="target" id="classph_1_1_work_scheduler_1ad8b870d2489a6e249ab156f445c80114"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dispatch</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="classph_1_1_work_unit.html#_CPPv4N2ph8WorkUnitE" title="ph::WorkUnit"><span class="n"><span class="pre">WorkUnit</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">out_workUnit</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N2ph13WorkScheduler8dispatchEP8WorkUnit" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get some amount of work. </p>
+<p>The meaning of the work dimensions is depending on the use case. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if work has been dispatched. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph13WorkScheduler8scheduleEP8WorkUnit">
+<span id="_CPPv3N2ph13WorkScheduler8scheduleEP8WorkUnit"></span><span id="_CPPv2N2ph13WorkScheduler8scheduleEP8WorkUnit"></span><span id="ph::WorkScheduler::schedule__WorkUnitP"></span><span class="target" id="classph_1_1_work_scheduler_1a2903b9d4d450a47d397d2450ee56d8ee"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">schedule</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="classph_1_1_work_unit.html#_CPPv4N2ph8WorkUnitE" title="ph::WorkUnit"><span class="n"><span class="pre">WorkUnit</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">out_workUnit</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph13WorkScheduler8scheduleEP8WorkUnit" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get some amount of work. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True when non-zero amount of work has been scheduled; otherwise, no work has been scheduled and no more is yet to be scheduled (the scheduler is exhausted). </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph13WorkScheduler11scheduleAllERNSt6vectorI8WorkUnitEE">
+<span id="_CPPv3N2ph13WorkScheduler11scheduleAllERNSt6vectorI8WorkUnitEE"></span><span id="_CPPv2N2ph13WorkScheduler11scheduleAllERNSt6vectorI8WorkUnitEE"></span><span id="ph::WorkScheduler::scheduleAll__std::vector:WorkUnit:R"></span><span class="target" id="classph_1_1_work_scheduler_1a9141abbc241f0973781488d037244c76"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">scheduleAll</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="classph_1_1_work_unit.html#_CPPv4N2ph8WorkUnitE" title="ph::WorkUnit"><span class="n"><span class="pre">WorkUnit</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">out_workUnits</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph13WorkScheduler11scheduleAllERNSt6vectorI8WorkUnitEE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph13WorkScheduler6submitERK8WorkUnit">
+<span id="_CPPv3N2ph13WorkScheduler6submitERK8WorkUnit"></span><span id="_CPPv2N2ph13WorkScheduler6submitERK8WorkUnit"></span><span id="ph::WorkScheduler::submit__WorkUnitCR"></span><span class="target" id="classph_1_1_work_scheduler_1af2b4ed49ae45c64ee5f20c1aabf3f93c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">submit</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="classph_1_1_work_unit.html#_CPPv4N2ph8WorkUnitE" title="ph::WorkUnit"><span class="n"><span class="pre">WorkUnit</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">workUnit</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph13WorkScheduler6submitERK8WorkUnit" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2ph13WorkScheduler20getScheduledFractionEv">
+<span id="_CPPv3NK2ph13WorkScheduler20getScheduledFractionEv"></span><span id="_CPPv2NK2ph13WorkScheduler20getScheduledFractionEv"></span><span id="ph::WorkScheduler::getScheduledFractionC"></span><span class="target" id="classph_1_1_work_scheduler_1a7c92a304f7df4d80f9a8945e11c757b6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getScheduledFraction</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2ph13WorkScheduler20getScheduledFractionEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2ph13WorkScheduler20getSubmittedFractionEv">
+<span id="_CPPv3NK2ph13WorkScheduler20getSubmittedFractionEv"></span><span id="_CPPv2NK2ph13WorkScheduler20getSubmittedFractionEv"></span><span id="ph::WorkScheduler::getSubmittedFractionC"></span><span class="target" id="classph_1_1_work_scheduler_1ac4273bef355b7d256d24a20b16bb3bae"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getSubmittedFraction</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2ph13WorkScheduler20getSubmittedFractionEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2ph13WorkScheduler11isExhaustedEv">
+<span id="_CPPv3NK2ph13WorkScheduler11isExhaustedEv"></span><span id="_CPPv2NK2ph13WorkScheduler11isExhaustedEv"></span><span id="ph::WorkScheduler::isExhaustedC"></span><span class="target" id="classph_1_1_work_scheduler_1ab1055785bbb680ab6f2710e87bc36cdd"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isExhausted</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2ph13WorkScheduler11isExhaustedEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Checks if all works had been scheduled. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if there is no more work. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-protected-attributes">Protected Attributes</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph13WorkScheduler12m_numWorkersE">
+<span id="_CPPv3N2ph13WorkScheduler12m_numWorkersE"></span><span id="_CPPv2N2ph13WorkScheduler12m_numWorkersE"></span><span id="ph::WorkScheduler::m_numWorkers__std::s"></span><span class="target" id="classph_1_1_work_scheduler_1add086a102f673f58dceefbc5029a9f2b"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_numWorkers</span></span></span><a class="headerlink" href="#_CPPv4N2ph13WorkScheduler12m_numWorkersE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph13WorkScheduler15m_totalWorkUnitE">
+<span id="_CPPv3N2ph13WorkScheduler15m_totalWorkUnitE"></span><span id="_CPPv2N2ph13WorkScheduler15m_totalWorkUnitE"></span><span id="ph::WorkScheduler::m_totalWorkUnit__WorkUnit"></span><span class="target" id="classph_1_1_work_scheduler_1a4cd851df1c4ab76ec2b4c25cc2c6fabb"></span><a class="reference internal" href="classph_1_1_work_unit.html#_CPPv4N2ph8WorkUnitE" title="ph::WorkUnit"><span class="n"><span class="pre">WorkUnit</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_totalWorkUnit</span></span></span><a class="headerlink" href="#_CPPv4N2ph13WorkScheduler15m_totalWorkUnitE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph13WorkScheduler13m_totalVolumeE">
+<span id="_CPPv3N2ph13WorkScheduler13m_totalVolumeE"></span><span id="_CPPv2N2ph13WorkScheduler13m_totalVolumeE"></span><span id="ph::WorkScheduler::m_totalVolume__std::s"></span><span class="target" id="classph_1_1_work_scheduler_1a5ed99c64539b1b7413bc86a489b3a468"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_totalVolume</span></span></span><a class="headerlink" href="#_CPPv4N2ph13WorkScheduler13m_totalVolumeE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph13WorkScheduler17m_scheduledVolumeE">
+<span id="_CPPv3N2ph13WorkScheduler17m_scheduledVolumeE"></span><span id="_CPPv2N2ph13WorkScheduler17m_scheduledVolumeE"></span><span id="ph::WorkScheduler::m_scheduledVolume__std::s"></span><span class="target" id="classph_1_1_work_scheduler_1a02ce4ce0c4ce2bc5c55216aae0aa4676"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_scheduledVolume</span></span></span><a class="headerlink" href="#_CPPv4N2ph13WorkScheduler17m_scheduledVolumeE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph13WorkScheduler17m_submittedVolumeE">
+<span id="_CPPv3N2ph13WorkScheduler17m_submittedVolumeE"></span><span id="_CPPv2N2ph13WorkScheduler17m_submittedVolumeE"></span><span id="ph::WorkScheduler::m_submittedVolume__std::s"></span><span class="target" id="classph_1_1_work_scheduler_1a7392b1918423092eadd0e139cfe2a19e"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_submittedVolume</span></span></span><a class="headerlink" href="#_CPPv4N2ph13WorkScheduler17m_submittedVolumeE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="classph_1_1_workflow_1_1_work_handle.html" class="btn btn-neutral float-left" title="Class Workflow::WorkHandle" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="classph_1_1_work_unit.html" class="btn btn-neutral float-right" title="Class WorkUnit" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

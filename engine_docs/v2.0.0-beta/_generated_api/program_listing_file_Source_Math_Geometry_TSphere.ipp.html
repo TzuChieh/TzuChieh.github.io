@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File TSphere.ipp &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File TSphere.ipp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Math_Geometry_TSphere.ipp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-tsphere-ipp">
+<span id="program-listing-file-source-math-geometry-tsphere-ipp"></span><h1>Program Listing for File TSphere.ipp<a class="headerlink" href="#program-listing-for-file-tsphere-ipp" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Math_Geometry_TSphere.ipp.html#file-source-math-geometry-tsphere-ipp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Math\Geometry\TSphere.ipp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/Geometry/TSphere.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/assertion.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/constant.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/TOrthonormalBasis3.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/TVector2.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/TMatrix2.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;algorithm&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;type_traits&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span><span class="o">::</span><span class="nn">math</span>
+<span class="p">{</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TSphere</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">TSphere</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">makeUnit</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">TSphere</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TSphere</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">TSphere</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">radius</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">m_radius</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT_GE</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">TSphere</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">isIntersecting</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">TLineSegment</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">segment</span><span class="p">,</span>
+<span class="w">    </span><span class="n">real</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w">            </span><span class="n">out_hitT</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">//return isIntersectingNaive(segment, out_hitT);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">isIntersectingHearnBaker</span><span class="p">(</span><span class="n">segment</span><span class="p">,</span><span class="w"> </span><span class="n">out_hitT</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">TSphere</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">isIntersectingNaive</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">TLineSegment</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">segment</span><span class="p">,</span>
+<span class="w">    </span><span class="n">real</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">out_hitT</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT_GE</span><span class="p">(</span><span class="n">m_radius</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">out_hitT</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Construct a ray/line then use its parametric form to test against the sphere and solve for t</span>
+<span class="w">    </span><span class="c1">//</span>
+<span class="w">    </span><span class="c1">// ray origin:         o</span>
+<span class="w">    </span><span class="c1">// ray direction:      d</span>
+<span class="w">    </span><span class="c1">// sphere center:      c</span>
+<span class="w">    </span><span class="c1">// sphere radius:      r</span>
+<span class="w">    </span><span class="c1">// intersection point: p</span>
+<span class="w">    </span><span class="c1">// vector dot:         *</span>
+<span class="w">    </span><span class="c1">// ray equation:       o + td (t is a scalar variable)</span>
+<span class="w">    </span><span class="c1">//</span>
+<span class="w">    </span><span class="c1">// To find the intersection point, the length of vector (td - oc) must equals r.</span>
+<span class="w">    </span><span class="c1">// This is equivalent to (td - oc)*(td - oc) = r^2. After reformatting, we have</span>
+<span class="w">    </span><span class="c1">//</span>
+<span class="w">    </span><span class="c1">//              t^2(d*d) - 2t(d*oc) + (oc*oc) - r^2 = 0     --- (1)</span>
+<span class="w">    </span><span class="c1">//</span>
+<span class="w">    </span><span class="c1">// Solving equation (1) for t will yield the intersection point (o + td).</span>
+
+<span class="w">    </span><span class="c1">// FIXME: T may be more precise than float64</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Vector3D</span><span class="w"> </span><span class="nf">rayO</span><span class="p">(</span><span class="n">segment</span><span class="p">.</span><span class="n">getOrigin</span><span class="p">());</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Vector3D</span><span class="w"> </span><span class="nf">rayD</span><span class="p">(</span><span class="n">segment</span><span class="p">.</span><span class="n">getDirection</span><span class="p">());</span>
+
+<span class="w">    </span><span class="c1">// Vector from ray origin (o) to sphere center (c)</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Vector3D</span><span class="w"> </span><span class="n">oc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="n">sub</span><span class="p">(</span><span class="n">rayO</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// a in equation (1)</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">float64</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rayD</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">rayD</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// b in equation (1) (-2 is cancelled while solving t)</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">float64</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rayD</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">oc</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// c in equation (1)</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">float64</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">oc</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">oc</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">float64</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_radius</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m_radius</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">float64</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">D</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">D</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">sqrt</span><span class="p">(</span><span class="n">D</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">float64</span><span class="w"> </span><span class="n">rcpA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1">// t = (b +- D) / a</span>
+<span class="w">        </span><span class="c1">// t1 must be &lt;= t2 (rcpA &amp; D always &gt; 0)</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">float64</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">D</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rcpA</span><span class="p">;</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">float64</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">D</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rcpA</span><span class="p">;</span>
+
+<span class="w">        </span><span class="n">PH_ASSERT_MSG</span><span class="p">(</span><span class="n">t1</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">t2</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span>
+<span class="w">            </span><span class="s">&quot;t1            = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span>
+<span class="w">            </span><span class="s">&quot;t2            = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span>
+<span class="w">            </span><span class="s">&quot;(a, b, c)     = (&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;)</span><span class="se">\n</span><span class="s">&quot;</span>
+<span class="w">            </span><span class="s">&quot;ray-origin    = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rayO</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span>
+<span class="w">            </span><span class="s">&quot;ray-direction = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rayD</span><span class="p">.</span><span class="n">toString</span><span class="p">());</span>
+
+<span class="w">        </span><span class="c1">// We now know that the ray/line intersects the sphere, but it may not be the case for the line</span>
+<span class="w">        </span><span class="c1">// segment. There are 3 cases in total (with t1 &lt;= t2 being kept in mind):</span>
+
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">t2</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">segment</span><span class="p">.</span><span class="n">getMinT</span><span class="p">()</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="c1">// Case 1: t1 &amp; t2 both behind t_min, no intersection</span>
+<span class="w">           </span><span class="n">segment</span><span class="p">.</span><span class="n">getMaxT</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">t1</span><span class="p">)</span><span class="w">   </span><span class="c1">// Case 2: t1 &amp; t2 both ahead of t_max, no intersection</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="c1">// Case 3: one of t1 and t2 is a valid intersection in [t_min, t_max]</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// t1 is smaller than t2, we test t1 first</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">float64</span><span class="w"> </span><span class="n">tClosest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">segment</span><span class="p">.</span><span class="n">getMinT</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">t2</span><span class="p">;</span>
+
+<span class="w">            </span><span class="n">PH_ASSERT_IN_RANGE_INCLUSIVE</span><span class="p">(</span><span class="n">tClosest</span><span class="p">,</span><span class="w"> </span><span class="n">segment</span><span class="p">.</span><span class="n">getMinT</span><span class="p">(),</span><span class="w"> </span><span class="n">segment</span><span class="p">.</span><span class="n">getMaxT</span><span class="p">());</span>
+
+<span class="w">            </span><span class="o">*</span><span class="n">out_hitT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">tClosest</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// References:</span>
+<span class="c1">// [1] Ray Tracing Gems Chapter 7: Precision Improvements for Ray/Sphere Intersection</span>
+<span class="c1">// [2] Best reference would be code for chapter 7 with method 5 (our line direction is not normalized)</span>
+<span class="c1">//     https://github.com/Apress/ray-tracing-gems/</span>
+<span class="c1">// [3] https://github.com/NVIDIAGameWorks/Falcor (Source/Falcor/Utils/Geometry/IntersectionHelpers.slang)</span>
+<span class="c1">//</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">TSphere</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">isIntersectingHearnBaker</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">TLineSegment</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">segment</span><span class="p">,</span>
+<span class="w">    </span><span class="n">real</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">out_hitT</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT_GE</span><span class="p">(</span><span class="n">m_radius</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">out_hitT</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// We use the same notation as `isIntersectingNaive()` for the geometries</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Vector3D</span><span class="w"> </span><span class="nf">rayO</span><span class="p">(</span><span class="n">segment</span><span class="p">.</span><span class="n">getOrigin</span><span class="p">());</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Vector3D</span><span class="w"> </span><span class="nf">rayD</span><span class="p">(</span><span class="n">segment</span><span class="p">.</span><span class="n">getDirection</span><span class="p">());</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Vector3D</span><span class="w"> </span><span class="n">unitRayD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rayD</span><span class="p">.</span><span class="n">normalize</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// Vector from sphere center (c) to ray origin (o)</span>
+<span class="w">    </span><span class="c1">// (vector f in Ray Tracing Gems, note this is the negated version of oc in `isIntersectingNaive()`)</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Vector3D</span><span class="w"> </span><span class="n">co</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rayO</span><span class="p">;</span><span class="c1">// rayO - Vector3D(0);</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">float64</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">float64</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_radius</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m_radius</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// a in equation (1) in `isIntersectingNaive()`</span>
+<span class="w">    </span><span class="c1">// (same as in RT Gems)</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">float64</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rayD</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">rayD</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// b term in RT Gems eq. 8 without the negative sign (handled in q later to save one negation)</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">float64</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">co</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">rayD</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// vector fd in RT Gems eq. 5 (curvy_L^2)</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Vector3D</span><span class="w"> </span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">co</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">unitRayD</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">co</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">unitRayD</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Basically the discriminant term in RT Gems eq. 5 with 4s and 2s eliminated</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">float64</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">r2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">fd</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">fd</span><span class="p">));</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">D</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// c in equation (1) in `isIntersectingNaive()`</span>
+<span class="w">        </span><span class="c1">// (same as in RT Gems)</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">float64</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">co</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">co</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">r2</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">float64</span><span class="w"> </span><span class="n">sqrtD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">sqrt</span><span class="p">(</span><span class="n">D</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// q term in RT Gems eq. 10</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">float64</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="o">-</span><span class="n">sqrtD</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">sqrtD</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1">// t0 &amp; t1 term in RT Gems eq. 10 (here we let t0 &lt;= t1)</span>
+<span class="w">        </span><span class="c1">// (unlike `isIntersectingNaive()`, we cannot determine which one is smaller due to its formulation)</span>
+<span class="w">        </span><span class="n">float64</span><span class="w"> </span><span class="n">t0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
+<span class="w">        </span><span class="n">float64</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">t0</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">t1</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">t0</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">PH_ASSERT_MSG</span><span class="p">(</span><span class="n">t0</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span>
+<span class="w">            </span><span class="s">&quot;t0            = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">t0</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span>
+<span class="w">            </span><span class="s">&quot;t1            = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span>
+<span class="w">            </span><span class="s">&quot;(a, b, c)     = (&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;)</span><span class="se">\n</span><span class="s">&quot;</span>
+<span class="w">            </span><span class="s">&quot;ray-origin    = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rayO</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span>
+<span class="w">            </span><span class="s">&quot;ray-direction = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rayD</span><span class="p">.</span><span class="n">toString</span><span class="p">());</span>
+
+<span class="w">        </span><span class="c1">// We now know that the ray/line intersects the sphere, but it may not be the case for the line</span>
+<span class="w">        </span><span class="c1">// segment. There are 3 cases in total (with t0 &lt;= t1 being kept in mind):</span>
+
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">t1</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">segment</span><span class="p">.</span><span class="n">getMinT</span><span class="p">()</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="c1">// Case 1: t0 &amp; t1 both behind t_min, no intersection</span>
+<span class="w">           </span><span class="n">segment</span><span class="p">.</span><span class="n">getMaxT</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">t0</span><span class="p">)</span><span class="w">   </span><span class="c1">// Case 2: t0 &amp; t1 both ahead of t_max, no intersection</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="c1">// Case 3: one of t0 and t1 is a valid intersection in [t_min, t_max]</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// t0 is smaller than t1, we test t1 first</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">float64</span><span class="w"> </span><span class="n">tClosest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">segment</span><span class="p">.</span><span class="n">getMinT</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">t0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">t0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
+
+<span class="w">            </span><span class="n">PH_ASSERT_IN_RANGE_INCLUSIVE</span><span class="p">(</span><span class="n">tClosest</span><span class="p">,</span><span class="w"> </span><span class="n">segment</span><span class="p">.</span><span class="n">getMinT</span><span class="p">(),</span><span class="w"> </span><span class="n">segment</span><span class="p">.</span><span class="n">getMaxT</span><span class="p">());</span>
+
+<span class="w">            </span><span class="o">*</span><span class="n">out_hitT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">tClosest</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">TSphere</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">getArea</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT_GE</span><span class="p">(</span><span class="n">m_radius</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">constant</span><span class="o">::</span><span class="n">four_pi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m_radius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m_radius</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">TSphere</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">sampleToSurfaceArchimedes</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">sample</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT_IN_RANGE_INCLUSIVE</span><span class="p">(</span><span class="n">sample</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="w">    </span><span class="n">PH_ASSERT_IN_RANGE_INCLUSIVE</span><span class="p">(</span><span class="n">sample</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="w">    </span><span class="n">PH_ASSERT_GE</span><span class="p">(</span><span class="n">m_radius</span><span class="p">,</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">y</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">sample</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">0.5</span><span class="p">));</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">phi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">constant</span><span class="o">::</span><span class="n">two_pi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sample</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">r</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">sqrt</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">)));</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">localUnitPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">        </span><span class="n">r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">),</span>
+<span class="w">        </span><span class="n">y</span><span class="p">,</span>
+<span class="w">        </span><span class="n">r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">));</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">localUnitPos</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m_radius</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">TSphere</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">sampleToSurfaceArchimedes</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">sample</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">out_pdfA</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">out_pdfA</span><span class="p">);</span>
+
+<span class="w">    </span><span class="o">*</span><span class="n">out_pdfA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">uniformSurfaceSamplePdfA</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sampleToSurfaceArchimedes</span><span class="p">(</span><span class="n">sample</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">TSphere</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">uniformSurfaceSamplePdfA</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// PDF_A is 1/(4*pi*r^2)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">getArea</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">TSphere</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">surfaceToLatLong01</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">surface</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">math</span><span class="o">::</span><span class="nn">constant</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">phiTheta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">surfaceToPhiTheta</span><span class="p">(</span><span class="n">surface</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">phiTheta</span><span class="p">.</span><span class="n">x</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">two_pi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w">       </span><span class="c1">// [0, 1]</span>
+<span class="w">        </span><span class="p">(</span><span class="n">pi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">phiTheta</span><span class="p">.</span><span class="n">y</span><span class="p">())</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">};</span><span class="c1">// [0, 1]</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">TSphere</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">latLong01ToPhiTheta</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">latLong01</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">math</span><span class="o">::</span><span class="nn">constant</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">phi</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">latLong01</span><span class="p">.</span><span class="n">x</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">two_pi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">theta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">latLong01</span><span class="p">.</span><span class="n">y</span><span class="p">())</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="n">phi</span><span class="p">,</span><span class="w"> </span><span class="n">theta</span><span class="p">};</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">TSphere</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">latLong01ToSurface</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">latLong01</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">phiThetaToSurface</span><span class="p">(</span><span class="n">latLong01ToPhiTheta</span><span class="p">(</span><span class="n">latLong01</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">TSphere</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">surfaceToPhiTheta</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">surface</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">math</span><span class="o">::</span><span class="nn">constant</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">PH_ASSERT_GT</span><span class="p">(</span><span class="n">m_radius</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">unitDir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">surface</span><span class="p">.</span><span class="n">div</span><span class="p">(</span><span class="n">m_radius</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">cosTheta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">clamp</span><span class="p">(</span><span class="n">unitDir</span><span class="p">.</span><span class="n">y</span><span class="p">(),</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">-1</span><span class="p">),</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">theta</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">acos</span><span class="p">(</span><span class="n">cosTheta</span><span class="p">);</span><span class="w">                                      </span><span class="c1">// [  0,   pi]</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">phiRaw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">atan2</span><span class="p">(</span><span class="n">unitDir</span><span class="p">.</span><span class="n">x</span><span class="p">(),</span><span class="w"> </span><span class="n">unitDir</span><span class="p">.</span><span class="n">z</span><span class="p">());</span><span class="w">                     </span><span class="c1">// [-pi,   pi]</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">phi</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">phiRaw</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">phiRaw</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">two_pi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">phiRaw</span><span class="p">;</span><span class="c1">// [  0, 2*pi]</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="n">phi</span><span class="p">,</span><span class="w"> </span><span class="n">theta</span><span class="p">};</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">TSphere</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">phiThetaToSurface</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">phiTheta</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">phi</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">phiTheta</span><span class="p">.</span><span class="n">x</span><span class="p">();</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">theta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">phiTheta</span><span class="p">.</span><span class="n">y</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">zxPlaneRadius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">localUnitPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">        </span><span class="n">zxPlaneRadius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">),</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span>
+<span class="w">        </span><span class="n">zxPlaneRadius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">));</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">localUnitPos</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m_radius</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">SurfaceToUv</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">TSphere</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">surfaceDerivativesWrtUv</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">surface</span><span class="p">,</span>
+<span class="w">    </span><span class="n">SurfaceToUv</span><span class="w">        </span><span class="n">surfaceToUv</span><span class="p">,</span>
+<span class="w">    </span><span class="n">T</span><span class="w">                  </span><span class="n">hInRadians</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_invocable_r_v</span><span class="o">&lt;</span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">SurfaceToUv</span><span class="p">,</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;A surface to UV mapper must accept Vector3 position and return Vector2 &quot;</span>
+<span class="w">        </span><span class="s">&quot;UV or any type that is convertible to the mentioned ones&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">PH_ASSERT_GT</span><span class="p">(</span><span class="n">hInRadians</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">normal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">surface</span><span class="p">.</span><span class="n">div</span><span class="p">(</span><span class="n">m_radius</span><span class="p">);</span>
+<span class="w">    </span><span class="n">hInRadians</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="n">hInRadians</span><span class="p">,</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">to_radians</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">45</span><span class="p">));</span>
+
+<span class="w">    </span><span class="c1">// Calculate displacement vectors on hit normal&#39;s tangent plane</span>
+<span class="w">    </span><span class="c1">// (with small angle approximation)</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">delta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_radius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">tan</span><span class="p">(</span><span class="n">hInRadians</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">hitBasis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">makeFromUnitY</span><span class="p">(</span><span class="n">normal</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hitBasis</span><span class="p">.</span><span class="n">getXAxis</span><span class="p">().</span><span class="n">mul</span><span class="p">(</span><span class="n">delta</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">dz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hitBasis</span><span class="p">.</span><span class="n">getZAxis</span><span class="p">().</span><span class="n">mul</span><span class="p">(</span><span class="n">delta</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Compute partial derivatives with 2nd-order approximation</span>
+
+<span class="w">    </span><span class="c1">// Find delta positions on the sphere from displacement vectors</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">negX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">surface</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="n">dx</span><span class="p">).</span><span class="n">normalize</span><span class="p">().</span><span class="n">mul</span><span class="p">(</span><span class="n">m_radius</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">posX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">surface</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">dx</span><span class="p">).</span><span class="n">normalize</span><span class="p">().</span><span class="n">mul</span><span class="p">(</span><span class="n">m_radius</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">negZ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">surface</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="n">dz</span><span class="p">).</span><span class="n">normalize</span><span class="p">().</span><span class="n">mul</span><span class="p">(</span><span class="n">m_radius</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">posZ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">surface</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">dz</span><span class="p">).</span><span class="n">normalize</span><span class="p">().</span><span class="n">mul</span><span class="p">(</span><span class="n">m_radius</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Find delta uvw vectors</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">negXuv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">surfaceToUv</span><span class="p">(</span><span class="n">negX</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">posXuv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">surfaceToUv</span><span class="p">(</span><span class="n">posX</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">negZuv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">surfaceToUv</span><span class="p">(</span><span class="n">negZ</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">posZuv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">surfaceToUv</span><span class="p">(</span><span class="n">posZ</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">TMatrix2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">uvwDiff</span><span class="p">(</span>
+<span class="w">        </span><span class="n">posXuv</span><span class="p">.</span><span class="n">x</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">negXuv</span><span class="p">.</span><span class="n">x</span><span class="p">(),</span><span class="w"> </span><span class="n">posXuv</span><span class="p">.</span><span class="n">y</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">negXuv</span><span class="p">.</span><span class="n">y</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">posZuv</span><span class="p">.</span><span class="n">x</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">negZuv</span><span class="p">.</span><span class="n">x</span><span class="p">(),</span><span class="w"> </span><span class="n">posZuv</span><span class="p">.</span><span class="n">y</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">negZuv</span><span class="p">.</span><span class="n">y</span><span class="p">());</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">xDiff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">posX</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">negX</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">zDiff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">posZ</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">negZ</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">xDiff</span><span class="p">.</span><span class="n">x</span><span class="p">(),</span><span class="w"> </span><span class="n">zDiff</span><span class="p">.</span><span class="n">x</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">xDiff</span><span class="p">.</span><span class="n">y</span><span class="p">(),</span><span class="w"> </span><span class="n">zDiff</span><span class="p">.</span><span class="n">y</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">xDiff</span><span class="p">.</span><span class="n">z</span><span class="p">(),</span><span class="w"> </span><span class="n">zDiff</span><span class="p">.</span><span class="n">z</span><span class="p">()</span><span class="w"> </span><span class="p">};</span>
+
+<span class="w">    </span><span class="c1">// Calculate positional partial derivatives</span>
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dPdU</span><span class="p">,</span><span class="w"> </span><span class="n">dPdV</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">&gt;</span><span class="w"> </span><span class="n">xs</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">uvwDiff</span><span class="p">.</span><span class="n">solve</span><span class="p">(</span><span class="n">bs</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">xs</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">dPdU</span><span class="p">.</span><span class="n">x</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span><span class="w"> </span><span class="n">dPdV</span><span class="p">.</span><span class="n">x</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span>
+<span class="w">        </span><span class="n">dPdU</span><span class="p">.</span><span class="n">y</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span><span class="w"> </span><span class="n">dPdV</span><span class="p">.</span><span class="n">y</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span>
+<span class="w">        </span><span class="n">dPdU</span><span class="p">.</span><span class="n">z</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xs</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span><span class="w"> </span><span class="n">dPdV</span><span class="p">.</span><span class="n">z</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xs</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">dPdU</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hitBasis</span><span class="p">.</span><span class="n">getZAxis</span><span class="p">();</span>
+<span class="w">        </span><span class="n">dPdV</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hitBasis</span><span class="p">.</span><span class="n">getXAxis</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="n">dPdU</span><span class="p">,</span><span class="w"> </span><span class="n">dPdV</span><span class="p">};</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph::math</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

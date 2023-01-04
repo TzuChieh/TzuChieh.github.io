@@ -1,0 +1,55 @@
+
+.. _file_Source_Actor_Material_AbradedSurface.h:
+
+File AbradedSurface.h
+=====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\Material\AbradedSurface.h``)
+-------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_Material_AbradedSurface.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/Material/SurfaceMaterial.h``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_Material_AbradedSurface.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_abraded_surface`
+

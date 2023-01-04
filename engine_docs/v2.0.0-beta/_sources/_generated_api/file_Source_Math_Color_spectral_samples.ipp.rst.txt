@@ -1,0 +1,75 @@
+
+.. _file_Source_Math_Color_spectral_samples.ipp:
+
+File spectral_samples.ipp
+=========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\Color\spectral_samples.ipp``)
+-------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_Color_spectral_samples.ipp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Math/Color/spectral_data.h``
+
+- ``Math/Color/spectral_samples.h``
+
+- ``Math/Function/TPiecewiseLinear1D.h``
+
+- ``Math/General/TVectorN.h``
+
+- ``Math/Physics/black_body.h``
+
+- ``Math/Solver/TAnalyticalIntegrator1D.h``
+
+- ``Math/TArithmeticArray.h``
+
+- ``Math/math_exceptions.h``
+
+- ``array``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Math_Color_spectral_samples.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+- :ref:`namespace_ph__math__detail`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structph_1_1math_1_1detail_1_1_t_c_i_e_x_y_z_cmf_kernel`
+

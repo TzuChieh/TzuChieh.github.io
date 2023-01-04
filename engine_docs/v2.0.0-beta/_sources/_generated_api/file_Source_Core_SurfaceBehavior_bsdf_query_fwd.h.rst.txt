@@ -1,0 +1,46 @@
+
+.. _file_Source_Core_SurfaceBehavior_bsdf_query_fwd.h:
+
+File bsdf_query_fwd.h
+=====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SurfaceBehavior\bsdf_query_fwd.h``)
+-------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SurfaceBehavior_bsdf_query_fwd.h.rst
+
+
+
+
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_SurfaceBehavior_BsdfEvalQuery.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_BsdfPdfQuery.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_BsdfSampleQuery.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

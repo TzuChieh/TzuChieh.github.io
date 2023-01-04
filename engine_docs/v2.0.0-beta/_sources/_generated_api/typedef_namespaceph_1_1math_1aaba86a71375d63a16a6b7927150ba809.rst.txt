@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1_1math_1aaba86a71375d63a16a6b7927150ba809:
+
+Typedef ph::math::ChromaticityValues
+====================================
+
+- Defined in :ref:`file_Source_Math_Color_color_basics.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::math::ChromaticityValues
+   :project: Photon

@@ -1,0 +1,424 @@
+
+.. _program_listing_file_Source_Utility_string_utils.h:
+
+Program Listing for File string_utils.h
+=======================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Utility_string_utils.h>` (``Source\Utility\string_utils.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   
+   PH_DEFINE_INLINE_TO_STRING_FORMATTER(SomeType);
+   class TSomeType { (class definitions) };
+   
+   template<typename T>
+   PH_DEFINE_INLINE_TO_STRING_FORMATTER_TEMPLATE(TSomeType<T>);
+   #pragma once
+   
+   #include "Common/assertion.h"
+   #include "Utility/string_utils_table.h"
+   
+   #include <cstddef>
+   #include <string>
+   #include <algorithm>
+   #include <string_view>
+   #include <stdexcept>
+   #include <charconv>
+   #include <limits>
+   #include <type_traits>
+   #include <format>
+   #include <concepts>
+   
+   namespace ph::string_utils
+   {
+   
+   template<typename ObjType>
+   concept CHasToString = requires (const ObjType& obj)
+   {
+       { obj.toString() } -> std::convertible_to<std::string_view>;
+   };
+   
+   }// end namespace ph::string_utils
+   
+   #define PH_DEFINE_INLINE_TO_STRING_FORMATTER_SPECIALIZATION(...)\
+       struct ::std::formatter<__VA_ARGS__> : ::std::formatter<::std::string>\
+       {\
+           static_assert(::ph::string_utils::CHasToString<__VA_ARGS__>,\
+               "type " #__VA_ARGS__ " must have a const method toString() and the result should be "\
+               "implicitly convertible to std::string"); \
+       \
+           /* `parse()` is inherited from the base class */\
+       \
+           /* Define `format()` by calling `std::string`'s implementation with custom type's `toString()`*/\
+           inline auto format(const __VA_ARGS__& value, ::std::format_context& ctx)\
+           {\
+               return ::std::formatter<::std::string>::format(\
+                   value.toString(), ctx);\
+           }\
+       }
+   
+   #define PH_DEFINE_INLINE_TO_STRING_FORMATTER(...)\
+       template<>\
+       PH_DEFINE_INLINE_TO_STRING_FORMATTER_SPECIALIZATION(__VA_ARGS__)
+   
+   #define PH_DEFINE_INLINE_TO_STRING_FORMATTER_TEMPLATE(...)\
+       PH_DEFINE_INLINE_TO_STRING_FORMATTER_SPECIALIZATION(__VA_ARGS__)
+   
+   namespace ph::string_utils
+   {
+   
+   enum class EWhitespace
+   {
+       COMMON,
+       STANDARD
+   };
+   
+   template<EWhitespace TYPE = EWhitespace::COMMON>
+   inline std::string_view get_whitespaces()
+   {
+       if constexpr(TYPE == EWhitespace::COMMON)
+       {
+           return table::common_whitespaces;
+       }
+       else if constexpr(TYPE == EWhitespace::STANDARD)
+       {
+           return table::standard_whitespaces;
+       }
+       else
+       {
+           static_assert(TYPE == EWhitespace::COMMON || TYPE == EWhitespace::STANDARD,
+               "Must include a case for each enum entry; did you forget to add one?");
+           
+           return "";
+       }
+   }
+   
+   template<EWhitespace TYPE = EWhitespace::COMMON>
+   inline constexpr bool is_whitespace(const char ch)
+   {
+       return get_whitespaces<TYPE>().find(ch) != std::string_view::npos;
+   }
+   
+   inline bool has_any_of(const std::string_view srcStr, const std::string_view candidates)
+   {
+       const auto foundPos = srcStr.find_first_of(candidates);
+       return foundPos != std::string_view::npos;
+   }
+   
+   inline bool has_none_of(const std::string_view srcStr, const std::string_view candidates)
+   {
+       return !has_any_of(srcStr, candidates);
+   }
+   
+   inline std::string_view cut_head(const std::string_view srcStr, const std::string_view candidates)
+   {
+       const auto nonCutPos = srcStr.find_first_not_of(candidates);
+   
+       auto cutStr = srcStr;
+   
+       // remove_prefix(): behavior is undefined for inputPos > size(), avoid that
+       // with the ternary operator
+       cutStr.remove_prefix(
+           nonCutPos != std::string_view::npos ? nonCutPos : srcStr.size());
+   
+       return cutStr;
+   }
+   
+   inline std::string_view cut_tail(const std::string_view srcStr, const std::string_view candidates)
+   {
+       const auto nonCutPos = srcStr.find_last_not_of(candidates);
+   
+       auto cutStr = srcStr;
+   
+       // remove_suffix(): behavior is undefined for inputPos > size(), avoid that
+       // with the ternary operator;
+       // also, if <nonCutPos> is not npos, <srcStr> will not be empty
+       cutStr.remove_suffix(
+           nonCutPos != std::string_view::npos ? srcStr.size() - 1 - nonCutPos : srcStr.size());
+   
+       return cutStr;
+   }
+   
+   inline std::string_view cut_ends(const std::string_view srcStr, const std::string_view candidates)
+   {
+       return cut_head(cut_tail(srcStr, candidates), candidates);
+   }
+   
+   template<EWhitespace TYPE = EWhitespace::COMMON>
+   inline std::string_view trim_head(const std::string_view srcStr)
+   {
+       return cut_head(srcStr, get_whitespaces<TYPE>());
+   }
+   
+   template<EWhitespace TYPE = EWhitespace::COMMON>
+   inline std::string_view trim_tail(const std::string_view srcStr)
+   {
+       return cut_tail(srcStr, get_whitespaces<TYPE>());
+   }
+   
+   template<EWhitespace TYPE = EWhitespace::COMMON>
+   inline std::string_view trim(const std::string_view srcStr)
+   {
+       return trim_head<TYPE>(trim_tail<TYPE>(srcStr));
+   }
+   
+   inline std::string_view next_token(
+       std::string_view        srcStr, 
+       std::string_view* const remainingStr    = nullptr,
+       const std::string_view  tokenSeparators = get_whitespaces<>())
+   {
+       srcStr = cut_head(srcStr, tokenSeparators);
+   
+       const auto separatorPos = srcStr.find_first_of(tokenSeparators);
+       if(separatorPos != std::string_view::npos)
+       {
+           const auto nextToken = srcStr.substr(0, separatorPos);
+           if(remainingStr)
+           {
+               *remainingStr = srcStr.substr(separatorPos + 1);
+           }
+   
+           return nextToken;
+       }
+       else
+       {
+           return srcStr;
+       }
+   }
+   
+   inline char az_to_AZ(const char ch)
+   {
+       static_assert(std::numeric_limits<unsigned char>::max() == table::ASCII_TO_UPPER.size() - 1);
+   
+       const auto mappedCharIdx = static_cast<unsigned char>(ch);
+       return static_cast<char>(table::ASCII_TO_UPPER[mappedCharIdx]);
+   }
+   
+   inline char AZ_to_az(const char ch)
+   {
+       static_assert(std::numeric_limits<unsigned char>::max() == table::ASCII_TO_LOWER.size() - 1);
+   
+       const auto mappedCharIdx = static_cast<unsigned char>(ch);
+       return static_cast<char>(table::ASCII_TO_LOWER[mappedCharIdx]);
+   }
+   
+   inline void az_to_AZ(std::string* const str)
+   {
+       PH_ASSERT(str);
+   
+       for(char& ch : *str)
+       {
+           ch = az_to_AZ(ch);
+       }
+   }
+   
+   inline void AZ_to_az(std::string* const str)
+   {
+       PH_ASSERT(str);
+   
+       for(char& ch : *str)
+       {
+           ch = AZ_to_az(ch);
+       }
+   }
+   
+   inline std::string repeat(const std::string_view str, const std::size_t n)
+   {
+       const std::size_t totalSize = str.size() * n;
+   
+       // Valid for the case where <totalSize> is 0
+       std::string result;
+       result.reserve(totalSize);
+       for(std::size_t i = 0; i < n; ++i)
+       {
+           result += str;
+       }
+   
+       return result;
+   }
+   
+   inline void erase_all(std::string& str, const char ch)
+   {
+       str.erase(std::remove(str.begin(), str.end(), ch), str.end());
+   }
+   
+   namespace detail_from_to_char
+   {
+   
+   inline void throw_from_std_errc_if_has_error(const std::errc errorCode)
+   {
+       // According to several sources, 0, or zero-initialized std::errc,
+       // indicates no error.
+       //
+       // [1] see the example for std::from_chars
+       //     https://en.cppreference.com/w/cpp/utility/from_chars
+       // [2] https://stackoverflow.com/a/63567008
+       //
+       constexpr std::errc NO_ERROR_VALUE = std::errc();
+   
+       switch(errorCode)
+       {
+       case NO_ERROR_VALUE:
+           return;
+   
+       case std::errc::invalid_argument:
+           throw std::invalid_argument("input cannot be interpreted as a numeric value");
+   
+       case std::errc::result_out_of_range:
+           throw std::overflow_error("result will overflow the arithmetic type");
+   
+       case std::errc::value_too_large:
+           throw std::out_of_range("result cannot fit in the output buffer");
+   
+       default:
+           throw std::runtime_error(
+               "unknown error: std::errc = " + std::to_string(
+               static_cast<std::underlying_type_t<std::errc>>(errorCode)));
+       }
+   }
+   
+   }// end namespace detail
+   
+   template<typename T>
+   inline T parse_float(const std::string_view floatStr)
+   {
+       static_assert(std::is_floating_point_v<T>,
+           "parse_float() accepts only floating point type.");
+   
+       // FIXME: looks like in VS 15.9.16 from_chars() cannot parse str with
+       // leading whitespaces while it should be able to auto skip them, we
+       // do it manually for now:
+       const std::string_view floatStrNoLeadingWS = trim_head(floatStr);
+   
+       T value;
+       const std::from_chars_result result = std::from_chars(
+           floatStrNoLeadingWS.data(),
+           floatStrNoLeadingWS.data() + floatStrNoLeadingWS.size(),
+           value);
+   
+       /*T value;
+       const std::from_chars_result result = std::from_chars(
+           sdlFloatStr.data(),
+           sdlFloatStr.data() + sdlFloatStr.size(),
+           value);*/
+   
+       detail_from_to_char::throw_from_std_errc_if_has_error(result.ec);
+   
+       return value;
+   }
+   
+   template<typename T>
+   inline T parse_int(const std::string_view intStr)
+   {
+       static_assert(std::is_integral_v<T>,
+           "parse_int() accepts only integer type.");
+   
+       // FIXME: looks like in VS 15.9.16 from_chars() cannot parse str with
+       // leading whitespaces while it should be able to auto skip them, we
+       // do it manually for now:
+       const std::string_view intStrNoLeadingWS = trim_head(intStr);
+   
+       T value;
+       const std::from_chars_result result = std::from_chars(
+           intStrNoLeadingWS.data(),
+           intStrNoLeadingWS.data() + intStrNoLeadingWS.size(),
+           value);
+   
+       /*T value;
+       const std::from_chars_result result = std::from_chars(
+           sdlIntegerStr.data(),
+           sdlIntegerStr.data() + sdlIntegerStr.size(),
+           value);*/
+   
+       detail_from_to_char::throw_from_std_errc_if_has_error(result.ec);
+   
+       return value;
+   }
+   
+   template<typename NumberType>
+   inline NumberType parse_number(const std::string_view numberStr)
+   {
+       if constexpr(std::is_floating_point_v<NumberType>)
+       {
+           return parse_float<NumberType>(numberStr);
+       }
+       else
+       {
+           static_assert(std::is_integral_v<NumberType>);
+   
+           return parse_int<NumberType>(numberStr);
+       }
+   }
+   
+   template<typename T>
+   inline std::size_t stringify_float(const T value, char* const out_buffer, const std::size_t bufferSize)
+   {
+       static_assert(std::is_floating_point_v<T>,
+           "stringify_float() accepts only floating point type.");
+   
+       PH_ASSERT(out_buffer);
+       PH_ASSERT_GE(bufferSize, 1);
+   
+       const std::to_chars_result result = std::to_chars(
+           out_buffer,
+           out_buffer + bufferSize,
+           value);
+   
+       detail_from_to_char::throw_from_std_errc_if_has_error(result.ec);
+   
+       // Must written at least a char, and must not exceed bufferSize
+       PH_ASSERT(out_buffer < result.ptr && result.ptr <= out_buffer + bufferSize);
+       return static_cast<std::size_t>(result.ptr - out_buffer);
+   }
+   
+   template<typename T>
+   inline std::size_t stringify_int(const T value, char* const out_buffer, const std::size_t bufferSize)
+   {
+       static_assert(std::is_integral_v<T>,
+           "stringify_int() accepts only integer type.");
+   
+       PH_ASSERT(out_buffer);
+       PH_ASSERT_GE(bufferSize, 1);
+   
+       const std::to_chars_result result = std::to_chars(
+           out_buffer,
+           out_buffer + bufferSize,
+           value);
+   
+       detail_from_to_char::throw_from_std_errc_if_has_error(result.ec);
+   
+       // Must written at least a char, and must not exceed bufferSize
+       PH_ASSERT(out_buffer < result.ptr && result.ptr <= out_buffer + bufferSize);
+       return static_cast<std::size_t>(result.ptr - out_buffer);
+   }
+   
+   template<typename NumberType>
+   inline std::size_t stringify_number(const NumberType value, char* const out_buffer, const std::size_t bufferSize)
+   {
+       if constexpr(std::is_floating_point_v<NumberType>)
+       {
+           return stringify_float<NumberType>(value, out_buffer, bufferSize);
+       }
+       else
+       {
+           static_assert(std::is_integral_v<NumberType>);
+   
+           return stringify_int<NumberType>(value, out_buffer, bufferSize);
+       }
+   }
+   
+   template<typename NumberType>
+   inline void stringify_number(const NumberType value, std::string* const out_str, const std::size_t maxChars = 32)
+   {
+       PH_ASSERT(out_str);
+   
+       out_str->resize(maxChars);
+       const std::size_t actualStrSize = string_utils::stringify_number<NumberType>(
+           value, out_str->data(), out_str->size());
+       out_str->resize(actualStrSize);
+   }
+   
+   }// end namespace ph::string_utils

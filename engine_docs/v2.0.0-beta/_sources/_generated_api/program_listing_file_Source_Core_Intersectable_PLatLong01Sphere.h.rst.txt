@@ -1,0 +1,31 @@
+
+.. _program_listing_file_Source_Core_Intersectable_PLatLong01Sphere.h:
+
+Program Listing for File PLatLong01Sphere.h
+===========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Core_Intersectable_PLatLong01Sphere.h>` (``Source\Core\Intersectable\PLatLong01Sphere.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Core/Intersectable/PBasicSphere.h"
+   
+   namespace ph
+   {
+   
+   class PLatLong01Sphere : public PBasicSphere
+   {
+   public:
+       PLatLong01Sphere(const PrimitiveMetadata* metadata, real radius);
+   
+       void calcIntersectionDetail(
+           const Ray& ray,
+           HitProbe&  probe,
+           HitDetail* out_detail) const override;
+   };
+   
+   }// end namespace ph

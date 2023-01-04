@@ -1,0 +1,32 @@
+.. _exhale_class_classph_1_1_observer:
+
+Class Observer
+==============
+
+- Defined in :ref:`file_Source_EngineEnv_Observer_Observer.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::CoreSdlResource`` (:ref:`exhale_class_classph_1_1_core_sdl_resource`)
+
+
+Derived Type
+************
+
+- ``public ph::OrientedRasterObserver`` (:ref:`exhale_class_classph_1_1_oriented_raster_observer`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::Observer
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,14 @@
+.. _exhale_function_ph__core_8h_1a22d23c387cbe280284737bcb51324424:
+
+Function phConfigCoreResourceDirectory(const PHchar \*)
+=======================================================
+
+- Defined in :ref:`file_Include_CEngine_ph_core.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: phConfigCoreResourceDirectory(const PHchar *)
+   :project: Photon

@@ -1,0 +1,23 @@
+.. _exhale_struct_structph_1_1_timer_stats_report_1_1_time_record:
+
+Struct TimerStatsReport::TimeRecord
+===================================
+
+- Defined in :ref:`file_Source_Common_stats.h`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_class_classph_1_1_timer_stats_report`.
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: ph::TimerStatsReport::TimeRecord
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

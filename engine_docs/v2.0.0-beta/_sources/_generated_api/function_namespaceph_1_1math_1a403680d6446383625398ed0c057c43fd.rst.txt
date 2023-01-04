@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1a403680d6446383625398ed0c057c43fd:
+
+Template Function ph::math::quantize_normalized_float
+=====================================================
+
+- Defined in :ref:`file_Source_Math_math.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::quantize_normalized_float(const FloatType)
+   :project: Photon

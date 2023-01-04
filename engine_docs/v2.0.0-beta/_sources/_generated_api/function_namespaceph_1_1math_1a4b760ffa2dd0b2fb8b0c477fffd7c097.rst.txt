@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1a4b760ffa2dd0b2fb8b0c477fffd7c097:
+
+Template Function ph::math::transform_from_sRGB
+===============================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::transform_from_sRGB(const TTristimulusValues<T>&, EColorUsage)
+   :project: Photon

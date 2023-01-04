@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a57bc2503d1f1e441532a1e03f6c541a1:
+
+Function ph::PH_DEFINE_INTERNAL_TIMER_STAT(FullEstimation, Render_BNEEPTEstimator)
+==================================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_INTERNAL_TIMER_STAT(FullEstimation, Render_BNEEPTEstimator)
+   :project: Photon

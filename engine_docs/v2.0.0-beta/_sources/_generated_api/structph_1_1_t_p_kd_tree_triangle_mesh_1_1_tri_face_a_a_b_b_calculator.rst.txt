@@ -1,0 +1,23 @@
+.. _exhale_struct_structph_1_1_t_p_kd_tree_triangle_mesh_1_1_tri_face_a_a_b_b_calculator:
+
+Struct TPKdTreeTriangleMesh::TriFaceAABBCalculator
+==================================================
+
+- Defined in :ref:`file_Source_Core_Intersectable_TPKdTreeTriangleMesh.h`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_class_classph_1_1_t_p_kd_tree_triangle_mesh`.
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: ph::TPKdTreeTriangleMesh::TriFaceAABBCalculator
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

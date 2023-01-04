@@ -1,0 +1,52 @@
+
+.. _file_Source_DataIO_Stream_StdOutputStream.cpp:
+
+File StdOutputStream.cpp
+========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\Stream\StdOutputStream.cpp``)
+---------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_Stream_StdOutputStream.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``DataIO/Stream/StdOutputStream.h``
+
+- ``DataIO/io_exceptions.h``
+
+- ``cerrno``
+
+- ``cstring``
+
+- ``format``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

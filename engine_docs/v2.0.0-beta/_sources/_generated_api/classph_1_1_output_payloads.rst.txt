@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_output_payloads:
+
+Class OutputPayloads
+====================
+
+- Defined in :ref:`file_Source_DataIO_SDL_OutputPayloads.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::OutputPayloads
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

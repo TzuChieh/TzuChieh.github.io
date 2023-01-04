@@ -1,0 +1,34 @@
+
+.. _program_listing_file_Source_Core_LTABuildingBlock_SenseEvent.h:
+
+Program Listing for File SenseEvent.h
+=====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Core_LTABuildingBlock_SenseEvent.h>` (``Source\Core\LTABuildingBlock\SenseEvent.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Common/primitive_type.h"
+   #include "Math/TVector3.h"
+   #include "Core/Quantity/Spectrum.h"
+   
+   namespace ph
+   {
+   
+   class SenseEvent final
+   {
+   public:
+       //real filmX;
+       //real filmY;
+       Spectrum radiance;
+   
+       SenseEvent(/*const real filmX, const real filmY, */const Spectrum& radiance) :
+           /*filmX(filmX), filmY(filmY), */radiance(radiance)
+       {}
+   };
+   
+   }// end namespace ph

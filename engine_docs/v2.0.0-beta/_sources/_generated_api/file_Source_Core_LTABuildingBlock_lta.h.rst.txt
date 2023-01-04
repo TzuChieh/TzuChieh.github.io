@@ -1,0 +1,58 @@
+
+.. _file_Source_Core_LTABuildingBlock_lta.h:
+
+File lta.h
+==========
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\LTABuildingBlock\lta.h``)
+---------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_LTABuildingBlock_lta.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Common/primitive_type.h``
+
+- ``Math/TVector3.h``
+
+- ``cmath``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Renderer_PM_PPMRadianceEvaluationWork.cpp`
+
+- :ref:`file_Source_Core_Renderer_PM_TPhotonMappingWork.ipp`
+
+- :ref:`file_Source_Core_Renderer_PM_VPMRadianceEvaluator.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__lta`
+

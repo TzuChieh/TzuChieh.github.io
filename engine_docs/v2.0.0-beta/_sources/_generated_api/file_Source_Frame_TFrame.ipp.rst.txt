@@ -1,0 +1,66 @@
+
+.. _file_Source_Frame_TFrame.ipp:
+
+File TFrame.ipp
+===============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Frame\TFrame.ipp``)
+----------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Frame_TFrame.ipp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Frame/TFrame.h``
+
+- ``Math/TVector2.h``
+
+- ``Math/TVector3.h``
+
+- ``Math/math.h``
+
+- ``algorithm``
+
+- ``concepts``
+
+- ``limits``
+
+- ``type_traits``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Frame_TFrame.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__frame_detail`
+

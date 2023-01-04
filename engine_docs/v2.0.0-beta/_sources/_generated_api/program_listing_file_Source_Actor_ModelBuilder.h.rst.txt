@@ -1,0 +1,46 @@
+
+.. _program_listing_file_Source_Actor_ModelBuilder.h:
+
+Program Listing for File ModelBuilder.h
+=======================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Actor_ModelBuilder.h>` (``Source\Actor\ModelBuilder.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Utility/IMoveOnly.h"
+   #include "Core/Intersectable/Intersectable.h"
+   #include "Core/Intersectable/PrimitiveMetadata.h"
+   #include "Math/Transform/Transform.h"
+   #include "Actor/CookedUnit.h"
+   
+   #include <memory>
+   
+   namespace ph
+   {
+   
+   class ActorCookingContext;
+   
+   class ModelBuilder final : private IMoveOnly
+   {
+   public:
+       explicit ModelBuilder(ActorCookingContext& ctx);
+   
+       ModelBuilder& addIntersectable(std::unique_ptr<Intersectable> isable);
+   
+       // TODO: rename to set...
+       ModelBuilder& addPrimitiveMetadata(std::unique_ptr<PrimitiveMetadata> metadata);
+   
+       ModelBuilder& transform(std::unique_ptr<math::Transform> LtoW, std::unique_ptr<math::Transform> WtoL);
+       CookedUnit claimBuildResult();
+   
+   private:
+       ActorCookingContext& m_ctx;
+       CookedUnit           m_cookedResults;
+   };
+   
+   }// end namespace ph

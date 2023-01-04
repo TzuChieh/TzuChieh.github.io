@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1math_1_1_t_indexed_kdtree:
+
+Template Class TIndexedKdtree
+=============================
+
+- Defined in :ref:`file_Source_Math_Algorithm_IndexedKdtree_TIndexedKdtree.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::math::TIndexedKdtree
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,31 @@
+
+.. _program_listing_file_Source_Core_VolumeBehavior_BlockFunction.h:
+
+Program Listing for File BlockFunction.h
+========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Core_VolumeBehavior_BlockFunction.h>` (``Source\Core\VolumeBehavior\BlockFunction.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Common/primitive_type.h"
+   #include "Math/Color/Spectrum.h"
+   
+   namespace ph
+   {
+   
+   class SurfaceHit;
+   
+   class BlockFunction
+   {
+   public:
+       virtual ~BlockFunction() = 0;
+   
+       virtual void evalAbsorptionCoeff(const SurfaceHit& X, math::Spectrum* out_coeff) const = 0;
+   };
+   
+   }// end namespace ph

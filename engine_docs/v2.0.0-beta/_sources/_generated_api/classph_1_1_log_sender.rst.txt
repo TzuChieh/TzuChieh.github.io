@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_log_sender:
+
+Class LogSender
+===============
+
+- Defined in :ref:`file_Source_Common_LogSender.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::LogSender
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

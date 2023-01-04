@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_samples_n_d:
+
+Class SamplesND
+===============
+
+- Defined in :ref:`file_Source_Core_SampleGenerator_SamplesND.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::SamplesND
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

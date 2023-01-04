@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1ac5f1bf537c3d313b6e6eb118d1d172fb:
+
+Typedef ph::TSdlUint32
+======================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::TSdlUint32
+   :project: Photon

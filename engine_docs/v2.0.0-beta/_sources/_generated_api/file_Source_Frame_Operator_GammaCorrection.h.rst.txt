@@ -1,0 +1,57 @@
+
+.. _file_Source_Frame_Operator_GammaCorrection.h:
+
+File GammaCorrection.h
+======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Frame\Operator\GammaCorrection.h``)
+--------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Frame_Operator_GammaCorrection.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Common/primitive_type.h``
+
+- ``Core/Quantity/ColorSpace.h``
+
+- ``Frame/Operator/FrameOperator.h``
+
+- ``Math/TVector3.h``
+
+- ``cmath``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_gamma_correction`
+

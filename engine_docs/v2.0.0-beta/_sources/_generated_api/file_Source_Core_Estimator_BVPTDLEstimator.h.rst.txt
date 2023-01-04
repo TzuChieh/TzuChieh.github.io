@@ -1,0 +1,57 @@
+
+.. _file_Source_Core_Estimator_BVPTDLEstimator.h:
+
+File BVPTDLEstimator.h
+======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Estimator\BVPTDLEstimator.h``)
+--------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Estimator_BVPTDLEstimator.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/Estimator/PartialRayEnergyEstimator.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Estimator_BVPTDLEstimator.cpp`
+
+- :ref:`file_Source_Core_Renderer_Sampling_SamplingRenderer.cpp`
+
+- :ref:`file_Source_EngineEnv_Visualizer_PathTracingVisualizer.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_b_v_p_t_d_l_estimator`
+

@@ -6,5 +6,6 @@ var classph_1_1_t_mipmap =
     [ "getLevel", "classph_1_1_t_mipmap.html#a00c25d312fc28bee2f09c38ac05bc99a", null ],
     [ "numLevels", "classph_1_1_t_mipmap.html#a6b1fa2f44b4a5a4a59352a946851a038", null ],
     [ "sample", "classph_1_1_t_mipmap.html#aa46f73f4bf440e044dc83799fe893aa1", null ],
-    [ "setLevel", "classph_1_1_t_mipmap.html#a623bcc6de09b3da76ad15ffd84d4b9de", null ]
+    [ "setLevel", "classph_1_1_t_mipmap.html#a623bcc6de09b3da76ad15ffd84d4b9de", null ],
+    [ "m_levels", "classph_1_1_t_mipmap.html#a671ab7246935bac02c25275002790998", null ]
 ];

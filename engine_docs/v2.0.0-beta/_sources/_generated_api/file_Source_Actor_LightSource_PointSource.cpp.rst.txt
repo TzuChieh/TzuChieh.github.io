@@ -1,0 +1,42 @@
+
+.. _file_Source_Actor_LightSource_PointSource.cpp:
+
+File PointSource.cpp
+====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\LightSource\PointSource.cpp``)
+---------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_LightSource_PointSource.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/Geometry/GSphere.h``
+
+- ``Actor/LightSource/PointSource.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

@@ -1,0 +1,42 @@
+
+.. _file_Source_Actor_Image_GradientImage.cpp:
+
+File GradientImage.cpp
+======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\Image\GradientImage.cpp``)
+-----------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_Image_GradientImage.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/Image/GradientImage.h``
+
+- ``Core/Texture/TLinearGradientTexture.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

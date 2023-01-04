@@ -1,0 +1,14 @@
+.. _exhale_function_ph__core_8h_1af17509e8684b62e611205062efc1cc6b:
+
+Function phLoadFrame(PHuint64, const PHchar \*)
+===============================================
+
+- Defined in :ref:`file_Include_CEngine_ph_core.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: phLoadFrame(PHuint64, const PHchar *)
+   :project: Photon

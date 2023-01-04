@@ -1,0 +1,36 @@
+.. _exhale_class_classph_1_1_equal_sampling_renderer:
+
+Class EqualSamplingRenderer
+===========================
+
+- Defined in :ref:`file_Source_Core_Renderer_Sampling_EqualSamplingRenderer.h`
+
+
+Nested Relationships
+--------------------
+
+
+Nested Types
+************
+
+- :ref:`exhale_struct_structph_1_1_equal_sampling_renderer_1_1_updated_region`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::SamplingRenderer`` (:ref:`exhale_class_classph_1_1_sampling_renderer`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::EqualSamplingRenderer
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

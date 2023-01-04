@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1aabd2922ed9fbc4763b49ec84230e8dd2:
+
+Typedef ph::TPhotonMap
+======================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::TPhotonMap
+   :project: Photon

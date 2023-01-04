@@ -1,0 +1,83 @@
+
+.. _file_Source_Core_Renderer_Sampling_TReceiverMeasurementEstimator.h:
+
+File TReceiverMeasurementEstimator.h
+====================================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Renderer\Sampling\TReceiverMeasurementEstimator.h``)
+------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Renderer_Sampling_TReceiverMeasurementEstimator.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/Estimator/Integrand.h``
+
+- ``Core/Estimator/TEstimationArray.h``
+
+- ``Core/Estimator/estimator_fwd.h``
+
+- ``Core/Filmic/SampleFilter.h``
+
+- ``Core/Renderer/Sampling/IReceivedRayProcessor.h``
+
+- ``Core/Renderer/Sampling/TReceiverMeasurementEstimator.ipp``
+
+- ``Math/Geometry/TAABB2D.h``
+
+- ``Math/math_fwd.h``
+
+- ``cstddef``
+
+- ``type_traits``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Renderer_Attribute_AttributeRenderer.h`
+
+- :ref:`file_Source_Core_Renderer_Sampling_EqualSamplingRenderer.h`
+
+- :ref:`file_Source_Core_Renderer_Sampling_TReceiverMeasurementEstimator.ipp`
+
+- :ref:`file_Source_Core_Renderer_Sampling_TStepperReceiverMeasurementEstimator.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_t_receiver_measurement_estimator`
+

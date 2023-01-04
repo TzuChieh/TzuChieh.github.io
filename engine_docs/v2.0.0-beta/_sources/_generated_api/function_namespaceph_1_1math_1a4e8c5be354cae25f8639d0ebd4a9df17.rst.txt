@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1a4e8c5be354cae25f8639d0ebd4a9df17:
+
+Template Function ph::math::spectral_samples_to_CIE_XYZ
+=======================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::spectral_samples_to_CIE_XYZ(const TSpectralSampleValues<T, SampleProps>&, EColorUsage)
+   :project: Photon

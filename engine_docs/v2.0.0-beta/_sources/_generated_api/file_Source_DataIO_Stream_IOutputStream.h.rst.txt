@@ -1,0 +1,57 @@
+
+.. _file_Source_DataIO_Stream_IOutputStream.h:
+
+File IOutputStream.h
+====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\Stream\IOutputStream.h``)
+-----------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_Stream_IOutputStream.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``DataIO/Stream/IDataStream.h``
+
+- ``cstddef``
+
+- ``optional``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_DataIO_Stream_StdOutputStream.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_i_output_stream`
+

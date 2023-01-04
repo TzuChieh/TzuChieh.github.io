@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_roughness_to_alpha_mapping:
+
+Class RoughnessToAlphaMapping
+=============================
+
+- Defined in :ref:`file_Source_Actor_Material_Utility_RoughnessToAlphaMapping.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::RoughnessToAlphaMapping
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

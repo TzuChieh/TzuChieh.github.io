@@ -1,0 +1,20 @@
+
+.. _program_listing_file_Source_Core_VolumeBehavior_ScatterFunction.cpp:
+
+Program Listing for File ScatterFunction.cpp
+============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Core_VolumeBehavior_ScatterFunction.cpp>` (``Source\Core\VolumeBehavior\ScatterFunction.cpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #include "Core/VolumeBehavior/ScatterFunction.h"
+   
+   namespace ph
+   {
+   
+   ScatterFunction::~ScatterFunction() = default;
+   
+   }// end namespace ph

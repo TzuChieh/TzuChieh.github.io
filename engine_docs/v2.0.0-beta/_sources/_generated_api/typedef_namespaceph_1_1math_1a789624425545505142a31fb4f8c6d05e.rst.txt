@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1_1math_1a789624425545505142a31fb4f8c6d05e:
+
+Typedef ph::math::QuaternionR
+=============================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::math::QuaternionR
+   :project: Photon

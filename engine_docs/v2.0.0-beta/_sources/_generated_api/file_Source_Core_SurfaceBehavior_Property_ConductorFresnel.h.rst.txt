@@ -1,0 +1,61 @@
+
+.. _file_Source_Core_SurfaceBehavior_Property_ConductorFresnel.h:
+
+File ConductorFresnel.h
+=======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SurfaceBehavior\Property\ConductorFresnel.h``)
+------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SurfaceBehavior_Property_ConductorFresnel.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/primitive_type.h``
+
+- ``Core/SurfaceBehavior/Property/FresnelEffect.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_SurfaceBehavior_Property_ConductorFresnel.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_Property_ExactConductorFresnel.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_Property_SchlickApproxConductorFresnel.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_OpaqueMicrofacet.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_conductor_fresnel`
+

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File TIndexedPointKdtree.h &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File TIndexedPointKdtree.h</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Math_Algorithm_IndexedKdtree_TIndexedPointKdtree.h.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-tindexedpointkdtree-h">
+<span id="program-listing-file-source-math-algorithm-indexedkdtree-tindexedpointkdtree-h"></span><h1>Program Listing for File TIndexedPointKdtree.h<a class="headerlink" href="#program-listing-for-file-tindexedpointkdtree-h" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Math_Algorithm_IndexedKdtree_TIndexedPointKdtree.h.html#file-source-math-algorithm-indexedkdtree-tindexedpointkdtree-h"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Math\Algorithm\IndexedKdtree\TIndexedPointKdtree.h</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/assertion.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/TVector3.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/Algorithm/IndexedKdtree/TIndexedKdtreeNode.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/Geometry/TAABB3D.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Utility/utility.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;utility&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstddef&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;algorithm&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;array&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;memory&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;type_traits&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;limits&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span><span class="o">::</span><span class="nn">math</span>
+<span class="p">{</span>
+
+<span class="c1">// TODO: static_assert for signature of PointCalculator</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Item</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Index</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">PointCalculator</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TIndexedPointKdtree</span><span class="w"> </span><span class="k">final</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TIndexedKdtreeNode</span><span class="o">&lt;</span><span class="n">Index</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">TIndexedPointKdtree</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">maxNodeItems</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">PointCalculator</span><span class="o">&amp;</span><span class="w"> </span><span class="n">pointCalculator</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">build</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span><span class="w"> </span><span class="n">items</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">findWithinRange</span><span class="p">(</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">location</span><span class="p">,</span>
+<span class="w">        </span><span class="n">real</span><span class="w">                  </span><span class="n">searchRadius</span><span class="p">,</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;&amp;</span><span class="w">    </span><span class="n">results</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">findNearest</span><span class="p">(</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">location</span><span class="p">,</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w">           </span><span class="n">maxItems</span><span class="p">,</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;&amp;</span><span class="w">    </span><span class="n">results</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">ItemHandler</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">rangeTraversal</span><span class="p">(</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">location</span><span class="p">,</span>
+<span class="w">        </span><span class="n">real</span><span class="w">                  </span><span class="n">squaredSearchRadius</span><span class="p">,</span>
+<span class="w">        </span><span class="n">ItemHandler</span><span class="w">           </span><span class="n">itemHandler</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">ItemHandler</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">nearestTraversal</span><span class="p">(</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">location</span><span class="p">,</span>
+<span class="w">        </span><span class="n">real</span><span class="w">                  </span><span class="n">initialSquaredSearchRadius</span><span class="p">,</span>
+<span class="w">        </span><span class="n">ItemHandler</span><span class="w">           </span><span class="n">itemHandler</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="nf">numItems</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span><span class="w">  </span><span class="n">m_nodeBuffer</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span><span class="w">  </span><span class="n">m_items</span><span class="p">;</span>
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">AABB3D</span><span class="w">       </span><span class="n">m_rootAABB</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w">        </span><span class="n">m_numNodes</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w">        </span><span class="n">m_maxNodeItems</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Index</span><span class="o">&gt;</span><span class="w"> </span><span class="n">m_indexBuffer</span><span class="p">;</span>
+<span class="w">    </span><span class="n">PointCalculator</span><span class="w">    </span><span class="n">m_pointCalculator</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">buildNodeRecursive</span><span class="p">(</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w">                        </span><span class="n">nodeIndex</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">AABB3D</span><span class="o">&amp;</span><span class="w">                </span><span class="n">nodeAABB</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Index</span><span class="o">*</span><span class="w">                             </span><span class="n">nodeItemIndices</span><span class="p">,</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w">                        </span><span class="n">numNodeItems</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">itemPoints</span><span class="p">,</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w">                        </span><span class="n">currentNodeDepth</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">AABB3D</span><span class="w"> </span><span class="nf">calcPointsAABB</span><span class="p">(</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">Index</span><span class="o">*</span><span class="w">                       </span><span class="n">pointIndices</span><span class="p">,</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w">                        </span><span class="n">numPoints</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">pointBuffer</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="c1">// In-header Implementations:</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Item</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Index</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">PointCalculator</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TIndexedPointKdtree</span><span class="o">&lt;</span><span class="n">Item</span><span class="p">,</span><span class="w"> </span><span class="n">Index</span><span class="p">,</span><span class="w"> </span><span class="n">PointCalculator</span><span class="o">&gt;::</span>
+<span class="w">     </span><span class="n">TIndexedPointKdtree</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">maxNodeItems</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">PointCalculator</span><span class="o">&amp;</span><span class="w"> </span><span class="n">pointCalculator</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
+
+<span class="w">    </span><span class="n">m_nodeBuffer</span><span class="w">     </span><span class="p">(),</span>
+<span class="w">    </span><span class="n">m_items</span><span class="w">          </span><span class="p">(),</span>
+<span class="w">    </span><span class="n">m_rootAABB</span><span class="w">       </span><span class="p">(),</span>
+<span class="w">    </span><span class="n">m_numNodes</span><span class="w">       </span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+<span class="w">    </span><span class="n">m_maxNodeItems</span><span class="w">   </span><span class="p">(</span><span class="n">maxNodeItems</span><span class="p">),</span>
+<span class="w">    </span><span class="n">m_indexBuffer</span><span class="w">    </span><span class="p">(),</span>
+<span class="w">    </span><span class="n">m_pointCalculator</span><span class="p">(</span><span class="n">pointCalculator</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT_GT</span><span class="p">(</span><span class="n">maxNodeItems</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Item</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Index</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">PointCalculator</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TIndexedPointKdtree</span><span class="o">&lt;</span><span class="n">Item</span><span class="p">,</span><span class="w"> </span><span class="n">Index</span><span class="p">,</span><span class="w"> </span><span class="n">PointCalculator</span><span class="o">&gt;::</span>
+<span class="w">     </span><span class="n">build</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span><span class="w"> </span><span class="n">items</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_nodeBuffer</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">    </span><span class="n">m_items</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">items</span><span class="p">);</span>
+<span class="w">    </span><span class="n">m_rootAABB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">AABB3D</span><span class="p">();</span>
+<span class="w">    </span><span class="n">m_numNodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">m_indexBuffer</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">m_items</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&gt;</span><span class="w"> </span><span class="n">itemPoints</span><span class="p">(</span><span class="n">m_items</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m_items</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_items</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">center</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_pointCalculator</span><span class="p">(</span><span class="n">regular_access</span><span class="p">(</span><span class="n">item</span><span class="p">));</span>
+<span class="w">        </span><span class="n">itemPoints</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">center</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Index</span><span class="p">[]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">itemIndices</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Index</span><span class="p">[</span><span class="n">m_items</span><span class="p">.</span><span class="n">size</span><span class="p">()]);</span>
+
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">m_items</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">Index</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">());</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m_items</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">itemIndices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Index</span><span class="o">&gt;</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">m_rootAABB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">calcPointsAABB</span><span class="p">(</span><span class="n">itemIndices</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span><span class="w"> </span><span class="n">m_items</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span><span class="w"> </span><span class="n">itemPoints</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">buildNodeRecursive</span><span class="p">(</span>
+<span class="w">        </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">        </span><span class="n">m_rootAABB</span><span class="p">,</span>
+<span class="w">        </span><span class="n">itemIndices</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">m_items</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">itemPoints</span><span class="p">,</span>
+<span class="w">        </span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Item</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Index</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">PointCalculator</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TIndexedPointKdtree</span><span class="o">&lt;</span><span class="n">Item</span><span class="p">,</span><span class="w"> </span><span class="n">Index</span><span class="p">,</span><span class="w"> </span><span class="n">PointCalculator</span><span class="o">&gt;::</span>
+<span class="w">     </span><span class="n">findWithinRange</span><span class="p">(</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">location</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w">            </span><span class="n">searchRadius</span><span class="p">,</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;&amp;</span><span class="w">    </span><span class="n">results</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT_GT</span><span class="p">(</span><span class="n">m_numNodes</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">searchRadius2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">searchRadius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">searchRadius</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">rangeTraversal</span><span class="p">(</span>
+<span class="w">        </span><span class="n">location</span><span class="p">,</span>
+<span class="w">        </span><span class="n">searchRadius2</span><span class="p">,</span>
+<span class="w">        </span><span class="p">[</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">location</span><span class="p">,</span><span class="w"> </span><span class="n">searchRadius2</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">results</span><span class="p">](</span><span class="k">const</span><span class="w"> </span><span class="n">Item</span><span class="o">&amp;</span><span class="w"> </span><span class="n">item</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="n">itemPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_pointCalculator</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w">           </span><span class="n">dist2</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">itemPoint</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">location</span><span class="p">).</span><span class="n">lengthSquared</span><span class="p">();</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">dist2</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">searchRadius2</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">results</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Item</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Index</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">PointCalculator</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TIndexedPointKdtree</span><span class="o">&lt;</span><span class="n">Item</span><span class="p">,</span><span class="w"> </span><span class="n">Index</span><span class="p">,</span><span class="w"> </span><span class="n">PointCalculator</span><span class="o">&gt;::</span>
+<span class="w">     </span><span class="n">findNearest</span><span class="p">(</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">location</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w">     </span><span class="n">maxItems</span><span class="p">,</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;&amp;</span><span class="w">    </span><span class="n">results</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT_GT</span><span class="p">(</span><span class="n">m_numNodes</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">PH_ASSERT_GT</span><span class="p">(</span><span class="n">maxItems</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// OPT: distance calculation can be cached</span>
+
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">isACloserThanB</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="p">[</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">location</span><span class="p">](</span><span class="k">const</span><span class="w"> </span><span class="n">Item</span><span class="o">&amp;</span><span class="w"> </span><span class="n">itemA</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Item</span><span class="o">&amp;</span><span class="w"> </span><span class="n">itemB</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">m_pointCalculator</span><span class="p">(</span><span class="n">itemA</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">location</span><span class="p">).</span><span class="n">lengthSquared</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span>
+<span class="w">                   </span><span class="p">(</span><span class="n">m_pointCalculator</span><span class="p">(</span><span class="n">itemB</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">location</span><span class="p">).</span><span class="n">lengthSquared</span><span class="p">();</span>
+<span class="w">        </span><span class="p">};</span>
+
+<span class="w">    </span><span class="n">real</span><span class="w">        </span><span class="n">searchRadius2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">();</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">numFoundItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">handler</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="p">[</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">location</span><span class="p">,</span><span class="w"> </span><span class="n">maxItems</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">searchRadius2</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">numFoundItems</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">isACloserThanB</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">results</span><span class="p">](</span><span class="k">const</span><span class="w"> </span><span class="n">Item</span><span class="o">&amp;</span><span class="w"> </span><span class="n">item</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="cm">/*</span>
+<span class="cm">                If k nearest neighbors are required and n items are processed</span>
+<span class="cm">                by this handler, this handler (not including traversal) will</span>
+<span class="cm">                take O(k + (n-k)*log(k)) time in total.</span>
+<span class="cm">            */</span>
+
+<span class="w">            </span><span class="c1">// output buffer is not full, just insert the item</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">numFoundItems</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">maxItems</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">results</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+<span class="w">                </span><span class="n">numFoundItems</span><span class="o">++</span><span class="p">;</span>
+
+<span class="w">                </span><span class="c1">// once output buffer is full, make it a max heap</span>
+<span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">numFoundItems</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">maxItems</span><span class="p">)</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="c1">// this takes O(k) time</span>
+<span class="w">                    </span><span class="n">std</span><span class="o">::</span><span class="n">make_heap</span><span class="p">(</span>
+<span class="w">                        </span><span class="n">results</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">maxItems</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">results</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span>
+<span class="w">                        </span><span class="n">isACloserThanB</span><span class="p">);</span>
+
+<span class="w">                    </span><span class="c1">// the furthest one is at the max heap&#39;s root</span>
+<span class="w">                    </span><span class="k">const</span><span class="w"> </span><span class="n">Item</span><span class="o">&amp;</span><span class="w"> </span><span class="n">furthestItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">results</span><span class="p">[</span><span class="n">results</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">maxItems</span><span class="p">];</span>
+
+<span class="w">                    </span><span class="c1">// search radius can be shrunk in this case</span>
+<span class="w">                    </span><span class="n">searchRadius2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">m_pointCalculator</span><span class="p">(</span><span class="n">furthestItem</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">location</span><span class="p">).</span><span class="n">lengthSquared</span><span class="p">();</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="c1">// last &lt;maxItems&gt; items in output buffer forms a max heap now</span>
+<span class="w">            </span><span class="k">else</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// the furthest one is at the max heap&#39;s root</span>
+<span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">Item</span><span class="o">&amp;</span><span class="w"> </span><span class="n">furthestItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">results</span><span class="p">[</span><span class="n">results</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">maxItems</span><span class="p">];</span>
+
+<span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">isACloserThanB</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="w"> </span><span class="n">furthestItem</span><span class="p">))</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="c1">// remove furthest item, this takes O(log(k)) time</span>
+<span class="w">                    </span><span class="n">std</span><span class="o">::</span><span class="n">pop_heap</span><span class="p">(</span>
+<span class="w">                        </span><span class="n">results</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">maxItems</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">results</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span>
+<span class="w">                        </span><span class="n">isACloserThanB</span><span class="p">);</span>
+
+<span class="w">                    </span><span class="n">results</span><span class="p">.</span><span class="n">back</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">item</span><span class="p">;</span>
+
+<span class="w">                    </span><span class="c1">// add new item, this takes O(log(k)) time</span>
+<span class="w">                    </span><span class="n">std</span><span class="o">::</span><span class="n">push_heap</span><span class="p">(</span>
+<span class="w">                        </span><span class="n">results</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">maxItems</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">results</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span>
+<span class="w">                        </span><span class="n">isACloserThanB</span><span class="p">);</span>
+
+<span class="w">                    </span><span class="c1">// search radius can be shrunk in this case</span>
+<span class="w">                    </span><span class="n">searchRadius2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">m_pointCalculator</span><span class="p">(</span><span class="n">furthestItem</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">location</span><span class="p">).</span><span class="n">lengthSquared</span><span class="p">();</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">searchRadius2</span><span class="p">;</span>
+<span class="w">        </span><span class="p">};</span>
+
+<span class="w">    </span><span class="n">nearestTraversal</span><span class="p">(</span>
+<span class="w">        </span><span class="n">location</span><span class="p">,</span>
+<span class="w">        </span><span class="n">searchRadius2</span><span class="p">,</span>
+<span class="w">        </span><span class="n">handler</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Item</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Index</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">PointCalculator</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">ItemHandler</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TIndexedPointKdtree</span><span class="o">&lt;</span><span class="n">Item</span><span class="p">,</span><span class="w"> </span><span class="n">Index</span><span class="p">,</span><span class="w"> </span><span class="n">PointCalculator</span><span class="o">&gt;::</span>
+<span class="w">     </span><span class="n">rangeTraversal</span><span class="p">(</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">location</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w">            </span><span class="n">squaredSearchRadius</span><span class="p">,</span>
+<span class="w">        </span><span class="n">ItemHandler</span><span class="w">           </span><span class="n">itemHandler</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_invocable_v</span><span class="o">&lt;</span><span class="n">ItemHandler</span><span class="p">,</span><span class="w"> </span><span class="n">Item</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;ItemHandler must accept an item as input.&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">PH_ASSERT_GT</span><span class="p">(</span><span class="n">m_numNodes</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">PH_ASSERT_LE</span><span class="p">(</span><span class="n">squaredSearchRadius</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">());</span>
+
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">MAX_STACK_HEIGHT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">Node</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">MAX_STACK_HEIGHT</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nodeStack</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">currentNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="p">(</span><span class="n">m_nodeBuffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">stackHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">currentNode</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">currentNode</span><span class="o">-&gt;</span><span class="n">isLeaf</span><span class="p">())</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w">  </span><span class="n">splitAxis</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="n">currentNode</span><span class="o">-&gt;</span><span class="n">splitAxisIndex</span><span class="p">();</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">splitPos</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="n">currentNode</span><span class="o">-&gt;</span><span class="n">splitPos</span><span class="p">();</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">splitPlaneDiff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">location</span><span class="p">[</span><span class="n">splitAxis</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">splitPos</span><span class="p">;</span>
+
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">nearNode</span><span class="p">;</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">farNode</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">splitPlaneDiff</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">nearNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currentNode</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">                </span><span class="n">farNode</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="p">(</span><span class="n">m_nodeBuffer</span><span class="p">[</span><span class="n">currentNode</span><span class="o">-&gt;</span><span class="n">positiveChildIndex</span><span class="p">()]);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">else</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">nearNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="p">(</span><span class="n">m_nodeBuffer</span><span class="p">[</span><span class="n">currentNode</span><span class="o">-&gt;</span><span class="n">positiveChildIndex</span><span class="p">()]);</span>
+<span class="w">                </span><span class="n">farNode</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">currentNode</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="n">currentNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nearNode</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">squaredSearchRadius</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">splitPlaneDiff</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">splitPlaneDiff</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">stackHeight</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">MAX_STACK_HEIGHT</span><span class="p">);</span>
+<span class="w">                </span><span class="n">nodeStack</span><span class="p">[</span><span class="n">stackHeight</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">farNode</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="c1">// current node is leaf</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">numItems</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="n">currentNode</span><span class="o">-&gt;</span><span class="n">numItems</span><span class="p">();</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">indexBufferOffset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currentNode</span><span class="o">-&gt;</span><span class="n">indexBufferOffset</span><span class="p">();</span>
+<span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numItems</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">Index</span><span class="w"> </span><span class="n">itemIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_indexBuffer</span><span class="p">[</span><span class="n">indexBufferOffset</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">];</span>
+<span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">Item</span><span class="o">&amp;</span><span class="w"> </span><span class="n">item</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="n">m_items</span><span class="p">[</span><span class="n">itemIndex</span><span class="p">];</span>
+
+<span class="w">                </span><span class="n">itemHandler</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">stackHeight</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">currentNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nodeStack</span><span class="p">[</span><span class="o">--</span><span class="n">stackHeight</span><span class="p">];</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">else</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">break</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="c1">// end while stackHeight &gt; 0</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Item</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Index</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">PointCalculator</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">ItemHandler</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TIndexedPointKdtree</span><span class="o">&lt;</span><span class="n">Item</span><span class="p">,</span><span class="w"> </span><span class="n">Index</span><span class="p">,</span><span class="w"> </span><span class="n">PointCalculator</span><span class="o">&gt;::</span>
+<span class="w">     </span><span class="n">nearestTraversal</span><span class="p">(</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">location</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w">            </span><span class="n">initialSquaredSearchRadius</span><span class="p">,</span>
+<span class="w">        </span><span class="n">ItemHandler</span><span class="w">           </span><span class="n">itemHandler</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_invocable_v</span><span class="o">&lt;</span><span class="n">ItemHandler</span><span class="p">,</span><span class="w"> </span><span class="n">Item</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;ItemHandler must accept an item as input.&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">Return</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">itemHandler</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">declval</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span><span class="p">()));</span>
+<span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="n">Return</span><span class="p">,</span><span class="w"> </span><span class="n">real</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;ItemHandler must return an potentially shrunk squared search radius.&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">PH_ASSERT_GT</span><span class="p">(</span><span class="n">m_numNodes</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">PH_ASSERT_LE</span><span class="p">(</span><span class="n">initialSquaredSearchRadius</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">());</span>
+
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">NodeRecord</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1">// The value is zero for near nodes as they should not be skipped by distance test.</span>
+<span class="w">        </span><span class="n">real</span><span class="w">        </span><span class="n">parentSplitPlaneDiff2</span><span class="p">;</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">MAX_STACK_HEIGHT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">NodeRecord</span><span class="p">,</span><span class="w"> </span><span class="n">MAX_STACK_HEIGHT</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nodeStack</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">NodeRecord</span><span class="w">  </span><span class="n">currentNode</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="o">&amp;</span><span class="p">(</span><span class="n">m_nodeBuffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">stackHeight</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">real</span><span class="w">        </span><span class="n">currentRadius2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">initialSquaredSearchRadius</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">currentNode</span><span class="p">.</span><span class="n">node</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">currentNode</span><span class="p">.</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">isLeaf</span><span class="p">())</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w">  </span><span class="n">splitAxis</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="n">currentNode</span><span class="p">.</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">splitAxisIndex</span><span class="p">();</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">splitPos</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="n">currentNode</span><span class="p">.</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">splitPos</span><span class="p">();</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">splitPlaneDiff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">location</span><span class="p">[</span><span class="n">splitAxis</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">splitPos</span><span class="p">;</span>
+
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">nearNode</span><span class="p">;</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">farNode</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">splitPlaneDiff</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">nearNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currentNode</span><span class="p">.</span><span class="n">node</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">                </span><span class="n">farNode</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="p">(</span><span class="n">m_nodeBuffer</span><span class="p">[</span><span class="n">currentNode</span><span class="p">.</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">positiveChildIndex</span><span class="p">()]);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">else</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">nearNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="p">(</span><span class="n">m_nodeBuffer</span><span class="p">[</span><span class="n">currentNode</span><span class="p">.</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">positiveChildIndex</span><span class="p">()]);</span>
+<span class="w">                </span><span class="n">farNode</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">currentNode</span><span class="p">.</span><span class="n">node</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">splitPlaneDiff2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">splitPlaneDiff</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">splitPlaneDiff</span><span class="p">;</span>
+
+<span class="w">            </span><span class="n">currentNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">nearNode</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">currentRadius2</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">splitPlaneDiff2</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">stackHeight</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">MAX_STACK_HEIGHT</span><span class="p">);</span>
+<span class="w">                </span><span class="n">nodeStack</span><span class="p">[</span><span class="n">stackHeight</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">farNode</span><span class="p">,</span><span class="w"> </span><span class="n">splitPlaneDiff2</span><span class="p">};</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="c1">// current node is leaf</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// For far nodes, they can be culled if radius has shrunk.</span>
+<span class="w">            </span><span class="c1">// For near nodes, they have &lt;parentSplitPlaneDiff2&gt; == 0 hence cannot be skipped.</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">currentRadius2</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">currentNode</span><span class="p">.</span><span class="n">parentSplitPlaneDiff2</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">numItems</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="n">currentNode</span><span class="p">.</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">numItems</span><span class="p">();</span>
+<span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">indexBufferOffset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currentNode</span><span class="p">.</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">indexBufferOffset</span><span class="p">();</span>
+<span class="w">                </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numItems</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">const</span><span class="w"> </span><span class="n">Index</span><span class="w"> </span><span class="n">itemIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_indexBuffer</span><span class="p">[</span><span class="n">indexBufferOffset</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">];</span>
+<span class="w">                    </span><span class="k">const</span><span class="w"> </span><span class="n">Item</span><span class="o">&amp;</span><span class="w"> </span><span class="n">item</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="n">m_items</span><span class="p">[</span><span class="n">itemIndex</span><span class="p">];</span>
+
+<span class="w">                    </span><span class="c1">// potentially reduce search radius</span>
+<span class="w">                    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">shrunkRadius2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">itemHandler</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+<span class="w">                    </span><span class="n">PH_ASSERT_LE</span><span class="p">(</span><span class="n">shrunkRadius2</span><span class="p">,</span><span class="w"> </span><span class="n">currentRadius2</span><span class="p">);</span>
+<span class="w">                    </span><span class="n">currentRadius2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shrunkRadius2</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">stackHeight</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">currentNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nodeStack</span><span class="p">[</span><span class="o">--</span><span class="n">stackHeight</span><span class="p">];</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">else</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">break</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="c1">// end while stackHeight &gt; 0</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Item</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Index</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">PointCalculator</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TIndexedPointKdtree</span><span class="o">&lt;</span><span class="n">Item</span><span class="p">,</span><span class="w"> </span><span class="n">Index</span><span class="p">,</span><span class="w"> </span><span class="n">PointCalculator</span><span class="o">&gt;::</span>
+<span class="w">     </span><span class="n">buildNodeRecursive</span><span class="p">(</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w">                  </span><span class="n">nodeIndex</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">AABB3D</span><span class="o">&amp;</span><span class="w">                </span><span class="n">nodeAABB</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Index</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w">                       </span><span class="n">nodeItemIndices</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w">                  </span><span class="n">numNodeItems</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">itemPoints</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w">                  </span><span class="n">currentNodeDepth</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="o">++</span><span class="n">m_numNodes</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">m_numNodes</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">m_nodeBuffer</span><span class="p">.</span><span class="n">size</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">m_nodeBuffer</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">m_numNodes</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">nodeIndex</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m_nodeBuffer</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">numNodeItems</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">m_maxNodeItems</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">m_nodeBuffer</span><span class="p">[</span><span class="n">nodeIndex</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Node</span><span class="o">::</span><span class="n">makeLeaf</span><span class="p">(</span><span class="n">nodeItemIndices</span><span class="p">,</span><span class="w"> </span><span class="n">numNodeItems</span><span class="p">,</span><span class="w"> </span><span class="n">m_indexBuffer</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">nodeExtents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nodeAABB</span><span class="p">.</span><span class="n">getExtents</span><span class="p">();</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w">            </span><span class="n">splitAxis</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">nodeExtents</span><span class="p">.</span><span class="n">maxDimension</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">midIndicesIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numNodeItems</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">nth_element</span><span class="p">(</span>
+<span class="w">        </span><span class="n">nodeItemIndices</span><span class="p">,</span>
+<span class="w">        </span><span class="n">nodeItemIndices</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">midIndicesIndex</span><span class="p">,</span>
+<span class="w">        </span><span class="n">nodeItemIndices</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numNodeItems</span><span class="p">,</span>
+<span class="w">        </span><span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="k">const</span><span class="w"> </span><span class="n">Index</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Index</span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">itemPoints</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="n">splitAxis</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">itemPoints</span><span class="p">[</span><span class="n">b</span><span class="p">][</span><span class="n">splitAxis</span><span class="p">];</span>
+<span class="w">        </span><span class="p">});</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">numNegativeItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">midIndicesIndex</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">numPositiveItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numNodeItems</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">midIndicesIndex</span><span class="p">;</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">numNegativeItems</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numPositiveItems</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">splitPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">itemPoints</span><span class="p">[</span><span class="n">nodeItemIndices</span><span class="p">[</span><span class="n">midIndicesIndex</span><span class="p">]][</span><span class="n">splitAxis</span><span class="p">];</span>
+
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="n">splitPosMinVertex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nodeAABB</span><span class="p">.</span><span class="n">getMinVertex</span><span class="p">();</span>
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="n">splitPosMaxVertex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nodeAABB</span><span class="p">.</span><span class="n">getMaxVertex</span><span class="p">();</span>
+<span class="w">    </span><span class="n">splitPosMinVertex</span><span class="p">[</span><span class="n">splitAxis</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">splitPos</span><span class="p">;</span>
+<span class="w">    </span><span class="n">splitPosMaxVertex</span><span class="p">[</span><span class="n">splitAxis</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">splitPos</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">AABB3D</span><span class="w"> </span><span class="nf">negativeNodeAABB</span><span class="p">(</span><span class="n">nodeAABB</span><span class="p">.</span><span class="n">getMinVertex</span><span class="p">(),</span><span class="w"> </span><span class="n">splitPosMaxVertex</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">AABB3D</span><span class="w"> </span><span class="nf">positiveNodeAABB</span><span class="p">(</span><span class="n">splitPosMinVertex</span><span class="p">,</span><span class="w"> </span><span class="n">nodeAABB</span><span class="p">.</span><span class="n">getMaxVertex</span><span class="p">());</span>
+
+<span class="w">    </span><span class="n">buildNodeRecursive</span><span class="p">(</span>
+<span class="w">        </span><span class="n">nodeIndex</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">        </span><span class="n">negativeNodeAABB</span><span class="p">,</span>
+<span class="w">        </span><span class="n">nodeItemIndices</span><span class="p">,</span>
+<span class="w">        </span><span class="n">numNegativeItems</span><span class="p">,</span>
+<span class="w">        </span><span class="n">itemPoints</span><span class="p">,</span>
+<span class="w">        </span><span class="n">currentNodeDepth</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">positiveChildIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_numNodes</span><span class="p">;</span>
+<span class="w">    </span><span class="n">m_nodeBuffer</span><span class="p">[</span><span class="n">nodeIndex</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Node</span><span class="o">::</span><span class="n">makeInner</span><span class="p">(</span><span class="n">splitPos</span><span class="p">,</span><span class="w"> </span><span class="n">splitAxis</span><span class="p">,</span><span class="w"> </span><span class="n">positiveChildIndex</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">buildNodeRecursive</span><span class="p">(</span>
+<span class="w">        </span><span class="n">positiveChildIndex</span><span class="p">,</span>
+<span class="w">        </span><span class="n">positiveNodeAABB</span><span class="p">,</span>
+<span class="w">        </span><span class="n">nodeItemIndices</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">midIndicesIndex</span><span class="p">,</span>
+<span class="w">        </span><span class="n">numPositiveItems</span><span class="p">,</span>
+<span class="w">        </span><span class="n">itemPoints</span><span class="p">,</span>
+<span class="w">        </span><span class="n">currentNodeDepth</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Item</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Index</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">PointCalculator</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">TIndexedPointKdtree</span><span class="o">&lt;</span><span class="n">Item</span><span class="p">,</span><span class="w"> </span><span class="n">Index</span><span class="p">,</span><span class="w"> </span><span class="n">PointCalculator</span><span class="o">&gt;::</span>
+<span class="w">     </span><span class="n">numItems</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_items</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Item</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Index</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">PointCalculator</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">TIndexedPointKdtree</span><span class="o">&lt;</span><span class="n">Item</span><span class="p">,</span><span class="w"> </span><span class="n">Index</span><span class="p">,</span><span class="w"> </span><span class="n">PointCalculator</span><span class="o">&gt;::</span>
+<span class="w">     </span><span class="n">calcPointsAABB</span><span class="p">(</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">Index</span><span class="o">*</span><span class="w">                       </span><span class="n">pointIndices</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w">                  </span><span class="n">numPoints</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">pointBuffer</span><span class="p">)</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">AABB3D</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">pointIndices</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">numPoints</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">AABB3D</span><span class="w"> </span><span class="nf">pointsAABB</span><span class="p">(</span><span class="n">pointBuffer</span><span class="p">[</span><span class="n">pointIndices</span><span class="p">[</span><span class="mi">0</span><span class="p">]]);</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numPoints</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">pointsAABB</span><span class="p">.</span><span class="n">unionWith</span><span class="p">(</span><span class="n">pointBuffer</span><span class="p">[</span><span class="n">pointIndices</span><span class="p">[</span><span class="n">i</span><span class="p">]]);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">pointsAABB</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph::math</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

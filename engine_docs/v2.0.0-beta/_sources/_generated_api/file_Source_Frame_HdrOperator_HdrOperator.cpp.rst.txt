@@ -1,0 +1,40 @@
+
+.. _file_Source_Frame_HdrOperator_HdrOperator.cpp:
+
+File HdrOperator.cpp
+====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Frame\HdrOperator\HdrOperator.cpp``)
+---------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Frame_HdrOperator_HdrOperator.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Frame/HdrOperator/HdrOperator.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

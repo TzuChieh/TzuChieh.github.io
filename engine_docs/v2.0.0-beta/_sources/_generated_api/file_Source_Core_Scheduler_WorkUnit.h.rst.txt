@@ -1,0 +1,63 @@
+
+.. _file_Source_Core_Scheduler_WorkUnit.h:
+
+File WorkUnit.h
+===============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Scheduler\WorkUnit.h``)
+-------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Scheduler_WorkUnit.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/Scheduler/Region.h``
+
+- ``Math/Geometry/TAABB2D.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Renderer_Attribute_AttributeRenderer.cpp`
+
+- :ref:`file_Source_Core_Renderer_Sampling_EqualSamplingRenderer.cpp`
+
+- :ref:`file_Source_Core_Scheduler_IWorkDispatcher.h`
+
+- :ref:`file_Source_Core_Scheduler_WorkScheduler.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_work_unit`
+

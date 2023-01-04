@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File TMRSWResource.h &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File TMRSWResource.h</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Utility_Concurrent_TMRSWResource.h.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-tmrswresource-h">
+<span id="program-listing-file-source-utility-concurrent-tmrswresource-h"></span><h1>Program Listing for File TMRSWResource.h<a class="headerlink" href="#program-listing-for-file-tmrswresource-h" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Utility_Concurrent_TMRSWResource.h.html#file-source-utility-concurrent-tmrswresource-h"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Utility\Concurrent\TMRSWResource.h</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Utility/INoCopyAndMove.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;type_traits&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;utility&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;mutex&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;shared_mutex&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="c1">// TODO: convenient getter and setter</span>
+<span class="c1">// TODO: perfect forward readers, writers, and operations?</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Resource</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TMRSWResource</span><span class="w"> </span><span class="k">final</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">INoCopyAndMove</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Res</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">TMRSWResource</span><span class="p">(</span><span class="n">Res</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">resource</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Performs reading operations on the resource. It is guaranteed no</span>
+<span class="w">    </span><span class="c1">// writing operations are ongoing in the meantime.</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Reader</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">read</span><span class="p">(</span><span class="n">Reader</span><span class="w"> </span><span class="n">reader</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Performs writing operations on the resource. It is guaranteed no</span>
+<span class="w">    </span><span class="c1">// reading operations are ongoing in the meantime.</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Writer</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">write</span><span class="p">(</span><span class="n">Writer</span><span class="w"> </span><span class="n">writer</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Similar to read(1) except that if the attempt failed, read operation</span>
+<span class="w">    </span><span class="c1">// is not performed and false is returned.</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Reader</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">tryRead</span><span class="p">(</span><span class="n">Reader</span><span class="w"> </span><span class="n">reader</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Similar to write(1) except that if the attempt failed, write operation</span>
+<span class="w">    </span><span class="c1">// is not performed and false is returned.</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Writer</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">tryWrite</span><span class="p">(</span><span class="n">Writer</span><span class="w"> </span><span class="n">writer</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Performs direct operations on the resource. The operations are</span>
+<span class="w">    </span><span class="c1">// performed straightforwardly without any thread-safety measure.</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Operation</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">directCall</span><span class="p">(</span><span class="n">Operation</span><span class="w"> </span><span class="n">operation</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Note that the type contains mutex and should be non-copyable and</span>
+<span class="w">    </span><span class="c1">// non-movable already, but the template constructor for stored resources</span>
+<span class="w">    </span><span class="c1">// seems to fool some type_traits functionalities (the INoCopyAndMove base</span>
+<span class="w">    </span><span class="c1">// cannot help with the case of std::is_move_constructible_v, it returns</span>
+<span class="w">    </span><span class="c1">// true always in VS 15.9.34);</span>
+<span class="w">    </span><span class="c1">// made the copy and move requirements explicit by marking them as</span>
+<span class="w">    </span><span class="c1">// deleted here, which will solve the issue (as these are better match</span>
+<span class="w">    </span><span class="c1">// than templates).</span>
+<span class="w">    </span><span class="n">TMRSWResource</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TMRSWResource</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+<span class="w">    </span><span class="n">TMRSWResource</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TMRSWResource</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+<span class="w">    </span><span class="n">TMRSWResource</span><span class="p">(</span><span class="n">TMRSWResource</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+<span class="w">    </span><span class="n">TMRSWResource</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">TMRSWResource</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="k">mutable</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_mutex</span><span class="w"> </span><span class="n">m_mutex</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Resource</span><span class="w">                  </span><span class="n">m_resource</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// In-header Implementations:</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Resource</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Res</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TMRSWResource</span><span class="o">&lt;</span><span class="n">Resource</span><span class="o">&gt;::</span><span class="n">TMRSWResource</span><span class="p">(</span><span class="n">Res</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">resource</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">m_mutex</span><span class="p">(),</span><span class="w"> </span><span class="n">m_resource</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">forward</span><span class="o">&lt;</span><span class="n">Res</span><span class="o">&gt;</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span>
+<span class="p">{}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Resource</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Reader</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TMRSWResource</span><span class="o">&lt;</span><span class="n">Resource</span><span class="o">&gt;::</span><span class="n">read</span><span class="p">(</span><span class="n">Reader</span><span class="w"> </span><span class="n">reader</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_lock</span><span class="w"> </span><span class="nf">lock</span><span class="p">(</span><span class="n">m_mutex</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">reader</span><span class="p">(</span><span class="n">m_resource</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Resource</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Writer</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TMRSWResource</span><span class="o">&lt;</span><span class="n">Resource</span><span class="o">&gt;::</span><span class="n">write</span><span class="p">(</span><span class="n">Writer</span><span class="w"> </span><span class="n">writer</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">unique_lock</span><span class="w"> </span><span class="nf">lock</span><span class="p">(</span><span class="n">m_mutex</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">writer</span><span class="p">(</span><span class="n">m_resource</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Resource</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Reader</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">TMRSWResource</span><span class="o">&lt;</span><span class="n">Resource</span><span class="o">&gt;::</span><span class="n">tryRead</span><span class="p">(</span><span class="n">Reader</span><span class="w"> </span><span class="n">reader</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_lock</span><span class="w"> </span><span class="nf">lock</span><span class="p">(</span><span class="n">m_mutex</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">try_to_lock</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">lock</span><span class="p">.</span><span class="n">owns_lock</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">reader</span><span class="p">(</span><span class="n">m_resource</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Resource</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Writer</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">TMRSWResource</span><span class="o">&lt;</span><span class="n">Resource</span><span class="o">&gt;::</span><span class="n">tryWrite</span><span class="p">(</span><span class="n">Writer</span><span class="w"> </span><span class="n">writer</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">unique_lock</span><span class="w"> </span><span class="nf">lock</span><span class="p">(</span><span class="n">m_mutex</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">try_to_lock</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">lock</span><span class="p">.</span><span class="n">owns_lock</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">writer</span><span class="p">(</span><span class="n">m_resource</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Resource</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Operation</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TMRSWResource</span><span class="o">&lt;</span><span class="n">Resource</span><span class="o">&gt;::</span><span class="n">directCall</span><span class="p">(</span><span class="n">Operation</span><span class="w"> </span><span class="n">operation</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">operation</span><span class="p">(</span><span class="n">m_resource</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

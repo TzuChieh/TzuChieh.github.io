@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1sdl_1a5d6121c3e28818790b5be3aeb70c262d:
+
+Function ph::sdl::load_quaternion
+=================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::sdl::load_quaternion(const std::string&)
+   :project: Photon

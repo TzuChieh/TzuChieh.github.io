@@ -1,0 +1,65 @@
+
+.. _file_Source_DataIO_Stream_BinaryFileInputStream.h:
+
+File BinaryFileInputStream.h
+============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\Stream\BinaryFileInputStream.h``)
+-------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_Stream_BinaryFileInputStream.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``DataIO/FileSystem/Path.h``
+
+- ``DataIO/Stream/StdInputStream.h``
+
+- ``cstddef``
+
+- ``optional``
+
+- ``type_traits``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_DataIO_PlyFile.cpp`
+
+- :ref:`file_Source_DataIO_Stream_BinaryFileInputStream.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_binary_file_input_stream`
+

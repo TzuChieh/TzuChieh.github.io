@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_sample_flow:
+
+Class SampleFlow
+================
+
+- Defined in :ref:`file_Source_Core_SampleGenerator_SampleFlow.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::SampleFlow
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

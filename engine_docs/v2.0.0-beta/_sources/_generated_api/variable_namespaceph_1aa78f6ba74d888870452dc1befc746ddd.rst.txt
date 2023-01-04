@@ -1,0 +1,14 @@
+.. _exhale_variable_namespaceph_1aa78f6ba74d888870452dc1befc746ddd:
+
+Variable ph::CIsNumber
+======================
+
+- Defined in :ref:`file_Source_Utility_traits.h`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: ph::CIsNumber
+   :project: Photon

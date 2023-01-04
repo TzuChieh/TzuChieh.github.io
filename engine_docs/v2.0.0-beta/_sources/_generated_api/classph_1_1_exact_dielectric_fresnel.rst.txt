@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_exact_dielectric_fresnel:
+
+Class ExactDielectricFresnel
+============================
+
+- Defined in :ref:`file_Source_Core_SurfaceBehavior_Property_ExactDielectricFresnel.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::DielectricFresnel`` (:ref:`exhale_class_classph_1_1_dielectric_fresnel`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::ExactDielectricFresnel
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

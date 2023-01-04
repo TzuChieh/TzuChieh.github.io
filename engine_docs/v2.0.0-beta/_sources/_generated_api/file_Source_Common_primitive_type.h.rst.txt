@@ -1,0 +1,394 @@
+
+.. _file_Source_Common_primitive_type.h:
+
+File primitive_type.h
+=====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Common\primitive_type.h``)
+-----------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Common_primitive_type.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/config.h``
+
+- ``climits``
+
+- ``cstdint``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_CookOrder.h`
+
+- :ref:`file_Source_Actor_Dome_APreethamDome.h`
+
+- :ref:`file_Source_Actor_Geometry_GCuboid.h`
+
+- :ref:`file_Source_Actor_Geometry_GMengerSponge.h`
+
+- :ref:`file_Source_Actor_Geometry_GRectangle.h`
+
+- :ref:`file_Source_Actor_Geometry_GSphere.h`
+
+- :ref:`file_Source_Actor_Geometry_GWave.h`
+
+- :ref:`file_Source_Actor_Image_CheckerboardImage.h`
+
+- :ref:`file_Source_Actor_Image_Image.h`
+
+- :ref:`file_Source_Actor_Image_MathImage.h`
+
+- :ref:`file_Source_Actor_Image_RasterImageBase.h`
+
+- :ref:`file_Source_Actor_Image_UnifiedNumericImage.h`
+
+- :ref:`file_Source_Actor_LightSource_LightSource.h`
+
+- :ref:`file_Source_Actor_Material_IdealSubstance.h`
+
+- :ref:`file_Source_Actor_Material_Utility_ConductiveInterfaceInfo.h`
+
+- :ref:`file_Source_Actor_Material_Utility_DielectricInterfaceInfo.h`
+
+- :ref:`file_Source_Actor_Material_Utility_MicrosurfaceInfo.h`
+
+- :ref:`file_Source_Actor_Material_Utility_RoughnessToAlphaMapping.h`
+
+- :ref:`file_Source_Actor_Material_Utility_SurfaceLayerInfo.h`
+
+- :ref:`file_Source_Actor_Material_Volume_VAbsorptionOnly.h`
+
+- :ref:`file_Source_Actor_MotionSource_MotionSource.h`
+
+- :ref:`file_Source_Actor_SDLExtension_TSdlSpectrum.h`
+
+- :ref:`file_Source_Api_test_scene.cpp`
+
+- :ref:`file_Source_Api_test_scene.h`
+
+- :ref:`file_Source_Core_Emitter_DiffuseSurfaceEmitter.h`
+
+- :ref:`file_Source_Core_Emitter_Emitter.h`
+
+- :ref:`file_Source_Core_Emitter_OmniModulatedEmitter.h`
+
+- :ref:`file_Source_Core_Emitter_Sampler_EmitterSampler.h`
+
+- :ref:`file_Source_Core_Emitter_SurfaceEmitter.h`
+
+- :ref:`file_Source_Core_Estimator_BNEEPTEstimator.cpp`
+
+- :ref:`file_Source_Core_Filmic_Film.h`
+
+- :ref:`file_Source_Core_Filmic_HdrRgbFilm.h`
+
+- :ref:`file_Source_Core_Filmic_SampleFilter.h`
+
+- :ref:`file_Source_Core_Filmic_SamplingFilmDimensions.h`
+
+- :ref:`file_Source_Core_Filmic_Vector3Film.h`
+
+- :ref:`file_Source_Core_HitProbe.h`
+
+- :ref:`file_Source_Core_Intersectable_BruteForceIntersector.cpp`
+
+- :ref:`file_Source_Core_Intersectable_Bvh_BvhInfoNode.h`
+
+- :ref:`file_Source_Core_Intersectable_Bvh_BvhLinearNode.h`
+
+- :ref:`file_Source_Core_Intersectable_Bvh_ClassicBvhIntersector.h`
+
+- :ref:`file_Source_Core_Intersectable_DataStructure_IndexedUIntBuffer.h`
+
+- :ref:`file_Source_Core_Intersectable_DataStructure_IndexedVertexBuffer.h`
+
+- :ref:`file_Source_Core_Intersectable_Intersector_TIndexedKdtreeIntersector.h`
+
+- :ref:`file_Source_Core_Intersectable_Kdtree_KdtreeAABB.h`
+
+- :ref:`file_Source_Core_Intersectable_Kdtree_KdtreeNode.h`
+
+- :ref:`file_Source_Core_Intersectable_PBasicSphere.h`
+
+- :ref:`file_Source_Core_Intersectable_Primitive.h`
+
+- :ref:`file_Source_Core_Intersectable_Query_PrimitivePosSamplePdfQuery.h`
+
+- :ref:`file_Source_Core_Intersectable_Query_PrimitivePosSampleQuery.h`
+
+- :ref:`file_Source_Core_Intersectable_TPKdTreeTriangleMesh.h`
+
+- :ref:`file_Source_Core_LTABuildingBlock_lta.h`
+
+- :ref:`file_Source_Core_LTABuildingBlock_SenseEvent.h`
+
+- :ref:`file_Source_Core_LTABuildingBlock_TDirectLightEstimator.h`
+
+- :ref:`file_Source_Core_LTABuildingBlock_TMis.h`
+
+- :ref:`file_Source_Core_Quantity_Time.h`
+
+- :ref:`file_Source_Core_Ray.h`
+
+- :ref:`file_Source_Core_Receiver_RadianceSensor.h`
+
+- :ref:`file_Source_Core_Receiver_Receiver.h`
+
+- :ref:`file_Source_Core_Renderer_Attribute_AttributeRenderer.cpp`
+
+- :ref:`file_Source_Core_Renderer_PM_FullViewpoint.h`
+
+- :ref:`file_Source_Core_Renderer_PM_PPMRadianceEvaluationWork.h`
+
+- :ref:`file_Source_Core_Renderer_PM_TPPMViewpointCollector.h`
+
+- :ref:`file_Source_Core_Renderer_PM_TRadianceEvaluationWork.h`
+
+- :ref:`file_Source_Core_Renderer_PM_TSPPMRadianceEvaluator.h`
+
+- :ref:`file_Source_Core_Renderer_PM_VPMRadianceEvaluator.h`
+
+- :ref:`file_Source_Core_Renderer_Renderer.cpp`
+
+- :ref:`file_Source_Core_Renderer_Renderer.h`
+
+- :ref:`file_Source_Core_Renderer_RendererProxy.h`
+
+- :ref:`file_Source_Core_Renderer_RenderProgress.h`
+
+- :ref:`file_Source_Core_Renderer_RenderState.h`
+
+- :ref:`file_Source_Core_Renderer_RenderWorker.h`
+
+- :ref:`file_Source_Core_Renderer_Sampling_AdaptiveSamplingRenderer.h`
+
+- :ref:`file_Source_Core_Renderer_Sampling_EqualSamplingRenderer.cpp`
+
+- :ref:`file_Source_Core_Renderer_Sampling_IReceivedRayProcessor.h`
+
+- :ref:`file_Source_Core_Renderer_Sampling_MetaRecordingProcessor.h`
+
+- :ref:`file_Source_Core_Renderer_Sampling_SamplingStatistics.h`
+
+- :ref:`file_Source_Core_Renderer_Statistics.h`
+
+- :ref:`file_Source_Core_Sample.h`
+
+- :ref:`file_Source_Core_SampleGenerator_Detail_halton.h`
+
+- :ref:`file_Source_Core_SampleGenerator_Detail_RadicalInversePermutations.h`
+
+- :ref:`file_Source_Core_SampleGenerator_SampleFlow.h`
+
+- :ref:`file_Source_Core_SampleGenerator_SampleGenerator.h`
+
+- :ref:`file_Source_Core_SampleGenerator_SamplesNDStream.h`
+
+- :ref:`file_Source_Core_SampleGenerator_SGHalton.h`
+
+- :ref:`file_Source_Core_SampleGenerator_SGStratified.h`
+
+- :ref:`file_Source_Core_SampleGenerator_SGUniformRandom.h`
+
+- :ref:`file_Source_Core_Scheduler_DammertzDispatcher.h`
+
+- :ref:`file_Source_Core_Scheduler_WorkScheduler.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_Property_ConductorFresnel.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_Property_FresnelEffect.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_Property_Microfacet.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_surface_optics_fwd.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceBehavior.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_conversions.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_InterfaceStatistics.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_LbLayer.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_LbLayeredSurface.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_TableFGD.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_TableTIR.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LerpedSurfaceOptics.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_OrenNayar.h`
+
+- :ref:`file_Source_Core_Texture_LdrRgbTexture2D.h`
+
+- :ref:`file_Source_Core_Texture_Pixel_pixel_texture_basics.h`
+
+- :ref:`file_Source_Core_Texture_Pixel_PixelBuffer2D.h`
+
+- :ref:`file_Source_Core_Texture_Pixel_TColorPixelTexture2D.h`
+
+- :ref:`file_Source_Core_Texture_Pixel_TNumericPixelTexture2D.h`
+
+- :ref:`file_Source_Core_Texture_Sky_PreethamTexture.h`
+
+- :ref:`file_Source_Core_Texture_TLinearGradientTexture.h`
+
+- :ref:`file_Source_Core_Texture_TSampler.h`
+
+- :ref:`file_Source_Core_Texture_TSwizzledTexture.h`
+
+- :ref:`file_Source_Core_VolumeBehavior_BlockFunction.h`
+
+- :ref:`file_Source_Core_VolumeBehavior_EmitFunction.h`
+
+- :ref:`file_Source_Core_VolumeBehavior_ScatterFunction.h`
+
+- :ref:`file_Source_Core_VolumeBehavior_VolumeDistanceSample.h`
+
+- :ref:`file_Source_Core_VolumeBehavior_VolumeOptics.h`
+
+- :ref:`file_Source_DataIO_Data_IesData.h`
+
+- :ref:`file_Source_DataIO_Data_IesFile.h`
+
+- :ref:`file_Source_DataIO_io_utils.h`
+
+- :ref:`file_Source_DataIO_PlyFile.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlInteger.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlNestedField.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlPath.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlQuaternion.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlReal.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlRealArray.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlString.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlVector2.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlVector3.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlVector3Array.h`
+
+- :ref:`file_Source_DataIO_SDL_sdl_helpers.h`
+
+- :ref:`file_Source_EngineEnv_CoreCookingContext.h`
+
+- :ref:`file_Source_EngineEnv_Observer_OrientedRasterObserver.h`
+
+- :ref:`file_Source_EngineEnv_Observer_SingleLensObserver.h`
+
+- :ref:`file_Source_EngineEnv_SampleSource_RuntimeSampleSource.h`
+
+- :ref:`file_Source_EngineEnv_Session_RenderSession.h`
+
+- :ref:`file_Source_EngineEnv_Session_SingleFrameRenderSession.h`
+
+- :ref:`file_Source_EngineEnv_Visualizer_FrameVisualizer.h`
+
+- :ref:`file_Source_EngineEnv_Visualizer_PathTracingVisualizer.h`
+
+- :ref:`file_Source_Frame_frame_fwd.h`
+
+- :ref:`file_Source_Frame_Operator_GammaCorrection.h`
+
+- :ref:`file_Source_Frame_Operator_JRToneMapping.h`
+
+- :ref:`file_Source_Frame_Operator_NaiveReinhardToneMapping.h`
+
+- :ref:`file_Source_Frame_PictureData.h`
+
+- :ref:`file_Source_Frame_RegularPicture.h`
+
+- :ref:`file_Source_Frame_TFrame.h`
+
+- :ref:`file_Source_Math_Algorithm_IndexedKdtree_IndexedItemEndpoint.h`
+
+- :ref:`file_Source_Math_Algorithm_IndexedKdtree_TIndexedKdtreeNode.h`
+
+- :ref:`file_Source_Math_Algorithm_IndexedKdtree_TSortedNNResult.h`
+
+- :ref:`file_Source_Math_Color_color_basics.h`
+
+- :ref:`file_Source_Math_General_TArithmeticArrayBase.h`
+
+- :ref:`file_Source_Math_General_TMatrixMxNBase.h`
+
+- :ref:`file_Source_Math_Geometry_TAABB2D.h`
+
+- :ref:`file_Source_Math_Geometry_TAABB3D.h`
+
+- :ref:`file_Source_Math_Geometry_TTriangle.h`
+
+- :ref:`file_Source_Math_Geometry_TWatertightTriangle.h`
+
+- :ref:`file_Source_Math_Geometry_TWatertightTriangle.ipp`
+
+- :ref:`file_Source_Math_math.h`
+
+- :ref:`file_Source_Math_math_fwd.h`
+
+- :ref:`file_Source_Math_Random.h`
+
+- :ref:`file_Source_Math_Real.h`
+
+- :ref:`file_Source_Math_TFraction.h`
+
+- :ref:`file_Source_Math_TMatrix4.h`
+
+- :ref:`file_Source_Math_TQuaternion.h`
+
+- :ref:`file_Source_Utility_Concurrent_PeriodicSingleThreadExecutor.h`
+
+- :ref:`file_Source_Utility_Concurrent_TSPSCExecutor.h`
+
+- :ref:`file_Source_Utility_Concurrent_Workflow.cpp`
+
+- :ref:`file_Source_Utility_MemoryArena.h`
+
+- :ref:`file_Source_Utility_SemanticVersion.h`
+
+- :ref:`file_Source_Utility_Timer.h`
+
+- :ref:`file_Source_Utility_TStableIndexDenseVector.h`
+
+- :ref:`file_Source_World_Scene.h`
+
+- :ref:`file_Source_World_VisualWorld.cpp`
+
+- :ref:`file_Source_World_VisualWorld.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

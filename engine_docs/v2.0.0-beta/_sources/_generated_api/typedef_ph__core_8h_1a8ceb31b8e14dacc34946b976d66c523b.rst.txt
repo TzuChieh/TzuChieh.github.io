@@ -1,0 +1,14 @@
+.. _exhale_typedef_ph__core_8h_1a8ceb31b8e14dacc34946b976d66c523b:
+
+Typedef PHuint64
+================
+
+- Defined in :ref:`file_Include_CEngine_ph_core.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: PHuint64
+   :project: Photon

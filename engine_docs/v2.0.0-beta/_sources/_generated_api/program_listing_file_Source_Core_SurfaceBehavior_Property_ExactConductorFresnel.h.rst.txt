@@ -1,0 +1,51 @@
+
+.. _program_listing_file_Source_Core_SurfaceBehavior_Property_ExactConductorFresnel.h:
+
+Program Listing for File ExactConductorFresnel.h
+================================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Core_SurfaceBehavior_Property_ExactConductorFresnel.h>` (``Source\Core\SurfaceBehavior\Property\ExactConductorFresnel.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Core/SurfaceBehavior/Property/ConductorFresnel.h"
+   #include "Math/Color/Spectrum.h"
+   
+   #include <vector>
+   
+   namespace ph
+   {
+   
+   class ExactConductorFresnel : public ConductorFresnel
+   {
+   public:
+       ExactConductorFresnel(
+           real                  iorOuter,
+           const math::Spectrum& iorInnerN,
+           const math::Spectrum& iorInnerK);
+   
+       ExactConductorFresnel(
+           real                     iorOuter,
+           const std::vector<real>& iorWavelengthsNm, 
+           const std::vector<real>& iorInnerNs, 
+           const std::vector<real>& iorInnerKs);
+   
+       void calcReflectance(
+           real            cosThetaIncident, 
+           math::Spectrum* out_reflectance) const override;
+   
+   private:
+       math::Spectrum m_en2_sub_ek2;
+       math::Spectrum m_4_mul_en2_mul_ek2;
+   
+       void setIors(
+           real                  iorOuter,
+           const math::Spectrum& iorInnerN,
+           const math::Spectrum& iorInnerK);
+   };
+   
+   }// end namespace ph

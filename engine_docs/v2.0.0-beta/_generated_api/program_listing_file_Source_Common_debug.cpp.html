@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File debug.cpp &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File debug.cpp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Common_debug.cpp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-debug-cpp">
+<span id="program-listing-file-source-common-debug-cpp"></span><h1>Program Listing for File debug.cpp<a class="headerlink" href="#program-listing-for-file-debug-cpp" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Common_debug.cpp.html#file-source-common-debug-cpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Common\debug.cpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/debug.h&quot;</span>
+
+<span class="c1">//*****************************************************************************</span>
+<span class="c1">// The portable `psnip_trap()` call is copied from the portable-snippets</span>
+<span class="c1">// project (under debug-trap folder) by Evan Nemerson.</span>
+<span class="c1">// See https://github.com/nemequ/portable-snippets/blob/master/debug-trap/debug-trap.h</span>
+
+<span class="cp">#if defined(__has_builtin) &amp;&amp; !defined(__ibmxl__)</span>
+<span class="cp">#  if __has_builtin(__builtin_debugtrap)</span>
+<span class="cp">#    define psnip_trap() __builtin_debugtrap()</span>
+<span class="cp">#  elif __has_builtin(__debugbreak)</span>
+<span class="cp">#    define psnip_trap() __debugbreak()</span>
+<span class="cp">#  endif</span>
+<span class="cp">#endif</span>
+<span class="cp">#if !defined(psnip_trap)</span>
+<span class="cp">#  if defined(_MSC_VER) || defined(__INTEL_COMPILER)</span>
+<span class="cp">#    define psnip_trap() __debugbreak()</span>
+<span class="cp">#  elif defined(__ARMCC_VERSION)</span>
+<span class="cp">#    define psnip_trap() __breakpoint(42)</span>
+<span class="cp">#  elif defined(__ibmxl__) || defined(__xlC__)</span>
+<span class="cp">#</span><span class="w">    </span><span class="cp">include</span><span class="w"> </span><span class="cpf">&lt;builtins.h&gt;</span>
+<span class="cp">#    define psnip_trap() __trap(42)</span>
+<span class="cp">#  elif defined(__DMC__) &amp;&amp; defined(_M_IX86)</span>
+<span class="w">     </span><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">psnip_trap</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kr">__asm</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="mi">3</span><span class="n">h</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="cp">#  elif defined(__i386__) || defined(__x86_64__)</span>
+<span class="w">     </span><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">psnip_trap</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">__asm__</span><span class="w"> </span><span class="n">__volatile__</span><span class="p">(</span><span class="s">&quot;int3&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="cp">#  elif defined(__thumb__)</span>
+<span class="w">     </span><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">psnip_trap</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">__asm__</span><span class="w"> </span><span class="n">__volatile__</span><span class="p">(</span><span class="s">&quot;.inst 0xde01&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="cp">#  elif defined(__aarch64__)</span>
+<span class="w">     </span><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">psnip_trap</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">__asm__</span><span class="w"> </span><span class="n">__volatile__</span><span class="p">(</span><span class="s">&quot;.inst 0xd4200000&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="cp">#  elif defined(__arm__)</span>
+<span class="w">     </span><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">psnip_trap</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">__asm__</span><span class="w"> </span><span class="n">__volatile__</span><span class="p">(</span><span class="s">&quot;.inst 0xe7f001f0&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="cp">#  elif defined (__alpha__) &amp;&amp; !defined(__osf__)</span>
+<span class="w">     </span><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">psnip_trap</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">__asm__</span><span class="w"> </span><span class="n">__volatile__</span><span class="p">(</span><span class="s">&quot;bpt&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="cp">#  elif defined(_54_)</span>
+<span class="w">     </span><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">psnip_trap</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">__asm__</span><span class="w"> </span><span class="n">__volatile__</span><span class="p">(</span><span class="s">&quot;ESTOP&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="cp">#  elif defined(_55_)</span>
+<span class="w">     </span><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">psnip_trap</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">__asm__</span><span class="w"> </span><span class="n">__volatile__</span><span class="p">(</span><span class="s">&quot;;</span><span class="se">\n</span><span class="s"> .if (.MNEMONIC)</span><span class="se">\n</span><span class="s"> ESTOP_1</span><span class="se">\n</span><span class="s"> .else</span><span class="se">\n</span><span class="s"> ESTOP_1()</span><span class="se">\n</span><span class="s"> .endif</span><span class="se">\n</span><span class="s"> NOP&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="cp">#  elif defined(_64P_)</span>
+<span class="w">     </span><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">psnip_trap</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">__asm__</span><span class="w"> </span><span class="n">__volatile__</span><span class="p">(</span><span class="s">&quot;SWBP 0&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="cp">#  elif defined(_6x_)</span>
+<span class="w">     </span><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">psnip_trap</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">__asm__</span><span class="w"> </span><span class="n">__volatile__</span><span class="p">(</span><span class="s">&quot;NOP</span><span class="se">\n</span><span class="s"> .word 0x10000000&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="cp">#  elif defined(__STDC_HOSTED__) &amp;&amp; (__STDC_HOSTED__ == 0) &amp;&amp; defined(__GNUC__)</span>
+<span class="cp">#    define psnip_trap() __builtin_trap()</span>
+<span class="cp">#  else</span>
+<span class="cp">#</span><span class="w">    </span><span class="cp">include</span><span class="w"> </span><span class="cpf">&lt;signal.h&gt;</span>
+<span class="cp">#    if defined(SIGTRAP)</span>
+<span class="cp">#      define psnip_trap() raise(SIGTRAP)</span>
+<span class="cp">#    else</span>
+<span class="cp">#      define psnip_trap() raise(SIGABRT)</span>
+<span class="cp">#    endif</span>
+<span class="cp">#  endif</span>
+<span class="cp">#endif</span>
+<span class="c1">//*****************************************************************************</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">debug_break</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">psnip_trap</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+
+.. _file_Source_Frame_frame_utils.cpp:
+
+File frame_utils.cpp
+====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Frame\frame_utils.cpp``)
+---------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Frame_frame_utils.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Common/logging.h``
+
+- ``Frame/frame_utils.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__frame_utils`
+

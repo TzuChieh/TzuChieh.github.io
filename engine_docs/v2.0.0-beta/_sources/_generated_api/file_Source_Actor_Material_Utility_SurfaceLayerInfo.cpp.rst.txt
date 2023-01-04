@@ -1,0 +1,40 @@
+
+.. _file_Source_Actor_Material_Utility_SurfaceLayerInfo.cpp:
+
+File SurfaceLayerInfo.cpp
+=========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\Material\Utility\SurfaceLayerInfo.cpp``)
+-------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_Material_Utility_SurfaceLayerInfo.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/Material/Utility/SurfaceLayerInfo.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_brute_force_intersector:
+
+Class BruteForceIntersector
+===========================
+
+- Defined in :ref:`file_Source_Core_Intersectable_BruteForceIntersector.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::Intersector`` (:ref:`exhale_class_classph_1_1_intersector`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::BruteForceIntersector
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

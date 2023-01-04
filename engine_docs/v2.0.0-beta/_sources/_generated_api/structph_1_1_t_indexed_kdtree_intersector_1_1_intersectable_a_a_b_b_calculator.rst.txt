@@ -1,0 +1,23 @@
+.. _exhale_struct_structph_1_1_t_indexed_kdtree_intersector_1_1_intersectable_a_a_b_b_calculator:
+
+Struct TIndexedKdtreeIntersector::IntersectableAABBCalculator
+=============================================================
+
+- Defined in :ref:`file_Source_Core_Intersectable_Intersector_TIndexedKdtreeIntersector.h`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_class_classph_1_1_t_indexed_kdtree_intersector`.
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: ph::TIndexedKdtreeIntersector::IntersectableAABBCalculator
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

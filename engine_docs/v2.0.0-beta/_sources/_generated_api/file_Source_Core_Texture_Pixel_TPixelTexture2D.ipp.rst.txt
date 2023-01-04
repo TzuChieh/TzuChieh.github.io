@@ -1,0 +1,54 @@
+
+.. _file_Source_Core_Texture_Pixel_TPixelTexture2D.ipp:
+
+File TPixelTexture2D.ipp
+========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Texture\Pixel\TPixelTexture2D.ipp``)
+--------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Texture_Pixel_TPixelTexture2D.ipp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/Texture/Pixel/TPixelTexture2D.h``
+
+- ``Math/TArithmeticArray.h``
+
+- ``cmath``
+
+- ``stdexcept``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Texture_Pixel_TPixelTexture2D.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

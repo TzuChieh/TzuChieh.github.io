@@ -1,0 +1,14 @@
+.. _exhale_typedef_ph__core_8h_1a7288b9c7e1654fa7d9dbfda37fb5352e:
+
+Typedef PHchar
+==============
+
+- Defined in :ref:`file_Include_CEngine_ph_core.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: PHchar
+   :project: Photon

@@ -1,0 +1,14 @@
+.. _exhale_define_logging_8h_1a3b02547c5bd71b7c74dade7de7af6c05:
+
+Define PH_DEFAULT_LOG_WARNING_STRING
+====================================
+
+- Defined in :ref:`file_Source_Common_logging.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: PH_DEFAULT_LOG_WARNING_STRING
+   :project: Photon

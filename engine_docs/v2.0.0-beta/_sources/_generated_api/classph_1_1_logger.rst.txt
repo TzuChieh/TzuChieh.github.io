@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_logger:
+
+Class Logger
+============
+
+- Defined in :ref:`file_Source_Common_Logger.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::Logger
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

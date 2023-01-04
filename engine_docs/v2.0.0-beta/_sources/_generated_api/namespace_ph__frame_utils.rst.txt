@@ -1,0 +1,28 @@
+
+.. _namespace_ph__frame_utils:
+
+Namespace ph::frame_utils
+=========================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_namespaceph_1_1frame__utils_1a937efded0f4c69116e2d7ea0b9800236`
+
+- :ref:`exhale_function_namespaceph_1_1frame__utils_1afebdfa125f8a5f3c27c879de6ed230d6`
+
+- :ref:`exhale_function_namespaceph_1_1frame__utils_1a4f31a828f27933f533c60631236071ce`
+
+- :ref:`exhale_function_namespaceph_1_1frame__utils_1a0c4ec75fd6a7a3927f4b1f62cde15364`
+
+- :ref:`exhale_function_namespaceph_1_1frame__utils_1ab471f156f3941f7323e43ac40ef6f713`

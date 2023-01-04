@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1ac837148000ded601032a44ed7ae37761:
+
+Typedef ph::TStdUnorderedStringMap
+==================================
+
+- Defined in :ref:`file_Source_Utility_utility.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::TStdUnorderedStringMap
+   :project: Photon

@@ -1,0 +1,40 @@
+
+.. _file_Source_Core_Receiver_RectangularSensorReceiver.cpp:
+
+File RectangularSensorReceiver.cpp
+==================================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Receiver\RectangularSensorReceiver.cpp``)
+-------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Receiver_RectangularSensorReceiver.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/Receiver/RectangularSensorReceiver.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

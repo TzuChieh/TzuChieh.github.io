@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_pre_cook_results:
+
+Class PreCookResults
+====================
+
+- Defined in :ref:`file_Source_World_Foundation_cook_results.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::PreCookResults
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,73 @@
+
+.. _file_Source_Actor_ALight.h:
+
+File ALight.h
+=============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\ALight.h``)
+--------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_ALight.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/Geometry/Geometry.h``
+
+- ``Actor/LightSource/LightSource.h``
+
+- ``Actor/Material/Material.h``
+
+- ``Actor/PhysicalActor.h``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_ALight.cpp`
+
+- :ref:`file_Source_Api_init_and_exit.cpp`
+
+- :ref:`file_Source_Api_ph_cpp_core.cpp`
+
+- :ref:`file_Source_Api_test_scene.cpp`
+
+- :ref:`file_Source_Core_Emitter_Sampler_ESUniformRandom.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_a_light`
+

@@ -1,0 +1,93 @@
+
+.. _file_Source_Core_Renderer_PM_TSPPMRadianceEvaluator.h:
+
+File TSPPMRadianceEvaluator.h
+=============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Renderer\PM\TSPPMRadianceEvaluator.h``)
+-----------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Renderer_PM_TSPPMRadianceEvaluator.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Common/primitive_type.h``
+
+- ``Core/Emitter/Emitter.h``
+
+- ``Core/Filmic/HdrRgbFilm.h``
+
+- ``Core/Intersectable/Primitive.h``
+
+- ``Core/Intersectable/PrimitiveMetadata.h``
+
+- ``Core/Renderer/PM/TPhoton.h``
+
+- ``Core/Renderer/PM/TPhotonMap.h``
+
+- ``Core/Renderer/PM/TViewPathHandler.h``
+
+- ``Core/Renderer/PM/TViewpoint.h``
+
+- ``Core/Scheduler/Region.h``
+
+- ``Core/SurfaceBehavior/BsdfEvalQuery.h``
+
+- ``Core/SurfaceBehavior/SurfaceBehavior.h``
+
+- ``Core/SurfaceBehavior/SurfaceOptics.h``
+
+- ``Core/SurfaceHit.h``
+
+- ``Math/Random.h``
+
+- ``Math/math.h``
+
+- ``World/Scene.h``
+
+- ``type_traits``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Renderer_PM_PMRenderer.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_t_s_p_p_m_radiance_evaluator`
+

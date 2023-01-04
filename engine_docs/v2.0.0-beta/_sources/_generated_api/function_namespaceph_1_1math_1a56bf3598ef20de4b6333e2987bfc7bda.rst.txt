@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1a56bf3598ef20de4b6333e2987bfc7bda:
+
+Function ph::math::PH_DEFINE_EXTERNAL_LOG_GROUP
+===============================================
+
+- Defined in :ref:`file_Source_Math_Transform_StaticRigidTransform.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::PH_DEFINE_EXTERNAL_LOG_GROUP(StaticRigidTransform, Math)
+   :project: Photon

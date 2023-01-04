@@ -1,0 +1,14 @@
+.. _exhale_enum_namespaceph_1aecddf825affa0d182e369460ebcd93ed:
+
+Enum ESurfaceMaterialMixMode
+============================
+
+.. did not find file this was defined in
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: ph::ESurfaceMaterialMixMode
+   :project: Photon

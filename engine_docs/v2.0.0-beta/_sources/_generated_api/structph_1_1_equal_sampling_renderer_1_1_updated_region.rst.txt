@@ -1,0 +1,23 @@
+.. _exhale_struct_structph_1_1_equal_sampling_renderer_1_1_updated_region:
+
+Struct EqualSamplingRenderer::UpdatedRegion
+===========================================
+
+- Defined in :ref:`file_Source_Core_Renderer_Sampling_EqualSamplingRenderer.h`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_class_classph_1_1_equal_sampling_renderer`.
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: ph::EqualSamplingRenderer::UpdatedRegion
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

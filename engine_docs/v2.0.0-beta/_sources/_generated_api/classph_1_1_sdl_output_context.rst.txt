@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_sdl_output_context:
+
+Class SdlOutputContext
+======================
+
+- Defined in :ref:`file_Source_DataIO_SDL_Introspect_SdlOutputContext.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::SdlIOContext`` (:ref:`exhale_class_classph_1_1_sdl_i_o_context`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::SdlOutputContext
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,37 @@
+.. _exhale_class_classph_1_1_work_scheduler:
+
+Class WorkScheduler
+===================
+
+- Defined in :ref:`file_Source_Core_Scheduler_WorkScheduler.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::IWorkDispatcher`` (:ref:`exhale_class_classph_1_1_i_work_dispatcher`)
+
+
+Derived Types
+*************
+
+- ``public ph::GridScheduler`` (:ref:`exhale_class_classph_1_1_grid_scheduler`)
+- ``public ph::PlateScheduler`` (:ref:`exhale_class_classph_1_1_plate_scheduler`)
+- ``public ph::SpiralGridScheduler`` (:ref:`exhale_class_classph_1_1_spiral_grid_scheduler`)
+- ``public ph::SpiralScheduler`` (:ref:`exhale_class_classph_1_1_spiral_scheduler`)
+- ``public ph::StripeScheduler`` (:ref:`exhale_class_classph_1_1_stripe_scheduler`)
+- ``public ph::TileScheduler`` (:ref:`exhale_class_classph_1_1_tile_scheduler`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::WorkScheduler
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

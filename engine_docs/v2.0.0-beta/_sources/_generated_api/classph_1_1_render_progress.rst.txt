@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_render_progress:
+
+Class RenderProgress
+====================
+
+- Defined in :ref:`file_Source_Core_Renderer_RenderProgress.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::RenderProgress
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

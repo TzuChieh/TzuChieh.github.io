@@ -1,0 +1,59 @@
+
+.. _file_Source_Api_ApiHelper.h:
+
+File ApiHelper.h
+================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Api\ApiHelper.h``)
+---------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Api_ApiHelper.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/Renderer/EAttribute.h``
+
+- ``iostream``
+
+- ``ph_core.h`` (:ref:`file_Include_CEngine_ph_core.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Api_ph_core.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_api_helper`
+

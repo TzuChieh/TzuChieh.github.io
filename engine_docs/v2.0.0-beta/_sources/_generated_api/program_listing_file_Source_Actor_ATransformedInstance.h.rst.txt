@@ -1,0 +1,38 @@
+
+.. _program_listing_file_Source_Actor_ATransformedInstance.h:
+
+Program Listing for File ATransformedInstance.h
+===============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Actor_ATransformedInstance.h>` (``Source\Actor\ATransformedInstance.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Actor/PhysicalActor.h"
+   
+   #include <string>
+   
+   namespace ph
+   {
+   
+   class ATransformedInstance : public PhysicalActor
+   {
+   public:
+       ATransformedInstance();
+       ATransformedInstance(const ATransformedInstance& other);
+   
+       CookedUnit cook(ActorCookingContext& ctx) override;
+   
+       ATransformedInstance& operator = (ATransformedInstance rhs);
+   
+       friend void swap(ATransformedInstance& first, ATransformedInstance& second);
+   
+   private:
+       std::string m_phantomName;
+   };
+   
+   }// end namespace ph

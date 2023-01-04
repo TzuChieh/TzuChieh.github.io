@@ -1,0 +1,17 @@
+.. _exhale_struct_structph_1_1detail_1_1_aligned_memory_deleter:
+
+Struct AlignedMemoryDeleter
+===========================
+
+- Defined in :ref:`file_Source_Common_memory.h`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: ph::detail::AlignedMemoryDeleter
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

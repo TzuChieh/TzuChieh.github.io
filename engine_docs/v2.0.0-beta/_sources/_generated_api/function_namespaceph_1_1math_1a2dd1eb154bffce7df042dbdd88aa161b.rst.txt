@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1a2dd1eb154bffce7df042dbdd88aa161b:
+
+Function ph::math::next_power_of_2
+==================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::next_power_of_2(uint32)
+   :project: Photon

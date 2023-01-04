@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1sdl_1a001940d07ebe975ffd1562eeb550b72a:
+
+Function ph::sdl::gen_pretty_name(const SdlFunction \*const)
+============================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::sdl::gen_pretty_name(const SdlFunction *const)
+   :project: Photon

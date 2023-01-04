@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1io__utils_1a18e84a0e4e48684997602b15755cf36d:
+
+Function ph::io_utils::has_LDR_support
+======================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::io_utils::has_LDR_support(std::string_view)
+   :project: Photon

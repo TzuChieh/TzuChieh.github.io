@@ -1,0 +1,67 @@
+
+.. _file_Source_DataIO_SDL_Tokenizer.h:
+
+File Tokenizer.h
+================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\SDL\Tokenizer.h``)
+----------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_SDL_Tokenizer.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_SDLExtension_image_loaders.cpp`
+
+- :ref:`file_Source_DataIO_Data_IesFile.cpp`
+
+- :ref:`file_Source_DataIO_SDL_sdl_helpers.cpp`
+
+- :ref:`file_Source_DataIO_SDL_sdl_helpers.ipp`
+
+- :ref:`file_Source_DataIO_SDL_SdlParser.cpp`
+
+- :ref:`file_Source_DataIO_SDL_Tokenizer.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_tokenizer`
+

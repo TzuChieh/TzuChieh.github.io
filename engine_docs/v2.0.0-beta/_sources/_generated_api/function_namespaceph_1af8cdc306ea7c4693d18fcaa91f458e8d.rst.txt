@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1af8cdc306ea7c4693d18fcaa91f458e8d:
+
+Function ph::exit_api_database
+==============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::exit_api_database()
+   :project: Photon

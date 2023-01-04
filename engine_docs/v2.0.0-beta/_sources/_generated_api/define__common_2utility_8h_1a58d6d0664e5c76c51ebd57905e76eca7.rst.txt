@@ -1,0 +1,14 @@
+.. _exhale_define__common_2utility_8h_1a58d6d0664e5c76c51ebd57905e76eca7:
+
+Define PH_NO_OP
+===============
+
+- Defined in :ref:`file_Source_Common_utility.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: PH_NO_OP
+   :project: Photon

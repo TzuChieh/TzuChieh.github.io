@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1_1math_1a84faaa3dbf3717b679161cb477faaea0:
+
+Typedef ph::math::ColorValue
+============================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::math::ColorValue
+   :project: Photon

@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File SdlParser.cpp &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File SdlParser.cpp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_DataIO_SDL_SdlParser.cpp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-sdlparser-cpp">
+<span id="program-listing-file-source-dataio-sdl-sdlparser-cpp"></span><h1>Program Listing for File SdlParser.cpp<a class="headerlink" href="#program-listing-for-file-sdlparser-cpp" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_DataIO_SDL_SdlParser.cpp.html#file-source-dataio-sdl-sdlparser-cpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\DataIO\SDL\SdlParser.cpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;DataIO/SDL/SdlParser.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;DataIO/SDL/Tokenizer.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;DataIO/SDL/SceneDescription.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/logging.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;ph_cpp_core.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;DataIO/SDL/sdl_helpers.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;DataIO/SDL/ETypeCategory.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Utility/string_utils.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;DataIO/SDL/Introspect/SdlClass.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;DataIO/SDL/sdl_exceptions.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;DataIO/SDL/Introspect/SdlInputContext.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/stats.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstddef&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="n">PH_DEFINE_INTERNAL_LOG_GROUP</span><span class="p">(</span><span class="n">SdlParser</span><span class="p">,</span><span class="w"> </span><span class="n">SDL</span><span class="p">);</span>
+<span class="n">PH_DEFINE_INTERNAL_TIMER_STAT</span><span class="p">(</span><span class="n">ParseCommandTotal</span><span class="p">,</span><span class="w"> </span><span class="n">SDLParser</span><span class="p">);</span>
+<span class="n">PH_DEFINE_INTERNAL_TIMER_STAT</span><span class="p">(</span><span class="n">ParseLoadCommand</span><span class="p">,</span><span class="w"> </span><span class="n">SDLParser</span><span class="p">);</span>
+<span class="n">PH_DEFINE_INTERNAL_TIMER_STAT</span><span class="p">(</span><span class="n">ParseExecutionCommand</span><span class="p">,</span><span class="w"> </span><span class="n">SDLParser</span><span class="p">);</span>
+<span class="n">PH_DEFINE_INTERNAL_TIMER_STAT</span><span class="p">(</span><span class="n">ParseDirectiveCommand</span><span class="p">,</span><span class="w"> </span><span class="n">SDLParser</span><span class="p">);</span>
+<span class="n">PH_DEFINE_INTERNAL_TIMER_STAT</span><span class="p">(</span><span class="n">GetCommandType</span><span class="p">,</span><span class="w"> </span><span class="n">SDLParser</span><span class="p">);</span>
+<span class="n">PH_DEFINE_INTERNAL_TIMER_STAT</span><span class="p">(</span><span class="n">GetName</span><span class="p">,</span><span class="w"> </span><span class="n">SDLParser</span><span class="p">);</span>
+<span class="n">PH_DEFINE_INTERNAL_TIMER_STAT</span><span class="p">(</span><span class="n">GetClauses</span><span class="p">,</span><span class="w"> </span><span class="n">SDLParser</span><span class="p">);</span>
+<span class="n">PH_DEFINE_INTERNAL_TIMER_STAT</span><span class="p">(</span><span class="n">GetSDLClass</span><span class="p">,</span><span class="w"> </span><span class="n">SDLParser</span><span class="p">);</span>
+
+<span class="n">SdlParser</span><span class="o">::</span><span class="n">SdlParser</span><span class="p">()</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">m_commandVersion</span><span class="w">      </span><span class="p">(),</span>
+<span class="w">    </span><span class="n">m_mangledNameToClass</span><span class="w">  </span><span class="p">(),</span>
+<span class="w">    </span><span class="n">m_workingDirectory</span><span class="w">    </span><span class="p">(),</span>
+<span class="w">    </span><span class="n">m_commandCache</span><span class="w">        </span><span class="p">(),</span>
+<span class="w">    </span><span class="n">m_generatedNameCounter</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+<span class="w">    </span><span class="n">m_numParsedCommands</span><span class="w">   </span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+<span class="w">    </span><span class="n">m_numParseErrors</span><span class="w">      </span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">SdlClass</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">sdlClasses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_registered_sdl_classes</span><span class="p">();</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SdlClass</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">clazz</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">sdlClasses</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">clazz</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">mangledClassName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getMangledName</span><span class="p">(</span><span class="n">clazz</span><span class="o">-&gt;</span><span class="n">genCategoryName</span><span class="p">(),</span><span class="w"> </span><span class="n">clazz</span><span class="o">-&gt;</span><span class="n">getTypeName</span><span class="p">());</span>
+
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">iter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_mangledNameToClass</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">mangledClassName</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">iter</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">m_mangledNameToClass</span><span class="p">.</span><span class="n">end</span><span class="p">())</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">PH_LOG_WARNING</span><span class="p">(</span><span class="n">SdlParser</span><span class="p">,</span>
+<span class="w">                </span><span class="s">&quot;SDL class &lt;{}&gt; already registered, overwriting; please check for name &quot;</span>
+<span class="w">                </span><span class="s">&quot;collision: mangled name is &lt;{}&gt;&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="n">clazz</span><span class="o">-&gt;</span><span class="n">genPrettyName</span><span class="p">(),</span><span class="w"> </span><span class="n">mangledClassName</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">m_mangledNameToClass</span><span class="p">[</span><span class="n">mangledClassName</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">clazz</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">SdlParser</span><span class="o">::</span><span class="n">enter</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">commandSegment</span><span class="p">,</span><span class="w"> </span><span class="n">SceneDescription</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out_scene</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">ESdlCommandType</span><span class="w"> </span><span class="n">commandType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getCommandType</span><span class="p">(</span><span class="n">commandSegment</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">hasEnteredNewCommand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">commandType</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">ESdlCommandType</span><span class="o">::</span><span class="n">UNKNOWN</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// If new command has been entered, parse cached commands first</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">hasEnteredNewCommand</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">flush</span><span class="p">(</span><span class="n">out_scene</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">m_commandCache</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">commandSegment</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">SdlParser</span><span class="o">::</span><span class="n">flush</span><span class="p">(</span><span class="n">SceneDescription</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out_scene</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">parseCommand</span><span class="p">(</span><span class="n">m_commandCache</span><span class="p">,</span><span class="w"> </span><span class="n">out_scene</span><span class="p">);</span>
+<span class="w">    </span><span class="n">m_commandCache</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">    </span><span class="n">m_commandCache</span><span class="p">.</span><span class="n">shrink_to_fit</span><span class="p">();</span><span class="c1">// TODO: reconsider, maybe only reset if too large</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">SdlParser</span><span class="o">::</span><span class="n">parseCommand</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">command</span><span class="p">,</span><span class="w"> </span><span class="n">SceneDescription</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out_scene</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_SCOPED_TIMER</span><span class="p">(</span><span class="n">ParseCommandTotal</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">command</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">ESdlCommandType</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getCommandType</span><span class="p">(</span><span class="n">command</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">try</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">parseSingleCommand</span><span class="p">(</span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">command</span><span class="p">,</span><span class="w"> </span><span class="n">out_scene</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">catch</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SdlLoadError</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_LOG_WARNING</span><span class="p">(</span><span class="n">SdlParser</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;command failed to run -&gt; {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">whatStr</span><span class="p">());</span>
+
+<span class="w">        </span><span class="o">++</span><span class="n">m_numParseErrors</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">SdlParser</span><span class="o">::</span><span class="n">parseSingleCommand</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">ESdlCommandType</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">command</span><span class="p">,</span><span class="w"> </span><span class="n">SceneDescription</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out_scene</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">type</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">ESdlCommandType</span><span class="o">::</span><span class="no">LOAD</span><span class="p">:</span>
+<span class="w">        </span><span class="n">parseLoadCommand</span><span class="p">(</span><span class="n">command</span><span class="p">,</span><span class="w"> </span><span class="n">out_scene</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">ESdlCommandType</span><span class="o">::</span><span class="no">EXECUTION</span><span class="p">:</span>
+<span class="w">        </span><span class="n">parseExecutionCommand</span><span class="p">(</span><span class="n">command</span><span class="p">,</span><span class="w"> </span><span class="n">out_scene</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">ESdlCommandType</span><span class="o">::</span><span class="no">COMMENT</span><span class="p">:</span>
+<span class="w">        </span><span class="c1">// do nothing</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">ESdlCommandType</span><span class="o">::</span><span class="no">DIRECTIVE</span><span class="p">:</span>
+<span class="w">        </span><span class="n">parseDirectiveCommand</span><span class="p">(</span><span class="n">command</span><span class="p">,</span><span class="w"> </span><span class="n">out_scene</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">SdlLoadError</span><span class="p">(</span><span class="s">&quot;unsupported command type&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="o">++</span><span class="n">m_numParsedCommands</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">SdlParser</span><span class="o">::</span><span class="n">parseLoadCommand</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">command</span><span class="p">,</span>
+<span class="w">    </span><span class="n">SceneDescription</span><span class="o">&amp;</span><span class="w">  </span><span class="n">out_scene</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Tokenizer</span><span class="w"> </span><span class="n">loadCommandTokenizer</span><span class="p">(</span>
+<span class="w">        </span><span class="p">{</span><span class="sc">&#39; &#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;\r&#39;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{{</span><span class="sc">&#39;\&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;\&quot;&#39;</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;[&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;]&#39;</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;(&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;)&#39;</span><span class="p">}});</span>
+
+<span class="w">    </span><span class="n">PH_SCOPED_TIMER</span><span class="p">(</span><span class="n">ParseLoadCommand</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tokens</span><span class="p">;</span>
+<span class="w">    </span><span class="n">loadCommandTokenizer</span><span class="p">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">command</span><span class="p">,</span><span class="w"> </span><span class="n">tokens</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Sanity check</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">tokens</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">SdlLoadError</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;syntax error: improper load command&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">getCommandType</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ESdlCommandType</span><span class="o">::</span><span class="n">LOAD</span><span class="p">);</span>
+<span class="w">    </span><span class="n">PH_ASSERT_GE</span><span class="p">(</span><span class="n">tokens</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Get category and type then acquire the matching SDL class</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">categoryName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tokens</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">typeName</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="n">tokens</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">SdlClass</span><span class="o">&amp;</span><span class="w"> </span><span class="n">clazz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getSdlClass</span><span class="p">(</span><span class="n">categoryName</span><span class="p">,</span><span class="w"> </span><span class="n">typeName</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Initialize SDL resource from input value clauses</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">resourceName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getName</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+
+<span class="w">    </span><span class="c1">// Now we have name-related information, which is useful for debugging.</span>
+<span class="w">    </span><span class="c1">// Catch load errors here to provide name information and re-throw.</span>
+<span class="w">    </span><span class="k">try</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">ISdlResource</span><span class="o">&gt;</span><span class="w"> </span><span class="n">resource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">clazz</span><span class="p">.</span><span class="n">createResource</span><span class="p">();</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">resource</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="n">SdlLoadError</span><span class="p">(</span><span class="s">&quot;empty resource generated&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">clauseStrings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="n">tokens</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">tokens</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<span class="w">        </span><span class="n">ValueClauses</span><span class="w"> </span><span class="n">clauses</span><span class="p">;</span>
+<span class="w">        </span><span class="n">getClauses</span><span class="p">(</span><span class="n">clauseStrings</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">clauses</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">SdlInputContext</span><span class="w"> </span><span class="nf">inputContext</span><span class="p">(</span><span class="o">&amp;</span><span class="n">out_scene</span><span class="p">,</span><span class="w"> </span><span class="n">m_workingDirectory</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">clazz</span><span class="p">);</span>
+<span class="w">        </span><span class="n">clazz</span><span class="p">.</span><span class="n">initResource</span><span class="p">(</span><span class="o">*</span><span class="n">resource</span><span class="p">,</span><span class="w"> </span><span class="n">clauses</span><span class="p">,</span><span class="w"> </span><span class="n">inputContext</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Finally, add the resource to storage</span>
+
+<span class="w">        </span><span class="n">out_scene</span><span class="p">.</span><span class="n">addResource</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">resource</span><span class="p">),</span><span class="w"> </span><span class="n">resourceName</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">catch</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SdlLoadError</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">SdlLoadError</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;failed to load resource &lt;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">resourceName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&gt; &quot;</span>
+<span class="w">            </span><span class="s">&quot;(from SDL class: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">clazz</span><span class="p">.</span><span class="n">genPrettyName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;) &quot;</span>
+<span class="w">            </span><span class="s">&quot;-&gt; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">whatStr</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">SdlParser</span><span class="o">::</span><span class="n">parseExecutionCommand</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">command</span><span class="p">,</span>
+<span class="w">    </span><span class="n">SceneDescription</span><span class="o">&amp;</span><span class="w">  </span><span class="n">out_scene</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Tokenizer</span><span class="w"> </span><span class="n">executionCommandTokenizer</span><span class="p">(</span>
+<span class="w">        </span><span class="p">{</span><span class="sc">&#39; &#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;\r&#39;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{{</span><span class="sc">&#39;\&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;\&quot;&#39;</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;[&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;]&#39;</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;(&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;)&#39;</span><span class="p">}});</span>
+
+<span class="w">    </span><span class="n">PH_SCOPED_TIMER</span><span class="p">(</span><span class="n">ParseExecutionCommand</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tokens</span><span class="p">;</span>
+<span class="w">    </span><span class="n">executionCommandTokenizer</span><span class="p">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">command</span><span class="p">,</span><span class="w"> </span><span class="n">tokens</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Sanity check</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">tokens</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">SdlLoadError</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;syntax error: improper execution command&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">getCommandType</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ESdlCommandType</span><span class="o">::</span><span class="n">EXECUTION</span><span class="p">);</span>
+<span class="w">    </span><span class="n">PH_ASSERT_GE</span><span class="p">(</span><span class="n">tokens</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Get category and type then acquire the matching SDL class</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">categoryName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tokens</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">typeName</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="n">tokens</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">SdlClass</span><span class="o">&amp;</span><span class="w"> </span><span class="n">clazz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getSdlClass</span><span class="p">(</span><span class="n">categoryName</span><span class="p">,</span><span class="w"> </span><span class="n">typeName</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Get target SDL resource and clauses</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">targetResourceName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getName</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="mi">4</span><span class="p">]);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">executorName</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="n">tokens</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+
+<span class="w">    </span><span class="c1">// Now we have name-related information, which is useful for debugging.</span>
+<span class="w">    </span><span class="c1">// Catch load errors here to provide name information and re-throw.</span>
+<span class="w">    </span><span class="k">try</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">ISdlResource</span><span class="o">&gt;</span><span class="w"> </span><span class="n">resource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">out_scene</span><span class="p">.</span><span class="n">getResource</span><span class="p">(</span><span class="n">targetResourceName</span><span class="p">,</span><span class="w"> </span><span class="n">clazz</span><span class="p">.</span><span class="n">getCategory</span><span class="p">());</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">resource</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="n">SdlLoadError</span><span class="p">(</span><span class="s">&quot;cannot find target resource from scene&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">clauseStrings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="n">tokens</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">tokens</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<span class="w">        </span><span class="n">ValueClauses</span><span class="w"> </span><span class="n">clauses</span><span class="p">;</span>
+<span class="w">        </span><span class="n">getClauses</span><span class="p">(</span><span class="n">clauseStrings</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">clauses</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Finally, call the executor</span>
+
+<span class="w">        </span><span class="n">SdlInputContext</span><span class="w"> </span><span class="nf">inputContext</span><span class="p">(</span><span class="o">&amp;</span><span class="n">out_scene</span><span class="p">,</span><span class="w"> </span><span class="n">m_workingDirectory</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">clazz</span><span class="p">);</span>
+<span class="w">        </span><span class="n">clazz</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="n">executorName</span><span class="p">,</span><span class="w"> </span><span class="n">resource</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span><span class="w"> </span><span class="n">clauses</span><span class="p">,</span><span class="w"> </span><span class="n">inputContext</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">catch</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SdlLoadError</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">SdlLoadError</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;failed to run &lt;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">executorName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&gt; on resource &lt;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">targetResourceName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&gt; &quot;</span>
+<span class="w">            </span><span class="s">&quot;(from SDL class: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">clazz</span><span class="p">.</span><span class="n">genPrettyName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;) &quot;</span>
+<span class="w">            </span><span class="s">&quot;-&gt; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">whatStr</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">SdlParser</span><span class="o">::</span><span class="n">parseDirectiveCommand</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">command</span><span class="p">,</span>
+<span class="w">    </span><span class="n">SceneDescription</span><span class="o">&amp;</span><span class="w">  </span><span class="n">out_scene</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Tokenizer</span><span class="w"> </span><span class="n">directiveCommandTokenizer</span><span class="p">(</span>
+<span class="w">        </span><span class="p">{</span><span class="sc">&#39; &#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;\r&#39;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{});</span>
+
+<span class="w">    </span><span class="n">PH_SCOPED_TIMER</span><span class="p">(</span><span class="n">ParseDirectiveCommand</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tokens</span><span class="p">;</span>
+<span class="w">    </span><span class="n">directiveCommandTokenizer</span><span class="p">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">command</span><span class="p">,</span><span class="w"> </span><span class="n">tokens</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Sanity check: should include additional information other than command type</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">tokens</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">SdlLoadError</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;empty directive command&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">getCommandType</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ESdlCommandType</span><span class="o">::</span><span class="n">DIRECTIVE</span><span class="p">);</span>
+<span class="w">    </span><span class="n">PH_ASSERT_GE</span><span class="p">(</span><span class="n">tokens</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;version&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">tokens</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="n">SdlLoadError</span><span class="p">(</span>
+<span class="w">                </span><span class="s">&quot;no version supplied when specifying PSDL version&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">versionStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tokens</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">m_commandVersion</span><span class="p">.</span><span class="n">isInitial</span><span class="p">())</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">PH_LOG_WARNING</span><span class="p">(</span><span class="n">SdlParser</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;overwriting existing PSDL version: old={}, new={}&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="n">m_commandVersion</span><span class="p">.</span><span class="n">toString</span><span class="p">(),</span><span class="w"> </span><span class="n">versionStr</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">m_commandVersion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SemanticVersion</span><span class="p">(</span><span class="n">versionStr</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">SdlLoadError</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;unknown SDL directive: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tokens</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, ignoring&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">SdlParser</span><span class="o">::</span><span class="n">genNameForAnonymity</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;@__anonymous-item-&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">m_generatedNameCounter</span><span class="o">++</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">SdlParser</span><span class="o">::</span><span class="n">getName</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">resourceNameToken</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_SCOPED_TIMER</span><span class="p">(</span><span class="n">GetName</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Remove any leading and trailing blank characters</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">trimmedToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string_utils</span><span class="o">::</span><span class="n">trim</span><span class="p">(</span><span class="n">resourceNameToken</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Should at least contain a &#39;@&#39; character</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">trimmedToken</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">SdlLoadError</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;syntax error: resource name is empty, &lt;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="n">resourceNameToken</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&gt; was given&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">trimmedToken</span><span class="p">.</span><span class="n">front</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Token is a name without quotes</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;@&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="c1">// Token has more character(s) following &#39;@&#39;</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">trimmedToken</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="n">trimmedToken</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="c1">// Token is anonymous</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">genNameForAnonymity</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Token is a name with quotes</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;\&quot;&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="c1">// Should at least contain 3 characters: opening and closing double quotes, the name prefix &#39;@&#39;</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">trimmedToken</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">trimmedToken</span><span class="p">.</span><span class="n">back</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;\&quot;&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">trimmedToken</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;@&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Token has more character(s) following &#39;@&#39;</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">trimmedToken</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// Remove the double quotes</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="n">trimmedToken</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">trimmedToken</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="p">));</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="c1">// Token is anonymous</span>
+<span class="w">            </span><span class="k">else</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">genNameForAnonymity</span><span class="p">();</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="n">SdlLoadError</span><span class="p">(</span>
+<span class="w">                </span><span class="s">&quot;syntax error: resource name missing ending double quote and/or the @ prefix, &quot;</span>
+<span class="w">                </span><span class="s">&quot;&lt;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="n">resourceNameToken</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&gt; was given&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">SdlLoadError</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;syntax error: resource name should start with @, optionally &quot;</span>
+<span class="w">            </span><span class="s">&quot;enclosed by double quotes, &lt;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="n">resourceNameToken</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&gt; was given&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">SdlParser</span><span class="o">::</span><span class="n">setWorkingDirectory</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Path</span><span class="o">&amp;</span><span class="w"> </span><span class="n">path</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_workingDirectory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">path</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">ESdlCommandType</span><span class="w"> </span><span class="n">SdlParser</span><span class="o">::</span><span class="n">getCommandType</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">commandSegment</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_SCOPED_TIMER</span><span class="p">(</span><span class="n">GetCommandType</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Skips any leading whitespace</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">trimmedSegment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string_utils</span><span class="o">::</span><span class="n">trim_head</span><span class="p">(</span><span class="n">commandSegment</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// We cannot know the type yet with too few characters</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">trimmedSegment</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ESdlCommandType</span><span class="o">::</span><span class="n">UNKNOWN</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Test to see if any command symbol is matched</span>
+<span class="w">    </span><span class="c1">//</span>
+<span class="w">    </span><span class="c1">// &quot;//&quot;: comment</span>
+<span class="w">    </span><span class="c1">// &quot;+&gt;&quot;: load</span>
+<span class="w">    </span><span class="c1">// &quot;-&gt;&quot;: removal</span>
+<span class="w">    </span><span class="c1">// &quot;=&gt;&quot;: update</span>
+<span class="w">    </span><span class="c1">// &quot;&gt;&gt;&quot;: execution</span>
+<span class="w">    </span><span class="c1">// &quot;##&quot;: directive</span>
+
+<span class="w">    </span><span class="n">PH_ASSERT_GE</span><span class="p">(</span><span class="n">trimmedSegment</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">trimmedSegment</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;/&#39;</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">trimmedSegment</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;/&#39;</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">ESdlCommandType</span><span class="o">::</span><span class="n">COMMENT</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="n">ESdlCommandType</span><span class="o">::</span><span class="n">UNKNOWN</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;+&#39;</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">trimmedSegment</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;&gt;&#39;</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">ESdlCommandType</span><span class="o">::</span><span class="n">LOAD</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">ESdlCommandType</span><span class="o">::</span><span class="n">UNKNOWN</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;-&#39;</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">trimmedSegment</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;&gt;&#39;</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">ESdlCommandType</span><span class="o">::</span><span class="n">REMOVAL</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="n">ESdlCommandType</span><span class="o">::</span><span class="n">UNKNOWN</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;=&#39;</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">trimmedSegment</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;&gt;&#39;</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">ESdlCommandType</span><span class="o">::</span><span class="n">UPDATE</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">ESdlCommandType</span><span class="o">::</span><span class="n">UNKNOWN</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;&gt;&#39;</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">trimmedSegment</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;&gt;&#39;</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">ESdlCommandType</span><span class="o">::</span><span class="n">EXECUTION</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ESdlCommandType</span><span class="o">::</span><span class="n">UNKNOWN</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;#&#39;</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">trimmedSegment</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;#&#39;</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">ESdlCommandType</span><span class="o">::</span><span class="n">DIRECTIVE</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ESdlCommandType</span><span class="o">::</span><span class="n">UNKNOWN</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ESdlCommandType</span><span class="o">::</span><span class="n">UNKNOWN</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">SdlParser</span><span class="o">::</span><span class="n">getMangledName</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">categoryName</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">typeName</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">mangledName</span><span class="p">;</span>
+<span class="w">    </span><span class="n">getMangledName</span><span class="p">(</span><span class="n">categoryName</span><span class="p">,</span><span class="w"> </span><span class="n">typeName</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">mangledName</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">mangledName</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">SdlParser</span><span class="o">::</span><span class="n">getMangledName</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">categoryName</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">typeName</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">out_mangledName</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">out_mangledName</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">out_mangledName</span><span class="o">-&gt;</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">    </span><span class="o">*</span><span class="n">out_mangledName</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="n">categoryName</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="n">typeName</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">SdlParser</span><span class="o">::</span><span class="n">getClauses</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">clauseStrings</span><span class="p">,</span><span class="w"> </span><span class="n">ValueClauses</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">out_clauses</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">out_clauses</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">PH_SCOPED_TIMER</span><span class="p">(</span><span class="n">GetClauses</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">out_clauses</span><span class="o">-&gt;</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">clauseString</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">clauseStrings</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ValueClauses</span><span class="o">::</span><span class="n">Clause</span><span class="w"> </span><span class="n">clause</span><span class="p">;</span>
+<span class="w">        </span><span class="n">getClause</span><span class="p">(</span><span class="n">clauseString</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">clause</span><span class="p">);</span>
+<span class="w">        </span><span class="n">out_clauses</span><span class="o">-&gt;</span><span class="n">add</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">clause</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">SdlParser</span><span class="o">::</span><span class="n">getClause</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">clauseString</span><span class="p">,</span><span class="w"> </span><span class="n">ValueClauses</span><span class="o">::</span><span class="n">Clause</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">out_clause</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">out_clause</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Tokenizer</span><span class="w"> </span><span class="n">clauseTokenizer</span><span class="p">(</span>
+<span class="w">        </span><span class="p">{</span><span class="sc">&#39; &#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;\t&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;\r&#39;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{{</span><span class="sc">&#39;\&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;\&quot;&#39;</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;{&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;}&#39;</span><span class="p">}});</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">clauseString</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">SdlLoadError</span><span class="p">(</span><span class="s">&quot;syntax error: clause string is empty&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// TODO: tokenize string_view</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tokens</span><span class="p">;</span>
+<span class="w">    </span><span class="n">clauseTokenizer</span><span class="p">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="n">clauseString</span><span class="p">),</span><span class="w"> </span><span class="n">tokens</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">tokens</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">SdlLoadError</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;syntax error: bad number of tokens &lt; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">tokens</span><span class="p">.</span><span class="n">size</span><span class="p">())</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&gt;, expected to be 3&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">out_clause</span><span class="o">-&gt;</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tokens</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="w">    </span><span class="n">out_clause</span><span class="o">-&gt;</span><span class="n">payload</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tokens</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+
+<span class="w">    </span><span class="c1">// Parse name and an optional tag</span>
+<span class="w">    </span><span class="c1">// tokens[1] contains name and tag, syntax: &lt;name&gt;:&lt;optional-tag&gt;</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">nameAndTag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tokens</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">colonPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nameAndTag</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="sc">&#39;:&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">colonPos</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="o">::</span><span class="n">npos</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">out_clause</span><span class="o">-&gt;</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tokens</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="w">        </span><span class="n">out_clause</span><span class="o">-&gt;</span><span class="n">payload</span><span class="p">.</span><span class="n">tag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">out_clause</span><span class="o">-&gt;</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="n">nameAndTag</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">colonPos</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
+<span class="w">        </span><span class="n">out_clause</span><span class="o">-&gt;</span><span class="n">payload</span><span class="p">.</span><span class="n">tag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nameAndTag</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">colonPos</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">const</span><span class="w"> </span><span class="n">SdlClass</span><span class="o">*</span><span class="w"> </span><span class="n">SdlParser</span><span class="o">::</span><span class="n">getSdlClass</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">mangledClassName</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">iter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_mangledNameToClass</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">mangledClassName</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">iter</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">m_mangledNameToClass</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">iter</span><span class="o">-&gt;</span><span class="n">second</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">const</span><span class="w"> </span><span class="n">SdlClass</span><span class="o">&amp;</span><span class="w"> </span><span class="n">SdlParser</span><span class="o">::</span><span class="n">getSdlClass</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">categoryName</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">typeName</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_SCOPED_TIMER</span><span class="p">(</span><span class="n">GetSDLClass</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">mangledClassName</span><span class="p">;</span>
+<span class="w">    </span><span class="n">getMangledName</span><span class="p">(</span><span class="n">categoryName</span><span class="p">,</span><span class="w"> </span><span class="n">typeName</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">mangledClassName</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">SdlClass</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">clazz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getSdlClass</span><span class="p">(</span><span class="n">mangledClassName</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">clazz</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">SdlLoadError</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;SDL class &lt;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="n">categoryName</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="n">typeName</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&gt; does not exist&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="n">clazz</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1a4690860b243fe5e072ff6048732ae2a3:
+
+Template Function ph::math::normalize_integer
+=============================================
+
+- Defined in :ref:`file_Source_Math_math.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::normalize_integer(const IntType)
+   :project: Photon

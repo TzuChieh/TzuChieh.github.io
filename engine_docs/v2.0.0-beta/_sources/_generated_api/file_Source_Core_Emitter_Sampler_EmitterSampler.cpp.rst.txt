@@ -1,0 +1,40 @@
+
+.. _file_Source_Core_Emitter_Sampler_EmitterSampler.cpp:
+
+File EmitterSampler.cpp
+=======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Emitter\Sampler\EmitterSampler.cpp``)
+---------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Emitter_Sampler_EmitterSampler.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/Emitter/Sampler/EmitterSampler.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

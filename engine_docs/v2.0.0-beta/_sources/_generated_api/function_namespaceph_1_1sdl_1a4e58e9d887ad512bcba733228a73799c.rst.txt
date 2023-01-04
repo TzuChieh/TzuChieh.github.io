@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1sdl_1a4e58e9d887ad512bcba733228a73799c:
+
+Function ph::sdl::load_tristimulus_color
+========================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::sdl::load_tristimulus_color(const math::Vector3R&, const math::EColorSpace)
+   :project: Photon

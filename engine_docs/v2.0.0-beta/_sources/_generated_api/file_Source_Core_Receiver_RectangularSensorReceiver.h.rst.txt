@@ -1,0 +1,65 @@
+
+.. _file_Source_Core_Receiver_RectangularSensorReceiver.h:
+
+File RectangularSensorReceiver.h
+================================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Receiver\RectangularSensorReceiver.h``)
+-----------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Receiver_RectangularSensorReceiver.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/Receiver/Receiver.h``
+
+- ``Math/TVector2.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Api_init_and_exit.cpp`
+
+- :ref:`file_Source_Core_Receiver_PinholeCamera.h`
+
+- :ref:`file_Source_Core_Receiver_RectangularSensorReceiver.cpp`
+
+- :ref:`file_Source_Core_Receiver_ThinLensCamera.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_rectangular_sensor_receiver`
+

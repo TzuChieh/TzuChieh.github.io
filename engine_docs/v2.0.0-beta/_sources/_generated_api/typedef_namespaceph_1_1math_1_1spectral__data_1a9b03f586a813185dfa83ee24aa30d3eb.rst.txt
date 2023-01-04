@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1_1math_1_1spectral__data_1a9b03f586a813185dfa83ee24aa30d3eb:
+
+Typedef ph::math::spectral_data::ArraySmits
+===========================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::math::spectral_data::ArraySmits
+   :project: Photon

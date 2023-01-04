@@ -1,0 +1,67 @@
+
+.. _file_Source_Utility_traits.h:
+
+File traits.h
+=============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Utility\traits.h``)
+----------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Utility_traits.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cstddef``
+
+- ``type_traits``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Texture_Function_binary_texture_operators.h`
+
+- :ref:`file_Source_Core_Texture_Function_unary_texture_operators.h`
+
+- :ref:`file_Source_Core_Texture_TSwizzledTexture.h`
+
+- :ref:`file_Source_Utility_TBitFlags.h`
+
+- :ref:`file_Source_Utility_utility.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structph_1_1_is_buildable`
+
+- :ref:`exhale_struct_structph_1_1_is_buildable_3_01_built_00_01_from_00_01std_1_1enable__if__t_3_01std_1_1is__converta6aac1ed5d2b2b1ac61e1c4a0d874ccc`
+

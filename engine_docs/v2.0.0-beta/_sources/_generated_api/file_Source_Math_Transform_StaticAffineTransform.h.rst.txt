@@ -1,0 +1,81 @@
+
+.. _file_Source_Math_Transform_StaticAffineTransform.h:
+
+File StaticAffineTransform.h
+============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\Transform\StaticAffineTransform.h``)
+--------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_Transform_StaticAffineTransform.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Math/TMatrix4.h``
+
+- ``Math/TVector3.h``
+
+- ``Math/Transform/TDecomposedTransform.h``
+
+- ``Math/Transform/Transform.h``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_ALight.cpp`
+
+- :ref:`file_Source_Actor_AModel.cpp`
+
+- :ref:`file_Source_Actor_Geometry_Geometry.h`
+
+- :ref:`file_Source_Actor_PhysicalActor.h`
+
+- :ref:`file_Source_Core_Emitter_Emitter.cpp`
+
+- :ref:`file_Source_Core_Intersectable_PrimitiveMetadata.h`
+
+- :ref:`file_Source_Core_Intersectable_PTriangle.cpp`
+
+- :ref:`file_Source_EngineEnv_Observer_SingleLensObserver.cpp`
+
+- :ref:`file_Source_Math_Transform_StaticAffineTransform.cpp`
+
+- :ref:`file_Source_Math_Transform_StaticRigidTransform.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1math_1_1_static_affine_transform`
+

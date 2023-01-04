@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1a0d6920985af2660f90072817bef5d89a:
+
+Typedef ph::TSdlOptionalString
+==============================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::TSdlOptionalString
+   :project: Photon

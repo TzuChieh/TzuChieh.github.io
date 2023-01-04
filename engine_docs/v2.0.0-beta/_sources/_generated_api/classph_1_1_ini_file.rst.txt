@@ -1,0 +1,27 @@
+.. _exhale_class_classph_1_1_ini_file:
+
+Class IniFile
+=============
+
+- Defined in :ref:`file_Source_DataIO_IniFile.h`
+
+
+Nested Relationships
+--------------------
+
+
+Nested Types
+************
+
+- :ref:`exhale_struct_structph_1_1_ini_file_1_1_ini_section`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::IniFile
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

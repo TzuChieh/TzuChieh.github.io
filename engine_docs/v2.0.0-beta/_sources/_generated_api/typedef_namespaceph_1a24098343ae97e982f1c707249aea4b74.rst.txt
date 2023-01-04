@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1a24098343ae97e982f1c707249aea4b74:
+
+Typedef ph::TSdlOptionalInteger
+===============================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::TSdlOptionalInteger
+   :project: Photon

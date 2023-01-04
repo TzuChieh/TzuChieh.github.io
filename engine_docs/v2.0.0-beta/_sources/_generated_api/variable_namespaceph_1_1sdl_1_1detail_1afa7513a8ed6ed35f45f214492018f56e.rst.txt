@@ -1,0 +1,14 @@
+.. _exhale_variable_namespaceph_1_1sdl_1_1detail_1afa7513a8ed6ed35f45f214492018f56e:
+
+Variable ph::sdl::detail::CATEGORY_TO_STRING
+============================================
+
+- Defined in :ref:`file_Source_DataIO_SDL_ETypeCategory.h`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: ph::sdl::detail::CATEGORY_TO_STRING
+   :project: Photon

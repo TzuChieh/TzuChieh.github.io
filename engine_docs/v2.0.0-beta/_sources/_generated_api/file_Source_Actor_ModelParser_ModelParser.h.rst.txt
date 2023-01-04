@@ -1,0 +1,55 @@
+
+.. _file_Source_Actor_ModelParser_ModelParser.h:
+
+File ModelParser.h
+==================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\ModelParser\ModelParser.h``)
+-------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_ModelParser_ModelParser.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_ModelParser_ModelParser.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_model_parser`
+

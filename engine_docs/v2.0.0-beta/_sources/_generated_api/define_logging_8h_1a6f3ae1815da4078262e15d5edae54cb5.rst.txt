@@ -1,0 +1,14 @@
+.. _exhale_define_logging_8h_1a6f3ae1815da4078262e15d5edae54cb5:
+
+Define PH_DEFINE_EXTERNAL_LOG_GROUP
+===================================
+
+- Defined in :ref:`file_Source_Common_logging.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: PH_DEFINE_EXTERNAL_LOG_GROUP
+   :project: Photon

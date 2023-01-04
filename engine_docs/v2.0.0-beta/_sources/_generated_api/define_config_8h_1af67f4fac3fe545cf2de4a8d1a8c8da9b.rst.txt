@@ -1,0 +1,14 @@
+.. _exhale_define_config_8h_1af67f4fac3fe545cf2de4a8d1a8c8da9b:
+
+Define PH_SPECTRUM_SAMPLED_MIN_WAVELENGTH_NM
+============================================
+
+- Defined in :ref:`file_Source_Common_config.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: PH_SPECTRUM_SAMPLED_MIN_WAVELENGTH_NM
+   :project: Photon

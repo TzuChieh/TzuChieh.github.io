@@ -1,9 +1,10 @@
 var classph_1_1_sidedness_agreement =
 [
     [ "SidednessAgreement", "classph_1_1_sidedness_agreement.html#a5085be407f14d87a236c1740d889ca3a", null ],
-    [ "SidednessAgreement", "classph_1_1_sidedness_agreement.html#af093da5d88ba6ab53d861ed495de8953", null ],
+    [ "SidednessAgreement", "classph_1_1_sidedness_agreement.html#acd601d02ca67645bd4a1457f5706401c", null ],
     [ "adjustForSidednessAgreement", "classph_1_1_sidedness_agreement.html#aaf14e63820d81c2aad99d7e0056c8377", null ],
-    [ "isOppositeHemisphere", "classph_1_1_sidedness_agreement.html#afdbb002741132c2707ba1df6ff4ddb67", null ],
-    [ "isSameHemisphere", "classph_1_1_sidedness_agreement.html#adaa13bdcb39bda73a8939fb94d141e39", null ],
-    [ "isSidednessAgreed", "classph_1_1_sidedness_agreement.html#adfac47fba1ecb126d1d68ac28ac6ca22", null ]
+    [ "isOppositeHemisphere", "classph_1_1_sidedness_agreement.html#ad701c00e048675a1208f53a895e99fd5", null ],
+    [ "isSameHemisphere", "classph_1_1_sidedness_agreement.html#afe4a997e51270ab9e7bcc2fc4ba76e47", null ],
+    [ "isSidednessAgreed", "classph_1_1_sidedness_agreement.html#a9bb073e57776d8f441f74075ba1fbe66", null ],
+    [ "m_policy", "classph_1_1_sidedness_agreement.html#a2b243e23dadc19f1f8751ed667d2f058", null ]
 ];

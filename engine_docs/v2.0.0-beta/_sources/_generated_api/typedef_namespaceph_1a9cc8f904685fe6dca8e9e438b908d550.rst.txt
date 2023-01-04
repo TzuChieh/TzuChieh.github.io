@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1a9cc8f904685fe6dca8e9e438b908d550:
+
+Typedef ph::CookLevel
+=====================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::CookLevel
+   :project: Photon

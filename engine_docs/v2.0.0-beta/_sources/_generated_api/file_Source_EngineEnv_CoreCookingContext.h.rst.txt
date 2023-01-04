@@ -1,0 +1,71 @@
+
+.. _file_Source_EngineEnv_CoreCookingContext.h:
+
+File CoreCookingContext.h
+=========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\EngineEnv\CoreCookingContext.h``)
+------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_EngineEnv_CoreCookingContext.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Common/primitive_type.h``
+
+- ``EngineEnv/EAccelerator.h``
+
+- ``Math/TVector2.h``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Engine.cpp`
+
+- :ref:`file_Source_EngineEnv_Observer_SingleLensObserver.cpp`
+
+- :ref:`file_Source_EngineEnv_Session_RenderSession.cpp`
+
+- :ref:`file_Source_EngineEnv_Session_SingleFrameRenderSession.cpp`
+
+- :ref:`file_Source_EngineEnv_Visualizer_PathTracingVisualizer.cpp`
+
+- :ref:`file_Source_World_VisualWorld.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_core_cooking_context`
+

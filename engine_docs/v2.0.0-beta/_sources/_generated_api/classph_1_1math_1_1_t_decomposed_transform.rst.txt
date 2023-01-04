@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1math_1_1_t_decomposed_transform:
+
+Template Class TDecomposedTransform
+===================================
+
+- Defined in :ref:`file_Source_Math_Transform_TDecomposedTransform.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::math::TDecomposedTransform
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

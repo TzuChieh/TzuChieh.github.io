@@ -1,0 +1,36 @@
+
+.. _namespace_ph__os:
+
+Namespace ph::os
+================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph__os__@187`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_namespaceph_1_1os_1a19b458c339590bd8d6525abd294ef2e7`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_namespaceph_1_1os_1aeb0d82e12deb6d7cb5a40dd7c8f009f9`
+
+- :ref:`exhale_function_namespaceph_1_1os_1a29851232837d7af4a262fdb1c88570e7`

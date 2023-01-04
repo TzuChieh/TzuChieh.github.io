@@ -1,0 +1,69 @@
+
+.. _file_Source_Frame_RegularPicture.h:
+
+File RegularPicture.h
+=====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Frame\RegularPicture.h``)
+----------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Frame_RegularPicture.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/primitive_type.h``
+
+- ``Frame/PictureData.h``
+
+- ``Frame/picture_basics.h``
+
+- ``Math/Color/color_basics.h``
+
+- ``Math/TVector2.h``
+
+- ``cstddef``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_Image_RasterFileImage.cpp`
+
+- :ref:`file_Source_DataIO_io_utils.cpp`
+
+- :ref:`file_Source_Frame_RegularPicture.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_regular_picture`
+
+- :ref:`exhale_class_classph_1_1_regular_picture_format`
+

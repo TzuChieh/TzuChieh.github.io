@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File string_utils.h &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File string_utils.h</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Utility_string_utils.h.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-string-utils-h">
+<span id="program-listing-file-source-utility-string-utils-h"></span><h1>Program Listing for File string_utils.h<a class="headerlink" href="#program-listing-for-file-string-utils-h" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Utility_string_utils.h.html#file-source-utility-string-utils-h"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Utility\string_utils.h</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">PH_DEFINE_INLINE_TO_STRING_FORMATTER</span><span class="p">(</span><span class="n">SomeType</span><span class="p">);</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TSomeType</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">(</span><span class="k">class</span><span class="w"> </span><span class="nc">definitions</span><span class="p">)</span><span class="w"> </span><span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">PH_DEFINE_INLINE_TO_STRING_FORMATTER_TEMPLATE</span><span class="p">(</span><span class="n">TSomeType</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="cp">#pragma once</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/assertion.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Utility/string_utils_table.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstddef&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;algorithm&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string_view&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdexcept&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;charconv&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;limits&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;type_traits&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;format&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;concepts&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span><span class="o">::</span><span class="nn">string_utils</span>
+<span class="p">{</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">ObjType</span><span class="o">&gt;</span>
+<span class="k">concept</span><span class="w"> </span><span class="nc">CHasToString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">requires</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">ObjType</span><span class="o">&amp;</span><span class="w"> </span><span class="n">obj</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">convertible_to</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph::string_utils</span>
+
+<span class="cp">#define PH_DEFINE_INLINE_TO_STRING_FORMATTER_SPECIALIZATION(...)\</span>
+<span class="cp">    struct ::std::formatter&lt;__VA_ARGS__&gt; : ::std::formatter&lt;::std::string&gt;\</span>
+<span class="cp">    {\</span>
+<span class="cp">        static_assert(::ph::string_utils::CHasToString&lt;__VA_ARGS__&gt;,\</span>
+<span class="cp">            &quot;type &quot; #__VA_ARGS__ &quot; must have a const method toString() and the result should be &quot;\</span>
+<span class="cp">            &quot;implicitly convertible to std::string&quot;); \</span>
+<span class="cp">    \</span>
+<span class="cp">        </span><span class="cm">/* `parse()` is inherited from the base class */</span><span class="cp">\</span>
+<span class="cp">    \</span>
+<span class="cp">        </span><span class="cm">/* Define `format()` by calling `std::string`&#39;s implementation with custom type&#39;s `toString()`*/</span><span class="cp">\</span>
+<span class="cp">        inline auto format(const __VA_ARGS__&amp; value, ::std::format_context&amp; ctx)\</span>
+<span class="cp">        {\</span>
+<span class="cp">            return ::std::formatter&lt;::std::string&gt;::format(\</span>
+<span class="cp">                value.toString(), ctx);\</span>
+<span class="cp">        }\</span>
+<span class="cp">    }</span>
+
+<span class="cp">#define PH_DEFINE_INLINE_TO_STRING_FORMATTER(...)\</span>
+<span class="cp">    template&lt;&gt;\</span>
+<span class="cp">    PH_DEFINE_INLINE_TO_STRING_FORMATTER_SPECIALIZATION(__VA_ARGS__)</span>
+
+<span class="cp">#define PH_DEFINE_INLINE_TO_STRING_FORMATTER_TEMPLATE(...)\</span>
+<span class="cp">    PH_DEFINE_INLINE_TO_STRING_FORMATTER_SPECIALIZATION(__VA_ARGS__)</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span><span class="o">::</span><span class="nn">string_utils</span>
+<span class="p">{</span>
+
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">EWhitespace</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">COMMON</span><span class="p">,</span>
+<span class="w">    </span><span class="n">STANDARD</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="n">EWhitespace</span><span class="w"> </span><span class="n">TYPE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EWhitespace</span><span class="o">::</span><span class="n">COMMON</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">get_whitespaces</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="p">(</span><span class="n">TYPE</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EWhitespace</span><span class="o">::</span><span class="n">COMMON</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">table</span><span class="o">::</span><span class="n">common_whitespaces</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="p">(</span><span class="n">TYPE</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EWhitespace</span><span class="o">::</span><span class="n">STANDARD</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">table</span><span class="o">::</span><span class="n">standard_whitespaces</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">static_assert</span><span class="p">(</span><span class="n">TYPE</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EWhitespace</span><span class="o">::</span><span class="n">COMMON</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">TYPE</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EWhitespace</span><span class="o">::</span><span class="n">STANDARD</span><span class="p">,</span>
+<span class="w">            </span><span class="s">&quot;Must include a case for each enum entry; did you forget to add one?&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="n">EWhitespace</span><span class="w"> </span><span class="n">TYPE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EWhitespace</span><span class="o">::</span><span class="n">COMMON</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_whitespace</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">ch</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">get_whitespaces</span><span class="o">&lt;</span><span class="n">TYPE</span><span class="o">&gt;</span><span class="p">().</span><span class="n">find</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="o">::</span><span class="n">npos</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">has_any_of</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">srcStr</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">candidates</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">foundPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">srcStr</span><span class="p">.</span><span class="n">find_first_of</span><span class="p">(</span><span class="n">candidates</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">foundPos</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="o">::</span><span class="n">npos</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">has_none_of</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">srcStr</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">candidates</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">!</span><span class="n">has_any_of</span><span class="p">(</span><span class="n">srcStr</span><span class="p">,</span><span class="w"> </span><span class="n">candidates</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">cut_head</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">srcStr</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">candidates</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">nonCutPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">srcStr</span><span class="p">.</span><span class="n">find_first_not_of</span><span class="p">(</span><span class="n">candidates</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">cutStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">srcStr</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// remove_prefix(): behavior is undefined for inputPos &gt; size(), avoid that</span>
+<span class="w">    </span><span class="c1">// with the ternary operator</span>
+<span class="w">    </span><span class="n">cutStr</span><span class="p">.</span><span class="n">remove_prefix</span><span class="p">(</span>
+<span class="w">        </span><span class="n">nonCutPos</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="o">::</span><span class="n">npos</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">nonCutPos</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">srcStr</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cutStr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">cut_tail</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">srcStr</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">candidates</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">nonCutPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">srcStr</span><span class="p">.</span><span class="n">find_last_not_of</span><span class="p">(</span><span class="n">candidates</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">cutStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">srcStr</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// remove_suffix(): behavior is undefined for inputPos &gt; size(), avoid that</span>
+<span class="w">    </span><span class="c1">// with the ternary operator;</span>
+<span class="w">    </span><span class="c1">// also, if &lt;nonCutPos&gt; is not npos, &lt;srcStr&gt; will not be empty</span>
+<span class="w">    </span><span class="n">cutStr</span><span class="p">.</span><span class="n">remove_suffix</span><span class="p">(</span>
+<span class="w">        </span><span class="n">nonCutPos</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="o">::</span><span class="n">npos</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">srcStr</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nonCutPos</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">srcStr</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cutStr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">cut_ends</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">srcStr</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">candidates</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cut_head</span><span class="p">(</span><span class="n">cut_tail</span><span class="p">(</span><span class="n">srcStr</span><span class="p">,</span><span class="w"> </span><span class="n">candidates</span><span class="p">),</span><span class="w"> </span><span class="n">candidates</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="n">EWhitespace</span><span class="w"> </span><span class="n">TYPE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EWhitespace</span><span class="o">::</span><span class="n">COMMON</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">trim_head</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">srcStr</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cut_head</span><span class="p">(</span><span class="n">srcStr</span><span class="p">,</span><span class="w"> </span><span class="n">get_whitespaces</span><span class="o">&lt;</span><span class="n">TYPE</span><span class="o">&gt;</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="n">EWhitespace</span><span class="w"> </span><span class="n">TYPE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EWhitespace</span><span class="o">::</span><span class="n">COMMON</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">trim_tail</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">srcStr</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cut_tail</span><span class="p">(</span><span class="n">srcStr</span><span class="p">,</span><span class="w"> </span><span class="n">get_whitespaces</span><span class="o">&lt;</span><span class="n">TYPE</span><span class="o">&gt;</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="n">EWhitespace</span><span class="w"> </span><span class="n">TYPE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EWhitespace</span><span class="o">::</span><span class="n">COMMON</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">trim</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">srcStr</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">trim_head</span><span class="o">&lt;</span><span class="n">TYPE</span><span class="o">&gt;</span><span class="p">(</span><span class="n">trim_tail</span><span class="o">&lt;</span><span class="n">TYPE</span><span class="o">&gt;</span><span class="p">(</span><span class="n">srcStr</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">next_token</span><span class="p">(</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w">        </span><span class="n">srcStr</span><span class="p">,</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">remainingStr</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w">  </span><span class="n">tokenSeparators</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_whitespaces</span><span class="o">&lt;&gt;</span><span class="p">())</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">srcStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cut_head</span><span class="p">(</span><span class="n">srcStr</span><span class="p">,</span><span class="w"> </span><span class="n">tokenSeparators</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">separatorPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">srcStr</span><span class="p">.</span><span class="n">find_first_of</span><span class="p">(</span><span class="n">tokenSeparators</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">separatorPos</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="o">::</span><span class="n">npos</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">nextToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">srcStr</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">separatorPos</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">remainingStr</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="o">*</span><span class="n">remainingStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">srcStr</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">separatorPos</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">nextToken</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">srcStr</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">az_to_AZ</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">ch</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">table</span><span class="o">::</span><span class="n">ASCII_TO_UPPER</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">mappedCharIdx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ch</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">table</span><span class="o">::</span><span class="n">ASCII_TO_UPPER</span><span class="p">[</span><span class="n">mappedCharIdx</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">AZ_to_az</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">ch</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">table</span><span class="o">::</span><span class="n">ASCII_TO_LOWER</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">mappedCharIdx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ch</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">table</span><span class="o">::</span><span class="n">ASCII_TO_LOWER</span><span class="p">[</span><span class="n">mappedCharIdx</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">az_to_AZ</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">str</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">char</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ch</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">az_to_AZ</span><span class="p">(</span><span class="n">ch</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">AZ_to_az</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">str</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">char</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ch</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AZ_to_az</span><span class="p">(</span><span class="n">ch</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">repeat</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">totalSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Valid for the case where &lt;totalSize&gt; is 0</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="w">    </span><span class="n">result</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="n">totalSize</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">result</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">str</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">erase_all</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">ch</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">str</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">remove</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">ch</span><span class="p">),</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">detail_from_to_char</span>
+<span class="p">{</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">throw_from_std_errc_if_has_error</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">errc</span><span class="w"> </span><span class="n">errorCode</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// According to several sources, 0, or zero-initialized std::errc,</span>
+<span class="w">    </span><span class="c1">// indicates no error.</span>
+<span class="w">    </span><span class="c1">//</span>
+<span class="w">    </span><span class="c1">// [1] see the example for std::from_chars</span>
+<span class="w">    </span><span class="c1">//     https://en.cppreference.com/w/cpp/utility/from_chars</span>
+<span class="w">    </span><span class="c1">// [2] https://stackoverflow.com/a/63567008</span>
+<span class="w">    </span><span class="c1">//</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">errc</span><span class="w"> </span><span class="n">NO_ERROR_VALUE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">errc</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">errorCode</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">NO_ERROR_VALUE</span><span class="p">:</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">std</span><span class="o">::</span><span class="no">errc</span><span class="o">::</span><span class="no">invalid_argument</span><span class="p">:</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">invalid_argument</span><span class="p">(</span><span class="s">&quot;input cannot be interpreted as a numeric value&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">std</span><span class="o">::</span><span class="no">errc</span><span class="o">::</span><span class="no">result_out_of_range</span><span class="p">:</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">overflow_error</span><span class="p">(</span><span class="s">&quot;result will overflow the arithmetic type&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">std</span><span class="o">::</span><span class="no">errc</span><span class="o">::</span><span class="no">value_too_large</span><span class="p">:</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">out_of_range</span><span class="p">(</span><span class="s">&quot;result cannot fit in the output buffer&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;unknown error: std::errc = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span>
+<span class="w">            </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">underlying_type_t</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">errc</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">errorCode</span><span class="p">)));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace detail</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">parse_float</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">floatStr</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_floating_point_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;parse_float() accepts only floating point type.&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// FIXME: looks like in VS 15.9.16 from_chars() cannot parse str with</span>
+<span class="w">    </span><span class="c1">// leading whitespaces while it should be able to auto skip them, we</span>
+<span class="w">    </span><span class="c1">// do it manually for now:</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">floatStrNoLeadingWS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">trim_head</span><span class="p">(</span><span class="n">floatStr</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">from_chars_result</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">from_chars</span><span class="p">(</span>
+<span class="w">        </span><span class="n">floatStrNoLeadingWS</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">floatStrNoLeadingWS</span><span class="p">.</span><span class="n">data</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">floatStrNoLeadingWS</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">value</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/*T value;</span>
+<span class="cm">    const std::from_chars_result result = std::from_chars(</span>
+<span class="cm">        sdlFloatStr.data(),</span>
+<span class="cm">        sdlFloatStr.data() + sdlFloatStr.size(),</span>
+<span class="cm">        value);*/</span>
+
+<span class="w">    </span><span class="n">detail_from_to_char</span><span class="o">::</span><span class="n">throw_from_std_errc_if_has_error</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">ec</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">parse_int</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">intStr</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_integral_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;parse_int() accepts only integer type.&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// FIXME: looks like in VS 15.9.16 from_chars() cannot parse str with</span>
+<span class="w">    </span><span class="c1">// leading whitespaces while it should be able to auto skip them, we</span>
+<span class="w">    </span><span class="c1">// do it manually for now:</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">intStrNoLeadingWS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">trim_head</span><span class="p">(</span><span class="n">intStr</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">from_chars_result</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">from_chars</span><span class="p">(</span>
+<span class="w">        </span><span class="n">intStrNoLeadingWS</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">intStrNoLeadingWS</span><span class="p">.</span><span class="n">data</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">intStrNoLeadingWS</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">value</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/*T value;</span>
+<span class="cm">    const std::from_chars_result result = std::from_chars(</span>
+<span class="cm">        sdlIntegerStr.data(),</span>
+<span class="cm">        sdlIntegerStr.data() + sdlIntegerStr.size(),</span>
+<span class="cm">        value);*/</span>
+
+<span class="w">    </span><span class="n">detail_from_to_char</span><span class="o">::</span><span class="n">throw_from_std_errc_if_has_error</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">ec</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">NumberType</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">NumberType</span><span class="w"> </span><span class="n">parse_number</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">numberStr</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_floating_point_v</span><span class="o">&lt;</span><span class="n">NumberType</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">parse_float</span><span class="o">&lt;</span><span class="n">NumberType</span><span class="o">&gt;</span><span class="p">(</span><span class="n">numberStr</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_integral_v</span><span class="o">&lt;</span><span class="n">NumberType</span><span class="o">&gt;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">parse_int</span><span class="o">&lt;</span><span class="n">NumberType</span><span class="o">&gt;</span><span class="p">(</span><span class="n">numberStr</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">stringify_float</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">out_buffer</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">bufferSize</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_floating_point_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;stringify_float() accepts only floating point type.&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">out_buffer</span><span class="p">);</span>
+<span class="w">    </span><span class="n">PH_ASSERT_GE</span><span class="p">(</span><span class="n">bufferSize</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_chars_result</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_chars</span><span class="p">(</span>
+<span class="w">        </span><span class="n">out_buffer</span><span class="p">,</span>
+<span class="w">        </span><span class="n">out_buffer</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">bufferSize</span><span class="p">,</span>
+<span class="w">        </span><span class="n">value</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">detail_from_to_char</span><span class="o">::</span><span class="n">throw_from_std_errc_if_has_error</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">ec</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Must written at least a char, and must not exceed bufferSize</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">out_buffer</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">ptr</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">ptr</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">out_buffer</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">bufferSize</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">ptr</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">out_buffer</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">stringify_int</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">out_buffer</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">bufferSize</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_integral_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;stringify_int() accepts only integer type.&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">out_buffer</span><span class="p">);</span>
+<span class="w">    </span><span class="n">PH_ASSERT_GE</span><span class="p">(</span><span class="n">bufferSize</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_chars_result</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_chars</span><span class="p">(</span>
+<span class="w">        </span><span class="n">out_buffer</span><span class="p">,</span>
+<span class="w">        </span><span class="n">out_buffer</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">bufferSize</span><span class="p">,</span>
+<span class="w">        </span><span class="n">value</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">detail_from_to_char</span><span class="o">::</span><span class="n">throw_from_std_errc_if_has_error</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">ec</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Must written at least a char, and must not exceed bufferSize</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">out_buffer</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">ptr</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">ptr</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">out_buffer</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">bufferSize</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">ptr</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">out_buffer</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">NumberType</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">stringify_number</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">NumberType</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">out_buffer</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">bufferSize</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_floating_point_v</span><span class="o">&lt;</span><span class="n">NumberType</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">stringify_float</span><span class="o">&lt;</span><span class="n">NumberType</span><span class="o">&gt;</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">out_buffer</span><span class="p">,</span><span class="w"> </span><span class="n">bufferSize</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_integral_v</span><span class="o">&lt;</span><span class="n">NumberType</span><span class="o">&gt;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">stringify_int</span><span class="o">&lt;</span><span class="n">NumberType</span><span class="o">&gt;</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">out_buffer</span><span class="p">,</span><span class="w"> </span><span class="n">bufferSize</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">NumberType</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">stringify_number</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">NumberType</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">out_str</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">maxChars</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">out_str</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">out_str</span><span class="o">-&gt;</span><span class="n">resize</span><span class="p">(</span><span class="n">maxChars</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">actualStrSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string_utils</span><span class="o">::</span><span class="n">stringify_number</span><span class="o">&lt;</span><span class="n">NumberType</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">        </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">out_str</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">(),</span><span class="w"> </span><span class="n">out_str</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">());</span>
+<span class="w">    </span><span class="n">out_str</span><span class="o">-&gt;</span><span class="n">resize</span><span class="p">(</span><span class="n">actualStrSize</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph::string_utils</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1sdl_1af7a3801efaaab9faf9a06898fcb534d6:
+
+Template Function ph::sdl::save_vector2
+=======================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::sdl::save_vector2(const math::TVector2<Element>&, std::string *)
+   :project: Photon

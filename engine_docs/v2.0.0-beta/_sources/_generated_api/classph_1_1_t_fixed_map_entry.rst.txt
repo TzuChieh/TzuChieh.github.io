@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_t_fixed_map_entry:
+
+Template Class TFixedMapEntry
+=============================
+
+- Defined in :ref:`file_Source_Utility_fixed_map_base.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TFixedMapEntry
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,55 @@
+
+.. _file_Source_Core_SurfaceBehavior_Property_AnisoTrowbridgeReitz.h:
+
+File AnisoTrowbridgeReitz.h
+===========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SurfaceBehavior\Property\AnisoTrowbridgeReitz.h``)
+----------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SurfaceBehavior_Property_AnisoTrowbridgeReitz.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/SurfaceBehavior/Property/Microfacet.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_Material_Utility_MicrosurfaceInfo.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_Property_AnisoTrowbridgeReitz.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_aniso_trowbridge_reitz`
+

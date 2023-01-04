@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1af8b0e704f3e50c9861e6b066a9dccdf3:
+
+Template Function ph::math::wavelength_interval_of
+==================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::wavelength_interval_of()
+   :project: Photon

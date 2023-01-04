@@ -1,0 +1,87 @@
+
+.. _file_Source_DataIO_SDL_Introspect_TOwnedSdlField.h:
+
+File TOwnedSdlField.h
+=====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\SDL\Introspect\TOwnedSdlField.h``)
+--------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_SDL_Introspect_TOwnedSdlField.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``DataIO/SDL/Introspect/EFieldImportance.h``
+
+- ``DataIO/SDL/Introspect/SdlField.h``
+
+- ``DataIO/SDL/Introspect/SdlInputContext.h``
+
+- ``DataIO/SDL/Introspect/SdlOutputContext.h``
+
+- ``DataIO/SDL/SdlInputPayload.h``
+
+- ``DataIO/SDL/SdlOutputPayload.h``
+
+- ``DataIO/SDL/SdlResourceId.h``
+
+- ``DataIO/SDL/sdl_exceptions.h``
+
+- ``DataIO/SDL/sdl_helpers.h``
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_DataIO_SDL_Introspect_SdlStructFieldStump.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TAbstractSdlValue.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TOwnerSdlClass.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TOwnerSdlStruct.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlMethod.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlNestedField.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlReference.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_t_owned_sdl_field`
+

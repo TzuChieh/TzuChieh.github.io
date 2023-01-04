@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1aeffaee285e3238c7d9e61ccdfeb0a27b:
+
+Typedef ph::uint64
+==================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::uint64
+   :project: Photon

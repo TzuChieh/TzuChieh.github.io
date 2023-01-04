@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_t_direct_light_estimator:
+
+Template Class TDirectLightEstimator
+====================================
+
+- Defined in :ref:`file_Source_Core_LTABuildingBlock_TDirectLightEstimator.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TDirectLightEstimator
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

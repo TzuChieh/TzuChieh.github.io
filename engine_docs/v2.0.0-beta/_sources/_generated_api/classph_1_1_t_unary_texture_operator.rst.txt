@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_t_unary_texture_operator:
+
+Template Class TUnaryTextureOperator
+====================================
+
+- Defined in :ref:`file_Source_Core_Texture_Function_unary_texture_operators.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::TTexture< OutputType >`` (:ref:`exhale_class_classph_1_1_t_texture`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TUnaryTextureOperator
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

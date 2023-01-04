@@ -1,0 +1,52 @@
+
+.. _file_Source_Core_Renderer_Sampling_SamplingRenderer.cpp:
+
+File SamplingRenderer.cpp
+=========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Renderer\Sampling\SamplingRenderer.cpp``)
+-------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Renderer_Sampling_SamplingRenderer.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/Estimator/BNEEPTEstimator.h``
+
+- ``Core/Estimator/BVPTDLEstimator.h``
+
+- ``Core/Estimator/BVPTEstimator.h``
+
+- ``Core/Filmic/SampleFilters.h``
+
+- ``Core/Renderer/Sampling/SamplingRenderer.h``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1sdl_1aa0c23bdea97172ab49f76b564b4ca750:
+
+Function ph::sdl::is_resource_identifier
+========================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::sdl::is_resource_identifier(std::string_view)
+   :project: Photon

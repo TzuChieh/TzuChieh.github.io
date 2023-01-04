@@ -1,0 +1,50 @@
+
+.. _file_Source_Actor_Material_Utility_ERoughnessToAlpha.h:
+
+File ERoughnessToAlpha.h
+========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\Material\Utility\ERoughnessToAlpha.h``)
+------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_Material_Utility_ERoughnessToAlpha.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``DataIO/SDL/sdl_interface.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_Material_Utility_MicrosurfaceInfo.h`
+
+- :ref:`file_Source_Actor_Material_Utility_RoughnessToAlphaMapping.h`
+
+- :ref:`file_Source_Api_ph_cpp_core.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

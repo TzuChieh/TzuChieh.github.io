@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1a228bb5ad681a6bd4f5242f8a90d2e31a:
+
+Typedef ph::TSdlOptionalVector3Array
+====================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::TSdlOptionalVector3Array
+   :project: Photon

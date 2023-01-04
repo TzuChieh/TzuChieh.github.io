@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1a12f4f5d0c9c20519566fcf2ecd83e3c8:
+
+Template Function ph::math::create_von_kries_linear_CAT_matrix(const TMatrix3<T>&, const TMatrix3<T>&, const TTristimulusValues<T>&, const TTristimulusValues<T>&)
+==================================================================================================================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::create_von_kries_linear_CAT_matrix(const TMatrix3<T>&, const TMatrix3<T>&, const TTristimulusValues<T>&, const TTristimulusValues<T>&)
+   :project: Photon

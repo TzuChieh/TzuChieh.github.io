@@ -1,0 +1,67 @@
+
+.. _file_Source_Core_Renderer_PM_TPhotonMappingWork.h:
+
+File TPhotonMappingWork.h
+=========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Renderer\PM\TPhotonMappingWork.h``)
+-------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Renderer_PM_TPhotonMappingWork.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/Renderer/PM/TPhoton.h``
+
+- ``Core/Renderer/PM/TPhotonMappingWork.ipp``
+
+- ``Core/Renderer/RenderWork.h``
+
+- ``atomic``
+
+- ``cstddef``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+- ``type_traits``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Renderer_PM_PMRenderer.cpp`
+
+- :ref:`file_Source_Core_Renderer_PM_TPhotonMappingWork.ipp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_t_photon_mapping_work`
+

@@ -1,0 +1,60 @@
+
+.. _file_Source_Core_SurfaceBehavior_SurfaceOptics_IdealReflector.cpp:
+
+File IdealReflector.cpp
+=======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SurfaceBehavior\SurfaceOptics\IdealReflector.cpp``)
+-----------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SurfaceBehavior_SurfaceOptics_IdealReflector.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/SurfaceBehavior/BsdfEvalQuery.h``
+
+- ``Core/SurfaceBehavior/BsdfPdfQuery.h``
+
+- ``Core/SurfaceBehavior/BsdfSampleQuery.h``
+
+- ``Core/SurfaceBehavior/Property/ExactDielectricFresnel.h``
+
+- ``Core/SurfaceBehavior/SurfaceOptics/IdealReflector.h``
+
+- ``Core/Texture/TSampler.h``
+
+- ``Core/Texture/constant_textures.h``
+
+- ``cmath``
+
+- ``iostream``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

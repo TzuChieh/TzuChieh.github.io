@@ -1,0 +1,93 @@
+
+.. _file_Source_DataIO_SDL_SceneDescription.h:
+
+File SceneDescription.h
+=======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\SDL\SceneDescription.h``)
+-----------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_SDL_SceneDescription.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``DataIO/SDL/ETypeCategory.h``
+
+- ``DataIO/SDL/ISdlResource.h``
+
+- ``DataIO/SDL/sdl_exceptions.h``
+
+- ``DataIO/SDL/sdl_helpers.h``
+
+- ``array``
+
+- ``cstddef``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+- ``string_view``
+
+- ``type_traits``
+
+- ``unordered_map``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Engine.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlMethod.ipp`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlReference.ipp`
+
+- :ref:`file_Source_DataIO_SDL_SceneDescription.cpp`
+
+- :ref:`file_Source_DataIO_SDL_SdlParser.cpp`
+
+- :ref:`file_Source_DataIO_SDL_SdlReferenceResolver.cpp`
+
+- :ref:`file_Source_EngineEnv_CoreCookedUnit.cpp`
+
+- :ref:`file_Source_EngineEnv_Session_SingleFrameRenderSession.cpp`
+
+- :ref:`file_Source_World_VisualWorld.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_scene_description`
+

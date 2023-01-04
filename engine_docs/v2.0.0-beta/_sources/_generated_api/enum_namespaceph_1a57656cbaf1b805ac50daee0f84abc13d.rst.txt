@@ -1,0 +1,14 @@
+.. _exhale_enum_namespaceph_1a57656cbaf1b805ac50daee0f84abc13d:
+
+Enum EViewPathSampleMode
+========================
+
+- Defined in :ref:`file_Source_Core_Renderer_PM_ViewPathTracingPolicy.h`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: ph::EViewPathSampleMode
+   :project: Photon

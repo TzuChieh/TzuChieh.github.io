@@ -1,0 +1,40 @@
+
+.. _program_listing_file_Source_Core_SurfaceBehavior_Property_ConductorFresnel.h:
+
+Program Listing for File ConductorFresnel.h
+===========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Core_SurfaceBehavior_Property_ConductorFresnel.h>` (``Source\Core\SurfaceBehavior\Property\ConductorFresnel.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Common/primitive_type.h"
+   #include "Core/SurfaceBehavior/Property/FresnelEffect.h"
+   
+   namespace ph
+   {
+   
+   class ConductorFresnel : public FresnelEffect
+   {
+   public:
+       ConductorFresnel();
+       ConductorFresnel(
+           real                  iorOuter, 
+           const math::Spectrum& iorInnerN,
+           const math::Spectrum& iorInnerK);
+   
+       void calcReflectance(
+           real            cosThetaIncident, 
+           math::Spectrum* out_reflectance) const override = 0;
+   
+   protected:
+       real           m_iorOuter;
+       math::Spectrum m_iorInnerN;
+       math::Spectrum m_iorInnerK;
+   };
+   
+   }// end namespace ph

@@ -1,0 +1,14 @@
+.. _exhale_variable_namespaceph_1_1string__utils_1_1table_1a5fc45f4161025bb0551bf034e6e061bc:
+
+Variable ph::string_utils::table::ASCII_TO_UPPER
+================================================
+
+- Defined in :ref:`file_Source_Utility_string_utils_table.h`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: ph::string_utils::table::ASCII_TO_UPPER
+   :project: Photon

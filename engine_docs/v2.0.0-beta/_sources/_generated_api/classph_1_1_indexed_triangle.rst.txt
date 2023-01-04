@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_indexed_triangle:
+
+Class IndexedTriangle
+=====================
+
+- Defined in :ref:`file_Source_Actor_Geometry_GSphere.cpp`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::IndexedTriangle
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

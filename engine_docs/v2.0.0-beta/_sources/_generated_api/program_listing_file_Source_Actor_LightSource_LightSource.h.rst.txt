@@ -1,0 +1,64 @@
+
+.. _program_listing_file_Source_Actor_LightSource_LightSource.h:
+
+Program Listing for File LightSource.h
+======================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Actor_LightSource_LightSource.h>` (``Source\Actor\LightSource\LightSource.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "DataIO/SDL/TSdlResourceBase.h"
+   #include "Actor/LightSource/EmitterBuildingMaterial.h"
+   #include "Common/primitive_type.h"
+   #include "DataIO/SDL/sdl_interface.h"
+   
+   #include <memory>
+   
+   namespace ph { class ActorCookingContext; }
+   
+   namespace ph
+   {
+   
+   class Emitter;
+   class Geometry;
+   class Material;
+   
+   class LightSource : public TSdlResourceBase<ETypeCategory::Ref_LightSource>
+   {
+   public:
+       LightSource() = default;
+   
+       // Generates the core emission part of the light source.
+       //
+       virtual std::unique_ptr<Emitter> genEmitter(
+           ActorCookingContext& ctx, EmitterBuildingMaterial&& data) const = 0;
+   
+       // A light source may need to place a corresponding geometry in the scene.
+       // Override this method if there is a need for that. This method will
+       // return nullptr if no geometry is needed.
+       //
+       virtual std::shared_ptr<Geometry> genGeometry(ActorCookingContext& ctx) const;
+   
+       // Generate a suitable material for the light source if physical entity will
+       // be present in the scene. The default implementation generates a pure diffuse
+       // material with moderate albedo.
+       //
+       virtual std::shared_ptr<Material> genMaterial(ActorCookingContext& ctx) const;
+   
+   public:
+       PH_DEFINE_SDL_CLASS(TOwnerSdlClass<LightSource>)
+       {
+           ClassType clazz(sdl::category_to_string(CATEGORY));
+           clazz.docName("Light Source");
+           clazz.description(
+               "The source of all energy emitting entity in the scene.");
+           return clazz;
+       }
+   };
+   
+   }// end namespace ph

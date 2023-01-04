@@ -1,0 +1,145 @@
+
+.. _file_Source_DataIO_FileSystem_Path.h:
+
+File Path.h
+===========
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\FileSystem\Path.h``)
+------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_FileSystem_Path.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/compiler.h``
+
+- ``DataIO/FileSystem/AltPath.h``
+
+- ``Utility/string_utils.h``
+
+- ``cwchar``
+
+- ``iostream``
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Include_CppEngine_ph_cpp_core.h`
+
+- :ref:`file_Source_Actor_ADome.h`
+
+- :ref:`file_Source_Actor_Dome_AImageDome.h`
+
+- :ref:`file_Source_Actor_Dome_APreethamDome.h`
+
+- :ref:`file_Source_Actor_Geometry_GIndexedTriangleMesh.h`
+
+- :ref:`file_Source_Actor_Image_RasterFileImage.h`
+
+- :ref:`file_Source_Actor_LightSource_IesAttenuatedSource.h`
+
+- :ref:`file_Source_Actor_LightSource_ModelSource.h`
+
+- :ref:`file_Source_Actor_Material_ThinFilm.h`
+
+- :ref:`file_Source_Actor_SDLExtension_image_loaders.h`
+
+- :ref:`file_Source_Api_ph_core.cpp`
+
+- :ref:`file_Source_Core_Engine.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_TableFGD.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_TableTIR.h`
+
+- :ref:`file_Source_DataIO_BinaryFileReader.h`
+
+- :ref:`file_Source_DataIO_Data_IesData.h`
+
+- :ref:`file_Source_DataIO_Data_IesFile.h`
+
+- :ref:`file_Source_DataIO_ExrFileReader.h`
+
+- :ref:`file_Source_DataIO_ExrFileWriter.h`
+
+- :ref:`file_Source_DataIO_FileSystem_CoreResource.h`
+
+- :ref:`file_Source_DataIO_FileSystem_Path.cpp`
+
+- :ref:`file_Source_DataIO_IniFile.h`
+
+- :ref:`file_Source_DataIO_io_utils.h`
+
+- :ref:`file_Source_DataIO_PfmFileWriter.h`
+
+- :ref:`file_Source_DataIO_PictureSaver.h`
+
+- :ref:`file_Source_DataIO_PlyFile.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_SdlInputContext.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_SdlIOContext.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_SdlOutputContext.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlPath.h`
+
+- :ref:`file_Source_DataIO_SDL_sdl_helpers.cpp`
+
+- :ref:`file_Source_DataIO_SDL_SdlParser.h`
+
+- :ref:`file_Source_DataIO_SDL_SdlResourceIdentifier.h`
+
+- :ref:`file_Source_DataIO_SDL_SdlWriter.h`
+
+- :ref:`file_Source_DataIO_Stream_BinaryFileInputStream.h`
+
+- :ref:`file_Source_DataIO_Stream_BinaryFileOutputStream.h`
+
+- :ref:`file_Source_DataIO_Stream_FormattedTextFileOutputStream.h`
+
+- :ref:`file_Source_DataIO_Stream_FormattedTextInputStream.h`
+
+- :ref:`file_Source_DataIO_Stream_StdInputStream.h`
+
+- :ref:`file_Source_DataIO_Stream_StdOutputStream.h`
+
+- :ref:`file_Source_DataIO_TextFileLoader.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Defines
+-------
+
+
+- :ref:`exhale_define__path_8h_1a5939549a7f38df9d131df2fbbc88610e`
+

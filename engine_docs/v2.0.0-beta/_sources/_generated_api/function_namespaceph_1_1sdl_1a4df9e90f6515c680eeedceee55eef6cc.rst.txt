@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1sdl_1a4df9e90f6515c680eeedceee55eef6cc:
+
+Template Function ph::sdl::save_number_array
+============================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::sdl::save_number_array(const std::vector<NumberType>&, std::string *)
+   :project: Photon

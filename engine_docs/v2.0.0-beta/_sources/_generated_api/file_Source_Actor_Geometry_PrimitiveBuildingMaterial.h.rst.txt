@@ -1,0 +1,79 @@
+
+.. _file_Source_Actor_Geometry_PrimitiveBuildingMaterial.h:
+
+File PrimitiveBuildingMaterial.h
+================================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\Geometry\PrimitiveBuildingMaterial.h``)
+------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_Geometry_PrimitiveBuildingMaterial.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_ALight.cpp`
+
+- :ref:`file_Source_Actor_AModel.cpp`
+
+- :ref:`file_Source_Actor_APhantomModel.cpp`
+
+- :ref:`file_Source_Actor_ATransformedInstance.cpp`
+
+- :ref:`file_Source_Actor_Geometry_GCuboid.cpp`
+
+- :ref:`file_Source_Actor_Geometry_GEmpty.cpp`
+
+- :ref:`file_Source_Actor_Geometry_Geometry.cpp`
+
+- :ref:`file_Source_Actor_Geometry_GMengerSponge.cpp`
+
+- :ref:`file_Source_Actor_Geometry_GRectangle.cpp`
+
+- :ref:`file_Source_Actor_Geometry_GSphere.cpp`
+
+- :ref:`file_Source_Actor_Geometry_GTriangle.cpp`
+
+- :ref:`file_Source_Actor_Geometry_GTriangleMesh.cpp`
+
+- :ref:`file_Source_Actor_Geometry_GWave.cpp`
+
+- :ref:`file_Source_Actor_LightSource_AreaSource.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_primitive_building_material`
+

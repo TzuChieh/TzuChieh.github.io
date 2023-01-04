@@ -1,0 +1,14 @@
+.. _exhale_function_ph__core_8h_1a964c21912d789d78d29bf362aec027d0:
+
+Function phFrameOpAbsDifference(PHuint64, PHuint64, PHuint64)
+=============================================================
+
+- Defined in :ref:`file_Include_CEngine_ph_core.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: phFrameOpAbsDifference(PHuint64, PHuint64, PHuint64)
+   :project: Photon

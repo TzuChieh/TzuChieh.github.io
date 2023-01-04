@@ -1,0 +1,51 @@
+
+.. _program_listing_file_Source_DataIO_Stream_FormattedTextInputStream.h:
+
+Program Listing for File FormattedTextInputStream.h
+===================================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_DataIO_Stream_FormattedTextInputStream.h>` (``Source\DataIO\Stream\FormattedTextInputStream.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "DataIO/Stream/StdInputStream.h"
+   #include "DataIO/FileSystem/Path.h"
+   
+   #include <string>
+   #include <istream>
+   #include <memory>
+   
+   namespace ph
+   {
+   
+   class FormattedTextInputStream : public StdInputStream
+   {
+   public:
+       inline FormattedTextInputStream() = default;
+   
+       explicit FormattedTextInputStream(const Path& textFilePath);
+   
+       explicit FormattedTextInputStream(const std::string& textString);
+   
+       inline FormattedTextInputStream(FormattedTextInputStream&& other) = default;
+   
+       std::string acquireName() override;
+   
+       void readAllTightly(std::string* out_allText);
+   
+       // TODO: readLineTightly()?
+   
+       inline FormattedTextInputStream& operator = (FormattedTextInputStream&& rhs) = default;
+   
+   protected:
+       FormattedTextInputStream(std::unique_ptr<std::istream> stream, std::string streamName);
+   
+   private:
+       std::string m_streamName;
+   };
+   
+   }// end namespace ph

@@ -1,0 +1,52 @@
+
+.. _file_Source_Math_Geometry_TLineSegment.ipp:
+
+File TLineSegment.ipp
+=====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\Geometry\TLineSegment.ipp``)
+------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_Geometry_TLineSegment.ipp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Math/Geometry/TLineSegment.h``
+
+- ``limits``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Math_Geometry_TLineSegment.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+

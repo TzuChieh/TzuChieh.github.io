@@ -1,0 +1,97 @@
+
+.. _file_Source_Core_SampleGenerator_SampleFlow.h:
+
+File SampleFlow.h
+=================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SampleGenerator\SampleFlow.h``)
+---------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SampleGenerator_SampleFlow.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Common/primitive_type.h``
+
+- ``Math/Random.h``
+
+- ``Math/Random/sample.h``
+
+- ``array``
+
+- ``cstddef``
+
+- ``optional``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Emitter_DiffuseSurfaceEmitter.cpp`
+
+- :ref:`file_Source_Core_Emitter_LatLongEnvEmitter.cpp`
+
+- :ref:`file_Source_Core_Emitter_Sampler_ESPowerFavoring.cpp`
+
+- :ref:`file_Source_Core_Emitter_Sampler_ESUniformRandom.cpp`
+
+- :ref:`file_Source_Core_Intersectable_PBasicSphere.cpp`
+
+- :ref:`file_Source_Core_Intersectable_PTriangle.cpp`
+
+- :ref:`file_Source_Core_LTABuildingBlock_RussianRoulette.h`
+
+- :ref:`file_Source_Core_SampleGenerator_SamplesND.h`
+
+- :ref:`file_Source_Core_SampleGenerator_SamplesNDStream.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_IdealDielectric.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LambertianDiffuse.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_LbLayeredSurface.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LerpedSurfaceOptics.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_OpaqueMicrofacet.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_OrenNayar.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_ThinDielectricFilm.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_TranslucentMicrofacet.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_sample_flow`
+

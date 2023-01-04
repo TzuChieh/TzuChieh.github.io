@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File RasterFileImage.cpp &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File RasterFileImage.cpp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Actor_Image_RasterFileImage.cpp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-rasterfileimage-cpp">
+<span id="program-listing-file-source-actor-image-rasterfileimage-cpp"></span><h1>Program Listing for File RasterFileImage.cpp<a class="headerlink" href="#program-listing-for-file-rasterfileimage-cpp" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Actor_Image_RasterFileImage.cpp.html#file-source-actor-image-rasterfileimage-cpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Actor\Image\RasterFileImage.cpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Image/RasterFileImage.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Texture/Pixel/TFrameBuffer2D.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;DataIO/io_utils.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;DataIO/io_exceptions.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/actor_exceptions.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Frame/TFrame.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Texture/Pixel/TNumericPixelTexture2D.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Texture/Pixel/TColorPixelTexture2D.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/logging.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Frame/RegularPicture.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;utility&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstddef&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;type_traits&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;algorithm&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="n">PH_DEFINE_INTERNAL_LOG_GROUP</span><span class="p">(</span><span class="n">RasterFileImage</span><span class="p">,</span><span class="w"> </span><span class="n">Image</span><span class="p">);</span>
+
+<span class="k">namespace</span>
+<span class="p">{</span>
+
+<span class="c1">//template&lt;typename T, std::size_t N&gt;</span>
+<span class="c1">//inline TFrame&lt;T, N&gt; make_frame_from_picture(const RegularPicture&amp; picture)</span>
+<span class="c1">//{</span>
+<span class="c1">//  TFrame&lt;T, N&gt; frame(picture.frame.widthPx(), picture.frame.heightPx());</span>
+<span class="c1">//</span>
+<span class="c1">//  frame.forEachPixel(</span>
+<span class="c1">//  [&amp;picture](const uint32 x, const uint32 y, auto /* pixel */)</span>
+<span class="c1">//  {</span>
+<span class="c1">//      RegularPicture::Pixel srcPixel = picture.frame.getPixel({x, y});</span>
+<span class="c1">//</span>
+<span class="c1">//      // For LDR type, transform to the range [0, 255] for later casting</span>
+<span class="c1">//      if constexpr(std::is_same_v&lt;T, uint8&gt;)</span>
+<span class="c1">//      {</span>
+<span class="c1">//          srcPixel = srcPixel * 255.0f + 0.5f;</span>
+<span class="c1">//      }</span>
+<span class="c1">//</span>
+<span class="c1">//      constexpr auto MIN_ELEMENTS = std::min(RegularPicture::Pixel::NUM_ELEMENTS, N);</span>
+<span class="c1">//</span>
+<span class="c1">//      // Pixel element casting is based on the smaller number of elements of the two--other</span>
+<span class="c1">//      // elements are either discarded or defaulted to 0.</span>
+<span class="c1">//      typename TFrame&lt;T, N&gt;::Pixel dstPixel(0);</span>
+<span class="c1">//      for(std::size_t ei = 0; ei &lt; MIN_ELEMENTS; ++ei)</span>
+<span class="c1">//      {</span>
+<span class="c1">//          dstPixel[ei] = static_cast&lt;T&gt;(srcPixel[ei]);</span>
+<span class="c1">//      }</span>
+<span class="c1">//</span>
+<span class="c1">//      return dstPixel;</span>
+<span class="c1">//  });</span>
+<span class="c1">//</span>
+<span class="c1">//  return frame;</span>
+<span class="c1">//}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TFrameBuffer2D</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">make_frame_buffer_from_picture</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">RegularPicture</span><span class="o">&amp;</span><span class="w"> </span><span class="n">picture</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">//return std::make_shared&lt;TFrameBuffer2D&lt;T, N&gt;&gt;(make_frame_from_picture&lt;T, N&gt;(picture));</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">TFrameBuffer2D</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">picture</span><span class="p">.</span><span class="n">getPixels</span><span class="p">().</span><span class="n">toFrame</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">pixel_texture</span><span class="o">::</span><span class="n">EWrapMode</span><span class="w"> </span><span class="n">to_texture_wrap_mode</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">EImageWrapMode</span><span class="w"> </span><span class="n">wrapMode</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">wrapMode</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">EImageWrapMode</span><span class="o">::</span><span class="no">ClampToEdge</span><span class="p">:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pixel_texture</span><span class="o">::</span><span class="n">EWrapMode</span><span class="o">::</span><span class="n">ClampToEdge</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">EImageWrapMode</span><span class="o">::</span><span class="no">Repeat</span><span class="p">:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pixel_texture</span><span class="o">::</span><span class="n">EWrapMode</span><span class="o">::</span><span class="n">Repeat</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">EImageWrapMode</span><span class="o">::</span><span class="no">FlippedClampToEdge</span><span class="p">:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pixel_texture</span><span class="o">::</span><span class="n">EWrapMode</span><span class="o">::</span><span class="n">FlippedClampToEdge</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">        </span><span class="n">PH_LOG_WARNING</span><span class="p">(</span><span class="n">RasterFileImage</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;unsupported image wrap mode, using Repeat&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pixel_texture</span><span class="o">::</span><span class="n">EWrapMode</span><span class="o">::</span><span class="n">Repeat</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end anonymous namespace</span>
+
+<span class="n">RasterFileImage</span><span class="o">::</span><span class="n">RasterFileImage</span><span class="p">()</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">RasterFileImage</span><span class="p">(</span><span class="n">Path</span><span class="p">())</span>
+<span class="p">{}</span>
+
+<span class="n">RasterFileImage</span><span class="o">::</span><span class="n">RasterFileImage</span><span class="p">(</span><span class="n">Path</span><span class="w"> </span><span class="n">filePath</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
+
+<span class="w">    </span><span class="n">RasterImageBase</span><span class="p">(),</span>
+
+<span class="w">    </span><span class="n">m_filePath</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">filePath</span><span class="p">))</span>
+<span class="p">{}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TTexture</span><span class="o">&lt;</span><span class="n">Image</span><span class="o">::</span><span class="n">Array</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">RasterFileImage</span><span class="o">::</span><span class="n">genNumericTexture</span><span class="p">(</span>
+<span class="w">    </span><span class="n">ActorCookingContext</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ctx</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">pixelBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">loadPixelBuffer</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span><span class="c1">// TODO: warn or throw if elements may be discarded (Image::ARRAY_SIZE too small)</span>
+<span class="w">    </span><span class="n">setResolution</span><span class="p">(</span><span class="n">pixelBuffer</span><span class="o">-&gt;</span><span class="n">getSize</span><span class="p">());</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">TNumericPixelTexture2D</span><span class="o">&lt;</span><span class="n">float64</span><span class="p">,</span><span class="w"> </span><span class="n">Image</span><span class="o">::</span><span class="n">ARRAY_SIZE</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+<span class="w">        </span><span class="n">pixelBuffer</span><span class="p">,</span>
+<span class="w">        </span><span class="n">getTextureSampleMode</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">getTextureWrapModeS</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">getTextureWrapModeT</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TTexture</span><span class="o">&lt;</span><span class="n">math</span><span class="o">::</span><span class="n">Spectrum</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">RasterFileImage</span><span class="o">::</span><span class="n">genColorTexture</span><span class="p">(</span>
+<span class="w">    </span><span class="n">ActorCookingContext</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ctx</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">EColorSpace</span><span class="w">           </span><span class="n">colorSpace</span><span class="p">;</span>
+<span class="w">    </span><span class="n">pixel_texture</span><span class="o">::</span><span class="n">EPixelLayout</span><span class="w"> </span><span class="n">pixelLayout</span><span class="p">;</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">pixelBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">loadPixelBuffer</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">colorSpace</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">pixelLayout</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">setResolution</span><span class="p">(</span><span class="n">pixelBuffer</span><span class="o">-&gt;</span><span class="n">getSize</span><span class="p">());</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">sampleMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getTextureSampleMode</span><span class="p">();</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">wrapModeS</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">getTextureWrapModeS</span><span class="p">();</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">wrapModeT</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">getTextureWrapModeT</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">textureMaker</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="p">[</span><span class="o">&amp;</span><span class="n">pixelBuffer</span><span class="p">,</span><span class="w"> </span><span class="n">pixelLayout</span><span class="p">,</span><span class="w"> </span><span class="n">sampleMode</span><span class="p">,</span><span class="w"> </span><span class="n">wrapModeS</span><span class="p">,</span><span class="w"> </span><span class="n">wrapModeT</span><span class="p">]</span><span class="o">&lt;</span><span class="n">math</span><span class="o">::</span><span class="n">EColorSpace</span><span class="w"> </span><span class="n">COLOR_SPACE</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">TColorPixelTexture2D</span><span class="o">&lt;</span><span class="n">COLOR_SPACE</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+<span class="w">            </span><span class="n">pixelBuffer</span><span class="p">,</span>
+<span class="w">            </span><span class="n">pixelLayout</span><span class="p">,</span>
+<span class="w">            </span><span class="n">sampleMode</span><span class="p">,</span>
+<span class="w">            </span><span class="n">wrapModeS</span><span class="p">,</span>
+<span class="w">            </span><span class="n">wrapModeT</span><span class="p">);</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">colorSpace</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">math</span><span class="o">::</span><span class="no">EColorSpace</span><span class="o">::</span><span class="no">sRGB</span><span class="p">:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">textureMaker</span><span class="p">.</span><span class="k">template</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="n">math</span><span class="o">::</span><span class="n">EColorSpace</span><span class="o">::</span><span class="n">sRGB</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">math</span><span class="o">::</span><span class="no">EColorSpace</span><span class="o">::</span><span class="no">Linear_sRGB</span><span class="p">:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">textureMaker</span><span class="p">.</span><span class="k">template</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="n">math</span><span class="o">::</span><span class="n">EColorSpace</span><span class="o">::</span><span class="n">Linear_sRGB</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">math</span><span class="o">::</span><span class="no">EColorSpace</span><span class="o">::</span><span class="no">ACEScg</span><span class="p">:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">textureMaker</span><span class="p">.</span><span class="k">template</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="n">math</span><span class="o">::</span><span class="n">EColorSpace</span><span class="o">::</span><span class="n">ACEScg</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// We should not have other color spaces from raster files</span>
+<span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">        </span><span class="c1">// TODO: better log warning and use a default picture</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">ActorCookException</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;error on generating texture for picture &lt;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m_filePath</span><span class="p">.</span><span class="n">toAbsoluteString</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&gt;: invalid color space&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">RegularPicture</span><span class="w"> </span><span class="n">RasterFileImage</span><span class="o">::</span><span class="n">loadRegularPicture</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">try</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">io_utils</span><span class="o">::</span><span class="n">load_picture</span><span class="p">(</span><span class="n">m_filePath</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">catch</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">IOException</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// TODO: better log warning and use a default picture</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">ActorCookException</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;error on loading picture: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">whatStr</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">RasterFileImage</span><span class="o">::</span><span class="n">setFilePath</span><span class="p">(</span><span class="n">Path</span><span class="w"> </span><span class="n">filePath</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_filePath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">filePath</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">PixelBuffer2D</span><span class="o">&gt;</span><span class="w"> </span><span class="n">RasterFileImage</span><span class="o">::</span><span class="n">loadPixelBuffer</span><span class="p">(</span>
+<span class="w">    </span><span class="n">ActorCookingContext</span><span class="o">&amp;</span><span class="w">               </span><span class="n">ctx</span><span class="p">,</span>
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">EColorSpace</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w">           </span><span class="n">out_colorSpace</span><span class="p">,</span>
+<span class="w">    </span><span class="n">pixel_texture</span><span class="o">::</span><span class="n">EPixelLayout</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">out_pixelLayout</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">RegularPicture</span><span class="w"> </span><span class="n">picture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">loadRegularPicture</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">out_colorSpace</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="o">*</span><span class="n">out_colorSpace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">picture</span><span class="p">.</span><span class="n">getFormat</span><span class="p">().</span><span class="n">getColorSpace</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">out_pixelLayout</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">switch</span><span class="p">(</span><span class="n">picture</span><span class="p">.</span><span class="n">numComponents</span><span class="p">())</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span>
+<span class="w">            </span><span class="o">*</span><span class="n">out_pixelLayout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pixel_texture</span><span class="o">::</span><span class="n">EPixelLayout</span><span class="o">::</span><span class="n">Monochromatic</span><span class="p">;</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="mi">3</span><span class="p">:</span>
+<span class="w">            </span><span class="o">*</span><span class="n">out_pixelLayout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">picture</span><span class="p">.</span><span class="n">getFormat</span><span class="p">().</span><span class="n">isReversedComponents</span><span class="p">()</span><span class="w"> </span><span class="o">?</span>
+<span class="w">                </span><span class="n">pixel_texture</span><span class="o">::</span><span class="n">EPixelLayout</span><span class="o">::</span><span class="n">RGB</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">pixel_texture</span><span class="o">::</span><span class="n">EPixelLayout</span><span class="o">::</span><span class="n">BGR</span><span class="p">;</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="mi">4</span><span class="p">:</span>
+<span class="w">            </span><span class="o">*</span><span class="n">out_pixelLayout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">picture</span><span class="p">.</span><span class="n">getFormat</span><span class="p">().</span><span class="n">isReversedComponents</span><span class="p">()</span><span class="w"> </span><span class="o">?</span>
+<span class="w">                </span><span class="n">pixel_texture</span><span class="o">::</span><span class="n">EPixelLayout</span><span class="o">::</span><span class="n">RGBA</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">pixel_texture</span><span class="o">::</span><span class="n">EPixelLayout</span><span class="o">::</span><span class="n">ABGR</span><span class="p">;</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">default</span><span class="o">:</span>
+<span class="w">            </span><span class="n">PH_LOG_WARNING</span><span class="p">(</span><span class="n">RasterFileImage</span><span class="p">,</span>
+<span class="w">                </span><span class="s">&quot;Does not support layout of {} pixel elements. Default to RGBA.&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">picture</span><span class="p">.</span><span class="n">numComponents</span><span class="p">());</span>
+<span class="w">            </span><span class="o">*</span><span class="n">out_pixelLayout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pixel_texture</span><span class="o">::</span><span class="n">EPixelLayout</span><span class="o">::</span><span class="n">RGBA</span><span class="p">;</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// TODO: make use of half</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">PixelBuffer2D</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pixelBuffer</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">picture</span><span class="p">.</span><span class="n">numComponents</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">picture</span><span class="p">.</span><span class="n">getComponentType</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EPicturePixelComponent</span><span class="o">::</span><span class="n">UInt8</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">pixelBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make_frame_buffer_from_picture</span><span class="o">&lt;</span><span class="n">uint8</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">&gt;</span><span class="p">(</span><span class="n">picture</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">picture</span><span class="p">.</span><span class="n">numComponents</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">picture</span><span class="p">.</span><span class="n">getComponentType</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EPicturePixelComponent</span><span class="o">::</span><span class="n">UInt8</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">pixelBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make_frame_buffer_from_picture</span><span class="o">&lt;</span><span class="n">uint8</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="o">&gt;</span><span class="p">(</span><span class="n">picture</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">picture</span><span class="p">.</span><span class="n">numComponents</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">picture</span><span class="p">.</span><span class="n">getComponentType</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EPicturePixelComponent</span><span class="o">::</span><span class="n">UInt8</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">pixelBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make_frame_buffer_from_picture</span><span class="o">&lt;</span><span class="n">uint8</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">picture</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span>
+<span class="w">        </span><span class="n">picture</span><span class="p">.</span><span class="n">numComponents</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">        </span><span class="p">(</span><span class="n">picture</span><span class="p">.</span><span class="n">getComponentType</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EPicturePixelComponent</span><span class="o">::</span><span class="n">Float32</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">picture</span><span class="p">.</span><span class="n">getComponentType</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EPicturePixelComponent</span><span class="o">::</span><span class="n">Float16</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">pixelBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make_frame_buffer_from_picture</span><span class="o">&lt;</span><span class="n">float32</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">&gt;</span><span class="p">(</span><span class="n">picture</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span>
+<span class="w">        </span><span class="n">picture</span><span class="p">.</span><span class="n">numComponents</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">        </span><span class="p">(</span><span class="n">picture</span><span class="p">.</span><span class="n">getComponentType</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EPicturePixelComponent</span><span class="o">::</span><span class="n">Float32</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">picture</span><span class="p">.</span><span class="n">getComponentType</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EPicturePixelComponent</span><span class="o">::</span><span class="n">Float16</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">pixelBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make_frame_buffer_from_picture</span><span class="o">&lt;</span><span class="n">float32</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="o">&gt;</span><span class="p">(</span><span class="n">picture</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span>
+<span class="w">        </span><span class="n">picture</span><span class="p">.</span><span class="n">numComponents</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">        </span><span class="p">(</span><span class="n">picture</span><span class="p">.</span><span class="n">getComponentType</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EPicturePixelComponent</span><span class="o">::</span><span class="n">Float32</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">picture</span><span class="p">.</span><span class="n">getComponentType</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EPicturePixelComponent</span><span class="o">::</span><span class="n">Float16</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">pixelBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make_frame_buffer_from_picture</span><span class="o">&lt;</span><span class="n">float32</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">picture</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// TODO: better log warning and use a default picture</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">ActorCookException</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;error on creating frame buffer for &lt;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m_filePath</span><span class="p">.</span><span class="n">toAbsoluteString</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&gt;&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">pixelBuffer</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">pixel_texture</span><span class="o">::</span><span class="n">ESampleMode</span><span class="w"> </span><span class="n">RasterFileImage</span><span class="o">::</span><span class="n">getTextureSampleMode</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">getSampleMode</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">EImageSampleMode</span><span class="o">::</span><span class="no">Nearest</span><span class="p">:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pixel_texture</span><span class="o">::</span><span class="n">ESampleMode</span><span class="o">::</span><span class="n">Nearest</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">EImageSampleMode</span><span class="o">::</span><span class="no">Bilinear</span><span class="p">:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pixel_texture</span><span class="o">::</span><span class="n">ESampleMode</span><span class="o">::</span><span class="n">Bilinear</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">EImageSampleMode</span><span class="o">::</span><span class="no">Trilinear</span><span class="p">:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pixel_texture</span><span class="o">::</span><span class="n">ESampleMode</span><span class="o">::</span><span class="n">Trilinear</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">        </span><span class="n">PH_LOG_WARNING</span><span class="p">(</span><span class="n">RasterFileImage</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;unsupported image sample mode, using Bilinear&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pixel_texture</span><span class="o">::</span><span class="n">ESampleMode</span><span class="o">::</span><span class="n">Bilinear</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">pixel_texture</span><span class="o">::</span><span class="n">EWrapMode</span><span class="w"> </span><span class="n">RasterFileImage</span><span class="o">::</span><span class="n">getTextureWrapModeS</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">to_texture_wrap_mode</span><span class="p">(</span><span class="n">getHorizontalWrapMode</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="n">pixel_texture</span><span class="o">::</span><span class="n">EWrapMode</span><span class="w"> </span><span class="n">RasterFileImage</span><span class="o">::</span><span class="n">getTextureWrapModeT</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">to_texture_wrap_mode</span><span class="p">(</span><span class="n">getVerticalWrapMode</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

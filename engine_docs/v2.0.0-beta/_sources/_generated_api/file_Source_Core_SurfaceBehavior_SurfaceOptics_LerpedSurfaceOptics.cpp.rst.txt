@@ -1,0 +1,62 @@
+
+.. _file_Source_Core_SurfaceBehavior_SurfaceOptics_LerpedSurfaceOptics.cpp:
+
+File LerpedSurfaceOptics.cpp
+============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SurfaceBehavior\SurfaceOptics\LerpedSurfaceOptics.cpp``)
+----------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SurfaceBehavior_SurfaceOptics_LerpedSurfaceOptics.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/SampleGenerator/SampleFlow.h``
+
+- ``Core/SurfaceBehavior/BsdfEvalQuery.h``
+
+- ``Core/SurfaceBehavior/BsdfPdfQuery.h``
+
+- ``Core/SurfaceBehavior/BsdfSampleQuery.h``
+
+- ``Core/SurfaceBehavior/SurfaceOptics/LerpedSurfaceOptics.h``
+
+- ``Core/SurfaceHit.h``
+
+- ``Core/Texture/TTexture.h``
+
+- ``Core/Texture/constant_textures.h``
+
+- ``Math/TVector3.h``
+
+- ``Math/math.h``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

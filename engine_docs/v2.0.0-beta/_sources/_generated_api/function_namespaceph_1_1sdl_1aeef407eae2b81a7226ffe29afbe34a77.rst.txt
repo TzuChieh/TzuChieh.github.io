@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1sdl_1aeef407eae2b81a7226ffe29afbe34a77:
+
+Function ph::sdl::acquire_categories
+====================================
+
+- Defined in :ref:`file_Source_DataIO_SDL_ETypeCategory.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::sdl::acquire_categories()
+   :project: Photon

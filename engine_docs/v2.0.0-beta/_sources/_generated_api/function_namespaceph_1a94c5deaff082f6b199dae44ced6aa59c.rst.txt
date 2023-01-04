@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a94c5deaff082f6b199dae44ced6aa59c:
+
+Function ph::PH_DEFINE_INTERNAL_TIMER_STAT(ZeroBounceDirect, Render_BNEEPTEstimator)
+====================================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_INTERNAL_TIMER_STAT(ZeroBounceDirect, Render_BNEEPTEstimator)
+   :project: Photon

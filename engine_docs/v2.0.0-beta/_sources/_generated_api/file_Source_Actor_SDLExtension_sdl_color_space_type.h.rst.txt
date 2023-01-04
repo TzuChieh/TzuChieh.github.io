@@ -1,0 +1,54 @@
+
+.. _file_Source_Actor_SDLExtension_sdl_color_space_type.h:
+
+File sdl_color_space_type.h
+===========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\SDLExtension\sdl_color_space_type.h``)
+-----------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_SDLExtension_sdl_color_space_type.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``DataIO/SDL/sdl_interface.h``
+
+- ``Math/Color/color_enums.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_Image_ConstantImage.h`
+
+- :ref:`file_Source_Actor_SDLExtension_image_loaders.h`
+
+- :ref:`file_Source_Actor_SDLExtension_TSdlUnifiedColorImage.h`
+
+- :ref:`file_Source_Api_ph_cpp_core.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

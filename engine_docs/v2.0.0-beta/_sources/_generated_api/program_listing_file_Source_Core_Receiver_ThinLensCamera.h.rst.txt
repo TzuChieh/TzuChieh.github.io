@@ -1,0 +1,53 @@
+
+.. _program_listing_file_Source_Core_Receiver_ThinLensCamera.h:
+
+Program Listing for File ThinLensCamera.h
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Core_Receiver_ThinLensCamera.h>` (``Source\Core\Receiver\ThinLensCamera.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Core/Receiver/RectangularSensorReceiver.h"
+   
+   namespace ph
+   {
+   
+   class ThinLensCamera : public RectangularSensorReceiver
+   {
+   public:
+       ThinLensCamera(
+           float64                     lensRadius,
+           float64                     focalDistance,
+           const math::Vector2D&       sensorSize,
+           const math::Transform*      rasterToSensor,
+           const math::RigidTransform* cameraToWorld);
+   
+       math::Spectrum receiveRay(const math::Vector2D& rasterCoord, Ray* out_ray) const override;
+   
+       void evalEmittedImportanceAndPdfW(
+           const math::Vector3R& targetPos,
+           math::Vector2R* const out_filmCoord,
+           math::Vector3R* const out_importance,
+           real* out_filmArea, 
+           real* const out_pdfW) const override;
+   
+       const math::RigidTransform& getCameraToWorld() const;
+   
+   private:
+       float64 m_lensRadius;
+       float64 m_focalDistance;
+   };
+   
+   // In-header Implementations:
+   
+   inline const math::RigidTransform& ThinLensCamera::getCameraToWorld() const
+   {
+       return getReceiverToWorld();
+   }
+   
+   }// end namespace ph

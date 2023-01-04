@@ -1,0 +1,50 @@
+
+.. _file_Source_Core_Emitter_SurfaceEmitter.cpp:
+
+File SurfaceEmitter.cpp
+=======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Emitter\SurfaceEmitter.cpp``)
+-------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Emitter_SurfaceEmitter.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/Emitter/SurfaceEmitter.h``
+
+- ``Core/HitDetail.h``
+
+- ``Core/Intersectable/Primitive.h``
+
+- ``Core/SurfaceHit.h``
+
+- ``Math/math.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

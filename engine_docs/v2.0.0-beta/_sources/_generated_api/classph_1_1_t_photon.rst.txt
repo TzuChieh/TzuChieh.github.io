@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_t_photon:
+
+Template Class TPhoton
+======================
+
+- Defined in :ref:`file_Source_Core_Renderer_PM_TPhoton.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TPhoton
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

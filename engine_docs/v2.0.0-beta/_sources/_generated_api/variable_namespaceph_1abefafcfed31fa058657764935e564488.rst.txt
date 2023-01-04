@@ -1,0 +1,14 @@
+.. _exhale_variable_namespaceph_1abefafcfed31fa058657764935e564488:
+
+Variable ph::CPhotonException
+=============================
+
+- Defined in :ref:`file_Source_Utility_exception.h`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: ph::CPhotonException
+   :project: Photon

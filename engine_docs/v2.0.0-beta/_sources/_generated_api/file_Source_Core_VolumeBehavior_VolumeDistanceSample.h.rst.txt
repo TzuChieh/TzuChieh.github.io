@@ -1,0 +1,65 @@
+
+.. _file_Source_Core_VolumeBehavior_VolumeDistanceSample.h:
+
+File VolumeDistanceSample.h
+===========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\VolumeBehavior\VolumeDistanceSample.h``)
+------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_VolumeBehavior_VolumeDistanceSample.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/primitive_type.h``
+
+- ``Core/SurfaceHit.h``
+
+- ``Math/Color/Spectrum.h``
+
+- ``Math/TVector3.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_LTABuildingBlock_PtVolumetricEstimator.cpp`
+
+- :ref:`file_Source_Core_VolumeBehavior_VolumeOptics.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_volume_distance_sample`
+
+- :ref:`exhale_class_classph_1_1_volume_distance_sample_1_1_input`
+
+- :ref:`exhale_class_classph_1_1_volume_distance_sample_1_1_output`
+

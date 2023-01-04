@@ -1,0 +1,65 @@
+
+.. _file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_TableTIR.h:
+
+File TableTIR.h
+===============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SurfaceBehavior\SurfaceOptics\LaurentBelcour\TableTIR.h``)
+------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_TableTIR.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Common/logging.h``
+
+- ``Common/primitive_type.h``
+
+- ``DataIO/BinaryFileReader.h``
+
+- ``DataIO/FileSystem/Path.h``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_InterfaceStatistics.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_TableTIR.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_table_t_i_r`
+

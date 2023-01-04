@@ -1,0 +1,48 @@
+
+.. _file_Source_Core_SurfaceBehavior_SurfaceOptics_IdealAbsorber.cpp:
+
+File IdealAbsorber.cpp
+======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SurfaceBehavior\SurfaceOptics\IdealAbsorber.cpp``)
+----------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SurfaceBehavior_SurfaceOptics_IdealAbsorber.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/SurfaceBehavior/BsdfEvalQuery.h``
+
+- ``Core/SurfaceBehavior/BsdfPdfQuery.h``
+
+- ``Core/SurfaceBehavior/BsdfSampleQuery.h``
+
+- ``Core/SurfaceBehavior/SurfaceOptics/IdealAbsorber.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

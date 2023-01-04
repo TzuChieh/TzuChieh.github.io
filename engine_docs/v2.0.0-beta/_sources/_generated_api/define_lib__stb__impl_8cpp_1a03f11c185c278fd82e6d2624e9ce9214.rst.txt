@@ -1,0 +1,14 @@
+.. _exhale_define_lib__stb__impl_8cpp_1a03f11c185c278fd82e6d2624e9ce9214:
+
+Define STBI_FAILURE_USERMSG
+===========================
+
+- Defined in :ref:`file_Source_Common_ThirdParty_lib_stb_impl.cpp`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: STBI_FAILURE_USERMSG
+   :project: Photon

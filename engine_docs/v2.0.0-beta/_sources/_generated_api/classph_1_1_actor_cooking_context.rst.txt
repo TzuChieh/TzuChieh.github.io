@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_actor_cooking_context:
+
+Class ActorCookingContext
+=========================
+
+- Defined in :ref:`file_Source_Actor_ActorCookingContext.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``private ph::IMoveOnly`` (:ref:`exhale_class_classph_1_1_i_move_only`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::ActorCookingContext
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

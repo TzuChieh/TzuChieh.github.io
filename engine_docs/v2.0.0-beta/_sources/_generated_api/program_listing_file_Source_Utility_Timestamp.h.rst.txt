@@ -1,0 +1,55 @@
+
+.. _program_listing_file_Source_Utility_Timestamp.h:
+
+Program Listing for File Timestamp.h
+====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Utility_Timestamp.h>` (``Source\Utility\Timestamp.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include <string>
+   #include <chrono>
+   #include <ctime>
+   
+   namespace ph
+   {
+   
+   class Timestamp final
+   {
+   public:
+       Timestamp();
+   
+       std::string toYMD() const;
+       std::string toHMS() const;
+       std::string toHMSMilliseconds() const;
+       std::string toHMSMicroseconds() const;
+       std::string toYMDHMS() const;
+       std::string toYMDHMSMilliseconds() const;
+       std::string toYMDHMSMicroseconds() const;
+       std::string toString() const;
+   
+   private:
+       std::chrono::system_clock::time_point m_time;
+   
+       std::time_t toCTime() const;
+       std::string toYMDWithOldAPI() const;
+       std::string toHMSWithOldAPI() const;
+   };
+   
+   // In-header Implementations:
+   
+   inline Timestamp::Timestamp() :
+       m_time(std::chrono::system_clock::now())
+   {}
+   
+   inline std::time_t Timestamp::toCTime() const
+   {
+       return std::chrono::system_clock::to_time_t(m_time);
+   }
+   
+   }// end namespace ph

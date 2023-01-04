@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1_1math_1_1spectral__data_1aa61f92800ebfc2564b50481b6e1fb3d2:
+
+Typedef ph::math::spectral_data::ArrayD65
+=========================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::math::spectral_data::ArrayD65
+   :project: Photon

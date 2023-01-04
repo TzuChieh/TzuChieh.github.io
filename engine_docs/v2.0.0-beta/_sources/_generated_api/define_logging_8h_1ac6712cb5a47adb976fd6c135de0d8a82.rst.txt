@@ -1,0 +1,14 @@
+.. _exhale_define_logging_8h_1ac6712cb5a47adb976fd6c135de0d8a82:
+
+Define PH_LOG
+=============
+
+- Defined in :ref:`file_Source_Common_logging.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: PH_LOG
+   :project: Photon

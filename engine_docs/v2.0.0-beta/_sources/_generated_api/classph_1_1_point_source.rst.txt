@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_point_source:
+
+Class PointSource
+=================
+
+- Defined in :ref:`file_Source_Actor_LightSource_PointSource.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::AreaSource`` (:ref:`exhale_class_classph_1_1_area_source`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::PointSource
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

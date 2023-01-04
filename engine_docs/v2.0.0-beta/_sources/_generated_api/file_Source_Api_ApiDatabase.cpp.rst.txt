@@ -1,0 +1,40 @@
+
+.. _file_Source_Api_ApiDatabase.cpp:
+
+File ApiDatabase.cpp
+====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Api\ApiDatabase.cpp``)
+-------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Api_ApiDatabase.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Api/ApiDatabase.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

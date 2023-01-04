@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1aef693a3af48988419e383d739b935a4b:
+
+Template Function ph::math::log2_floor
+======================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::log2_floor(const T)
+   :project: Photon

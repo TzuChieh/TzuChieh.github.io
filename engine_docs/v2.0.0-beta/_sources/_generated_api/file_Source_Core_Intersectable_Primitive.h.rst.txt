@@ -1,0 +1,119 @@
+
+.. _file_Source_Core_Intersectable_Primitive.h:
+
+File Primitive.h
+================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Intersectable\Primitive.h``)
+------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Intersectable_Primitive.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/primitive_type.h``
+
+- ``Core/Intersectable/Intersectable.h``
+
+- ``Math/Geometry/TAABB3D.h``
+
+- ``Math/TVector3.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_ActorCookingContext.h`
+
+- :ref:`file_Source_Actor_Geometry_Geometry.h`
+
+- :ref:`file_Source_Actor_LightSource_ModelSource.cpp`
+
+- :ref:`file_Source_Core_Emitter_DiffuseSurfaceEmitter.cpp`
+
+- :ref:`file_Source_Core_Emitter_MultiDiffuseSurfaceEmitter.cpp`
+
+- :ref:`file_Source_Core_Emitter_Sampler_ESPowerFavoring.cpp`
+
+- :ref:`file_Source_Core_Emitter_Sampler_ESUniformRandom.cpp`
+
+- :ref:`file_Source_Core_Emitter_SurfaceEmitter.cpp`
+
+- :ref:`file_Source_Core_Estimator_BNEEPTEstimator.cpp`
+
+- :ref:`file_Source_Core_Estimator_BVPTDLEstimator.cpp`
+
+- :ref:`file_Source_Core_Estimator_BVPTEstimator.cpp`
+
+- :ref:`file_Source_Core_Intersectable_PBasicSphere.h`
+
+- :ref:`file_Source_Core_Intersectable_PEmpty.h`
+
+- :ref:`file_Source_Core_Intersectable_Primitive.cpp`
+
+- :ref:`file_Source_Core_Intersectable_PTriangle.h`
+
+- :ref:`file_Source_Core_Intersectable_TPIndexedKdTreeTriangleMesh.h`
+
+- :ref:`file_Source_Core_Intersectable_TPKdTreeTriangleMesh.h`
+
+- :ref:`file_Source_Core_Intersectable_TransformedPrimitive.h`
+
+- :ref:`file_Source_Core_LTABuildingBlock_PtVolumetricEstimator.cpp`
+
+- :ref:`file_Source_Core_LTABuildingBlock_SurfaceTracer.h`
+
+- :ref:`file_Source_Core_LTABuildingBlock_TDirectLightEstimator.ipp`
+
+- :ref:`file_Source_Core_Renderer_PM_PPMRadianceEvaluationWork.cpp`
+
+- :ref:`file_Source_Core_Renderer_PM_TPhotonMappingWork.ipp`
+
+- :ref:`file_Source_Core_Renderer_PM_TPPMViewpointCollector.h`
+
+- :ref:`file_Source_Core_Renderer_PM_TRadianceEvaluationWork.ipp`
+
+- :ref:`file_Source_Core_Renderer_PM_TSPPMRadianceEvaluator.h`
+
+- :ref:`file_Source_Core_Renderer_PM_TViewPathTracingWork.ipp`
+
+- :ref:`file_Source_Core_Renderer_PM_VPMRadianceEvaluator.h`
+
+- :ref:`file_Source_Core_SurfaceHit.cpp`
+
+- :ref:`file_Source_World_Scene.cpp`
+
+- :ref:`file_Source_World_VisualWorld.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_primitive`
+

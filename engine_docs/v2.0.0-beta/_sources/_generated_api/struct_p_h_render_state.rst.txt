@@ -1,0 +1,17 @@
+.. _exhale_struct_struct_p_h_render_state:
+
+Struct PHRenderState
+====================
+
+- Defined in :ref:`file_Include_CEngine_ph_core.h`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: PHRenderState
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

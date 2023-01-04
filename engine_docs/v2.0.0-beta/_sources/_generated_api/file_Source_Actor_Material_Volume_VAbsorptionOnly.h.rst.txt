@@ -1,0 +1,65 @@
+
+.. _file_Source_Actor_Material_Volume_VAbsorptionOnly.h:
+
+File VAbsorptionOnly.h
+======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\Material\Volume\VAbsorptionOnly.h``)
+---------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_Material_Volume_VAbsorptionOnly.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/Material/VolumeMaterial.h``
+
+- ``Common/primitive_type.h``
+
+- ``Math/Color/Spectrum.h``
+
+- ``Math/math_fwd.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_Material_Volume_VAbsorptionOnly.cpp`
+
+- :ref:`file_Source_Actor_Material_VolumeMaterial.cpp`
+
+- :ref:`file_Source_Api_init_and_exit.cpp`
+
+- :ref:`file_Source_Api_ph_cpp_core.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_v_absorption_only`
+

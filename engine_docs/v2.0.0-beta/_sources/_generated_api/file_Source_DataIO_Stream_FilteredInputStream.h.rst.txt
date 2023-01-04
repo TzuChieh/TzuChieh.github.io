@@ -1,0 +1,55 @@
+
+.. _file_Source_DataIO_Stream_FilteredInputStream.h:
+
+File FilteredInputStream.h
+==========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\Stream\FilteredInputStream.h``)
+-----------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_Stream_FilteredInputStream.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``DataIO/Stream/IInputStream.h``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_filtered_input_stream`
+

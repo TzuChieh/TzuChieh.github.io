@@ -1,0 +1,14 @@
+.. _exhale_define_config_8h_1a243c43d1e2b5e325aa94493a44f281b4:
+
+Define PH_ENABLE_DEBUG_LOG
+==========================
+
+- Defined in :ref:`file_Source_Common_config.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: PH_ENABLE_DEBUG_LOG
+   :project: Photon

@@ -1,0 +1,46 @@
+
+.. _file_Source_DataIO_ExrFileWriter.cpp:
+
+File ExrFileWriter.cpp
+======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\ExrFileWriter.cpp``)
+------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_ExrFileWriter.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/ThirdParty/lib_openexr.h``
+
+- ``Common/logging.h``
+
+- ``DataIO/ExrFileWriter.h``
+
+- ``type_traits``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

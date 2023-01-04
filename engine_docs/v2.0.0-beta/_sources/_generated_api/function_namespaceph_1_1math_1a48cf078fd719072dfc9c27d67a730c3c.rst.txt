@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1a48cf078fd719072dfc9c27d67a730c3c:
+
+Template Function ph::math::wrap
+================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::wrap(T, const T, const T)
+   :project: Photon

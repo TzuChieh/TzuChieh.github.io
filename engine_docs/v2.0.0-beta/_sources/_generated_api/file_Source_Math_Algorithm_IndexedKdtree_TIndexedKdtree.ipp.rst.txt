@@ -1,0 +1,58 @@
+
+.. _file_Source_Math_Algorithm_IndexedKdtree_TIndexedKdtree.ipp:
+
+File TIndexedKdtree.ipp
+=======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\Algorithm\IndexedKdtree\TIndexedKdtree.ipp``)
+-----------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_Algorithm_IndexedKdtree_TIndexedKdtree.ipp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Math/Algorithm/IndexedKdtree/TIndexedKdtree.h``
+
+- ``algorithm``
+
+- ``array``
+
+- ``cmath``
+
+- ``limits``
+
+- ``optional``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Math_Algorithm_IndexedKdtree_TIndexedKdtree.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+

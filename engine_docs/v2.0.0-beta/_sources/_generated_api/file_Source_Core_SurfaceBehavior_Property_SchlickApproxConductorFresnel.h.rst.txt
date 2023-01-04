@@ -1,0 +1,57 @@
+
+.. _file_Source_Core_SurfaceBehavior_Property_SchlickApproxConductorFresnel.h:
+
+File SchlickApproxConductorFresnel.h
+====================================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SurfaceBehavior\Property\SchlickApproxConductorFresnel.h``)
+-------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SurfaceBehavior_Property_SchlickApproxConductorFresnel.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/SurfaceBehavior/Property/ConductorFresnel.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_Material_IdealSubstance.cpp`
+
+- :ref:`file_Source_Actor_Material_Utility_ConductiveInterfaceInfo.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_Property_SchlickApproxConductorFresnel.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_schlick_approx_conductor_fresnel`
+

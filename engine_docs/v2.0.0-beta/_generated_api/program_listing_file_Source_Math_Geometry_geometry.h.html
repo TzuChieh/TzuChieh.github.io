@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File geometry.h &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File geometry.h</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Math_Geometry_geometry.h.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-geometry-h">
+<span id="program-listing-file-source-math-geometry-geometry-h"></span><h1>Program Listing for File geometry.h<a class="headerlink" href="#program-listing-for-file-geometry-h" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Math_Geometry_geometry.h.html#file-source-math-geometry-geometry-h"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Math\Geometry\geometry.h</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/TVector2.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/TVector3.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/assertion.h&quot;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span><span class="o">::</span><span class="nn">math</span>
+<span class="p">{</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">detail</span>
+<span class="p">{</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">octahedron_diamond_mirror</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">point</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">diagonallyMirroredPoint</span><span class="p">(</span><span class="n">point</span><span class="p">.</span><span class="n">y</span><span class="p">(),</span><span class="w"> </span><span class="n">point</span><span class="p">.</span><span class="n">x</span><span class="p">());</span>
+
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">    Note that in [1], it is calculated as</span>
+
+<span class="cm">        return (1.0 - abs(v.yx)) * (v.xy &gt;= 0.0 ? 1.0 : -1.0);</span>
+
+<span class="cm">    which translate to the following:</span>
+<span class="cm">    */</span>
+<span class="w">    </span><span class="c1">// Basically mirror and flip along various axes</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">diagonallyMirroredPoint</span><span class="p">.</span><span class="n">abs</span><span class="p">().</span><span class="n">complement</span><span class="p">()</span><span class="w"> </span><span class="o">*</span>
+<span class="w">           </span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">point</span><span class="p">.</span><span class="n">x</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0.0f</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mf">1.0f</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">-1.0f</span><span class="p">,</span><span class="w"> </span><span class="n">point</span><span class="p">.</span><span class="n">y</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0.0f</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mf">1.0f</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">-1.0f</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">    However, that seems overly complexed. Here I derived a simpler equivalent. It is worth noting that</span>
+<span class="cm">    my variant is likely inferior as the paper [2] uses the same formulation as in [1]. They use only</span>
+<span class="cm">    sign changes and complements to achieve the mirror, and should be robust (no seams due to quantization</span>
+<span class="cm">    errors; mine&#39;s uses arithmetic on the coordinates which can cause problems I guess).</span>
+<span class="cm">    */</span>
+<span class="w">    </span><span class="cm">/*return diagonallyMirroredPoint +</span>
+<span class="cm">           TVector2&lt;T&gt;(point.x() &gt;= 0 ? 1 : -1, point.y() &gt;= 0 ? 1 : -1);*/</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace detail</span>
+
+<span class="c1">// TODO: precise version of the encoding (see [2])</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">octahedron_unit_vector_encode</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">unitVec</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">octahedronProj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">unitVec</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">unitVec</span><span class="p">.</span><span class="n">abs</span><span class="p">().</span><span class="n">sum</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">octahedronProj</span><span class="p">.</span><span class="n">z</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mirroredXYProj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">detail</span><span class="o">::</span><span class="n">octahedron_diamond_mirror</span><span class="p">(</span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">octahedronProj</span><span class="p">.</span><span class="n">x</span><span class="p">(),</span><span class="w"> </span><span class="n">octahedronProj</span><span class="p">.</span><span class="n">y</span><span class="p">()));</span>
+<span class="w">        </span><span class="n">octahedronProj</span><span class="p">.</span><span class="n">x</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mirroredXYProj</span><span class="p">.</span><span class="n">x</span><span class="p">();</span>
+<span class="w">        </span><span class="n">octahedronProj</span><span class="p">.</span><span class="n">y</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mirroredXYProj</span><span class="p">.</span><span class="n">y</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">octahedronProj</span><span class="p">.</span><span class="n">x</span><span class="p">(),</span><span class="w"> </span><span class="n">octahedronProj</span><span class="p">.</span><span class="n">y</span><span class="p">())</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">0.5</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">octahedron_unit_vector_decode</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">encodedVal</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT_IN_RANGE_INCLUSIVE</span><span class="p">(</span><span class="n">encodedVal</span><span class="p">.</span><span class="n">x</span><span class="p">(),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n">PH_ASSERT_IN_RANGE_INCLUSIVE</span><span class="p">(</span><span class="n">encodedVal</span><span class="p">.</span><span class="n">y</span><span class="p">(),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Note that https://knarkowicz.wordpress.com/2014/04/16/octahedron-normal-vector-encoding/</span>
+<span class="w">    </span><span class="c1">// provides an alternative approach that is faster on GPU.</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">expandedEncodedVal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">encodedVal</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">octahedronProj</span><span class="p">(</span>
+<span class="w">        </span><span class="n">expandedEncodedVal</span><span class="p">.</span><span class="n">x</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">expandedEncodedVal</span><span class="p">.</span><span class="n">y</span><span class="p">(),</span>
+<span class="w">        </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">expandedEncodedVal</span><span class="p">.</span><span class="n">abs</span><span class="p">().</span><span class="n">sum</span><span class="p">());</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">octahedronProj</span><span class="p">.</span><span class="n">z</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mirroredXYProj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">detail</span><span class="o">::</span><span class="n">octahedron_diamond_mirror</span><span class="p">(</span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">octahedronProj</span><span class="p">.</span><span class="n">x</span><span class="p">(),</span><span class="w"> </span><span class="n">octahedronProj</span><span class="p">.</span><span class="n">y</span><span class="p">()));</span>
+<span class="w">        </span><span class="n">octahedronProj</span><span class="p">.</span><span class="n">x</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mirroredXYProj</span><span class="p">.</span><span class="n">x</span><span class="p">();</span>
+<span class="w">        </span><span class="n">octahedronProj</span><span class="p">.</span><span class="n">y</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mirroredXYProj</span><span class="p">.</span><span class="n">y</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">octahedronProj</span><span class="p">.</span><span class="n">normalize</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph::math</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+
+.. _file_Source_Math_Transform_Transform.h:
+
+File Transform.h
+================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\Transform\Transform.h``)
+--------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_Transform_Transform.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Math/Geometry/TAABB3D.h``
+
+- ``Math/math_fwd.h``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_CookedDataStorage.h`
+
+- :ref:`file_Source_Actor_CookedUnit.h`
+
+- :ref:`file_Source_Actor_ModelBuilder.h`
+
+- :ref:`file_Source_Actor_MotionSource_MotionSource.h`
+
+- :ref:`file_Source_Core_Emitter_Emitter.h`
+
+- :ref:`file_Source_Core_Emitter_SurfaceEmitter.h`
+
+- :ref:`file_Source_Core_Intersectable_TransformedIntersectable.h`
+
+- :ref:`file_Source_Core_Receiver_PinholeCamera.cpp`
+
+- :ref:`file_Source_Core_Receiver_ThinLensCamera.cpp`
+
+- :ref:`file_Source_EngineEnv_CoreCookedUnit.h`
+
+- :ref:`file_Source_Math_Transform_RigidTransform.h`
+
+- :ref:`file_Source_Math_Transform_StaticAffineTransform.h`
+
+- :ref:`file_Source_Math_Transform_Transform.cpp`
+
+- :ref:`file_Source_World_Foundation_CookedResourceCollection.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1math_1_1_transform`
+

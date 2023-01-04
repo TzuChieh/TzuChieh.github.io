@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a357c2f93ce1577d14eab74d71a6fc739:
+
+Function ph::PH_DEFINE_SDL_ENUM(TBasicSdlEnum<math::EColorUsage>)
+=================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_SDL_ENUM(TBasicSdlEnum<math::EColorUsage>)
+   :project: Photon

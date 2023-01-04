@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1_1math_1a5dfce302e9808008ffbce4236fa1d4f0:
+
+Typedef ph::math::Vector2D
+==========================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::math::Vector2D
+   :project: Photon

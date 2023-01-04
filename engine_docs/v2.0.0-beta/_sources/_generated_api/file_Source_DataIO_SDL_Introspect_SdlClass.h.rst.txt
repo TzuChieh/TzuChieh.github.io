@@ -1,0 +1,93 @@
+
+.. _file_Source_DataIO_SDL_Introspect_SdlClass.h:
+
+File SdlClass.h
+===============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\SDL\Introspect\SdlClass.h``)
+--------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_SDL_Introspect_SdlClass.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Common/logging.h``
+
+- ``DataIO/SDL/ETypeCategory.h``
+
+- ``DataIO/SDL/OutputPayloads.h``
+
+- ``DataIO/SDL/ValueClauses.h``
+
+- ``Utility/IMoveOnly.h``
+
+- ``cstddef``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+- ``string_view``
+
+- ``type_traits``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_DataIO_SDL_Introspect_SdlClass.cpp`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_SdlIOContext.cpp`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TOwnerSdlClass.h`
+
+- :ref:`file_Source_DataIO_SDL_sdl_helpers.cpp`
+
+- :ref:`file_Source_DataIO_SDL_sdl_interface.h`
+
+- :ref:`file_Source_DataIO_SDL_SdlParser.cpp`
+
+- :ref:`file_Source_DataIO_SDL_SdlReferenceResolver.cpp`
+
+- :ref:`file_Source_DataIO_SDL_SdlWriter.cpp`
+
+- :ref:`file_Source_DataIO_SDL_TSdl.ipp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_sdl_class`
+

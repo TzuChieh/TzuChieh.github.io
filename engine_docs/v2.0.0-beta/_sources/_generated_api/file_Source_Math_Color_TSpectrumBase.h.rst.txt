@@ -1,0 +1,81 @@
+
+.. _file_Source_Math_Color_TSpectrumBase.h:
+
+File TSpectrumBase.h
+====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\Color\TSpectrumBase.h``)
+--------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_Color_TSpectrumBase.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Math/Color/TSpectrumBase.ipp``
+
+- ``Math/Color/color_basics.h``
+
+- ``Math/Color/color_enums.h``
+
+- ``Math/Color/spectrum_fwd.h``
+
+- ``Math/General/TArithmeticArrayBase.h``
+
+- ``Math/math_fwd.h``
+
+- ``concepts``
+
+- ``cstddef``
+
+- ``type_traits``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Math_Color_TSampledSpectrum.h`
+
+- :ref:`file_Source_Math_Color_TSpectrumBase.ipp`
+
+- :ref:`file_Source_Math_Color_TTristimulusSpectrum.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+- :ref:`namespace_ph__math__detail`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1math_1_1detail_1_1_t_color_space_dummy`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_spectrum_base`
+

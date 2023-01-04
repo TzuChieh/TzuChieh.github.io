@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_t_basic_sdl_field_set:
+
+Template Class TBasicSdlFieldSet
+================================
+
+- Defined in :ref:`file_Source_DataIO_SDL_Introspect_TBasicSdlFieldSet.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``private ph::IMoveOnly`` (:ref:`exhale_class_classph_1_1_i_move_only`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TBasicSdlFieldSet
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

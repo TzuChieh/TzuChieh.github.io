@@ -1,0 +1,52 @@
+
+.. _file_Source_Actor_Geometry_GMengerSponge.cpp:
+
+File GMengerSponge.cpp
+======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\Geometry\GMengerSponge.cpp``)
+--------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_Geometry_GMengerSponge.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/Geometry/GCuboid.h``
+
+- ``Actor/Geometry/GMengerSponge.h``
+
+- ``Actor/Geometry/PrimitiveBuildingMaterial.h``
+
+- ``Common/assertion.h``
+
+- ``cmath``
+
+- ``iostream``
+
+- ``vector``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

@@ -1,0 +1,60 @@
+
+.. _file_Source_Math_TMatrix2.ipp:
+
+File TMatrix2.ipp
+=================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\TMatrix2.ipp``)
+-----------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_TMatrix2.ipp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Math/TMatrix2.h``
+
+- ``Math/TVector2.h``
+
+- ``Math/TVector3.h``
+
+- ``cmath``
+
+- ``limits``
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Math_TMatrix2.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+

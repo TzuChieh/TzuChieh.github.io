@@ -1,0 +1,61 @@
+
+.. _file_Source_DataIO_Data_IesData.h:
+
+File IesData.h
+==============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\Data\IesData.h``)
+---------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_Data_IesData.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/primitive_type.h``
+
+- ``DataIO/Data/IesFile.h``
+
+- ``DataIO/FileSystem/Path.h``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_LightSource_IesAttenuatedSource.cpp`
+
+- :ref:`file_Source_DataIO_Data_IesData.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_ies_data`
+

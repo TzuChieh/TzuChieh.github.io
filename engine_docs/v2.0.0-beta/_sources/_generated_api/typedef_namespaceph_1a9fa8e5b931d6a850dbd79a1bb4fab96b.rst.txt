@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1a9fa8e5b931d6a850dbd79a1bb4fab96b:
+
+Typedef ph::TFixedEnumMapEntry
+==============================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::TFixedEnumMapEntry
+   :project: Photon

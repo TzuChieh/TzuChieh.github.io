@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1adc22002ce22a2c36d495dbc0eae3f103:
+
+Template Function ph::pointer_access
+====================================
+
+- Defined in :ref:`file_Source_Utility_utility.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::pointer_access(T&)
+   :project: Photon

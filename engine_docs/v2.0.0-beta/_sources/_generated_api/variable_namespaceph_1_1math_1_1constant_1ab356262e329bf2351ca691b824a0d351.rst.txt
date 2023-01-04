@@ -1,0 +1,14 @@
+.. _exhale_variable_namespaceph_1_1math_1_1constant_1ab356262e329bf2351ca691b824a0d351:
+
+Variable ph::math::constant::c_light
+====================================
+
+- Defined in :ref:`file_Source_Math_constant.h`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: ph::math::constant::c_light
+   :project: Photon

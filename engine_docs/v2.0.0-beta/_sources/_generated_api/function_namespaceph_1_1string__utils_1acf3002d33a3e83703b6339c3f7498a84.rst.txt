@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1string__utils_1acf3002d33a3e83703b6339c3f7498a84:
+
+Function ph::string_utils::cut_ends
+===================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::string_utils::cut_ends(const std::string_view, const std::string_view)
+   :project: Photon

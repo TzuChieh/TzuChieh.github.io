@@ -1,0 +1,24 @@
+
+.. _program_listing_file_Source_DataIO_SDL_Introspect_SdlIOContext.cpp:
+
+Program Listing for File SdlIOContext.cpp
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_DataIO_SDL_Introspect_SdlIOContext.cpp>` (``Source\DataIO\SDL\Introspect\SdlIOContext.cpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #include "DataIO/SDL/Introspect/SdlIOContext.h"
+   #include "DataIO/SDL/Introspect/SdlClass.h"
+   
+   namespace ph
+   {
+   
+   std::string SdlIOContext::genPrettySrcClassName() const
+   {
+       return getSrcClass() ? getSrcClass()->genPrettyName() : "unavailable";
+   }
+   
+   }// end namespace ph

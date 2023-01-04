@@ -1,0 +1,43 @@
+
+.. _program_listing_file_Source_Frame_FrameProcessor.h:
+
+Program Listing for File FrameProcessor.h
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Frame_FrameProcessor.h>` (``Source\Frame\FrameProcessor.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Frame/FrameProcessingPipeline.h"
+   #include "Utility/IMoveOnly.h"
+   
+   #include <vector>
+   
+   namespace ph
+   {
+   
+   class FrameProcessor final : private IMoveOnly
+   {
+   public:
+       using PipelineId = std::size_t;
+   
+       void process(
+           PipelineId         pipeline, 
+           const HdrRgbFrame& srcFrame, 
+           HdrRgbFrame*       out_dstFrame);
+   
+       PipelineId addPipeline();
+       FrameProcessingPipeline* getPipeline(PipelineId pipeline);
+       const FrameProcessingPipeline* getPipeline(PipelineId pipeline) const;
+   
+   private:
+       std::vector<FrameProcessingPipeline> m_pipelines;
+   
+       bool checkPipelineId(PipelineId id) const;
+   };
+   
+   }// end namespace ph

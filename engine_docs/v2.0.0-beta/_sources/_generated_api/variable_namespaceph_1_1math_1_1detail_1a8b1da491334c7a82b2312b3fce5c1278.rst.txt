@@ -1,0 +1,14 @@
+.. _exhale_variable_namespaceph_1_1math_1_1detail_1a8b1da491334c7a82b2312b3fce5c1278:
+
+Variable ph::math::detail::BITS8_REVERSE_TABLE
+==============================================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: ph::math::detail::BITS8_REVERSE_TABLE
+   :project: Photon

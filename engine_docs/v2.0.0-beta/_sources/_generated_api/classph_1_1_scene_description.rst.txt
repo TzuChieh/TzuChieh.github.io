@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_scene_description:
+
+Class SceneDescription
+======================
+
+- Defined in :ref:`file_Source_DataIO_SDL_SceneDescription.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::SceneDescription
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

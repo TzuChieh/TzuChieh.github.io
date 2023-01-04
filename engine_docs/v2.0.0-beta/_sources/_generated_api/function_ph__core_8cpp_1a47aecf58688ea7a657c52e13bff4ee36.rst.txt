@@ -1,0 +1,14 @@
+.. _exhale_function_ph__core_8cpp_1a47aecf58688ea7a657c52e13bff4ee36:
+
+Function phGetObservableRenderData(const PHuint64, struct PHObservableRenderData \*const)
+=========================================================================================
+
+- Defined in :ref:`file_Source_Api_ph_core.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: phGetObservableRenderData(const PHuint64, struct PHObservableRenderData *const)
+   :project: Photon

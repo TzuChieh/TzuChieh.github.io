@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1math_1_1_t_sampled_spectrum:
+
+Template Class TSampledSpectrum
+===============================
+
+- Defined in :ref:`file_Source_Math_Color_TSampledSpectrum.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::math::TSpectrumBase< TSampledSpectrum< COLOR_SPACE, T, Props >, COLOR_SPACE, T, Props::NUM_SAMPLES >`` (:ref:`exhale_class_classph_1_1math_1_1_t_spectrum_base`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::math::TSampledSpectrum
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

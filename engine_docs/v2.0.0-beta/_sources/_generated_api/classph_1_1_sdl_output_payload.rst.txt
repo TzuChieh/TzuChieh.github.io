@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_sdl_output_payload:
+
+Class SdlOutputPayload
+======================
+
+- Defined in :ref:`file_Source_DataIO_SDL_SdlOutputPayload.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::SdlOutputPayload
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

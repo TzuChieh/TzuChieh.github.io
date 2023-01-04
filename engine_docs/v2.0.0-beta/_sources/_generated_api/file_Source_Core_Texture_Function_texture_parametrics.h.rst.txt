@@ -1,0 +1,52 @@
+
+.. _file_Source_Core_Texture_Function_texture_parametrics.h:
+
+File texture_parametrics.h
+==========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Texture\Function\texture_parametrics.h``)
+-------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Texture_Function_texture_parametrics.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/Texture/SampleLocation.h``
+
+- ``Core/Texture/TTexture.h``
+
+- ``concepts``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__texfunc`
+

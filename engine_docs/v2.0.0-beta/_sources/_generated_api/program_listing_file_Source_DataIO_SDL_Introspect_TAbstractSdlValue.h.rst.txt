@@ -1,0 +1,57 @@
+
+.. _program_listing_file_Source_DataIO_SDL_Introspect_TAbstractSdlValue.h:
+
+Program Listing for File TAbstractSdlValue.h
+============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_DataIO_SDL_Introspect_TAbstractSdlValue.h>` (``Source\DataIO\SDL\Introspect\TAbstractSdlValue.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "DataIO/SDL/Introspect/TOwnedSdlField.h"
+   #include "Common/assertion.h"
+   
+   #include <string>
+   
+   namespace ph
+   {
+   
+   template<typename T, typename Owner>
+   class TAbstractSdlValue : public TOwnedSdlField<Owner>
+   {
+   public:
+       TAbstractSdlValue(
+           std::string typeName, 
+           std::string valueName);
+   
+       virtual std::string valueAsString(const T& value) const = 0;
+   
+       virtual void setValue(Owner& owner, T value) const = 0;
+   
+       virtual const T* getValue(const Owner& owner) const = 0;
+   
+       void setValueToDefault(Owner& owner) const override = 0;
+   
+       std::string valueToString(const Owner& owner) const override;
+   
+       const ISdlResource* associatedResource(const Owner& owner) const override;
+   
+   protected:
+       void loadFromSdl(
+           Owner&                 owner,
+           const SdlInputPayload& payload,
+           const SdlInputContext& ctx) const override = 0;
+   
+       void saveToSdl(
+           const Owner&            owner,
+           SdlOutputPayload&       out_payload,
+           const SdlOutputContext& ctx) const override = 0;
+   };
+   
+   }// end namespace ph
+   
+   #include "DataIO/SDL/Introspect/TAbstractSdlValue.ipp"

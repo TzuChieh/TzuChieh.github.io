@@ -1,0 +1,81 @@
+
+.. _file_Source_Actor_PhysicalActor.h:
+
+File PhysicalActor.h
+====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\PhysicalActor.h``)
+---------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_PhysicalActor.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/Actor.h``
+
+- ``DataIO/SDL/sdl_interface.h``
+
+- ``Math/Transform/StaticAffineTransform.h``
+
+- ``Math/Transform/TDecomposedTransform.h``
+
+- ``Math/math_fwd.h``
+
+- ``optional``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_ADome.h`
+
+- :ref:`file_Source_Actor_ALight.h`
+
+- :ref:`file_Source_Actor_AModel.h`
+
+- :ref:`file_Source_Actor_ATransformedInstance.h`
+
+- :ref:`file_Source_Actor_PhysicalActor.cpp`
+
+- :ref:`file_Source_Api_init_and_exit.cpp`
+
+- :ref:`file_Source_Api_ph_cpp_core.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structph_1_1_physical_actor_1_1_sdl_rotate`
+
+- :ref:`exhale_struct_structph_1_1_physical_actor_1_1_sdl_scale`
+
+- :ref:`exhale_struct_structph_1_1_physical_actor_1_1_sdl_translate`
+
+- :ref:`exhale_class_classph_1_1_physical_actor`
+

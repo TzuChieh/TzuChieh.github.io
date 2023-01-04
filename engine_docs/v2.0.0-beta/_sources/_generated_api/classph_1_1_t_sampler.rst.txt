@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_t_sampler:
+
+Template Class TSampler
+=======================
+
+- Defined in :ref:`file_Source_Core_Texture_TSampler.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TSampler
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

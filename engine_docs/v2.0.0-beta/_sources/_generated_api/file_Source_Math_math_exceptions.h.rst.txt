@@ -1,0 +1,61 @@
+
+.. _file_Source_Math_math_exceptions.h:
+
+File math_exceptions.h
+======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\math_exceptions.h``)
+----------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_math_exceptions.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``stdexcept``
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Math_Color_color_spaces.ipp`
+
+- :ref:`file_Source_Math_Color_spectral_samples.ipp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1math_1_1_color_error`
+
+- :ref:`exhale_class_classph_1_1math_1_1_math_exception`
+

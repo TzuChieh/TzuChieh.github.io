@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1a3ba32f2df019222294218945d30b3363:
+
+Typedef ph::real
+================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::real
+   :project: Photon

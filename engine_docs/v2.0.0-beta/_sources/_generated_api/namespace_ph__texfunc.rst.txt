@@ -1,0 +1,52 @@
+
+.. _namespace_ph__texfunc:
+
+Namespace ph::texfunc
+=====================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1texfunc_1_1_t_add`
+
+- :ref:`exhale_class_classph_1_1texfunc_1_1_t_add_constant`
+
+- :ref:`exhale_class_classph_1_1texfunc_1_1_t_default_conversion`
+
+- :ref:`exhale_class_classph_1_1texfunc_1_1_t_multiply`
+
+- :ref:`exhale_class_classph_1_1texfunc_1_1_t_multiply_constant`
+
+- :ref:`exhale_class_classph_1_1texfunc_1_1_t_scalar_to_spectrum`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_namespaceph_1_1texfunc_1a56417936b64a36dff31a022f9a78f01f`
+
+- :ref:`exhale_typedef_namespaceph_1_1texfunc_1af9f4828817e5b60d304381f4839694f8`
+
+- :ref:`exhale_typedef_namespaceph_1_1texfunc_1ad5bea09879b3e3b4dd2c63b502c4ddc0`
+
+- :ref:`exhale_typedef_namespaceph_1_1texfunc_1a3a5d7abc7e5df279043c3ac30386d582`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_namespaceph_1_1texfunc_1a17f87a13c83f43f06c05719aea68d56a`
+
+- :ref:`exhale_variable_namespaceph_1_1texfunc_1ad8aad9a25e36557605ce21f4afdf6d7f`

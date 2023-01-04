@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a2ffd8eebd1d2acfefaf1e263f940e275:
+
+Function ph::get_internal_resource_directory
+============================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::get_internal_resource_directory(EEngineProject)
+   :project: Photon

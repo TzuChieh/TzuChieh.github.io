@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_pre_cook_resource_collection_proxy:
+
+Class PreCookResourceCollectionProxy
+====================================
+
+- Defined in :ref:`file_Source_World_Foundation_PreCookResourceCollectionProxy.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::PreCookResourceCollectionProxy
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

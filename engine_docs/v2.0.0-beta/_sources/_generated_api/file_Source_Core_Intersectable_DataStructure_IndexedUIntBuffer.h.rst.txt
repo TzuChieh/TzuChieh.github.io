@@ -1,0 +1,81 @@
+
+.. _file_Source_Core_Intersectable_DataStructure_IndexedUIntBuffer.h:
+
+File IndexedUIntBuffer.h
+========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Intersectable\DataStructure\IndexedUIntBuffer.h``)
+----------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Intersectable_DataStructure_IndexedUIntBuffer.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Common/primitive_type.h``
+
+- ``Math/math.h``
+
+- ``Utility/utility.h``
+
+- ``algorithm``
+
+- ``climits``
+
+- ``concepts``
+
+- ``cstddef``
+
+- ``cstring``
+
+- ``format``
+
+- ``limits``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+- ``stdexcept``
+
+- ``type_traits``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Intersectable_DataStructure_IndexedTriangleMesh.h`
+
+- :ref:`file_Source_Core_Intersectable_DataStructure_IndexedUIntBuffer.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_indexed_u_int_buffer`
+

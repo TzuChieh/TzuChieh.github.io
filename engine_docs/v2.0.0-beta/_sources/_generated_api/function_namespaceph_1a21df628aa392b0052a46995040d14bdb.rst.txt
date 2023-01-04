@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a21df628aa392b0052a46995040d14bdb:
+
+Function ph::PH_DEFINE_INTERNAL_LOG_GROUP(TransformedInstanceActor, Actor)
+==========================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_INTERNAL_LOG_GROUP(TransformedInstanceActor, Actor)
+   :project: Photon

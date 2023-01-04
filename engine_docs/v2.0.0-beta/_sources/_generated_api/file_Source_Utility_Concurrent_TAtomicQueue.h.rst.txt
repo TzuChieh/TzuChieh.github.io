@@ -1,0 +1,59 @@
+
+.. _file_Source_Utility_Concurrent_TAtomicQueue.h:
+
+File TAtomicQueue.h
+===================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Utility\Concurrent\TAtomicQueue.h``)
+---------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Utility_Concurrent_TAtomicQueue.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/config.h``
+
+- ``Utility/Concurrent/TAtomicQueue.ipp``
+
+- ``cstddef``
+
+- ``moodycamel/concurrentqueue.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Utility_Concurrent_TAtomicQueue.ipp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_t_atomic_queue`
+

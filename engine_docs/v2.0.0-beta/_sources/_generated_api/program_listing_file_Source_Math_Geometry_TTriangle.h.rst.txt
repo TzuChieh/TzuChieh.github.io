@@ -1,0 +1,32 @@
+
+.. _program_listing_file_Source_Math_Geometry_TTriangle.h:
+
+Program Listing for File TTriangle.h
+====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Math_Geometry_TTriangle.h>` (``Source\Math\Geometry\TTriangle.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Common/primitive_type.h"
+   #include "Math/Geometry/TBasicTriangle.h"
+   #include "Math/math_fwd.h"
+   #include "Math/Geometry/TLineSegment.h"
+   
+   namespace ph::math
+   {
+   
+   template<typename T>
+   class TTriangle final : public TBasicTriangle<T>
+   {
+   public:
+       using TBasicTriangle<T>::TBasicTriangle;
+   
+       // TODO: basic intersection
+   };
+   
+   }// end namespace ph::math

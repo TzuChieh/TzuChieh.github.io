@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1a9a607a63db401274a7e3d77c0895dcaf:
+
+Template Function ph::math::transform_to_linear_sRGB
+====================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::transform_to_linear_sRGB(const auto&, EColorUsage)
+   :project: Photon

@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a9a31302f91cd14b279b9a00de28c6183:
+
+Function ph::swap(ADome&, ADome&)
+=================================
+
+- Defined in :ref:`file_Source_Actor_ADome.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::swap(ADome&, ADome&)
+   :project: Photon

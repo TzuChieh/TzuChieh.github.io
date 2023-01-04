@@ -1,0 +1,25 @@
+
+.. _program_listing_file_Source_Core_Renderer_PM_EPMMode.h:
+
+Program Listing for File EPMMode.h
+==================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Core_Renderer_PM_EPMMode.h>` (``Source\Core\Renderer\PM\EPMMode.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   namespace ph
+   {
+   
+   enum class EPMMode
+   {
+       VANILLA,
+       PROGRESSIVE,
+       STOCHASTIC_PROGRESSIVE
+   };
+   
+   }// end namespace ph

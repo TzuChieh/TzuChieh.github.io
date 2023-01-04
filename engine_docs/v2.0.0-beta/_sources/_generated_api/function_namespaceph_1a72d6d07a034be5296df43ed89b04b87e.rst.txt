@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a72d6d07a034be5296df43ed89b04b87e:
+
+Function ph::PH_DEFINE_INTERNAL_LOG_GROUP(IESAttenuatedSource, Light)
+=====================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_INTERNAL_LOG_GROUP(IESAttenuatedSource, Light)
+   :project: Photon

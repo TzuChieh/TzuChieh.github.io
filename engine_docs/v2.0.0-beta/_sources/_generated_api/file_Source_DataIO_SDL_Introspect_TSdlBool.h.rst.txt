@@ -1,0 +1,61 @@
+
+.. _file_Source_DataIO_SDL_Introspect_TSdlBool.h:
+
+File TSdlBool.h
+===============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\SDL\Introspect\TSdlBool.h``)
+--------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_SDL_Introspect_TSdlBool.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``DataIO/SDL/Introspect/TSdlValue.h``
+
+- ``DataIO/SDL/sdl_helpers.h``
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+- ``type_traits``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_DataIO_SDL_sdl_interface.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_t_sdl_bool`
+

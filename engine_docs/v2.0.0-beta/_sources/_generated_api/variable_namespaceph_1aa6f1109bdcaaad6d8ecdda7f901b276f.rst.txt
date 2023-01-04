@@ -1,0 +1,14 @@
+.. _exhale_variable_namespaceph_1aa6f1109bdcaaad6d8ecdda7f901b276f:
+
+Variable ph::CIsEnum
+====================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: ph::CIsEnum
+   :project: Photon

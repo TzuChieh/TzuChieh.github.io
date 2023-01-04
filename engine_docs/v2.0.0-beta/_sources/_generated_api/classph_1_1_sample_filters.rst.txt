@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_sample_filters:
+
+Class SampleFilters
+===================
+
+- Defined in :ref:`file_Source_Core_Filmic_SampleFilters.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::SampleFilters
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

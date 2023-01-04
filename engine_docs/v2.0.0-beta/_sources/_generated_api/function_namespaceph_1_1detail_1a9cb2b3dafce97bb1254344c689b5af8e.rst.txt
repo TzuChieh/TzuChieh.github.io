@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1detail_1a9cb2b3dafce97bb1254344c689b5af8e:
+
+Function ph::detail::output_assertion_message
+=============================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::detail::output_assertion_message(const std::string&, const std::string&, const std::string&, const std::string&)
+   :project: Photon

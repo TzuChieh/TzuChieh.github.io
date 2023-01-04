@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File MicrosurfaceInfo.h &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File MicrosurfaceInfo.h</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Actor_Material_Utility_MicrosurfaceInfo.h.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-microsurfaceinfo-h">
+<span id="program-listing-file-source-actor-material-utility-microsurfaceinfo-h"></span><h1>Program Listing for File MicrosurfaceInfo.h<a class="headerlink" href="#program-listing-for-file-microsurfaceinfo-h" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Actor_Material_Utility_MicrosurfaceInfo.h.html#file-source-actor-material-utility-microsurfaceinfo-h"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Actor\Material\Utility\MicrosurfaceInfo.h</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/primitive_type.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Material/Utility/EInterfaceMicrosurface.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Material/Utility/ERoughnessToAlpha.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/assertion.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;DataIO/SDL/sdl_interface.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;memory&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;optional&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;utility&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Microfacet</span><span class="p">;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MicrosurfaceInfo</span><span class="w"> </span><span class="k">final</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kr">inline</span><span class="w"> </span><span class="n">MicrosurfaceInfo</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Microfacet</span><span class="o">&gt;</span><span class="w"> </span><span class="n">genMicrofacet</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">isIsotropic</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">real</span><span class="w"> </span><span class="nf">getIsotropicRoughness</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">real</span><span class="p">,</span><span class="w"> </span><span class="n">real</span><span class="o">&gt;</span><span class="w"> </span><span class="n">getAnisotropicUVRoughnesses</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="n">EInterfaceMicrosurface</span><span class="w"> </span><span class="n">m_microsurface</span><span class="p">;</span>
+<span class="w">    </span><span class="n">ERoughnessToAlpha</span><span class="w">      </span><span class="n">m_roughnessToAlpha</span><span class="p">;</span>
+<span class="w">    </span><span class="n">real</span><span class="w">                   </span><span class="n">m_roughness</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">optional</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="w">    </span><span class="n">m_roughnessV</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">PH_DEFINE_SDL_STRUCT</span><span class="p">(</span><span class="n">TOwnerSdlStruct</span><span class="o">&lt;</span><span class="n">MicrosurfaceInfo</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">StructType</span><span class="w"> </span><span class="n">ztruct</span><span class="p">(</span><span class="s">&quot;microsurface&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ztruct</span><span class="p">.</span><span class="n">description</span><span class="p">(</span><span class="s">&quot;Describing microsurface structure of the material.&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">TSdlEnumField</span><span class="o">&lt;</span><span class="n">OwnerType</span><span class="p">,</span><span class="w"> </span><span class="n">EInterfaceMicrosurface</span><span class="o">&gt;</span><span class="w"> </span><span class="n">microsurface</span><span class="p">(</span><span class="s">&quot;microsurface&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">OwnerType</span><span class="o">::</span><span class="n">m_microsurface</span><span class="p">);</span>
+<span class="w">        </span><span class="n">microsurface</span><span class="p">.</span><span class="n">description</span><span class="p">(</span><span class="s">&quot;Type of the microsurface of the material.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">microsurface</span><span class="p">.</span><span class="n">optional</span><span class="p">();</span>
+<span class="w">        </span><span class="n">microsurface</span><span class="p">.</span><span class="n">defaultTo</span><span class="p">(</span><span class="n">EInterfaceMicrosurface</span><span class="o">::</span><span class="n">TrowbridgeReitz</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ztruct</span><span class="p">.</span><span class="n">addField</span><span class="p">(</span><span class="n">microsurface</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">TSdlEnumField</span><span class="o">&lt;</span><span class="n">OwnerType</span><span class="p">,</span><span class="w"> </span><span class="n">ERoughnessToAlpha</span><span class="o">&gt;</span><span class="w"> </span><span class="n">roughnessToAlpha</span><span class="p">(</span><span class="s">&quot;roughness-to-alpha&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">OwnerType</span><span class="o">::</span><span class="n">m_roughnessToAlpha</span><span class="p">);</span>
+<span class="w">        </span><span class="n">roughnessToAlpha</span><span class="p">.</span><span class="n">description</span><span class="p">(</span><span class="s">&quot;Type of the mapping to transform roughness into alpha value.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">roughnessToAlpha</span><span class="p">.</span><span class="n">optional</span><span class="p">();</span>
+<span class="w">        </span><span class="n">roughnessToAlpha</span><span class="p">.</span><span class="n">defaultTo</span><span class="p">(</span><span class="n">ERoughnessToAlpha</span><span class="o">::</span><span class="n">Squared</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ztruct</span><span class="p">.</span><span class="n">addField</span><span class="p">(</span><span class="n">roughnessToAlpha</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">TSdlReal</span><span class="o">&lt;</span><span class="n">OwnerType</span><span class="o">&gt;</span><span class="w"> </span><span class="n">roughness</span><span class="p">(</span><span class="s">&quot;roughness&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">OwnerType</span><span class="o">::</span><span class="n">m_roughness</span><span class="p">);</span>
+<span class="w">        </span><span class="n">roughness</span><span class="p">.</span><span class="n">description</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;Isotropic surface roughness in [0, 1], the material will appear &quot;</span>
+<span class="w">            </span><span class="s">&quot;to be smoother with smaller roughness value.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">roughness</span><span class="p">.</span><span class="n">optional</span><span class="p">();</span>
+<span class="w">        </span><span class="n">roughness</span><span class="p">.</span><span class="n">defaultTo</span><span class="p">(</span><span class="mf">0.5</span><span class="n">_r</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ztruct</span><span class="p">.</span><span class="n">addField</span><span class="p">(</span><span class="n">roughness</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">TSdlOptionalReal</span><span class="o">&lt;</span><span class="n">OwnerType</span><span class="o">&gt;</span><span class="w"> </span><span class="n">roughnessV</span><span class="p">(</span><span class="s">&quot;roughness-v&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">OwnerType</span><span class="o">::</span><span class="n">m_roughnessV</span><span class="p">);</span>
+<span class="w">        </span><span class="n">roughnessV</span><span class="p">.</span><span class="n">description</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;Similar to the `roughness` parameter, but is used for anisotropic &quot;</span>
+<span class="w">            </span><span class="s">&quot;surface appearances. This value controls the V component of &quot;</span>
+<span class="w">            </span><span class="s">&quot;surface roughness. If this value is provided, the `roughness` &quot;</span>
+<span class="w">            </span><span class="s">&quot;parameter is interpreted as the U component of surface roughness.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ztruct</span><span class="p">.</span><span class="n">addField</span><span class="p">(</span><span class="n">roughnessV</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ztruct</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// In-header Implementations:</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">MicrosurfaceInfo::isIsotropic</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">!</span><span class="n">m_roughnessV</span><span class="p">.</span><span class="n">has_value</span><span class="p">()</span><span class="w"> </span><span class="o">||</span>
+<span class="w">           </span><span class="p">(</span><span class="n">m_roughnessV</span><span class="p">.</span><span class="n">has_value</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">m_roughness</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">*</span><span class="n">m_roughnessV</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="nf">MicrosurfaceInfo::getIsotropicRoughness</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">isIsotropic</span><span class="p">());</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_roughness</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">real</span><span class="p">,</span><span class="w"> </span><span class="n">real</span><span class="o">&gt;</span><span class="w"> </span><span class="n">MicrosurfaceInfo</span><span class="o">::</span><span class="n">getAnisotropicUVRoughnesses</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="o">!</span><span class="n">isIsotropic</span><span class="p">());</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">m_roughnessV</span><span class="p">.</span><span class="n">has_value</span><span class="p">());</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="n">m_roughness</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">m_roughnessV</span><span class="p">};</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

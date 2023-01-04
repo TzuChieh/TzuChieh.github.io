@@ -1,0 +1,148 @@
+
+.. _file_Source_Api_ph_core.cpp:
+
+File ph_core.cpp
+================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Api\ph_core.cpp``)
+---------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Api_ph_core.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Api/ApiDatabase.h``
+
+- ``Api/ApiHelper.h``
+
+- ``Api/init_and_exit.h``
+
+- ``Api/test_scene.h``
+
+- ``Common/assertion.h``
+
+- ``Common/config.h``
+
+- ``Common/logging.h``
+
+- ``Core/Engine.h``
+
+- ``Core/Receiver/Receiver.h``
+
+- ``Core/Renderer/Renderer.h``
+
+- ``Core/Scheduler/Region.h``
+
+- ``DataIO/FileSystem/Path.h``
+
+- ``DataIO/PictureSaver.h``
+
+- ``DataIO/io_utils.h``
+
+- ``Frame/TFrame.h``
+
+- ``Frame/frame_utils.h``
+
+- ``Math/TArithmeticArray.h``
+
+- ``Utility/ByteBuffer.h``
+
+- ``cstddef``
+
+- ``cstring``
+
+- ``iostream``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+- ``ph_core.h`` (:ref:`file_Include_CEngine_ph_core.h`)
+
+
+
+
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_ph__core_8cpp_1a03caa3b421539ef45cf5da0c53fc180a`
+
+- :ref:`exhale_function_ph__core_8cpp_1a88053cbcbfac1be399ca4c7907f5a0a3`
+
+- :ref:`exhale_function_ph__core_8cpp_1a54299ee86ee626fa8f0fea7cf7e280d5`
+
+- :ref:`exhale_function_ph__core_8cpp_1a73e3980f2ffba97e9fc8c589e4fbbcaf`
+
+- :ref:`exhale_function_ph__core_8cpp_1ad53c03a2af9caf96f0df2cf0f7718111`
+
+- :ref:`exhale_function_ph__core_8cpp_1a897b6511a5b04f34ba4e121647c6d100`
+
+- :ref:`exhale_function_ph__core_8cpp_1ad4518b7bb54c76aafe496dff9988013a`
+
+- :ref:`exhale_function_ph__core_8cpp_1a5f725dad079d19db72f89229344bce51`
+
+- :ref:`exhale_function_ph__core_8cpp_1a017bfd815c9a74f49bdf51419d0b5ef9`
+
+- :ref:`exhale_function_ph__core_8cpp_1ae0f17cf4cc68e4785e34ae11e091e39b`
+
+- :ref:`exhale_function_ph__core_8cpp_1a44635b6826a2ad8717178e86a02e6e58`
+
+- :ref:`exhale_function_ph__core_8cpp_1aae05ffeeebf4c993d1fd874af4ce99bd`
+
+- :ref:`exhale_function_ph__core_8cpp_1ab78885758608210d51574cb754efdf5c`
+
+- :ref:`exhale_function_ph__core_8cpp_1a587d123fa94bdad97212e099017d62ed`
+
+- :ref:`exhale_function_ph__core_8cpp_1a4358a39d93d8c45b79928698b57a0083`
+
+- :ref:`exhale_function_ph__core_8cpp_1ab5eacebbe02c1e5aee751e5ea8aa7d3e`
+
+- :ref:`exhale_function_ph__core_8cpp_1ada125c0734bee416d7981c4309869dda`
+
+- :ref:`exhale_function_ph__core_8cpp_1a56b56e18ef5fd3f80178b0cc3e5406e8`
+
+- :ref:`exhale_function_ph__core_8cpp_1a35d5fdd0757551a63220732151a44347`
+
+- :ref:`exhale_function_ph__core_8cpp_1a8f580776bd2d39717b2a9d7a9d511280`
+
+- :ref:`exhale_function_ph__core_8cpp_1ac3940b405215b113f7673c5b47b4e5a1`
+
+- :ref:`exhale_function_ph__core_8cpp_1a064e9d7ebde4469485c559d87bbf965c`
+
+- :ref:`exhale_function_ph__core_8cpp_1a47aecf58688ea7a657c52e13bff4ee36`
+
+- :ref:`exhale_function_ph__core_8cpp_1ad850be4334198d8ccdb3d19a94b89ebc`
+
+- :ref:`exhale_function_ph__core_8cpp_1a6e2e65456331de87508104e30d65ba87`
+
+- :ref:`exhale_function_ph__core_8cpp_1a03c9a0ff838a7fc7d3f445d2ffd4bb29`
+
+- :ref:`exhale_function_ph__core_8cpp_1ae8d8fb6d98a5ca12a6b98a74beb1f460`
+
+- :ref:`exhale_function_ph__core_8cpp_1aba7ce2811a98af1f529e45939fbee6a3`
+
+- :ref:`exhale_function_ph__core_8cpp_1a968fc79b7dd3bf436fb0f9de1c1558e3`
+
+- :ref:`exhale_function_ph__core_8cpp_1ab46c1ae61a616a2acf66954859202507`
+
+- :ref:`exhale_function_ph__core_8cpp_1acd684abe215d974d1e39986117ad8fb2`
+
+- :ref:`exhale_function_ph__core_8cpp_1af9c4501bacd8bc79f5abc4674b916918`
+
+- :ref:`exhale_function_ph__core_8cpp_1a3a7512510bc9590046f713616ee27069`
+

@@ -1,0 +1,99 @@
+
+.. _file_Source_Math_Random.h:
+
+File Random.h
+=============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\Random.h``)
+-------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_Random.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/primitive_type.h``
+
+- ``atomic``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Emitter_MultiDiffuseSurfaceEmitter.cpp`
+
+- :ref:`file_Source_Core_Emitter_Sampler_ESUniformRandom.cpp`
+
+- :ref:`file_Source_Core_Estimator_SurfaceAttributeEstimator.cpp`
+
+- :ref:`file_Source_Core_Receiver_PinholeCamera.cpp`
+
+- :ref:`file_Source_Core_Receiver_ThinLensCamera.cpp`
+
+- :ref:`file_Source_Core_Renderer_PM_TPhotonMappingWork.ipp`
+
+- :ref:`file_Source_Core_Renderer_PM_TPPMViewpointCollector.h`
+
+- :ref:`file_Source_Core_Renderer_PM_TSPPMRadianceEvaluator.h`
+
+- :ref:`file_Source_Core_SampleGenerator_SampleFlow.h`
+
+- :ref:`file_Source_Core_SampleGenerator_SampleGenerator.cpp`
+
+- :ref:`file_Source_Core_SampleGenerator_SamplesNDStream.h`
+
+- :ref:`file_Source_Core_SampleGenerator_SGHalton.cpp`
+
+- :ref:`file_Source_Core_SampleGenerator_SGStratified.cpp`
+
+- :ref:`file_Source_Core_SampleGenerator_SGUniformRandom.cpp`
+
+- :ref:`file_Source_Core_SampleGenerator_SGUtil.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_LbLayeredSurface.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_TableFGD.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_TableTIR.cpp`
+
+- :ref:`file_Source_Core_Texture_TextureLoader.cpp`
+
+- :ref:`file_Source_Core_VolumeBehavior_VolumeOptics_VoHomoAbsorption.cpp`
+
+- :ref:`file_Source_Math_Random_shuffle.h`
+
+- :ref:`file_Source_Math_Random.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1math_1_1_random`
+

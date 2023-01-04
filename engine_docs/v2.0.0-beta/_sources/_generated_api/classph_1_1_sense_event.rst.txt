@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_sense_event:
+
+Class SenseEvent
+================
+
+- Defined in :ref:`file_Source_Core_LTABuildingBlock_SenseEvent.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::SenseEvent
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

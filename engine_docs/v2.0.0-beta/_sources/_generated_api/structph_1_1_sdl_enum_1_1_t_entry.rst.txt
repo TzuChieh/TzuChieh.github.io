@@ -1,0 +1,23 @@
+.. _exhale_struct_structph_1_1_sdl_enum_1_1_t_entry:
+
+Template Struct SdlEnum::TEntry
+===============================
+
+- Defined in :ref:`file_Source_DataIO_SDL_Introspect_SdlEnum.h`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_class_classph_1_1_sdl_enum`.
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: ph::SdlEnum::TEntry
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

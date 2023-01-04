@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File LightTracingIntegrator.cpp &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File LightTracingIntegrator.cpp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Core_Estimator_LightTracingIntegrator.cpp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-lighttracingintegrator-cpp">
+<span id="program-listing-file-source-core-estimator-lighttracingintegrator-cpp"></span><h1>Program Listing for File LightTracingIntegrator.cpp<a class="headerlink" href="#program-listing-for-file-lighttracingintegrator-cpp" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Core_Estimator_LightTracingIntegrator.cpp.html#file-source-core-estimator-lighttracingintegrator-cpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Core\Estimator\LightTracingIntegrator.cpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">//#include &quot;Core/Integrator/LightTracingIntegrator.h&quot;</span>
+<span class="c1">//#include &quot;Core/Ray.h&quot;</span>
+<span class="c1">//#include &quot;World/Scene.h&quot;</span>
+<span class="c1">//#include &quot;Math/TVector3.h&quot;</span>
+<span class="c1">//#include &quot;Core/HitDetail.h&quot;</span>
+<span class="c1">//#include &quot;Actor/Material/Material.h&quot;</span>
+<span class="c1">//#include &quot;Core/SurfaceBehavior/SurfaceBehavior.h&quot;</span>
+<span class="c1">//#include &quot;Core/SurfaceBehavior/SurfaceOptics.h&quot;</span>
+<span class="c1">//#include &quot;Core/Intersectable/Primitive.h&quot;</span>
+<span class="c1">//#include &quot;Core/Intersectable/PrimitiveMetadata.h&quot;</span>
+<span class="c1">//#include &quot;Math/math.h&quot;</span>
+<span class="c1">//#include &quot;Math/Random.h&quot;</span>
+<span class="c1">//#include &quot;Core/Sample/DirectLightSample.h&quot;</span>
+<span class="c1">//#include &quot;Core/Camera/Camera.h&quot;</span>
+<span class="c1">//#include &quot;Core/SurfaceBehavior/BsdfEvaluation.h&quot;</span>
+<span class="c1">//#include &quot;Core/SurfaceBehavior/BsdfSample.h&quot;</span>
+<span class="c1">//#include &quot;Math/TVector2.h&quot;</span>
+<span class="c1">//#include &quot;Core/Quantity/Spectrum.h&quot;</span>
+<span class="c1">//</span>
+<span class="c1">//#include &lt;iostream&gt;</span>
+<span class="c1">//</span>
+<span class="c1">//#define RAY_DELTA_DIST 0.0001f</span>
+<span class="c1">//#define MAX_RAY_BOUNCES 10000</span>
+<span class="c1">//</span>
+<span class="c1">//namespace ph</span>
+<span class="c1">//{</span>
+<span class="c1">//</span>
+<span class="c1">//LightTracingIntegrator::~LightTracingIntegrator() = default;</span>
+<span class="c1">//</span>
+<span class="c1">//void LightTracingIntegrator::update(const Scene&amp; scene)</span>
+<span class="c1">//{</span>
+<span class="c1">//  // update nothing</span>
+<span class="c1">//}</span>
+<span class="c1">//</span>
+<span class="c1">//void LightTracingIntegrator::radianceAlongRay(const Ray&amp; ray, const RenderWork&amp; data, std::vector&lt;SenseEvent&gt;&amp; out_senseEvents) const</span>
+<span class="c1">//{</span>
+<span class="c1">//  //const Scene&amp;  scene  = *data.scene;</span>
+<span class="c1">//  //const Camera&amp; camera = *data.camera;</span>
+<span class="c1">//</span>
+<span class="c1">//  //uint32 numBounces = 0;</span>
+<span class="c1">//</span>
+<span class="c1">//  //real emitterPickPdf;</span>
+<span class="c1">//  //const Emitter* emitter = scene.pickEmitter(&amp;emitterPickPdf);</span>
+<span class="c1">//  //if(!emitter || emitterPickPdf &lt;= 0)</span>
+<span class="c1">//  //{</span>
+<span class="c1">//  //  return;</span>
+<span class="c1">//  //}</span>
+<span class="c1">//</span>
+<span class="c1">//  //Ray emitterRay;</span>
+<span class="c1">//  //Spectrum emitterRadianceLe;</span>
+<span class="c1">//  //Vector3R eN;</span>
+<span class="c1">//  //real emitterPdfA;</span>
+<span class="c1">//  //real emitterPdfW;</span>
+<span class="c1">//  //emitter-&gt;emitRay(&amp;emitterRay, &amp;emitterRadianceLe, &amp;eN, &amp;emitterPdfA, &amp;emitterPdfW);</span>
+<span class="c1">//</span>
+<span class="c1">//  //emitterPdfA *= emitterPickPdf;</span>
+<span class="c1">//  //if(emitterRadianceLe.isZero() || emitterPdfA &lt;= 0 || emitterPdfW &lt;= 0)</span>
+<span class="c1">//  //{</span>
+<span class="c1">//  //  return;</span>
+<span class="c1">//  //}</span>
+<span class="c1">//</span>
+<span class="c1">//  //// 0 bounce</span>
+<span class="c1">//  //{</span>
+<span class="c1">//  //  const Vector3R toCameraVec(camera.getPosition().sub(emitterRay.getOrigin()));</span>
+<span class="c1">//  //  const Ray toCameraRay(emitterRay.getOrigin(), toCameraVec.normalize(),</span>
+<span class="c1">//  //      RAY_DELTA_DIST, toCameraVec.length() - 2 * RAY_DELTA_DIST);</span>
+<span class="c1">//  //  if(!scene.isOccluding(toCameraRay))</span>
+<span class="c1">//  //  {</span>
+<span class="c1">//  //      Vector3R cameraImportanceWe;</span>
+<span class="c1">//  //      Vector2R filmCoord;</span>
+<span class="c1">//  //      real cameraPdfW;</span>
+<span class="c1">//  //      real cameraPdfA = 1;// always pinhole for now</span>
+<span class="c1">//  //      real filmArea;</span>
+<span class="c1">//  //      camera.evalEmittedImportanceAndPdfW(emitterRay.getOrigin(), &amp;filmCoord,</span>
+<span class="c1">//  //          &amp;cameraImportanceWe, &amp;filmArea, &amp;cameraPdfW);</span>
+<span class="c1">//  //      if(cameraPdfW &gt; 0)</span>
+<span class="c1">//  //      {</span>
+<span class="c1">//  //          Spectrum weight(1);</span>
+<span class="c1">//  //          weight.mulLocal(cameraImportanceWe.div(cameraPdfA));</span>
+<span class="c1">//  //          weight.divLocal(emitterPdfA);</span>
+<span class="c1">//  //          const real G = eN.absDot(toCameraRay.getDirection()) *</span>
+<span class="c1">//  //              camera.getDirection().absDot(toCameraRay.getDirection()) / toCameraVec.lengthSquared();</span>
+<span class="c1">//  //          weight.mulLocal(G);</span>
+<span class="c1">//</span>
+<span class="c1">//  //          rationalClamp(weight);</span>
+<span class="c1">//</span>
+<span class="c1">//  //          // assuming same amount of radiance is emitted in every direction</span>
+<span class="c1">//  //          out_senseEvents.push_back(SenseEvent(/*filmCoord.x, filmCoord.y, */emitterRadianceLe.mul(weight)));</span>
+<span class="c1">//  //      }</span>
+<span class="c1">//  //  }</span>
+<span class="c1">//  //}</span>
+<span class="c1">//</span>
+<span class="c1">//  //Intersection intersection;</span>
+<span class="c1">//  //Vector3R throughput(1, 1, 1);</span>
+<span class="c1">//  //while(numBounces &lt; MAX_RAY_BOUNCES &amp;&amp; scene.isIntersecting(emitterRay, &amp;intersection))</span>
+<span class="c1">//  //{</span>
+<span class="c1">//  //  const PrimitiveMetadata* const metadata = intersection.getHitPrimitive()-&gt;getMetadata();</span>
+<span class="c1">//  //  const BSDF* const bsdf = metadata-&gt;surfaceBehavior.getBsdf();</span>
+<span class="c1">//  //  const Vector3R V(emitterRay.getDirection().mul(-1.0f));</span>
+<span class="c1">//  //</span>
+<span class="c1">//  //  if(intersection.getHitGeoNormal().dot(V) * intersection.getHitSmoothNormal().dot(V) &lt;= 0.0f)</span>
+<span class="c1">//  //  {</span>
+<span class="c1">//  //      return;</span>
+<span class="c1">//  //  }</span>
+<span class="c1">//</span>
+<span class="c1">//  //  // try connecting to camera</span>
+<span class="c1">//  //  {</span>
+<span class="c1">//  //      const Vector3R toCameraVec(camera.getPosition().sub(intersection.getHitPosition()));</span>
+<span class="c1">//  //      if(!(intersection.getHitGeoNormal().dot(toCameraVec) * intersection.getHitSmoothNormal().dot(toCameraVec) &lt;= 0.0f))</span>
+<span class="c1">//  //      {</span>
+<span class="c1">//  //          const Ray toCameraRay(intersection.getHitPosition(), toCameraVec.normalize(),</span>
+<span class="c1">//  //              RAY_DELTA_DIST, toCameraVec.length() - 2 * RAY_DELTA_DIST);</span>
+<span class="c1">//  //          if(!scene.isOccluding(toCameraRay))</span>
+<span class="c1">//  //          {</span>
+<span class="c1">//  //              BsdfEvaluation bsdfEval;</span>
+<span class="c1">//  //              bsdfEval.inputs.set(intersection, toCameraRay.getDirection(), V);</span>
+<span class="c1">//  //              bsdf-&gt;evaluate(bsdfEval);</span>
+<span class="c1">//  //              if(bsdfEval.outputs.isGood())</span>
+<span class="c1">//  //              {</span>
+<span class="c1">//  //                  Vector3R cameraImportanceWe;</span>
+<span class="c1">//  //                  Vector2R filmCoord;</span>
+<span class="c1">//  //                  real cameraPdfW;</span>
+<span class="c1">//  //                  real cameraPdfA = 1.0_r;// always pinhole for now</span>
+<span class="c1">//  //                  real filmArea;</span>
+<span class="c1">//  //                  camera.evalEmittedImportanceAndPdfW(intersection.getHitPosition(), &amp;filmCoord,</span>
+<span class="c1">//  //                      &amp;cameraImportanceWe, &amp;filmArea, &amp;cameraPdfW);</span>
+<span class="c1">//  //                  if(cameraPdfW &gt; 0.0_r)</span>
+<span class="c1">//  //                  {</span>
+<span class="c1">//  //                      Vector3R weight(1.0_r, 1.0_r, 1.0_r);</span>
+<span class="c1">//  //                      weight.mulLocal(cameraImportanceWe.div(cameraPdfA));</span>
+<span class="c1">//  //                      weight.mulLocal(bsdfEval.outputs.bsdf);</span>
+<span class="c1">//  //                      weight.mulLocal(1.0_r / (emitterPdfA * emitterPdfW));</span>
+<span class="c1">//  //                      weight.mulLocal(throughput);</span>
+<span class="c1">//  //                      const real G = intersection.getHitSmoothNormal().absDot(toCameraRay.getDirection()) *</span>
+<span class="c1">//  //                          camera.getDirection().absDot(toCameraRay.getDirection()) / toCameraVec.lengthSquared();</span>
+<span class="c1">//  //                      weight.mulLocal(G);</span>
+<span class="c1">//</span>
+<span class="c1">//  //                      rationalClamp(weight);</span>
+<span class="c1">//</span>
+<span class="c1">//  //                      out_senseEvents.push_back(SenseEvent(/*filmCoord.x, filmCoord.y, */emitterRadianceLe.mul(weight)));</span>
+<span class="c1">//  //                  }</span>
+<span class="c1">//  //              }</span>
+<span class="c1">//  //          }</span>
+<span class="c1">//  //      }</span>
+<span class="c1">//  //  }</span>
+<span class="c1">//</span>
+<span class="c1">//  //  BsdfSample bsdfSample;</span>
+<span class="c1">//  //  bsdfSample.inputs.set(intersection, V);</span>
+<span class="c1">//  //  bsdf-&gt;sample(bsdfSample);</span>
+<span class="c1">//</span>
+<span class="c1">//  //  if(!bsdfSample.outputs.isGood())</span>
+<span class="c1">//  //  {</span>
+<span class="c1">//  //      return;</span>
+<span class="c1">//  //  }</span>
+<span class="c1">//</span>
+<span class="c1">//  //  const Vector3R&amp; N = intersection.getHitSmoothNormal();</span>
+<span class="c1">//  //  const Vector3R&amp; L = bsdfSample.outputs.L;</span>
+<span class="c1">//</span>
+<span class="c1">//  //  if(intersection.getHitGeoNormal().dot(L) * intersection.getHitSmoothNormal().dot(L) &lt;= 0.0_r)</span>
+<span class="c1">//  //  {</span>
+<span class="c1">//  //      return;</span>
+<span class="c1">//  //  }</span>
+<span class="c1">//</span>
+<span class="c1">//  //  Vector3R liWeight = bsdfSample.outputs.pdfAppliedBsdf.mul(N.absDot(L));</span>
+<span class="c1">//</span>
+<span class="c1">//  //  if(numBounces &gt;= 3)</span>
+<span class="c1">//  //  {</span>
+<span class="c1">//  //      const real rrSurviveRate = Math::clamp(liWeight.avg(), 0.0001_r, 1.0_r);</span>
+<span class="c1">//  //      const real rrSpin = Random::genUniformReal_i0_e1();</span>
+<span class="c1">//</span>
+<span class="c1">//  //      // russian roulette &gt;&gt; survive</span>
+<span class="c1">//  //      if(rrSurviveRate &gt; rrSpin)</span>
+<span class="c1">//  //      {</span>
+<span class="c1">//  //          const real rrScale = 1.0_r / rrSurviveRate;</span>
+<span class="c1">//  //          liWeight.mulLocal(rrScale);</span>
+<span class="c1">//  //      }</span>
+<span class="c1">//  //      // russian roulette &gt;&gt; dead</span>
+<span class="c1">//  //      else</span>
+<span class="c1">//  //      {</span>
+<span class="c1">//  //          break;</span>
+<span class="c1">//  //      }</span>
+<span class="c1">//  //  }</span>
+<span class="c1">//</span>
+<span class="c1">//  //  throughput.mulLocal(liWeight);</span>
+<span class="c1">//  //  rationalClamp(throughput);</span>
+<span class="c1">//  //  if(throughput.isZero())</span>
+<span class="c1">//  //  {</span>
+<span class="c1">//  //      return;</span>
+<span class="c1">//  //  }</span>
+<span class="c1">//</span>
+<span class="c1">//  //  // prepare for next intersection</span>
+<span class="c1">//</span>
+<span class="c1">//  //  emitterRay.setOrigin(intersection.getHitPosition());</span>
+<span class="c1">//  //  emitterRay.setDirection(L);</span>
+<span class="c1">//  //  numBounces++;</span>
+<span class="c1">//  //}</span>
+<span class="c1">//}</span>
+<span class="c1">//</span>
+<span class="c1">//void LightTracingIntegrator::rationalClamp(Vector3R&amp; value)</span>
+<span class="c1">//{</span>
+<span class="c1">//  value.x = value.x &gt; 0.0f &amp;&amp; value.x &lt; 10000.0f ? value.x : 0.0f;</span>
+<span class="c1">//  value.y = value.y &gt; 0.0f &amp;&amp; value.y &lt; 10000.0f ? value.y : 0.0f;</span>
+<span class="c1">//  value.z = value.z &gt; 0.0f &amp;&amp; value.z &lt; 10000.0f ? value.z : 0.0f;</span>
+<span class="c1">//}</span>
+<span class="c1">//</span>
+<span class="c1">//</span>
+<span class="c1">//LightTracingIntegrator::LightTracingIntegrator(const InputPacket&amp; packet) :</span>
+<span class="c1">//  Integrator(packet)</span>
+<span class="c1">//{</span>
+<span class="c1">//</span>
+<span class="c1">//}</span>
+<span class="c1">//</span>
+<span class="c1">//SdlTypeInfo LightTracingIntegrator::ciTypeInfo()</span>
+<span class="c1">//{</span>
+<span class="c1">//  return SdlTypeInfo(ETypeCategory::REF_INTEGRATOR, &quot;light-tracing&quot;);</span>
+<span class="c1">//}</span>
+<span class="c1">//</span>
+<span class="c1">//void LightTracingIntegrator::ciRegister(CommandRegister&amp; cmdRegister)</span>
+<span class="c1">//{</span>
+<span class="c1">//  SdlLoader loader;</span>
+<span class="c1">//  loader.setFunc&lt;LightTracingIntegrator&gt;(ciLoad);</span>
+<span class="c1">//  cmdRegister.setLoader(loader);</span>
+<span class="c1">//}</span>
+<span class="c1">//</span>
+<span class="c1">//std::unique_ptr&lt;LightTracingIntegrator&gt; LightTracingIntegrator::ciLoad(const InputPacket&amp; packet)</span>
+<span class="c1">//{</span>
+<span class="c1">//  return std::make_unique&lt;LightTracingIntegrator&gt;(packet);</span>
+<span class="c1">//}</span>
+<span class="c1">//</span>
+<span class="c1">//}// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

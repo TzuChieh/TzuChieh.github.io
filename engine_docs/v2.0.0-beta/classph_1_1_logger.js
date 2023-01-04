@@ -1,7 +1,10 @@
 var classph_1_1_logger =
 [
-    [ "Logger", "classph_1_1_logger.html#a30735da07687d2836a34a2d5d2943417", null ],
-    [ "log", "classph_1_1_logger.html#a4e35c983bef1a8894f4e28b0bc55cac1", null ],
-    [ "log", "classph_1_1_logger.html#acd4f6b6eb2f90ef0fa8b48c2db099071", null ],
-    [ "setLogSender", "classph_1_1_logger.html#a51538391775715cc9d9576b9145765e7", null ]
+    [ "LogHandler", "classph_1_1_logger.html#a31b48a6b6247d538702056871bf1132c", null ],
+    [ "Logger", "classph_1_1_logger.html#afc9b63db708640c1be192a4e6bc9c50a", null ],
+    [ "addLogHandler", "classph_1_1_logger.html#ac638363a403608d2c52e442edbdb8e8f", null ],
+    [ "log", "classph_1_1_logger.html#a7e289ed9063918ab85d885fda96ade31", null ],
+    [ "log", "classph_1_1_logger.html#a51d7a4e81c39cf7a264106374c0b7d1f", null ],
+    [ "log", "classph_1_1_logger.html#ac6b87b33ccbac1efdb814686da6c903b", null ],
+    [ "m_logHandlers", "classph_1_1_logger.html#a813266b2daf0e97a23e9724538d86449", null ]
 ];

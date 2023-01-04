@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File ExrFileReader.cpp &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File ExrFileReader.cpp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_DataIO_ExrFileReader.cpp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-exrfilereader-cpp">
+<span id="program-listing-file-source-dataio-exrfilereader-cpp"></span><h1>Program Listing for File ExrFileReader.cpp<a class="headerlink" href="#program-listing-for-file-exrfilereader-cpp" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_DataIO_ExrFileReader.cpp.html#file-source-dataio-exrfilereader-cpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\DataIO\ExrFileReader.cpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;DataIO/ExrFileReader.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/assertion.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/logging.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Utility/utility.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/ThirdParty/lib_openexr.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;set&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;type_traits&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;exception&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="n">PH_DEFINE_INTERNAL_LOG_GROUP</span><span class="p">(</span><span class="n">ExrFileReader</span><span class="p">,</span><span class="w"> </span><span class="n">DataIO</span><span class="p">);</span>
+
+<span class="k">namespace</span>
+<span class="p">{</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">DatumType</span><span class="o">&gt;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">loadStandaloneRgbData</span><span class="p">(</span><span class="n">Imf</span><span class="o">::</span><span class="n">InputFile</span><span class="o">&amp;</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">HdrRgbFrame</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">out_frame</span><span class="p">);</span>
+
+<span class="p">}</span>
+
+<span class="n">ExrFileReader</span><span class="o">::</span><span class="n">ExrFileReader</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Path</span><span class="o">&amp;</span><span class="w"> </span><span class="n">filePath</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">m_filePath</span><span class="p">(</span><span class="n">filePath</span><span class="p">)</span>
+<span class="p">{}</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">ExrFileReader</span><span class="o">::</span><span class="n">load</span><span class="p">(</span><span class="n">HdrRgbFrame</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">out_frame</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">try</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">loadStandaloneRgb</span><span class="p">(</span><span class="n">out_frame</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">catch</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">exception</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_LOG_WARNING</span><span class="p">(</span><span class="n">ExrFileReader</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;failed loading &lt;{}&gt;, reason: {}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">m_filePath</span><span class="p">.</span><span class="n">toString</span><span class="p">(),</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">());</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">ExrFileReader</span><span class="o">::</span><span class="n">loadStandaloneRgb</span><span class="p">(</span><span class="n">HdrRgbFrame</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">out_frame</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">filePath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_filePath</span><span class="p">.</span><span class="n">toAbsoluteString</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">ExrFileReader</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;loading standalone RGB: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">filePath</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">Imf</span><span class="o">::</span><span class="n">InputFile</span><span class="w"> </span><span class="nf">file</span><span class="p">(</span><span class="n">filePath</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Imf</span><span class="o">::</span><span class="n">ChannelList</span><span class="o">&amp;</span><span class="w"> </span><span class="n">channelList</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">file</span><span class="p">.</span><span class="n">header</span><span class="p">().</span><span class="n">channels</span><span class="p">();</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Imf</span><span class="o">::</span><span class="n">Channel</span><span class="o">*</span><span class="w">     </span><span class="n">rgbChannels</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">channelList</span><span class="p">.</span><span class="n">findChannel</span><span class="p">(</span><span class="s">&quot;R&quot;</span><span class="p">),</span>
+<span class="w">        </span><span class="n">channelList</span><span class="p">.</span><span class="n">findChannel</span><span class="p">(</span><span class="s">&quot;G&quot;</span><span class="p">),</span>
+<span class="w">        </span><span class="n">channelList</span><span class="p">.</span><span class="n">findChannel</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">};</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">rgbChannels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">rgbChannels</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">rgbChannels</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_LOG_WARNING</span><span class="p">(</span><span class="n">ExrFileReader</span><span class="p">,</span>
+<span class="w">            </span><span class="s">&quot;expecting standalone RGB channels, cannot find some/all of them;</span><span class="se">\n</span><span class="s">&quot;</span>
+<span class="w">            </span><span class="s">&quot;all layers and channels: {}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">listAllLayersAndChannels</span><span class="p">());</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Imf</span><span class="o">::</span><span class="n">PixelType</span><span class="w"> </span><span class="n">pixelType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rgbChannels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">type</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">rgbChannels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">rgbChannels</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">type</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rgbChannels</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">rgbChannels</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">type</span><span class="p">)</span><span class="w"> </span><span class="o">||</span>
+<span class="w">       </span><span class="o">!</span><span class="p">(</span><span class="n">pixelType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Imf</span><span class="o">::</span><span class="n">PixelType</span><span class="o">::</span><span class="n">HALF</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">pixelType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Imf</span><span class="o">::</span><span class="n">PixelType</span><span class="o">::</span><span class="n">FLOAT</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_LOG_WARNING</span><span class="p">(</span><span class="n">ExrFileReader</span><span class="p">,</span>
+<span class="w">            </span><span class="s">&quot;expecting RGB channels to have the same floating point type; IDs: &quot;</span>
+<span class="w">            </span><span class="s">&quot;R={}, G={}, B={}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">enum_to_string</span><span class="p">(</span><span class="n">rgbChannels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">type</span><span class="p">),</span><span class="w"> </span><span class="n">enum_to_string</span><span class="p">(</span><span class="n">rgbChannels</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">type</span><span class="p">),</span><span class="w"> </span><span class="n">enum_to_string</span><span class="p">(</span><span class="n">rgbChannels</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">type</span><span class="p">));</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// DEBUG</span>
+<span class="w">    </span><span class="c1">//std::cerr &lt;&lt; pixelType &lt;&lt; std::endl;</span>
+
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">pixelType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Imf</span><span class="o">::</span><span class="n">PixelType</span><span class="o">::</span><span class="n">HALF</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">pixelType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Imf</span><span class="o">::</span><span class="n">PixelType</span><span class="o">::</span><span class="n">FLOAT</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">pixelType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Imf</span><span class="o">::</span><span class="n">PixelType</span><span class="o">::</span><span class="n">HALF</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">loadStandaloneRgbData</span><span class="o">&lt;</span><span class="n">half</span><span class="o">&gt;</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">out_frame</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">loadStandaloneRgbData</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">out_frame</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">ExrFileReader</span><span class="o">::</span><span class="n">listAllLayersAndChannels</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Imf</span><span class="o">::</span><span class="n">InputFile</span><span class="w"> </span><span class="nf">file</span><span class="p">(</span><span class="n">m_filePath</span><span class="p">.</span><span class="n">toAbsoluteString</span><span class="p">().</span><span class="n">c_str</span><span class="p">());</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Imf</span><span class="o">::</span><span class="n">ChannelList</span><span class="o">&amp;</span><span class="w"> </span><span class="n">channels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">file</span><span class="p">.</span><span class="n">header</span><span class="p">().</span><span class="n">channels</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">channel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">channels</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"> </span><span class="n">channel</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">channels</span><span class="p">.</span><span class="n">end</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">channel</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="nf">channelName</span><span class="p">(</span><span class="n">channel</span><span class="p">.</span><span class="n">name</span><span class="p">());</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">channelName</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">            </span><span class="n">channelName</span><span class="p">.</span><span class="n">front</span><span class="p">()</span><span class="w">   </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;.&#39;</span><span class="w"> </span><span class="o">||</span>
+<span class="w">            </span><span class="n">channelName</span><span class="p">.</span><span class="n">back</span><span class="p">()</span><span class="w">    </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;.&#39;</span><span class="w"> </span><span class="o">||</span>
+<span class="w">            </span><span class="n">channelName</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="sc">&#39;.&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">::</span><span class="n">npos</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">result</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;&lt;standalone channel: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">channelName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&gt;&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">layerNames</span><span class="p">;</span>
+<span class="w">    </span><span class="n">channels</span><span class="p">.</span><span class="n">layers</span><span class="p">(</span><span class="n">layerNames</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">layerName</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">layerNames</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">result</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;&lt;layer &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">layerName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;: &quot;</span><span class="p">;</span>
+
+<span class="w">        </span><span class="n">Imf</span><span class="o">::</span><span class="n">ChannelList</span><span class="o">::</span><span class="n">ConstIterator</span><span class="w"> </span><span class="n">channelBegin</span><span class="p">,</span><span class="w"> </span><span class="n">channelEnd</span><span class="p">;</span>
+<span class="w">        </span><span class="n">channels</span><span class="p">.</span><span class="n">channelsInLayer</span><span class="p">(</span><span class="n">layerName</span><span class="p">,</span><span class="w"> </span><span class="n">channelBegin</span><span class="p">,</span><span class="w"> </span><span class="n">channelEnd</span><span class="p">);</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">channel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">channelBegin</span><span class="p">;</span><span class="w"> </span><span class="n">channel</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">channelEnd</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">channel</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">result</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;[&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="n">channel</span><span class="p">.</span><span class="n">name</span><span class="p">())</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;]&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">result</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;&gt;&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">namespace</span>
+<span class="p">{</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">DatumType</span><span class="o">&gt;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">loadStandaloneRgbData</span><span class="p">(</span><span class="n">Imf</span><span class="o">::</span><span class="n">InputFile</span><span class="o">&amp;</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">HdrRgbFrame</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">out_frame</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="n">DatumType</span><span class="p">,</span><span class="w"> </span><span class="n">half</span><span class="o">&gt;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="n">DatumType</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="o">&gt;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">Imf</span><span class="o">::</span><span class="n">PixelType</span><span class="w"> </span><span class="n">PIXEL_TYPE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="n">DatumType</span><span class="p">,</span><span class="w"> </span><span class="n">half</span><span class="o">&gt;</span><span class="w"> </span><span class="o">?</span>
+<span class="w">        </span><span class="n">Imf</span><span class="o">::</span><span class="n">PixelType</span><span class="o">::</span><span class="n">HALF</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Imf</span><span class="o">::</span><span class="n">PixelType</span><span class="o">::</span><span class="n">FLOAT</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">out_frame</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Imf</span><span class="o">::</span><span class="n">Header</span><span class="o">&amp;</span><span class="w"> </span><span class="n">header</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">file</span><span class="p">.</span><span class="n">header</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// coordinates are descrete, hence the +1 in the end</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Imath</span><span class="o">::</span><span class="n">Box2i</span><span class="w"> </span><span class="n">dataWindow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">header</span><span class="p">.</span><span class="n">dataWindow</span><span class="p">();</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">dataWidth</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">dataWindow</span><span class="p">.</span><span class="n">max</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">dataWindow</span><span class="p">.</span><span class="n">min</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">dataHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dataWindow</span><span class="p">.</span><span class="n">max</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">dataWindow</span><span class="p">.</span><span class="n">min</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">minDataX</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">dataWindow</span><span class="p">.</span><span class="n">min</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">minDataY</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">dataWindow</span><span class="p">.</span><span class="n">min</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">RgbPixel</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">DatumType</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="n">Imf</span><span class="o">::</span><span class="n">Array2D</span><span class="o">&lt;</span><span class="n">RgbPixel</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pixels</span><span class="p">(</span><span class="n">dataHeight</span><span class="p">,</span><span class="w"> </span><span class="n">dataWidth</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// read data to buffer</span>
+
+<span class="w">    </span><span class="n">Imf</span><span class="o">::</span><span class="n">FrameBuffer</span><span class="w"> </span><span class="n">frameBuffer</span><span class="p">;</span>
+<span class="w">    </span><span class="n">frameBuffer</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span>
+<span class="w">        </span><span class="s">&quot;R&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Imf</span><span class="o">::</span><span class="n">Slice</span><span class="p">(</span>
+<span class="w">            </span><span class="n">PIXEL_TYPE</span><span class="p">,</span>
+<span class="w">            </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pixels</span><span class="p">[</span><span class="o">-</span><span class="n">minDataY</span><span class="p">][</span><span class="o">-</span><span class="n">minDataX</span><span class="p">].</span><span class="n">r</span><span class="p">),</span>
+<span class="w">            </span><span class="k">sizeof</span><span class="p">(</span><span class="n">pixels</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">            </span><span class="k">sizeof</span><span class="p">(</span><span class="n">pixels</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dataWidth</span><span class="p">,</span>
+<span class="w">            </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">            </span><span class="mf">0.0</span><span class="p">));</span>
+<span class="w">    </span><span class="n">frameBuffer</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span>
+<span class="w">        </span><span class="s">&quot;G&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Imf</span><span class="o">::</span><span class="n">Slice</span><span class="p">(</span>
+<span class="w">            </span><span class="n">PIXEL_TYPE</span><span class="p">,</span>
+<span class="w">            </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pixels</span><span class="p">[</span><span class="o">-</span><span class="n">minDataY</span><span class="p">][</span><span class="o">-</span><span class="n">minDataX</span><span class="p">].</span><span class="n">g</span><span class="p">),</span>
+<span class="w">            </span><span class="k">sizeof</span><span class="p">(</span><span class="n">pixels</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">            </span><span class="k">sizeof</span><span class="p">(</span><span class="n">pixels</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dataWidth</span><span class="p">,</span>
+<span class="w">            </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">            </span><span class="mf">0.0</span><span class="p">));</span>
+<span class="w">    </span><span class="n">frameBuffer</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span>
+<span class="w">        </span><span class="s">&quot;B&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Imf</span><span class="o">::</span><span class="n">Slice</span><span class="p">(</span>
+<span class="w">            </span><span class="n">PIXEL_TYPE</span><span class="p">,</span>
+<span class="w">            </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pixels</span><span class="p">[</span><span class="o">-</span><span class="n">minDataY</span><span class="p">][</span><span class="o">-</span><span class="n">minDataX</span><span class="p">].</span><span class="n">b</span><span class="p">),</span>
+<span class="w">            </span><span class="k">sizeof</span><span class="p">(</span><span class="n">pixels</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">            </span><span class="k">sizeof</span><span class="p">(</span><span class="n">pixels</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dataWidth</span><span class="p">,</span>
+<span class="w">            </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">            </span><span class="mf">0.0</span><span class="p">));</span>
+<span class="w">    </span><span class="n">file</span><span class="p">.</span><span class="n">setFrameBuffer</span><span class="p">(</span><span class="n">frameBuffer</span><span class="p">);</span>
+<span class="w">    </span><span class="n">file</span><span class="p">.</span><span class="n">readPixels</span><span class="p">(</span><span class="n">dataWindow</span><span class="p">.</span><span class="n">min</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">dataWindow</span><span class="p">.</span><span class="n">max</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// copy read data to frame</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Imf</span><span class="o">::</span><span class="n">LineOrder</span><span class="w"> </span><span class="n">lineOrder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">header</span><span class="p">.</span><span class="n">lineOrder</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">lineOrder</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Imf</span><span class="o">::</span><span class="n">LineOrder</span><span class="o">::</span><span class="n">INCREASING_Y</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">lineOrder</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Imf</span><span class="o">::</span><span class="n">LineOrder</span><span class="o">::</span><span class="n">DECREASING_Y</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_LOG_WARNING</span><span class="p">(</span><span class="n">ExrFileReader</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;file &lt;{}&gt; has unsupported line order: {}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">file</span><span class="p">.</span><span class="n">fileName</span><span class="p">(),</span><span class="w"> </span><span class="n">enum_to_string</span><span class="p">(</span><span class="n">lineOrder</span><span class="p">));</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">out_frame</span><span class="o">-&gt;</span><span class="n">setSize</span><span class="p">(</span><span class="n">dataWidth</span><span class="p">,</span><span class="w"> </span><span class="n">dataHeight</span><span class="p">);</span>
+<span class="w">    </span><span class="n">out_frame</span><span class="o">-&gt;</span><span class="n">forEachPixel</span><span class="p">(</span>
+<span class="w">        </span><span class="p">[</span><span class="o">&amp;</span><span class="n">pixels</span><span class="p">,</span><span class="w"> </span><span class="n">lineOrder</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">dataHeight</span><span class="p">](</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">uint32</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">uint32</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">HdrRgbFrame</span><span class="o">::</span><span class="n">Pixel</span><span class="o">&amp;</span><span class="w"> </span><span class="cm">/* pixel */</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">RgbPixel</span><span class="o">&amp;</span><span class="w"> </span><span class="n">readPixel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lineOrder</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Imf</span><span class="o">::</span><span class="n">LineOrder</span><span class="o">::</span><span class="n">INCREASING_Y</span><span class="w"> </span><span class="o">?</span>
+<span class="w">                </span><span class="n">pixels</span><span class="p">[</span><span class="n">height</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">y</span><span class="p">][(</span><span class="kt">long</span><span class="p">)</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">pixels</span><span class="p">[(</span><span class="kt">long</span><span class="p">)</span><span class="n">y</span><span class="p">][(</span><span class="kt">long</span><span class="p">)</span><span class="n">x</span><span class="p">];</span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">HdrRgbFrame</span><span class="o">::</span><span class="n">Pixel</span><span class="p">({</span><span class="n">readPixel</span><span class="p">.</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">readPixel</span><span class="p">.</span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">readPixel</span><span class="p">.</span><span class="n">b</span><span class="p">});</span>
+<span class="w">        </span><span class="p">});</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

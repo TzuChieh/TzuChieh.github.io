@@ -1,0 +1,63 @@
+
+.. _file_Source_Utility_SemanticVersion.h:
+
+File SemanticVersion.h
+======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Utility\SemanticVersion.h``)
+-------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Utility_SemanticVersion.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/primitive_type.h``
+
+- ``compare``
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+- ``string_view``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_DataIO_PlyFile.h`
+
+- :ref:`file_Source_DataIO_SDL_SdlParser.h`
+
+- :ref:`file_Source_Utility_SemanticVersion.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_semantic_version`
+

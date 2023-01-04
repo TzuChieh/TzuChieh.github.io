@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_geometry_soup:
+
+Class GeometrySoup
+==================
+
+- Defined in :ref:`file_Source_Actor_Geometry_GeometrySoup.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::Geometry`` (:ref:`exhale_class_classph_1_1_geometry`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::GeometrySoup
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

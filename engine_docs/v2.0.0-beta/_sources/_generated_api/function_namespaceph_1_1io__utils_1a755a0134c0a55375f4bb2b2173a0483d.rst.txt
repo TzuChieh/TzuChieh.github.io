@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1io__utils_1a755a0134c0a55375f4bb2b2173a0483d:
+
+Function ph::io_utils::load_HDR_picture
+=======================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::io_utils::load_HDR_picture(const Path&)
+   :project: Photon

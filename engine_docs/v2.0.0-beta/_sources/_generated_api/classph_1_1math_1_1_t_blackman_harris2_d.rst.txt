@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1math_1_1_t_blackman_harris2_d:
+
+Template Class TBlackmanHarris2D
+================================
+
+- Defined in :ref:`file_Source_Math_Function_TBlackmanHarris2D.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::math::TMathFunction2D< Value >`` (:ref:`exhale_class_classph_1_1math_1_1_t_math_function2_d`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::math::TBlackmanHarris2D
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

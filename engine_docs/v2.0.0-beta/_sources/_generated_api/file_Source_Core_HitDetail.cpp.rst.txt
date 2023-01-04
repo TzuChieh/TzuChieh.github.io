@@ -1,0 +1,42 @@
+
+.. _file_Source_Core_HitDetail.cpp:
+
+File HitDetail.cpp
+==================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\HitDetail.cpp``)
+------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_HitDetail.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/HitDetail.h``
+
+- ``limits``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

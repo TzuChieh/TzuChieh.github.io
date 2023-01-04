@@ -1,0 +1,14 @@
+.. _exhale_typedef_ph__core_8h_1aa04eb2e9246b2ea84151df6b59d386c5:
+
+Typedef PHint8
+==============
+
+- Defined in :ref:`file_Include_CEngine_ph_core.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: PHint8
+   :project: Photon

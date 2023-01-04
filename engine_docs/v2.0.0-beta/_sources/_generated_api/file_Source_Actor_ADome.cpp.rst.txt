@@ -1,0 +1,64 @@
+
+.. _file_Source_Actor_ADome.cpp:
+
+File ADome.cpp
+==============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\ADome.cpp``)
+---------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_ADome.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/ADome.h``
+
+- ``Actor/ActorCookingContext.h``
+
+- ``Actor/Dome/AImageDome.h``
+
+- ``Actor/Dome/APreethamDome.h``
+
+- ``Actor/Geometry/GSphere.h``
+
+- ``Actor/Material/IdealSubstance.h``
+
+- ``Common/logging.h``
+
+- ``Core/Emitter/LatLongEnvEmitter.h``
+
+- ``Core/Intersectable/PLatLongEnvSphere.h``
+
+- ``Core/Texture/Function/unary_texture_operators.h``
+
+- ``Math/Transform/StaticRigidTransform.h``
+
+- ``World/VisualWorldInfo.h``
+
+- ``algorithm``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

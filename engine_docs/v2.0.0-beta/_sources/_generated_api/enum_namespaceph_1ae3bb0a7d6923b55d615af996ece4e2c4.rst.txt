@@ -1,0 +1,14 @@
+.. _exhale_enum_namespaceph_1ae3bb0a7d6923b55d615af996ece4e2c4:
+
+Enum EAccelerator
+=================
+
+.. did not find file this was defined in
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: ph::EAccelerator
+   :project: Photon

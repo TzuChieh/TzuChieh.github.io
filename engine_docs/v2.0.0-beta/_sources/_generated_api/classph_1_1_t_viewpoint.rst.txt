@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_t_viewpoint:
+
+Template Class TViewpoint
+=========================
+
+- Defined in :ref:`file_Source_Core_Renderer_PM_TViewpoint.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TViewpoint
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

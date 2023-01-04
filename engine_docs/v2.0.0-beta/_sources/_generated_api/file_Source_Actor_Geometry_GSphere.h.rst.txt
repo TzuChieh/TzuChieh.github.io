@@ -1,0 +1,73 @@
+
+.. _file_Source_Actor_Geometry_GSphere.h:
+
+File GSphere.h
+==============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\Geometry\GSphere.h``)
+------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_Geometry_GSphere.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/Geometry/Geometry.h``
+
+- ``Common/primitive_type.h``
+
+- ``DataIO/SDL/sdl_interface.h``
+
+- ``Math/TVector3.h``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_ADome.cpp`
+
+- :ref:`file_Source_Actor_Geometry_GSphere.cpp`
+
+- :ref:`file_Source_Actor_LightSource_PointSource.cpp`
+
+- :ref:`file_Source_Actor_LightSource_SphereSource.cpp`
+
+- :ref:`file_Source_Api_init_and_exit.cpp`
+
+- :ref:`file_Source_Api_ph_cpp_core.cpp`
+
+- :ref:`file_Source_Api_test_scene.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_g_sphere`
+

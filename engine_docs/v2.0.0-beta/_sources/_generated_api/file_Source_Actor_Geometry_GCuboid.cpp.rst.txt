@@ -1,0 +1,62 @@
+
+.. _file_Source_Actor_Geometry_GCuboid.cpp:
+
+File GCuboid.cpp
+================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\Geometry\GCuboid.cpp``)
+--------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_Geometry_GCuboid.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/AModel.h``
+
+- ``Actor/Geometry/GCuboid.h``
+
+- ``Actor/Geometry/GTriangleMesh.h``
+
+- ``Actor/Geometry/PrimitiveBuildingMaterial.h``
+
+- ``Common/assertion.h``
+
+- ``Core/Intersectable/PTriangle.h``
+
+- ``Core/Intersectable/PrimitiveMetadata.h``
+
+- ``Math/TVector3.h``
+
+- ``Math/math.h``
+
+- ``cmath``
+
+- ``iostream``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

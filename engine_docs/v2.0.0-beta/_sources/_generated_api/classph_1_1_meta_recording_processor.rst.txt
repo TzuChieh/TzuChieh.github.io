@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_meta_recording_processor:
+
+Class MetaRecordingProcessor
+============================
+
+- Defined in :ref:`file_Source_Core_Renderer_Sampling_MetaRecordingProcessor.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::IReceivedRayProcessor`` (:ref:`exhale_class_classph_1_1_i_received_ray_processor`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::MetaRecordingProcessor
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

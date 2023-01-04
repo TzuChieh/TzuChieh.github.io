@@ -1,0 +1,44 @@
+
+.. _file_Source_Core_Intersectable_PrimitiveChannel.cpp:
+
+File PrimitiveChannel.cpp
+=========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Intersectable\PrimitiveChannel.cpp``)
+---------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Intersectable_PrimitiveChannel.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/Intersectable/PrimitiveChannel.h``
+
+- ``Core/Intersectable/UvwMapper/SphericalMapper.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

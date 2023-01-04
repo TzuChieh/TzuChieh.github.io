@@ -1,0 +1,14 @@
+.. _exhale_variable_namespaceph_1_1texfunc_1ad8aad9a25e36557605ce21f4afdf6d7f:
+
+Variable ph::texfunc::CUnaryOperator
+====================================
+
+- Defined in :ref:`file_Source_Core_Texture_Function_unary_texture_operators.h`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: ph::texfunc::CUnaryOperator
+   :project: Photon

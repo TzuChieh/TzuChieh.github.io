@@ -9,5 +9,7 @@ var classph_1_1_work_unit =
     [ "getRegion", "classph_1_1_work_unit.html#a53dc72cbe5e24dca1167bf0190038700", null ],
     [ "getVolume", "classph_1_1_work_unit.html#a1302ee4859cf25828d8da33b973c22e0", null ],
     [ "getWidth", "classph_1_1_work_unit.html#af4bc7f9fa4602db839985767df559315", null ],
-    [ "toString", "classph_1_1_work_unit.html#aa322b0be0f490b0e9a409f297442ea64", null ]
+    [ "toString", "classph_1_1_work_unit.html#aa322b0be0f490b0e9a409f297442ea64", null ],
+    [ "m_depth", "classph_1_1_work_unit.html#a549ff866e1c197d6ce9ca3cef97beb76", null ],
+    [ "m_region", "classph_1_1_work_unit.html#a917c684648d756107d089990e165cba3", null ]
 ];

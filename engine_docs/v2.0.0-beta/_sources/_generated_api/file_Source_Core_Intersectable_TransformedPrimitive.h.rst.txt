@@ -1,0 +1,67 @@
+
+.. _file_Source_Core_Intersectable_TransformedPrimitive.h:
+
+File TransformedPrimitive.h
+===========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Intersectable\TransformedPrimitive.h``)
+-----------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Intersectable_TransformedPrimitive.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/HitDetail.h``
+
+- ``Core/HitProbe.h``
+
+- ``Core/Intersectable/Primitive.h``
+
+- ``Core/Intersectable/TransformedIntersectable.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_ALight.cpp`
+
+- :ref:`file_Source_Actor_LightSource_AreaSource.cpp`
+
+- :ref:`file_Source_Core_Intersectable_TransformedPrimitive.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_transformed_primitive`
+

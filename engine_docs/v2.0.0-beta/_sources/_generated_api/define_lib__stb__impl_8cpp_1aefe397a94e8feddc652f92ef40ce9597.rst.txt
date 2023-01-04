@@ -1,0 +1,14 @@
+.. _exhale_define_lib__stb__impl_8cpp_1aefe397a94e8feddc652f92ef40ce9597:
+
+Define STB_IMAGE_WRITE_IMPLEMENTATION
+=====================================
+
+- Defined in :ref:`file_Source_Common_ThirdParty_lib_stb_impl.cpp`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: STB_IMAGE_WRITE_IMPLEMENTATION
+   :project: Photon

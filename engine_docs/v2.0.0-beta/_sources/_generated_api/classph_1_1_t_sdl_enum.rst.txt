@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_t_sdl_enum:
+
+Template Class TSdlEnum
+=======================
+
+- Defined in :ref:`file_Source_DataIO_SDL_Introspect_TSdlEnum.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TSdlEnum
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

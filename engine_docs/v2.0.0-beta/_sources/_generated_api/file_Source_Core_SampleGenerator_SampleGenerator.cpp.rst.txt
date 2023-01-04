@@ -1,0 +1,50 @@
+
+.. _file_Source_Core_SampleGenerator_SampleGenerator.cpp:
+
+File SampleGenerator.cpp
+========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SampleGenerator\SampleGenerator.cpp``)
+----------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SampleGenerator_SampleGenerator.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/SampleGenerator/SampleContext.h``
+
+- ``Core/SampleGenerator/SampleGenerator.h``
+
+- ``Math/Random.h``
+
+- ``algorithm``
+
+- ``iostream``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

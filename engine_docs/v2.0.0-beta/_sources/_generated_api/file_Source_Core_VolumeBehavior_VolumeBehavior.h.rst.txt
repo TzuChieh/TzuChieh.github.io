@@ -1,0 +1,59 @@
+
+.. _file_Source_Core_VolumeBehavior_VolumeBehavior.h:
+
+File VolumeBehavior.h
+=====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\VolumeBehavior\VolumeBehavior.h``)
+------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_VolumeBehavior_VolumeBehavior.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/VolumeBehavior/VolumeOptics.h``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_Material_Volume_VAbsorptionOnly.cpp`
+
+- :ref:`file_Source_Core_Intersectable_PrimitiveMetadata.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_volume_behavior`
+

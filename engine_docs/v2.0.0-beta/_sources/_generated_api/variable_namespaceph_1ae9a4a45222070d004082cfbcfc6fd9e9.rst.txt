@@ -1,0 +1,14 @@
+.. _exhale_variable_namespaceph_1ae9a4a45222070d004082cfbcfc6fd9e9:
+
+Variable ph::EMPTY_SDL_RESOURCE_ID
+==================================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: ph::EMPTY_SDL_RESOURCE_ID
+   :project: Photon

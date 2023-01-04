@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_surface_attribute_estimator:
+
+Class SurfaceAttributeEstimator
+===============================
+
+- Defined in :ref:`file_Source_Core_Estimator_SurfaceAttributeEstimator.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::TIRayEstimator< math::Vector3R >`` (:ref:`exhale_class_classph_1_1_t_i_ray_estimator`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::SurfaceAttributeEstimator
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

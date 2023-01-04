@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_spherical_mapper:
+
+Class SphericalMapper
+=====================
+
+- Defined in :ref:`file_Source_Core_Intersectable_UvwMapper_SphericalMapper.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::UvwMapper`` (:ref:`exhale_class_classph_1_1_uvw_mapper`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::SphericalMapper
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

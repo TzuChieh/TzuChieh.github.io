@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a87c8598e7a320591f9ca2104ce9f4057:
+
+Function ph::PH_DEFINE_INTERNAL_LOG_GROUP(VisualWorld, World)
+=============================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_INTERNAL_LOG_GROUP(VisualWorld, World)
+   :project: Photon

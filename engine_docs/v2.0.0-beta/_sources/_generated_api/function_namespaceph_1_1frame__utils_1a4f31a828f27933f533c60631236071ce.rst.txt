@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1frame__utils_1a4f31a828f27933f533c60631236071ce:
+
+Function ph::frame_utils::calc_RMSE
+===================================
+
+- Defined in :ref:`file_Source_Frame_frame_utils.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::frame_utils::calc_RMSE(const HdrRgbFrame&, const HdrRgbFrame&)
+   :project: Photon

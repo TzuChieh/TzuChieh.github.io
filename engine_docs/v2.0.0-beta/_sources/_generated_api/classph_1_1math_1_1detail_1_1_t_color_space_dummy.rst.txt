@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1math_1_1detail_1_1_t_color_space_dummy:
+
+Template Class TColorSpaceDummy
+===============================
+
+- Defined in :ref:`file_Source_Math_Color_TSpectrumBase.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::math::detail::TColorSpaceDummy
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

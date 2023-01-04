@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Class Ray &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class RayDifferential" href="classph_1_1_ray_differential.html" />
+    <link rel="prev" title="Class RasterImageBase" href="classph_1_1_raster_image_base.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="library_root.html">Library API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="library_root.html#photon-v2-renderer">Photon-v2 Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="library_root.html#page-hierarchy">Page Hierarchy</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="library_root.html#full-api">Full API</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#namespaces">Namespaces</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="library_root.html#classes-and-structs">Classes and Structs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#enums">Enums</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#unions">Unions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#functions">Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#variables">Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#defines">Defines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#typedefs">Typedefs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="library_root.html">Library API</a></li>
+      <li class="breadcrumb-item active">Class Ray</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/classph_1_1_ray.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="class-ray">
+<span id="exhale-class-classph-1-1-ray"></span><h1>Class Ray<a class="headerlink" href="#class-ray" title="Permalink to this headline"></a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_Source_Core_Ray.h.html#file-source-core-ray-h"><span class="std std-ref">File Ray.h</span></a></p></li>
+</ul>
+<section id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline"></a></h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph3RayE">
+<span id="_CPPv3N2ph3RayE"></span><span id="_CPPv2N2ph3RayE"></span><span id="ph::Ray"></span><span class="target" id="classph_1_1_ray"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Ray</span></span></span><a class="headerlink" href="#_CPPv4N2ph3RayE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Represents a ray in space. </p>
+<p>A ray is essentially a line segment in space with additional attributes (for example, time). Note the direction vector of the ray does not need to be normalized. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-getters">Getters</p>
+<p>Basic getters for line attributes. See corresponding setters (if present) for more info. </p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2ph3Ray9getOriginEv">
+<span id="_CPPv3NK2ph3Ray9getOriginEv"></span><span id="_CPPv2NK2ph3Ray9getOriginEv"></span><span id="ph::Ray::getOriginC"></span><span class="target" id="classph_1_1_ray_1a172c161eec64649740da3abf6332f056"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">math</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="typedef_namespaceph_1_1math_1abf8e1463b13d63dcdc46f0cb65e59c5a.html#_CPPv4N2ph4math8Vector3RE" title="ph::math::Vector3R"><span class="n"><span class="pre">Vector3R</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">getOrigin</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2ph3Ray9getOriginEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2ph3Ray12getDirectionEv">
+<span id="_CPPv3NK2ph3Ray12getDirectionEv"></span><span id="_CPPv2NK2ph3Ray12getDirectionEv"></span><span id="ph::Ray::getDirectionC"></span><span class="target" id="classph_1_1_ray_1a3f62b201c0015a647611282280130b52"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">math</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="typedef_namespaceph_1_1math_1abf8e1463b13d63dcdc46f0cb65e59c5a.html#_CPPv4N2ph4math8Vector3RE" title="ph::math::Vector3R"><span class="n"><span class="pre">Vector3R</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">getDirection</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2ph3Ray12getDirectionEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2ph3Ray7getMinTEv">
+<span id="_CPPv3NK2ph3Ray7getMinTEv"></span><span id="_CPPv2NK2ph3Ray7getMinTEv"></span><span id="ph::Ray::getMinTC"></span><span class="target" id="classph_1_1_ray_1a62b3d3f28806e167521783ed1fc78b9c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="typedef_namespaceph_1a3ba32f2df019222294218945d30b3363.html#_CPPv4N2ph4realE" title="ph::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getMinT</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2ph3Ray7getMinTEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2ph3Ray7getMaxTEv">
+<span id="_CPPv3NK2ph3Ray7getMaxTEv"></span><span id="_CPPv2NK2ph3Ray7getMaxTEv"></span><span id="ph::Ray::getMaxTC"></span><span class="target" id="classph_1_1_ray_1af2c09abaa22bafa11bc43fce295af2a3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="typedef_namespaceph_1a3ba32f2df019222294218945d30b3363.html#_CPPv4N2ph4realE" title="ph::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getMaxT</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2ph3Ray7getMaxTEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2ph3Ray10getSegmentEv">
+<span id="_CPPv3NK2ph3Ray10getSegmentEv"></span><span id="_CPPv2NK2ph3Ray10getSegmentEv"></span><span id="ph::Ray::getSegmentC"></span><span class="target" id="classph_1_1_ray_1ae19035096abdcda7a99d8e75b9862cd8"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">math</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classph_1_1math_1_1_t_line_segment.html#_CPPv4I0EN2ph4math12TLineSegmentE" title="ph::math::TLineSegment"><span class="n"><span class="pre">TLineSegment</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="typedef_namespaceph_1a3ba32f2df019222294218945d30b3363.html#_CPPv4N2ph4realE" title="ph::real"><span class="n"><span class="pre">real</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">getSegment</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2ph3Ray10getSegmentEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2ph3Ray7getTailEv">
+<span id="_CPPv3NK2ph3Ray7getTailEv"></span><span id="_CPPv2NK2ph3Ray7getTailEv"></span><span id="ph::Ray::getTailC"></span><span class="target" id="classph_1_1_ray_1af801fff480d6ff1a8de07719358ef38e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">math</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="typedef_namespaceph_1_1math_1abf8e1463b13d63dcdc46f0cb65e59c5a.html#_CPPv4N2ph4math8Vector3RE" title="ph::math::Vector3R"><span class="n"><span class="pre">Vector3R</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getTail</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2ph3Ray7getTailEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get the coordinates on minimum parametric distance. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2ph3Ray7getHeadEv">
+<span id="_CPPv3NK2ph3Ray7getHeadEv"></span><span id="_CPPv2NK2ph3Ray7getHeadEv"></span><span id="ph::Ray::getHeadC"></span><span class="target" id="classph_1_1_ray_1aa69f7fe8c69659d848c81e73f3562919"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">math</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="typedef_namespaceph_1_1math_1abf8e1463b13d63dcdc46f0cb65e59c5a.html#_CPPv4N2ph4math8Vector3RE" title="ph::math::Vector3R"><span class="n"><span class="pre">Vector3R</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getHead</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2ph3Ray7getHeadEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get the coordinates on maximum parametric distance. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph3Ray3RayEv">
+<span id="_CPPv3N2ph3Ray3RayEv"></span><span id="_CPPv2N2ph3Ray3RayEv"></span><span id="ph::Ray::Ray"></span><span class="target" id="classph_1_1_ray_1acc4ae06bcab2383fe046414c784c64bc"></span><span class="sig-name descname"><span class="n"><span class="pre">Ray</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N2ph3Ray3RayEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>A ray which state is unspecified. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph3Ray3RayERKN4math8Vector3RERKN4math8Vector3RE">
+<span id="_CPPv3N2ph3Ray3RayERKN4math8Vector3RERKN4math8Vector3RE"></span><span id="_CPPv2N2ph3Ray3RayERKN4math8Vector3RERKN4math8Vector3RE"></span><span id="ph::Ray::Ray__math::Vector3RCR.math::Vector3RCR"></span><span class="target" id="classph_1_1_ray_1acf0cd9409398cc7d318231c239aa8617"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Ray</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">math</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="typedef_namespaceph_1_1math_1abf8e1463b13d63dcdc46f0cb65e59c5a.html#_CPPv4N2ph4math8Vector3RE" title="ph::math::Vector3R"><span class="n"><span class="pre">Vector3R</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">origin</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">math</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="typedef_namespaceph_1_1math_1abf8e1463b13d63dcdc46f0cb65e59c5a.html#_CPPv4N2ph4math8Vector3RE" title="ph::math::Vector3R"><span class="n"><span class="pre">Vector3R</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">direction</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph3Ray3RayERKN4math8Vector3RERKN4math8Vector3RE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>A longest possible ray. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>direction</strong> – Does not need to be normalized. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph3Ray3RayERKN4math8Vector3RERKN4math8Vector3RE4real4real">
+<span id="_CPPv3N2ph3Ray3RayERKN4math8Vector3RERKN4math8Vector3RE4real4real"></span><span id="_CPPv2N2ph3Ray3RayERKN4math8Vector3RERKN4math8Vector3RE4real4real"></span><span id="ph::Ray::Ray__math::Vector3RCR.math::Vector3RCR.real.real"></span><span class="target" id="classph_1_1_ray_1a1c32c56775a6f812f5c99d915ecb0e41"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Ray</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">math</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="typedef_namespaceph_1_1math_1abf8e1463b13d63dcdc46f0cb65e59c5a.html#_CPPv4N2ph4math8Vector3RE" title="ph::math::Vector3R"><span class="n"><span class="pre">Vector3R</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">origin</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">math</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="typedef_namespaceph_1_1math_1abf8e1463b13d63dcdc46f0cb65e59c5a.html#_CPPv4N2ph4math8Vector3RE" title="ph::math::Vector3R"><span class="n"><span class="pre">Vector3R</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">direction</span></span>, <a class="reference internal" href="typedef_namespaceph_1a3ba32f2df019222294218945d30b3363.html#_CPPv4N2ph4realE" title="ph::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">minT</span></span>, <a class="reference internal" href="typedef_namespaceph_1a3ba32f2df019222294218945d30b3363.html#_CPPv4N2ph4realE" title="ph::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">maxT</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph3Ray3RayERKN4math8Vector3RERKN4math8Vector3RE4real4real" title="Permalink to this definition"></a><br /></dt>
+<dd><p>A ray segment. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>minT</strong> – Parametric distance where the ray begins. </p></li>
+<li><p><strong>maxT</strong> – Parametric distance where the ray ends. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph3Ray3RayERKN4math8Vector3RERKN4math8Vector3RE4real4realRK4Time">
+<span id="_CPPv3N2ph3Ray3RayERKN4math8Vector3RERKN4math8Vector3RE4real4realRK4Time"></span><span id="_CPPv2N2ph3Ray3RayERKN4math8Vector3RERKN4math8Vector3RE4real4realRK4Time"></span><span id="ph::Ray::Ray__math::Vector3RCR.math::Vector3RCR.real.real.TimeCR"></span><span class="target" id="classph_1_1_ray_1aae31ad84ba93ccf22afc0471fb48f095"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Ray</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">math</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="typedef_namespaceph_1_1math_1abf8e1463b13d63dcdc46f0cb65e59c5a.html#_CPPv4N2ph4math8Vector3RE" title="ph::math::Vector3R"><span class="n"><span class="pre">Vector3R</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">origin</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">math</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="typedef_namespaceph_1_1math_1abf8e1463b13d63dcdc46f0cb65e59c5a.html#_CPPv4N2ph4math8Vector3RE" title="ph::math::Vector3R"><span class="n"><span class="pre">Vector3R</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">direction</span></span>, <a class="reference internal" href="typedef_namespaceph_1a3ba32f2df019222294218945d30b3363.html#_CPPv4N2ph4realE" title="ph::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">minT</span></span>, <a class="reference internal" href="typedef_namespaceph_1a3ba32f2df019222294218945d30b3363.html#_CPPv4N2ph4realE" title="ph::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">maxT</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="classph_1_1_time.html#_CPPv4N2ph4TimeE" title="ph::Time"><span class="n"><span class="pre">Time</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">time</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph3Ray3RayERKN4math8Vector3RERKN4math8Vector3RE4real4realRK4Time" title="Permalink to this definition"></a><br /></dt>
+<dd><p>A ray segment. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>minT</strong> – Parametric distance where the ray begins. </p></li>
+<li><p><strong>maxT</strong> – Parametric distance where the ray ends.</p></li>
+<li><p><strong>time</strong> – The associated time of this ray. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph3Ray3RayERKN4math12TLineSegmentI4realEERK4Time">
+<span id="_CPPv3N2ph3Ray3RayERKN4math12TLineSegmentI4realEERK4Time"></span><span id="_CPPv2N2ph3Ray3RayERKN4math12TLineSegmentI4realEERK4Time"></span><span id="ph::Ray::Ray__math::TLineSegment:real:CR.TimeCR"></span><span class="target" id="classph_1_1_ray_1a5f466849ea3948c5c4cd6994dc2376b2"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Ray</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">math</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classph_1_1math_1_1_t_line_segment.html#_CPPv4I0EN2ph4math12TLineSegmentE" title="ph::math::TLineSegment"><span class="n"><span class="pre">TLineSegment</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="typedef_namespaceph_1a3ba32f2df019222294218945d30b3363.html#_CPPv4N2ph4realE" title="ph::real"><span class="n"><span class="pre">real</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">segment</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="classph_1_1_time.html#_CPPv4N2ph4TimeE" title="ph::Time"><span class="n"><span class="pre">Time</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">time</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph3Ray3RayERKN4math12TLineSegmentI4realEERK4Time" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph3Ray7reverseEv">
+<span id="_CPPv3N2ph3Ray7reverseEv"></span><span id="_CPPv2N2ph3Ray7reverseEv"></span><span id="ph::Ray::reverse"></span><span class="target" id="classph_1_1_ray_1abfcb423ffa8767e5160e8c81a0be9db8"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N2ph3RayE" title="ph::Ray"><span class="n"><span class="pre">Ray</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">reverse</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph3Ray7reverseEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Points this ray in opposite direction. </p>
+<p>This method essentially mirrored the ray with respect to its origin, with other attributes remain the same. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph3Ray7setMinTE4real">
+<span id="_CPPv3N2ph3Ray7setMinTE4real"></span><span id="_CPPv2N2ph3Ray7setMinTE4real"></span><span id="ph::Ray::setMinT__real"></span><span class="target" id="classph_1_1_ray_1a56432899635fd0543ac7596fdd36d861"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setMinT</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_namespaceph_1a3ba32f2df019222294218945d30b3363.html#_CPPv4N2ph4realE" title="ph::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">t</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph3Ray7setMinTE4real" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Set the parametric distance where the ray starts. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph3Ray7setMaxTE4real">
+<span id="_CPPv3N2ph3Ray7setMaxTE4real"></span><span id="_CPPv2N2ph3Ray7setMaxTE4real"></span><span id="ph::Ray::setMaxT__real"></span><span class="target" id="classph_1_1_ray_1a2a87b140e4bcdbdbac4721f390f52cf8"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setMaxT</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_namespaceph_1a3ba32f2df019222294218945d30b3363.html#_CPPv4N2ph4realE" title="ph::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">t</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph3Ray7setMaxTE4real" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Set the parametric distance where the ray ends. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph3Ray8setRangeE4real4real">
+<span id="_CPPv3N2ph3Ray8setRangeE4real4real"></span><span id="_CPPv2N2ph3Ray8setRangeE4real4real"></span><span id="ph::Ray::setRange__real.real"></span><span class="target" id="classph_1_1_ray_1a19f88fa8fac3b690ff24b8237591046b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setRange</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_namespaceph_1a3ba32f2df019222294218945d30b3363.html#_CPPv4N2ph4realE" title="ph::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">minT</span></span>, <a class="reference internal" href="typedef_namespaceph_1a3ba32f2df019222294218945d30b3363.html#_CPPv4N2ph4realE" title="ph::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">maxT</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph3Ray8setRangeE4real4real" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Set the parametric range where the ray extends. </p>
+<p>The range is [minT, maxT). This is equivalent to calling <a class="reference internal" href="#classph_1_1_ray_1a56432899635fd0543ac7596fdd36d861"><span class="std std-ref">setMinT(real)</span></a> and <a class="reference internal" href="#classph_1_1_ray_1a2a87b140e4bcdbdbac4721f390f52cf8"><span class="std std-ref">setMaxT(real)</span></a> together. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph3Ray9setOriginERKN4math8Vector3RE">
+<span id="_CPPv3N2ph3Ray9setOriginERKN4math8Vector3RE"></span><span id="_CPPv2N2ph3Ray9setOriginERKN4math8Vector3RE"></span><span id="ph::Ray::setOrigin__math::Vector3RCR"></span><span class="target" id="classph_1_1_ray_1a3161bb5c9be3e339d334fa2e21f85567"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setOrigin</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">math</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="typedef_namespaceph_1_1math_1abf8e1463b13d63dcdc46f0cb65e59c5a.html#_CPPv4N2ph4math8Vector3RE" title="ph::math::Vector3R"><span class="n"><span class="pre">Vector3R</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">pos</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph3Ray9setOriginERKN4math8Vector3RE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Set the origin of the ray. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph3Ray12setDirectionERKN4math8Vector3RE">
+<span id="_CPPv3N2ph3Ray12setDirectionERKN4math8Vector3RE"></span><span id="_CPPv2N2ph3Ray12setDirectionERKN4math8Vector3RE"></span><span id="ph::Ray::setDirection__math::Vector3RCR"></span><span class="target" id="classph_1_1_ray_1a956a3031b54003096ba44823f1a08bcf"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setDirection</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">math</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="typedef_namespaceph_1_1math_1abf8e1463b13d63dcdc46f0cb65e59c5a.html#_CPPv4N2ph4math8Vector3RE" title="ph::math::Vector3R"><span class="n"><span class="pre">Vector3R</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dir</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph3Ray12setDirectionERKN4math8Vector3RE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Set the direction vector of the ray. </p>
+<p>Note that the vector does not need to be normalized. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph3Ray10setSegmentERKN4math12TLineSegmentI4realEE">
+<span id="_CPPv3N2ph3Ray10setSegmentERKN4math12TLineSegmentI4realEE"></span><span id="_CPPv2N2ph3Ray10setSegmentERKN4math12TLineSegmentI4realEE"></span><span id="ph::Ray::setSegment__math::TLineSegment:real:CR"></span><span class="target" id="classph_1_1_ray_1a4c64cdc83770d649dedca7242c0d6243"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setSegment</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">math</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classph_1_1math_1_1_t_line_segment.html#_CPPv4I0EN2ph4math12TLineSegmentE" title="ph::math::TLineSegment"><span class="n"><span class="pre">TLineSegment</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="typedef_namespaceph_1a3ba32f2df019222294218945d30b3363.html#_CPPv4N2ph4realE" title="ph::real"><span class="n"><span class="pre">real</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">segment</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph3Ray10setSegmentERKN4math12TLineSegmentI4realEE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph3Ray7setTimeERK4Time">
+<span id="_CPPv3N2ph3Ray7setTimeERK4Time"></span><span id="_CPPv2N2ph3Ray7setTimeERK4Time"></span><span id="ph::Ray::setTime__TimeCR"></span><span class="target" id="classph_1_1_ray_1ab9278b34ed43cf52d0ec6a9fee1880a8"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setTime</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="classph_1_1_time.html#_CPPv4N2ph4TimeE" title="ph::Time"><span class="n"><span class="pre">Time</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">time</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph3Ray7setTimeERK4Time" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Set the associated time of this ray. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2ph3Ray7getTimeEv">
+<span id="_CPPv3NK2ph3Ray7getTimeEv"></span><span id="_CPPv2NK2ph3Ray7getTimeEv"></span><span id="ph::Ray::getTimeC"></span><span class="target" id="classph_1_1_ray_1a04e6742d9bab6178bb7135f4b5d8e415"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="classph_1_1_time.html#_CPPv4N2ph4TimeE" title="ph::Time"><span class="n"><span class="pre">Time</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">getTime</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2ph3Ray7getTimeEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get the associated time of this ray. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="classph_1_1_raster_image_base.html" class="btn btn-neutral float-left" title="Class RasterImageBase" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="classph_1_1_ray_differential.html" class="btn btn-neutral float-right" title="Class RayDifferential" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_kdtree_a_a_b_b:
+
+Class KdtreeAABB
+================
+
+- Defined in :ref:`file_Source_Core_Intersectable_Kdtree_KdtreeAABB.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::KdtreeAABB
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

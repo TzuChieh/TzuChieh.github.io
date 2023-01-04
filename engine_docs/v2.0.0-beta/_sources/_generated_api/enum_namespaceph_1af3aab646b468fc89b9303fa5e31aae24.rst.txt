@@ -1,0 +1,14 @@
+.. _exhale_enum_namespaceph_1af3aab646b468fc89b9303fa5e31aae24:
+
+Enum ERegionStatus
+==================
+
+.. did not find file this was defined in
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: ph::ERegionStatus
+   :project: Photon

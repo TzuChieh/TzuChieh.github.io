@@ -1,0 +1,57 @@
+
+.. _file_Source_Core_SampleGenerator_SGUtil.h:
+
+File SGUtil.h
+=============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SampleGenerator\SGUtil.h``)
+-----------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SampleGenerator_SGUtil.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Math/TVector2.h``
+
+- ``cstddef``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_SampleGenerator_SGUtil.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_s_g_util`
+

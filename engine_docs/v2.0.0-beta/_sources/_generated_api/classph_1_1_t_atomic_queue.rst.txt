@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_t_atomic_queue:
+
+Template Class TAtomicQueue
+===========================
+
+- Defined in :ref:`file_Source_Utility_Concurrent_TAtomicQueue.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TAtomicQueue
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

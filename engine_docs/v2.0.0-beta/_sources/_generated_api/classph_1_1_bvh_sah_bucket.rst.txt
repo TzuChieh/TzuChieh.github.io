@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_bvh_sah_bucket:
+
+Class BvhSahBucket
+==================
+
+- Defined in :ref:`file_Source_Core_Intersectable_Bvh_BvhBuilder.cpp`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::BvhSahBucket
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

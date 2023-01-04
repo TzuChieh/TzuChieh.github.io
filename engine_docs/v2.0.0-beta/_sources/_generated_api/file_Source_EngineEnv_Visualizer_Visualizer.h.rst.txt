@@ -1,0 +1,59 @@
+
+.. _file_Source_EngineEnv_Visualizer_Visualizer.h:
+
+File Visualizer.h
+=================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\EngineEnv\Visualizer\Visualizer.h``)
+---------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_EngineEnv_Visualizer_Visualizer.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``DataIO/SDL/sdl_interface.h``
+
+- ``EngineEnv/CoreSdlResource.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Api_ph_cpp_core.cpp`
+
+- :ref:`file_Source_EngineEnv_Session_SingleFrameRenderSession.cpp`
+
+- :ref:`file_Source_EngineEnv_Visualizer_FrameVisualizer.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_visualizer`
+

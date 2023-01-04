@@ -1,0 +1,17 @@
+.. _exhale_struct_structph_1_1math_1_1detail_1_1shuffle_1_1_standard_swapper:
+
+Template Struct StandardSwapper
+===============================
+
+- Defined in :ref:`file_Source_Math_Random_shuffle.h`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: ph::math::detail::shuffle::StandardSwapper
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

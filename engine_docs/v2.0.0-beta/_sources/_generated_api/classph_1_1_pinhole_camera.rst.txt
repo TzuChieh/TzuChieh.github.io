@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_pinhole_camera:
+
+Class PinholeCamera
+===================
+
+- Defined in :ref:`file_Source_Core_Receiver_PinholeCamera.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::RectangularSensorReceiver`` (:ref:`exhale_class_classph_1_1_rectangular_sensor_receiver`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::PinholeCamera
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

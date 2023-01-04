@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1sdl_1ae51fbdaa3574dbc4f1d0b3e7e4748287:
+
+Function ph::sdl::save_vector3
+==============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::sdl::save_vector3(const math::Vector3R&, std::string *const)
+   :project: Photon

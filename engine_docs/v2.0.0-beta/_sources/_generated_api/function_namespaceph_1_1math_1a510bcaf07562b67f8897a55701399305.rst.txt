@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1a510bcaf07562b67f8897a55701399305:
+
+Template Function ph::math::bytes_to_MiB
+========================================
+
+- Defined in :ref:`file_Source_Math_math.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::bytes_to_MiB(const std::size_t)
+   :project: Photon

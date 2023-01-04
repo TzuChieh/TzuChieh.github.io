@@ -1,0 +1,41 @@
+
+.. _program_listing_file_Source_Actor_Geometry_Geometry.cpp:
+
+Program Listing for File Geometry.cpp
+=====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Actor_Geometry_Geometry.cpp>` (``Source\Actor\Geometry\Geometry.cpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #include "Actor/Geometry/Geometry.h"
+   #include "Core/Intersectable/UvwMapper/SphericalMapper.h"
+   #include "Common/assertion.h"
+   #include "Actor/Geometry/PrimitiveBuildingMaterial.h"
+   
+   namespace ph
+   {
+   
+   Geometry::Geometry() : 
+       m_uvwMapper(std::make_shared<SphericalMapper>())
+   {
+       PH_ASSERT(m_uvwMapper);
+   }
+   
+   void Geometry::setUvwMapper(const std::shared_ptr<UvwMapper>& uvwMapper)
+   {
+       PH_ASSERT(uvwMapper);
+   
+       m_uvwMapper = uvwMapper;
+   }
+   
+   const UvwMapper* Geometry::getUvwMapper() const
+   {
+       PH_ASSERT(m_uvwMapper);
+   
+       return m_uvwMapper.get();
+   }
+   
+   }// end namespace ph

@@ -1,0 +1,50 @@
+
+.. _file_Source_Core_Intersectable_UvwMapper_SphericalMapper.cpp:
+
+File SphericalMapper.cpp
+========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Intersectable\UvwMapper\SphericalMapper.cpp``)
+------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Intersectable_UvwMapper_SphericalMapper.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/Intersectable/UvwMapper/SphericalMapper.h``
+
+- ``Math/TVector3.h``
+
+- ``Math/constant.h``
+
+- ``Math/math.h``
+
+- ``cmath``
+
+- ``iostream``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

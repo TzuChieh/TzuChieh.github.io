@@ -1,0 +1,31 @@
+
+.. _program_listing_file_Source_Core_Estimator_estimator_fwd.h:
+
+Program Listing for File estimator_fwd.h
+========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Core_Estimator_estimator_fwd.h>` (``Source\Core\Estimator\estimator_fwd.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   namespace ph
+   {
+   
+   
+   template<typename EstimationType>
+   class TIRayEstimator;
+   
+   class IRayEnergyEstimator;
+   
+   class FullRayEnergyEstimator;
+   class PartialRayEnergyEstimator;
+   
+   class BVPTEstimator;
+   class BNEEPTEstimator;
+   class BVPTDLEstimator;
+   
+   }// end namespace ph

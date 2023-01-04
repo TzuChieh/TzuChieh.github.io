@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1_1spectral__data_1a92294a44ec41ccdef7bfa919e31cf6d6:
+
+Function ph::math::spectral_data::XYZ_CMF_CIE_1931_2_degree_Y
+=============================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::spectral_data::XYZ_CMF_CIE_1931_2_degree_Y()
+   :project: Photon

@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a2adb896e1157d30a707f1ae40991b770:
+
+Function ph::PH_DEFINE_INTERNAL_LOG_GROUP(CoreCookedUnit, Core)
+===============================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_INTERNAL_LOG_GROUP(CoreCookedUnit, Core)
+   :project: Photon

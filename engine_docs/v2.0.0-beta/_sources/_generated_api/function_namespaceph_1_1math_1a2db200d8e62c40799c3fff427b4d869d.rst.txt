@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1a2db200d8e62c40799c3fff427b4d869d:
+
+Template Function ph::math::is_power_of_2
+=========================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::is_power_of_2(const T)
+   :project: Photon

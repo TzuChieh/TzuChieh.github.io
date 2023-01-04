@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_single_frame_render_session:
+
+Class SingleFrameRenderSession
+==============================
+
+- Defined in :ref:`file_Source_EngineEnv_Session_SingleFrameRenderSession.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::RenderSession`` (:ref:`exhale_class_classph_1_1_render_session`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::SingleFrameRenderSession
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

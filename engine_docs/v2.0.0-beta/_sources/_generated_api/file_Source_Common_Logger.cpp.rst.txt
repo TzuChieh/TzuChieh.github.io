@@ -1,0 +1,52 @@
+
+.. _file_Source_Common_Logger.cpp:
+
+File Logger.cpp
+===============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Common\Logger.cpp``)
+-----------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Common_Logger.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/Logger.h``
+
+- ``Common/config.h``
+
+- ``Common/os.h``
+
+- ``Utility/Timestamp.h``
+
+- ``iostream``
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

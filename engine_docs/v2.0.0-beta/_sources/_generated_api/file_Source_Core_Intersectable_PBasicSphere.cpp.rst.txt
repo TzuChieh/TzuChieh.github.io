@@ -1,0 +1,76 @@
+
+.. _file_Source_Core_Intersectable_PBasicSphere.cpp:
+
+File PBasicSphere.cpp
+=====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Intersectable\PBasicSphere.cpp``)
+-----------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Intersectable_PBasicSphere.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/HitDetail.h``
+
+- ``Core/HitProbe.h``
+
+- ``Core/Intersectable/PBasicSphere.h``
+
+- ``Core/Intersectable/PrimitiveMetadata.h``
+
+- ``Core/Intersectable/Query/PrimitivePosSampleQuery.h``
+
+- ``Core/Intersectable/UvwMapper/UvwMapper.h``
+
+- ``Core/Ray.h``
+
+- ``Core/SampleGenerator/SampleFlow.h``
+
+- ``Math/Geometry/TAABB3D.h``
+
+- ``Math/Geometry/TSphere.h``
+
+- ``Math/TMatrix2.h``
+
+- ``Math/TOrthonormalBasis3.h``
+
+- ``Math/TVector3.h``
+
+- ``Math/constant.h``
+
+- ``Math/math.h``
+
+- ``algorithm``
+
+- ``cmath``
+
+- ``limits``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

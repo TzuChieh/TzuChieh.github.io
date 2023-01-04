@@ -1,0 +1,77 @@
+
+.. _file_Source_Actor_Material_Material.h:
+
+File Material.h
+===============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\Material\Material.h``)
+-------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_Material_Material.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/SurfaceBehavior/SurfaceBehavior.h``
+
+- ``DataIO/SDL/TSdlResourceBase.h``
+
+- ``DataIO/SDL/sdl_interface.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_ALight.h`
+
+- :ref:`file_Source_Actor_AModel.h`
+
+- :ref:`file_Source_Actor_APhantomModel.cpp`
+
+- :ref:`file_Source_Actor_ATransformedInstance.cpp`
+
+- :ref:`file_Source_Actor_Material_FullMaterial.h`
+
+- :ref:`file_Source_Actor_Material_Material.cpp`
+
+- :ref:`file_Source_Actor_Material_SurfaceMaterial.h`
+
+- :ref:`file_Source_Actor_Material_VolumeMaterial.h`
+
+- :ref:`file_Source_Api_init_and_exit.cpp`
+
+- :ref:`file_Source_Api_ph_cpp_core.cpp`
+
+- :ref:`file_Source_Api_test_scene.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_material`
+

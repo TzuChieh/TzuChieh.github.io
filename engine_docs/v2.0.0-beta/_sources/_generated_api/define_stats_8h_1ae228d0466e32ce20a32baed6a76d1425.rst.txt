@@ -1,0 +1,14 @@
+.. _exhale_define_stats_8h_1ae228d0466e32ce20a32baed6a76d1425:
+
+Define PH_SCOPED_TIMER
+======================
+
+- Defined in :ref:`file_Source_Common_stats.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: PH_SCOPED_TIMER
+   :project: Photon

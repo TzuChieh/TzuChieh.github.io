@@ -1,0 +1,14 @@
+.. _exhale_function_ph__core_8h_1abbc0f9adc03f5157937e91cbf9e1f90e:
+
+Function phSetNumRenderThreads(PHuint64, const PHuint32)
+========================================================
+
+- Defined in :ref:`file_Include_CEngine_ph_core.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: phSetNumRenderThreads(PHuint64, const PHuint32)
+   :project: Photon

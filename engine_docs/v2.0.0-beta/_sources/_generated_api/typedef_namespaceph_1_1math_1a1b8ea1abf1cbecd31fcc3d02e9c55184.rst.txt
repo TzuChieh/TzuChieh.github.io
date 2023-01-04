@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1_1math_1a1b8ea1abf1cbecd31fcc3d02e9c55184:
+
+Typedef ph::math::TRawMatrix
+============================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::math::TRawMatrix
+   :project: Photon

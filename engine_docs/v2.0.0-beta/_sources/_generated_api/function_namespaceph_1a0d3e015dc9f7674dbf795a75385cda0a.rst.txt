@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a0d3e015dc9f7674dbf795a75385cda0a:
+
+Template Function ph::enum_size
+===============================
+
+- Defined in :ref:`file_Source_Utility_utility.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::enum_size()
+   :project: Photon

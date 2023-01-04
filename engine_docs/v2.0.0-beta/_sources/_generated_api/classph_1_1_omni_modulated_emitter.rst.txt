@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_omni_modulated_emitter:
+
+Class OmniModulatedEmitter
+==========================
+
+- Defined in :ref:`file_Source_Core_Emitter_OmniModulatedEmitter.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::Emitter`` (:ref:`exhale_class_classph_1_1_emitter`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::OmniModulatedEmitter
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

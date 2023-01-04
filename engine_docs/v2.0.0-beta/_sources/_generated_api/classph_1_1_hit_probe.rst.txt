@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_hit_probe:
+
+Class HitProbe
+==============
+
+- Defined in :ref:`file_Source_Core_HitProbe.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::HitProbe
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

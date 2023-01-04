@@ -8,5 +8,8 @@ var classph_1_1_observable_render_data =
     [ "numRealStates", "classph_1_1_observable_render_data.html#a27a6ab76908bf1579c42bf3a9af2cd95", null ],
     [ "setIntegerState", "classph_1_1_observable_render_data.html#ab3adc441883de35826d76be0eac8904c", null ],
     [ "setLayerName", "classph_1_1_observable_render_data.html#ab9615af4f54fd90c148dc6aeb92ecf4b", null ],
-    [ "setRealState", "classph_1_1_observable_render_data.html#a6cf23d3c85d783a11103a2090aca14f4", null ]
+    [ "setRealState", "classph_1_1_observable_render_data.html#a6cf23d3c85d783a11103a2090aca14f4", null ],
+    [ "m_integerStateNames", "classph_1_1_observable_render_data.html#a26fdcb164eb85346cc4f66478c5b7aac", null ],
+    [ "m_layerNames", "classph_1_1_observable_render_data.html#a241d2346418f21c558a3e5699dff9059", null ],
+    [ "m_realStateNames", "classph_1_1_observable_render_data.html#ab34ecb6c91a72d9e781aeadf82fcc047", null ]
 ];

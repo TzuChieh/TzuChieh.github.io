@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1math_1_1_t_chromatic_adaptation_definition_3_01_e_chromatic_adaptation_1_1_von_kries_00_01_t_01_4:
+
+Template Class TChromaticAdaptationDefinition< EChromaticAdaptation::VonKries, T >
+==================================================================================
+
+- Defined in :ref:`file_Source_Math_Color_chromatic_adaptations.ipp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::math::TChromaticAdaptationDefinitionHelper< EChromaticAdaptation::VonKries >`` (:ref:`exhale_class_classph_1_1math_1_1_t_chromatic_adaptation_definition_helper`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::math::TChromaticAdaptationDefinition< EChromaticAdaptation::VonKries, T >
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

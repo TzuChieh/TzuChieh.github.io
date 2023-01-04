@@ -1,0 +1,24 @@
+
+.. _program_listing_file_Source_Frame_ToneMapper_ToneMapper.h:
+
+Program Listing for File ToneMapper.h
+=====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Frame_ToneMapper_ToneMapper.h>` (``Source\Frame\ToneMapper\ToneMapper.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   namespace ph
+   {
+   
+   class ToneMapper
+   {
+   public:
+       virtual ~ToneMapper() = 0;
+   };
+   
+   }// end namespace ph

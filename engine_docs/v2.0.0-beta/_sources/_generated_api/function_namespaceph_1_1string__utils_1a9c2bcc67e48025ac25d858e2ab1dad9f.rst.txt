@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1string__utils_1a9c2bcc67e48025ac25d858e2ab1dad9f:
+
+Function ph::string_utils::cut_head
+===================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::string_utils::cut_head(const std::string_view, const std::string_view)
+   :project: Photon

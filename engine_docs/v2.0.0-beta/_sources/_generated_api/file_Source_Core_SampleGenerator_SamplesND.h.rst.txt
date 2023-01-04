@@ -1,0 +1,67 @@
+
+.. _file_Source_Core_SampleGenerator_SamplesND.h:
+
+File SamplesND.h
+================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SampleGenerator\SamplesND.h``)
+--------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SampleGenerator_SamplesND.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/SampleGenerator/SampleFlow.h``
+
+- ``Math/Random/shuffle.h``
+
+- ``Math/TArithmeticArray.h``
+
+- ``array``
+
+- ``cstddef``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_SampleGenerator_SampleGenerator.h`
+
+- :ref:`file_Source_Core_SampleGenerator_SGHalton.cpp`
+
+- :ref:`file_Source_Core_SampleGenerator_SGStratified.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_samples_n_d`
+

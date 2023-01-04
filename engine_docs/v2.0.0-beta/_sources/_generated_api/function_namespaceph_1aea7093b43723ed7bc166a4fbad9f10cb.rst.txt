@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1aea7093b43723ed7bc166a4fbad9f10cb:
+
+Function ph::PH_DECLARE_LOG_GROUP
+=================================
+
+- Defined in :ref:`file_Source_Common_logging.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DECLARE_LOG_GROUP(PhotonRenderer)
+   :project: Photon

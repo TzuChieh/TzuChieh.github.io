@@ -1,0 +1,75 @@
+
+.. _file_Source_Core_Filmic_SampleFilter.h:
+
+File SampleFilter.h
+===================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Filmic\SampleFilter.h``)
+--------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Filmic_SampleFilter.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/primitive_type.h``
+
+- ``Math/Function/TMathFunction2D.h``
+
+- ``Math/TVector2.h``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Filmic_HdrRgbFilm.cpp`
+
+- :ref:`file_Source_Core_Filmic_SampleFilter.cpp`
+
+- :ref:`file_Source_Core_Filmic_SampleFilters.h`
+
+- :ref:`file_Source_Core_Filmic_TSamplingFilm.h`
+
+- :ref:`file_Source_Core_Filmic_TSamplingFilm.ipp`
+
+- :ref:`file_Source_Core_Renderer_PM_PMRenderer.h`
+
+- :ref:`file_Source_Core_Renderer_Sampling_SamplingRenderer.h`
+
+- :ref:`file_Source_Core_Renderer_Sampling_TReceiverMeasurementEstimator.h`
+
+- :ref:`file_Source_EngineEnv_Visualizer_PathTracingVisualizer.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_sample_filter`
+

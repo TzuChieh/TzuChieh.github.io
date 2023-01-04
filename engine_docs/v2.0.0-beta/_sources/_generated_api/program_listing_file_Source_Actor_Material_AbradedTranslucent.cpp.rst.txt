@@ -1,0 +1,37 @@
+
+.. _program_listing_file_Source_Actor_Material_AbradedTranslucent.cpp:
+
+Program Listing for File AbradedTranslucent.cpp
+===============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Actor_Material_AbradedTranslucent.cpp>` (``Source\Actor\Material\AbradedTranslucent.cpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #include "Actor/Material/AbradedTranslucent.h"
+   #include "Core/SurfaceBehavior/SurfaceBehavior.h"
+   #include "Core/SurfaceBehavior/SurfaceOptics/TranslucentMicrofacet.h"
+   
+   #include <memory>
+   
+   namespace ph
+   {
+   
+   AbradedTranslucent::AbradedTranslucent() :
+       SurfaceMaterial(),
+   
+       m_interfaceInfo   (),
+       m_microsurfaceInfo()
+   {}
+   
+   void AbradedTranslucent::genSurface(ActorCookingContext& ctx, SurfaceBehavior& behavior) const
+   {
+       behavior.setOptics(
+           std::make_unique<TranslucentMicrofacet>(
+               m_interfaceInfo.genFresnelEffect(),
+               m_microsurfaceInfo.genMicrofacet()));
+   }
+   
+   }// end namespace ph

@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1_1math_1a7dd98e5164f4a81c3a7ec206bea647b9:
+
+Typedef ph::math::Matrix2D
+==========================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::math::Matrix2D
+   :project: Photon

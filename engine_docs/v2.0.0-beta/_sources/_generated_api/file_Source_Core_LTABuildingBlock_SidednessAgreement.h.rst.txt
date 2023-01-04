@@ -1,0 +1,73 @@
+
+.. _file_Source_Core_LTABuildingBlock_SidednessAgreement.h:
+
+File SidednessAgreement.h
+=========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\LTABuildingBlock\SidednessAgreement.h``)
+------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_LTABuildingBlock_SidednessAgreement.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/SurfaceHit.h``
+
+- ``Math/TVector3.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_LTABuildingBlock_SurfaceTracer.h`
+
+- :ref:`file_Source_Core_LTABuildingBlock_TDirectLightEstimator.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_BsdfQueryContext.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_IdealDielectric.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LambertianDiffuse.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_LbLayeredSurface.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_OrenNayar.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_ThinDielectricFilm.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_TranslucentMicrofacet.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_sidedness_agreement`
+

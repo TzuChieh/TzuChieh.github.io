@@ -1,0 +1,54 @@
+
+.. _file_Source_Math_Random_TPwcDistribution1D.ipp:
+
+File TPwcDistribution1D.ipp
+===========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\Random\TPwcDistribution1D.ipp``)
+----------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_Random_TPwcDistribution1D.ipp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Math/Random/TPwcDistribution1D.h``
+
+- ``Math/math.h``
+
+- ``algorithm``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Math_Random_TPwcDistribution1D.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+

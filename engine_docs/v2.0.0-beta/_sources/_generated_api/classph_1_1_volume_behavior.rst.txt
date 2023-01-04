@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_volume_behavior:
+
+Class VolumeBehavior
+====================
+
+- Defined in :ref:`file_Source_Core_VolumeBehavior_VolumeBehavior.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::VolumeBehavior
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

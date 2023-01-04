@@ -1,0 +1,61 @@
+
+.. _file_Source_DataIO_SDL_Introspect_SdlStructFieldStump.h:
+
+File SdlStructFieldStump.h
+==========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\SDL\Introspect\SdlStructFieldStump.h``)
+-------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_SDL_Introspect_SdlStructFieldStump.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``DataIO/SDL/Introspect/SdlStructFieldStump.ipp``
+
+- ``DataIO/SDL/Introspect/TBasicSdlFieldSet.h``
+
+- ``DataIO/SDL/Introspect/TOwnedSdlField.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_DataIO_SDL_Introspect_SdlStructFieldStump.ipp`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TOwnerSdlClass.ipp`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TOwnerSdlStruct.ipp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_sdl_struct_field_stump`
+

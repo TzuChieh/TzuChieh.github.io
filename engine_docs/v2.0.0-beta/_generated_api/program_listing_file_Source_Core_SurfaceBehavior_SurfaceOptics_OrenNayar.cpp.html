@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File OrenNayar.cpp &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File OrenNayar.cpp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Core_SurfaceBehavior_SurfaceOptics_OrenNayar.cpp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-orennayar-cpp">
+<span id="program-listing-file-source-core-surfacebehavior-surfaceoptics-orennayar-cpp"></span><h1>Program Listing for File OrenNayar.cpp<a class="headerlink" href="#program-listing-for-file-orennayar-cpp" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Core_SurfaceBehavior_SurfaceOptics_OrenNayar.cpp.html#file-source-core-surfacebehavior-surfaceoptics-orennayar-cpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Core\SurfaceBehavior\SurfaceOptics\OrenNayar.cpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/SurfaceBehavior/SurfaceOptics/OrenNayar.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/SurfaceBehavior/BsdfEvalQuery.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/SurfaceBehavior/BsdfSampleQuery.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/SurfaceBehavior/BsdfPdfQuery.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/TVector3.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/constant.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/math.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Texture/TSampler.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Texture/constant_textures.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/assertion.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/LTABuildingBlock/SidednessAgreement.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/Geometry/THemisphere.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/TOrthonormalBasis3.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/SampleGenerator/SampleFlow.h&quot;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="n">OrenNayar</span><span class="o">::</span><span class="n">OrenNayar</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TTexture</span><span class="o">&lt;</span><span class="n">math</span><span class="o">::</span><span class="n">Spectrum</span><span class="o">&gt;&gt;&amp;</span><span class="w"> </span><span class="n">albedo</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w">                                       </span><span class="n">sigmaDegrees</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
+
+<span class="w">    </span><span class="n">OrenNayar</span><span class="p">(</span>
+<span class="w">        </span><span class="n">albedo</span><span class="p">,</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">TConstantTexture</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">sigmaDegrees</span><span class="p">))</span>
+<span class="p">{}</span>
+
+<span class="n">OrenNayar</span><span class="o">::</span><span class="n">OrenNayar</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TTexture</span><span class="o">&lt;</span><span class="n">math</span><span class="o">::</span><span class="n">Spectrum</span><span class="o">&gt;&gt;&amp;</span><span class="w"> </span><span class="n">albedo</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TTexture</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;&gt;&amp;</span><span class="w">           </span><span class="n">sigmaDegrees</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
+
+<span class="w">    </span><span class="n">SurfaceOptics</span><span class="p">(),</span>
+
+<span class="w">    </span><span class="n">m_albedo</span><span class="w">      </span><span class="p">(</span><span class="n">albedo</span><span class="p">),</span>
+<span class="w">    </span><span class="n">m_sigmaDegrees</span><span class="p">(</span><span class="n">sigmaDegrees</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">albedo</span><span class="p">);</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">sigmaDegrees</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">PH_ASSERT_EQ</span><span class="p">(</span><span class="n">m_numElementals</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n">m_phenomena</span><span class="p">.</span><span class="n">set</span><span class="p">({</span><span class="n">ESurfacePhenomenon</span><span class="o">::</span><span class="n">DIFFUSE_REFLECTION</span><span class="p">});</span>
+<span class="p">}</span>
+
+<span class="n">ESurfacePhenomenon</span><span class="w"> </span><span class="n">OrenNayar</span><span class="o">::</span><span class="n">getPhenomenonOf</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SurfaceElemental</span><span class="w"> </span><span class="n">elemental</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT_MSG</span><span class="p">(</span><span class="n">elemental</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ALL_ELEMENTALS</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">elemental</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">elemental</span><span class="p">));</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ESurfacePhenomenon</span><span class="o">::</span><span class="n">DIFFUSE_REFLECTION</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/*</span>
+<span class="cm">    Note that a dark ring can appear (especially on sphere) using qualitative</span>
+<span class="cm">    formula (usually the one used on rendering applications). Full version of</span>
+<span class="cm">    the formula can be considered in order to solve the issue.</span>
+
+<span class="cm">    On the other hand, [1] has good explanation of the issue and provides an</span>
+<span class="cm">    improved version of the model.</span>
+
+<span class="cm">    [1] http://mimosa-pudica.net/improved-oren-nayar.html</span>
+<span class="cm">*/</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">OrenNayar</span><span class="o">::</span><span class="n">calcBsdf</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BsdfQueryContext</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ctx</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BsdfEvalInput</span><span class="o">&amp;</span><span class="w">    </span><span class="n">in</span><span class="p">,</span>
+<span class="w">    </span><span class="n">BsdfEvalOutput</span><span class="o">&amp;</span><span class="w">         </span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT_MSG</span><span class="p">(</span><span class="n">ctx</span><span class="p">.</span><span class="n">elemental</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ALL_ELEMENTALS</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">elemental</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">ctx</span><span class="p">.</span><span class="n">elemental</span><span class="p">));</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">ctx</span><span class="p">.</span><span class="n">sidedness</span><span class="p">.</span><span class="n">isSameHemisphere</span><span class="p">(</span><span class="n">in</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="n">L</span><span class="p">,</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="n">V</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">out</span><span class="p">.</span><span class="n">bsdf</span><span class="p">.</span><span class="n">setColorValues</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">albedo</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="n">TSampler</span><span class="o">&lt;</span><span class="n">math</span><span class="o">::</span><span class="n">Spectrum</span><span class="o">&gt;</span><span class="p">(</span><span class="n">math</span><span class="o">::</span><span class="n">EColorUsage</span><span class="o">::</span><span class="n">ECF</span><span class="p">).</span><span class="n">sample</span><span class="p">(</span><span class="o">*</span><span class="n">m_albedo</span><span class="p">,</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="n">X</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">sigmaRadians</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">to_radians</span><span class="p">(</span><span class="n">TSampler</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">().</span><span class="n">sample</span><span class="p">(</span><span class="o">*</span><span class="n">m_sigmaDegrees</span><span class="p">,</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="n">X</span><span class="p">));</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">shadingBasis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="n">X</span><span class="p">.</span><span class="n">getDetail</span><span class="p">().</span><span class="n">getShadingBasis</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">sigma2</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">sigmaRadians</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sigmaRadians</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">A</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="n">_r</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">sigma2</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mf">2.0</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">sigma2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.33</span><span class="n">_r</span><span class="p">)));</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">B</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="mf">0.45</span><span class="n">_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sigma2</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">sigma2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.09</span><span class="n">_r</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">sinThetaL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shadingBasis</span><span class="p">.</span><span class="n">sinTheta</span><span class="p">(</span><span class="n">in</span><span class="p">.</span><span class="n">L</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">sinThetaV</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shadingBasis</span><span class="p">.</span><span class="n">sinTheta</span><span class="p">(</span><span class="n">in</span><span class="p">.</span><span class="n">V</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">real</span><span class="w"> </span><span class="n">cosTerm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="n">_r</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">sinThetaL</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.0001</span><span class="n">_r</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">sinThetaV</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.0001</span><span class="n">_r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">sinPhiL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shadingBasis</span><span class="p">.</span><span class="n">sinPhi</span><span class="p">(</span><span class="n">in</span><span class="p">.</span><span class="n">L</span><span class="p">);</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">sinPhiV</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shadingBasis</span><span class="p">.</span><span class="n">sinPhi</span><span class="p">(</span><span class="n">in</span><span class="p">.</span><span class="n">V</span><span class="p">);</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">cosPhiL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shadingBasis</span><span class="p">.</span><span class="n">cosPhi</span><span class="p">(</span><span class="n">in</span><span class="p">.</span><span class="n">L</span><span class="p">);</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">cosPhiV</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shadingBasis</span><span class="p">.</span><span class="n">cosPhi</span><span class="p">(</span><span class="n">in</span><span class="p">.</span><span class="n">V</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// compute max(0, cos(phi_L - phi_V)) and clamp to &lt;= 1</span>
+<span class="w">        </span><span class="n">cosTerm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">clamp</span><span class="p">(</span><span class="n">cosPhiL</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cosPhiV</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sinPhiL</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sinPhiV</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="n">_r</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="n">_r</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">absCosThetaL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shadingBasis</span><span class="p">.</span><span class="n">absCosTheta</span><span class="p">(</span><span class="n">in</span><span class="p">.</span><span class="n">L</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">absCosThetaV</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shadingBasis</span><span class="p">.</span><span class="n">absCosTheta</span><span class="p">(</span><span class="n">in</span><span class="p">.</span><span class="n">V</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// we can determin the size of theta_L and theta_V by comparing their cosines</span>
+<span class="w">    </span><span class="n">real</span><span class="w"> </span><span class="n">sinAlpha</span><span class="p">,</span><span class="w"> </span><span class="n">tanBeta</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">absCosThetaL</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">absCosThetaV</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">sinAlpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sinThetaV</span><span class="p">;</span>
+<span class="w">        </span><span class="n">tanBeta</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">sinThetaL</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">absCosThetaL</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">sinAlpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sinThetaL</span><span class="p">;</span>
+<span class="w">        </span><span class="n">tanBeta</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">sinThetaV</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">absCosThetaV</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">out</span><span class="p">.</span><span class="n">bsdf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">albedo</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">math</span><span class="o">::</span><span class="n">constant</span><span class="o">::</span><span class="n">rcp_pi</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">A</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cosTerm</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sinAlpha</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">tanBeta</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">OrenNayar</span><span class="o">::</span><span class="n">calcBsdfSample</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BsdfQueryContext</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ctx</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BsdfSampleInput</span><span class="o">&amp;</span><span class="w">  </span><span class="n">in</span><span class="p">,</span>
+<span class="w">    </span><span class="n">SampleFlow</span><span class="o">&amp;</span><span class="w">             </span><span class="n">sampleFlow</span><span class="p">,</span>
+<span class="w">    </span><span class="n">BsdfSampleOutput</span><span class="o">&amp;</span><span class="w">       </span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT_MSG</span><span class="p">(</span><span class="n">ctx</span><span class="p">.</span><span class="n">elemental</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ALL_ELEMENTALS</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">elemental</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">ctx</span><span class="p">.</span><span class="n">elemental</span><span class="p">));</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="n">X</span><span class="p">.</span><span class="n">getShadingNormal</span><span class="p">();</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">N</span><span class="p">.</span><span class="n">isFinite</span><span class="p">());</span>
+
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">out</span><span class="p">.</span><span class="n">L</span><span class="p">;</span>
+<span class="w">    </span><span class="n">real</span><span class="w"> </span><span class="n">pdfW</span><span class="p">;</span>
+<span class="w">    </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">THemisphere</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;::</span><span class="n">makeUnit</span><span class="p">().</span><span class="n">sampleToSurfaceCosThetaWeighted</span><span class="p">(</span><span class="n">sampleFlow</span><span class="p">.</span><span class="n">flow2D</span><span class="p">(),</span><span class="w"> </span><span class="o">&amp;</span><span class="n">pdfW</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">pdfW</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0.0</span><span class="n">_r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">out</span><span class="p">.</span><span class="n">setMeasurability</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// transform to world space and make it on the same hemisphere as V</span>
+<span class="w">    </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="n">X</span><span class="p">.</span><span class="n">getDetail</span><span class="p">().</span><span class="n">getShadingBasis</span><span class="p">().</span><span class="n">localToWorld</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
+<span class="w">    </span><span class="n">L</span><span class="p">.</span><span class="n">normalizeLocal</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">in</span><span class="p">.</span><span class="n">V</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0</span><span class="n">_r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">L</span><span class="p">.</span><span class="n">mulLocal</span><span class="p">(</span><span class="mf">-1.0</span><span class="n">_r</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">absNoL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="p">.</span><span class="n">absDot</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">absNoL</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0.0</span><span class="n">_r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">out</span><span class="p">.</span><span class="n">setMeasurability</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">BsdfEvalQuery</span><span class="w"> </span><span class="n">eval</span><span class="p">;</span>
+<span class="w">    </span><span class="n">eval</span><span class="p">.</span><span class="n">inputs</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">in</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="p">,</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="n">V</span><span class="p">);</span>
+<span class="w">    </span><span class="n">OrenNayar</span><span class="o">::</span><span class="n">calcBsdf</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span><span class="w"> </span><span class="n">eval</span><span class="p">.</span><span class="n">inputs</span><span class="p">,</span><span class="w"> </span><span class="n">eval</span><span class="p">.</span><span class="n">outputs</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">eval</span><span class="p">.</span><span class="n">outputs</span><span class="p">.</span><span class="n">isGood</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">out</span><span class="p">.</span><span class="n">setMeasurability</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">out</span><span class="p">.</span><span class="n">pdfAppliedBsdf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eval</span><span class="p">.</span><span class="n">outputs</span><span class="p">.</span><span class="n">bsdf</span><span class="p">.</span><span class="n">div</span><span class="p">(</span><span class="n">pdfW</span><span class="p">);</span>
+<span class="w">    </span><span class="n">out</span><span class="p">.</span><span class="n">setMeasurability</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">OrenNayar</span><span class="o">::</span><span class="n">calcBsdfSamplePdfW</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BsdfQueryContext</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ctx</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BsdfPdfInput</span><span class="o">&amp;</span><span class="w">     </span><span class="n">in</span><span class="p">,</span>
+<span class="w">    </span><span class="n">BsdfPdfOutput</span><span class="o">&amp;</span><span class="w">          </span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT_MSG</span><span class="p">(</span><span class="n">ctx</span><span class="p">.</span><span class="n">elemental</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ALL_ELEMENTALS</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">elemental</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">ctx</span><span class="p">.</span><span class="n">elemental</span><span class="p">));</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">ctx</span><span class="p">.</span><span class="n">sidedness</span><span class="p">.</span><span class="n">isSameHemisphere</span><span class="p">(</span><span class="n">in</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="n">L</span><span class="p">,</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="n">V</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">out</span><span class="p">.</span><span class="n">sampleDirPdfW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="n">X</span><span class="p">.</span><span class="n">getShadingNormal</span><span class="p">();</span>
+<span class="w">    </span><span class="n">out</span><span class="p">.</span><span class="n">sampleDirPdfW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="n">L</span><span class="p">.</span><span class="n">absDot</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">constant</span><span class="o">::</span><span class="n">rcp_pi</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+
+.. _program_listing_file_Source_DataIO_SDL_sdl_exceptions.h:
+
+Program Listing for File sdl_exceptions.h
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_DataIO_SDL_sdl_exceptions.h>` (``Source\DataIO\SDL\sdl_exceptions.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Utility/exception.h"
+   
+   #include <string>
+   
+   namespace ph
+   {
+   
+   class SdlException : public RuntimeException
+   {
+   public:
+       explicit SdlException(const std::string& message);
+       explicit SdlException(const char* message);
+   };
+   
+   class SdlLoadError : public SdlException
+   {
+   public:
+       using SdlException::SdlException;
+   };
+   
+   class SdlSaveError : public SdlException
+   {
+   public:
+       using SdlException::SdlException;
+   };
+   
+   // In-header Implementations:
+   
+   inline SdlException::SdlException(const std::string& message) :
+       RuntimeException(message)
+   {}
+   
+   inline SdlException::SdlException(const char* const message) :
+       RuntimeException(message)
+   {}
+   
+   }// end namespace ph

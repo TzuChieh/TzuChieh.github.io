@@ -1,0 +1,58 @@
+
+.. _file_Source_Core_Intersectable_PLatLongEnvSphere.cpp:
+
+File PLatLongEnvSphere.cpp
+==========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Intersectable\PLatLongEnvSphere.cpp``)
+----------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Intersectable_PLatLongEnvSphere.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/HitDetail.h``
+
+- ``Core/HitProbe.h``
+
+- ``Core/Intersectable/PLatLongEnvSphere.h``
+
+- ``Core/Ray.h``
+
+- ``Math/Geometry/TLineSegment.h``
+
+- ``Math/Geometry/TSphere.h``
+
+- ``Math/TVector3.h``
+
+- ``Math/Transform/RigidTransform.h``
+
+- ``Math/Transform/StaticRigidTransform.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

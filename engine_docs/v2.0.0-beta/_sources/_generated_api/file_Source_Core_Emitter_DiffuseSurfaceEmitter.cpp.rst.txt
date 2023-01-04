@@ -1,0 +1,80 @@
+
+.. _file_Source_Core_Emitter_DiffuseSurfaceEmitter.cpp:
+
+File DiffuseSurfaceEmitter.cpp
+==============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Emitter\DiffuseSurfaceEmitter.cpp``)
+--------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Emitter_DiffuseSurfaceEmitter.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/Geometry/Geometry.h``
+
+- ``Common/assertion.h``
+
+- ``Core/Emitter/DiffuseSurfaceEmitter.h``
+
+- ``Core/Emitter/Query/DirectEnergySampleQuery.h``
+
+- ``Core/Intersectable/Primitive.h``
+
+- ``Core/Intersectable/Query/PrimitivePosSampleQuery.h``
+
+- ``Core/Ray.h``
+
+- ``Core/SampleGenerator/SampleFlow.h``
+
+- ``Core/Texture/SampleLocation.h``
+
+- ``Core/Texture/TSampler.h``
+
+- ``Core/Texture/constant_textures.h``
+
+- ``Math/Color/Spectrum.h``
+
+- ``Math/Color/color_spaces.h``
+
+- ``Math/Color/spectral_samples.h``
+
+- ``Math/Geometry/THemisphere.h``
+
+- ``Math/TOrthonormalBasis3.h``
+
+- ``Math/TVector3.h``
+
+- ``Math/constant.h``
+
+- ``algorithm``
+
+- ``cmath``
+
+- ``iostream``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

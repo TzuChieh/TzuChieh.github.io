@@ -1,0 +1,63 @@
+
+.. _file_Source_DataIO_Stream_FormattedTextInputStream.h:
+
+File FormattedTextInputStream.h
+===============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\Stream\FormattedTextInputStream.h``)
+----------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_Stream_FormattedTextInputStream.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``DataIO/FileSystem/Path.h``
+
+- ``DataIO/Stream/StdInputStream.h``
+
+- ``istream``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_DataIO_IniFile.cpp`
+
+- :ref:`file_Source_DataIO_Stream_FormattedTextInputStream.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_formatted_text_input_stream`
+

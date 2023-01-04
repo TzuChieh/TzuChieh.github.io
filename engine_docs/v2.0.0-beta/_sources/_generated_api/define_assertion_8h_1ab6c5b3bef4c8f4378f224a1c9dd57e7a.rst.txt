@@ -1,0 +1,14 @@
+.. _exhale_define_assertion_8h_1ab6c5b3bef4c8f4378f224a1c9dd57e7a:
+
+Define PH_ASSERT_EQ
+===================
+
+- Defined in :ref:`file_Source_Common_assertion.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: PH_ASSERT_EQ
+   :project: Photon

@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1ab922c4908f2ea1abb47ae326decaf119:
+
+Typedef ph::TSdlOptionalUint64
+==============================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::TSdlOptionalUint64
+   :project: Photon

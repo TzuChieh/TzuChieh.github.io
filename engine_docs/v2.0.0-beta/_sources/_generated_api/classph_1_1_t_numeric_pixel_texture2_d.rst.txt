@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_t_numeric_pixel_texture2_d:
+
+Template Class TNumericPixelTexture2D
+=====================================
+
+- Defined in :ref:`file_Source_Core_Texture_Pixel_TNumericPixelTexture2D.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::TPixelTexture2D< math::TArithmeticArray< T, N > >`` (:ref:`exhale_class_classph_1_1_t_pixel_texture2_d`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TNumericPixelTexture2D
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

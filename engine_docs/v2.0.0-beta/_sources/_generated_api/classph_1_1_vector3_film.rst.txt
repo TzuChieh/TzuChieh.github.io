@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_vector3_film:
+
+Class Vector3Film
+=================
+
+- Defined in :ref:`file_Source_Core_Filmic_Vector3Film.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::TSamplingFilm< math::Vector3R >`` (:ref:`exhale_class_classph_1_1_t_sampling_film`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::Vector3Film
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

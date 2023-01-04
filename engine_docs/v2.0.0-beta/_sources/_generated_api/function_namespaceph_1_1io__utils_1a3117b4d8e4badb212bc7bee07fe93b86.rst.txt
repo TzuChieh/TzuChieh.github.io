@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1io__utils_1a3117b4d8e4badb212bc7bee07fe93b86:
+
+Function ph::io_utils::PH_DEFINE_INTERNAL_LOG_GROUP
+===================================================
+
+- Defined in :ref:`file_Source_DataIO_io_utils.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::io_utils::PH_DEFINE_INTERNAL_LOG_GROUP(IOUtils, DataIO)
+   :project: Photon

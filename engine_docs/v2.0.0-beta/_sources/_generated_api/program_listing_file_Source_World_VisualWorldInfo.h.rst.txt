@@ -1,0 +1,64 @@
+
+.. _program_listing_file_Source_World_VisualWorldInfo.h:
+
+Program Listing for File VisualWorldInfo.h
+==========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_World_VisualWorldInfo.h>` (``Source\World\VisualWorldInfo.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Math/Geometry/TAABB3D.h"
+   
+   namespace ph
+   {
+   
+   class VisualWorldInfo final
+   {
+   public:
+       VisualWorldInfo();
+   
+       math::AABB3D getRootActorsBound() const;
+   
+       math::AABB3D getLeafActorsBound() const;
+   
+       void setRootActorsBound(const math::AABB3D& bound);
+       void setLeafActorsBound(const math::AABB3D& bound);
+   
+   private:
+       math::AABB3D m_rootActorsBound;
+       math::AABB3D m_leafActorsBound;
+   };
+   
+   // In-header Implementations:
+   
+   inline VisualWorldInfo::VisualWorldInfo() : 
+       m_rootActorsBound(math::Vector3R(0)),
+       m_leafActorsBound(math::Vector3R(0))
+   {}
+   
+   inline math::AABB3D VisualWorldInfo::getRootActorsBound() const
+   {
+       return m_rootActorsBound;
+   }
+   
+   inline math::AABB3D VisualWorldInfo::getLeafActorsBound() const
+   {
+       return m_leafActorsBound;
+   }
+   
+   inline void VisualWorldInfo::setRootActorsBound(const math::AABB3D& bound)
+   {
+       m_rootActorsBound = bound;
+   }
+   
+   inline void VisualWorldInfo::setLeafActorsBound(const math::AABB3D& bound)
+   {
+       m_leafActorsBound = bound;
+   }
+   
+   }// end namespace ph

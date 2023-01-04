@@ -1,0 +1,17 @@
+.. _exhale_struct_structph_1_1_t_photon_center_calculator:
+
+Template Struct TPhotonCenterCalculator
+=======================================
+
+- Defined in :ref:`file_Source_Core_Renderer_PM_TPhotonMap.h`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: ph::TPhotonCenterCalculator
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

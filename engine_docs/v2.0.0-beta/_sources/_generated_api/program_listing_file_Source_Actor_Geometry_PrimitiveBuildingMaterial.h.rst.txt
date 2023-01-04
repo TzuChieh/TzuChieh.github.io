@@ -1,0 +1,34 @@
+
+.. _program_listing_file_Source_Actor_Geometry_PrimitiveBuildingMaterial.h:
+
+Program Listing for File PrimitiveBuildingMaterial.h
+====================================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Actor_Geometry_PrimitiveBuildingMaterial.h>` (``Source\Actor\Geometry\PrimitiveBuildingMaterial.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Common/assertion.h"
+   
+   namespace ph
+   {
+   
+   class PrimitiveMetadata;
+   
+   class PrimitiveBuildingMaterial final
+   {
+   public:
+       PrimitiveMetadata* metadata;
+   
+       inline PrimitiveBuildingMaterial(PrimitiveMetadata* const metadata) : 
+           metadata(metadata)
+       {
+           PH_ASSERT(metadata != nullptr);
+       }
+   };
+   
+   }// end namespace ph

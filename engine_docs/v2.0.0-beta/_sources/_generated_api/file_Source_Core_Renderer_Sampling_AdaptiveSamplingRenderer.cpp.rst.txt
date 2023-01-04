@@ -1,0 +1,78 @@
+
+.. _file_Source_Core_Renderer_Sampling_AdaptiveSamplingRenderer.cpp:
+
+File AdaptiveSamplingRenderer.cpp
+=================================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Renderer\Sampling\AdaptiveSamplingRenderer.cpp``)
+---------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Renderer_Sampling_AdaptiveSamplingRenderer.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/Estimator/Integrand.h``
+
+- ``Core/Filmic/HdrRgbFilm.h``
+
+- ``Core/Ray.h``
+
+- ``Core/Renderer/RenderWork.h``
+
+- ``Core/Renderer/RenderWorker.h``
+
+- ``Core/Renderer/RendererProxy.h``
+
+- ``Core/Renderer/Sampling/AdaptiveSamplingRenderer.h``
+
+- ``Core/SampleGenerator/SampleGenerator.h``
+
+- ``EngineEnv/CoreCookedUnit.h``
+
+- ``Utility/Concurrent/FixedSizeThreadPool.h``
+
+- ``Utility/utility.h``
+
+- ``World/VisualWorld.h``
+
+- ``chrono``
+
+- ``cmath``
+
+- ``functional``
+
+- ``iostream``
+
+- ``thread``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+- ``vector``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

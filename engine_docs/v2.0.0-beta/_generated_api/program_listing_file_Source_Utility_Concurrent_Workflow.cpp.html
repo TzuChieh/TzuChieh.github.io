@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File Workflow.cpp &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File Workflow.cpp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Utility_Concurrent_Workflow.cpp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-workflow-cpp">
+<span id="program-listing-file-source-utility-concurrent-workflow-cpp"></span><h1>Program Listing for File Workflow.cpp<a class="headerlink" href="#program-listing-for-file-workflow-cpp" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Utility_Concurrent_Workflow.cpp.html#file-source-utility-concurrent-workflow-cpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Utility\Concurrent\Workflow.cpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Utility/Concurrent/Workflow.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/assertion.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Utility/Concurrent/FixedSizeThreadPool.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/logging.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/primitive_type.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdexcept&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;algorithm&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;format&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="n">PH_DEFINE_INTERNAL_LOG_GROUP</span><span class="p">(</span><span class="n">Workflow</span><span class="p">,</span><span class="w"> </span><span class="n">Concurrent</span><span class="p">);</span>
+
+<span class="n">Workflow</span><span class="o">::</span><span class="n">WorkHandle</span><span class="o">::</span><span class="n">WorkHandle</span><span class="p">()</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">WorkHandle</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">-1</span><span class="p">),</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span>
+<span class="p">{}</span>
+
+<span class="n">Workflow</span><span class="o">::</span><span class="n">WorkHandle</span><span class="o">::</span><span class="n">WorkHandle</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">workId</span><span class="p">,</span><span class="w"> </span><span class="n">Workflow</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">workflow</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">m_workId</span><span class="p">(</span><span class="n">workId</span><span class="p">),</span><span class="w"> </span><span class="n">m_workflow</span><span class="p">(</span><span class="n">workflow</span><span class="p">)</span>
+<span class="p">{}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">Workflow</span><span class="o">::</span><span class="n">WorkHandle</span><span class="o">::</span><span class="n">runsBefore</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">WorkHandle</span><span class="w"> </span><span class="n">succeedingWork</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">m_workflow</span><span class="p">);</span>
+<span class="w">    </span><span class="n">m_workflow</span><span class="o">-&gt;</span><span class="n">dependsOn</span><span class="p">(</span><span class="n">succeedingWork</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">Workflow</span><span class="o">::</span><span class="n">WorkHandle</span><span class="o">::</span><span class="n">runsAfter</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">WorkHandle</span><span class="w"> </span><span class="n">preceedingWork</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">m_workflow</span><span class="p">);</span>
+<span class="w">    </span><span class="n">m_workflow</span><span class="o">-&gt;</span><span class="n">dependsOn</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">preceedingWork</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">Workflow</span><span class="o">::</span><span class="n">ManagedWork</span><span class="o">::</span><span class="n">ManagedWork</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">WorkHandle</span><span class="w"> </span><span class="n">handle</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">m_handle</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">m_handle</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">Workflow</span><span class="o">::</span><span class="n">ManagedWork</span><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">m_handle</span><span class="p">.</span><span class="n">getWorkflow</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">m_workDoneFlags</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w">  </span><span class="n">workId</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="n">m_handle</span><span class="p">.</span><span class="n">getWorkId</span><span class="p">();</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">idToDependencyIds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_handle</span><span class="p">.</span><span class="n">getWorkflow</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">m_idToDependencyIds</span><span class="p">;</span>
+<span class="w">    </span><span class="k">auto</span><span class="o">&amp;</span><span class="w">       </span><span class="n">workDoneFlags</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="n">m_handle</span><span class="p">.</span><span class="n">getWorkflow</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">m_workDoneFlags</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Wait for all dependencies to finish first</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">dependencyId</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">idToDependencyIds</span><span class="p">[</span><span class="n">workId</span><span class="p">])</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">workDoneFlags</span><span class="p">[</span><span class="n">dependencyId</span><span class="p">].</span><span class="n">wait</span><span class="p">(</span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_acquire</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">workDoneFlags</span><span class="p">[</span><span class="n">dependencyId</span><span class="p">].</span><span class="n">test</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_relaxed</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// All depending works are done--now we can do this work</span>
+<span class="w">    </span><span class="n">m_handle</span><span class="p">.</span><span class="n">getWorkflow</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">m_works</span><span class="p">[</span><span class="n">workId</span><span class="p">]();</span>
+
+<span class="w">    </span><span class="c1">// Signify this work is done so works depending on it will not wait/block</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">hasAlreadyDone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">workDoneFlags</span><span class="p">[</span><span class="n">workId</span><span class="p">].</span><span class="n">test_and_set</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_release</span><span class="p">);</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="o">!</span><span class="n">hasAlreadyDone</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Notify all works that are already waiting so they can unwait/unblock</span>
+<span class="w">    </span><span class="n">workDoneFlags</span><span class="p">[</span><span class="n">workId</span><span class="p">].</span><span class="n">notify_all</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="n">Workflow</span><span class="o">::</span><span class="n">Workflow</span><span class="p">()</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">Workflow</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">{}</span>
+
+<span class="n">Workflow</span><span class="o">::</span><span class="n">Workflow</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">numExpectedWorks</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">m_works</span><span class="p">(),</span><span class="w"> </span><span class="n">m_idToDependencyIds</span><span class="p">(),</span><span class="w"> </span><span class="n">m_workDoneFlags</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_idToDependencyIds</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="n">numExpectedWorks</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">//m_idToDependencyIds.reserve(std::max&lt;std::size_t&gt;(numExpectedWorks, 128));</span>
+<span class="p">}</span>
+
+<span class="n">Workflow</span><span class="o">::</span><span class="n">WorkHandle</span><span class="w"> </span><span class="n">Workflow</span><span class="o">::</span><span class="n">addWork</span><span class="p">(</span><span class="n">Work</span><span class="w"> </span><span class="n">work</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">work</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">invalid_argument</span><span class="p">(</span><span class="s">&quot;provided work is empty&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">m_works</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">work</span><span class="p">));</span>
+<span class="w">    </span><span class="n">m_idToDependencyIds</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">());</span>
+<span class="w">    </span><span class="n">PH_ASSERT_EQ</span><span class="p">(</span><span class="n">m_works</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span><span class="w"> </span><span class="n">m_idToDependencyIds</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">WorkHandle</span><span class="p">(</span><span class="n">m_works</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">Workflow</span><span class="o">::</span><span class="n">WorkHandle</span><span class="w"> </span><span class="n">Workflow</span><span class="o">::</span><span class="n">acquireWork</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">workIndex</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">workIndex</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">numWorks</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">out_of_range</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;work index {} out of range [0, {})&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">workIndex</span><span class="p">,</span><span class="w"> </span><span class="n">numWorks</span><span class="p">()));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">WorkHandle</span><span class="p">(</span><span class="n">workIndex</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">Workflow</span><span class="o">::</span><span class="n">dependsOn</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">WorkHandle</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">WorkHandle</span><span class="w"> </span><span class="n">targetDependency</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">ensureValidWorkHandle</span><span class="p">(</span><span class="n">target</span><span class="p">);</span>
+<span class="w">    </span><span class="n">ensureValidWorkHandle</span><span class="p">(</span><span class="n">targetDependency</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">PH_ASSERT_LT</span><span class="p">(</span><span class="n">target</span><span class="p">.</span><span class="n">getWorkId</span><span class="p">(),</span><span class="w"> </span><span class="n">m_idToDependencyIds</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+<span class="w">    </span><span class="n">m_idToDependencyIds</span><span class="p">[</span><span class="n">target</span><span class="p">.</span><span class="n">getWorkId</span><span class="p">()].</span><span class="n">push_back</span><span class="p">(</span><span class="n">targetDependency</span><span class="p">.</span><span class="n">getWorkId</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">Workflow</span><span class="o">::</span><span class="n">runAndWaitAllWorks</span><span class="p">(</span><span class="n">FixedSizeThreadPool</span><span class="o">&amp;</span><span class="w"> </span><span class="n">workers</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">startWorkflow</span><span class="p">();</span>
+
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">workDispatchOrder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">determineDispatchOrderFromTopologicalSort</span><span class="p">();</span>
+<span class="w">        </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">workDispatchOrder</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numWorks</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">order</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">workId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">workDispatchOrder</span><span class="p">[</span><span class="n">order</span><span class="p">];</span>
+<span class="w">            </span><span class="n">workers</span><span class="p">.</span><span class="n">queueWork</span><span class="p">(</span><span class="n">ManagedWork</span><span class="p">(</span><span class="n">WorkHandle</span><span class="p">(</span><span class="n">workId</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">)));</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">workers</span><span class="p">.</span><span class="n">waitAllWorks</span><span class="p">();</span>
+
+<span class="w">    </span><span class="cm">/* Note: Do not wait on each flags here like this `m_workDoneFlags[workId].wait(false);` as</span>
+<span class="cm">    currently the flags are set before `notify_all`, we may not actually wait at all and deallocate</span>
+<span class="cm">    the flag buffer, which may cause the call to `notify_all` in the work to crash.</span>
+<span class="cm">    */</span>
+
+<span class="w">    </span><span class="n">finishWorkflow</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">Workflow</span><span class="o">::</span><span class="n">numWorks</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_works</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">Workflow</span><span class="o">::</span><span class="n">ensureValidWorkHandle</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">WorkHandle</span><span class="w"> </span><span class="n">work</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">work</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">work</span><span class="p">.</span><span class="n">getWorkflow</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">this</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">invalid_argument</span><span class="p">(</span><span class="s">&quot;invalid work handle detected&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">Workflow</span><span class="o">::</span><span class="n">startWorkflow</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Workflow must had been finished</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="o">!</span><span class="n">m_workDoneFlags</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">m_workDoneFlags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">atomic_flag</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">(</span><span class="n">numWorks</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">Workflow</span><span class="o">::</span><span class="n">finishWorkflow</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Workflow must had been started</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">m_workDoneFlags</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// We do not need the flags anymore, release memory</span>
+<span class="w">    </span><span class="n">m_workDoneFlags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">[]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Workflow</span><span class="o">::</span><span class="n">determineDispatchOrderFromTopologicalSort</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT_EQ</span><span class="p">(</span><span class="n">m_idToDependencyIds</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span><span class="w"> </span><span class="n">numWorks</span><span class="p">());</span>
+
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">Workflow</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;building dispatch order from DAG for {} works&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">numWorks</span><span class="p">());</span>
+
+<span class="w">    </span><span class="c1">// Builds a DAG by reversing the dependency lists</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">workDAG</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">(</span><span class="n">numWorks</span><span class="p">());</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">dependencyCounts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">int64</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">(</span><span class="n">numWorks</span><span class="p">());</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">maxDependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">workId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">workId</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numWorks</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">workId</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_idToDependencyIds</span><span class="p">[</span><span class="n">workId</span><span class="p">];</span>
+
+<span class="w">            </span><span class="n">maxDependencies</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="n">dependencies</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span><span class="w"> </span><span class="n">maxDependencies</span><span class="p">);</span>
+<span class="w">            </span><span class="n">dependencyCounts</span><span class="p">[</span><span class="n">workId</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dependencies</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+
+<span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">dependencyId</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">dependencies</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">dependencyId</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">workId</span><span class="p">)</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">PH_LOG_WARNING</span><span class="p">(</span><span class="n">Workflow</span><span class="p">,</span>
+<span class="w">                        </span><span class="s">&quot;work-{} depends on itself, ignoring the dependency&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">workId</span><span class="p">);</span>
+<span class="w">                    </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+
+<span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">dependencyId</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">numWorks</span><span class="p">())</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">PH_LOG_WARNING</span><span class="p">(</span><span class="n">Workflow</span><span class="p">,</span>
+<span class="w">                        </span><span class="s">&quot;work-{} referenced work-{} which is not tracked by the current Workflow, ignoring the dependency&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">workId</span><span class="p">,</span><span class="w"> </span><span class="n">dependencyId</span><span class="p">);</span>
+<span class="w">                    </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+
+<span class="w">                </span><span class="c1">// Must have no self dependency</span>
+<span class="w">                </span><span class="n">PH_ASSERT_NE</span><span class="p">(</span><span class="n">workId</span><span class="p">,</span><span class="w"> </span><span class="n">dependencyId</span><span class="p">);</span>
+
+<span class="w">                </span><span class="c1">// Record that &lt;workId&gt; depends on &lt;dependencyId&gt; in DAG</span>
+<span class="w">                </span><span class="n">workDAG</span><span class="p">[</span><span class="n">dependencyId</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">workId</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">Workflow</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;DAG building done, max dependencies/degree = {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">maxDependencies</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="c1">// end DAG building</span>
+
+<span class="w">    </span><span class="c1">// Start topological sorting by finding works without any dependency</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">queue</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">independentWorkIds</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">workId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">workId</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numWorks</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">workId</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">dependencyCounts</span><span class="p">[</span><span class="n">workId</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">independentWorkIds</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">workId</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">Workflow</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;{} works are already independent&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">independentWorkIds</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+
+<span class="w">    </span><span class="c1">// Main topological sorting that produces a valid work dispatch order</span>
+<span class="w">    </span><span class="k">auto</span><span class="w">        </span><span class="n">workDispatchOrder</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">(</span><span class="n">numWorks</span><span class="p">());</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">numDispatchedWorks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">independentWorkIds</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">independentWorkId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">independentWorkIds</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+<span class="w">        </span><span class="n">independentWorkIds</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">workDispatchOrder</span><span class="p">[</span><span class="n">numDispatchedWorks</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">independentWorkId</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1">// Mark the work as dispatched</span>
+<span class="w">        </span><span class="n">PH_ASSERT_EQ</span><span class="p">(</span><span class="n">dependencyCounts</span><span class="p">[</span><span class="n">independentWorkId</span><span class="p">],</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="n">dependencyCounts</span><span class="p">[</span><span class="n">independentWorkId</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1">// Update the dependency count for works depending on the dispatched work</span>
+<span class="w">        </span><span class="c1">// (remove dependency &quot;edge&quot;)</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">dependingWorkIds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">workDAG</span><span class="p">[</span><span class="n">independentWorkId</span><span class="p">];</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">dependingWorkId</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">dependingWorkIds</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">PH_ASSERT_GT</span><span class="p">(</span><span class="n">dependencyCounts</span><span class="p">[</span><span class="n">dependingWorkId</span><span class="p">],</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">            </span><span class="n">dependencyCounts</span><span class="p">[</span><span class="n">dependingWorkId</span><span class="p">]</span><span class="o">--</span><span class="p">;</span>
+
+<span class="w">            </span><span class="c1">// If the depending work is now independent, queue it for next dispatchment</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">dependencyCounts</span><span class="p">[</span><span class="n">dependingWorkId</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">independentWorkIds</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">dependingWorkId</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Now a dispatch order that satisfies the dependencies between all works is established.</span>
+<span class="w">    </span><span class="c1">// We check each work&#39;s dependency count to see if there is any error.</span>
+
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">workId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">workId</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numWorks</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">workId</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">dependencyCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dependencyCounts</span><span class="p">[</span><span class="n">workId</span><span class="p">];</span>
+<span class="w">        </span><span class="n">PH_ASSERT_NE</span><span class="p">(</span><span class="n">dependencyCount</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">dependencyCount</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">PH_LOG_WARNING</span><span class="p">(</span><span class="n">Workflow</span><span class="p">,</span>
+<span class="w">                </span><span class="s">&quot;possible cyclic dependency detected: work-{} has {} dependencies that cannot be resolved&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="n">workId</span><span class="p">,</span><span class="w"> </span><span class="n">dependencyCount</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">numDispatchedWorks</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">numWorks</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;dispatched {} works while there are {} in total&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">numDispatchedWorks</span><span class="p">,</span><span class="w"> </span><span class="n">numWorks</span><span class="p">()));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">workDispatchOrder</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

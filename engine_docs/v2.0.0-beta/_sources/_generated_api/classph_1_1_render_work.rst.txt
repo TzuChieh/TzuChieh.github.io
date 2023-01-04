@@ -1,0 +1,30 @@
+.. _exhale_class_classph_1_1_render_work:
+
+Class RenderWork
+================
+
+- Defined in :ref:`file_Source_Core_Renderer_RenderWork.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Types
+*************
+
+- ``public ph::TRadianceEvaluationWork< FullPhoton >`` (:ref:`exhale_class_classph_1_1_t_radiance_evaluation_work`)
+- ``public ph::ReceiverSamplingWork`` (:ref:`exhale_class_classph_1_1_receiver_sampling_work`)
+- ``public ph::TPhotonMappingWork< Photon >`` (:ref:`exhale_class_classph_1_1_t_photon_mapping_work`)
+- ``public ph::TRadianceEvaluationWork< Photon >`` (:ref:`exhale_class_classph_1_1_t_radiance_evaluation_work`)
+- ``public ph::TViewPathTracingWork< ViewPathHandler >`` (:ref:`exhale_class_classph_1_1_t_view_path_tracing_work`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::RenderWork
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

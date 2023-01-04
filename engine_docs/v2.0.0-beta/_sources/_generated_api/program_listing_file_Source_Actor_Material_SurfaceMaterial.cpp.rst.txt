@@ -1,0 +1,30 @@
+
+.. _program_listing_file_Source_Actor_Material_SurfaceMaterial.cpp:
+
+Program Listing for File SurfaceMaterial.cpp
+============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Actor_Material_SurfaceMaterial.cpp>` (``Source\Actor\Material\SurfaceMaterial.cpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #include "Actor/Material/SurfaceMaterial.h"
+   #include "Common/assertion.h"
+   #include "Core/SurfaceBehavior/SurfaceBehavior.h"
+   #include "Core/Intersectable/PrimitiveMetadata.h"
+   
+   namespace ph
+   {
+   
+   SurfaceMaterial::SurfaceMaterial() = default;
+   
+   void SurfaceMaterial::genBehaviors(
+       ActorCookingContext& ctx,
+       PrimitiveMetadata&   metadata) const
+   {
+       genSurface(ctx, metadata.getSurface());
+   }
+   
+   }// end namespace ph

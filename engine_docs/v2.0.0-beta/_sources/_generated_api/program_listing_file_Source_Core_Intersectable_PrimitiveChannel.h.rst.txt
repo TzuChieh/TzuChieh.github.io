@@ -1,0 +1,37 @@
+
+.. _program_listing_file_Source_Core_Intersectable_PrimitiveChannel.h:
+
+Program Listing for File PrimitiveChannel.h
+===========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Core_Intersectable_PrimitiveChannel.h>` (``Source\Core\Intersectable\PrimitiveChannel.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Core/Intersectable/UvwMapper/UvwMapper.h"
+   
+   #include <memory>
+   
+   namespace ph
+   {
+   
+   class PrimitiveChannel final
+   {
+   public:
+       PrimitiveChannel();
+       explicit PrimitiveChannel(const std::shared_ptr<UvwMapper>& mapper);
+   
+       inline const UvwMapper* getMapper() const
+       {
+           return m_mapper.get();
+       }
+   
+   private:
+       std::shared_ptr<UvwMapper> m_mapper;
+   };
+   
+   }// end namespace ph

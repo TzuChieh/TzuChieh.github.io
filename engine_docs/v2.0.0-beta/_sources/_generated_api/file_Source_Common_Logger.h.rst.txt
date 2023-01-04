@@ -1,0 +1,65 @@
+
+.. _file_Source_Common_Logger.h:
+
+File Logger.h
+=============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Common\Logger.h``)
+---------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Common_Logger.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/ELogLevel.h``
+
+- ``functional``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+- ``string_view``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Common_Logger.cpp`
+
+- :ref:`file_Source_Common_logging.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_logger`
+

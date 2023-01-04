@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1detail_1_1core__logging_1a34aa46d94ec2c99715c7ff250b7925ca:
+
+Function ph::detail::core_logging::add_log_group
+================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::detail::core_logging::add_log_group(const std::string_view, const std::string_view)
+   :project: Photon

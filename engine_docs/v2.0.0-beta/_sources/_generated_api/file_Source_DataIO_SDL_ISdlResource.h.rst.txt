@@ -1,0 +1,69 @@
+
+.. _file_Source_DataIO_SDL_ISdlResource.h:
+
+File ISdlResource.h
+===================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\SDL\ISdlResource.h``)
+-------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_SDL_ISdlResource.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``DataIO/SDL/ETypeCategory.h``
+
+- ``DataIO/SDL/SdlResourceId.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlReference.ipp`
+
+- :ref:`file_Source_DataIO_SDL_ISdlResource.cpp`
+
+- :ref:`file_Source_DataIO_SDL_SceneDescription.h`
+
+- :ref:`file_Source_DataIO_SDL_sdl_interface.h`
+
+- :ref:`file_Source_DataIO_SDL_SdlReferenceResolver.cpp`
+
+- :ref:`file_Source_DataIO_SDL_SdlResourceBase.h`
+
+- :ref:`file_Source_DataIO_SDL_SdlWriter.cpp`
+
+- :ref:`file_Source_DataIO_SDL_TSdl.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_i_sdl_resource`
+

@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1ad70f4b84a56b15f96d640ee5dfe83c58:
+
+Template Function ph::math::sRGB_linear_to_nonlinear
+====================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::sRGB_linear_to_nonlinear(const TTristimulusValues<T>&)
+   :project: Photon

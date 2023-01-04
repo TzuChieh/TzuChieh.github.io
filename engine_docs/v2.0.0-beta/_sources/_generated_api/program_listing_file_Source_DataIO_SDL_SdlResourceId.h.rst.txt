@@ -1,0 +1,26 @@
+
+.. _program_listing_file_Source_DataIO_SDL_SdlResourceId.h:
+
+Program Listing for File SdlResourceId.h
+========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_DataIO_SDL_SdlResourceId.h>` (``Source\DataIO\SDL\SdlResourceId.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include <cstdint>
+   
+   namespace ph
+   {
+   
+   using SdlResourceId = std::uint64_t;
+   
+   inline constexpr SdlResourceId EMPTY_SDL_RESOURCE_ID = 0;
+   
+   SdlResourceId gen_sdl_resource_id();
+   
+   }// end namespace ph

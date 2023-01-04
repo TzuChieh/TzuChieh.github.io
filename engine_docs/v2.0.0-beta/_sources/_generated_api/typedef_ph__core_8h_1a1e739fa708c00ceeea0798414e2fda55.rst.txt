@@ -1,0 +1,14 @@
+.. _exhale_typedef_ph__core_8h_1a1e739fa708c00ceeea0798414e2fda55:
+
+Typedef PHfloat32
+=================
+
+- Defined in :ref:`file_Include_CEngine_ph_core.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: PHfloat32
+   :project: Photon

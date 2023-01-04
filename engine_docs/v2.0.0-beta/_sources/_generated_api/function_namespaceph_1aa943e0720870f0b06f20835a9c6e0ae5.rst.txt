@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1aa943e0720870f0b06f20835a9c6e0ae5:
+
+Function ph::PH_DEFINE_INTERNAL_LOG_GROUP(ExrFileReader, DataIO)
+================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_INTERNAL_LOG_GROUP(ExrFileReader, DataIO)
+   :project: Photon

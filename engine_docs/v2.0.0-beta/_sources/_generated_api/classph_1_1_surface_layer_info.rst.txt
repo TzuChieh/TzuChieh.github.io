@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_surface_layer_info:
+
+Class SurfaceLayerInfo
+======================
+
+- Defined in :ref:`file_Source_Actor_Material_Utility_SurfaceLayerInfo.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::SurfaceLayerInfo
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

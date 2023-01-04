@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1math_1_1_t_line_segment:
+
+Template Class TLineSegment
+===========================
+
+- Defined in :ref:`file_Source_Math_Geometry_TLineSegment.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::math::TLineSegment
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

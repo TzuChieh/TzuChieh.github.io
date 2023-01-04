@@ -1,0 +1,58 @@
+
+.. _file_Source_Actor_Geometry_GTriangle.cpp:
+
+File GTriangle.cpp
+==================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\Geometry\GTriangle.cpp``)
+----------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_Geometry_GTriangle.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/AModel.h``
+
+- ``Actor/Geometry/GTriangle.h``
+
+- ``Actor/Geometry/PrimitiveBuildingMaterial.h``
+
+- ``Common/assertion.h``
+
+- ``Core/Intersectable/PTriangle.h``
+
+- ``Core/Intersectable/PrimitiveMetadata.h``
+
+- ``Core/Intersectable/UvwMapper/UvwMapper.h``
+
+- ``Math/Geometry/TTriangle.h``
+
+- ``Math/math.h``
+
+- ``iostream``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

@@ -1,0 +1,14 @@
+.. _exhale_define__b_n_e_e_p_t_estimator_8cpp_1a889850cefc92062037b4628dcd1a2b0b:
+
+Define RAY_DELTA_DIST
+=====================
+
+- Defined in :ref:`file_Source_Core_Estimator_BNEEPTEstimator.cpp`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: RAY_DELTA_DIST
+   :project: Photon

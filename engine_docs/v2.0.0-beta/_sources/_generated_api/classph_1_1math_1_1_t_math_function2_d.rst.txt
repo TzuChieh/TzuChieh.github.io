@@ -1,0 +1,28 @@
+.. _exhale_class_classph_1_1math_1_1_t_math_function2_d:
+
+Template Class TMathFunction2D
+==============================
+
+- Defined in :ref:`file_Source_Math_Function_TMathFunction2D.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Types
+*************
+
+- ``public ph::math::TConstant2D< ValueType >`` (:ref:`exhale_class_classph_1_1math_1_1_t_constant2_d`)
+- ``public ph::math::TGaussian2D< ValueType >`` (:ref:`exhale_class_classph_1_1math_1_1_t_gaussian2_d`)
+- ``public ph::math::TMNCubic2D< ValueType >`` (:ref:`exhale_class_classph_1_1math_1_1_t_m_n_cubic2_d`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::math::TMathFunction2D
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

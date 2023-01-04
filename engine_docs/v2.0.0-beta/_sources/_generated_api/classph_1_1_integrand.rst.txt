@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_integrand:
+
+Class Integrand
+===============
+
+- Defined in :ref:`file_Source_Core_Estimator_Integrand.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::Integrand
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

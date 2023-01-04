@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_visual_world_info:
+
+Class VisualWorldInfo
+=====================
+
+- Defined in :ref:`file_Source_World_VisualWorldInfo.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::VisualWorldInfo
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

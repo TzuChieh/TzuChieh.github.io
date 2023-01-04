@@ -1,0 +1,46 @@
+
+.. _program_listing_file_Source_Core_Emitter_Query_DirectEnergySampleQuery.cpp:
+
+Program Listing for File DirectEnergySampleQuery.cpp
+====================================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Core_Emitter_Query_DirectEnergySampleQuery.cpp>` (``Source\Core\Emitter\Query\DirectEnergySampleQuery.cpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #include "Core/Emitter/Query/DirectEnergySampleQuery.h"
+   #include "Common/assertion.h"
+   
+   namespace ph
+   {
+   
+   DirectEnergySampleInput::DirectEnergySampleInput() :
+       targetPos(0)
+   {}
+   
+   void DirectEnergySampleInput::set(const math::Vector3R& targetPos)
+   {
+       this->targetPos = targetPos;
+   }
+   
+   DirectEnergySampleOutput::DirectEnergySampleOutput() :
+       emitPos     (0),
+       radianceLe  (0),
+       pdfW        (0),
+       srcPrimitive(nullptr)
+   {
+       PH_ASSERT(!(*this));
+   }
+   
+   DirectEnergySampleOutput::operator bool () const
+   {
+       return pdfW > 0;
+   }
+   
+   DirectEnergySampleQuery::DirectEnergySampleQuery() :
+       in(), out()
+   {}
+   
+   }// end namespace ph

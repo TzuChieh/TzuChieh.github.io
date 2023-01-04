@@ -1,0 +1,66 @@
+
+.. _file_Source_Actor_SDLExtension_image_loaders.h:
+
+File image_loaders.h
+====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\SDLExtension\image_loaders.h``)
+----------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_SDLExtension_image_loaders.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/SDLExtension/sdl_color_space_type.h``
+
+- ``Actor/SDLExtension/sdl_color_usage_type.h``
+
+- ``DataIO/FileSystem/Path.h``
+
+- ``Math/Color/Spectrum.h``
+
+- ``Math/TVector3.h``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_SDLExtension_image_loaders.cpp`
+
+- :ref:`file_Source_Actor_SDLExtension_TSdlSpectrum.h`
+
+- :ref:`file_Source_Actor_SDLExtension_TSdlUnifiedColorImage.h`
+
+- :ref:`file_Source_Actor_SDLExtension_TSdlUnifiedNumericImage.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__sdl`
+

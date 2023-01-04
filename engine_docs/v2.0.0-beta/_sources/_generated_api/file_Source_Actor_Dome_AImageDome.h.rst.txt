@@ -1,0 +1,69 @@
+
+.. _file_Source_Actor_Dome_AImageDome.h:
+
+File AImageDome.h
+=================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\Dome\AImageDome.h``)
+-----------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_Dome_AImageDome.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/ADome.h``
+
+- ``Core/Texture/TTexture.h``
+
+- ``DataIO/FileSystem/Path.h``
+
+- ``DataIO/SDL/sdl_interface.h``
+
+- ``Math/Color/Spectrum.h``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_ADome.cpp`
+
+- :ref:`file_Source_Actor_Dome_AImageDome.cpp`
+
+- :ref:`file_Source_Api_init_and_exit.cpp`
+
+- :ref:`file_Source_Api_ph_cpp_core.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_a_image_dome`
+

@@ -1,0 +1,31 @@
+
+.. _program_listing_file_Source_Actor_LightSource_LightSource.cpp:
+
+Program Listing for File LightSource.cpp
+========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Actor_LightSource_LightSource.cpp>` (``Source\Actor\LightSource\LightSource.cpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #include "Actor/LightSource/LightSource.h"
+   #include "Actor/Geometry/Geometry.h"
+   #include "Actor/Material/MatteOpaque.h"
+   
+   namespace ph
+   {
+   
+   std::shared_ptr<Geometry> LightSource::genGeometry(ActorCookingContext& ctx) const
+   {
+       return nullptr;
+   }
+   
+   std::shared_ptr<Material> LightSource::genMaterial(ActorCookingContext& ctx) const
+   {
+       const math::Vector3R linearSrgbAlbedo(0.5_r);
+       return std::make_shared<MatteOpaque>(linearSrgbAlbedo);
+   }
+   
+   }// end namespace ph

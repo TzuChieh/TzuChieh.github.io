@@ -1,0 +1,14 @@
+.. _exhale_define_stats_8h_1a4c108dd4df518ee68ae37a84b3f5a9d7:
+
+Define PH_DEFINE_EXTERNAL_TIMER_STAT
+====================================
+
+- Defined in :ref:`file_Source_Common_stats.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: PH_DEFINE_EXTERNAL_TIMER_STAT
+   :project: Photon

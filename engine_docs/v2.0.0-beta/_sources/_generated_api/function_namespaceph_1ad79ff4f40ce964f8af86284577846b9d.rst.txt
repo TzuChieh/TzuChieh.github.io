@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1ad79ff4f40ce964f8af86284577846b9d:
+
+Function ph::PH_DEFINE_INTERNAL_LOG_GROUP(IesData, DataIO)
+==========================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_INTERNAL_LOG_GROUP(IesData, DataIO)
+   :project: Photon

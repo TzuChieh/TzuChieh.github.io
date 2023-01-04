@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_cooked_data_storage:
+
+Class CookedDataStorage
+=======================
+
+- Defined in :ref:`file_Source_Actor_CookedDataStorage.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::CookedDataStorage
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

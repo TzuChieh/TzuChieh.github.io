@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1a0c2373ae6879d917ab66bd42e199d245:
+
+Template Function ph::math::shuffle_durstenfeld
+===============================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::shuffle_durstenfeld(RandomIterator, RandomIterator, Swapper)
+   :project: Photon

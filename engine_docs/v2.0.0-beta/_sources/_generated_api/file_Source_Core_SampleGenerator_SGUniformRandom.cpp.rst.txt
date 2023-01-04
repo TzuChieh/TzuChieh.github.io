@@ -1,0 +1,50 @@
+
+.. _file_Source_Core_SampleGenerator_SGUniformRandom.cpp:
+
+File SGUniformRandom.cpp
+========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SampleGenerator\SGUniformRandom.cpp``)
+----------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SampleGenerator_SGUniformRandom.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/Filmic/Film.h``
+
+- ``Core/Sample.h``
+
+- ``Core/SampleGenerator/SGUniformRandom.h``
+
+- ``Math/Random.h``
+
+- ``iostream``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

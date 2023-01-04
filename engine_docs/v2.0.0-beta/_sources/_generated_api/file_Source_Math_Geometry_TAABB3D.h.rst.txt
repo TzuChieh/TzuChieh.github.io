@@ -1,0 +1,113 @@
+
+.. _file_Source_Math_Geometry_TAABB3D.h:
+
+File TAABB3D.h
+==============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\Geometry\TAABB3D.h``)
+-----------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_Geometry_TAABB3D.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/primitive_type.h``
+
+- ``Math/Geometry/TAABB3D.ipp``
+
+- ``Math/Geometry/TLineSegment.h``
+
+- ``Math/TVector3.h``
+
+- ``Math/constant.h``
+
+- ``Math/math.h``
+
+- ``array``
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Intersectable_BruteForceIntersector.cpp`
+
+- :ref:`file_Source_Core_Intersectable_Bvh_BvhBuilder.cpp`
+
+- :ref:`file_Source_Core_Intersectable_Bvh_BvhBuilder.h`
+
+- :ref:`file_Source_Core_Intersectable_Bvh_BvhInfoNode.h`
+
+- :ref:`file_Source_Core_Intersectable_Bvh_BvhIntersectableInfo.h`
+
+- :ref:`file_Source_Core_Intersectable_Bvh_BvhLinearNode.h`
+
+- :ref:`file_Source_Core_Intersectable_Bvh_ClassicBvhIntersector.cpp`
+
+- :ref:`file_Source_Core_Intersectable_Intersectable.cpp`
+
+- :ref:`file_Source_Core_Intersectable_Intersectable.h`
+
+- :ref:`file_Source_Core_Intersectable_Kdtree_KdtreeAABB.h`
+
+- :ref:`file_Source_Core_Intersectable_PBasicSphere.cpp`
+
+- :ref:`file_Source_Core_Intersectable_PEmpty.h`
+
+- :ref:`file_Source_Core_Intersectable_Primitive.h`
+
+- :ref:`file_Source_Core_Intersectable_PTriangle.cpp`
+
+- :ref:`file_Source_Core_Intersectable_TransformedIntersectable.cpp`
+
+- :ref:`file_Source_Math_Algorithm_IndexedKdtree_TIndexedKdtree.h`
+
+- :ref:`file_Source_Math_Algorithm_IndexedKdtree_TIndexedPointKdtree.h`
+
+- :ref:`file_Source_Math_Geometry_TAABB3D.ipp`
+
+- :ref:`file_Source_Math_Geometry_TBasicTriangle.h`
+
+- :ref:`file_Source_Math_Transform_Transform.h`
+
+- :ref:`file_Source_World_VisualWorld.h`
+
+- :ref:`file_Source_World_VisualWorldInfo.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_a_a_b_b3_d`
+

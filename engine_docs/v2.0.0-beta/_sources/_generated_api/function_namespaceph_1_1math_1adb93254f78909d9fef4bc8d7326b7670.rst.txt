@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1adb93254f78909d9fef4bc8d7326b7670:
+
+Function ph::math::fast_sqrt
+============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::fast_sqrt(const float)
+   :project: Photon

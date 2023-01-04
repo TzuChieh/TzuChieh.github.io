@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_t_sorted_map:
+
+Template Class TSortedMap
+=========================
+
+- Defined in :ref:`file_Source_Utility_TSortedMap.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TSortedMap
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

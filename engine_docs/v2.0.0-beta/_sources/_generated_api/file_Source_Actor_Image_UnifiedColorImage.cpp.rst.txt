@@ -1,0 +1,44 @@
+
+.. _file_Source_Actor_Image_UnifiedColorImage.cpp:
+
+File UnifiedColorImage.cpp
+==========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\Image\UnifiedColorImage.cpp``)
+---------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_Image_UnifiedColorImage.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/Image/ConstantImage.h``
+
+- ``Actor/Image/UnifiedColorImage.h``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

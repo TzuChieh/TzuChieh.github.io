@@ -1,0 +1,67 @@
+
+.. _file_Source_DataIO_Stream_StdInputStream.h:
+
+File StdInputStream.h
+=====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\Stream\StdInputStream.h``)
+------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_Stream_StdInputStream.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``DataIO/FileSystem/Path.h``
+
+- ``DataIO/Stream/IInputStream.h``
+
+- ``istream``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_DataIO_Stream_BinaryFileInputStream.h`
+
+- :ref:`file_Source_DataIO_Stream_FormattedTextInputStream.h`
+
+- :ref:`file_Source_DataIO_Stream_StdInputStream.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_std_input_stream`
+

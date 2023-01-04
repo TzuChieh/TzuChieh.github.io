@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1a581a2171bd66b09c1e8fe0b1954f7bb6:
+
+Typedef ph::hiInteger
+=====================
+
+- Defined in :ref:`file_Source_Common_primitive_type.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::hiInteger
+   :project: Photon

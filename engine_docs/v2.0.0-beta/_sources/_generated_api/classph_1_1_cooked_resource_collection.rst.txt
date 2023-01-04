@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_cooked_resource_collection:
+
+Class CookedResourceCollection
+==============================
+
+- Defined in :ref:`file_Source_World_Foundation_CookedResourceCollection.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::CookedResourceCollection
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_math_image:
+
+Class MathImage
+===============
+
+- Defined in :ref:`file_Source_Actor_Image_MathImage.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::Image`` (:ref:`exhale_class_classph_1_1_image`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::MathImage
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_bsdf_pdf_input:
+
+Class BsdfPdfInput
+==================
+
+- Defined in :ref:`file_Source_Core_SurfaceBehavior_BsdfPdfQuery.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::BsdfPdfInput
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

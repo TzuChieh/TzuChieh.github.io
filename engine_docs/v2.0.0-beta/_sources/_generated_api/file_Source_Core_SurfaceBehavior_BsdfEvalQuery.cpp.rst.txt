@@ -1,0 +1,42 @@
+
+.. _file_Source_Core_SurfaceBehavior_BsdfEvalQuery.cpp:
+
+File BsdfEvalQuery.cpp
+======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SurfaceBehavior\BsdfEvalQuery.cpp``)
+--------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SurfaceBehavior_BsdfEvalQuery.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/SurfaceBehavior/BsdfEvalQuery.h``
+
+- ``Core/SurfaceBehavior/BsdfSampleQuery.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

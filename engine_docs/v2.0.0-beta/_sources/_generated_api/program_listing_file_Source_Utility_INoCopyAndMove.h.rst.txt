@@ -1,0 +1,31 @@
+
+.. _program_listing_file_Source_Utility_INoCopyAndMove.h:
+
+Program Listing for File INoCopyAndMove.h
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Utility_INoCopyAndMove.h>` (``Source\Utility\INoCopyAndMove.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   namespace ph
+   {
+   
+   class INoCopyAndMove
+   {
+   protected:
+       inline INoCopyAndMove() = default;
+       inline ~INoCopyAndMove() = default;
+   
+       INoCopyAndMove(INoCopyAndMove&& other) = delete;
+       INoCopyAndMove& operator = (INoCopyAndMove&& rhs) = delete;
+   
+       INoCopyAndMove(const INoCopyAndMove& other) = delete;
+       INoCopyAndMove& operator = (const INoCopyAndMove& rhs) = delete;
+   };
+   
+   }// end namespace ph

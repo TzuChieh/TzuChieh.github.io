@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_a_preetham_dome:
+
+Class APreethamDome
+===================
+
+- Defined in :ref:`file_Source_Actor_Dome_APreethamDome.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::ADome`` (:ref:`exhale_class_classph_1_1_a_dome`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::APreethamDome
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

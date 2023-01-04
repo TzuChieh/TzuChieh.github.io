@@ -1,0 +1,44 @@
+
+.. _file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_InterfaceStatistics.cpp:
+
+File InterfaceStatistics.cpp
+============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SurfaceBehavior\SurfaceOptics\LaurentBelcour\InterfaceStatistics.cpp``)
+-------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_InterfaceStatistics.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/SurfaceBehavior/SurfaceOptics/LaurentBelcour/InterfaceStatistics.h``
+
+- ``Core/SurfaceBehavior/SurfaceOptics/LaurentBelcour/conversions.h``
+
+- ``cmath``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

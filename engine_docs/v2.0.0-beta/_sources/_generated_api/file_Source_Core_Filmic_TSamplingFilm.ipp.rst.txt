@@ -1,0 +1,64 @@
+
+.. _file_Source_Core_Filmic_TSamplingFilm.ipp:
+
+File TSamplingFilm.ipp
+======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Filmic\TSamplingFilm.ipp``)
+-----------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Filmic_TSamplingFilm.ipp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/Filmic/SampleFilter.h``
+
+- ``Core/Filmic/TSamplingFilm.h``
+
+- ``Frame/TFrame.h``
+
+- ``Math/Function/TConstant2D.h``
+
+- ``Math/Function/TGaussian2D.h``
+
+- ``Math/TVector3.h``
+
+- ``algorithm``
+
+- ``cstddef``
+
+- ``iostream``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Filmic_TSamplingFilm.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

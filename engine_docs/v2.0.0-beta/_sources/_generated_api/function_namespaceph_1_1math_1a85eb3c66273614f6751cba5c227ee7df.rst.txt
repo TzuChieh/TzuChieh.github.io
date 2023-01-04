@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1a85eb3c66273614f6751cba5c227ee7df:
+
+Template Function ph::math::pick
+================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::pick(const T, const T)
+   :project: Photon

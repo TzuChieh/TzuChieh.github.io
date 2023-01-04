@@ -1,0 +1,85 @@
+
+.. _file_Source_EngineEnv_CoreCookedUnit.h:
+
+File CoreCookedUnit.h
+=====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\EngineEnv\CoreCookedUnit.h``)
+--------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_EngineEnv_CoreCookedUnit.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Math/Transform/Transform.h``
+
+- ``Utility/IMoveOnly.h``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Engine.h`
+
+- :ref:`file_Source_Core_Renderer_Attribute_AttributeRenderer.cpp`
+
+- :ref:`file_Source_Core_Renderer_PM_PMRenderer.cpp`
+
+- :ref:`file_Source_Core_Renderer_Renderer.cpp`
+
+- :ref:`file_Source_Core_Renderer_Sampling_AdaptiveSamplingRenderer.cpp`
+
+- :ref:`file_Source_Core_Renderer_Sampling_EqualSamplingRenderer.cpp`
+
+- :ref:`file_Source_EngineEnv_CoreCookedUnit.cpp`
+
+- :ref:`file_Source_EngineEnv_Observer_SingleLensObserver.cpp`
+
+- :ref:`file_Source_EngineEnv_SampleSource_HaltonSampleSource.cpp`
+
+- :ref:`file_Source_EngineEnv_SampleSource_StratifiedSampleSource.cpp`
+
+- :ref:`file_Source_EngineEnv_SampleSource_UniformRandomSampleSource.cpp`
+
+- :ref:`file_Source_EngineEnv_Visualizer_PathTracingVisualizer.cpp`
+
+- :ref:`file_Source_World_VisualWorld.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_core_cooked_unit`
+

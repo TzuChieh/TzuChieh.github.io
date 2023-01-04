@@ -1,0 +1,57 @@
+
+.. _file_Source_DataIO_SDL_SdlWriter.h:
+
+File SdlWriter.h
+================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\SDL\SdlWriter.h``)
+----------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_SDL_SdlWriter.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``DataIO/FileSystem/Path.h``
+
+- ``DataIO/SDL/SdlReferenceResolver.h``
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_DataIO_SDL_SdlWriter.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_sdl_writer`
+

@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_bvh_linear_node:
+
+Class BvhLinearNode
+===================
+
+- Defined in :ref:`file_Source_Core_Intersectable_Bvh_BvhLinearNode.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::BvhLinearNode
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

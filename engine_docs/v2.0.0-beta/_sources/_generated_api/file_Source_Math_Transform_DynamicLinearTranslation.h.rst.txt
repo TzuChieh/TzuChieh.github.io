@@ -1,0 +1,59 @@
+
+.. _file_Source_Math_Transform_DynamicLinearTranslation.h:
+
+File DynamicLinearTranslation.h
+===============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\Transform\DynamicLinearTranslation.h``)
+-----------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_Transform_DynamicLinearTranslation.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Math/TVector3.h``
+
+- ``Math/Transform/RigidTransform.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_MotionSource_ConstantVelocityMotion.cpp`
+
+- :ref:`file_Source_Math_Transform_DynamicLinearTranslation.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1math_1_1_dynamic_linear_translation`
+

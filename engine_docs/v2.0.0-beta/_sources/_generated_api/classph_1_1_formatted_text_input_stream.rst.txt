@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_formatted_text_input_stream:
+
+Class FormattedTextInputStream
+==============================
+
+- Defined in :ref:`file_Source_DataIO_Stream_FormattedTextInputStream.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::StdInputStream`` (:ref:`exhale_class_classph_1_1_std_input_stream`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::FormattedTextInputStream
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

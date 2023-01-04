@@ -1,0 +1,14 @@
+.. _exhale_variable_namespaceph_1_1string__utils_1_1table_1ae02d47c0acdea2eab4e7e9fec4e4874b:
+
+Variable ph::string_utils::table::standard_whitespaces
+======================================================
+
+- Defined in :ref:`file_Source_Utility_string_utils_table.h`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: ph::string_utils::table::standard_whitespaces
+   :project: Photon

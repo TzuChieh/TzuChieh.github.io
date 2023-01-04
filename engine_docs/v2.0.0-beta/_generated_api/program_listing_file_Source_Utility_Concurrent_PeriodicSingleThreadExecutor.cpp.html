@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File PeriodicSingleThreadExecutor.cpp &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File PeriodicSingleThreadExecutor.cpp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Utility_Concurrent_PeriodicSingleThreadExecutor.cpp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-periodicsinglethreadexecutor-cpp">
+<span id="program-listing-file-source-utility-concurrent-periodicsinglethreadexecutor-cpp"></span><h1>Program Listing for File PeriodicSingleThreadExecutor.cpp<a class="headerlink" href="#program-listing-for-file-periodicsinglethreadexecutor-cpp" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Utility_Concurrent_PeriodicSingleThreadExecutor.cpp.html#file-source-utility-concurrent-periodicsinglethreadexecutor-cpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Utility\Concurrent\PeriodicSingleThreadExecutor.cpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Utility/Concurrent/PeriodicSingleThreadExecutor.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/assertion.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Utility/Timer.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;utility&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;chrono&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="n">PeriodicSingleThreadExecutor</span><span class="o">::</span><span class="n">PeriodicSingleThreadExecutor</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">uint64</span><span class="w"> </span><span class="n">periodMs</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">m_worker</span><span class="w">                </span><span class="p">(),</span>
+<span class="w">    </span><span class="n">m_works</span><span class="w">                 </span><span class="p">(),</span>
+<span class="w">    </span><span class="n">m_executorMutex</span><span class="w">         </span><span class="p">(),</span>
+<span class="w">    </span><span class="n">m_workerCv</span><span class="w">              </span><span class="p">(),</span>
+<span class="w">    </span><span class="n">m_isWorking</span><span class="w">             </span><span class="p">(</span><span class="nb">false</span><span class="p">),</span>
+<span class="w">    </span><span class="n">m_isTerminationRequested</span><span class="p">(</span><span class="nb">false</span><span class="p">),</span>
+<span class="w">    </span><span class="n">m_periodMs</span><span class="w">              </span><span class="p">(</span><span class="n">periodMs</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_worker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="p">([</span><span class="k">this</span><span class="p">]()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">asyncProcessWork</span><span class="p">();</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+
+<span class="n">PeriodicSingleThreadExecutor</span><span class="o">::~</span><span class="n">PeriodicSingleThreadExecutor</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">requestTermination</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// Wait for the worker that were still processing to finish</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">m_worker</span><span class="p">.</span><span class="n">joinable</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">m_worker</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">PeriodicSingleThreadExecutor</span><span class="o">::</span><span class="n">addWork</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Work</span><span class="o">&amp;</span><span class="w"> </span><span class="n">work</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Exclusively access the work storage since it is also used by the worker thread</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">m_executorMutex</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="o">!</span><span class="n">m_isTerminationRequested</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">m_works</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">work</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">m_workerCv</span><span class="p">.</span><span class="n">notify_one</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">PeriodicSingleThreadExecutor</span><span class="o">::</span><span class="n">addWork</span><span class="p">(</span><span class="n">Work</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">work</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Exclusively access the work storage since it is also used by the worker thread</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">m_executorMutex</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="o">!</span><span class="n">m_isTerminationRequested</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">m_works</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">work</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">m_workerCv</span><span class="p">.</span><span class="n">notify_one</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">PeriodicSingleThreadExecutor</span><span class="o">::</span><span class="n">asyncProcessWork</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Timer</span><span class="w"> </span><span class="n">timer</span><span class="p">;</span>
+<span class="w">    </span><span class="n">timer</span><span class="p">.</span><span class="n">start</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">unique_lock</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">m_executorMutex</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Wait if the worker should not work; until being notified that the worker should work again</span>
+<span class="w">        </span><span class="n">m_workerCv</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="n">lock</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">this</span><span class="p">]()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">m_isWorking</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">m_isTerminationRequested</span><span class="p">;</span>
+<span class="w">        </span><span class="p">});</span>
+
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">m_isTerminationRequested</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Work</span><span class="o">&amp;</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">m_works</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">work</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// We are done using the work storage</span>
+<span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="n">unlock</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">timer</span><span class="p">.</span><span class="n">stop</span><span class="p">();</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">uint64</span><span class="w"> </span><span class="n">deltaMs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">timer</span><span class="p">.</span><span class="n">getDeltaMs</span><span class="p">();</span>
+<span class="w">        </span><span class="n">timer</span><span class="p">.</span><span class="n">start</span><span class="p">();</span>
+
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">uint64</span><span class="w"> </span><span class="n">periodMs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_periodMs</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_relaxed</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">periodMs</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">deltaMs</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="w"> </span><span class="nf">sleepTimeMs</span><span class="p">(</span><span class="n">periodMs</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">deltaMs</span><span class="p">);</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="n">sleepTimeMs</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// Current thread must own the lock before calling wait(2)</span>
+<span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="n">lock</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">PeriodicSingleThreadExecutor</span><span class="o">::</span><span class="n">pause</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">m_executorMutex</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="o">!</span><span class="n">m_isTerminationRequested</span><span class="p">);</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="o">!</span><span class="n">isWorkerThread</span><span class="p">());</span>
+
+<span class="w">    </span><span class="n">m_isWorking</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">PeriodicSingleThreadExecutor</span><span class="o">::</span><span class="n">resume</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">m_executorMutex</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="o">!</span><span class="n">m_isTerminationRequested</span><span class="p">);</span>
+<span class="w">        </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="o">!</span><span class="n">isWorkerThread</span><span class="p">());</span>
+
+<span class="w">        </span><span class="n">m_isWorking</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">m_workerCv</span><span class="p">.</span><span class="n">notify_one</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">PeriodicSingleThreadExecutor</span><span class="o">::</span><span class="n">requestTermination</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">m_executorMutex</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">m_isTerminationRequested</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">m_workerCv</span><span class="p">.</span><span class="n">notify_one</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

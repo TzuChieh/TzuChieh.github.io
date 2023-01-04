@@ -1,0 +1,111 @@
+
+.. _program_listing_file_Source_Math_Color_color_spaces.h:
+
+Program Listing for File color_spaces.h
+=======================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Math_Color_color_spaces.h>` (``Source\Math\Color\color_spaces.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Math/Color/color_enums.h"
+   #include "Math/Color/color_basics.h"
+   
+   #include <concepts>
+   #include <type_traits>
+   
+   namespace ph::math
+   {
+   
+   template<typename DefType>
+   concept CHasColorSpaceProperties = requires
+   {
+       { DefType::getColorSpace() } noexcept -> std::same_as<EColorSpace>;
+       { DefType::isTristimulus() } noexcept -> std::same_as<bool>;
+   };
+   
+   template<typename DefType, typename T>
+   concept CSupportsTristimulusConversions = requires (TTristimulusValues<T> thisColor, TTristimulusValues<T> CIEXYZColor)
+   {
+       { DefType::getReferenceWhite() } noexcept -> std::same_as<EReferenceWhite>;
+       { DefType::toCIEXYZ(thisColor) } -> std::same_as<TTristimulusValues<T>>;
+       { DefType::fromCIEXYZ(CIEXYZColor) } -> std::same_as<TTristimulusValues<T>>;
+   };
+   
+   template<typename DefType, typename T>
+   concept CSupportsSpectralConversions = requires (
+       TTristimulusValues<T>    boundColor, 
+       TSpectralSampleValues<T> sampleValues,
+       EColorUsage              usage)
+   {
+       { DefType::getBoundTristimulusColorSpace() } -> std::same_as<EColorSpace>;
+       { DefType::upSample(boundColor, usage) } -> std::same_as<TSpectralSampleValues<T>>;
+       { DefType::downSample(sampleValues, usage) } -> std::same_as<TTristimulusValues<T>>;
+   };
+   
+   template<typename DefType, typename T>
+   concept CTristimulusColorSpaceDefinition = 
+       CHasColorSpaceProperties<DefType> &&
+       CSupportsTristimulusConversions<DefType, T>;
+   
+   template<typename DefType, typename T>
+   concept CSpectralColorSpaceDefinition = 
+       CHasColorSpaceProperties<DefType> &&
+       CSupportsSpectralConversions<DefType, T>;
+   
+   template<typename DefType, typename T>
+   concept CColorSpaceDefinition = 
+       CTristimulusColorSpaceDefinition<DefType, T> ||
+       CSpectralColorSpaceDefinition<DefType, T>;
+   
+   template<EColorSpace COLOR_SPACE, typename T>
+   class TColorSpaceDefinition final
+   {
+       // Available color spaces must provide definition and thus should not end up here.
+       static_assert(COLOR_SPACE == EColorSpace::Unspecified || COLOR_SPACE == EColorSpace::NUM,
+           "No definition for the specified COLOR_SPACE.");
+   };
+   
+   template<EColorSpace COLOR_SPACE>
+   using TColorSpaceDef = TColorSpaceDefinition<COLOR_SPACE, ColorValue>;
+   
+   template<EColorSpace SRC_COLOR_SPACE, EColorSpace DST_COLOR_SPACE, typename T, EChromaticAdaptation ALGORITHM = EChromaticAdaptation::Default>
+   auto transform_color(const auto& srcColorValues, EColorUsage usage);
+   
+   template<EColorSpace SRC_COLOR_SPACE, typename T, EChromaticAdaptation ALGORITHM = EChromaticAdaptation::Default>
+   T relative_luminance(const auto& srcColorValues, EColorUsage usage = EColorUsage::EMR);
+   
+   template<EColorSpace SRC_COLOR_SPACE, typename T, EColorSpace SPECTRAL_COLOR_SPACE = EColorSpace::Spectral, EChromaticAdaptation ALGORITHM = EChromaticAdaptation::Default>
+   T estimate_color_energy(const auto& srcColorValues);
+   
+   template<EColorSpace SRC_COLOR_SPACE, typename T, EColorSpace SPECTRAL_COLOR_SPACE = EColorSpace::Spectral, EChromaticAdaptation ALGORITHM = EChromaticAdaptation::Default>
+   auto normalize_color_energy(const auto& srcColorValues);
+   
+   template<EColorSpace SRC_COLOR_SPACE, typename T, EColorSpace SPECTRAL_COLOR_SPACE = EColorSpace::Spectral, EChromaticAdaptation ALGORITHM = EChromaticAdaptation::Default>
+   auto put_color_energy(const auto& srcColorValues, T energyLevel);
+   
+   template<typename T>
+   TTristimulusValues<T> sRGB_nonlinear_to_linear(const TTristimulusValues<T>& nonlinearSRGB);
+   
+   template<typename T>
+   TTristimulusValues<T> sRGB_linear_to_nonlinear(const TTristimulusValues<T>& linearSRGB);
+   
+   template<EColorSpace DST_COLOR_SPACE, typename T>
+   auto transform_from_sRGB(const TTristimulusValues<T>& nonlinearSRGB, EColorUsage usage);
+   
+   template<EColorSpace DST_COLOR_SPACE, typename T>
+   auto transform_from_linear_sRGB(const TTristimulusValues<T>& linearSRGB, EColorUsage usage);
+   
+   template<EColorSpace SRC_COLOR_SPACE, typename T>
+   TTristimulusValues<T> transform_to_sRGB(const auto& srcColorValues, EColorUsage usage);
+   
+   template<EColorSpace SRC_COLOR_SPACE, typename T>
+   TTristimulusValues<T> transform_to_linear_sRGB(const auto& srcColorValues, EColorUsage usage);
+   
+   }// end namespace ph::math
+   
+   #include "Math/Color/color_spaces.ipp"

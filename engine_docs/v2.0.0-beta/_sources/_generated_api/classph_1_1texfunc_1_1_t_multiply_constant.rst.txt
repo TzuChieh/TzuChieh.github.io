@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1texfunc_1_1_t_multiply_constant:
+
+Template Class TMultiplyConstant
+================================
+
+- Defined in :ref:`file_Source_Core_Texture_Function_unary_texture_operators.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::texfunc::TMultiplyConstant
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,54 @@
+
+.. _file_Source_DataIO_SDL_SdlResourceId.h:
+
+File SdlResourceId.h
+====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\SDL\SdlResourceId.h``)
+--------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_SDL_SdlResourceId.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cstdint``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TOwnedSdlField.h`
+
+- :ref:`file_Source_DataIO_SDL_ISdlResource.h`
+
+- :ref:`file_Source_DataIO_SDL_SdlResourceBase.h`
+
+- :ref:`file_Source_DataIO_SDL_SdlResourceId.cpp`
+
+- :ref:`file_Source_World_Foundation_ResourceCookReport.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

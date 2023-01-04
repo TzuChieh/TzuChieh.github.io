@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_ies_attenuated_source:
+
+Class IesAttenuatedSource
+=========================
+
+- Defined in :ref:`file_Source_Actor_LightSource_IesAttenuatedSource.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::LightSource`` (:ref:`exhale_class_classph_1_1_light_source`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::IesAttenuatedSource
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

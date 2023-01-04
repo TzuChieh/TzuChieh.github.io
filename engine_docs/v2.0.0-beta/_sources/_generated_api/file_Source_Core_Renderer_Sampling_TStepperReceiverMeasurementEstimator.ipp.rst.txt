@@ -1,0 +1,48 @@
+
+.. _file_Source_Core_Renderer_Sampling_TStepperReceiverMeasurementEstimator.ipp:
+
+File TStepperReceiverMeasurementEstimator.ipp
+=============================================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Renderer\Sampling\TStepperReceiverMeasurementEstimator.ipp``)
+---------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Renderer_Sampling_TStepperReceiverMeasurementEstimator.ipp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/Estimator/IRayEnergyEstimator.h``
+
+- ``Core/Renderer/Sampling/TStepperReceiverMeasurementEstimator.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Renderer_Sampling_TStepperReceiverMeasurementEstimator.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

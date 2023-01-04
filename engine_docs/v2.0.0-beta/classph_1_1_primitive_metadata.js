@@ -11,5 +11,9 @@ var classph_1_1_primitive_metadata =
     [ "getSurface", "classph_1_1_primitive_metadata.html#a3c243778bac0a21de2f355fcfcba751f", null ],
     [ "getSurface", "classph_1_1_primitive_metadata.html#a0f2f70622f25f164934e8392d28f8730", null ],
     [ "isChannelIdValid", "classph_1_1_primitive_metadata.html#af9931650facab653646603c48356a9bb", null ],
-    [ "setChannel", "classph_1_1_primitive_metadata.html#a80d2d0639d59edaebf6474be0b194129", null ]
+    [ "setChannel", "classph_1_1_primitive_metadata.html#a80d2d0639d59edaebf6474be0b194129", null ],
+    [ "m_channels", "classph_1_1_primitive_metadata.html#ae38943e30f4aeb1118b6c43c5e7cba28", null ],
+    [ "m_exterior", "classph_1_1_primitive_metadata.html#af08d36c23bb70820b7a7cffc7d1c5dcf", null ],
+    [ "m_interior", "classph_1_1_primitive_metadata.html#ac6e520959b3b7269d1dc5b2a3a9dc3b3", null ],
+    [ "m_surface", "classph_1_1_primitive_metadata.html#a34ea5f9157127be53fb64852e2b2cf81", null ]
 ];

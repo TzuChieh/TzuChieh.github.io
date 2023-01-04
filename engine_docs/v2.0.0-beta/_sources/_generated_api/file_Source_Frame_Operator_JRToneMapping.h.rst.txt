@@ -1,0 +1,59 @@
+
+.. _file_Source_Frame_Operator_JRToneMapping.h:
+
+File JRToneMapping.h
+====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Frame\Operator\JRToneMapping.h``)
+------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Frame_Operator_JRToneMapping.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/primitive_type.h``
+
+- ``Frame/Operator/FrameOperator.h``
+
+- ``Math/Geometry/TAABB2D.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Engine.cpp`
+
+- :ref:`file_Source_Frame_Operator_JRToneMapping.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_j_r_tone_mapping`
+

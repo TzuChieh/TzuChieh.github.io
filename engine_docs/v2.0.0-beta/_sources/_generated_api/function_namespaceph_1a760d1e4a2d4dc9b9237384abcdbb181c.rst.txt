@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a760d1e4a2d4dc9b9237384abcdbb181c:
+
+Function ph::PH_DEFINE_SDL_ENUM(TBasicSdlEnum<EInterfaceMicrosurface>)
+======================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_SDL_ENUM(TBasicSdlEnum<EInterfaceMicrosurface>)
+   :project: Photon

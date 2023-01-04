@@ -1,0 +1,14 @@
+.. _exhale_variable_namespaceph_1_1math_1_1constant_1a49ad38be8f3ddda440960e50cb5376db:
+
+Variable ph::math::constant::MiB
+================================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: ph::math::constant::MiB
+   :project: Photon

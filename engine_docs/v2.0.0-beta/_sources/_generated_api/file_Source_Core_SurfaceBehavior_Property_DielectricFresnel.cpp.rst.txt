@@ -1,0 +1,46 @@
+
+.. _file_Source_Core_SurfaceBehavior_Property_DielectricFresnel.cpp:
+
+File DielectricFresnel.cpp
+==========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SurfaceBehavior\Property\DielectricFresnel.cpp``)
+---------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SurfaceBehavior_Property_DielectricFresnel.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/SurfaceBehavior/Property/DielectricFresnel.h``
+
+- ``algorithm``
+
+- ``cmath``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

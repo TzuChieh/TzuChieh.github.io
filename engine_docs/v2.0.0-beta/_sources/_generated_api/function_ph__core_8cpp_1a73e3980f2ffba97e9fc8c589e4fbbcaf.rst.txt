@@ -1,0 +1,14 @@
+.. _exhale_function_ph__core_8cpp_1a73e3980f2ffba97e9fc8c589e4fbbcaf:
+
+Function phAsyncGetRendererState(const PHuint64, struct PHRenderState \*const)
+==============================================================================
+
+- Defined in :ref:`file_Source_Api_ph_core.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: phAsyncGetRendererState(const PHuint64, struct PHRenderState *const)
+   :project: Photon

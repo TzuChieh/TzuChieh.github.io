@@ -1,0 +1,65 @@
+
+.. _file_Source_Core_SurfaceBehavior_Property_DielectricFresnel.h:
+
+File DielectricFresnel.h
+========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SurfaceBehavior\Property\DielectricFresnel.h``)
+-------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SurfaceBehavior_Property_DielectricFresnel.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/SurfaceBehavior/Property/FresnelEffect.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_SurfaceBehavior_Property_DielectricFresnel.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_Property_ExactDielectricFresnel.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_Property_SchlickApproxDielectricFresnel.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_IdealDielectric.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_IdealTransmitter.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_ThinDielectricFilm.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_TranslucentMicrofacet.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_dielectric_fresnel`
+

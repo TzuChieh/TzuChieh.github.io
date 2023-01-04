@@ -1,0 +1,32 @@
+.. _exhale_class_classph_1_1_partial_ray_energy_estimator:
+
+Class PartialRayEnergyEstimator
+===============================
+
+- Defined in :ref:`file_Source_Core_Estimator_PartialRayEnergyEstimator.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::IRayEnergyEstimator`` (:ref:`exhale_class_classph_1_1_i_ray_energy_estimator`)
+
+
+Derived Type
+************
+
+- ``public ph::BVPTDLEstimator`` (:ref:`exhale_class_classph_1_1_b_v_p_t_d_l_estimator`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::PartialRayEnergyEstimator
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

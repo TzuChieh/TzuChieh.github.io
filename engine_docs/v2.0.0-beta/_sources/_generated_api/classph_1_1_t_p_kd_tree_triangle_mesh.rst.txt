@@ -1,0 +1,37 @@
+.. _exhale_class_classph_1_1_t_p_kd_tree_triangle_mesh:
+
+Template Class TPKdTreeTriangleMesh
+===================================
+
+- Defined in :ref:`file_Source_Core_Intersectable_TPKdTreeTriangleMesh.h`
+
+
+Nested Relationships
+--------------------
+
+
+Nested Types
+************
+
+- :ref:`exhale_struct_structph_1_1_t_p_kd_tree_triangle_mesh_1_1_indexed_tri_faces`
+- :ref:`exhale_struct_structph_1_1_t_p_kd_tree_triangle_mesh_1_1_tri_face_a_a_b_b_calculator`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::Primitive`` (:ref:`exhale_class_classph_1_1_primitive`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TPKdTreeTriangleMesh
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

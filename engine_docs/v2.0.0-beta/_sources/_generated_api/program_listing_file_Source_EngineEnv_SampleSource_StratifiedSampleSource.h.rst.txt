@@ -1,0 +1,39 @@
+
+.. _program_listing_file_Source_EngineEnv_SampleSource_StratifiedSampleSource.h:
+
+Program Listing for File StratifiedSampleSource.h
+=================================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_EngineEnv_SampleSource_StratifiedSampleSource.h>` (``Source\EngineEnv\SampleSource\StratifiedSampleSource.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "EngineEnv/SampleSource/RuntimeSampleSource.h"
+   #include "DataIO/SDL/sdl_interface.h"
+   
+   namespace ph
+   {
+   
+   class StratifiedSampleSource : public RuntimeSampleSource
+   {
+   public:
+       inline StratifiedSampleSource() = default;
+   
+       void cook(const CoreCookingContext& ctx, CoreCookedUnit& cooked) override;
+   
+   public:
+       PH_DEFINE_SDL_CLASS(TOwnerSdlClass<StratifiedSampleSource>)
+       {
+           ClassType clazz("stratified");
+           clazz.docName("Stratified Sample Source");
+           clazz.description("Generating samples based on engine provided dimensional hints.");
+           clazz.baseOn<RuntimeSampleSource>();
+           return clazz;
+       }
+   };
+   
+   }// end namespace ph

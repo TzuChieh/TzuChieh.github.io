@@ -1,0 +1,42 @@
+
+.. _file_Source_Core_SurfaceBehavior_Property_ExactDielectricFresnel.cpp:
+
+File ExactDielectricFresnel.cpp
+===============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SurfaceBehavior\Property\ExactDielectricFresnel.cpp``)
+--------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SurfaceBehavior_Property_ExactDielectricFresnel.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/SurfaceBehavior/Property/ExactDielectricFresnel.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

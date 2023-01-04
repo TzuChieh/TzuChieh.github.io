@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_t_sdl_integer:
+
+Template Class TSdlInteger
+==========================
+
+- Defined in :ref:`file_Source_DataIO_SDL_Introspect_TSdlInteger.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::TSdlValue< integer, Owner >`` (:ref:`exhale_class_classph_1_1_t_sdl_value`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TSdlInteger
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

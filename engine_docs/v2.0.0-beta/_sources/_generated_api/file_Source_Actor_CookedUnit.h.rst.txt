@@ -1,0 +1,87 @@
+
+.. _file_Source_Actor_CookedUnit.h:
+
+File CookedUnit.h
+=================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\CookedUnit.h``)
+------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_CookedUnit.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/Emitter/Emitter.h``
+
+- ``Core/Intersectable/Intersectable.h``
+
+- ``Core/Intersectable/PrimitiveMetadata.h``
+
+- ``Math/Transform/Transform.h``
+
+- ``Utility/IMoveOnly.h``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_Actor.h`
+
+- :ref:`file_Source_Actor_ActorCookingContext.h`
+
+- :ref:`file_Source_Actor_ALight.cpp`
+
+- :ref:`file_Source_Actor_AModel.cpp`
+
+- :ref:`file_Source_Actor_APhantomModel.cpp`
+
+- :ref:`file_Source_Actor_ATransformedInstance.cpp`
+
+- :ref:`file_Source_Actor_CookedDataStorage.h`
+
+- :ref:`file_Source_Actor_CookedUnit.cpp`
+
+- :ref:`file_Source_Actor_ModelBuilder.cpp`
+
+- :ref:`file_Source_Actor_ModelBuilder.h`
+
+- :ref:`file_Source_World_VisualWorld.cpp`
+
+- :ref:`file_Source_World_VisualWorld.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_cooked_unit`
+

@@ -1,0 +1,26 @@
+
+.. _program_listing_file_Source_Core_ECoordSys.h:
+
+Program Listing for File ECoordSys.h
+====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Core_ECoordSys.h>` (``Source\Core\ECoordSys.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   namespace ph
+   {
+   
+   enum class ECoordSys : int
+   {
+       WORLD = 0,
+       LOCAL = 1,
+   
+       NUM_ELEMENTS = 2
+   };
+   
+   }// end namespace ph

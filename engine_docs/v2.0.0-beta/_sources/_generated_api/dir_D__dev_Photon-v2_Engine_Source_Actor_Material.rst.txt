@@ -1,0 +1,22 @@
+.. _dir_D__dev_Photon-v2_Engine_Source_Actor_Material:
+
+
+Directory Material
+==================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_D__dev_Photon-v2_Engine_Source_Actor>` (``D:\dev\Photon-v2\Engine\Source\Actor``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``D:\dev\Photon-v2\Engine\Source\Actor\Material``
+
+Subdirectories
+--------------
+
+- :ref:`dir_D__dev_Photon-v2_Engine_Source_Actor_Material_Utility`
+- :ref:`dir_D__dev_Photon-v2_Engine_Source_Actor_Material_Volume`
+
+
+

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File ph_cpp_core.cpp &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File ph_cpp_core.cpp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Api_ph_cpp_core.cpp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-ph-cpp-core-cpp">
+<span id="program-listing-file-source-api-ph-cpp-core-cpp"></span><h1>Program Listing for File ph_cpp_core.cpp<a class="headerlink" href="#program-listing-for-file-ph-cpp-core-cpp" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Api_ph_cpp_core.cpp.html#file-source-api-ph-cpp-core-cpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Api\ph_cpp_core.cpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;ph_cpp_core.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Api/init_and_exit.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/logging.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/config.h&quot;</span>
+
+<span class="c1">// Geometries</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Geometry/Geometry.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Geometry/GSphere.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Geometry/GRectangle.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Geometry/GTriangle.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Geometry/GTriangleMesh.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Geometry/GMengerSponge.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Geometry/GCuboid.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Geometry/GEmpty.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Geometry/GeometrySoup.h&quot;</span>
+
+<span class="c1">// Materials</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Material/Material.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Material/MatteOpaque.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Material/AbradedOpaque.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Material/AbradedTranslucent.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Material/IdealSubstance.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Material/BinaryMixedSurfaceMaterial.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Material/FullMaterial.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Material/Volume/VAbsorptionOnly.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Material/LayeredSurface.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Material/ThinFilm.h&quot;</span>
+
+<span class="c1">// Light Sources</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/LightSource/LightSource.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/LightSource/ModelSource.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/LightSource/AreaSource.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/LightSource/PointSource.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/LightSource/SphereSource.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/LightSource/RectangleSource.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/LightSource/IesAttenuatedSource.h&quot;</span>
+
+<span class="c1">// Motions</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/MotionSource/MotionSource.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/MotionSource/ConstantVelocityMotion.h&quot;</span>
+
+<span class="c1">// Images</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Image/Image.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Image/ConstantImage.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Image/RasterImageBase.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Image/RasterFileImage.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Image/ConstantImage.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Image/MathImage.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Image/CheckerboardImage.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Image/GradientImage.h&quot;</span>
+
+<span class="c1">// Observers</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;EngineEnv/Observer/Observer.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;EngineEnv/Observer/OrientedRasterObserver.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;EngineEnv/Observer/SingleLensObserver.h&quot;</span>
+
+<span class="c1">// Sample Sources</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;EngineEnv/SampleSource/SampleSource.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;EngineEnv/SampleSource/RuntimeSampleSource.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;EngineEnv/SampleSource/UniformRandomSampleSource.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;EngineEnv/SampleSource/StratifiedSampleSource.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;EngineEnv/SampleSource/HaltonSampleSource.h&quot;</span>
+
+<span class="c1">// Visualizers</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;EngineEnv/Visualizer/Visualizer.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;EngineEnv/Visualizer/FrameVisualizer.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;EngineEnv/Visualizer/PathTracingVisualizer.h&quot;</span>
+
+<span class="c1">// Options</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;DataIO/Option.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;EngineEnv/Session/RenderSession.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;EngineEnv/Session/SingleFrameRenderSession.h&quot;</span>
+
+<span class="c1">// Actors</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Actor.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/PhysicalActor.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/AModel.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/ALight.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/ADome.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/APhantomModel.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/ATransformedInstance.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Dome/AImageDome.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Dome/APreethamDome.h&quot;</span>
+
+<span class="c1">// Enums</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;EngineEnv/sdl_accelerator_type.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;EngineEnv/Visualizer/sdl_ray_energy_estimator_type.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;EngineEnv/Visualizer/sdl_sample_filter_type.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;EngineEnv/Visualizer/sdl_scheduler_type.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Image/sdl_image_enums.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/SDLExtension/sdl_color_space_type.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/SDLExtension/sdl_color_usage_type.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Material/Utility/EInterfaceFresnel.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Material/Utility/EInterfaceMicrosurface.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Material/Utility/ERoughnessToAlpha.h&quot;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="n">PH_DEFINE_INTERNAL_LOG_GROUP</span><span class="p">(</span><span class="n">CppAPI</span><span class="p">,</span><span class="w"> </span><span class="n">Engine</span><span class="p">);</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="nf">init_render_engine</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">init_core_infrastructure</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_LOG_ERROR</span><span class="p">(</span><span class="n">CppAPI</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;core infrastructure initialization failed&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Get SDL enums once here to initialize them--this is not required,</span>
+<span class="w">    </span><span class="c1">// just to be safe as SDL enum instances are lazy-constructed and may</span>
+<span class="w">    </span><span class="c1">// be done in strange places/order later (which may cause problems).</span>
+<span class="w">    </span><span class="c1">// Enums are initialized first as they have less dependencies.</span>
+<span class="w">    </span><span class="c1">//</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">SdlEnum</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">sdlEnums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_registered_sdl_enums</span><span class="p">();</span>
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">CppAPI</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;initialized {} SDL enum definitions&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sdlEnums</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+
+<span class="w">    </span><span class="c1">// Get SDL classes once here to initialize them--this is not required,</span>
+<span class="w">    </span><span class="c1">// same reason as SDL enums.</span>
+<span class="w">    </span><span class="c1">//</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">SdlClass</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">sdlClasses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_registered_sdl_classes</span><span class="p">();</span>
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">CppAPI</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;initialized {} SDL class definitions&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sdlClasses</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">init_command_parser</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_LOG_ERROR</span><span class="p">(</span><span class="n">CppAPI</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;command parser initialization failed&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="nf">exit_render_engine</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">exit_api_database</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_LOG_ERROR</span><span class="p">(</span><span class="n">CppAPI</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;C API database exiting failed&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">namespace</span>
+<span class="p">{</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">SdlClassType</span><span class="o">&gt;</span>
+<span class="k">const</span><span class="w"> </span><span class="n">SdlClass</span><span class="o">*</span><span class="w"> </span><span class="n">get_sdl_class</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">SdlClassType</span><span class="o">::</span><span class="n">getSdlClass</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">EnumType</span><span class="o">&gt;</span>
+<span class="k">const</span><span class="w"> </span><span class="n">SdlEnum</span><span class="o">*</span><span class="w"> </span><span class="n">get_sdl_enum</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">TSdlEnum</span><span class="o">&lt;</span><span class="n">EnumType</span><span class="o">&gt;::</span><span class="n">getSdlEnum</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">SdlClass</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">get_registered_sdl_classes</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Geometries</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">Geometry</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">GSphere</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">GRectangle</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">GTriangle</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">GTriangleMesh</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="c1">//get_sdl_class&lt;GCuboid&gt;(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">GMengerSponge</span><span class="o">&gt;</span><span class="p">(),</span>
+
+<span class="w">        </span><span class="c1">// Materials</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">Material</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">SurfaceMaterial</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">MatteOpaque</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">AbradedOpaque</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">AbradedTranslucent</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">FullMaterial</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">IdealSubstance</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">BinaryMixedSurfaceMaterial</span><span class="o">&gt;</span><span class="p">(),</span>
+
+<span class="w">        </span><span class="c1">// Light Sources</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">LightSource</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">AreaSource</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">SphereSource</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">RectangleSource</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">PointSource</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">ModelSource</span><span class="o">&gt;</span><span class="p">(),</span>
+
+<span class="w">        </span><span class="c1">// Images</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">Image</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">ConstantImage</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">RasterImageBase</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">RasterFileImage</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">MathImage</span><span class="o">&gt;</span><span class="p">(),</span>
+
+<span class="w">        </span><span class="c1">// Observers</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">Observer</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">OrientedRasterObserver</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">SingleLensObserver</span><span class="o">&gt;</span><span class="p">(),</span>
+
+<span class="w">        </span><span class="c1">// Sample Sources</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">SampleSource</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">RuntimeSampleSource</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">UniformRandomSampleSource</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">StratifiedSampleSource</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">HaltonSampleSource</span><span class="o">&gt;</span><span class="p">(),</span>
+
+<span class="w">        </span><span class="c1">// Visualizers</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">Visualizer</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">FrameVisualizer</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">PathTracingVisualizer</span><span class="o">&gt;</span><span class="p">(),</span>
+
+<span class="w">        </span><span class="c1">// Options</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">Option</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">RenderSession</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">SingleFrameRenderSession</span><span class="o">&gt;</span><span class="p">(),</span>
+
+<span class="w">        </span><span class="c1">// Actors</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">Actor</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">PhysicalActor</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">AModel</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">ALight</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">ADome</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_class</span><span class="o">&lt;</span><span class="n">AImageDome</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">SdlEnum</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">get_registered_sdl_enums</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">get_sdl_enum</span><span class="o">&lt;</span><span class="n">EAccelerator</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_enum</span><span class="o">&lt;</span><span class="n">ERayEnergyEstimator</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_enum</span><span class="o">&lt;</span><span class="n">ESampleFilter</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_enum</span><span class="o">&lt;</span><span class="n">EImageSampleMode</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_enum</span><span class="o">&lt;</span><span class="n">EImageWrapMode</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_enum</span><span class="o">&lt;</span><span class="n">math</span><span class="o">::</span><span class="n">EColorSpace</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_enum</span><span class="o">&lt;</span><span class="n">math</span><span class="o">::</span><span class="n">EColorUsage</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_enum</span><span class="o">&lt;</span><span class="n">EMathImageOp</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_enum</span><span class="o">&lt;</span><span class="n">EInterfaceFresnel</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_enum</span><span class="o">&lt;</span><span class="n">ERoughnessToAlpha</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_enum</span><span class="o">&lt;</span><span class="n">EIdealSubstance</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">get_sdl_enum</span><span class="o">&lt;</span><span class="n">ESurfaceMaterialMixMode</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="p">}</span>
+
+<span class="n">Path</span><span class="w"> </span><span class="n">get_config_directory</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">EEngineProject</span><span class="w"> </span><span class="n">project</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Path</span><span class="p">(</span><span class="n">PH_CONFIG_DIRECTORY</span><span class="p">).</span><span class="n">append</span><span class="p">(</span><span class="n">to_string</span><span class="p">(</span><span class="n">project</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="n">Path</span><span class="w"> </span><span class="n">get_internal_resource_directory</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">EEngineProject</span><span class="w"> </span><span class="n">project</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Path</span><span class="p">(</span><span class="n">PH_INTERNAL_RESOURCE_DIRECTORY</span><span class="p">).</span><span class="n">append</span><span class="p">(</span><span class="n">to_string</span><span class="p">(</span><span class="n">project</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="n">Path</span><span class="w"> </span><span class="n">get_core_resource_directory</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">EEngineProject</span><span class="w"> </span><span class="n">project</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Path</span><span class="p">(</span><span class="n">PH_RESOURCE_DIRECTORY</span><span class="p">).</span><span class="n">append</span><span class="p">(</span><span class="n">to_string</span><span class="p">(</span><span class="n">project</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

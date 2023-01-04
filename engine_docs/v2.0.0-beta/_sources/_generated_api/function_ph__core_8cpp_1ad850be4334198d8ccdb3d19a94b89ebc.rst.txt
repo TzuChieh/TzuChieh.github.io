@@ -1,0 +1,14 @@
+.. _exhale_function_ph__core_8cpp_1ad850be4334198d8ccdb3d19a94b89ebc:
+
+Function phGetRenderDimension(const PHuint64, PHuint32 \*const, PHuint32 \*const)
+=================================================================================
+
+- Defined in :ref:`file_Source_Api_ph_core.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: phGetRenderDimension(const PHuint64, PHuint32 *const, PHuint32 *const)
+   :project: Photon

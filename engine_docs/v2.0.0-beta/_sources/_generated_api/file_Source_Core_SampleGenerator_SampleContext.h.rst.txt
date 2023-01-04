@@ -1,0 +1,55 @@
+
+.. _file_Source_Core_SampleGenerator_SampleContext.h:
+
+File SampleContext.h
+====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SampleGenerator\SampleContext.h``)
+------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SampleGenerator_SampleContext.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``cstddef``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_SampleGenerator_SampleGenerator.cpp`
+
+- :ref:`file_Source_Core_SampleGenerator_SGHalton.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_sample_context`
+

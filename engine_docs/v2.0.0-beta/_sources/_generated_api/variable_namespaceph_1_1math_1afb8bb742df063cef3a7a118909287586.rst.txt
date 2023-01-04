@@ -1,0 +1,14 @@
+.. _exhale_variable_namespaceph_1_1math_1afb8bb742df063cef3a7a118909287586:
+
+Variable ph::math::CHasColorSpaceProperties
+===========================================
+
+- Defined in :ref:`file_Source_Math_Color_color_spaces.h`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: ph::math::CHasColorSpaceProperties
+   :project: Photon

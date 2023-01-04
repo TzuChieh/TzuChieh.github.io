@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File frame_utils.h &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File frame_utils.h</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Frame_frame_utils.h.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-frame-utils-h">
+<span id="program-listing-file-source-frame-frame-utils-h"></span><h1>Program Listing for File frame_utils.h<a class="headerlink" href="#program-listing-for-file-frame-utils-h" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Frame_frame_utils.h.html#file-source-frame-frame-utils-h"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Frame\frame_utils.h</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Frame/TFrame.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">frame_utils</span>
+<span class="p">{</span>
+
+<span class="c1">// Converts HDR frame to LDR frame. Values outside [0, 1] will be clamped.</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">to_LDR</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">HdrRgbFrame</span><span class="o">&amp;</span><span class="w"> </span><span class="n">srcFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LdrRgbFrame</span><span class="o">*</span><span class="w"> </span><span class="n">out_dstFrame</span><span class="p">);</span>
+
+<span class="c1">// Converts LDR frame to HDR frame. Values will be in [0, 1].</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">to_HDR</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">LdrRgbFrame</span><span class="o">&amp;</span><span class="w"> </span><span class="n">srcFrame</span><span class="p">,</span><span class="w"> </span><span class="n">HdrRgbFrame</span><span class="o">*</span><span class="w"> </span><span class="n">out_dstFrame</span><span class="p">);</span>
+
+<span class="c1">// Computes per-pixel absolute difference between frameA and frameB.</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">abs_diff</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">HdrRgbFrame</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameA</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">HdrRgbFrame</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameB</span><span class="p">,</span><span class="w"> </span><span class="n">HdrRgbFrame</span><span class="o">*</span><span class="w"> </span><span class="n">out_result</span><span class="p">);</span>
+
+<span class="c1">// Calculates Mean Squared Error (MSE) of an estimated frame.</span>
+<span class="n">real</span><span class="w"> </span><span class="nf">calc_MSE</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">HdrRgbFrame</span><span class="o">&amp;</span><span class="w"> </span><span class="n">expected</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">HdrRgbFrame</span><span class="o">&amp;</span><span class="w"> </span><span class="n">estimated</span><span class="p">);</span>
+
+<span class="c1">// Calculates Root-Mean-Square Error (RMSE) of an estimated frame.</span>
+<span class="n">real</span><span class="w"> </span><span class="nf">calc_RMSE</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">HdrRgbFrame</span><span class="o">&amp;</span><span class="w"> </span><span class="n">expected</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">HdrRgbFrame</span><span class="o">&amp;</span><span class="w"> </span><span class="n">estimated</span><span class="p">);</span>
+
+<span class="c1">// In-header Implementations:</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="nf">calc_RMSE</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">HdrRgbFrame</span><span class="o">&amp;</span><span class="w"> </span><span class="n">expected</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">HdrRgbFrame</span><span class="o">&amp;</span><span class="w"> </span><span class="n">estimated</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">sqrt</span><span class="p">(</span><span class="n">calc_MSE</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span><span class="w"> </span><span class="n">estimated</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace frame_utils</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

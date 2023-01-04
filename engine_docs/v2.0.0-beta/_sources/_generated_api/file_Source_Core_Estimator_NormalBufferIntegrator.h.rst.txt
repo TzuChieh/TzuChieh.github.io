@@ -1,0 +1,27 @@
+
+.. _file_Source_Core_Estimator_NormalBufferIntegrator.h:
+
+File NormalBufferIntegrator.h
+=============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Estimator\NormalBufferIntegrator.h``)
+---------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Estimator_NormalBufferIntegrator.h.rst
+
+
+
+
+
+
+
+
+

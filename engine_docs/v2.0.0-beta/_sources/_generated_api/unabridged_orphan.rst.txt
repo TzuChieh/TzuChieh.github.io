@@ -1,0 +1,5127 @@
+:orphan:
+
+
+Full API
+========
+
+Directories
+***********
+
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Include_CEngine.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Include_CppEngine.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Actor.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Actor_Dome.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Actor_Geometry.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Actor_Image.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Actor_LightSource.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Actor_Material.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Actor_Material_Utility.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Actor_Material_Volume.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Actor_ModelParser.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Actor_MotionSource.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Actor_SDLExtension.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Api.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Common.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Common_ThirdParty.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_Emitter.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_Emitter_Query.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_Emitter_Sampler.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_Estimator.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_Filmic.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_Intersectable.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_Intersectable_Bvh.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_Intersectable_DataStructure.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_Intersectable_Intersector.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_Intersectable_Kdtree.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_Intersectable_Query.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_Intersectable_UvwMapper.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_LTABuildingBlock.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_Quantity.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_Receiver.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_Renderer.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_Renderer_Attribute.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_Renderer_PM.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_Renderer_Sampling.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_SampleGenerator.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_SampleGenerator_Detail.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_Scheduler.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_SurfaceBehavior.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_SurfaceBehavior_Property.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_SurfaceBehavior_SurfaceOptics.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_Texture.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_Texture_Function.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_Texture_Pixel.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_Texture_Sky.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_VolumeBehavior.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_VolumeBehavior_BlockFunction.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_VolumeBehavior_ScatterFunction.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Core_VolumeBehavior_VolumeOptics.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_DataIO.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_DataIO_Data.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_DataIO_FileSystem.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_DataIO_SDL.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_DataIO_SDL_Introspect.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_DataIO_Stream.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_EngineEnv.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_EngineEnv_Observer.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_EngineEnv_SampleSource.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_EngineEnv_Session.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_EngineEnv_Visualizer.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Frame.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Frame_HdrOperator.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Frame_Operator.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Frame_ToneMapper.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Math.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Math_Algorithm.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Math_Algorithm_IndexedKdtree.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Math_Color.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Math_Function.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Math_General.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Math_Geometry.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Math_Physics.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Math_Random.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Math_Solver.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Math_Transform.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Utility.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_Utility_Concurrent.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_World.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_D__dev_Photon-v2_Engine_Source_World_Foundation.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_Documentation.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_Include.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_Source.rst
+
+Files
+*****
+
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Frame__mipmap_gen.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Frame__mipmap_gen.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_AbradedOpaque.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_AbradedOpaque.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_AbradedSurface.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_AbradedSurface.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_AbradedTranslucent.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_AbradedTranslucent.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Actor.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Actor.dox.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Actor.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_actor_exceptions.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_ActorCookingContext.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_ActorCookingContext.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_Sampling_AdaptiveSamplingRenderer.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_Sampling_AdaptiveSamplingRenderer.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_ADome.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_ADome.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Dome_AImageDome.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Dome_AImageDome.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_ModelParser_AiMaterialParser.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_ModelParser_AiMaterialParser.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_ModelParser_AiMeshParser.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_ModelParser_AiMeshParser.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_ALight.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_ALight.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_FileSystem_AltPath.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_AModel.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_AModel.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_Property_AnisoTrowbridgeReitz.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_Property_AnisoTrowbridgeReitz.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_APhantomModel.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_APhantomModel.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Api_ApiDatabase.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Api_ApiDatabase.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Api_ApiHelper.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Dome_APreethamDome.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Dome_APreethamDome.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_LightSource_AreaSource.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_LightSource_AreaSource.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Common_assertion.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Common_assertion.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_ModelParser_AssimpModelParser.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_ModelParser_AssimpModelParser.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_ATransformedInstance.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_ATransformedInstance.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_Attribute_AttributeRenderer.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_Attribute_AttributeRenderer.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_AttributeTags.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Estimator_BackwardLightIntegrator.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Estimator_BackwardLightIntegrator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_VolumeBehavior_BlockFunction_BfConstant.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_Function_binary_texture_operators.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_Stream_BinaryFileInputStream.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_Stream_BinaryFileInputStream.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_Stream_BinaryFileOutputStream.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_Stream_BinaryFileOutputStream.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_BinaryFileReader.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_BinaryFileReader.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Image_BinaryMixedImage.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Image_BinaryMixedImage.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_BinaryMixedSurfaceMaterial.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_BinaryMixedSurfaceMaterial.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Physics_black_body.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_VolumeBehavior_BlockFunction.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_VolumeBehavior_BlockFunction.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Estimator_BNEEPTEstimator.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Estimator_BNEEPTEstimator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_BruteForceIntersector.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_BruteForceIntersector.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_bsdf_query_fwd.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_BsdfEvalQuery.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_BsdfEvalQuery.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_BsdfHelper.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_BsdfPdfQuery.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_BsdfPdfQuery.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_BsdfQueryContext.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_BsdfSampleQuery.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_BsdfSampleQuery.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Bvh_BvhBuilder.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Bvh_BvhBuilder.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Bvh_BvhInfoNode.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Bvh_BvhInfoNode.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Bvh_BvhIntersectableInfo.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Bvh_BvhIntersectableInfo.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Bvh_BvhLinearNode.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Bvh_BvhLinearNode.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Estimator_BVPTDLEstimator.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Estimator_BVPTDLEstimator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Estimator_BVPTEstimator.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Estimator_BVPTEstimator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_ByteBuffer.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_Stream_ByteBufferInputStream.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_Stream_ByteBufferInputStream.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Image_CheckerboardImage.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Image_CheckerboardImage.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Color_chromatic_adaptations.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Color_chromatic_adaptations.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Bvh_ClassicBvhIntersector.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Bvh_ClassicBvhIntersector.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Color_color_basics.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Color_color_enums.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Color_color_spaces.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Color_color_spaces.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_CommandLineArguments.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_CommandLineArguments.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Common_Common.dox.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Common_compiler.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_Concurrent_concurrent.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_Utility_ConductiveInterfaceInfo.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_Utility_ConductiveInterfaceInfo.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_Property_ConductorFresnel.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_Property_ConductorFresnel.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Common_config.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Common_config.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_constant.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_constant_textures.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Image_ConstantImage.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Image_ConstantImage.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_MotionSource_ConstantVelocityMotion.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_MotionSource_ConstantVelocityMotion.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_conversions.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_World_Foundation_cook_results.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_World_Foundation_cook_results.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_CookedDataStorage.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_CookedDataStorage.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_World_Foundation_CookedResourceCollection.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_CookedUnit.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_CookedUnit.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_CookOrder.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_CoreCookedUnit.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_CoreCookedUnit.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_CoreCookingContext.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_FileSystem_CoreResource.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_FileSystem_CoreResource.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_CoreSdlResource.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Scheduler_DammertzDispatcher.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Scheduler_DammertzDispatcher.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Common_debug.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Common_debug.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Estimator_DebugIntegrator.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Estimator_DebugIntegrator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_Property_DielectricFresnel.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_Property_DielectricFresnel.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_Utility_DielectricInterfaceInfo.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_Utility_DielectricInterfaceInfo.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Emitter_DiffuseSurfaceEmitter.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Emitter_DiffuseSurfaceEmitter.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Emitter_Query_DirectEnergySampleQuery.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Emitter_Query_DirectEnergySampleQuery.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Documentation_directories.dox.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Transform_DynamicLinearTranslation.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Transform_DynamicLinearTranslation.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_EAccelerator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_EAttribute.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Bvh_EBvhType.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_ECoordSys.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Api_EEngineProject.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Include_CppEngine_EEngineProject.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_EFieldImportance.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_Utility_EInterfaceFresnel.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_Utility_EInterfaceMicrosurface.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Common_ELogLevel.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_VolumeBehavior_EmitFunction.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_VolumeBehavior_EmitFunction.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Emitter_Emitter.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Emitter_Emitter.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_LightSource_EmitterBuildingMaterial.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Emitter_Sampler_EmitterSampler.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Emitter_Sampler_EmitterSampler.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Engine.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Engine.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Receiver_EnvironmentCamera.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Receiver_EnvironmentCamera.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_PM_EPMMode.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_Sampling_EqualSamplingRenderer.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_Sampling_EqualSamplingRenderer.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_Visualizer_ERayEnergyEstimator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_ERegionStatus.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_Utility_ERoughnessToAlpha.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_Visualizer_ESampleFilter.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Scheduler_EScheduler.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Emitter_Sampler_ESPowerFavoring.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Emitter_Sampler_ESPowerFavoring.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Estimator_estimator_fwd.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Emitter_Sampler_ESUniformRandom.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Emitter_Sampler_ESUniformRandom.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_ETypeCategory.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_Property_ExactConductorFresnel.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_Property_ExactConductorFresnel.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_Property_ExactDielectricFresnel.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_Property_ExactDielectricFresnel.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_exception.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_exception.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_ExrFileReader.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_ExrFileReader.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_ExrFileWriter.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_ExrFileWriter.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_field_set_op.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_field_set_op.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Filmic_Film.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Filmic_Film.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Filmic_filmic_fwd.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_Stream_FilteredInputStream.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_fixed_map_base.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_Concurrent_FixedSizeThreadPool.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_Concurrent_FixedSizeThreadPool.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_Stream_FormattedTextFileOutputStream.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_Stream_FormattedTextFileOutputStream.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_Stream_FormattedTextInputStream.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_Stream_FormattedTextInputStream.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Frame_frame_fwd.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Frame_frame_utils.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Frame_frame_utils.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Frame_Operator_FrameOperator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Frame_FrameProcessingPipeline.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Frame_FrameProcessingPipeline.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Frame_FrameProcessor.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Frame_FrameProcessor.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_Visualizer_FrameVisualizer.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_Property_FresnelEffect.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_FullMaterial.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_FullMaterial.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_PM_FullPhoton.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_FullRay.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_FullRay.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Estimator_FullRayEnergyEstimator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_PM_FullViewpoint.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Frame_Operator_GammaCorrection.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Geometry_GCuboid.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Geometry_GCuboid.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Geometry_GEmpty.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Geometry_GEmpty.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Geometry_Geometry.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Geometry_Geometry.dox.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Geometry_Geometry.dox.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Geometry_Geometry.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Geometry_geometry.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Geometry_GeometrySoup.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Geometry_GeometrySoup.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Geometry_GIndexedTriangleMesh.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Geometry_GIndexedTriangleMesh.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Geometry_GMengerSponge.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Geometry_GMengerSponge.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Image_GradientImage.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Image_GradientImage.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Geometry_GRectangle.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Geometry_GRectangle.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Scheduler_GridScheduler.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Geometry_GSphere.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Geometry_GSphere.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Geometry_GTriangle.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Geometry_GTriangle.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Geometry_GTriangleMesh.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Geometry_GTriangleMesh.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Geometry_GWave.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Geometry_GWave.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SampleGenerator_Detail_halton.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_SampleSource_HaltonSampleSource.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_SampleSource_HaltonSampleSource.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_hash.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Frame_HdrOperator_HdrOperator.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Frame_HdrOperator_HdrOperator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Filmic_HdrRgbFilm.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Filmic_HdrRgbFilm.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_HdrRgbTexture2D.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_HdrRgbTexture2D.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_VolumeBehavior_ScatterFunction_HenyeyGreenstein.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_VolumeBehavior_ScatterFunction_HenyeyGreenstein.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_HitDetail.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_HitDetail.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_HitInfo.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_HitInfo.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_HitProbe.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_HitProbe.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_Stream_IDataStream.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_IdealAbsorber.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_IdealAbsorber.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_IdealDielectric.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_IdealDielectric.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_IdealReflector.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_IdealReflector.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_IdealSubstance.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_IdealSubstance.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_IdealTransmitter.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_IdealTransmitter.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_LightSource_IesAttenuatedSource.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_LightSource_IesAttenuatedSource.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_Data_IesData.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_Data_IesData.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_Data_IesFile.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_Data_IesFile.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_Stream_IInputStream.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Image_Image.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Image_Image.dox.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Image_Image.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_SDLExtension_image_loaders.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_SDLExtension_image_loaders.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_IMoveOnly.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Include_Include.dox.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Algorithm_IndexedKdtree_IndexedItemEndpoint.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Algorithm_IndexedKdtree_IndexedKdtreeParams.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_DataStructure_IndexedTriangleMesh.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_DataStructure_IndexedTriangleMesh.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_DataStructure_IndexedTriMesh.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_DataStructure_IndexedUIntBuffer.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_DataStructure_IndexedUIntBuffer.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_DataStructure_IndexedVertexBuffer.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_DataStructure_IndexedVertexBuffer.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_IniFile.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_IniFile.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Api_init_and_exit.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Api_init_and_exit.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_Concurrent_InitiallyPausedThread.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_Concurrent_InitiallyPausedThread.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_INoCopyAndMove.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Estimator_Integrand.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_InterfaceStatistics.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_InterfaceStatistics.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Intersectable.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Intersectable.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Intersector.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Intersector.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_io_exceptions.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_io_utils.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_io_utils.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_Stream_IOutputStream.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Estimator_IRayEnergyEstimator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_Sampling_IReceivedRayProcessor.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_ISdlResource.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_ISdlResource.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_Property_IsoBeckmann.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_Property_IsoBeckmann.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_Property_IsoTrowbridgeReitz.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_Property_IsoTrowbridgeReitz.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_Property_IsoTrowbridgeReitzConstant.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_Property_IsoTrowbridgeReitzTextured.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_IUninstantiable.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Scheduler_IWorkDispatcher.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Frame_Operator_JRToneMapping.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Frame_Operator_JRToneMapping.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Kdtree_kdtree_core.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Kdtree_KdtreeAABB.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Kdtree_KdtreeAABB.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Kdtree_KdtreeIntersector.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Kdtree_KdtreeIntersector.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Kdtree_KdtreeNode.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Kdtree_KdtreeNode.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_LambertianDiffuse.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_LambertianDiffuse.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Emitter_LatLongEnvEmitter.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Emitter_LatLongEnvEmitter.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_LayeredSurface.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_LayeredSurface.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_LbLayer.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_LbLayeredSurface.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_LbLayeredSurface.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_LdrRgbTexture2D.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_LdrRgbTexture2D.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_LerpedSurfaceOptics.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_LerpedSurfaceOptics.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Common_ThirdParty_lib_openexr.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Common_ThirdParty_lib_stb.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Common_ThirdParty_lib_stb_impl.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_LightSource_LightSource.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_LightSource_LightSource.dox.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_LightSource_LightSource.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Estimator_LightTracingIntegrator.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Estimator_LightTracingIntegrator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Geometry_location.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Common_Logger.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Common_Logger.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Common_logging.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Common_logging.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Common_LogSender.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Common_LogSender.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_LTABuildingBlock_lta.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_Utility_MacrosurfaceInfo.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Documentation_mainpage.dox.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_Material.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_Material.dox.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_Material.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_math.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Math.dox.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_math.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Common_math_basics.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_math_common.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_math_exceptions.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_math_fwd.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_math_table.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Image_MathImage.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Image_MathImage.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_MatteOpaque.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_MatteOpaque.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Common_memory.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Common_memory.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_MemoryArena.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_MemoryArena.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_Sampling_MetaRecordingProcessor.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_Sampling_MetaRecordingProcessor.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_Property_Microfacet.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_Utility_MicrosurfaceInfo.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_Utility_MicrosurfaceInfo.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_ModelBuilder.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_ModelBuilder.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_ModelLoader.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_ModelLoader.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_ModelParser_ModelParser.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_ModelParser_ModelParser.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_LightSource_ModelSource.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_LightSource_ModelSource.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_MotionSource_MotionSource.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_MotionSource_MotionSource.dox.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_MotionSource_MotionSource.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Emitter_MultiDiffuseSurfaceEmitter.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Emitter_MultiDiffuseSurfaceEmitter.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Frame_Operator_NaiveReinhardToneMapping.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Documentation_namespace_ph.dox.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Documentation_namespace_ph_constant.dox.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Documentation_namespace_ph_math.dox.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Estimator_NormalBufferIntegrator.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Estimator_NormalBufferIntegrator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_ObservableRenderData.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_Observer_Observer.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Emitter_OmniModulatedEmitter.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Emitter_OmniModulatedEmitter.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_OpaqueMicrofacet.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_OpaqueMicrofacet.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_Option.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_Option.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_OrenNayar.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_OrenNayar.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_Observer_OrientedRasterObserver.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_Observer_OrientedRasterObserver.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Common_os.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Common_os.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_OutputPayloads.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Estimator_PartialRayEnergyEstimator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_FileSystem_Path.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_FileSystem_Path.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Estimator_PathEstimator.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Estimator_PathEstimator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_Visualizer_PathTracingVisualizer.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_Visualizer_PathTracingVisualizer.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_PBasicSphere.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_PBasicSphere.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_PEmpty.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_Concurrent_PeriodicSingleThreadExecutor.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_Concurrent_PeriodicSingleThreadExecutor.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_PfmFileWriter.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_PfmFileWriter.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Api_ph_core.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Include_CEngine_ph_core.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Api_ph_cpp_core.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Include_CppEngine_ph_cpp_core.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_PhysicalActor.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_PhysicalActor.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Frame_picture_basics.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Frame_PictureData.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Frame_PictureData.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_PictureSaver.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_PictureSaver.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Receiver_PinholeCamera.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Receiver_PinholeCamera.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_Pixel_pixel_texture_basics.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_Pixel_PixelBuffer2D.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Scheduler_PlateScheduler.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_PLatLong01Sphere.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_PLatLong01Sphere.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_PLatLongEnvSphere.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_PLatLongEnvSphere.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_PlyFile.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_PlyFile.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_PM_PMRenderer.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_PM_PMRenderer.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_PM_PMStatistics.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_LightSource_PointSource.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_LightSource_PointSource.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_World_Foundation_PostCookResourceCollectionProxy.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_PM_PPMRadianceEvaluationWork.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_PM_PPMRadianceEvaluationWork.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_World_Foundation_PreCookResourceCollectionProxy.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_Sky_PreethamTexture.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_Sky_PreethamTexture.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Primitive.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Primitive.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Common_primitive_type.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Geometry_PrimitiveBuildingMaterial.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_PrimitiveChannel.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_PrimitiveChannel.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_PrimitiveMetadata.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_PrimitiveMetadata.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Query_PrimitivePosSamplePdfQuery.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Query_PrimitivePosSamplePdfQuery.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Query_PrimitivePosSampleQuery.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Query_PrimitivePosSampleQuery.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_PTriangle.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_PTriangle.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_LTABuildingBlock_PtVolumetricEstimator.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_LTABuildingBlock_PtVolumetricEstimator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Receiver_RadianceSensor.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Receiver_RadiantFluxPanel.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Receiver_RadiantFluxPanel.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Receiver_RadiantFluxPanelArray.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Receiver_RadiantFluxPanelArray.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SampleGenerator_Detail_RadicalInversePermutations.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Random.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Random.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Image_RasterFileImage.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Image_RasterFileImage.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Image_RasterImageBase.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Image_RasterImageBase.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Ray.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_RayDifferential.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_RayDifferential.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Real.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Receiver_Receiver.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Receiver_Receiver.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_Sampling_ReceiverSamplingWork.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_Sampling_ReceiverSamplingWork.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_LightSource_RectangleSource.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_LightSource_RectangleSource.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Receiver_RectangularSensorReceiver.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Receiver_RectangularSensorReceiver.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Scheduler_Region.dox.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Scheduler_Region.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Frame_RegularPicture.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Frame_RegularPicture.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_Renderer.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_Renderer.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_RendererProxy.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_RendererProxy.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_RenderProgress.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_Session_RenderSession.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_Session_RenderSession.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_RenderState.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_RenderWork.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_RenderWork.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_RenderWorker.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_RenderWorker.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_World_Foundation_ResourceCookReport.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_World_Foundation_ResourceCookReport.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Transform_RigidTransform.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_Utility_RoughnessToAlphaMapping.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_SampleSource_RuntimeSampleSource.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_LTABuildingBlock_RussianRoulette.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Sample.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Random_sample.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SampleGenerator_SampleContext.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Filmic_SampleFilter.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Filmic_SampleFilter.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Filmic_SampleFilters.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Filmic_SampleFilters.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SampleGenerator_SampleFlow.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SampleGenerator_SampleGenerator.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SampleGenerator_SampleGenerator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_SampleLocation.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SampleGenerator_SamplesND.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SampleGenerator_SamplesNDHandle.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SampleGenerator_SamplesNDStream.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_SampleSource_SampleSource.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SampleGenerator_SampleStage.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SampleGenerator_SampleStageReviser.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Filmic_SamplingFilmDimensions.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_Sampling_SamplingRenderer.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_Sampling_SamplingRenderer.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_Sampling_SamplingStatistics.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_VolumeBehavior_ScatterFunction.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_VolumeBehavior_ScatterFunction.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_World_Scene.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_World_Scene.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_SceneDescription.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_SceneDescription.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_Property_SchlickApproxConductorFresnel.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_Property_SchlickApproxConductorFresnel.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_Property_SchlickApproxDielectricFresnel.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_Property_SchlickApproxDielectricFresnel.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_sdl_accelerator_type.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_SDLExtension_sdl_color_space_type.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_SDLExtension_sdl_color_usage_type.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_sdl_exceptions.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_sdl_helpers.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_sdl_helpers.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_sdl_helpers.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Image_sdl_image_enums.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_sdl_interface.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_Visualizer_sdl_ray_energy_estimator_type.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_Visualizer_sdl_sample_filter_type.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_Visualizer_sdl_scheduler_type.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_sdl_traits.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_SdlClass.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_SdlClass.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_SdlEnum.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_SdlField.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_SdlField.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_SdlFunction.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_SdlFunction.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_SdlInputContext.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_SdlInputPayload.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_SdlIOContext.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_SdlIOContext.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_SdlOutputContext.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_SdlOutputPayload.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_SdlParser.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_SdlParser.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_SdlReferenceResolver.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_SdlReferenceResolver.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_SdlResourceBase.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_SdlResourceId.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_SdlResourceId.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_SdlResourceIdentifier.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_SdlStruct.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_SdlStruct.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_SdlStructFieldStump.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_SdlStructFieldStump.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_SdlWriter.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_SdlWriter.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_SemanticVersion.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_SemanticVersion.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_LTABuildingBlock_SenseEvent.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SampleGenerator_SGHalton.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SampleGenerator_SGHalton.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SampleGenerator_SGStratified.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SampleGenerator_SGStratified.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SampleGenerator_SGUniformRandom.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SampleGenerator_SGUniformRandom.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SampleGenerator_SGUtil.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SampleGenerator_SGUtil.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Random_shuffle.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_LTABuildingBlock_SidednessAgreement.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_Session_SingleFrameRenderSession.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_Session_SingleFrameRenderSession.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_Observer_SingleLensObserver.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_Observer_SingleLensObserver.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Source.dox.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Color_spectral_data.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Color_spectral_data.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Color_spectral_samples.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Color_spectral_samples.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Color_Spectrum.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Color_spectrum_fwd.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_LightSource_SphereSource.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_LightSource_SphereSource.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_UvwMapper_SphericalMapper.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_UvwMapper_SphericalMapper.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Scheduler_SpiralGridScheduler.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Scheduler_SpiralScheduler.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_StandaloneSdlResource.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Transform_StaticAffineTransform.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Transform_StaticAffineTransform.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Transform_StaticRigidTransform.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Transform_StaticRigidTransform.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_Statistics.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Common_stats.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Common_stats.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_Stream_StdInputStream.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_Stream_StdInputStream.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_Stream_StdOutputStream.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_Stream_StdOutputStream.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_SampleSource_StratifiedSampleSource.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_SampleSource_StratifiedSampleSource.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_string_utils.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_string_utils_table.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Scheduler_StripeScheduler.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_surface_optics_fwd.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Estimator_SurfaceAttributeEstimator.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Estimator_SurfaceAttributeEstimator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_Sampling_SurfaceAttributeRenderer.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceBehavior.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceBehavior.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Emitter_SurfaceEmitter.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Emitter_SurfaceEmitter.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceHit.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceHit.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_Utility_SurfaceLayerInfo.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_Utility_SurfaceLayerInfo.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_SurfaceMaterial.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_SurfaceMaterial.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_LTABuildingBlock_SurfaceTracer.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Geometry_TAABB2D.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Geometry_TAABB2D.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Geometry_TAABB3D.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Geometry_TAABB3D.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_TableFGD.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_TableFGD.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_TableTIR.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_TableTIR.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_TAbstractPixelTex2D.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TAbstractSdlValue.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TAbstractSdlValue.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Solver_TAnalyticalIntegrator1D.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Solver_TAnalyticalIntegrator1D.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_DataStructure_TAosTriMesh.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_DataStructure_TAosTriMesh.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_TArithmeticArray.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_TArithmeticArray.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_General_TArithmeticArrayBase.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_General_TArithmeticArrayBase.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_TArrayAsStack.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_TArrayAsStack.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_TArrayAsVector.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_TArrayAsVector.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_Concurrent_TAtomicQueue.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_Concurrent_TAtomicQueue.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TBasicSdlEnum.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TBasicSdlFieldSet.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Geometry_TBasicTriangle.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Geometry_TBasicTriangle.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_TBilinearPixelTex2D.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_TBitFlags.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_TBitFlags.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Function_TBlackmanHarris2D.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_Concurrent_TBlockableAtomicQueue.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_Concurrent_TBlockableAtomicQueue.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_TCheckerboardTexture.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_TCheckerboardTexture.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_Pixel_TColorPixelTexture2D.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Function_TConstant2D.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_TConstIteratorProxy.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Transform_TDecomposedTransform.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_LTABuildingBlock_TDirectLightEstimator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_LTABuildingBlock_TDirectLightEstimator.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Geometry_TDisk.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Geometry_TDisk.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Api_test_scene.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Api_test_scene.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Estimator_TEstimationArray.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_TextFileLoader.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_TextFileLoader.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_texture_fwd.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_Function_texture_parametrics.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_TextureLoader.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_TextureLoader.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_TFixedEnumMap.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_TFixedIntegerMap.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_TFraction.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Frame_TFrame.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Frame_TFrame.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_Pixel_TFrameBuffer2D.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_TFunction.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Function_TGaussian2D.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Geometry_THemisphere.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_ThinDielectricFilm.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_ThinDielectricFilm.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_ThinFilm.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_ThinFilm.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Receiver_ThinLensCamera.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Receiver_ThinLensCamera.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Scheduler_TileScheduler.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Quantity_Time.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_time.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_Timer.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_Timestamp.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_Timestamp.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Algorithm_IndexedKdtree_TIndexedKdtree.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Algorithm_IndexedKdtree_TIndexedKdtree.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Intersector_TIndexedKdtreeIntersector.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_Intersector_TIndexedKdtreeIntersector.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Algorithm_IndexedKdtree_TIndexedKdtreeNode.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Algorithm_IndexedKdtree_TIndexedPointKdtree.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Estimator_TIRayEstimator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_TIteratorProxy.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_TLinearGradientTexture.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_TLinearGradientTexture.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Geometry_TLineSegment.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Geometry_TLineSegment.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Function_TMathFunction2D.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_TMatrix2.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_TMatrix2.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_TMatrix3.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_TMatrix3.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_TMatrix4.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_TMatrix4.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_General_TMatrixMxNBase.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_General_TMatrixMxNBase.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_General_TMatrixNBase.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_General_TMatrixNBase.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_TMipmap.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_LTABuildingBlock_TMis.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Function_TMNCubic2D.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_Concurrent_TMRSWResource.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_TNearestPixelTex2D.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_Pixel_TNumericPixelTexture2D.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Tokenizer.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Tokenizer.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Frame_ToneMapper_ToneMapper.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Frame_ToneMapper_ToneMapper.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_TOrthonormalBasis3.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_TOrthonormalBasis3.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TOwnedSdlField.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TOwnerSdlClass.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TOwnerSdlClass.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TOwnerSdlStruct.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TOwnerSdlStruct.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_PM_TPhoton.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_PM_TPhotonMap.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_PM_TPhotonMappingWork.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_PM_TPhotonMappingWork.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Function_TPiecewiseLinear1D.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_TPIndexedKdTreeTriangleMesh.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_TPixelTex2D.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_Pixel_TPixelTexture2D.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_Pixel_TPixelTexture2D.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_TPKdTreeTriangleMesh.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_TPKdTreeTriangleMesh.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_PM_TPPMViewpointCollector.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Random_TPwcDistribution1D.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Random_TPwcDistribution1D.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Random_TPwcDistribution2D.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Random_TPwcDistribution2D.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_TQuaternion.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_TQuaternion.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_PM_TRadianceEvaluationWork.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_PM_TRadianceEvaluationWork.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_traits.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Transform_Transform.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Transform_Transform.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_TransformedIntersectable.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_TransformedIntersectable.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_TransformedPrimitive.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_TransformedPrimitive.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_TranslucentMicrofacet.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_SurfaceBehavior_SurfaceOptics_TranslucentMicrofacet.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_Sampling_TReceiverMeasurementEstimator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_Sampling_TReceiverMeasurementEstimator.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_Concurrent_TRelaxedRW.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_DataStructure_TriFace.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Color_TSampledSpectrum.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Color_TSampledSpectrum.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_TSampler.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Filmic_TSamplingFilm.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Filmic_TSamplingFilm.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_Pixel_TScalarPixelTexture2D.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_TSdl.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_TSdl.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TSdlBool.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TSdlEnum.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TSdlEnumField.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TSdlInteger.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TSdlMethod.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TSdlMethod.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TSdlNestedField.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TSdlOptionalValue.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TSdlOptionalValue.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TSdlPath.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TSdlQuaternion.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TSdlReal.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TSdlRealArray.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TSdlReference.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TSdlReference.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_TSdlResourceBase.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_SDLExtension_TSdlSpectrum.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TSdlString.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_SDLExtension_TSdlUnifiedColorImage.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_SDLExtension_TSdlUnifiedNumericImage.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TSdlValue.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TSdlValue.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TSdlVector2.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TSdlVector3.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_Introspect_TSdlVector3Array.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_TSortedMap.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_TSortedMap.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Algorithm_IndexedKdtree_TSortedNNResult.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_TSortedVector.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_TSortedVector.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Color_TSpectrumBase.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Color_TSpectrumBase.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Geometry_TSphere.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Geometry_TSphere.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_PM_TSPPMRadianceEvaluator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_Concurrent_TSPSCExecutor.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_Concurrent_TSPSCExecutor.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_Concurrent_TSPSCRingBuffer.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_TStableIndexDenseVector.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_Sampling_TStepperReceiverMeasurementEstimator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_Sampling_TStepperReceiverMeasurementEstimator.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_TSwizzledTexture.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_TTexPixel.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_TTexture.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Geometry_TTriangle.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_TTrilinearPixelTex2D.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Color_TTristimulusSpectrum.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Color_TTristimulusSpectrum.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_TUniquePtrVector.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_TVector2.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_TVector2.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_TVector3.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_TVector3.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_TVector4.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_TVector4.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_General_TVectorN.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_General_TVectorN.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_General_TVectorNBase.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_General_TVectorNBase.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_PM_TViewPathHandler.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_PM_TViewPathTracingWork.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_PM_TViewPathTracingWork.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_PM_TViewpoint.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Geometry_TWatertightTriangle.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Math_Geometry_TWatertightTriangle.ipp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Texture_Function_unary_texture_operators.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Image_UnifiedColorImage.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Image_UnifiedColorImage.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Image_UnifiedNumericImage.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Image_UnifiedNumericImage.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_SampleSource_UniformRandomSampleSource.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_SampleSource_UniformRandomSampleSource.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_Utility_Utility.dox.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Common_utility.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_utility.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_UvwMapper_UvwMapper.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Intersectable_UvwMapper_UvwMapper.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_Volume_VAbsorptionOnly.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_Volume_VAbsorptionOnly.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_DataIO_SDL_ValueClauses.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Filmic_Vector3Film.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_PM_ViewPathTracingPolicy.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Frame_Viewport.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_EngineEnv_Visualizer_Visualizer.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_World_VisualWorld.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_World_VisualWorld.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_World_VisualWorldInfo.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_VolumeBehavior_VolumeOptics_VoHomoAbsorption.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_VolumeBehavior_VolumeOptics_VoHomoAbsorption.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_VolumeBehavior_VolumeBehavior.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_VolumeBehavior_VolumeDistanceSample.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_VolumeMaterial.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Actor_Material_VolumeMaterial.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_VolumeBehavior_VolumeOptics.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_VolumeBehavior_VolumeOptics.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Renderer_PM_VPMRadianceEvaluator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_Concurrent_Workflow.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Utility_Concurrent_Workflow.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Scheduler_WorkScheduler.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Source_Core_Scheduler_WorkUnit.h.rst
+
+Pages
+*****
+
+
+.. toctree::
+   :maxdepth: 5
+
+   page_directories.rst

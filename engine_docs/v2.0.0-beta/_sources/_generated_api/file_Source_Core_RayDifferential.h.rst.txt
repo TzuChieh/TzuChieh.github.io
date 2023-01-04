@@ -1,0 +1,57 @@
+
+.. _file_Source_Core_RayDifferential.h:
+
+File RayDifferential.h
+======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\RayDifferential.h``)
+----------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_RayDifferential.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Math/TVector3.h``
+
+- ``limits``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_RayDifferential.cpp`
+
+- :ref:`file_Source_Core_Receiver_Receiver.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_ray_differential`
+

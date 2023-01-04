@@ -1,0 +1,111 @@
+
+.. _file_Source_Core_Texture_TTexture.h:
+
+File TTexture.h
+===============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Texture\TTexture.h``)
+-----------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Texture_TTexture.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/Texture/texture_fwd.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_ADome.h`
+
+- :ref:`file_Source_Actor_Dome_AImageDome.h`
+
+- :ref:`file_Source_Actor_Dome_APreethamDome.h`
+
+- :ref:`file_Source_Actor_Image_Image.h`
+
+- :ref:`file_Source_Core_Emitter_LatLongEnvEmitter.h`
+
+- :ref:`file_Source_Core_Emitter_MultiDiffuseSurfaceEmitter.cpp`
+
+- :ref:`file_Source_Core_Emitter_OmniModulatedEmitter.h`
+
+- :ref:`file_Source_Core_Emitter_SurfaceEmitter.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_Property_IsoTrowbridgeReitzTextured.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_IdealDielectric.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_IdealReflector.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_IdealTransmitter.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LambertianDiffuse.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LerpedSurfaceOptics.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_OpaqueMicrofacet.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_OrenNayar.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_ThinDielectricFilm.h`
+
+- :ref:`file_Source_Core_Texture_constant_textures.h`
+
+- :ref:`file_Source_Core_Texture_Function_binary_texture_operators.h`
+
+- :ref:`file_Source_Core_Texture_Function_texture_parametrics.h`
+
+- :ref:`file_Source_Core_Texture_Function_unary_texture_operators.h`
+
+- :ref:`file_Source_Core_Texture_HdrRgbTexture2D.h`
+
+- :ref:`file_Source_Core_Texture_LdrRgbTexture2D.h`
+
+- :ref:`file_Source_Core_Texture_Pixel_TPixelTexture2D.h`
+
+- :ref:`file_Source_Core_Texture_Sky_PreethamTexture.h`
+
+- :ref:`file_Source_Core_Texture_TAbstractPixelTex2D.h`
+
+- :ref:`file_Source_Core_Texture_TCheckerboardTexture.h`
+
+- :ref:`file_Source_Core_Texture_TLinearGradientTexture.h`
+
+- :ref:`file_Source_Core_Texture_TSampler.h`
+
+- :ref:`file_Source_Core_Texture_TSwizzledTexture.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_t_texture`
+

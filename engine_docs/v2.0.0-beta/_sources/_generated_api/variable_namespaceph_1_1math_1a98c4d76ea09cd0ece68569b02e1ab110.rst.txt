@@ -1,0 +1,14 @@
+.. _exhale_variable_namespaceph_1_1math_1a98c4d76ea09cd0ece68569b02e1ab110:
+
+Variable ph::math::CColorSpaceDefinition
+========================================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: ph::math::CColorSpaceDefinition
+   :project: Photon

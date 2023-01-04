@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1math_1_1_t_orthonormal_basis3:
+
+Template Class TOrthonormalBasis3
+=================================
+
+- Defined in :ref:`file_Source_Math_TOrthonormalBasis3.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::math::TOrthonormalBasis3
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

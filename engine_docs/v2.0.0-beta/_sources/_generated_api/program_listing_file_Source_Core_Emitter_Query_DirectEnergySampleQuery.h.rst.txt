@@ -1,0 +1,57 @@
+
+.. _program_listing_file_Source_Core_Emitter_Query_DirectEnergySampleQuery.h:
+
+Program Listing for File DirectEnergySampleQuery.h
+==================================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Core_Emitter_Query_DirectEnergySampleQuery.h>` (``Source\Core\Emitter\Query\DirectEnergySampleQuery.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Math/TVector3.h"
+   #include "Math/Color/Spectrum.h"
+   
+   namespace ph
+   {
+   
+   class Primitive;
+   
+   class DirectEnergySampleInput final
+   {
+   public:
+       math::Vector3R targetPos;
+   
+       DirectEnergySampleInput();
+   
+       void set(const math::Vector3R& targetPos);
+   };
+   
+   class DirectEnergySampleOutput final
+   {
+   public:
+       math::Vector3R   emitPos;
+       math::Spectrum   radianceLe;
+       real             pdfW;
+       const Primitive* srcPrimitive;
+   
+       DirectEnergySampleOutput();
+       operator bool () const;
+   };
+   
+   class DirectEnergySampleQuery final
+   {
+   public:
+       using Input  = DirectEnergySampleInput;
+       using Output = DirectEnergySampleOutput;
+   
+       Input  in;
+       Output out;
+   
+       DirectEnergySampleQuery();
+   };
+   
+   }// end namespace ph

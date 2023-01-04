@@ -1,0 +1,14 @@
+.. _exhale_define_config_8h_1a15844a86f1c4b9264b461b2155548f9f:
+
+Define PH_SPECTRUM_SAMPLED_NUM_SAMPLES
+======================================
+
+- Defined in :ref:`file_Source_Common_config.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: PH_SPECTRUM_SAMPLED_NUM_SAMPLES
+   :project: Photon

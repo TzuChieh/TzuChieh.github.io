@@ -10,5 +10,6 @@ var classph_1_1_t_fixed_map_base =
     [ "get", "classph_1_1_t_fixed_map_base.html#a989af9c832f698dae98e685b415d5e53", null ],
     [ "getEntry", "classph_1_1_t_fixed_map_base.html#a857d4052a8cc3272468f93854b6fdc5b", null ],
     [ "getEntry", "classph_1_1_t_fixed_map_base.html#a01a6aff83f58c4fed2c3743ee7c39365", null ],
-    [ "operator=", "classph_1_1_t_fixed_map_base.html#ac47d1ed460bea6962e51ac4d85087dcf", null ]
+    [ "operator=", "classph_1_1_t_fixed_map_base.html#ac47d1ed460bea6962e51ac4d85087dcf", null ],
+    [ "m_entries", "classph_1_1_t_fixed_map_base.html#aa4b0fce56acd9491027ad0714769da02", null ]
 ];

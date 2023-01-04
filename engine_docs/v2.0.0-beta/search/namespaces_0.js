@@ -1,6 +1,28 @@
 var searchData=
 [
-  ['constant',['constant',['../namespaceph_1_1constant.html',1,'ph']]],
-  ['math',['math',['../namespaceph_1_1math.html',1,'ph']]],
-  ['ph',['ph',['../namespaceph.html',1,'']]]
+  ['constant_5710',['constant',['../namespaceph_1_1constant.html',1,'ph::constant'],['../namespaceph_1_1math_1_1constant.html',1,'ph::math::constant']]],
+  ['conversions_5711',['conversions',['../namespaceph_1_1conversions.html',1,'ph']]],
+  ['core_5flogging_5712',['core_logging',['../namespaceph_1_1detail_1_1core__logging.html',1,'ph::detail']]],
+  ['detail_5713',['detail',['../namespaceph_1_1detail.html',1,'ph::detail'],['../namespaceph_1_1math_1_1detail.html',1,'ph::math::detail'],['../namespaceph_1_1sdl_1_1detail.html',1,'ph::sdl::detail']]],
+  ['detail_5ffrom_5fto_5fchar_5714',['detail_from_to_char',['../namespaceph_1_1string__utils_1_1detail__from__to__char.html',1,'ph::string_utils']]],
+  ['field_5fset_5fop_5715',['field_set_op',['../namespaceph_1_1field__set__op.html',1,'ph']]],
+  ['fixed_5finteger_5fmap_5fdetail_5716',['fixed_integer_map_detail',['../namespaceph_1_1fixed__integer__map__detail.html',1,'ph']]],
+  ['frame_5fdetail_5717',['frame_detail',['../namespaceph_1_1frame__detail.html',1,'ph']]],
+  ['frame_5futils_5718',['frame_utils',['../namespaceph_1_1frame__utils.html',1,'ph']]],
+  ['function_5fdetail_5719',['function_detail',['../namespaceph_1_1function__detail.html',1,'ph']]],
+  ['halton_5720',['halton',['../namespaceph_1_1detail_1_1halton.html',1,'ph::detail']]],
+  ['io_5futils_5721',['io_utils',['../namespaceph_1_1io__utils.html',1,'ph']]],
+  ['lta_5722',['lta',['../namespaceph_1_1lta.html',1,'ph']]],
+  ['math_5723',['math',['../namespaceph_1_1math.html',1,'ph']]],
+  ['os_5724',['os',['../namespaceph_1_1os.html',1,'ph']]],
+  ['ph_5725',['ph',['../namespaceph.html',1,'']]],
+  ['pixel_5fbuffer_5726',['pixel_buffer',['../namespaceph_1_1pixel__buffer.html',1,'ph']]],
+  ['pixel_5ftexture_5727',['pixel_texture',['../namespaceph_1_1pixel__texture.html',1,'ph']]],
+  ['sdl_5728',['sdl',['../namespaceph_1_1sdl.html',1,'ph']]],
+  ['shuffle_5729',['shuffle',['../namespaceph_1_1math_1_1detail_1_1shuffle.html',1,'ph::math::detail']]],
+  ['spectral_5fdata_5730',['spectral_data',['../namespaceph_1_1math_1_1spectral__data.html',1,'ph::math']]],
+  ['stats_5731',['stats',['../namespaceph_1_1detail_1_1stats.html',1,'ph::detail']]],
+  ['string_5futils_5732',['string_utils',['../namespaceph_1_1string__utils.html',1,'ph']]],
+  ['table_5733',['table',['../namespaceph_1_1math_1_1table.html',1,'ph::math::table'],['../namespaceph_1_1string__utils_1_1table.html',1,'ph::string_utils::table']]],
+  ['texfunc_5734',['texfunc',['../namespaceph_1_1texfunc.html',1,'ph']]]
 ];

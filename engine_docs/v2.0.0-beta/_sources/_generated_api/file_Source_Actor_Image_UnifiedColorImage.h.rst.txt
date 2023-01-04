@@ -1,0 +1,59 @@
+
+.. _file_Source_Actor_Image_UnifiedColorImage.h:
+
+File UnifiedColorImage.h
+========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\Image\UnifiedColorImage.h``)
+-------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_Image_UnifiedColorImage.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/Image/Image.h``
+
+- ``Math/Color/color_enums.h``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_Image_UnifiedColorImage.cpp`
+
+- :ref:`file_Source_Actor_SDLExtension_TSdlUnifiedColorImage.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_unified_color_image`
+

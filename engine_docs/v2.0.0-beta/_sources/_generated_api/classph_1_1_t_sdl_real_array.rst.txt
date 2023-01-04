@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_t_sdl_real_array:
+
+Template Class TSdlRealArray
+============================
+
+- Defined in :ref:`file_Source_DataIO_SDL_Introspect_TSdlRealArray.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::TSdlValue< std::vector< real >, Owner >`` (:ref:`exhale_class_classph_1_1_t_sdl_value`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TSdlRealArray
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

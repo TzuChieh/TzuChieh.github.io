@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_sample:
+
+Class Sample
+============
+
+- Defined in :ref:`file_Source_Core_Sample.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::Sample
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

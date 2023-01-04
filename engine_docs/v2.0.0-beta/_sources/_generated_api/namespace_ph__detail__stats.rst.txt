@@ -1,0 +1,29 @@
+
+.. _namespace_ph__detail__stats:
+
+Namespace ph::detail::stats
+===========================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph__detail__stats__@190`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structph_1_1detail_1_1stats_1_1_scoped_timer`
+
+- :ref:`exhale_struct_structph_1_1detail_1_1stats_1_1_time_counter`

@@ -1,0 +1,54 @@
+
+.. _file_Source_Math_Color_spectrum_fwd.h:
+
+File spectrum_fwd.h
+===================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\Color\spectrum_fwd.h``)
+-------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_Color_spectrum_fwd.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Math/Color/color_basics.h``
+
+- ``array``
+
+- ``cstddef``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Math_Color_Spectrum.h`
+
+- :ref:`file_Source_Math_Color_TSpectrumBase.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+

@@ -1,0 +1,14 @@
+.. _exhale_enum_namespaceph_1_1_0d500_1a7c8778444a015e976fa24460cca27cd7:
+
+Enum EInterpolationMode
+=======================
+
+.. did not find file this was defined in
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: ph::@500::EInterpolationMode
+   :project: Photon

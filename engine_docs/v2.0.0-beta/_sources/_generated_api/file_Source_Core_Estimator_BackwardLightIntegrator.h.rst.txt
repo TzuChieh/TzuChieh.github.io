@@ -1,0 +1,27 @@
+
+.. _file_Source_Core_Estimator_BackwardLightIntegrator.h:
+
+File BackwardLightIntegrator.h
+==============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Estimator\BackwardLightIntegrator.h``)
+----------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Estimator_BackwardLightIntegrator.h.rst
+
+
+
+
+
+
+
+
+

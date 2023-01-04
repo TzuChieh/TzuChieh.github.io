@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1sdl_1a9e3a060577c496cabaee6d92c2c98743:
+
+Template Function ph::sdl::load_float
+=====================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::sdl::load_float(std::string_view)
+   :project: Photon

@@ -1,0 +1,28 @@
+.. _exhale_class_classph_1_1_renderer:
+
+Class Renderer
+==============
+
+- Defined in :ref:`file_Source_Core_Renderer_Renderer.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Types
+*************
+
+- ``public ph::AttributeRenderer`` (:ref:`exhale_class_classph_1_1_attribute_renderer`)
+- ``public ph::PMRenderer`` (:ref:`exhale_class_classph_1_1_p_m_renderer`)
+- ``public ph::SamplingRenderer`` (:ref:`exhale_class_classph_1_1_sampling_renderer`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::Renderer
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,49 @@
+
+.. _program_listing_file_Source_Actor_Image_CheckerboardImage.h:
+
+Program Listing for File CheckerboardImage.h
+============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Actor_Image_CheckerboardImage.h>` (``Source\Actor\Image\CheckerboardImage.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Actor/Image/Image.h"
+   #include "Common/primitive_type.h"
+   
+   #include <memory>
+   #include <functional>
+   #include <utility>
+   
+   namespace ph
+   {
+   
+   class CheckerboardImage : public Image
+   {
+   public:
+       CheckerboardImage();
+   
+       std::shared_ptr<TTexture<Image::Array>> genNumericTexture(
+           ActorCookingContext& ctx) override;
+   
+       std::shared_ptr<TTexture<math::Spectrum>> genColorTexture(
+           ActorCookingContext& ctx) override;
+   
+       void setNumTiles(real numTilesX, real numTilesY);
+       void setOddImage(const std::weak_ptr<Image>& oddImage);
+       void setEvenImage(const std::weak_ptr<Image>& evenImage);
+   
+   private:
+       real                 m_numTilesX;
+       real                 m_numTilesY;
+       std::weak_ptr<Image> m_oddImage;
+       std::weak_ptr<Image> m_evenImage;
+   
+       auto checkOutImages() const -> std::pair<std::shared_ptr<Image>, std::shared_ptr<Image>>;
+   };
+   
+   }// end namespace ph

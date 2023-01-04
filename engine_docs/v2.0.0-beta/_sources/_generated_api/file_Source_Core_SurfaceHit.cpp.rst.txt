@@ -1,0 +1,46 @@
+
+.. _file_Source_Core_SurfaceHit.cpp:
+
+File SurfaceHit.cpp
+===================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SurfaceHit.cpp``)
+-------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SurfaceHit.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/Intersectable/Primitive.h``
+
+- ``Core/Intersectable/PrimitiveMetadata.h``
+
+- ``Core/SurfaceHit.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

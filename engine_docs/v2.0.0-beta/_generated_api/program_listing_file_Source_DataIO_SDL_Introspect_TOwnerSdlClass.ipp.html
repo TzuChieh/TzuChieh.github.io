@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File TOwnerSdlClass.ipp &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File TOwnerSdlClass.ipp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_DataIO_SDL_Introspect_TOwnerSdlClass.ipp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-townersdlclass-ipp">
+<span id="program-listing-file-source-dataio-sdl-introspect-townersdlclass-ipp"></span><h1>Program Listing for File TOwnerSdlClass.ipp<a class="headerlink" href="#program-listing-for-file-townersdlclass-ipp" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_DataIO_SDL_Introspect_TOwnerSdlClass.ipp.html#file-source-dataio-sdl-introspect-townersdlclass-ipp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\DataIO\SDL\Introspect\TOwnerSdlClass.ipp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;DataIO/SDL/Introspect/TOwnerSdlClass.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;DataIO/SDL/Introspect/field_set_op.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;DataIO/SDL/Introspect/SdlStruct.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;DataIO/SDL/Introspect/SdlStructFieldStump.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/assertion.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;DataIO/SDL/sdl_exceptions.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;DataIO/SDL/Introspect/SdlFunction.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;DataIO/SDL/sdl_helpers.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;type_traits&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Owner</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">FieldSet</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&lt;</span><span class="n">Owner</span><span class="p">,</span><span class="w"> </span><span class="n">FieldSet</span><span class="o">&gt;::</span><span class="n">TOwnerSdlClass</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">displayName</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
+
+<span class="w">    </span><span class="n">SdlClass</span><span class="p">(</span><span class="n">sdl</span><span class="o">::</span><span class="n">category_of</span><span class="o">&lt;</span><span class="n">Owner</span><span class="o">&gt;</span><span class="p">(),</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">displayName</span><span class="p">)),</span>
+
+<span class="w">    </span><span class="n">m_fields</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">m_functions</span><span class="p">()</span>
+<span class="p">{}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Owner</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">FieldSet</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">ISdlResource</span><span class="o">&gt;</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&lt;</span><span class="n">Owner</span><span class="p">,</span><span class="w"> </span><span class="n">FieldSet</span><span class="o">&gt;::</span><span class="n">createResource</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">is_abstract_v</span><span class="o">&lt;</span><span class="n">Owner</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_default_constructible_v</span><span class="o">&lt;</span><span class="n">Owner</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">            </span><span class="s">&quot;A non-abstract owner class must have a default constructor.&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">isBlueprint</span><span class="p">())</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">Owner</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Owner</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">FieldSet</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&lt;</span><span class="n">Owner</span><span class="p">,</span><span class="w"> </span><span class="n">FieldSet</span><span class="o">&gt;::</span><span class="n">initResource</span><span class="p">(</span>
+<span class="w">    </span><span class="n">ISdlResource</span><span class="o">&amp;</span><span class="w">          </span><span class="n">resource</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ValueClauses</span><span class="o">&amp;</span><span class="w">          </span><span class="n">clauses</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">SdlInputContext</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ctx</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Init base first just like how standard C++ does</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">isDerived</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">getBase</span><span class="p">());</span>
+<span class="w">        </span><span class="n">getBase</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">initResource</span><span class="p">(</span><span class="n">resource</span><span class="p">,</span><span class="w"> </span><span class="n">clauses</span><span class="p">,</span><span class="w"> </span><span class="n">ctx</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">Owner</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ownerResource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">castToOwnerResource</span><span class="p">(</span><span class="n">resource</span><span class="p">);</span>
+<span class="w">    </span><span class="n">loadFieldsFromSdl</span><span class="p">(</span><span class="n">ownerResource</span><span class="p">,</span><span class="w"> </span><span class="n">clauses</span><span class="p">,</span><span class="w"> </span><span class="n">ctx</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Owner</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">FieldSet</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&lt;</span><span class="n">Owner</span><span class="p">,</span><span class="w"> </span><span class="n">FieldSet</span><span class="o">&gt;::</span><span class="n">initDefaultResource</span><span class="p">(</span><span class="n">ISdlResource</span><span class="o">&amp;</span><span class="w"> </span><span class="n">resource</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Init base first just like how standard C++ does</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">isDerived</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">getBase</span><span class="p">());</span>
+<span class="w">        </span><span class="n">getBase</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">initDefaultResource</span><span class="p">(</span><span class="n">resource</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">Owner</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ownerResource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">castToOwnerResource</span><span class="p">(</span><span class="n">resource</span><span class="p">);</span>
+<span class="w">    </span><span class="n">setFieldsToDefaults</span><span class="p">(</span><span class="n">ownerResource</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Owner</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">FieldSet</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&lt;</span><span class="n">Owner</span><span class="p">,</span><span class="w"> </span><span class="n">FieldSet</span><span class="o">&gt;::</span><span class="n">saveResource</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">ISdlResource</span><span class="o">&amp;</span><span class="w">     </span><span class="n">resource</span><span class="p">,</span>
+<span class="w">    </span><span class="n">OutputPayloads</span><span class="o">&amp;</span><span class="w">         </span><span class="n">payloads</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">SdlOutputContext</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ctx</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// No specific ordering is required here. We save base class first just like how</span>
+<span class="w">    </span><span class="c1">// the loading process is.</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">isDerived</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">getBase</span><span class="p">());</span>
+<span class="w">        </span><span class="n">getBase</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">saveResource</span><span class="p">(</span><span class="n">resource</span><span class="p">,</span><span class="w"> </span><span class="n">payloads</span><span class="p">,</span><span class="w"> </span><span class="n">ctx</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Owner</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ownerResource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">castToOwnerResource</span><span class="p">(</span><span class="n">resource</span><span class="p">);</span>
+<span class="w">    </span><span class="n">saveFieldsToSdl</span><span class="p">(</span><span class="n">ownerResource</span><span class="p">,</span><span class="w"> </span><span class="n">payloads</span><span class="p">,</span><span class="w"> </span><span class="n">ctx</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Owner</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">FieldSet</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&lt;</span><span class="n">Owner</span><span class="p">,</span><span class="w"> </span><span class="n">FieldSet</span><span class="o">&gt;::</span><span class="n">call</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">funcName</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ISdlResource</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w">    </span><span class="n">resource</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ValueClauses</span><span class="o">&amp;</span><span class="w">          </span><span class="n">clauses</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">SdlInputContext</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ctx</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Find SDL function by name</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">SdlFunction</span><span class="o">*</span><span class="w"> </span><span class="n">func</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">funcIdx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">funcIdx</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m_functions</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">funcIdx</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">m_functions</span><span class="p">[</span><span class="n">funcIdx</span><span class="p">]);</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">SdlFunction</span><span class="o">&amp;</span><span class="w"> </span><span class="n">funcI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="n">m_functions</span><span class="p">[</span><span class="n">funcIdx</span><span class="p">]);</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">funcI</span><span class="p">.</span><span class="n">getName</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">funcName</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">func</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">funcI</span><span class="p">;</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// If found the function in this class, call it</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">func</span><span class="o">-&gt;</span><span class="n">call</span><span class="p">(</span><span class="n">resource</span><span class="p">,</span><span class="w"> </span><span class="n">clauses</span><span class="p">,</span><span class="w"> </span><span class="n">ctx</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// If not found in this class, call on base class instead</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">getBase</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">getBase</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">call</span><span class="p">(</span><span class="n">funcName</span><span class="p">,</span><span class="w"> </span><span class="n">resource</span><span class="p">,</span><span class="w"> </span><span class="n">clauses</span><span class="p">,</span><span class="w"> </span><span class="n">ctx</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">SdlLoadError</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;cannot find SDL function named &lt;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="n">funcName</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&gt; in &quot;</span>
+<span class="w">            </span><span class="s">&quot;SDL class &lt;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">genPrettyName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&gt;&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Owner</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">FieldSet</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&lt;</span><span class="n">Owner</span><span class="p">,</span><span class="w"> </span><span class="n">FieldSet</span><span class="o">&gt;::</span><span class="n">associatedResources</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">ISdlResource</span><span class="o">&amp;</span><span class="w">               </span><span class="n">targetResource</span><span class="p">,</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">ISdlResource</span><span class="o">*&gt;&amp;</span><span class="w"> </span><span class="n">out_resources</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_base_of_v</span><span class="o">&lt;</span><span class="n">ISdlResource</span><span class="p">,</span><span class="w"> </span><span class="n">Owner</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;Owner class must derive from ISdlResource.&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Owner</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ownerResource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">castToOwnerResource</span><span class="p">(</span><span class="n">targetResource</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">fieldIdx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">fieldIdx</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m_fields</span><span class="p">.</span><span class="n">numFields</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">fieldIdx</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">TOwnedSdlField</span><span class="o">&lt;</span><span class="n">Owner</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_fields</span><span class="p">[</span><span class="n">fieldIdx</span><span class="p">];</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">associatedResource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">field</span><span class="p">.</span><span class="n">associatedResource</span><span class="p">(</span><span class="n">ownerResource</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">associatedResource</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">out_resources</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">associatedResource</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Find more associations in base class</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">isDerived</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">getBase</span><span class="p">());</span>
+<span class="w">        </span><span class="n">getBase</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">associatedResources</span><span class="p">(</span><span class="n">targetResource</span><span class="p">,</span><span class="w"> </span><span class="n">out_resources</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Owner</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">FieldSet</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&lt;</span><span class="n">Owner</span><span class="p">,</span><span class="w"> </span><span class="n">FieldSet</span><span class="o">&gt;::</span><span class="n">numFields</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_fields</span><span class="p">.</span><span class="n">numFields</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Owner</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">FieldSet</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">SdlField</span><span class="o">*</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&lt;</span><span class="n">Owner</span><span class="p">,</span><span class="w"> </span><span class="n">FieldSet</span><span class="o">&gt;::</span><span class="n">getField</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">getOwnedField</span><span class="p">(</span><span class="n">index</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Owner</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">FieldSet</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&lt;</span><span class="n">Owner</span><span class="p">,</span><span class="w"> </span><span class="n">FieldSet</span><span class="o">&gt;::</span><span class="n">numFunctions</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_functions</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Owner</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">FieldSet</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">SdlFunction</span><span class="o">*</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&lt;</span><span class="n">Owner</span><span class="p">,</span><span class="w"> </span><span class="n">FieldSet</span><span class="o">&gt;::</span><span class="n">getFunction</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m_functions</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">m_functions</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Owner</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">FieldSet</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">TOwnedSdlField</span><span class="o">&lt;</span><span class="n">Owner</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&lt;</span><span class="n">Owner</span><span class="p">,</span><span class="w"> </span><span class="n">FieldSet</span><span class="o">&gt;::</span><span class="n">getOwnedField</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_fields</span><span class="p">.</span><span class="n">getField</span><span class="p">(</span><span class="n">index</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Owner</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">FieldSet</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&lt;</span><span class="n">Owner</span><span class="p">,</span><span class="w"> </span><span class="n">FieldSet</span><span class="o">&gt;::</span><span class="n">isBlueprint</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_abstract_v</span><span class="o">&lt;</span><span class="n">Owner</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Owner</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">FieldSet</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">SdlFieldType</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&lt;</span><span class="n">Owner</span><span class="p">,</span><span class="w"> </span><span class="n">FieldSet</span><span class="o">&gt;::</span><span class="n">addField</span><span class="p">(</span><span class="n">SdlFieldType</span><span class="w"> </span><span class="n">sdlField</span><span class="p">)</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&amp;</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// More restrictions on the type of SdlFieldType may be imposed by FieldSet</span>
+<span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_base_of_v</span><span class="o">&lt;</span><span class="n">SdlField</span><span class="p">,</span><span class="w"> </span><span class="n">SdlFieldType</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;Provided SdlFieldType is not a SdlField thus cannot be added.&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">m_fields</span><span class="p">.</span><span class="n">addField</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">sdlField</span><span class="p">));</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Owner</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">FieldSet</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">StructType</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&lt;</span><span class="n">Owner</span><span class="p">,</span><span class="w"> </span><span class="n">FieldSet</span><span class="o">&gt;::</span><span class="n">addStruct</span><span class="p">(</span><span class="n">StructType</span><span class="w"> </span><span class="n">Owner</span><span class="o">::*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">structObjPtr</span><span class="p">)</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&amp;</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">addStruct</span><span class="p">(</span><span class="n">structObjPtr</span><span class="p">,</span><span class="w"> </span><span class="n">SdlStructFieldStump</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Owner</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">FieldSet</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">StructType</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&lt;</span><span class="n">Owner</span><span class="p">,</span><span class="w"> </span><span class="n">FieldSet</span><span class="o">&gt;::</span><span class="n">addStruct</span><span class="p">(</span>
+<span class="w">    </span><span class="n">StructType</span><span class="w"> </span><span class="n">Owner</span><span class="o">::*</span><span class="w"> </span><span class="k">const</span><span class="w">  </span><span class="n">structObjPtr</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">SdlStructFieldStump</span><span class="o">&amp;</span><span class="w"> </span><span class="n">structFieldStump</span><span class="p">)</span>
+
+<span class="w">    </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&amp;</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// TODO: require StructType has getSdlFunction()</span>
+
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">structObjPtr</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">m_fields</span><span class="p">.</span><span class="n">addFields</span><span class="p">(</span><span class="n">structFieldStump</span><span class="p">.</span><span class="n">genFieldSet</span><span class="p">(</span><span class="n">structObjPtr</span><span class="p">));</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Owner</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">FieldSet</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&lt;</span><span class="n">Owner</span><span class="p">,</span><span class="w"> </span><span class="n">FieldSet</span><span class="o">&gt;::</span><span class="n">addFunction</span><span class="p">()</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&amp;</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// TODO: require T has getSdlFunction()</span>
+
+<span class="w">    </span><span class="n">m_functions</span><span class="p">.</span><span class="n">pushBack</span><span class="p">(</span><span class="n">T</span><span class="o">::</span><span class="n">getSdlFunction</span><span class="p">());</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Owner</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">FieldSet</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&lt;</span><span class="n">Owner</span><span class="p">,</span><span class="w"> </span><span class="n">FieldSet</span><span class="o">&gt;::</span><span class="n">loadFieldsFromSdl</span><span class="p">(</span>
+<span class="w">    </span><span class="n">Owner</span><span class="o">&amp;</span><span class="w">                  </span><span class="n">owner</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ValueClauses</span><span class="o">&amp;</span><span class="w">           </span><span class="n">clauses</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">SdlInputContext</span><span class="o">&amp;</span><span class="w">  </span><span class="n">ctx</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">noticeReceiver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">noticeMsg</span><span class="p">,</span><span class="w"> </span><span class="n">EFieldImportance</span><span class="w"> </span><span class="n">importance</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">importance</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EFieldImportance</span><span class="o">::</span><span class="n">Optional</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">importance</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EFieldImportance</span><span class="o">::</span><span class="n">NiceToHave</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">PH_LOG_STRING</span><span class="p">(</span><span class="n">SdlClass</span><span class="p">,</span><span class="w"> </span><span class="n">noticeMsg</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">PH_LOG_WARNING_STRING</span><span class="p">(</span><span class="n">SdlClass</span><span class="p">,</span><span class="w"> </span><span class="n">noticeMsg</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="c1">// If this class is the source class, it should be the most derived class of the current</span>
+<span class="w">    </span><span class="c1">// input process and consume all remaining clauses. Otherwise, redundant clauses are</span>
+<span class="w">    </span><span class="c1">// allowed as subsequent (derived) classes would consume them.</span>
+<span class="w">    </span><span class="c1">//</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">ctx</span><span class="p">.</span><span class="n">getSrcClass</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">this</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">field_set_op</span><span class="o">::</span><span class="n">load_fields_from_sdl</span><span class="p">(</span>
+<span class="w">            </span><span class="n">owner</span><span class="p">,</span>
+<span class="w">            </span><span class="n">m_fields</span><span class="p">,</span>
+<span class="w">            </span><span class="n">clauses</span><span class="p">,</span>
+<span class="w">            </span><span class="n">ctx</span><span class="p">,</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">noticeReceiver</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">field_set_op</span><span class="o">::</span><span class="n">load_fields_from_sdl_with_redundant_clauses</span><span class="p">(</span>
+<span class="w">            </span><span class="n">owner</span><span class="p">,</span>
+<span class="w">            </span><span class="n">m_fields</span><span class="p">,</span>
+<span class="w">            </span><span class="n">clauses</span><span class="p">,</span>
+<span class="w">            </span><span class="n">ctx</span><span class="p">,</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">noticeReceiver</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Owner</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">FieldSet</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&lt;</span><span class="n">Owner</span><span class="p">,</span><span class="w"> </span><span class="n">FieldSet</span><span class="o">&gt;::</span><span class="n">setFieldsToDefaults</span><span class="p">(</span><span class="n">Owner</span><span class="o">&amp;</span><span class="w"> </span><span class="n">owner</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">fieldIdx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">fieldIdx</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m_fields</span><span class="p">.</span><span class="n">numFields</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">fieldIdx</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_fields</span><span class="p">[</span><span class="n">fieldIdx</span><span class="p">];</span>
+
+<span class="w">        </span><span class="c1">// Set field to default value regardless of its importance (field importance is for import/export)</span>
+<span class="w">        </span><span class="n">field</span><span class="p">.</span><span class="n">setValueToDefault</span><span class="p">(</span><span class="n">owner</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Owner</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">FieldSet</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&lt;</span><span class="n">Owner</span><span class="p">,</span><span class="w"> </span><span class="n">FieldSet</span><span class="o">&gt;::</span><span class="n">saveFieldsToSdl</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Owner</span><span class="o">&amp;</span><span class="w">            </span><span class="n">owner</span><span class="p">,</span>
+<span class="w">    </span><span class="n">OutputPayloads</span><span class="o">&amp;</span><span class="w">         </span><span class="n">payloads</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">SdlOutputContext</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ctx</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">fieldIdx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">fieldIdx</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m_fields</span><span class="p">.</span><span class="n">numFields</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">fieldIdx</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">TOwnedSdlField</span><span class="o">&lt;</span><span class="n">Owner</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_fields</span><span class="p">[</span><span class="n">fieldIdx</span><span class="p">];</span>
+<span class="w">        </span><span class="n">field</span><span class="p">.</span><span class="n">toSdl</span><span class="p">(</span><span class="n">owner</span><span class="p">,</span><span class="w"> </span><span class="n">payloads</span><span class="p">.</span><span class="n">createPayload</span><span class="p">(),</span><span class="w"> </span><span class="n">ctx</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Owner</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">FieldSet</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&lt;</span><span class="n">Owner</span><span class="p">,</span><span class="w"> </span><span class="n">FieldSet</span><span class="o">&gt;::</span><span class="n">description</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">descriptionStr</span><span class="p">)</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&amp;</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">setDescription</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">descriptionStr</span><span class="p">));</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Owner</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">FieldSet</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&lt;</span><span class="n">Owner</span><span class="p">,</span><span class="w"> </span><span class="n">FieldSet</span><span class="o">&gt;::</span><span class="n">docName</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">docName</span><span class="p">)</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&amp;</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">setDocName</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">docName</span><span class="p">));</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Owner</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">FieldSet</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&lt;</span><span class="n">Owner</span><span class="p">,</span><span class="w"> </span><span class="n">FieldSet</span><span class="o">&gt;::</span><span class="n">baseOn</span><span class="p">()</span>
+<span class="w">    </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&amp;</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Owner</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;A SDL class cannot base on itself.&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">setBase</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Owner</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">FieldSet</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">DeducedSrcResource</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="n">TOwnerSdlClass</span><span class="o">&lt;</span><span class="n">Owner</span><span class="p">,</span><span class="w"> </span><span class="n">FieldSet</span><span class="o">&gt;::</span><span class="n">castToOwnerResource</span><span class="p">(</span><span class="n">DeducedSrcResource</span><span class="o">&amp;</span><span class="w"> </span><span class="n">srcResource</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Source resource type, possibly cv-qualified</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">SrcResource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">remove_reference_t</span><span class="o">&lt;</span><span class="n">DeducedSrcResource</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_base_of_v</span><span class="o">&lt;</span><span class="n">ISdlResource</span><span class="p">,</span><span class="w"> </span><span class="n">SrcResource</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;Target resource must derive from ISdlResource.&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_base_of_v</span><span class="o">&lt;</span><span class="n">ISdlResource</span><span class="p">,</span><span class="w"> </span><span class="n">Owner</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;Owner must derive from ISdlResource.&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Owner pointer type, possibly const-qualified (ignoring volatile)</span>
+<span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">is_volatile_v</span><span class="o">&lt;</span><span class="n">SrcResource</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">OwnerPtr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">conditional_t</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">is_const_v</span><span class="o">&lt;</span><span class="n">SrcResource</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">Owner</span><span class="o">*</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Owner</span><span class="o">*&gt;</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">OwnerPtr</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ownerPtr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">OwnerPtr</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">srcResource</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">ownerPtr</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">throw_formatted</span><span class="o">&lt;</span><span class="n">SdlException</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;type cast error: target resource is not owned by SDL class &lt;{}&gt; (resource ID = {})&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">genPrettyName</span><span class="p">(),</span><span class="w"> </span><span class="n">srcResource</span><span class="p">.</span><span class="n">getId</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// The parentheses are not required here--`*owner` is already an expression, resulting in a</span>
+<span class="w">    </span><span class="c1">// cv-qualified reference return type. Parentheses added just to be a reminder and also a fail-safe.</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">ownerPtr</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

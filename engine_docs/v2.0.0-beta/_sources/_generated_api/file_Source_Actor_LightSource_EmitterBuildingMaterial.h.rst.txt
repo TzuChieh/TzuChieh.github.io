@@ -1,0 +1,63 @@
+
+.. _file_Source_Actor_LightSource_EmitterBuildingMaterial.h:
+
+File EmitterBuildingMaterial.h
+==============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\LightSource\EmitterBuildingMaterial.h``)
+-------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_LightSource_EmitterBuildingMaterial.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Math/Transform/RigidTransform.h``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_ALight.cpp`
+
+- :ref:`file_Source_Actor_LightSource_AreaSource.cpp`
+
+- :ref:`file_Source_Actor_LightSource_LightSource.h`
+
+- :ref:`file_Source_Actor_LightSource_ModelSource.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_emitter_building_material`
+

@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a10abe887f58a85052819b13c00a4b5cf:
+
+Function ph::loadCbox3ObjScene
+==============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::loadCbox3ObjScene(VisualWorld *const)
+   :project: Photon

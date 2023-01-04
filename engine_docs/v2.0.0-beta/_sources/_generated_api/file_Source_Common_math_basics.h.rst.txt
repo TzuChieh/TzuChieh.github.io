@@ -1,0 +1,60 @@
+
+.. _file_Source_Common_math_basics.h:
+
+File math_basics.h
+==================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Common\math_basics.h``)
+--------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Common_math_basics.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``bit``
+
+- ``concepts``
+
+- ``limits``
+
+- ``type_traits``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Common_memory.h`
+
+- :ref:`file_Source_Math_math.h`
+
+- :ref:`file_Source_Utility_MemoryArena.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+

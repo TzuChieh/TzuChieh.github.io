@@ -1,0 +1,24 @@
+
+.. _program_listing_file_Source_DataIO_SDL_Introspect_SdlField.cpp:
+
+Program Listing for File SdlField.cpp
+=====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_DataIO_SDL_Introspect_SdlField.cpp>` (``Source\DataIO\SDL\Introspect\SdlField.cpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #include "DataIO/SDL/Introspect/SdlField.h"
+   #include "DataIO/SDL/sdl_helpers.h"
+   
+   namespace ph
+   {
+   
+   std::string SdlField::genPrettyName() const
+   {
+       return sdl::gen_pretty_name(this);
+   }
+   
+   }// end namespace ph

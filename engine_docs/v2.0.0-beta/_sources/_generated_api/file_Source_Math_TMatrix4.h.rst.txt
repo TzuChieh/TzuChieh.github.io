@@ -1,0 +1,71 @@
+
+.. _file_Source_Math_TMatrix4.h:
+
+File TMatrix4.h
+===============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\TMatrix4.h``)
+---------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_TMatrix4.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/primitive_type.h``
+
+- ``Math/TMatrix4.ipp``
+
+- ``Math/math_fwd.h``
+
+- ``array``
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_EngineEnv_Observer_OrientedRasterObserver.cpp`
+
+- :ref:`file_Source_Math_TMatrix4.ipp`
+
+- :ref:`file_Source_Math_TQuaternion.ipp`
+
+- :ref:`file_Source_Math_Transform_StaticAffineTransform.h`
+
+- :ref:`file_Source_Math_Transform_TDecomposedTransform.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_matrix4`
+

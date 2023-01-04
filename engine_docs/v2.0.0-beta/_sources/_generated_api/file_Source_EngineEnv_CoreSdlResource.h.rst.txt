@@ -1,0 +1,59 @@
+
+.. _file_Source_EngineEnv_CoreSdlResource.h:
+
+File CoreSdlResource.h
+======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\EngineEnv\CoreSdlResource.h``)
+---------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_EngineEnv_CoreSdlResource.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``DataIO/SDL/SdlResourceBase.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_EngineEnv_Observer_Observer.h`
+
+- :ref:`file_Source_EngineEnv_SampleSource_SampleSource.h`
+
+- :ref:`file_Source_EngineEnv_Session_RenderSession.h`
+
+- :ref:`file_Source_EngineEnv_Visualizer_Visualizer.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_core_sdl_resource`
+

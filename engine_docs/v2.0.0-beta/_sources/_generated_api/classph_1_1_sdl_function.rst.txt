@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_sdl_function:
+
+Class SdlFunction
+=================
+
+- Defined in :ref:`file_Source_DataIO_SDL_Introspect_SdlFunction.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Type
+************
+
+- ``public ph::TSdlMethod< MethodStruct, TargetType >`` (:ref:`exhale_class_classph_1_1_t_sdl_method`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::SdlFunction
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_constant_image:
+
+Class ConstantImage
+===================
+
+- Defined in :ref:`file_Source_Actor_Image_ConstantImage.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::Image`` (:ref:`exhale_class_classph_1_1_image`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::ConstantImage
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

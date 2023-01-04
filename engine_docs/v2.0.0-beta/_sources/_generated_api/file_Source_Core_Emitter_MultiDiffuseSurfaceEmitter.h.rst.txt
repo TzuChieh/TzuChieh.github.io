@@ -1,0 +1,61 @@
+
+.. _file_Source_Core_Emitter_MultiDiffuseSurfaceEmitter.h:
+
+File MultiDiffuseSurfaceEmitter.h
+=================================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Emitter\MultiDiffuseSurfaceEmitter.h``)
+-----------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Emitter_MultiDiffuseSurfaceEmitter.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/Emitter/DiffuseSurfaceEmitter.h``
+
+- ``Core/Emitter/SurfaceEmitter.h``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_LightSource_AreaSource.cpp`
+
+- :ref:`file_Source_Actor_LightSource_ModelSource.cpp`
+
+- :ref:`file_Source_Core_Emitter_MultiDiffuseSurfaceEmitter.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_multi_diffuse_surface_emitter`
+

@@ -1,0 +1,50 @@
+
+.. _file_Source_Actor_Material_Utility_MicrosurfaceInfo.cpp:
+
+File MicrosurfaceInfo.cpp
+=========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\Material\Utility\MicrosurfaceInfo.cpp``)
+-------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_Material_Utility_MicrosurfaceInfo.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/Material/Utility/MicrosurfaceInfo.h``
+
+- ``Actor/Material/Utility/RoughnessToAlphaMapping.h``
+
+- ``Common/logging.h``
+
+- ``Core/SurfaceBehavior/Property/AnisoTrowbridgeReitz.h``
+
+- ``Core/SurfaceBehavior/Property/IsoBeckmann.h``
+
+- ``Core/SurfaceBehavior/Property/IsoTrowbridgeReitzConstant.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

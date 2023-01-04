@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1ad635a8560b026867937793ce96cd85a1:
+
+Template Function ph::throw_formatted
+=====================================
+
+- Defined in :ref:`file_Source_Utility_exception.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::throw_formatted(const std::string_view, Args&&...)
+   :project: Photon

@@ -54,6 +54,7 @@ var ph__core_8h =
     [ "phGetObservableRenderData", "ph__core_8h.html#ab5cd6e03758e7ef24481f66e62502253", null ],
     [ "phGetRenderDimension", "ph__core_8h.html#ac8d5cafa6a6e9019d30e61d6c5763d59", null ],
     [ "phInit", "ph__core_8h.html#a3b28b2834fe95c79cd02a7a6dc2c1e5c", null ],
+    [ "phLoadCommands", "ph__core_8h.html#ac13ef72088d9f5272f91503601478f06", null ],
     [ "phLoadFrame", "ph__core_8h.html#af17509e8684b62e611205062efc1cc6b", null ],
     [ "phRender", "ph__core_8h.html#ac1ec6340d8edbd665bcc1594705ca2b7", null ],
     [ "phSaveFrame", "ph__core_8h.html#a322ff66d396d407147e472609b4a22bc", null ],

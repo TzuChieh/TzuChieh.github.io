@@ -1,0 +1,42 @@
+
+.. _file_Source_DataIO_BinaryFileReader.cpp:
+
+File BinaryFileReader.cpp
+=========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\BinaryFileReader.cpp``)
+---------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_BinaryFileReader.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/logging.h``
+
+- ``DataIO/BinaryFileReader.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

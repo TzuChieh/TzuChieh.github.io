@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_stratified_sample_source:
+
+Class StratifiedSampleSource
+============================
+
+- Defined in :ref:`file_Source_EngineEnv_SampleSource_StratifiedSampleSource.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::RuntimeSampleSource`` (:ref:`exhale_class_classph_1_1_runtime_sample_source`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::StratifiedSampleSource
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

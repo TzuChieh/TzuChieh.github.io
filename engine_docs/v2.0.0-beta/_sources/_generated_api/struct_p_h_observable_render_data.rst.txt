@@ -1,0 +1,17 @@
+.. _exhale_struct_struct_p_h_observable_render_data:
+
+Struct PHObservableRenderData
+=============================
+
+- Defined in :ref:`file_Include_CEngine_ph_core.h`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: PHObservableRenderData
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

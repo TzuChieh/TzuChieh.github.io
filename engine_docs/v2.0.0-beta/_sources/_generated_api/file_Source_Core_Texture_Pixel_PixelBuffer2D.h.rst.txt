@@ -1,0 +1,77 @@
+
+.. _file_Source_Core_Texture_Pixel_PixelBuffer2D.h:
+
+File PixelBuffer2D.h
+====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Texture\Pixel\PixelBuffer2D.h``)
+----------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Texture_Pixel_PixelBuffer2D.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Common/primitive_type.h``
+
+- ``Math/TVector2.h``
+
+- ``algorithm``
+
+- ``array``
+
+- ``cstddef``
+
+- ``format``
+
+- ``limits``
+
+- ``stdexcept``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_Image_RasterFileImage.h`
+
+- :ref:`file_Source_Core_Texture_Pixel_TFrameBuffer2D.h`
+
+- :ref:`file_Source_Core_Texture_Pixel_TPixelTexture2D.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__pixel_buffer`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1pixel__buffer_1_1_t_pixel`
+
+- :ref:`exhale_class_classph_1_1_pixel_buffer2_d`
+

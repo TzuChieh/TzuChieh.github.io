@@ -1,0 +1,17 @@
+.. _exhale_struct_structph_1_1detail_1_1stats_1_1_scoped_timer:
+
+Struct ScopedTimer
+==================
+
+- Defined in :ref:`file_Source_Common_stats.h`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: ph::detail::stats::ScopedTimer
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1_1math_1abda040aa9221589e70acd9d9cda09c9d:
+
+Typedef ph::math::Basis3F
+=========================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::math::Basis3F
+   :project: Photon

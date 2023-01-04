@@ -1,0 +1,14 @@
+.. _exhale_enum_namespaceph_1a7e33dd6c4833698ef95d3dcfe04f0a0f:
+
+Enum EVertexAttribute
+=====================
+
+.. did not find file this was defined in
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: ph::EVertexAttribute
+   :project: Photon

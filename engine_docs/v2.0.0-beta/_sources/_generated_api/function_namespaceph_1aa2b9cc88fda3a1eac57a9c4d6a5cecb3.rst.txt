@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1aa2b9cc88fda3a1eac57a9c4d6a5cecb3:
+
+Function ph::gen_sdl_resource_id
+================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::gen_sdl_resource_id()
+   :project: Photon

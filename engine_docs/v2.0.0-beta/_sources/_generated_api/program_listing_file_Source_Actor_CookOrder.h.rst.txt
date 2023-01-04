@@ -1,0 +1,80 @@
+
+.. _program_listing_file_Source_Actor_CookOrder.h:
+
+Program Listing for File CookOrder.h
+====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Actor_CookOrder.h>` (``Source\Actor\CookOrder.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Common/primitive_type.h"
+   
+   #include <cstddef>
+   #include <limits>
+   
+   namespace ph
+   {
+   
+   using CookPriority = uint8;
+   using CookLevel    = uint8;
+   
+   enum class ECookPriority : CookPriority
+   {
+       HIGH = 1,
+       NORMAL = std::numeric_limits<CookPriority>::max() / 2,
+       LOW
+   };
+   
+   enum class ECookLevel : CookLevel
+   {
+       FIRST = 0,
+       NORMAL = std::numeric_limits<CookLevel>::max() / 2,
+       LAST
+   };
+   
+   struct CookOrder
+   {
+       CookPriority priority;
+       CookLevel    level;
+   
+       CookOrder();
+   
+       explicit CookOrder(ECookPriority priority);
+       CookOrder(ECookPriority priority, ECookLevel level);
+       CookOrder(CookPriority priority, CookLevel level);
+   
+       bool operator < (const CookOrder& rhs) const;
+   };
+   
+   // In-header Implementations:
+   
+   inline CookOrder::CookOrder() : 
+       CookOrder(ECookPriority::NORMAL, ECookLevel::NORMAL)
+   {}
+   
+   inline CookOrder::CookOrder(const ECookPriority priority) : 
+       CookOrder(priority, ECookLevel::NORMAL)
+   {}
+   
+   inline CookOrder::CookOrder(const ECookPriority priority, const ECookLevel level) : 
+       CookOrder(static_cast<CookPriority>(priority), static_cast<CookLevel>(level))
+   {}
+   
+   inline CookOrder::CookOrder(const CookPriority priority, const CookLevel level) : 
+       priority(priority), level(level)
+   {}
+   
+   inline bool CookOrder::operator < (const CookOrder& rhs) const
+   {
+       // Smaller level takes precedence over priority
+       return this->level != rhs.level ? 
+           this->level < rhs.level : 
+           this->priority < rhs.priority;
+   }
+   
+   }// end namespace ph

@@ -1,0 +1,60 @@
+
+.. _file_Source_Core_Scheduler_Region.h:
+
+File Region.h
+=============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Scheduler\Region.h``)
+-----------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Scheduler_Region.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Math/Geometry/TAABB2D.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Api_ph_core.cpp`
+
+- :ref:`file_Source_Core_Engine.h`
+
+- :ref:`file_Source_Core_Renderer_PM_TSPPMRadianceEvaluator.h`
+
+- :ref:`file_Source_Core_Renderer_PM_TViewPathTracingWork.h`
+
+- :ref:`file_Source_Core_Renderer_Renderer.h`
+
+- :ref:`file_Source_Core_Renderer_Sampling_AdaptiveSamplingRenderer.h`
+
+- :ref:`file_Source_Core_Scheduler_DammertzDispatcher.h`
+
+- :ref:`file_Source_Core_Scheduler_WorkUnit.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

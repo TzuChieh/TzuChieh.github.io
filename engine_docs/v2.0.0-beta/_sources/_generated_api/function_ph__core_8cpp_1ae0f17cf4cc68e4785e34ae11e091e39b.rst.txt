@@ -1,0 +1,14 @@
+.. _exhale_function_ph__core_8cpp_1ae0f17cf4cc68e4785e34ae11e091e39b:
+
+Function phCreateBuffer(PHuint64 \*const)
+=========================================
+
+- Defined in :ref:`file_Source_Api_ph_core.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: phCreateBuffer(PHuint64 *const)
+   :project: Photon

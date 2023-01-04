@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1acc970fbe8bc77521af0103b29e524baa:
+
+Function ph::math::fast_rcp_sqrt
+================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::fast_rcp_sqrt(float)
+   :project: Photon

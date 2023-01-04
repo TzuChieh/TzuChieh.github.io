@@ -1,0 +1,67 @@
+
+.. _program_listing_file_Source_DataIO_SDL_Introspect_SdlOutputContext.h:
+
+Program Listing for File SdlOutputContext.h
+===========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_DataIO_SDL_Introspect_SdlOutputContext.h>` (``Source\DataIO\SDL\Introspect\SdlOutputContext.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "DataIO/SDL/Introspect/SdlIOContext.h"
+   #include "DataIO/FileSystem/Path.h"
+   #include "DataIO/SDL/SdlReferenceResolver.h"
+   #include "Common/assertion.h"
+   
+   #include <utility>
+   #include <string>
+   
+   namespace ph
+   {
+   
+   class SdlOutputContext final : public SdlIOContext
+   {
+   public:
+       SdlOutputContext();
+   
+       SdlOutputContext(
+           const SdlReferenceResolver* refResolver,
+           Path                        workingDirectory,
+           const SdlClass*             srcClass);
+   
+       const SdlReferenceResolver& getReferenceResolver() const;
+   
+   private:
+       const SdlReferenceResolver* m_refResolver;
+   };
+   
+   // In-header Implementation:
+   
+   inline SdlOutputContext::SdlOutputContext() :
+       SdlIOContext(),
+       m_refResolver(nullptr)
+   {}
+   
+   inline SdlOutputContext::SdlOutputContext(
+       const SdlReferenceResolver* const refResolver,
+       Path                              workingDirectory,
+       const SdlClass* const             srcClass) :
+   
+       SdlIOContext(
+           std::move(workingDirectory), 
+           srcClass),
+   
+       m_refResolver(refResolver)
+   {}
+   
+   inline const SdlReferenceResolver& SdlOutputContext::getReferenceResolver() const
+   {
+       PH_ASSERT(m_refResolver);
+       return *m_refResolver;
+   }
+   
+   }// end namespace ph

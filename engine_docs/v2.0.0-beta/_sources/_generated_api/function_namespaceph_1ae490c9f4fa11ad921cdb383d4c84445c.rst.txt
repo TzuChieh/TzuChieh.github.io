@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1ae490c9f4fa11ad921cdb383d4c84445c:
+
+Template Function ph::enum_to_value
+===================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::enum_to_value(const EnumType)
+   :project: Photon

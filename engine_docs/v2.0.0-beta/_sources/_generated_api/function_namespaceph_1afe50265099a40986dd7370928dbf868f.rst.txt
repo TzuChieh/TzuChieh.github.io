@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1afe50265099a40986dd7370928dbf868f:
+
+Function ph::load5bScene
+========================
+
+- Defined in :ref:`file_Source_Api_test_scene.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::load5bScene(VisualWorld *const)
+   :project: Photon

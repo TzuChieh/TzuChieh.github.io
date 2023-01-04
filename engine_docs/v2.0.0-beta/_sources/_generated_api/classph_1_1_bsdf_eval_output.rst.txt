@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_bsdf_eval_output:
+
+Class BsdfEvalOutput
+====================
+
+- Defined in :ref:`file_Source_Core_SurfaceBehavior_BsdfEvalQuery.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::BsdfEvalOutput
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

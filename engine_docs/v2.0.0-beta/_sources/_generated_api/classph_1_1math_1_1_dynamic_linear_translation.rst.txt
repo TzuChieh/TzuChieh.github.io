@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1math_1_1_dynamic_linear_translation:
+
+Class DynamicLinearTranslation
+==============================
+
+- Defined in :ref:`file_Source_Math_Transform_DynamicLinearTranslation.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::math::RigidTransform`` (:ref:`exhale_class_classph_1_1math_1_1_rigid_transform`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::math::DynamicLinearTranslation
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

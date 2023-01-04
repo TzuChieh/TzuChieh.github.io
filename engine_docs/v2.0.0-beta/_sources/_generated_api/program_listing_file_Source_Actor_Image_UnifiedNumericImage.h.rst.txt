@@ -1,0 +1,64 @@
+
+.. _program_listing_file_Source_Actor_Image_UnifiedNumericImage.h:
+
+Program Listing for File UnifiedNumericImage.h
+==============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Actor_Image_UnifiedNumericImage.h>` (``Source\Actor\Image\UnifiedNumericImage.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Actor/Image/Image.h"
+   #include "Common/primitive_type.h"
+   #include "Math/math_fwd.h"
+   
+   #include <memory>
+   #include <string>
+   #include <array>
+   #include <cstddef>
+   
+   namespace ph
+   {
+   
+   class UnifiedNumericImage : public Image
+   {
+   public:
+       UnifiedNumericImage();
+   
+       std::shared_ptr<TTexture<Image::Array>> genNumericTexture(
+           ActorCookingContext& ctx) override;
+   
+       std::shared_ptr<TTexture<math::Spectrum>> genColorTexture(
+           ActorCookingContext& ctx) override;
+   
+       std::shared_ptr<TTexture<real>> genRealTexture(ActorCookingContext& ctx);
+       std::shared_ptr<TTexture<math::Vector2R>> genVector2RTexture(ActorCookingContext& ctx);
+       std::shared_ptr<TTexture<math::Vector3R>> genVector3RTexture(ActorCookingContext& ctx);
+       std::shared_ptr<TTexture<math::Vector4R>> genVector4RTexture(ActorCookingContext& ctx);
+   
+       UnifiedNumericImage& setImage(std::shared_ptr<Image> image);
+       UnifiedNumericImage& setSwizzleSubscripts(std::string swizzleSubscripts);
+       UnifiedNumericImage& setConstant(const float64* constantData, std::size_t dataSize);
+   
+       template<std::size_t N> requires (N <= Image::ARRAY_SIZE)
+       inline UnifiedNumericImage& setConstant(const std::array<float64, N>& constant)
+       {
+           m_constant.set(0.0);
+           for(std::size_t i = 0; i < N; ++i)
+           {
+               m_constant[i] = constant[i];
+           }
+           return *this;
+       }
+   
+   private:
+       std::shared_ptr<Image> m_image;
+       std::string            m_swizzleSubscripts;
+       Image::Array           m_constant;
+   };
+   
+   }// end namespace ph

@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_t_owner_sdl_struct:
+
+Template Class TOwnerSdlStruct
+==============================
+
+- Defined in :ref:`file_Source_DataIO_SDL_Introspect_TOwnerSdlStruct.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::SdlStruct`` (:ref:`exhale_class_classph_1_1_sdl_struct`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TOwnerSdlStruct
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

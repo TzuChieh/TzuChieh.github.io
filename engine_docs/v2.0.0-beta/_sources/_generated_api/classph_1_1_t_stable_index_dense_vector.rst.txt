@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_t_stable_index_dense_vector:
+
+Template Class TStableIndexDenseVector
+======================================
+
+- Defined in :ref:`file_Source_Utility_TStableIndexDenseVector.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TStableIndexDenseVector
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

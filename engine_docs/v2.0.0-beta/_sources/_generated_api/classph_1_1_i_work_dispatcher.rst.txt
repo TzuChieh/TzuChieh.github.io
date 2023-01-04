@@ -1,0 +1,27 @@
+.. _exhale_class_classph_1_1_i_work_dispatcher:
+
+Class IWorkDispatcher
+=====================
+
+- Defined in :ref:`file_Source_Core_Scheduler_IWorkDispatcher.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Types
+*************
+
+- ``public ph::DammertzDispatcher`` (:ref:`exhale_class_classph_1_1_dammertz_dispatcher`)
+- ``public ph::WorkScheduler`` (:ref:`exhale_class_classph_1_1_work_scheduler`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::IWorkDispatcher
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

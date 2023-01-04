@@ -1,0 +1,104 @@
+
+.. _file_Source_Core_Renderer_Attribute_AttributeRenderer.cpp:
+
+File AttributeRenderer.cpp
+==========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Renderer\Attribute\AttributeRenderer.cpp``)
+---------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Renderer_Attribute_AttributeRenderer.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Common/logging.h``
+
+- ``Common/primitive_type.h``
+
+- ``Core/Estimator/Integrand.h``
+
+- ``Core/Estimator/SurfaceAttributeEstimator.h``
+
+- ``Core/Filmic/HdrRgbFilm.h``
+
+- ``Core/Filmic/Vector3Film.h``
+
+- ``Core/Ray.h``
+
+- ``Core/Receiver/Receiver.h``
+
+- ``Core/Renderer/Attribute/AttributeRenderer.h``
+
+- ``Core/Renderer/RenderWork.h``
+
+- ``Core/Renderer/RenderWorker.h``
+
+- ``Core/Renderer/RendererProxy.h``
+
+- ``Core/SampleGenerator/SampleGenerator.h``
+
+- ``Core/Scheduler/GridScheduler.h``
+
+- ``Core/Scheduler/PlateScheduler.h``
+
+- ``Core/Scheduler/SpiralGridScheduler.h``
+
+- ``Core/Scheduler/StripeScheduler.h``
+
+- ``Core/Scheduler/TileScheduler.h``
+
+- ``Core/Scheduler/WorkUnit.h``
+
+- ``EngineEnv/CoreCookedUnit.h``
+
+- ``Math/Random/sample.h``
+
+- ``Math/constant.h``
+
+- ``Utility/Concurrent/FixedSizeThreadPool.h``
+
+- ``Utility/utility.h``
+
+- ``World/VisualWorld.h``
+
+- ``chrono``
+
+- ``cmath``
+
+- ``functional``
+
+- ``iostream``
+
+- ``thread``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+- ``vector``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

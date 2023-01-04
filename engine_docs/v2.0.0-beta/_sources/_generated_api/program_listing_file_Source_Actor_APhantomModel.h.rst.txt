@@ -1,0 +1,49 @@
+
+.. _program_listing_file_Source_Actor_APhantomModel.h:
+
+Program Listing for File APhantomModel.h
+========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Actor_APhantomModel.h>` (``Source\Actor\APhantomModel.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Actor/AModel.h"
+   
+   #include <string>
+   
+   namespace ph
+   {
+   
+   class APhantomModel : public AModel
+   {
+   public:
+       APhantomModel();
+       APhantomModel(
+           const std::shared_ptr<Geometry>& geometry,
+           const std::shared_ptr<Material>& material);
+       APhantomModel(const APhantomModel& other);
+   
+       CookedUnit cook(ActorCookingContext& ctx) override;
+       CookOrder getCookOrder() const override;
+   
+       APhantomModel& operator = (APhantomModel rhs);
+   
+       friend void swap(APhantomModel& first, APhantomModel& second);
+   
+   private:
+       std::string m_phantomName;
+   };
+   
+   // In-header Implementations:
+   
+   inline CookOrder APhantomModel::getCookOrder() const
+   {
+       return CookOrder(ECookPriority::HIGH);
+   }
+   
+   }// end namespace ph

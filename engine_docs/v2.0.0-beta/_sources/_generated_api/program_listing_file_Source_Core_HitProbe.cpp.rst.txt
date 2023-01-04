@@ -1,0 +1,37 @@
+
+.. _program_listing_file_Source_Core_HitProbe.cpp:
+
+Program Listing for File HitProbe.cpp
+=====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Core_HitProbe.cpp>` (``Source\Core\HitProbe.cpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #include "Core/HitProbe.h"
+   #include "Common/assertion.h"
+   #include "Core/Intersectable/Intersectable.h"
+   #include "Core/HitDetail.h"
+   #include "Core/Intersectable/PrimitiveMetadata.h"
+   
+   namespace ph
+   {
+   
+   void HitProbe::calcIntersectionDetail(
+       const Ray&       ray,
+       HitDetail* const out_detail)
+   {
+       PH_ASSERT(getCurrentHit() != nullptr);
+   
+       getCurrentHit()->calcIntersectionDetail(ray, *this, out_detail);
+       out_detail->computeBases();
+   }
+   
+   bool HitProbe::isOnDefaultChannel() const
+   {
+       return m_hitDetailChannel == PrimitiveMetadata::DEFAULT_CHANNEL_ID;
+   }
+   
+   }// end namespace ph

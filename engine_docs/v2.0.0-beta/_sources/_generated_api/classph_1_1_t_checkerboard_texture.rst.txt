@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_t_checkerboard_texture:
+
+Template Class TCheckerboardTexture
+===================================
+
+- Defined in :ref:`file_Source_Core_Texture_TCheckerboardTexture.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::TTexture< OutputType >`` (:ref:`exhale_class_classph_1_1_t_texture`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TCheckerboardTexture
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

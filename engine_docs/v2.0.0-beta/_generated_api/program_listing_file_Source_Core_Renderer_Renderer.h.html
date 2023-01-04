@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File Renderer.h &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File Renderer.h</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Core_Renderer_Renderer.h.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-renderer-h">
+<span id="program-listing-file-source-core-renderer-renderer-h"></span><h1>Program Listing for File Renderer.h<a class="headerlink" href="#program-listing-for-file-renderer-h" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Core_Renderer_Renderer.h.html#file-source-core-renderer-renderer-h"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Core\Renderer\Renderer.h</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/primitive_type.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Renderer/RenderWorker.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Renderer/RenderWork.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/SampleGenerator/SampleGenerator.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/Geometry/TAABB2D.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Renderer/ERegionStatus.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Renderer/Statistics.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Frame/frame_fwd.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Renderer/AttributeTags.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Renderer/RenderState.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Scheduler/Region.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/assertion.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Utility/Timer.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Renderer/ObservableRenderData.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Frame/Viewport.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;mutex&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;memory&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;atomic&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;deque&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CoreCookedUnit</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">VisualWorld</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">RenderWorker</span><span class="p">;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Renderer</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">Renderer</span><span class="p">(</span><span class="n">Viewport</span><span class="w"> </span><span class="n">viewport</span><span class="p">,</span><span class="w"> </span><span class="n">uint32</span><span class="w"> </span><span class="n">numWorkers</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">Renderer</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// Perform necessary updates for rendering.</span>
+<span class="w">    </span><span class="c1">// No asynchronous operation is allowed during update.</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doUpdate</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">CoreCookedUnit</span><span class="o">&amp;</span><span class="w"> </span><span class="n">cooked</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VisualWorld</span><span class="o">&amp;</span><span class="w"> </span><span class="n">world</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Start rendering.</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doRender</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Get the rendered result.</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">retrieveFrame</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">layerIndex</span><span class="p">,</span><span class="w"> </span><span class="n">HdrRgbFrame</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out_frame</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Get the rendering region that has been updated.</span>
+<span class="w">    </span><span class="c1">// TODO: allow polling unioned regions seems like a good idea</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="n">ERegionStatus</span><span class="w"> </span><span class="nf">asyncPollUpdatedRegion</span><span class="p">(</span><span class="n">Region</span><span class="o">*</span><span class="w"> </span><span class="n">out_region</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Returns information regarding the rendering process.</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="n">RenderState</span><span class="w"> </span><span class="nf">asyncQueryRenderState</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// TODO: remove this method</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="n">RenderProgress</span><span class="w"> </span><span class="nf">asyncQueryRenderProgress</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Similar to retrieveFrame(2), except that correctness is not guaranteed</span>
+<span class="w">    </span><span class="c1">// for the returned frame.</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">asyncPeekFrame</span><span class="p">(</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w">   </span><span class="n">layerIndex</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">Region</span><span class="o">&amp;</span><span class="w"> </span><span class="n">region</span><span class="p">,</span>
+<span class="w">        </span><span class="n">HdrRgbFrame</span><span class="o">&amp;</span><span class="w">  </span><span class="n">out_frame</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Get information about available outputs of the renderer, which will be</span>
+<span class="w">    </span><span class="c1">// determined after each update. The actual data and can be retrieved via</span>
+<span class="w">    </span><span class="c1">// async&lt;X&gt;() methods.</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="n">ObservableRenderData</span><span class="w"> </span><span class="nf">getObservableData</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">CoreCookedUnit</span><span class="o">&amp;</span><span class="w"> </span><span class="n">cooked</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VisualWorld</span><span class="o">&amp;</span><span class="w"> </span><span class="n">world</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">render</span><span class="p">();</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setNumWorkers</span><span class="p">(</span><span class="n">uint32</span><span class="w"> </span><span class="n">numWorkers</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">uint32</span><span class="w"> </span><span class="nf">numWorkers</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">uint32</span><span class="w"> </span><span class="nf">getRenderWidthPx</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">uint32</span><span class="w"> </span><span class="nf">getRenderHeightPx</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">TAABB2D</span><span class="o">&lt;</span><span class="n">int64</span><span class="o">&gt;</span><span class="w"> </span><span class="n">getCropWindowPx</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">TAABB2D</span><span class="o">&lt;</span><span class="n">int64</span><span class="o">&gt;</span><span class="w"> </span><span class="n">getRenderRegionPx</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Viewport</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">getViewport</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">asyncIsUpdating</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">asyncIsRendering</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="n">Viewport</span><span class="w"> </span><span class="n">m_viewport</span><span class="p">;</span>
+<span class="w">    </span><span class="n">uint32</span><span class="w">   </span><span class="n">m_numWorkers</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">RenderWorker</span><span class="o">&gt;</span><span class="w"> </span><span class="n">m_workers</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="kt">atomic_bool</span><span class="w"> </span><span class="n">m_isUpdating</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="kt">atomic_bool</span><span class="w"> </span><span class="n">m_isRendering</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// In-header Implementations:</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">uint32</span><span class="w"> </span><span class="nf">Renderer::numWorkers</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_numWorkers</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">uint32</span><span class="w"> </span><span class="nf">Renderer::getRenderWidthPx</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_viewport</span><span class="p">.</span><span class="n">getBaseSizePx</span><span class="p">().</span><span class="n">x</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">uint32</span><span class="w"> </span><span class="nf">Renderer::getRenderHeightPx</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_viewport</span><span class="p">.</span><span class="n">getBaseSizePx</span><span class="p">().</span><span class="n">y</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">TAABB2D</span><span class="o">&lt;</span><span class="n">int64</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Renderer</span><span class="o">::</span><span class="n">getCropWindowPx</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_viewport</span><span class="p">.</span><span class="n">getWindowPx</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">TAABB2D</span><span class="o">&lt;</span><span class="n">int64</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Renderer</span><span class="o">::</span><span class="n">getRenderRegionPx</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_viewport</span><span class="p">.</span><span class="n">getCroppedRegionPx</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Viewport</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Renderer</span><span class="o">::</span><span class="n">getViewport</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_viewport</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">Renderer</span><span class="o">::</span><span class="n">asyncIsUpdating</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_isUpdating</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_relaxed</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">Renderer</span><span class="o">::</span><span class="n">asyncIsRendering</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_isRendering</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_relaxed</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

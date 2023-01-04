@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['next_5fpower_5fof_5f2',['next_power_of_2',['../namespaceph_1_1math.html#a2dd1eb154bffce7df042dbdd88aa161b',1,'ph::math']]],
-  ['nextstableindex',['nextStableIndex',['../classph_1_1_t_stable_index_dense_array.html#a83fe569107f3ef717f526e401894781d',1,'ph::TStableIndexDenseArray']]]
+  ['join_7703',['join',['../classph_1_1_initially_paused_thread.html#aa5ad510aeaca8abbf7107a28a4fdf1b9',1,'ph::InitiallyPausedThread']]],
+  ['jrtonemapping_7704',['JRToneMapping',['../classph_1_1_j_r_tone_mapping.html#a6d4ae424cf2464d9c9465ac11fe2000e',1,'ph::JRToneMapping']]]
 ];

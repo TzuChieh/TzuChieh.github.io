@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1a933cea801f5cc547d3d8ccf1a06d3567:
+
+Typedef ph::TSdlOptionalEnumField
+=================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::TSdlOptionalEnumField
+   :project: Photon

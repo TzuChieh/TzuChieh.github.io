@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_s_g_uniform_random:
+
+Class SGUniformRandom
+=====================
+
+- Defined in :ref:`file_Source_Core_SampleGenerator_SGUniformRandom.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::SampleGenerator`` (:ref:`exhale_class_classph_1_1_sample_generator`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::SGUniformRandom
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

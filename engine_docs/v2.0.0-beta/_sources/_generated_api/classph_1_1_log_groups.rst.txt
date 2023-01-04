@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_log_groups:
+
+Class LogGroups
+===============
+
+- Defined in :ref:`file_Source_Common_logging.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::LogGroups
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,55 @@
+
+.. _file_Source_Math_Algorithm_IndexedKdtree_IndexedItemEndpoint.h:
+
+File IndexedItemEndpoint.h
+==========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\Algorithm\IndexedKdtree\IndexedItemEndpoint.h``)
+--------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_Algorithm_IndexedKdtree_IndexedItemEndpoint.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/primitive_type.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Math_Algorithm_IndexedKdtree_TIndexedKdtree.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structph_1_1math_1_1_indexed_item_endpoint`
+

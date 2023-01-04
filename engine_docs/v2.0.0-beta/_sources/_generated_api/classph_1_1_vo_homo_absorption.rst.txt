@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_vo_homo_absorption:
+
+Class VoHomoAbsorption
+======================
+
+- Defined in :ref:`file_Source_Core_VolumeBehavior_VolumeOptics_VoHomoAbsorption.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::VolumeOptics`` (:ref:`exhale_class_classph_1_1_volume_optics`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::VoHomoAbsorption
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

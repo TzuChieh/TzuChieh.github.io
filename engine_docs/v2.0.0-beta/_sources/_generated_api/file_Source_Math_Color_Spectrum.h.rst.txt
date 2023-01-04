@@ -1,0 +1,178 @@
+
+.. _file_Source_Math_Color_Spectrum.h:
+
+File Spectrum.h
+===============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\Color\Spectrum.h``)
+---------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_Color_Spectrum.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/config.h``
+
+- ``Math/Color/TSampledSpectrum.h``
+
+- ``Math/Color/TTristimulusSpectrum.h``
+
+- ``Math/Color/spectrum_fwd.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_ADome.h`
+
+- :ref:`file_Source_Actor_Dome_AImageDome.h`
+
+- :ref:`file_Source_Actor_Dome_APreethamDome.h`
+
+- :ref:`file_Source_Actor_Image_Image.h`
+
+- :ref:`file_Source_Actor_LightSource_AreaSource.h`
+
+- :ref:`file_Source_Actor_Material_IdealSubstance.h`
+
+- :ref:`file_Source_Actor_Material_Utility_ConductiveInterfaceInfo.h`
+
+- :ref:`file_Source_Actor_Material_Utility_SurfaceLayerInfo.h`
+
+- :ref:`file_Source_Actor_Material_Volume_VAbsorptionOnly.h`
+
+- :ref:`file_Source_Actor_SDLExtension_image_loaders.h`
+
+- :ref:`file_Source_Actor_SDLExtension_TSdlSpectrum.h`
+
+- :ref:`file_Source_Core_Emitter_DiffuseSurfaceEmitter.cpp`
+
+- :ref:`file_Source_Core_Emitter_Emitter.h`
+
+- :ref:`file_Source_Core_Emitter_LatLongEnvEmitter.h`
+
+- :ref:`file_Source_Core_Emitter_MultiDiffuseSurfaceEmitter.cpp`
+
+- :ref:`file_Source_Core_Emitter_Query_DirectEnergySampleQuery.h`
+
+- :ref:`file_Source_Core_Emitter_SurfaceEmitter.h`
+
+- :ref:`file_Source_Core_Estimator_BNEEPTEstimator.cpp`
+
+- :ref:`file_Source_Core_Estimator_BNEEPTEstimator.h`
+
+- :ref:`file_Source_Core_Estimator_BVPTDLEstimator.cpp`
+
+- :ref:`file_Source_Core_Estimator_BVPTEstimator.cpp`
+
+- :ref:`file_Source_Core_Estimator_IRayEnergyEstimator.h`
+
+- :ref:`file_Source_Core_Filmic_HdrRgbFilm.h`
+
+- :ref:`file_Source_Core_LTABuildingBlock_PtVolumetricEstimator.h`
+
+- :ref:`file_Source_Core_LTABuildingBlock_RussianRoulette.h`
+
+- :ref:`file_Source_Core_LTABuildingBlock_TDirectLightEstimator.h`
+
+- :ref:`file_Source_Core_Receiver_Receiver.h`
+
+- :ref:`file_Source_Core_Renderer_PM_FullPhoton.h`
+
+- :ref:`file_Source_Core_Renderer_PM_FullViewpoint.h`
+
+- :ref:`file_Source_Core_Renderer_PM_TRadianceEvaluationWork.h`
+
+- :ref:`file_Source_Core_Renderer_PM_TViewPathHandler.h`
+
+- :ref:`file_Source_Core_Renderer_PM_TViewPathTracingWork.h`
+
+- :ref:`file_Source_Core_Renderer_Sampling_AdaptiveSamplingRenderer.h`
+
+- :ref:`file_Source_Core_Renderer_Sampling_EqualSamplingRenderer.h`
+
+- :ref:`file_Source_Core_Renderer_Sampling_IReceivedRayProcessor.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_BsdfEvalQuery.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_BsdfSampleQuery.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_Property_ExactConductorFresnel.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_Property_FresnelEffect.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_IdealDielectric.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_IdealReflector.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_IdealTransmitter.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LambertianDiffuse.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_InterfaceStatistics.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_LbLayer.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_LbLayeredSurface.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_TableFGD.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LerpedSurfaceOptics.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_OpaqueMicrofacet.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_OrenNayar.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_ThinDielectricFilm.h`
+
+- :ref:`file_Source_Core_Texture_constant_textures.h`
+
+- :ref:`file_Source_Core_Texture_Function_binary_texture_operators.h`
+
+- :ref:`file_Source_Core_Texture_Function_unary_texture_operators.h`
+
+- :ref:`file_Source_Core_Texture_HdrRgbTexture2D.h`
+
+- :ref:`file_Source_Core_Texture_LdrRgbTexture2D.h`
+
+- :ref:`file_Source_Core_Texture_Pixel_TColorPixelTexture2D.h`
+
+- :ref:`file_Source_Core_Texture_Sky_PreethamTexture.h`
+
+- :ref:`file_Source_Core_VolumeBehavior_BlockFunction_BfConstant.h`
+
+- :ref:`file_Source_Core_VolumeBehavior_BlockFunction.h`
+
+- :ref:`file_Source_Core_VolumeBehavior_VolumeDistanceSample.h`
+
+- :ref:`file_Source_Core_VolumeBehavior_VolumeOptics.h`
+
+- :ref:`file_Source_World_Scene.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+

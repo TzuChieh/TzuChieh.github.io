@@ -1,0 +1,59 @@
+
+.. _file_Source_Math_Color_TTristimulusSpectrum.h:
+
+File TTristimulusSpectrum.h
+===========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\Color\TTristimulusSpectrum.h``)
+---------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_Color_TTristimulusSpectrum.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Math/Color/TSpectrumBase.h``
+
+- ``Math/Color/TTristimulusSpectrum.ipp``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Math_Color_Spectrum.h`
+
+- :ref:`file_Source_Math_Color_TTristimulusSpectrum.ipp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_tristimulus_spectrum`
+

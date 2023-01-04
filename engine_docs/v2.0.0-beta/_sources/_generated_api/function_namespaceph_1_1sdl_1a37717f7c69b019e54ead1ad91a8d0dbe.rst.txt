@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1sdl_1a37717f7c69b019e54ead1ad91a8d0dbe:
+
+Template Function ph::sdl::load_int
+===================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::sdl::load_int(std::string_view)
+   :project: Photon

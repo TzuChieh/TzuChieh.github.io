@@ -1,0 +1,23 @@
+.. _exhale_class_classph_1_1_statistics_1_1_record:
+
+Class Statistics::Record
+========================
+
+- Defined in :ref:`file_Source_Core_Renderer_Statistics.h`
+
+
+Nested Relationships
+--------------------
+
+This class is a nested type of :ref:`exhale_class_classph_1_1_statistics`.
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::Statistics::Record
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

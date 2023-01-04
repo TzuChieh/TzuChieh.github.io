@@ -1,0 +1,32 @@
+.. _exhale_class_classph_1_1_t_s_p_s_c_ring_buffer_1_1_consumer_guard:
+
+Class TSPSCRingBuffer::ConsumerGuard
+====================================
+
+- Defined in :ref:`file_Source_Utility_Concurrent_TSPSCRingBuffer.h`
+
+
+Nested Relationships
+--------------------
+
+This class is a nested type of :ref:`exhale_class_classph_1_1_t_s_p_s_c_ring_buffer`.
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``private ph::INoCopyAndMove`` (:ref:`exhale_class_classph_1_1_i_no_copy_and_move`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TSPSCRingBuffer::ConsumerGuard
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

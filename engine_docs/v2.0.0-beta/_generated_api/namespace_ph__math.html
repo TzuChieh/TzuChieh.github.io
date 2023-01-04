@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Namespace ph::math &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Namespace ph::math::constant" href="namespace_ph__math__constant.html" />
+    <link rel="prev" title="Namespace ph::lta" href="namespace_ph__lta.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="library_root.html">Library API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="library_root.html#photon-v2-renderer">Photon-v2 Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="library_root.html#page-hierarchy">Page Hierarchy</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="library_root.html#full-api">Full API</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="library_root.html#namespaces">Namespaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#classes-and-structs">Classes and Structs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#enums">Enums</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#unions">Unions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#functions">Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#variables">Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#defines">Defines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#typedefs">Typedefs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="library_root.html">Library API</a></li>
+      <li class="breadcrumb-item active">Namespace ph::math</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/namespace_ph__math.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="namespace-ph-math">
+<span id="id1"></span><h1>Namespace ph::math<a class="headerlink" href="#namespace-ph-math" title="Permalink to this headline"></a></h1>
+<p>Math functions and utilities.</p>
+<div class="contents local topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#namespaces" id="id2">Namespaces</a></p></li>
+<li><p><a class="reference internal" href="#classes" id="id3">Classes</a></p></li>
+<li><p><a class="reference internal" href="#enums" id="id4">Enums</a></p></li>
+<li><p><a class="reference internal" href="#functions" id="id5">Functions</a></p></li>
+<li><p><a class="reference internal" href="#typedefs" id="id6">Typedefs</a></p></li>
+<li><p><a class="reference internal" href="#variables" id="id7">Variables</a></p></li>
+</ul>
+</div>
+<section id="namespaces">
+<h2>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="namespace_ph__math__constant.html#namespace-ph-math-constant"><span class="std std-ref">Namespace ph::math::constant</span></a></p></li>
+<li><p><a class="reference internal" href="namespace_ph__math__detail.html#namespace-ph-math-detail"><span class="std std-ref">Namespace ph::math::detail</span></a></p></li>
+<li><p><a class="reference internal" href="namespace_ph__math__spectral_data.html#namespace-ph-math-spectral-data"><span class="std std-ref">Namespace ph::math::spectral_data</span></a></p></li>
+<li><p><a class="reference internal" href="namespace_ph__math__table.html#namespace-ph-math-table"><span class="std std-ref">Namespace ph::math::table</span></a></p></li>
+</ul>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="structph_1_1math_1_1_indexed_item_endpoint.html#exhale-struct-structph-1-1math-1-1-indexed-item-endpoint"><span class="std std-ref">Struct IndexedItemEndpoint</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_color_error.html#exhale-class-classph-1-1math-1-1-color-error"><span class="std std-ref">Class ColorError</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_default_spectral_sample_props.html#exhale-class-classph-1-1math-1-1-default-spectral-sample-props"><span class="std std-ref">Class DefaultSpectralSampleProps</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_dynamic_linear_translation.html#exhale-class-classph-1-1math-1-1-dynamic-linear-translation"><span class="std std-ref">Class DynamicLinearTranslation</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_indexed_kdtree_params.html#exhale-class-classph-1-1math-1-1-indexed-kdtree-params"><span class="std std-ref">Class IndexedKdtreeParams</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_math_exception.html#exhale-class-classph-1-1math-1-1-math-exception"><span class="std std-ref">Class MathException</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_random.html#exhale-class-classph-1-1math-1-1-random"><span class="std std-ref">Class Random</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_real.html#exhale-class-classph-1-1math-1-1-real"><span class="std std-ref">Class Real</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_rigid_transform.html#exhale-class-classph-1-1math-1-1-rigid-transform"><span class="std std-ref">Class RigidTransform</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_static_affine_transform.html#exhale-class-classph-1-1math-1-1-static-affine-transform"><span class="std std-ref">Class StaticAffineTransform</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_static_rigid_transform.html#exhale-class-classph-1-1math-1-1-static-rigid-transform"><span class="std std-ref">Class StaticRigidTransform</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_a_a_b_b2_d.html#exhale-class-classph-1-1math-1-1-t-a-a-b-b2-d"><span class="std std-ref">Template Class TAABB2D</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_a_a_b_b3_d.html#exhale-class-classph-1-1math-1-1-t-a-a-b-b3-d"><span class="std std-ref">Template Class TAABB3D</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_analytical_integrator1_d.html#exhale-class-classph-1-1math-1-1-t-analytical-integrator1-d"><span class="std std-ref">Template Class TAnalyticalIntegrator1D</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_arithmetic_array.html#exhale-class-classph-1-1math-1-1-t-arithmetic-array"><span class="std std-ref">Template Class TArithmeticArray</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_arithmetic_array_base.html#exhale-class-classph-1-1math-1-1-t-arithmetic-array-base"><span class="std std-ref">Template Class TArithmeticArrayBase</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_basic_triangle.html#exhale-class-classph-1-1math-1-1-t-basic-triangle"><span class="std std-ref">Template Class TBasicTriangle</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_blackman_harris2_d.html#exhale-class-classph-1-1math-1-1-t-blackman-harris2-d"><span class="std std-ref">Template Class TBlackmanHarris2D</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_chromatic_adaptation_definition.html#exhale-class-classph-1-1math-1-1-t-chromatic-adaptation-definition"><span class="std std-ref">Template Class TChromaticAdaptationDefinition</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_chromatic_adaptation_definition_3_01_e_chromatic_adaptation_1_1_bradford_00_01_t_01_4.html#exhale-class-classph-1-1math-1-1-t-chromatic-adaptation-definition-3-01-e-chromatic-adaptation-1-1-bradford-00-01-t-01-4"><span class="std std-ref">Template Class TChromaticAdaptationDefinition&lt; EChromaticAdaptation::Bradford, T &gt;</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_chromatic_adaptation_definition_3_01_e_chromatic_adaptation_1_1_von_kries_00_01_t_01_4.html#exhale-class-classph-1-1math-1-1-t-chromatic-adaptation-definition-3-01-e-chromatic-adaptation-1-1-von-kries-00-01-t-01-4"><span class="std std-ref">Template Class TChromaticAdaptationDefinition&lt; EChromaticAdaptation::VonKries, T &gt;</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_chromatic_adaptation_definition_3_01_e_chromatic_adaptation_1_1_x_y_z_scaling_00_01_t_01_4.html#exhale-class-classph-1-1math-1-1-t-chromatic-adaptation-definition-3-01-e-chromatic-adaptation-1-1-x-y-z-scaling-00-01-t-01-4"><span class="std std-ref">Template Class TChromaticAdaptationDefinition&lt; EChromaticAdaptation::XYZScaling, T &gt;</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_chromatic_adaptation_definition_helper.html#exhale-class-classph-1-1math-1-1-t-chromatic-adaptation-definition-helper"><span class="std std-ref">Template Class TChromaticAdaptationDefinitionHelper</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_color_space_definition.html#exhale-class-classph-1-1math-1-1-t-color-space-definition"><span class="std std-ref">Template Class TColorSpaceDefinition</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_color_space_definition_3_01_e_color_space_1_1_a_c_e_scg_00_01_t_01_4.html#exhale-class-classph-1-1math-1-1-t-color-space-definition-3-01-e-color-space-1-1-a-c-e-scg-00-01-t-01-4"><span class="std std-ref">Template Class TColorSpaceDefinition&lt; EColorSpace::ACEScg, T &gt;</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_color_space_definition_3_01_e_color_space_1_1_c_i_e__xy_y_00_01_t_01_4.html#exhale-class-classph-1-1math-1-1-t-color-space-definition-3-01-e-color-space-1-1-c-i-e-xy-y-00-01-t-01-4"><span class="std std-ref">Template Class TColorSpaceDefinition&lt; EColorSpace::CIE_xyY, T &gt;</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_color_space_definition_3_01_e_color_space_1_1_c_i_e___x_y_z_00_01_t_01_4.html#exhale-class-classph-1-1math-1-1-t-color-space-definition-3-01-e-color-space-1-1-c-i-e-x-y-z-00-01-t-01-4"><span class="std std-ref">Template Class TColorSpaceDefinition&lt; EColorSpace::CIE_XYZ, T &gt;</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_color_space_definition_3_01_e_color_space_1_1_linear__s_r_g_b_00_01_t_01_4.html#exhale-class-classph-1-1math-1-1-t-color-space-definition-3-01-e-color-space-1-1-linear-s-r-g-b-00-01-t-01-4"><span class="std std-ref">Template Class TColorSpaceDefinition&lt; EColorSpace::Linear_sRGB, T &gt;</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_color_space_definition_3_01_e_color_space_1_1_spectral___smits_00_01_t_01_4.html#exhale-class-classph-1-1math-1-1-t-color-space-definition-3-01-e-color-space-1-1-spectral-smits-00-01-t-01-4"><span class="std std-ref">Template Class TColorSpaceDefinition&lt; EColorSpace::Spectral_Smits, T &gt;</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_color_space_definition_3_01_e_color_space_1_1s_r_g_b_00_01_t_01_4.html#exhale-class-classph-1-1math-1-1-t-color-space-definition-3-01-e-color-space-1-1s-r-g-b-00-01-t-01-4"><span class="std std-ref">Template Class TColorSpaceDefinition&lt; EColorSpace::sRGB, T &gt;</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_color_space_definition_helper.html#exhale-class-classph-1-1math-1-1-t-color-space-definition-helper"><span class="std std-ref">Template Class TColorSpaceDefinitionHelper</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_constant2_d.html#exhale-class-classph-1-1math-1-1-t-constant2-d"><span class="std std-ref">Template Class TConstant2D</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_decomposed_transform.html#exhale-class-classph-1-1math-1-1-t-decomposed-transform"><span class="std std-ref">Template Class TDecomposedTransform</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_disk.html#exhale-class-classph-1-1math-1-1-t-disk"><span class="std std-ref">Template Class TDisk</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_fraction.html#exhale-class-classph-1-1math-1-1-t-fraction"><span class="std std-ref">Template Class TFraction</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_gaussian2_d.html#exhale-class-classph-1-1math-1-1-t-gaussian2-d"><span class="std std-ref">Template Class TGaussian2D</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_hemisphere.html#exhale-class-classph-1-1math-1-1-t-hemisphere"><span class="std std-ref">Template Class THemisphere</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_indexed_kdtree.html#exhale-class-classph-1-1math-1-1-t-indexed-kdtree"><span class="std std-ref">Template Class TIndexedKdtree</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_indexed_kdtree_node.html#exhale-class-classph-1-1math-1-1-t-indexed-kdtree-node"><span class="std std-ref">Template Class TIndexedKdtreeNode</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_indexed_point_kdtree.html#exhale-class-classph-1-1math-1-1-t-indexed-point-kdtree"><span class="std std-ref">Template Class TIndexedPointKdtree</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_indexed_vector3.html#exhale-class-classph-1-1math-1-1-t-indexed-vector3"><span class="std std-ref">Template Class TIndexedVector3</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_line_segment.html#exhale-class-classph-1-1math-1-1-t-line-segment"><span class="std std-ref">Template Class TLineSegment</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_math_function2_d.html#exhale-class-classph-1-1math-1-1-t-math-function2-d"><span class="std std-ref">Template Class TMathFunction2D</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_matrix2.html#exhale-class-classph-1-1math-1-1-t-matrix2"><span class="std std-ref">Template Class TMatrix2</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_matrix3.html#exhale-class-classph-1-1math-1-1-t-matrix3"><span class="std std-ref">Template Class TMatrix3</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_matrix4.html#exhale-class-classph-1-1math-1-1-t-matrix4"><span class="std std-ref">Template Class TMatrix4</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_matrix_mx_n_base.html#exhale-class-classph-1-1math-1-1-t-matrix-mx-n-base"><span class="std std-ref">Template Class TMatrixMxNBase</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_matrix_n_base.html#exhale-class-classph-1-1math-1-1-t-matrix-n-base"><span class="std std-ref">Template Class TMatrixNBase</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_m_n_cubic2_d.html#exhale-class-classph-1-1math-1-1-t-m-n-cubic2-d"><span class="std std-ref">Template Class TMNCubic2D</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_orthonormal_basis3.html#exhale-class-classph-1-1math-1-1-t-orthonormal-basis3"><span class="std std-ref">Template Class TOrthonormalBasis3</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_piecewise_linear1_d.html#exhale-class-classph-1-1math-1-1-t-piecewise-linear1-d"><span class="std std-ref">Template Class TPiecewiseLinear1D</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_pwc_distribution1_d.html#exhale-class-classph-1-1math-1-1-t-pwc-distribution1-d"><span class="std std-ref">Template Class TPwcDistribution1D</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_pwc_distribution2_d.html#exhale-class-classph-1-1math-1-1-t-pwc-distribution2-d"><span class="std std-ref">Template Class TPwcDistribution2D</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_quaternion.html#exhale-class-classph-1-1math-1-1-t-quaternion"><span class="std std-ref">Template Class TQuaternion</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_transform.html#exhale-class-classph-1-1math-1-1-transform"><span class="std std-ref">Class Transform</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_sampled_spectrum.html#exhale-class-classph-1-1math-1-1-t-sampled-spectrum"><span class="std std-ref">Template Class TSampledSpectrum</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_spectral_color_space_definition_helper.html#exhale-class-classph-1-1math-1-1-t-spectral-color-space-definition-helper"><span class="std std-ref">Template Class TSpectralColorSpaceDefinitionHelper</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_spectrum_base.html#exhale-class-classph-1-1math-1-1-t-spectrum-base"><span class="std std-ref">Template Class TSpectrumBase</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_sphere.html#exhale-class-classph-1-1math-1-1-t-sphere"><span class="std std-ref">Template Class TSphere</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_triangle.html#exhale-class-classph-1-1math-1-1-t-triangle"><span class="std std-ref">Template Class TTriangle</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_tristimulus_color_space_definition_helper.html#exhale-class-classph-1-1math-1-1-t-tristimulus-color-space-definition-helper"><span class="std std-ref">Template Class TTristimulusColorSpaceDefinitionHelper</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_tristimulus_spectrum.html#exhale-class-classph-1-1math-1-1-t-tristimulus-spectrum"><span class="std std-ref">Template Class TTristimulusSpectrum</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_vector2.html#exhale-class-classph-1-1math-1-1-t-vector2"><span class="std std-ref">Template Class TVector2</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_vector3.html#exhale-class-classph-1-1math-1-1-t-vector3"><span class="std std-ref">Template Class TVector3</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_vector4.html#exhale-class-classph-1-1math-1-1-t-vector4"><span class="std std-ref">Template Class TVector4</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_vector_n.html#exhale-class-classph-1-1math-1-1-t-vector-n"><span class="std std-ref">Template Class TVectorN</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_vector_n_base.html#exhale-class-classph-1-1math-1-1-t-vector-n-base"><span class="std std-ref">Template Class TVectorNBase</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_watertight_triangle.html#exhale-class-classph-1-1math-1-1-t-watertight-triangle"><span class="std std-ref">Template Class TWatertightTriangle</span></a></p></li>
+</ul>
+</section>
+<section id="enums">
+<h2>Enums<a class="headerlink" href="#enums" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="enum_namespaceph_1_1math_1aeb6d400f8c4f85be266ab51b3cd65951.html#exhale-enum-namespaceph-1-1math-1aeb6d400f8c4f85be266ab51b3cd65951"><span class="std std-ref">Enum EChromaticAdaptation</span></a></p></li>
+<li><p><a class="reference internal" href="enum_namespaceph_1_1math_1a957eab3ceed525ebce5c24b6b57eb975.html#exhale-enum-namespaceph-1-1math-1a957eab3ceed525ebce5c24b6b57eb975"><span class="std std-ref">Enum EColorSpace</span></a></p></li>
+<li><p><a class="reference internal" href="enum_namespaceph_1_1math_1a821af6da20aaed56cc09ad440633d067.html#exhale-enum-namespaceph-1-1math-1a821af6da20aaed56cc09ad440633d067"><span class="std std-ref">Enum EColorUsage</span></a></p></li>
+<li><p><a class="reference internal" href="enum_namespaceph_1_1math_1ae7853802be4d35a3625b5f313151d1ba.html#exhale-enum-namespaceph-1-1math-1ae7853802be4d35a3625b5f313151d1ba"><span class="std std-ref">Enum EEndpoint</span></a></p></li>
+<li><p><a class="reference internal" href="enum_namespaceph_1_1math_1ac8bbf5c13da6b60663011e0be1acb6c4.html#exhale-enum-namespaceph-1-1math-1ac8bbf5c13da6b60663011e0be1acb6c4"><span class="std std-ref">Enum EReferenceWhite</span></a></p></li>
+<li><p><a class="reference internal" href="enum_namespaceph_1_1math_1a74a2188a938a5c0a52127f654cfa8b06.html#exhale-enum-namespaceph-1-1math-1a74a2188a938a5c0a52127f654cfa8b06"><span class="std std-ref">Enum ESpectralResample</span></a></p></li>
+</ul>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a9fa31ad274d843ea3ad9020490b82c11.html#exhale-function-namespaceph-1-1math-1a9fa31ad274d843ea3ad9020490b82c11"><span class="std std-ref">Template Function ph::math::black_body_radiance_at</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1adbcb1d6dfceda00baebe908358d4121a.html#exhale-function-namespaceph-1-1math-1adbcb1d6dfceda00baebe908358d4121a"><span class="std std-ref">Template Function ph::math::black_body_radiance_curve</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a2da02d8fd55ff426905d97c7297a08ad.html#exhale-function-namespaceph-1-1math-1a2da02d8fd55ff426905d97c7297a08ad"><span class="std std-ref">Template Function ph::math::bytes_to_GiB</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1adb4811e9be6e476d37c2db92e3d5a17a.html#exhale-function-namespaceph-1-1math-1adb4811e9be6e476d37c2db92e3d5a17a"><span class="std std-ref">Template Function ph::math::bytes_to_KiB</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a510bcaf07562b67f8897a55701399305.html#exhale-function-namespaceph-1-1math-1a510bcaf07562b67f8897a55701399305"><span class="std std-ref">Template Function ph::math::bytes_to_MiB</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1aabf2fd737aa55c1ff9ca0f2315eca5e2.html#exhale-function-namespaceph-1-1math-1aabf2fd737aa55c1ff9ca0f2315eca5e2"><span class="std std-ref">Template Function ph::math::bytes_to_PiB</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a37422f0d5ec9007755a40521c7bbf89d.html#exhale-function-namespaceph-1-1math-1a37422f0d5ec9007755a40521c7bbf89d"><span class="std std-ref">Template Function ph::math::bytes_to_TiB</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1aa1639a1b307574d4434e62163f699d25.html#exhale-function-namespaceph-1-1math-1aa1639a1b307574d4434e62163f699d25"><span class="std std-ref">Template Function ph::math::ceil_div</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a57a79918ca16800547722e927119aa60.html#exhale-function-namespaceph-1-1math-1a57a79918ca16800547722e927119aa60"><span class="std std-ref">Template Function ph::math::chromatic_adapt</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a63dd976cb0c4bec50ef701d616a62366.html#exhale-function-namespaceph-1-1math-1a63dd976cb0c4bec50ef701d616a62366"><span class="std std-ref">Template Function ph::math::chromaticity_of</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a1f04588b0cb53e0928c20e843d1af095.html#exhale-function-namespaceph-1-1math-1a1f04588b0cb53e0928c20e843d1af095"><span class="std std-ref">Template Function ph::math::CIEXYZ_of</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1afee4db726ee0c5f8713caffccc29382c.html#exhale-function-namespaceph-1-1math-1afee4db726ee0c5f8713caffccc29382c"><span class="std std-ref">Template Function ph::math::CIEXYZ_of_custom_reference_white</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a9e5d8a7a977115813ceeba3f0c00cbdb.html#exhale-function-namespaceph-1-1math-1a9e5d8a7a977115813ceeba3f0c00cbdb"><span class="std std-ref">Template Function ph::math::clamp</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1af11f191a13f32e5ff37ba539bb731029.html#exhale-function-namespaceph-1-1math-1af11f191a13f32e5ff37ba539bb731029"><span class="std std-ref">Template Function ph::math::clear_bits_in_range</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a1adffee7416319ef84ebfb7a67a6b347.html#exhale-function-namespaceph-1-1math-1a1adffee7416319ef84ebfb7a67a6b347"><span class="std std-ref">Template Function ph::math::constant_spectral_samples</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a7bf83fdc8c49c4fec93e35a91cb671ca.html#exhale-function-namespaceph-1-1math-1a7bf83fdc8c49c4fec93e35a91cb671ca"><span class="std std-ref">Template Function ph::math::create_von_kries_linear_CAT_matrix(const TMatrix3&lt;T&gt;&amp;, const TMatrix3&lt;T&gt;&amp;, const EReferenceWhite, const EReferenceWhite)</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a12f4f5d0c9c20519566fcf2ecd83e3c8.html#exhale-function-namespaceph-1-1math-1a12f4f5d0c9c20519566fcf2ecd83e3c8"><span class="std std-ref">Template Function ph::math::create_von_kries_linear_CAT_matrix(const TMatrix3&lt;T&gt;&amp;, const TMatrix3&lt;T&gt;&amp;, const TTristimulusValues&lt;T&gt;&amp;, const TTristimulusValues&lt;T&gt;&amp;)</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a998fa14a070ac400285bac21caf6f931.html#exhale-function-namespaceph-1-1math-1a998fa14a070ac400285bac21caf6f931"><span class="std std-ref">Template Function ph::math::discrete_spatial_hash(const Integer, const Integer, const Integer, const std::size_t)</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1ac86d7ed770b0cd26159dd24b994e26ed.html#exhale-function-namespaceph-1-1math-1ac86d7ed770b0cd26159dd24b994e26ed"><span class="std std-ref">Template Function ph::math::discrete_spatial_hash(const Integer, const Integer, const std::size_t)</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a51431bac69e57f222993dc58fc2064bd.html#exhale-function-namespaceph-1-1math-1a51431bac69e57f222993dc58fc2064bd"><span class="std std-ref">Template Function ph::math::discrete_spatial_hash(const TVector3&lt;T&gt;&amp;, const std::size_t)</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a00239751f9737b7fd312429f5832561b.html#exhale-function-namespaceph-1-1math-1a00239751f9737b7fd312429f5832561b"><span class="std std-ref">Template Function ph::math::discrete_spatial_hash(const TVector3&lt;T&gt;&amp;, const TVector3&lt;T&gt;&amp;, const std::size_t)</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a2b0482067dc614d1eeafbf75b8b10996.html#exhale-function-namespaceph-1-1math-1a2b0482067dc614d1eeafbf75b8b10996"><span class="std std-ref">Template Function ph::math::estimate_color_energy</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1aab219259171b1d3575da2b5224edcb93.html#exhale-function-namespaceph-1-1math-1aab219259171b1d3575da2b5224edcb93"><span class="std std-ref">Template Function ph::math::estimate_samples_energy</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1aa7a94fabb6d38bbc4b24368cd046f523.html#exhale-function-namespaceph-1-1math-1aa7a94fabb6d38bbc4b24368cd046f523"><span class="std std-ref">Template Function ph::math::evenly_spaced_array</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a9bd1e5d6b8da7e7cc5d20a008fbae191.html#exhale-function-namespaceph-1-1math-1a9bd1e5d6b8da7e7cc5d20a008fbae191"><span class="std std-ref">Template Function ph::math::evenly_spaced_vector</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1acc970fbe8bc77521af0103b29e524baa.html#exhale-function-namespaceph-1-1math-1acc970fbe8bc77521af0103b29e524baa"><span class="std std-ref">Function ph::math::fast_rcp_sqrt</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1adb93254f78909d9fef4bc8d7326b7670.html#exhale-function-namespaceph-1-1math-1adb93254f78909d9fef4bc8d7326b7670"><span class="std std-ref">Function ph::math::fast_sqrt</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a7c44afb09e2610c07148d4b1120e4614.html#exhale-function-namespaceph-1-1math-1a7c44afb09e2610c07148d4b1120e4614"><span class="std std-ref">Function ph::math::flag_bit()</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a00c7265b62195ee8215d3a07ee97d8a6.html#exhale-function-namespaceph-1-1math-1a00c7265b62195ee8215d3a07ee97d8a6"><span class="std std-ref">Function ph::math::flag_bit()</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a14234263f1191fde0644069273c63a87.html#exhale-function-namespaceph-1-1math-1a14234263f1191fde0644069273c63a87"><span class="std std-ref">Function ph::math::form_orthonormal_basis_frisvad</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a050fd048afd360173b15c10a05c21f7c.html#exhale-function-namespaceph-1-1math-1a050fd048afd360173b15c10a05c21f7c"><span class="std std-ref">Function ph::math::fp16_bits_to_fp32</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a91780ac8e52ddfdd3f0314cc36b882c2.html#exhale-function-namespaceph-1-1math-1a91780ac8e52ddfdd3f0314cc36b882c2"><span class="std std-ref">Function ph::math::fp32_to_fp16_bits</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a9460c87b6dab3097ee4d084d9b59a604.html#exhale-function-namespaceph-1-1math-1a9460c87b6dab3097ee4d084d9b59a604"><span class="std std-ref">Template Function ph::math::fractional_part</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a3d787dce79dfdd2614927831c40ab231.html#exhale-function-namespaceph-1-1math-1a3d787dce79dfdd2614927831c40ab231"><span class="std std-ref">Template Function ph::math::is_even</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a00dacdca0d6501e4506f1e80350c6529.html#exhale-function-namespaceph-1-1math-1a00dacdca0d6501e4506f1e80350c6529"><span class="std std-ref">Template Function ph::math::is_odd</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a2db200d8e62c40799c3fff427b4d869d.html#exhale-function-namespaceph-1-1math-1a2db200d8e62c40799c3fff427b4d869d"><span class="std std-ref">Template Function ph::math::is_power_of_2</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a885a24bd55e37b45410ec47a89bfb55e.html#exhale-function-namespaceph-1-1math-1a885a24bd55e37b45410ec47a89bfb55e"><span class="std std-ref">Function ph::math::is_same_hemisphere</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1ad515280baf49df27e2a5fef3c4e996ff.html#exhale-function-namespaceph-1-1math-1ad515280baf49df27e2a5fef3c4e996ff"><span class="std std-ref">Function ph::math::ith_evenly_divided_range</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1aef693a3af48988419e383d739b935a4b.html#exhale-function-namespaceph-1-1math-1aef693a3af48988419e383d739b935a4b"><span class="std std-ref">Template Function ph::math::log2_floor</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1af09fabd051200745fc83ab8e6119be17.html#exhale-function-namespaceph-1-1math-1af09fabd051200745fc83ab8e6119be17"><span class="std std-ref">Template Function ph::math::matrix2x2</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a71267e6e44c796151b9e81a747ad4860.html#exhale-function-namespaceph-1-1math-1a71267e6e44c796151b9e81a747ad4860"><span class="std std-ref">Template Function ph::math::mean_solar_time_to_solar_time_24H</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a09832832f991e284ec83b3531bbb2bdf.html#exhale-function-namespaceph-1-1math-1a09832832f991e284ec83b3531bbb2bdf"><span class="std std-ref">Template Function ph::math::next_multiple</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a2dd1eb154bffce7df042dbdd88aa161b.html#exhale-function-namespaceph-1-1math-1a2dd1eb154bffce7df042dbdd88aa161b"><span class="std std-ref">Function ph::math::next_power_of_2</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a97fd8863ca133b67190d7d2101f95918.html#exhale-function-namespaceph-1-1math-1a97fd8863ca133b67190d7d2101f95918"><span class="std std-ref">Template Function ph::math::next_power_of_2_multiple</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1aaaa5875dae95653f7145e11b81e90459.html#exhale-function-namespaceph-1-1math-1aaaa5875dae95653f7145e11b81e90459"><span class="std std-ref">Template Function ph::math::normalize_color_energy</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a4690860b243fe5e072ff6048732ae2a3.html#exhale-function-namespaceph-1-1math-1a4690860b243fe5e072ff6048732ae2a3"><span class="std std-ref">Template Function ph::math::normalize_integer</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a413c0ea914fc11e1f26bfabd44d2c162.html#exhale-function-namespaceph-1-1math-1a413c0ea914fc11e1f26bfabd44d2c162"><span class="std std-ref">Template Function ph::math::normalize_samples_energy</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1ac7efc2f750235a176b61037fdf546cda.html#exhale-function-namespaceph-1-1math-1ac7efc2f750235a176b61037fdf546cda"><span class="std std-ref">Template Function ph::math::octahedron_unit_vector_decode</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1af7fbcc55b07e42eaa4fde991dfeb375a.html#exhale-function-namespaceph-1-1math-1af7fbcc55b07e42eaa4fde991dfeb375a"><span class="std std-ref">Template Function ph::math::octahedron_unit_vector_encode</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1aa5b5d7a200e1fac56baf6a626fafecdc.html#exhale-function-namespaceph-1-1math-1aa5b5d7a200e1fac56baf6a626fafecdc"><span class="std std-ref">Template Function ph::math::operator*</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a56bf3598ef20de4b6333e2987bfc7bda.html#exhale-function-namespaceph-1-1math-1a56bf3598ef20de4b6333e2987bfc7bda"><span class="std std-ref">Function ph::math::PH_DEFINE_EXTERNAL_LOG_GROUP</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a85eb3c66273614f6751cba5c227ee7df.html#exhale-function-namespaceph-1-1math-1a85eb3c66273614f6751cba5c227ee7df"><span class="std std-ref">Template Function ph::math::pick</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a536816208c239c8b2e217d70d5ec5d08.html#exhale-function-namespaceph-1-1math-1a536816208c239c8b2e217d70d5ec5d08"><span class="std std-ref">Template Function ph::math::product</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a036e6132c8c8a769c292f29b8427112b.html#exhale-function-namespaceph-1-1math-1a036e6132c8c8a769c292f29b8427112b"><span class="std std-ref">Template Function ph::math::put_color_energy</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a403680d6446383625398ed0c057c43fd.html#exhale-function-namespaceph-1-1math-1a403680d6446383625398ed0c057c43fd"><span class="std std-ref">Template Function ph::math::quantize_normalized_float</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a2982839b6392253fc67bb096add9a44f.html#exhale-function-namespaceph-1-1math-1a2982839b6392253fc67bb096add9a44f"><span class="std std-ref">Template Function ph::math::relative_luminance</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a9f6174bc51d3f6c8d98447fa0150d0a4.html#exhale-function-namespaceph-1-1math-1a9f6174bc51d3f6c8d98447fa0150d0a4"><span class="std std-ref">Template Function ph::math::resample_black_body_radiance</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1ac3d128c7225063c77e89c60595769355.html#exhale-function-namespaceph-1-1math-1ac3d128c7225063c77e89c60595769355"><span class="std std-ref">Template Function ph::math::resample_illuminant_D65</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a3b208c3dfc7024c379877d689ae7db08.html#exhale-function-namespaceph-1-1math-1a3b208c3dfc7024c379877d689ae7db08"><span class="std std-ref">Template Function ph::math::resample_illuminant_E</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a8ae6d9df536ec07a0411c503df56fee6.html#exhale-function-namespaceph-1-1math-1a8ae6d9df536ec07a0411c503df56fee6"><span class="std std-ref">Template Function ph::math::resample_spectral_samples</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1ae25c59a2b1c21e3de88ce32499d3fa2f.html#exhale-function-namespaceph-1-1math-1ae25c59a2b1c21e3de88ce32499d3fa2f"><span class="std std-ref">Template Function ph::math::reused_pick</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a2cf56679844b291df412ba311723c828.html#exhale-function-namespaceph-1-1math-1a2cf56679844b291df412ba311723c828"><span class="std std-ref">Template Function ph::math::reverse_bits</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a2d19750fd6f6c9c479f07c2c00238a6a.html#exhale-function-namespaceph-1-1math-1a2d19750fd6f6c9c479f07c2c00238a6a"><span class="std std-ref">Template Function ph::math::sample_cast</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1abbf29a619bc4b2cd6e88bbc5e3380a0f.html#exhale-function-namespaceph-1-1math-1abbf29a619bc4b2cd6e88bbc5e3380a0f"><span class="std std-ref">Template Function ph::math::set_bits_in_range</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a0c2373ae6879d917ab66bd42e199d245.html#exhale-function-namespaceph-1-1math-1a0c2373ae6879d917ab66bd42e199d245"><span class="std std-ref">Template Function ph::math::shuffle_durstenfeld</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a03fd4cce00581b5243ec4dcec64cacc7.html#exhale-function-namespaceph-1-1math-1a03fd4cce00581b5243ec4dcec64cacc7"><span class="std std-ref">Template Function ph::math::shuffle_durstenfeld_index_pairs</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a7377d0dddd537e4e7a04f98bd8e1114e.html#exhale-function-namespaceph-1-1math-1a7377d0dddd537e4e7a04f98bd8e1114e"><span class="std std-ref">Template Function ph::math::sign</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a4e8c5be354cae25f8639d0ebd4a9df17.html#exhale-function-namespaceph-1-1math-1a4e8c5be354cae25f8639d0ebd4a9df17"><span class="std std-ref">Template Function ph::math::spectral_samples_to_CIE_XYZ</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a3d95f12613138cf607ca4b4b0c04ea48.html#exhale-function-namespaceph-1-1math-1a3d95f12613138cf607ca4b4b0c04ea48"><span class="std std-ref">Template Function ph::math::squared</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1ad70f4b84a56b15f96d640ee5dfe83c58.html#exhale-function-namespaceph-1-1math-1ad70f4b84a56b15f96d640ee5dfe83c58"><span class="std std-ref">Template Function ph::math::sRGB_linear_to_nonlinear</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1af073289717f681f13febdf1888d38d5b.html#exhale-function-namespaceph-1-1math-1af073289717f681f13febdf1888d38d5b"><span class="std std-ref">Template Function ph::math::sRGB_nonlinear_to_linear</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a9220fdc9d221a0fa812e96de25be77ff.html#exhale-function-namespaceph-1-1math-1a9220fdc9d221a0fa812e96de25be77ff"><span class="std std-ref">Template Function ph::math::sun_sky_phi_theta</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a3b5aeb6bb0f2f3339e033d34fa70a894.html#exhale-function-namespaceph-1-1math-1a3b5aeb6bb0f2f3339e033d34fa70a894"><span class="std std-ref">Template Function ph::math::to_degrees</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a8d924d614efcdd92fcce816a3f8eebf3.html#exhale-function-namespaceph-1-1math-1a8d924d614efcdd92fcce816a3f8eebf3"><span class="std std-ref">Template Function ph::math::to_radians</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a57a6066f091fead6bc616fb811b42b21.html#exhale-function-namespaceph-1-1math-1a57a6066f091fead6bc616fb811b42b21"><span class="std std-ref">Template Function ph::math::transform_color</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a9d227a2cbf1065eaa4e4b5d51d71f30c.html#exhale-function-namespaceph-1-1math-1a9d227a2cbf1065eaa4e4b5d51d71f30c"><span class="std std-ref">Template Function ph::math::transform_from_linear_sRGB</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a4b760ffa2dd0b2fb8b0c477fffd7c097.html#exhale-function-namespaceph-1-1math-1a4b760ffa2dd0b2fb8b0c477fffd7c097"><span class="std std-ref">Template Function ph::math::transform_from_sRGB</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a9a607a63db401274a7e3d77c0895dcaf.html#exhale-function-namespaceph-1-1math-1a9a607a63db401274a7e3d77c0895dcaf"><span class="std std-ref">Template Function ph::math::transform_to_linear_sRGB</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1ad3164ab55096d5ac1fd9a7158c8ea6d4.html#exhale-function-namespaceph-1-1math-1ad3164ab55096d5ac1fd9a7158c8ea6d4"><span class="std std-ref">Template Function ph::math::transform_to_sRGB</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1af8b0e704f3e50c9861e6b066a9dccdf3.html#exhale-function-namespaceph-1-1math-1af8b0e704f3e50c9861e6b066a9dccdf3"><span class="std std-ref">Template Function ph::math::wavelength_interval_of</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1ade79110c31d4daed508e1924de67dac4.html#exhale-function-namespaceph-1-1math-1ade79110c31d4daed508e1924de67dac4"><span class="std std-ref">Template Function ph::math::wavelength_range_of(std::size_t)</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a44b53800c3e68378d4c7e6c051a6e932.html#exhale-function-namespaceph-1-1math-1a44b53800c3e68378d4c7e6c051a6e932"><span class="std std-ref">Template Function ph::math::wavelength_range_of(std::size_t)</span></a></p></li>
+<li><p><a class="reference internal" href="function_namespaceph_1_1math_1a48cf078fd719072dfc9c27d67a730c3c.html#exhale-function-namespaceph-1-1math-1a48cf078fd719072dfc9c27d67a730c3c"><span class="std std-ref">Template Function ph::math::wrap</span></a></p></li>
+</ul>
+</section>
+<section id="typedefs">
+<h2>Typedefs<a class="headerlink" href="#typedefs" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a96c75cf240ec4a49daedde92de85d85a.html#exhale-typedef-namespaceph-1-1math-1a96c75cf240ec4a49daedde92de85d85a"><span class="std std-ref">Typedef ph::math::AABB2D</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a3edcdc1cc0792608777f3af5347b049d.html#exhale-typedef-namespaceph-1-1math-1a3edcdc1cc0792608777f3af5347b049d"><span class="std std-ref">Typedef ph::math::AABB3D</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a388bd0ce5a7018b4f2581429a80fbd3f.html#exhale-typedef-namespaceph-1-1math-1a388bd0ce5a7018b4f2581429a80fbd3f"><span class="std std-ref">Typedef ph::math::ACESSpectrum</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1ae42b8d85bf13dcdaa51b75e58ebc78f3.html#exhale-typedef-namespaceph-1-1math-1ae42b8d85bf13dcdaa51b75e58ebc78f3"><span class="std std-ref">Typedef ph::math::Basis3D</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1abda040aa9221589e70acd9d9cda09c9d.html#exhale-typedef-namespaceph-1-1math-1abda040aa9221589e70acd9d9cda09c9d"><span class="std std-ref">Typedef ph::math::Basis3F</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a0fa907f6a7dbb940878fe32e4878f180.html#exhale-typedef-namespaceph-1-1math-1a0fa907f6a7dbb940878fe32e4878f180"><span class="std std-ref">Typedef ph::math::Basis3R</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1aaba86a71375d63a16a6b7927150ba809.html#exhale-typedef-namespaceph-1-1math-1aaba86a71375d63a16a6b7927150ba809"><span class="std std-ref">Typedef ph::math::ChromaticityValues</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a84faaa3dbf3717b679161cb477faaea0.html#exhale-typedef-namespaceph-1-1math-1a84faaa3dbf3717b679161cb477faaea0"><span class="std std-ref">Typedef ph::math::ColorValue</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1aeac8e3f084a1d4b5fce47626b77cba36.html#exhale-typedef-namespaceph-1-1math-1aeac8e3f084a1d4b5fce47626b77cba36"><span class="std std-ref">Typedef ph::math::LinearSRGBSpectrum</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a7dd98e5164f4a81c3a7ec206bea647b9.html#exhale-typedef-namespaceph-1-1math-1a7dd98e5164f4a81c3a7ec206bea647b9"><span class="std std-ref">Typedef ph::math::Matrix2D</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1ae22bff92da64387f82383fa8a92ee2f7.html#exhale-typedef-namespaceph-1-1math-1ae22bff92da64387f82383fa8a92ee2f7"><span class="std std-ref">Typedef ph::math::Matrix2F</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1ae233e82e3cf2f5753e4980b6a5fb3097.html#exhale-typedef-namespaceph-1-1math-1ae233e82e3cf2f5753e4980b6a5fb3097"><span class="std std-ref">Typedef ph::math::Matrix2R</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a91865e6b4341a28b1db2473638aa8c4c.html#exhale-typedef-namespaceph-1-1math-1a91865e6b4341a28b1db2473638aa8c4c"><span class="std std-ref">Typedef ph::math::Matrix3D</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a67c3c9985222ceec536d94850029a11b.html#exhale-typedef-namespaceph-1-1math-1a67c3c9985222ceec536d94850029a11b"><span class="std std-ref">Typedef ph::math::Matrix3F</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1ab31508e0bffd0e6726d4775e2b2490a9.html#exhale-typedef-namespaceph-1-1math-1ab31508e0bffd0e6726d4775e2b2490a9"><span class="std std-ref">Typedef ph::math::Matrix3R</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a992f05c9533a94aea3e794f996720186.html#exhale-typedef-namespaceph-1-1math-1a992f05c9533a94aea3e794f996720186"><span class="std std-ref">Typedef ph::math::Matrix4D</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a1181a647d00411baf7a43b02e1b9ccc5.html#exhale-typedef-namespaceph-1-1math-1a1181a647d00411baf7a43b02e1b9ccc5"><span class="std std-ref">Typedef ph::math::Matrix4F</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1ab019060fbbd03c48641fcb9bf4a60888.html#exhale-typedef-namespaceph-1-1math-1ab019060fbbd03c48641fcb9bf4a60888"><span class="std std-ref">Typedef ph::math::Matrix4R</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1aad5661543f5f387fad5f89d74974139b.html#exhale-typedef-namespaceph-1-1math-1aad5661543f5f387fad5f89d74974139b"><span class="std std-ref">Typedef ph::math::QuaternionD</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a5f6bf2c1726afc62a8be2e8097e2217d.html#exhale-typedef-namespaceph-1-1math-1a5f6bf2c1726afc62a8be2e8097e2217d"><span class="std std-ref">Typedef ph::math::QuaternionF</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a789624425545505142a31fb4f8c6d05e.html#exhale-typedef-namespaceph-1-1math-1a789624425545505142a31fb4f8c6d05e"><span class="std std-ref">Typedef ph::math::QuaternionR</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1aa3c8666f7e639315fe9f43a203f2dd3e.html#exhale-typedef-namespaceph-1-1math-1aa3c8666f7e639315fe9f43a203f2dd3e"><span class="std std-ref">Typedef ph::math::SampledSpectrum</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1aabc803634304dbac33a019c0becd92a1.html#exhale-typedef-namespaceph-1-1math-1aabc803634304dbac33a019c0becd92a1"><span class="std std-ref">Typedef ph::math::SpectralSampleValues</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a42275285cd99065c86ce22761ccaab91.html#exhale-typedef-namespaceph-1-1math-1a42275285cd99065c86ce22761ccaab91"><span class="std std-ref">Typedef ph::math::Spectrum</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a16d01d3881bf99fa68ce54c1b2587916.html#exhale-typedef-namespaceph-1-1math-1a16d01d3881bf99fa68ce54c1b2587916"><span class="std std-ref">Typedef ph::math::TChromaticityValues</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a78918305c463e38495a05b7c0efb05d9.html#exhale-typedef-namespaceph-1-1math-1a78918305c463e38495a05b7c0efb05d9"><span class="std std-ref">Typedef ph::math::TColorSpaceDef</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a0721dbe9c36b91d97864ebe9f17513b6.html#exhale-typedef-namespaceph-1-1math-1a0721dbe9c36b91d97864ebe9f17513b6"><span class="std std-ref">Typedef ph::math::TRawColorValues</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a2dcda484656645e4a868c81fc85567cc.html#exhale-typedef-namespaceph-1-1math-1a2dcda484656645e4a868c81fc85567cc"><span class="std std-ref">Typedef ph::math::TRawColVector</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a1b8ea1abf1cbecd31fcc3d02e9c55184.html#exhale-typedef-namespaceph-1-1math-1a1b8ea1abf1cbecd31fcc3d02e9c55184"><span class="std std-ref">Typedef ph::math::TRawMatrix</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a90deed444b4e5ee5d1fb5686f127e948.html#exhale-typedef-namespaceph-1-1math-1a90deed444b4e5ee5d1fb5686f127e948"><span class="std std-ref">Typedef ph::math::TRawRowVector</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a83d82b43eca35013ef42c45ec2e62cea.html#exhale-typedef-namespaceph-1-1math-1a83d82b43eca35013ef42c45ec2e62cea"><span class="std std-ref">Typedef ph::math::TristimulusValues</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1ab6e489b4814390fb4f1a68257d8d432d.html#exhale-typedef-namespaceph-1-1math-1ab6e489b4814390fb4f1a68257d8d432d"><span class="std std-ref">Typedef ph::math::TSpectralSampleValues</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1af51eabcf74420455b5d547275572a094.html#exhale-typedef-namespaceph-1-1math-1af51eabcf74420455b5d547275572a094"><span class="std std-ref">Typedef ph::math::TTristimulusValues</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a5dfce302e9808008ffbce4236fa1d4f0.html#exhale-typedef-namespaceph-1-1math-1a5dfce302e9808008ffbce4236fa1d4f0"><span class="std std-ref">Typedef ph::math::Vector2D</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1ab3f543108e0a09391989daed490ac7ab.html#exhale-typedef-namespaceph-1-1math-1ab3f543108e0a09391989daed490ac7ab"><span class="std std-ref">Typedef ph::math::Vector2F</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a9e3bce7c1899a3732170a491fbb1aab9.html#exhale-typedef-namespaceph-1-1math-1a9e3bce7c1899a3732170a491fbb1aab9"><span class="std std-ref">Typedef ph::math::Vector2I</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a01b4ca24b26a86f517aa22641630f796.html#exhale-typedef-namespaceph-1-1math-1a01b4ca24b26a86f517aa22641630f796"><span class="std std-ref">Typedef ph::math::Vector2R</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a086e8792ff86381dcfe5ddd3d5915a23.html#exhale-typedef-namespaceph-1-1math-1a086e8792ff86381dcfe5ddd3d5915a23"><span class="std std-ref">Typedef ph::math::Vector2S</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a06032b9484e96edcbfcea6fdf8c27c9d.html#exhale-typedef-namespaceph-1-1math-1a06032b9484e96edcbfcea6fdf8c27c9d"><span class="std std-ref">Typedef ph::math::Vector2UI</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1af1a210b88ca79b8092606cb82e84418b.html#exhale-typedef-namespaceph-1-1math-1af1a210b88ca79b8092606cb82e84418b"><span class="std std-ref">Typedef ph::math::Vector3D</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1ae4a13e2bfefced1dfef2a8cacd57f061.html#exhale-typedef-namespaceph-1-1math-1ae4a13e2bfefced1dfef2a8cacd57f061"><span class="std std-ref">Typedef ph::math::Vector3F</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a2803f15d85d77cc979957f55bfa6cb25.html#exhale-typedef-namespaceph-1-1math-1a2803f15d85d77cc979957f55bfa6cb25"><span class="std std-ref">Typedef ph::math::Vector3I</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1abf8e1463b13d63dcdc46f0cb65e59c5a.html#exhale-typedef-namespaceph-1-1math-1abf8e1463b13d63dcdc46f0cb65e59c5a"><span class="std std-ref">Typedef ph::math::Vector3R</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a1667b0a9fc7143d411a6cc59c08a885a.html#exhale-typedef-namespaceph-1-1math-1a1667b0a9fc7143d411a6cc59c08a885a"><span class="std std-ref">Typedef ph::math::Vector3S</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a55485082b8c641bff5cd91732b8d43d0.html#exhale-typedef-namespaceph-1-1math-1a55485082b8c641bff5cd91732b8d43d0"><span class="std std-ref">Typedef ph::math::Vector3UI</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a3538945bff92c7d85b86ff446ca1bb80.html#exhale-typedef-namespaceph-1-1math-1a3538945bff92c7d85b86ff446ca1bb80"><span class="std std-ref">Typedef ph::math::Vector4D</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a27c889787aa527836b40016b44630d78.html#exhale-typedef-namespaceph-1-1math-1a27c889787aa527836b40016b44630d78"><span class="std std-ref">Typedef ph::math::Vector4F</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a899d1fdbbad05eec2dc7188a5cbbdfe1.html#exhale-typedef-namespaceph-1-1math-1a899d1fdbbad05eec2dc7188a5cbbdfe1"><span class="std std-ref">Typedef ph::math::Vector4R</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_namespaceph_1_1math_1a9056e7916a74b1bd0615f61f4778db2f.html#exhale-typedef-namespaceph-1-1math-1a9056e7916a74b1bd0615f61f4778db2f"><span class="std std-ref">Typedef ph::math::Vector4S</span></a></p></li>
+</ul>
+</section>
+<section id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="variable_namespaceph_1_1math_1a110846310ca54081103b5c49953cde70.html#exhale-variable-namespaceph-1-1math-1a110846310ca54081103b5c49953cde70"><span class="std std-ref">Variable ph::math::CChromaticAdaptationDefinition</span></a></p></li>
+<li><p><a class="reference internal" href="variable_namespaceph_1_1math_1a98c4d76ea09cd0ece68569b02e1ab110.html#exhale-variable-namespaceph-1-1math-1a98c4d76ea09cd0ece68569b02e1ab110"><span class="std std-ref">Variable ph::math::CColorSpaceDefinition</span></a></p></li>
+<li><p><a class="reference internal" href="variable_namespaceph_1_1math_1a6271e53740980488cad72b9a407829f6.html#exhale-variable-namespaceph-1-1math-1a6271e53740980488cad72b9a407829f6"><span class="std std-ref">Variable ph::math::CColorTransformInterface</span></a></p></li>
+<li><p><a class="reference internal" href="variable_namespaceph_1_1math_1afb8bb742df063cef3a7a118909287586.html#exhale-variable-namespaceph-1-1math-1afb8bb742df063cef3a7a118909287586"><span class="std std-ref">Variable ph::math::CHasColorSpaceProperties</span></a></p></li>
+<li><p><a class="reference internal" href="variable_namespaceph_1_1math_1a03626584375c1375fe4d17f44dc5b8b2.html#exhale-variable-namespaceph-1-1math-1a03626584375c1375fe4d17f44dc5b8b2"><span class="std std-ref">Variable ph::math::CSpectralColorSpaceDefinition</span></a></p></li>
+<li><p><a class="reference internal" href="variable_namespaceph_1_1math_1a4313787ea75d8bfa54ebfecb4ce6428c.html#exhale-variable-namespaceph-1-1math-1a4313787ea75d8bfa54ebfecb4ce6428c"><span class="std std-ref">Variable ph::math::CSpectralSampleProps</span></a></p></li>
+<li><p><a class="reference internal" href="variable_namespaceph_1_1math_1a941028f65a87b0d9b82bfbd02cc18d49.html#exhale-variable-namespaceph-1-1math-1a941028f65a87b0d9b82bfbd02cc18d49"><span class="std std-ref">Variable ph::math::CSupportsSpectralConversions</span></a></p></li>
+<li><p><a class="reference internal" href="variable_namespaceph_1_1math_1a85b53c02583fcaaca6e12f3f7acdc44c.html#exhale-variable-namespaceph-1-1math-1a85b53c02583fcaaca6e12f3f7acdc44c"><span class="std std-ref">Variable ph::math::CSupportsTristimulusConversions</span></a></p></li>
+<li><p><a class="reference internal" href="variable_namespaceph_1_1math_1a865e5fde9618b06860aabcacd49e66bc.html#exhale-variable-namespaceph-1-1math-1a865e5fde9618b06860aabcacd49e66bc"><span class="std std-ref">Variable ph::math::CTristimulusColorSpaceDefinition</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="namespace_ph__lta.html" class="btn btn-neutral float-left" title="Namespace ph::lta" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="namespace_ph__math__constant.html" class="btn btn-neutral float-right" title="Namespace ph::math::constant" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

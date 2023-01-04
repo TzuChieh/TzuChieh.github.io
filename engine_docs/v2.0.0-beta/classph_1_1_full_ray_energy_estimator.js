@@ -1,6 +1,6 @@
 var classph_1_1_full_ray_energy_estimator =
 [
-    [ "estimate", "classph_1_1_full_ray_energy_estimator.html#a2bf20095700a2e994b1756ffd6ade246", null ],
+    [ "estimate", "classph_1_1_full_ray_energy_estimator.html#aea7db86f1831dfb19455140878920916", null ],
     [ "mapAttributeToEstimation", "classph_1_1_full_ray_energy_estimator.html#a73c22853577e60aa69498c968f93f426", null ],
     [ "setEstimationIndex", "classph_1_1_full_ray_energy_estimator.html#a54590e6dda7edd84bc0dd5da823dff08", null ],
     [ "toString", "classph_1_1_full_ray_energy_estimator.html#aa36e5822c6186531cd7a49e5e883d208", null ],

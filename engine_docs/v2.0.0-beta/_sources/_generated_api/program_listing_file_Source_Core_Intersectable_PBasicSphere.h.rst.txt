@@ -1,0 +1,60 @@
+
+.. _program_listing_file_Source_Core_Intersectable_PBasicSphere.h:
+
+Program Listing for File PBasicSphere.h
+=======================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Core_Intersectable_PBasicSphere.h>` (``Source\Core\Intersectable\PBasicSphere.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Core/Intersectable/Primitive.h"
+   #include "Common/primitive_type.h"
+   
+   namespace ph
+   {
+   
+   class PBasicSphere : public Primitive
+   {
+   public:
+       PBasicSphere(const PrimitiveMetadata* metadata, real radius);
+   
+       void calcIntersectionDetail(
+           const Ray& ray,
+           HitProbe&  probe,
+           HitDetail* out_detail) const override = 0;
+   
+       bool isIntersecting(const Ray& ray, HitProbe& probe) const override;
+       
+       // TODO: rename to mayOverlapVolume
+       bool mayIntersectVolume(const math::AABB3D& volume) const override;
+       math::AABB3D calcAABB() const override;
+       real calcPositionSamplePdfA(const math::Vector3R& position) const override;
+       void genPositionSample(PrimitivePosSampleQuery& query, SampleFlow& sampleFlow) const override;
+       real calcExtendedArea() const override;
+   
+       real getRadius() const;
+       real getRcpRadius() const;
+   
+   private:
+       real m_radius;
+       real m_rcpRadius;
+   };
+   
+   // In-header Implementations:
+   
+   inline real PBasicSphere::getRadius() const
+   {
+       return m_radius;
+   }
+   
+   inline real PBasicSphere::getRcpRadius() const
+   {
+       return m_rcpRadius;
+   }
+   
+   }// end namespace ph

@@ -1,0 +1,16 @@
+.. _dir_D__dev_Photon-v2_Engine_Source_Core_Texture_Function:
+
+
+Directory Function
+==================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_D__dev_Photon-v2_Engine_Source_Core_Texture>` (``D:\dev\Photon-v2\Engine\Source\Core\Texture``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``D:\dev\Photon-v2\Engine\Source\Core\Texture\Function``
+
+
+

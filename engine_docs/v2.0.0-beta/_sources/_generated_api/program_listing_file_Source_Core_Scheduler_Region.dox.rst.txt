@@ -1,0 +1,13 @@
+
+.. _program_listing_file_Source_Core_Scheduler_Region.dox:
+
+Program Listing for File Region.dox
+===================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Core_Scheduler_Region.dox>` (``Source\Core\Scheduler\Region.dox``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   

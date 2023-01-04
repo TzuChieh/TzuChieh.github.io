@@ -1,0 +1,69 @@
+
+.. _file_Source_Math_TMatrix2.h:
+
+File TMatrix2.h
+===============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\TMatrix2.h``)
+---------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_TMatrix2.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Math/TMatrix2.ipp``
+
+- ``Math/math_fwd.h``
+
+- ``array``
+
+- ``cstddef``
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Intersectable_PBasicSphere.cpp`
+
+- :ref:`file_Source_Math_Geometry_TBasicTriangle.ipp`
+
+- :ref:`file_Source_Math_Geometry_TSphere.ipp`
+
+- :ref:`file_Source_Math_TMatrix2.ipp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_matrix2`
+

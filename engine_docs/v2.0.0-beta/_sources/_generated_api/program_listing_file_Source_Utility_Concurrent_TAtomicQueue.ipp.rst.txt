@@ -1,0 +1,63 @@
+
+.. _program_listing_file_Source_Utility_Concurrent_TAtomicQueue.ipp:
+
+Program Listing for File TAtomicQueue.ipp
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Utility_Concurrent_TAtomicQueue.ipp>` (``Source\Utility\Concurrent\TAtomicQueue.ipp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #include "Utility/Concurrent/TAtomicQueue.h"
+   #include "Common/assertion.h"
+   
+   #include <utility>
+   #include <stdexcept>
+   
+   namespace ph
+   {
+   
+   template<typename T>
+   inline TAtomicQueue<T>::TAtomicQueue() :
+       m_queue()
+   {}
+   
+   template<typename T>
+   inline TAtomicQueue<T>::TAtomicQueue(const std::size_t initialCapacity) :
+       m_queue(initialCapacity)
+   {}
+   
+   template<typename T>
+   template<typename U>
+   inline void TAtomicQueue<T>::enqueue(U&& item)
+   {
+       if(!m_queue.enqueue(std::forward<U>(item)))
+       {
+           throw std::runtime_error(
+               "Cannot enqueue an item to TAtomicQueue. Max subqueue size reached.");
+       }
+   }
+   
+   template<typename T>
+   template<typename U>
+   inline bool TAtomicQueue<T>::tryEnqueue(U&& item)
+   {
+       return m_queue.try_enqueue(std::forward<U>(item));
+   }
+   
+   template<typename T>
+   inline bool TAtomicQueue<T>::tryDequeue(T* const out_item)
+   {
+       PH_ASSERT(out_item);
+       return m_queue.try_dequeue(*out_item);
+   }
+   
+   template<typename T>
+   inline std::size_t TAtomicQueue<T>::estimatedSize() const
+   {
+       return m_queue.size_approx();
+   }
+   
+   }// end namespace ph

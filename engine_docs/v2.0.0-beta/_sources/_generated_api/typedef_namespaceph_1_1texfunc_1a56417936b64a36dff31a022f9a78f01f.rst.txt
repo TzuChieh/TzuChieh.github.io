@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1_1texfunc_1a56417936b64a36dff31a022f9a78f01f:
+
+Typedef ph::texfunc::AddSpectrum
+================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::texfunc::AddSpectrum
+   :project: Photon

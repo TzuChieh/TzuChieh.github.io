@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1_1math_1a899d1fdbbad05eec2dc7188a5cbbdfe1:
+
+Typedef ph::math::Vector4R
+==========================
+
+- Defined in :ref:`file_Source_Actor_Image_UnifiedNumericImage.cpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::math::Vector4R
+   :project: Photon

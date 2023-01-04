@@ -1,0 +1,23 @@
+
+.. _program_listing_file_Source_Core_Intersectable_DataStructure_IndexedTriangleMesh.cpp:
+
+Program Listing for File IndexedTriangleMesh.cpp
+================================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Core_Intersectable_DataStructure_IndexedTriangleMesh.cpp>` (``Source\Core\Intersectable\DataStructure\IndexedTriangleMesh.cpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #include "Core/Intersectable/DataStructure/IndexedTriangleMesh.h"
+   
+   namespace ph
+   {
+   
+   IndexedTriangleMesh::IndexedTriangleMesh() :
+       m_vertexBuffer(),
+       m_indexBuffer()
+   {}
+   
+   }// end namespace ph

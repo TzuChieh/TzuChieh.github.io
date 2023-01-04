@@ -1,0 +1,17 @@
+.. _exhale_struct_structph_1_1detail_1_1_heterogeneous_string_hash:
+
+Struct HeterogeneousStringHash
+==============================
+
+- Defined in :ref:`file_Source_Utility_utility.h`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: ph::detail::HeterogeneousStringHash
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

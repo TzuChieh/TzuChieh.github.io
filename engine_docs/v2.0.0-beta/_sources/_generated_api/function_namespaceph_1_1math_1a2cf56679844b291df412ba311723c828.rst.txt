@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1a2cf56679844b291df412ba311723c828:
+
+Template Function ph::math::reverse_bits
+========================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::reverse_bits(const T)
+   :project: Photon

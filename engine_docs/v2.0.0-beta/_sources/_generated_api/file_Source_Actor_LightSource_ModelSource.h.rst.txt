@@ -1,0 +1,69 @@
+
+.. _file_Source_Actor_LightSource_ModelSource.h:
+
+File ModelSource.h
+==================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\LightSource\ModelSource.h``)
+-------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_LightSource_ModelSource.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/LightSource/LightSource.h``
+
+- ``Actor/SDLExtension/TSdlUnifiedColorImage.h``
+
+- ``DataIO/FileSystem/Path.h``
+
+- ``DataIO/SDL/sdl_interface.h``
+
+- ``Math/math_fwd.h``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_LightSource_ModelSource.cpp`
+
+- :ref:`file_Source_Api_init_and_exit.cpp`
+
+- :ref:`file_Source_Api_ph_cpp_core.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_model_source`
+

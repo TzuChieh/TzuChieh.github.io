@@ -1,0 +1,14 @@
+.. _exhale_function_ph__core_8cpp_1a5f725dad079d19db72f89229344bce51:
+
+Function phAsyncPollUpdatedFrameRegion(const PHuint64, PHuint32 \*const, PHuint32 \*const, PHuint32 \*const, PHuint32 \*const)
+==============================================================================================================================
+
+- Defined in :ref:`file_Source_Api_ph_core.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: phAsyncPollUpdatedFrameRegion(const PHuint64, PHuint32 *const, PHuint32 *const, PHuint32 *const, PHuint32 *const)
+   :project: Photon

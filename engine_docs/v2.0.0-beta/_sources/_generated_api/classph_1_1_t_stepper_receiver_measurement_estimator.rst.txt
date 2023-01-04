@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_t_stepper_receiver_measurement_estimator:
+
+Template Class TStepperReceiverMeasurementEstimator
+===================================================
+
+- Defined in :ref:`file_Source_Core_Renderer_Sampling_TStepperReceiverMeasurementEstimator.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::TReceiverMeasurementEstimator< SamplingFilmType, EstimationType >`` (:ref:`exhale_class_classph_1_1_t_receiver_measurement_estimator`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TStepperReceiverMeasurementEstimator
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

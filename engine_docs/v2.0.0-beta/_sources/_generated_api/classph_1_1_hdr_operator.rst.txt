@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_hdr_operator:
+
+Class HdrOperator
+=================
+
+- Defined in :ref:`file_Source_Frame_HdrOperator_HdrOperator.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::HdrOperator
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

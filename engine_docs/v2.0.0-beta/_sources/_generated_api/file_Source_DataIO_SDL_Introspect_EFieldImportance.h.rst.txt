@@ -1,0 +1,42 @@
+
+.. _file_Source_DataIO_SDL_Introspect_EFieldImportance.h:
+
+File EFieldImportance.h
+=======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\SDL\Introspect\EFieldImportance.h``)
+----------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_SDL_Introspect_EFieldImportance.h.rst
+
+
+
+
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_DataIO_SDL_Introspect_field_set_op.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TOwnedSdlField.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

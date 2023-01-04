@@ -1,0 +1,56 @@
+
+.. _file_Source_Core_LTABuildingBlock_PtVolumetricEstimator.cpp:
+
+File PtVolumetricEstimator.cpp
+==============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\LTABuildingBlock\PtVolumetricEstimator.cpp``)
+-----------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_LTABuildingBlock_PtVolumetricEstimator.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/Intersectable/Primitive.h``
+
+- ``Core/Intersectable/PrimitiveMetadata.h``
+
+- ``Core/LTABuildingBlock/PtVolumetricEstimator.h``
+
+- ``Core/SurfaceHit.h``
+
+- ``Core/VolumeBehavior/VolumeDistanceSample.h``
+
+- ``Core/VolumeBehavior/VolumeOptics.h``
+
+- ``Math/TVector3.h``
+
+- ``World/Scene.h``
+
+- ``limits``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

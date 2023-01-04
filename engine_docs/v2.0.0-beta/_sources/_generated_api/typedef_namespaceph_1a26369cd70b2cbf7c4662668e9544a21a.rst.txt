@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1a26369cd70b2cbf7c4662668e9544a21a:
+
+Typedef ph::uint8f
+==================
+
+- Defined in :ref:`file_Source_Common_primitive_type.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::uint8f
+   :project: Photon

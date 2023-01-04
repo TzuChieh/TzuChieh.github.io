@@ -1,0 +1,42 @@
+
+.. _file_Source_EngineEnv_Session_RenderSession.cpp:
+
+File RenderSession.cpp
+======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\EngineEnv\Session\RenderSession.cpp``)
+-----------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_EngineEnv_Session_RenderSession.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``EngineEnv/CoreCookingContext.h``
+
+- ``EngineEnv/Session/RenderSession.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1io__utils_1afcf79c073491c5c3b9dacce09e9d3696:
+
+Function ph::io_utils::has_HDR_support
+======================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::io_utils::has_HDR_support(std::string_view)
+   :project: Photon

@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1afe6136894b583cab28073b9d5dddaa12:
+
+Function ph::PH_DEFINE_INTERNAL_LOG_GROUP(FullMaterial, Material)
+=================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_INTERNAL_LOG_GROUP(FullMaterial, Material)
+   :project: Photon

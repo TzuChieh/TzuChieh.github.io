@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1string__utils_1adbc502a394e80e9aa8e38b7a790b52d1:
+
+Function ph::string_utils::next_token
+=====================================
+
+- Defined in :ref:`file_Source_DataIO_PlyFile.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::string_utils::next_token(std::string_view, std::string_view *const, const std::string_view)
+   :project: Photon

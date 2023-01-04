@@ -1,0 +1,67 @@
+
+.. _file_Source_Core_Emitter_Sampler_EmitterSampler.h:
+
+File EmitterSampler.h
+=====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Emitter\Sampler\EmitterSampler.h``)
+-------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Emitter_Sampler_EmitterSampler.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/primitive_type.h``
+
+- ``Math/math_fwd.h``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Emitter_Sampler_EmitterSampler.cpp`
+
+- :ref:`file_Source_Core_Emitter_Sampler_ESPowerFavoring.h`
+
+- :ref:`file_Source_Core_Emitter_Sampler_ESUniformRandom.h`
+
+- :ref:`file_Source_World_Scene.cpp`
+
+- :ref:`file_Source_World_VisualWorld.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_emitter_sampler`
+

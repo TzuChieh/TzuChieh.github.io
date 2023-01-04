@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1math_1_1_t_triangle:
+
+Template Class TTriangle
+========================
+
+- Defined in :ref:`file_Source_Math_Geometry_TTriangle.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::math::TBasicTriangle< T >`` (:ref:`exhale_class_classph_1_1math_1_1_t_basic_triangle`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::math::TTriangle
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

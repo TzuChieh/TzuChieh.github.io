@@ -1,0 +1,36 @@
+
+.. _program_listing_file_Source_Core_SurfaceBehavior_Property_FresnelEffect.h:
+
+Program Listing for File FresnelEffect.h
+========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Core_SurfaceBehavior_Property_FresnelEffect.h>` (``Source\Core\SurfaceBehavior\Property\FresnelEffect.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Common/primitive_type.h"
+   #include "Math/Color/Spectrum.h"
+   #include "Math/TVector3.h"
+   
+   namespace ph
+   {
+   
+   class FresnelEffect
+   {
+   public:
+       virtual ~FresnelEffect() = default;
+   
+       virtual void calcReflectance(real cosThetaIncident, math::Spectrum* out_reflectance) const = 0;
+   
+       inline void calcTransmittance(real cosThetaIncident, math::Spectrum* out_transmittance) const
+       {
+           calcReflectance(cosThetaIncident, out_transmittance);
+           out_transmittance->complementLocal();
+       }
+   };
+   
+   }// end namespace ph

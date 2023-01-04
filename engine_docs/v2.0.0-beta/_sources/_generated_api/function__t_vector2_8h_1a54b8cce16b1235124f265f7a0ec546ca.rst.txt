@@ -1,0 +1,14 @@
+.. _exhale_function__t_vector2_8h_1a54b8cce16b1235124f265f7a0ec546ca:
+
+Template Function PH_DEFINE_INLINE_TO_STRING_FORMATTER_TEMPLATE
+===============================================================
+
+- Defined in :ref:`file_Source_Math_TVector2.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: PH_DEFINE_INLINE_TO_STRING_FORMATTER_TEMPLATE(ph::math::TVector2<T>)
+   :project: Photon

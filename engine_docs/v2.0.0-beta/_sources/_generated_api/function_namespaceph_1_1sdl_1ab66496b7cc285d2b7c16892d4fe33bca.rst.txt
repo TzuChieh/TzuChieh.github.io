@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1sdl_1ab66496b7cc285d2b7c16892d4fe33bca:
+
+Template Function ph::sdl::save_float
+=====================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::sdl::save_float(FloatType, std::string *, std::size_t)
+   :project: Photon

@@ -1,0 +1,67 @@
+
+.. _file_Source_Actor_Geometry_GSphere.cpp:
+
+File GSphere.cpp
+================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\Geometry\GSphere.cpp``)
+--------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_Geometry_GSphere.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/AModel.h``
+
+- ``Actor/Geometry/GSphere.h``
+
+- ``Actor/Geometry/GTriangle.h``
+
+- ``Actor/Geometry/GTriangleMesh.h``
+
+- ``Actor/Geometry/PrimitiveBuildingMaterial.h``
+
+- ``Core/Intersectable/PLatLong01Sphere.h``
+
+- ``Core/Intersectable/PTriangle.h``
+
+- ``Core/Intersectable/PrimitiveMetadata.h``
+
+- ``Core/Intersectable/UvwMapper/UvwMapper.h``
+
+- ``cmath``
+
+- ``iostream``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_indexed_triangle`
+

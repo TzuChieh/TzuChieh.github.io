@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_table_t_i_r:
+
+Class TableTIR
+==============
+
+- Defined in :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_TableTIR.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TableTIR
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

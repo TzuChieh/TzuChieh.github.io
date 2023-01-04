@@ -1,0 +1,32 @@
+
+.. _program_listing_file_Source_Utility_IUninstantiable.h:
+
+Program Listing for File IUninstantiable.h
+==========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Utility_IUninstantiable.h>` (``Source\Utility\IUninstantiable.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   namespace ph
+   {
+   
+   class IUninstantiable
+   {
+   protected:
+       IUninstantiable() = delete;
+       IUninstantiable(const IUninstantiable& other) = delete;
+       IUninstantiable& operator = (const IUninstantiable& rhs) = delete;
+       IUninstantiable(IUninstantiable&& other) = delete;
+       IUninstantiable& operator = (IUninstantiable&& rhs) = delete;
+   
+       // Not deleting dtor--deleting dtor will not prevent instantiation via `new`,
+       // defined as default just in case some corner cases may need it to cleanup.
+       inline ~IUninstantiable() = default;
+   };
+   
+   }// end namespace ph

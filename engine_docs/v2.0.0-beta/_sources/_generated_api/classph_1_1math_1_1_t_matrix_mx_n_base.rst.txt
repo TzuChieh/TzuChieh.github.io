@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1math_1_1_t_matrix_mx_n_base:
+
+Template Class TMatrixMxNBase
+=============================
+
+- Defined in :ref:`file_Source_Math_General_TMatrixMxNBase.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Type
+************
+
+- ``public ph::math::TMatrixNBase< TMatrix3< T >, T, 3 >`` (:ref:`exhale_class_classph_1_1math_1_1_t_matrix_n_base`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::math::TMatrixMxNBase
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

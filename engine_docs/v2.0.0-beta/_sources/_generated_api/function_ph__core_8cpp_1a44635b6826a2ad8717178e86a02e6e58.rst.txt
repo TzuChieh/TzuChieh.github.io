@@ -1,0 +1,14 @@
+.. _exhale_function_ph__core_8cpp_1a44635b6826a2ad8717178e86a02e6e58:
+
+Function phCreateEngine(PHuint64 \*const, const PHuint32)
+=========================================================
+
+- Defined in :ref:`file_Source_Api_ph_core.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: phCreateEngine(PHuint64 *const, const PHuint32)
+   :project: Photon

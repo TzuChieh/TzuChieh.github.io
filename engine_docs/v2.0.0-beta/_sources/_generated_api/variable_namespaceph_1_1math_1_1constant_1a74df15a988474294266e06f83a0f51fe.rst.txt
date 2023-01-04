@@ -1,0 +1,14 @@
+.. _exhale_variable_namespaceph_1_1math_1_1constant_1a74df15a988474294266e06f83a0f51fe:
+
+Variable ph::math::constant::four_pi
+====================================
+
+- Defined in :ref:`file_Source_Math_constant.h`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: ph::math::constant::four_pi
+   :project: Photon

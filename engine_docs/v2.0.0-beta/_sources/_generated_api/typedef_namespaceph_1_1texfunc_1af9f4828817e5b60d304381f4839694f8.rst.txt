@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1_1texfunc_1af9f4828817e5b60d304381f4839694f8:
+
+Typedef ph::texfunc::MultiplySpectrum
+=====================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::texfunc::MultiplySpectrum
+   :project: Photon

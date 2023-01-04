@@ -1,0 +1,58 @@
+
+.. _file_Source_Core_SurfaceBehavior_SurfaceOptics_ThinDielectricFilm.cpp:
+
+File ThinDielectricFilm.cpp
+===========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SurfaceBehavior\SurfaceOptics\ThinDielectricFilm.cpp``)
+---------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SurfaceBehavior_SurfaceOptics_ThinDielectricFilm.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/LTABuildingBlock/SidednessAgreement.h``
+
+- ``Core/SampleGenerator/SampleFlow.h``
+
+- ``Core/SurfaceBehavior/BsdfEvalQuery.h``
+
+- ``Core/SurfaceBehavior/BsdfPdfQuery.h``
+
+- ``Core/SurfaceBehavior/BsdfSampleQuery.h``
+
+- ``Core/SurfaceBehavior/Property/ExactDielectricFresnel.h``
+
+- ``Core/SurfaceBehavior/SurfaceOptics/ThinDielectricFilm.h``
+
+- ``Core/Texture/TSampler.h``
+
+- ``Math/math.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

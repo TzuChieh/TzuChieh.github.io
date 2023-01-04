@@ -1,0 +1,14 @@
+.. _exhale_function_ph__core_8h_1a1ac7e56e294fd1f344b43aa737f4466c:
+
+Function phAsyncPollUpdatedFrameRegion(PHuint64, PHuint32 \*, PHuint32 \*, PHuint32 \*, PHuint32 \*)
+====================================================================================================
+
+- Defined in :ref:`file_Include_CEngine_ph_core.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: phAsyncPollUpdatedFrameRegion(PHuint64, PHuint32 *, PHuint32 *, PHuint32 *, PHuint32 *)
+   :project: Photon

@@ -1,0 +1,59 @@
+
+.. _file_Source_Core_Renderer_Statistics.h:
+
+File Statistics.h
+=================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Renderer\Statistics.h``)
+--------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Renderer_Statistics.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/primitive_type.h``
+
+- ``atomic``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Renderer_Renderer.h`
+
+- :ref:`file_Source_Core_Renderer_RenderWorker.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_statistics`
+
+- :ref:`exhale_class_classph_1_1_statistics_1_1_record`
+

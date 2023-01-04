@@ -1,0 +1,64 @@
+
+.. _file_Source_Core_Intersectable_PTriangle.cpp:
+
+File PTriangle.cpp
+==================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Intersectable\PTriangle.cpp``)
+--------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Intersectable_PTriangle.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/HitDetail.h``
+
+- ``Core/HitProbe.h``
+
+- ``Core/Intersectable/PTriangle.h``
+
+- ``Core/Intersectable/PrimitiveMetadata.h``
+
+- ``Core/Intersectable/Query/PrimitivePosSampleQuery.h``
+
+- ``Core/Ray.h``
+
+- ``Core/SampleGenerator/SampleFlow.h``
+
+- ``Math/Geometry/TAABB3D.h``
+
+- ``Math/TVector2.h``
+
+- ``Math/Transform/StaticAffineTransform.h``
+
+- ``Math/math.h``
+
+- ``iostream``
+
+- ``limits``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

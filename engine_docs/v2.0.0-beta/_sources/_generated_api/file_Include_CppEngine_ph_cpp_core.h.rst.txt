@@ -1,0 +1,54 @@
+
+.. _file_Include_CppEngine_ph_cpp_core.h:
+
+File ph_cpp_core.h
+==================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Include\CppEngine\ph_cpp_core.h``)
+------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Include_CppEngine_ph_cpp_core.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``DataIO/FileSystem/Path.h``
+
+- ``EEngineProject.h`` (:ref:`file_Include_CppEngine_EEngineProject.h`)
+
+- ``functional``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Api_ph_cpp_core.cpp`
+
+- :ref:`file_Source_DataIO_SDL_SdlParser.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

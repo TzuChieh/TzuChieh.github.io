@@ -1,0 +1,68 @@
+
+.. _file_Source_Core_Renderer_Renderer.cpp:
+
+File Renderer.cpp
+=================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Renderer\Renderer.cpp``)
+--------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Renderer_Renderer.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/logging.h``
+
+- ``Common/primitive_type.h``
+
+- ``Core/Filmic/Film.h``
+
+- ``Core/Filmic/HdrRgbFilm.h``
+
+- ``Core/Ray.h``
+
+- ``Core/Receiver/Receiver.h``
+
+- ``Core/Renderer/RenderWorker.h``
+
+- ``Core/Renderer/Renderer.h``
+
+- ``Core/Renderer/RendererProxy.h``
+
+- ``Core/SampleGenerator/SampleGenerator.h``
+
+- ``EngineEnv/CoreCookedUnit.h``
+
+- ``Math/constant.h``
+
+- ``World/VisualWorld.h``
+
+- ``algorithm``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

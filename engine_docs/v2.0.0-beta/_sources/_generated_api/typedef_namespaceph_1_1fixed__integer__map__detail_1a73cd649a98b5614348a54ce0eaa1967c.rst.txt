@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1_1fixed__integer__map__detail_1a73cd649a98b5614348a54ce0eaa1967c:
+
+Typedef ph::fixed_integer_map_detail::Key
+=========================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::fixed_integer_map_detail::Key
+   :project: Photon

@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_binary_file_output_stream:
+
+Class BinaryFileOutputStream
+============================
+
+- Defined in :ref:`file_Source_DataIO_Stream_BinaryFileOutputStream.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::StdOutputStream`` (:ref:`exhale_class_classph_1_1_std_output_stream`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::BinaryFileOutputStream
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

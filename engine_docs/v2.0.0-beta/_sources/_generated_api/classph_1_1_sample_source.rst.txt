@@ -1,0 +1,32 @@
+.. _exhale_class_classph_1_1_sample_source:
+
+Class SampleSource
+==================
+
+- Defined in :ref:`file_Source_EngineEnv_SampleSource_SampleSource.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::CoreSdlResource`` (:ref:`exhale_class_classph_1_1_core_sdl_resource`)
+
+
+Derived Type
+************
+
+- ``public ph::RuntimeSampleSource`` (:ref:`exhale_class_classph_1_1_runtime_sample_source`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::SampleSource
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

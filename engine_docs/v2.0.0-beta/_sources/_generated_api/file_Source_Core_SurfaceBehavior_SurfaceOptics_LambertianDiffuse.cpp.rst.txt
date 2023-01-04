@@ -1,0 +1,66 @@
+
+.. _file_Source_Core_SurfaceBehavior_SurfaceOptics_LambertianDiffuse.cpp:
+
+File LambertianDiffuse.cpp
+==========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SurfaceBehavior\SurfaceOptics\LambertianDiffuse.cpp``)
+--------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SurfaceBehavior_SurfaceOptics_LambertianDiffuse.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/LTABuildingBlock/SidednessAgreement.h``
+
+- ``Core/SampleGenerator/SampleFlow.h``
+
+- ``Core/SurfaceBehavior/BsdfEvalQuery.h``
+
+- ``Core/SurfaceBehavior/BsdfPdfQuery.h``
+
+- ``Core/SurfaceBehavior/BsdfSampleQuery.h``
+
+- ``Core/SurfaceBehavior/SurfaceOptics/LambertianDiffuse.h``
+
+- ``Core/Texture/TSampler.h``
+
+- ``Math/Geometry/THemisphere.h``
+
+- ``Math/TOrthonormalBasis3.h``
+
+- ``Math/TVector3.h``
+
+- ``Math/constant.h``
+
+- ``Math/math.h``
+
+- ``cmath``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

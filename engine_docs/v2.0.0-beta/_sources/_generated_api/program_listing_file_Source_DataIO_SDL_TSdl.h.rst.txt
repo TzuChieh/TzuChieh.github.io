@@ -1,0 +1,37 @@
+
+.. _program_listing_file_Source_DataIO_SDL_TSdl.h:
+
+Program Listing for File TSdl.h
+===============================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_DataIO_SDL_TSdl.h>` (``Source\DataIO\SDL\TSdl.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "DataIO/SDL/ISdlResource.h"
+   #include "DataIO/SDL/ETypeCategory.h"
+   #include "DataIO/SDL/sdl_traits.h"
+   
+   #include <type_traits>
+   #include <concepts>
+   #include <memory>
+   
+   namespace ph
+   {
+   
+   template<CIsSdlResource T>
+   class TSdl final
+   {
+   public:
+       static constexpr ETypeCategory getCategory();
+   
+       static std::shared_ptr<T> makeResource();
+   };
+   
+   }// end namespace ph
+   
+   #include "DataIO/SDL/TSdl.ipp"

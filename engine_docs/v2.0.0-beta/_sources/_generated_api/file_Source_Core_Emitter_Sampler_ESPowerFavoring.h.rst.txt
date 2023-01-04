@@ -1,0 +1,61 @@
+
+.. _file_Source_Core_Emitter_Sampler_ESPowerFavoring.h:
+
+File ESPowerFavoring.h
+======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Emitter\Sampler\ESPowerFavoring.h``)
+--------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Emitter_Sampler_ESPowerFavoring.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/Emitter/Sampler/EmitterSampler.h``
+
+- ``Math/Random/TPwcDistribution1D.h``
+
+- ``unordered_map``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Emitter_Sampler_ESPowerFavoring.cpp`
+
+- :ref:`file_Source_World_VisualWorld.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_e_s_power_favoring`
+

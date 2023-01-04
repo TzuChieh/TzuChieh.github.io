@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1ade79110c31d4daed508e1924de67dac4:
+
+Template Function ph::math::wavelength_range_of(std::size_t)
+============================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::wavelength_range_of(std::size_t)
+   :project: Photon

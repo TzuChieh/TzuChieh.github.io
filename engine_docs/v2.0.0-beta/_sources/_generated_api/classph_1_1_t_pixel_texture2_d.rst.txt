@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_t_pixel_texture2_d:
+
+Template Class TPixelTexture2D
+==============================
+
+- Defined in :ref:`file_Source_Core_Texture_Pixel_TPixelTexture2D.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::TTexture< OutputType >`` (:ref:`exhale_class_classph_1_1_t_texture`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TPixelTexture2D
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

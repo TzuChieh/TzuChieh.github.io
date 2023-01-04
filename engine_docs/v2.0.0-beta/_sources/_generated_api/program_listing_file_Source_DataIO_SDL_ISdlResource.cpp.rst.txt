@@ -1,0 +1,20 @@
+
+.. _program_listing_file_Source_DataIO_SDL_ISdlResource.cpp:
+
+Program Listing for File ISdlResource.cpp
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_DataIO_SDL_ISdlResource.cpp>` (``Source\DataIO\SDL\ISdlResource.cpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #include "DataIO/SDL/ISdlResource.h"
+   
+   namespace ph
+   {
+   
+   //ISdlResource::~ISdlResource() = default;
+   
+   }// end namespace ph

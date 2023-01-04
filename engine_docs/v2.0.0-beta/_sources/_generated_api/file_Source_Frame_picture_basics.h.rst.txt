@@ -1,0 +1,50 @@
+
+.. _file_Source_Frame_picture_basics.h:
+
+File picture_basics.h
+=====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Frame\picture_basics.h``)
+----------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Frame_picture_basics.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``cstddef``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Frame_PictureData.h`
+
+- :ref:`file_Source_Frame_RegularPicture.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

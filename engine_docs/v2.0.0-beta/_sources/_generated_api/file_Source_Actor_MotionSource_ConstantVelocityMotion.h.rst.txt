@@ -1,0 +1,59 @@
+
+.. _file_Source_Actor_MotionSource_ConstantVelocityMotion.h:
+
+File ConstantVelocityMotion.h
+=============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\MotionSource\ConstantVelocityMotion.h``)
+-------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_MotionSource_ConstantVelocityMotion.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/MotionSource/MotionSource.h``
+
+- ``Math/TVector3.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_MotionSource_ConstantVelocityMotion.cpp`
+
+- :ref:`file_Source_Api_init_and_exit.cpp`
+
+- :ref:`file_Source_Api_ph_cpp_core.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_constant_velocity_motion`
+

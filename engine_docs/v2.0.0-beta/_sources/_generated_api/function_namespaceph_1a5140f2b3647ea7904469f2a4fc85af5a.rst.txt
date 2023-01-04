@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a5140f2b3647ea7904469f2a4fc85af5a:
+
+Function ph::PH_DEFINE_SDL_ENUM(TBasicSdlEnum<EAccelerator>)
+============================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_SDL_ENUM(TBasicSdlEnum<EAccelerator>)
+   :project: Photon

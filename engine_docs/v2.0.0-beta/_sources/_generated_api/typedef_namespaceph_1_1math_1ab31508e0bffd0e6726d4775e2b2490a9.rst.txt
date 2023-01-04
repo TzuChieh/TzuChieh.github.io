@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1_1math_1ab31508e0bffd0e6726d4775e2b2490a9:
+
+Typedef ph::math::Matrix3R
+==========================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::math::Matrix3R
+   :project: Photon

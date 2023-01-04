@@ -1,0 +1,71 @@
+
+.. _file_Source_Math_Geometry_TDisk.h:
+
+File TDisk.h
+============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\Geometry\TDisk.h``)
+---------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_Geometry_TDisk.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Math/Geometry/TDisk.ipp``
+
+- ``Math/TVector2.h``
+
+- ``Math/TVector3.h``
+
+- ``Math/constant.h``
+
+- ``array``
+
+- ``cmath``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Emitter_LatLongEnvEmitter.cpp`
+
+- :ref:`file_Source_Core_Receiver_ThinLensCamera.cpp`
+
+- :ref:`file_Source_Math_Geometry_TDisk.ipp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_disk`
+

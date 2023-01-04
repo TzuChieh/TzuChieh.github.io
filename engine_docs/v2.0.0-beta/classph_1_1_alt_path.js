@@ -11,5 +11,6 @@ var classph_1_1_alt_path =
     [ "removeLeadingSeparator", "classph_1_1_alt_path.html#a542e3e8b213166e8fddc3ae601105879", null ],
     [ "removeTrailingSeparator", "classph_1_1_alt_path.html#a88195416e51d5af6d80537f4e264c84a", null ],
     [ "toAbsoluteString", "classph_1_1_alt_path.html#a402971e8fc39d743da13caa84c60b48f", null ],
-    [ "toString", "classph_1_1_alt_path.html#af161ad9621399dc4d23ec27e311c06f3", null ]
+    [ "toString", "classph_1_1_alt_path.html#af161ad9621399dc4d23ec27e311c06f3", null ],
+    [ "m_path", "classph_1_1_alt_path.html#a3a45bbcbba00cb4134d90d8680d9f162", null ]
 ];

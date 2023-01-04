@@ -1,0 +1,285 @@
+
+.. _file_Source_Math_TVector3.h:
+
+File TVector3.h
+===============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\TVector3.h``)
+---------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_TVector3.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Math/General/TVectorNBase.h``
+
+- ``Math/TVector3.ipp``
+
+- ``Math/constant.h``
+
+- ``Math/math_fwd.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_Geometry_GCuboid.cpp`
+
+- :ref:`file_Source_Actor_Geometry_GCuboid.h`
+
+- :ref:`file_Source_Actor_Geometry_GRectangle.cpp`
+
+- :ref:`file_Source_Actor_Geometry_GSphere.h`
+
+- :ref:`file_Source_Actor_Geometry_GTriangle.h`
+
+- :ref:`file_Source_Actor_Geometry_GWave.cpp`
+
+- :ref:`file_Source_Actor_Image_ConstantImage.cpp`
+
+- :ref:`file_Source_Actor_Image_GradientImage.h`
+
+- :ref:`file_Source_Actor_Image_Image.h`
+
+- :ref:`file_Source_Actor_Image_UnifiedNumericImage.cpp`
+
+- :ref:`file_Source_Actor_LightSource_ModelSource.cpp`
+
+- :ref:`file_Source_Actor_Material_IdealSubstance.cpp`
+
+- :ref:`file_Source_Actor_Material_IdealSubstance.h`
+
+- :ref:`file_Source_Actor_Material_MatteOpaque.cpp`
+
+- :ref:`file_Source_Actor_Material_Utility_SurfaceLayerInfo.h`
+
+- :ref:`file_Source_Actor_MotionSource_ConstantVelocityMotion.h`
+
+- :ref:`file_Source_Actor_PhysicalActor.cpp`
+
+- :ref:`file_Source_Actor_SDLExtension_image_loaders.h`
+
+- :ref:`file_Source_Actor_SDLExtension_TSdlUnifiedColorImage.h`
+
+- :ref:`file_Source_Actor_SDLExtension_TSdlUnifiedNumericImage.h`
+
+- :ref:`file_Source_Core_Emitter_DiffuseSurfaceEmitter.cpp`
+
+- :ref:`file_Source_Core_Emitter_Query_DirectEnergySampleQuery.h`
+
+- :ref:`file_Source_Core_Emitter_Sampler_ESPowerFavoring.cpp`
+
+- :ref:`file_Source_Core_Emitter_Sampler_ESUniformRandom.cpp`
+
+- :ref:`file_Source_Core_Estimator_BNEEPTEstimator.cpp`
+
+- :ref:`file_Source_Core_Estimator_BVPTDLEstimator.cpp`
+
+- :ref:`file_Source_Core_Estimator_BVPTEstimator.cpp`
+
+- :ref:`file_Source_Core_Estimator_SurfaceAttributeEstimator.h`
+
+- :ref:`file_Source_Core_Filmic_Film.cpp`
+
+- :ref:`file_Source_Core_Filmic_HdrRgbFilm.cpp`
+
+- :ref:`file_Source_Core_Filmic_TSamplingFilm.ipp`
+
+- :ref:`file_Source_Core_Filmic_Vector3Film.h`
+
+- :ref:`file_Source_Core_HitDetail.h`
+
+- :ref:`file_Source_Core_HitInfo.h`
+
+- :ref:`file_Source_Core_HitProbe.h`
+
+- :ref:`file_Source_Core_Intersectable_Bvh_BvhBuilder.cpp`
+
+- :ref:`file_Source_Core_Intersectable_Bvh_BvhIntersectableInfo.h`
+
+- :ref:`file_Source_Core_Intersectable_DataStructure_IndexedTriangleMesh.h`
+
+- :ref:`file_Source_Core_Intersectable_DataStructure_IndexedTriMesh.h`
+
+- :ref:`file_Source_Core_Intersectable_DataStructure_IndexedVertexBuffer.h`
+
+- :ref:`file_Source_Core_Intersectable_DataStructure_TriFace.h`
+
+- :ref:`file_Source_Core_Intersectable_Kdtree_KdtreeAABB.cpp`
+
+- :ref:`file_Source_Core_Intersectable_Kdtree_KdtreeNode.cpp`
+
+- :ref:`file_Source_Core_Intersectable_PBasicSphere.cpp`
+
+- :ref:`file_Source_Core_Intersectable_PLatLong01Sphere.cpp`
+
+- :ref:`file_Source_Core_Intersectable_PLatLongEnvSphere.cpp`
+
+- :ref:`file_Source_Core_Intersectable_PLatLongEnvSphere.h`
+
+- :ref:`file_Source_Core_Intersectable_Primitive.h`
+
+- :ref:`file_Source_Core_Intersectable_PTriangle.h`
+
+- :ref:`file_Source_Core_Intersectable_Query_PrimitivePosSamplePdfQuery.h`
+
+- :ref:`file_Source_Core_Intersectable_Query_PrimitivePosSampleQuery.h`
+
+- :ref:`file_Source_Core_Intersectable_TPKdTreeTriangleMesh.ipp`
+
+- :ref:`file_Source_Core_Intersectable_UvwMapper_SphericalMapper.cpp`
+
+- :ref:`file_Source_Core_Intersectable_UvwMapper_UvwMapper.h`
+
+- :ref:`file_Source_Core_LTABuildingBlock_lta.h`
+
+- :ref:`file_Source_Core_LTABuildingBlock_PtVolumetricEstimator.cpp`
+
+- :ref:`file_Source_Core_LTABuildingBlock_SenseEvent.h`
+
+- :ref:`file_Source_Core_LTABuildingBlock_SidednessAgreement.h`
+
+- :ref:`file_Source_Core_LTABuildingBlock_SurfaceTracer.h`
+
+- :ref:`file_Source_Core_LTABuildingBlock_TDirectLightEstimator.ipp`
+
+- :ref:`file_Source_Core_Ray.h`
+
+- :ref:`file_Source_Core_RayDifferential.h`
+
+- :ref:`file_Source_Core_Receiver_PinholeCamera.h`
+
+- :ref:`file_Source_Core_Receiver_RadianceSensor.h`
+
+- :ref:`file_Source_Core_Receiver_Receiver.h`
+
+- :ref:`file_Source_Core_Renderer_PM_FullPhoton.h`
+
+- :ref:`file_Source_Core_Renderer_PM_TPhotonMap.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_BsdfEvalQuery.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_BsdfHelper.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_BsdfPdfQuery.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_BsdfSampleQuery.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_Property_FresnelEffect.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_Property_Microfacet.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceBehavior.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LambertianDiffuse.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LerpedSurfaceOptics.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_OpaqueMicrofacet.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_OpaqueMicrofacet.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_OrenNayar.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_TranslucentMicrofacet.cpp`
+
+- :ref:`file_Source_Core_Texture_LdrRgbTexture2D.h`
+
+- :ref:`file_Source_Core_Texture_SampleLocation.h`
+
+- :ref:`file_Source_Core_Texture_Sky_PreethamTexture.h`
+
+- :ref:`file_Source_Core_Texture_TLinearGradientTexture.h`
+
+- :ref:`file_Source_Core_VolumeBehavior_ScatterFunction_HenyeyGreenstein.cpp`
+
+- :ref:`file_Source_Core_VolumeBehavior_VolumeDistanceSample.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlVector3.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlVector3Array.h`
+
+- :ref:`file_Source_DataIO_SDL_sdl_helpers.h`
+
+- :ref:`file_Source_EngineEnv_Observer_OrientedRasterObserver.h`
+
+- :ref:`file_Source_Frame_Operator_GammaCorrection.h`
+
+- :ref:`file_Source_Frame_TFrame.ipp`
+
+- :ref:`file_Source_Math_Algorithm_IndexedKdtree_TIndexedPointKdtree.h`
+
+- :ref:`file_Source_Math_Geometry_geometry.h`
+
+- :ref:`file_Source_Math_Geometry_TAABB3D.h`
+
+- :ref:`file_Source_Math_Geometry_TBasicTriangle.h`
+
+- :ref:`file_Source_Math_Geometry_TDisk.h`
+
+- :ref:`file_Source_Math_Geometry_TLineSegment.h`
+
+- :ref:`file_Source_Math_Geometry_TWatertightTriangle.ipp`
+
+- :ref:`file_Source_Math_hash.h`
+
+- :ref:`file_Source_Math_math.cpp`
+
+- :ref:`file_Source_Math_TMatrix2.ipp`
+
+- :ref:`file_Source_Math_TMatrix3.ipp`
+
+- :ref:`file_Source_Math_TMatrix4.ipp`
+
+- :ref:`file_Source_Math_TOrthonormalBasis3.h`
+
+- :ref:`file_Source_Math_TQuaternion.ipp`
+
+- :ref:`file_Source_Math_Transform_DynamicLinearTranslation.h`
+
+- :ref:`file_Source_Math_Transform_StaticAffineTransform.cpp`
+
+- :ref:`file_Source_Math_Transform_StaticAffineTransform.h`
+
+- :ref:`file_Source_Math_Transform_TDecomposedTransform.h`
+
+- :ref:`file_Source_Math_Transform_Transform.cpp`
+
+- :ref:`file_Source_Math_TVector3.ipp`
+
+- :ref:`file_Source_World_VisualWorld.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_vector3`
+

@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a9bb63a88582f2ef1632f2690da884ceb:
+
+Function ph::PH_DEFINE_INTERNAL_LOG_GROUP(SingleFrameRenderSession, RenderSession)
+==================================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_INTERNAL_LOG_GROUP(SingleFrameRenderSession, RenderSession)
+   :project: Photon

@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_t_array_as_vector:
+
+Template Class TArrayAsVector
+=============================
+
+- Defined in :ref:`file_Source_Utility_TArrayAsVector.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TArrayAsVector
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

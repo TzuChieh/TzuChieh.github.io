@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_cooked_unit:
+
+Class CookedUnit
+================
+
+- Defined in :ref:`file_Source_Actor_CookedUnit.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``private ph::IMoveOnly`` (:ref:`exhale_class_classph_1_1_i_move_only`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::CookedUnit
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

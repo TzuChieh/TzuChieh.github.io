@@ -1,0 +1,56 @@
+
+.. _file_Source_DataIO_SDL_TSdl.ipp:
+
+File TSdl.ipp
+=============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\SDL\TSdl.ipp``)
+-------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_SDL_TSdl.ipp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Common/logging.h``
+
+- ``DataIO/SDL/Introspect/SdlClass.h``
+
+- ``DataIO/SDL/TSdl.h``
+
+- ``DataIO/SDL/sdl_helpers.h``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_DataIO_SDL_TSdl.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

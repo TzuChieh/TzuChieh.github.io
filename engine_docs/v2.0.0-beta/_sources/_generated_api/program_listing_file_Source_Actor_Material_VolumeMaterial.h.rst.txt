@@ -1,0 +1,43 @@
+
+.. _program_listing_file_Source_Actor_Material_VolumeMaterial.h:
+
+Program Listing for File VolumeMaterial.h
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Actor_Material_VolumeMaterial.h>` (``Source\Actor\Material\VolumeMaterial.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Actor/Material/Material.h"
+   
+   namespace ph
+   {
+   
+   class VolumeOptics;
+   class VolumeBehavior;
+   
+   class VolumeMaterial : public Material
+   {
+   public:
+       enum class ESidedness
+       {
+           INTERIOR,
+           EXTERIOR
+       };
+   
+       VolumeMaterial();
+   
+       virtual void genVolume(ActorCookingContext& ctx, VolumeBehavior& behavior) const = 0;
+   
+       void genBehaviors(ActorCookingContext& ctx, PrimitiveMetadata& metadata) const override;
+       void setSidedness(ESidedness sidedness);
+   
+   private:
+       ESidedness m_sidedness;
+   };
+   
+   }// end namespace ph

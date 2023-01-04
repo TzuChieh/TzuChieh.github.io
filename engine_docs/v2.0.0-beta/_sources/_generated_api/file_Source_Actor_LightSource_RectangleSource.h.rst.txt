@@ -1,0 +1,59 @@
+
+.. _file_Source_Actor_LightSource_RectangleSource.h:
+
+File RectangleSource.h
+======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\LightSource\RectangleSource.h``)
+-----------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_LightSource_RectangleSource.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/LightSource/AreaSource.h``
+
+- ``DataIO/SDL/sdl_interface.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_LightSource_RectangleSource.cpp`
+
+- :ref:`file_Source_Api_init_and_exit.cpp`
+
+- :ref:`file_Source_Api_ph_cpp_core.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_rectangle_source`
+

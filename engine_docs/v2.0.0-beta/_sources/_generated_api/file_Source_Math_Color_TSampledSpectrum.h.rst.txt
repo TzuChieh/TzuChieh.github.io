@@ -1,0 +1,65 @@
+
+.. _file_Source_Math_Color_TSampledSpectrum.h:
+
+File TSampledSpectrum.h
+=======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\Color\TSampledSpectrum.h``)
+-----------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_Color_TSampledSpectrum.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Math/Color/TSampledSpectrum.ipp``
+
+- ``Math/Color/TSpectrumBase.h``
+
+- ``Math/Color/color_basics.h``
+
+- ``cstddef``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_Material_ThinFilm.cpp`
+
+- :ref:`file_Source_Math_Color_Spectrum.h`
+
+- :ref:`file_Source_Math_Color_TSampledSpectrum.ipp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_sampled_spectrum`
+

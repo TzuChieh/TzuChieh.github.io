@@ -1,0 +1,37 @@
+
+.. _program_listing_file_Source_Math_Geometry_TWatertightTriangle.h:
+
+Program Listing for File TWatertightTriangle.h
+==============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Math_Geometry_TWatertightTriangle.h>` (``Source\Math\Geometry\TWatertightTriangle.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Common/primitive_type.h"
+   #include "Math/Geometry/TBasicTriangle.h"
+   #include "Math/math_fwd.h"
+   #include "Math/Geometry/TLineSegment.h"
+   
+   namespace ph::math
+   {
+   
+   template<typename T>
+   class TWatertightTriangle final : public TBasicTriangle<T>
+   {
+   public:
+       using TBasicTriangle<T>::TBasicTriangle;
+   
+       bool isIntersecting(
+           const TLineSegment<T>& segment,
+           T*                     out_hitT,
+           TVector3<T>*           out_hitBarycentricCoords) const;
+   };
+   
+   }// end namespace ph::math
+   
+   #include "Math/Geometry/TWatertightTriangle.ipp"

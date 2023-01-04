@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a5d2f161c9777690c8b362e71ade37d0a:
+
+Function ph::swap(AModel&, AModel&)
+===================================
+
+- Defined in :ref:`file_Source_Actor_AModel.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::swap(AModel&, AModel&)
+   :project: Photon

@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_rectangle_source:
+
+Class RectangleSource
+=====================
+
+- Defined in :ref:`file_Source_Actor_LightSource_RectangleSource.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::AreaSource`` (:ref:`exhale_class_classph_1_1_area_source`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::RectangleSource
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

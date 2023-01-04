@@ -1,0 +1,14 @@
+.. _exhale_variable_namespaceph_1_1function__detail_1a3487fc8d14a99c1ff3c2b02b116832f7:
+
+Variable ph::function_detail::CFreeFunctionForm
+===============================================
+
+- Defined in :ref:`file_Source_Utility_TFunction.h`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: ph::function_detail::CFreeFunctionForm
+   :project: Photon

@@ -1,0 +1,14 @@
+.. _exhale_function_ph__core_8cpp_1ad53c03a2af9caf96f0df2cf0f7718111:
+
+Function phAsyncGetRendererStatistics(const PHuint64, PHfloat32 \*const, PHfloat32 \*const)
+===========================================================================================
+
+- Defined in :ref:`file_Source_Api_ph_core.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: phAsyncGetRendererStatistics(const PHuint64, PHfloat32 *const, PHfloat32 *const)
+   :project: Photon

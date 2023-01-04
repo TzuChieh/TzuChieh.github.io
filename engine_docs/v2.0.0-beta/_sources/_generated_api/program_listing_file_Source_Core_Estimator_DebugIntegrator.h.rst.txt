@@ -1,0 +1,35 @@
+
+.. _program_listing_file_Source_Core_Estimator_DebugIntegrator.h:
+
+Program Listing for File DebugIntegrator.h
+==========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Core_Estimator_DebugIntegrator.h>` (``Source\Core\Estimator\DebugIntegrator.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   //#pragma once
+   //
+   //#include "Core/Integrator/Integrator.h"
+   //
+   //namespace ph
+   //{
+   //
+   //class DebugIntegrator final : public Integrator, public TCommandInterface<DebugIntegrator>
+   //{
+   //public:
+   //  virtual ~DebugIntegrator() override;
+   //
+   //  virtual void update(const Scene& scene) override;
+   //  virtual void radianceAlongRay(const Ray& ray, const RenderWork& data, std::vector<SenseEvent>& out_senseEvents) const override;
+   //
+   //public:
+   //  DebugIntegrator(const InputPacket& packet);
+   //  static SdlTypeInfo ciTypeInfo();
+   //  static void ciRegister(CommandRegister& cmdRegister);
+   //  static std::unique_ptr<DebugIntegrator> ciLoad(const InputPacket& packet);
+   //};
+   //
+   //}// end namespace ph

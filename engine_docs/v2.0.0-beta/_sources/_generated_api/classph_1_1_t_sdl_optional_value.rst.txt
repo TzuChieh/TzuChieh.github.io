@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_t_sdl_optional_value:
+
+Template Class TSdlOptionalValue
+================================
+
+- Defined in :ref:`file_Source_DataIO_SDL_Introspect_TSdlOptionalValue.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::TAbstractSdlValue< T, Owner >`` (:ref:`exhale_class_classph_1_1_t_abstract_sdl_value`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TSdlOptionalValue
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

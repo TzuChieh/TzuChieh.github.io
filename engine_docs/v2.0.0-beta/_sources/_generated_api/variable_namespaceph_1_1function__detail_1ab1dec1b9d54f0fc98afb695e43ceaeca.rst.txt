@@ -1,0 +1,14 @@
+.. _exhale_variable_namespaceph_1_1function__detail_1ab1dec1b9d54f0fc98afb695e43ceaeca:
+
+Variable ph::function_detail::CNonEmptyTrivialFunctorForm
+=========================================================
+
+- Defined in :ref:`file_Source_Utility_TFunction.h`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: ph::function_detail::CNonEmptyTrivialFunctorForm
+   :project: Photon

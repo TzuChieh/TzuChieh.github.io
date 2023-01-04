@@ -1,0 +1,42 @@
+
+.. _file_Source_Actor_Image_BinaryMixedImage.cpp:
+
+File BinaryMixedImage.cpp
+=========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\Image\BinaryMixedImage.cpp``)
+--------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_Image_BinaryMixedImage.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/Image/BinaryMixedImage.h``
+
+- ``Common/logging.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

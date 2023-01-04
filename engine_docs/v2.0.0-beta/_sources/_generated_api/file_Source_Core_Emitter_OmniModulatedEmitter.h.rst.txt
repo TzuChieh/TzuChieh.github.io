@@ -1,0 +1,63 @@
+
+.. _file_Source_Core_Emitter_OmniModulatedEmitter.h:
+
+File OmniModulatedEmitter.h
+===========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Emitter\OmniModulatedEmitter.h``)
+-----------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Emitter_OmniModulatedEmitter.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/primitive_type.h``
+
+- ``Core/Emitter/Emitter.h``
+
+- ``Core/Intersectable/UvwMapper/SphericalMapper.h``
+
+- ``Core/Texture/TTexture.h``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_LightSource_IesAttenuatedSource.cpp`
+
+- :ref:`file_Source_Core_Emitter_OmniModulatedEmitter.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_omni_modulated_emitter`
+

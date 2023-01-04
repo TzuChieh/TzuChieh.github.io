@@ -1,0 +1,29 @@
+.. _exhale_class_classph_1_1_i_no_copy_and_move:
+
+Class INoCopyAndMove
+====================
+
+- Defined in :ref:`file_Source_Utility_INoCopyAndMove.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Types
+*************
+
+- ``private ph::TMRSWResource< Resource >`` (:ref:`exhale_class_classph_1_1_t_m_r_s_w_resource`)
+- ``private ph::TSPSCRingBuffer< T, N >::ConsumerGuard`` (:ref:`exhale_class_classph_1_1_t_s_p_s_c_ring_buffer_1_1_consumer_guard`)
+- ``private ph::TSPSCRingBuffer< T, N >::ProducerGuard`` (:ref:`exhale_class_classph_1_1_t_s_p_s_c_ring_buffer_1_1_producer_guard`)
+- ``private ph::Workflow`` (:ref:`exhale_class_classph_1_1_workflow`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::INoCopyAndMove
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

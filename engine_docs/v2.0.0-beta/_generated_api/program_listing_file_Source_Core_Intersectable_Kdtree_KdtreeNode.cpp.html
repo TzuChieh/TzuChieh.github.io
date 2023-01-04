@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File KdtreeNode.cpp &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File KdtreeNode.cpp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Core_Intersectable_Kdtree_KdtreeNode.cpp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-kdtreenode-cpp">
+<span id="program-listing-file-source-core-intersectable-kdtree-kdtreenode-cpp"></span><h1>Program Listing for File KdtreeNode.cpp<a class="headerlink" href="#program-listing-for-file-kdtreenode-cpp" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Core_Intersectable_Kdtree_KdtreeNode.cpp.html#file-source-core-intersectable-kdtree-kdtreenode-cpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Core\Intersectable\Kdtree\KdtreeNode.cpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Intersectable/Kdtree/KdtreeNode.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Ray.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/HitProbe.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Intersectable/Intersectable.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/TVector3.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;algorithm&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;limits&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">math</span><span class="p">;</span>
+
+<span class="k">constexpr</span><span class="w"> </span><span class="n">float64</span><span class="w"> </span><span class="n">KdtreeNode</span><span class="o">::</span><span class="n">COST_TRAVERSAL</span><span class="p">;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n">float64</span><span class="w"> </span><span class="n">KdtreeNode</span><span class="o">::</span><span class="n">COST_INTERSECTION</span><span class="p">;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">TestPoint</span><span class="w"> </span><span class="k">final</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">int32</span><span class="w"> </span><span class="n">INTERSECTABLE_MIN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">int32</span><span class="w"> </span><span class="n">INTERSECTABLE_MAX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">real</span><span class="w">  </span><span class="n">m_testPoint</span><span class="p">;</span>
+<span class="w">    </span><span class="n">int32</span><span class="w"> </span><span class="n">m_pointType</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">TestPoint</span><span class="p">()</span><span class="w"> </span><span class="o">:</span>
+<span class="w">        </span><span class="n">m_testPoint</span><span class="p">(</span><span class="mf">0.0</span><span class="n">_r</span><span class="p">),</span><span class="w"> </span><span class="n">m_pointType</span><span class="p">(</span><span class="n">INTERSECTABLE_MIN</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{}</span>
+
+<span class="w">    </span><span class="n">TestPoint</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">testPoint</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">int32</span><span class="w"> </span><span class="n">pointType</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
+<span class="w">        </span><span class="n">m_testPoint</span><span class="p">(</span><span class="n">testPoint</span><span class="p">),</span><span class="w"> </span><span class="n">m_pointType</span><span class="p">(</span><span class="n">pointType</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{}</span>
+
+<span class="w">    </span><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TestPoint</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">m_testPoint</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">m_testPoint</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">const</span><span class="w"> </span><span class="n">int32</span><span class="w"> </span><span class="n">TestPoint</span><span class="o">::</span><span class="n">INTERSECTABLE_MIN</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="n">int32</span><span class="w"> </span><span class="n">TestPoint</span><span class="o">::</span><span class="n">INTERSECTABLE_MAX</span><span class="p">;</span>
+
+<span class="n">KdtreeNode</span><span class="o">::</span><span class="n">KdtreeNode</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">Intersectable</span><span class="o">*&gt;*</span><span class="w"> </span><span class="n">intersectableBuffer</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">m_positiveChild</span><span class="p">(</span><span class="k">nullptr</span><span class="p">),</span><span class="w"> </span><span class="n">m_negativeChild</span><span class="p">(</span><span class="k">nullptr</span><span class="p">),</span>
+<span class="w">    </span><span class="n">m_splitAxis</span><span class="p">(</span><span class="n">KDTREE_UNKNOWN_AXIS</span><span class="p">),</span><span class="w"> </span><span class="n">m_splitPos</span><span class="p">(</span><span class="mf">0.0</span><span class="n">_r</span><span class="p">),</span>
+<span class="w">    </span><span class="n">m_intersectableBuffer</span><span class="p">(</span><span class="n">intersectableBuffer</span><span class="p">),</span>
+<span class="w">    </span><span class="n">m_nodeBufferStartIndex</span><span class="p">(</span><span class="mi">-1</span><span class="p">),</span><span class="w"> </span><span class="n">m_nodeBufferEndIndex</span><span class="p">(</span><span class="mi">-1</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">intersectableBuffer</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;warning: at KdtreeNode::KdtreeNode(), &quot;</span>
+<span class="w">                  </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;specified intersectable buffer is null&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">KdtreeNode</span><span class="o">::</span><span class="n">buildTree</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">Intersectable</span><span class="o">*&gt;&amp;</span><span class="w"> </span><span class="n">intersectables</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">intersectables</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">m_aabb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">KdtreeAABB</span><span class="p">(</span><span class="n">Vector3R</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">Vector3R</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">));</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">AABB3D</span><span class="w"> </span><span class="n">nodeAABB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">intersectables</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">calcAABB</span><span class="p">();</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">intersectables</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">nodeAABB</span><span class="p">.</span><span class="n">unionWith</span><span class="p">(</span><span class="n">intersectables</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">calcAABB</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">m_aabb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">KdtreeAABB</span><span class="p">(</span><span class="n">nodeAABB</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">buildChildrenNodes</span><span class="p">(</span><span class="n">intersectables</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">KdtreeNode</span><span class="o">::</span><span class="n">findClosestIntersection</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Ray</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ray</span><span class="p">,</span><span class="w"> </span><span class="n">HitProbe</span><span class="o">&amp;</span><span class="w"> </span><span class="n">probe</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">real</span><span class="w"> </span><span class="n">rayNearHitDist</span><span class="p">;</span>
+<span class="w">    </span><span class="n">real</span><span class="w"> </span><span class="n">rayFarHitDist</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">m_aabb</span><span class="p">.</span><span class="n">isIntersectingVolume</span><span class="p">(</span><span class="n">ray</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rayNearHitDist</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rayFarHitDist</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// ray missed root node&#39;s aabb</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">traverseAndFindClosestIntersection</span><span class="p">(</span><span class="n">ray</span><span class="p">,</span><span class="w"> </span><span class="n">probe</span><span class="p">,</span><span class="w"> </span><span class="n">rayNearHitDist</span><span class="p">,</span><span class="w"> </span><span class="n">rayFarHitDist</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">KdtreeNode</span><span class="o">::</span><span class="n">analyzeSplitCostSAH</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">Intersectable</span><span class="o">*&gt;&amp;</span><span class="w"> </span><span class="n">intersectables</span><span class="p">,</span>
+<span class="w">                                     </span><span class="k">const</span><span class="w"> </span><span class="n">int32</span><span class="w"> </span><span class="n">axis</span><span class="p">,</span>
+<span class="w">                                     </span><span class="n">float64</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">out_minCost</span><span class="p">,</span>
+<span class="w">                                     </span><span class="n">real</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">out_splitPoint</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">TestPoint</span><span class="o">&gt;</span><span class="w"> </span><span class="n">testAxisPoints</span><span class="p">(</span><span class="n">intersectables</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">intersectables</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">isableKdtreeAABB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">KdtreeAABB</span><span class="p">(</span><span class="n">intersectables</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">calcAABB</span><span class="p">());</span>
+
+<span class="w">        </span><span class="n">testAxisPoints</span><span class="p">[</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">]</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="n">TestPoint</span><span class="p">(</span><span class="n">isableKdtreeAABB</span><span class="p">.</span><span class="n">getMinVertex</span><span class="p">(</span><span class="n">axis</span><span class="p">),</span><span class="w"> </span><span class="n">TestPoint</span><span class="o">::</span><span class="n">INTERSECTABLE_MIN</span><span class="p">);</span>
+<span class="w">        </span><span class="n">testAxisPoints</span><span class="p">[</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TestPoint</span><span class="p">(</span><span class="n">isableKdtreeAABB</span><span class="p">.</span><span class="n">getMaxVertex</span><span class="p">(</span><span class="n">axis</span><span class="p">),</span><span class="w"> </span><span class="n">TestPoint</span><span class="o">::</span><span class="n">INTERSECTABLE_MAX</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// the sorting process has to be stable (equal elements shouldn&#39;t be reordered)</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">stable_sort</span><span class="p">(</span><span class="n">testAxisPoints</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">testAxisPoints</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+
+<span class="w">    </span><span class="n">float64</span><span class="w"> </span><span class="n">noSplitSurfaceArea</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_aabb</span><span class="p">.</span><span class="n">getSurfaceArea</span><span class="p">();</span>
+<span class="w">    </span><span class="n">float64</span><span class="w"> </span><span class="n">noSplitCost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">COST_INTERSECTION</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">float64</span><span class="o">&gt;</span><span class="p">(</span><span class="n">intersectables</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">numNnodeIsables</span><span class="p">,</span><span class="w"> </span><span class="n">numPnodeIsables</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">boundaryIsablePassed</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// analyze on specified axis</span>
+<span class="w">    </span><span class="n">numNnodeIsables</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">numPnodeIsables</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">intersectables</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<span class="w">    </span><span class="n">boundaryIsablePassed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">real</span><span class="w"> </span><span class="n">minAabbAxisPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_aabb</span><span class="p">.</span><span class="n">getMinVertex</span><span class="p">(</span><span class="n">axis</span><span class="p">);</span>
+<span class="w">    </span><span class="n">real</span><span class="w"> </span><span class="n">maxAabbAxisPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_aabb</span><span class="p">.</span><span class="n">getMaxVertex</span><span class="p">(</span><span class="n">axis</span><span class="p">);</span>
+
+<span class="w">    </span><span class="o">*</span><span class="n">out_minCost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">float64</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">();</span>
+<span class="w">    </span><span class="o">*</span><span class="n">out_splitPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">minAabbAxisPoint</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">maxAabbAxisPoint</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.5</span><span class="n">_r</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">testAxisPoints</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">testAxisPoints</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">m_pointType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">TestPoint</span><span class="o">::</span><span class="n">INTERSECTABLE_MIN</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">boundaryIsablePassed</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">boundaryIsablePassed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">                </span><span class="n">numPnodeIsables</span><span class="o">--</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="n">numNnodeIsables</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">testAxisPoints</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">m_pointType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">TestPoint</span><span class="o">::</span><span class="n">INTERSECTABLE_MAX</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">boundaryIsablePassed</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">numPnodeIsables</span><span class="o">--</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="n">boundaryIsablePassed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">KdtreeAABB</span><span class="w"> </span><span class="n">nAABB</span><span class="p">,</span><span class="w"> </span><span class="n">pAABB</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">m_aabb</span><span class="p">.</span><span class="n">trySplitAt</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span><span class="w"> </span><span class="n">testAxisPoints</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">m_testPoint</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nAABB</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">pAABB</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">float64</span><span class="w"> </span><span class="n">pNodeFrac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pAABB</span><span class="p">.</span><span class="n">getSurfaceArea</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">noSplitSurfaceArea</span><span class="p">;</span>
+<span class="w">        </span><span class="n">float64</span><span class="w"> </span><span class="n">nNodeFrac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nAABB</span><span class="p">.</span><span class="n">getSurfaceArea</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">noSplitSurfaceArea</span><span class="p">;</span>
+
+<span class="w">        </span><span class="n">float64</span><span class="w"> </span><span class="n">splitCost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">COST_TRAVERSAL</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">COST_INTERSECTION</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">pNodeFrac</span><span class="o">*</span><span class="n">numPnodeIsables</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nNodeFrac</span><span class="o">*</span><span class="n">numNnodeIsables</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">splitCost</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">out_minCost</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="o">*</span><span class="n">out_minCost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">splitCost</span><span class="p">;</span>
+<span class="w">            </span><span class="o">*</span><span class="n">out_splitPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">testAxisPoints</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">m_testPoint</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">KdtreeNode</span><span class="o">::</span><span class="n">buildChildrenNodes</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">Intersectable</span><span class="o">*&gt;&amp;</span><span class="w"> </span><span class="n">intersectables</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// a SAH based spatial partitioning algorithm</span>
+
+<span class="w">    </span><span class="n">float64</span><span class="w"> </span><span class="n">xAxisMinSplitCost</span><span class="p">,</span><span class="w"> </span><span class="n">yAxisMinSplitCost</span><span class="p">,</span><span class="w"> </span><span class="n">zAxisMinSplitCost</span><span class="p">;</span>
+<span class="w">    </span><span class="n">real</span><span class="w"> </span><span class="n">xAxisSplitPoint</span><span class="p">,</span><span class="w"> </span><span class="n">yAxisSplitPoint</span><span class="p">,</span><span class="w"> </span><span class="n">zAxisSplitPoint</span><span class="p">;</span>
+<span class="w">    </span><span class="n">analyzeSplitCostSAH</span><span class="p">(</span><span class="n">intersectables</span><span class="p">,</span><span class="w"> </span><span class="n">KDTREE_X_AXIS</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">xAxisMinSplitCost</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">xAxisSplitPoint</span><span class="p">);</span>
+<span class="w">    </span><span class="n">analyzeSplitCostSAH</span><span class="p">(</span><span class="n">intersectables</span><span class="p">,</span><span class="w"> </span><span class="n">KDTREE_Y_AXIS</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">yAxisMinSplitCost</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">yAxisSplitPoint</span><span class="p">);</span>
+<span class="w">    </span><span class="n">analyzeSplitCostSAH</span><span class="p">(</span><span class="n">intersectables</span><span class="p">,</span><span class="w"> </span><span class="n">KDTREE_Z_AXIS</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">zAxisMinSplitCost</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">zAxisSplitPoint</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">float64</span><span class="w"> </span><span class="n">noSplitCost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">COST_INTERSECTION</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">float64</span><span class="o">&gt;</span><span class="p">(</span><span class="n">intersectables</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+<span class="w">    </span><span class="n">float64</span><span class="w"> </span><span class="n">minAxisSplitCost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fmin</span><span class="p">(</span><span class="n">fmin</span><span class="p">(</span><span class="n">xAxisMinSplitCost</span><span class="p">,</span><span class="w"> </span><span class="n">yAxisMinSplitCost</span><span class="p">),</span><span class="w"> </span><span class="n">zAxisMinSplitCost</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">minAxisSplitCost</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">noSplitCost</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">xAxisMinSplitCost</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">yAxisMinSplitCost</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">xAxisMinSplitCost</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">zAxisMinSplitCost</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">m_splitAxis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">KDTREE_X_AXIS</span><span class="p">;</span>
+<span class="w">                </span><span class="n">m_splitPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xAxisSplitPoint</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">else</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">m_splitAxis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">KDTREE_Z_AXIS</span><span class="p">;</span>
+<span class="w">                </span><span class="n">m_splitPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zAxisSplitPoint</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">yAxisMinSplitCost</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">zAxisMinSplitCost</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">m_splitAxis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">KDTREE_Y_AXIS</span><span class="p">;</span>
+<span class="w">                </span><span class="n">m_splitPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yAxisSplitPoint</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">else</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">m_splitAxis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">KDTREE_Z_AXIS</span><span class="p">;</span>
+<span class="w">                </span><span class="n">m_splitPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zAxisSplitPoint</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">KdtreeAABB</span><span class="w"> </span><span class="n">pChildAABB</span><span class="p">,</span><span class="w"> </span><span class="n">nChildAABB</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">m_aabb</span><span class="p">.</span><span class="n">trySplitAt</span><span class="p">(</span><span class="n">m_splitAxis</span><span class="p">,</span><span class="w"> </span><span class="n">m_splitPos</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nChildAABB</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">pChildAABB</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;warning: at KdtreeNode::buildChildrenNodes(), &quot;</span>
+<span class="w">                      </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;invalid split detected&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">m_positiveChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buildChildNode</span><span class="p">(</span><span class="n">pChildAABB</span><span class="p">,</span><span class="w"> </span><span class="n">intersectables</span><span class="p">);</span>
+<span class="w">        </span><span class="n">m_negativeChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buildChildNode</span><span class="p">(</span><span class="n">nChildAABB</span><span class="p">,</span><span class="w"> </span><span class="n">intersectables</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">m_nodeBufferStartIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_intersectableBuffer</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span>
+<span class="w">        </span><span class="n">m_nodeBufferEndIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_nodeBufferStartIndex</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">intersectables</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">intersectable</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">intersectables</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">m_intersectableBuffer</span><span class="o">-&gt;</span><span class="n">push_back</span><span class="p">(</span><span class="n">intersectable</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">KdtreeNode</span><span class="o">&gt;</span><span class="w"> </span><span class="n">KdtreeNode</span><span class="o">::</span><span class="n">buildChildNode</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">KdtreeAABB</span><span class="o">&amp;</span><span class="w"> </span><span class="n">childAABB</span><span class="p">,</span>
+<span class="w">                                                       </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">Intersectable</span><span class="o">*&gt;&amp;</span><span class="w"> </span><span class="n">parentIntersectables</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">Intersectable</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">intersectables</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">AABB3D</span><span class="w"> </span><span class="n">childNodeAABB</span><span class="p">;</span>
+<span class="w">    </span><span class="n">childAABB</span><span class="p">.</span><span class="n">getAABB</span><span class="p">(</span><span class="o">&amp;</span><span class="n">childNodeAABB</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Intersectable</span><span class="o">*</span><span class="w"> </span><span class="n">intersectable</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">parentIntersectables</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">intersectable</span><span class="o">-&gt;</span><span class="n">mayIntersectVolume</span><span class="p">(</span><span class="n">childNodeAABB</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">intersectables</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">intersectable</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">intersectables</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">childNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">KdtreeNode</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_intersectableBuffer</span><span class="p">);</span>
+<span class="w">    </span><span class="n">childNode</span><span class="o">-&gt;</span><span class="n">m_aabb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">childAABB</span><span class="p">;</span>
+<span class="w">    </span><span class="n">childNode</span><span class="o">-&gt;</span><span class="n">buildChildrenNodes</span><span class="p">(</span><span class="n">intersectables</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">childNode</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">KdtreeNode</span><span class="o">::</span><span class="n">traverseAndFindClosestIntersection</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Ray</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ray</span><span class="p">,</span>
+<span class="w">                                                    </span><span class="n">HitProbe</span><span class="o">&amp;</span><span class="w"> </span><span class="n">probe</span><span class="p">,</span>
+<span class="w">                                                    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">rayDistMin</span><span class="p">,</span>
+<span class="w">                                                    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">rayDistMax</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">isLeaf</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">real</span><span class="w"> </span><span class="n">splitAxisRayOrigin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="n">_r</span><span class="p">;</span>
+<span class="w">        </span><span class="n">real</span><span class="w"> </span><span class="n">splitAxisRayDir</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="n">_r</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">switch</span><span class="p">(</span><span class="n">m_splitAxis</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">KDTREE_X_AXIS</span><span class="p">:</span>
+<span class="w">            </span><span class="n">splitAxisRayOrigin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ray</span><span class="p">.</span><span class="n">getOrigin</span><span class="p">().</span><span class="n">x</span><span class="p">();</span>
+<span class="w">            </span><span class="n">splitAxisRayDir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ray</span><span class="p">.</span><span class="n">getDirection</span><span class="p">().</span><span class="n">x</span><span class="p">();</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">KDTREE_Y_AXIS</span><span class="p">:</span>
+<span class="w">            </span><span class="n">splitAxisRayOrigin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ray</span><span class="p">.</span><span class="n">getOrigin</span><span class="p">().</span><span class="n">y</span><span class="p">();</span>
+<span class="w">            </span><span class="n">splitAxisRayDir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ray</span><span class="p">.</span><span class="n">getDirection</span><span class="p">().</span><span class="n">y</span><span class="p">();</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">KDTREE_Z_AXIS</span><span class="p">:</span>
+<span class="w">            </span><span class="n">splitAxisRayOrigin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ray</span><span class="p">.</span><span class="n">getOrigin</span><span class="p">().</span><span class="n">z</span><span class="p">();</span>
+<span class="w">            </span><span class="n">splitAxisRayDir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ray</span><span class="p">.</span><span class="n">getDirection</span><span class="p">().</span><span class="n">z</span><span class="p">();</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">default</span><span class="o">:</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;KdtreeNode: unidentified split axis detected&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">KdtreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">nearHitNode</span><span class="p">;</span>
+<span class="w">        </span><span class="n">KdtreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">farHitNode</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">m_splitPos</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">splitAxisRayOrigin</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">nearHitNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_negativeChild</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+<span class="w">            </span><span class="n">farHitNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_positiveChild</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">nearHitNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_positiveChild</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+<span class="w">            </span><span class="n">farHitNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_negativeChild</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// The result can be NaN (the ray is lying on the splitting plane). In such case, traverse both</span>
+<span class="w">        </span><span class="c1">// positive and negative node (handled in Case III).</span>
+<span class="w">        </span><span class="n">real</span><span class="w"> </span><span class="n">raySplitPlaneDist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">m_splitPos</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">splitAxisRayOrigin</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">splitAxisRayDir</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1">// Case I: Split plane is beyond ray&#39;s range or behind ray origin, only near node is hit.</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">raySplitPlaneDist</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">rayDistMax</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">raySplitPlaneDist</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0</span><span class="n">_r</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">nearHitNode</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">nearHitNode</span><span class="o">-&gt;</span><span class="n">traverseAndFindClosestIntersection</span><span class="p">(</span><span class="n">ray</span><span class="p">,</span><span class="w"> </span><span class="n">probe</span><span class="p">,</span><span class="w"> </span><span class="n">rayDistMin</span><span class="p">,</span><span class="w"> </span><span class="n">rayDistMax</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="c1">// Case II: Split plane is between ray origin and near intersection point, only far node is hit.</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">raySplitPlaneDist</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">rayDistMin</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">raySplitPlaneDist</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.0</span><span class="n">_r</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">farHitNode</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">farHitNode</span><span class="o">-&gt;</span><span class="n">traverseAndFindClosestIntersection</span><span class="p">(</span><span class="n">ray</span><span class="p">,</span><span class="w"> </span><span class="n">probe</span><span class="p">,</span><span class="w"> </span><span class="n">rayDistMin</span><span class="p">,</span><span class="w"> </span><span class="n">rayDistMax</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="c1">// Case III: Split plane is within ray&#39;s range, and both near and far node are hit.</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">nearHitNode</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">nearHitNode</span><span class="o">-&gt;</span><span class="n">traverseAndFindClosestIntersection</span><span class="p">(</span><span class="n">ray</span><span class="p">,</span><span class="w"> </span><span class="n">probe</span><span class="p">,</span><span class="w"> </span><span class="n">rayDistMin</span><span class="p">,</span><span class="w"> </span><span class="n">raySplitPlaneDist</span><span class="p">))</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">farHitNode</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">farHitNode</span><span class="o">-&gt;</span><span class="n">traverseAndFindClosestIntersection</span><span class="p">(</span><span class="n">ray</span><span class="p">,</span><span class="w"> </span><span class="n">probe</span><span class="p">,</span><span class="w"> </span><span class="n">raySplitPlaneDist</span><span class="p">,</span><span class="w"> </span><span class="n">rayDistMax</span><span class="p">))</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">Ray</span><span class="w"> </span><span class="nf">segmentRay</span><span class="p">(</span><span class="n">ray</span><span class="p">.</span><span class="n">getOrigin</span><span class="p">(),</span><span class="w"> </span><span class="n">ray</span><span class="p">.</span><span class="n">getDirection</span><span class="p">(),</span><span class="w"> </span><span class="n">rayDistMin</span><span class="p">,</span><span class="w"> </span><span class="n">rayDistMax</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">isableIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_nodeBufferStartIndex</span><span class="p">;</span><span class="w"> </span><span class="n">isableIndex</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m_nodeBufferEndIndex</span><span class="p">;</span><span class="w"> </span><span class="n">isableIndex</span><span class="o">++</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">HitProbe</span><span class="w"> </span><span class="n">currentProbe</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="p">((</span><span class="o">*</span><span class="n">m_intersectableBuffer</span><span class="p">)[</span><span class="n">isableIndex</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">isIntersecting</span><span class="p">(</span><span class="n">segmentRay</span><span class="p">,</span><span class="w"> </span><span class="n">currentProbe</span><span class="p">))</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">currentProbe</span><span class="p">.</span><span class="n">getHitRayT</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">probe</span><span class="p">.</span><span class="n">getHitRayT</span><span class="p">())</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">probe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currentProbe</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// Notice that rayDistMax can be NaN or +infinity, in such cases the return value (does the</span>
+<span class="w">        </span><span class="c1">// closest intersection in the entire tree found) can be false even if we&#39;ve actually found</span>
+<span class="w">        </span><span class="c1">// one and stored it in the intersection. Since these are rare situations, and to properly</span>
+<span class="w">        </span><span class="c1">// handle them may slow down the algorithm quite a bit, so I assumed that simply ignoring</span>
+<span class="w">        </span><span class="c1">// these cases won&#39;t generate any noticeable visual artifacts.</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">probe</span><span class="p">.</span><span class="n">getHitRayT</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">//std::cerr &lt;&lt; &quot;warning: kdtree is broken&quot; &lt;&lt; std::endl;</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">KdtreeNode</span><span class="o">::</span><span class="n">isLeaf</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_nodeBufferStartIndex</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">m_nodeBufferEndIndex</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

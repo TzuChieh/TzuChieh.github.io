@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a8238e0fcd9af1311e21b3aa3905ac10f:
+
+Function ph::PH_DEFINE_INTERNAL_LOG_GROUP(PathTracingVisualizer, Visualizer)
+============================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_INTERNAL_LOG_GROUP(PathTracingVisualizer, Visualizer)
+   :project: Photon

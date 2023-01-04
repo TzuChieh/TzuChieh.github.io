@@ -1,0 +1,67 @@
+
+.. _file_Source_Core_Renderer_PM_PPMRadianceEvaluationWork.h:
+
+File PPMRadianceEvaluationWork.h
+================================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Renderer\PM\PPMRadianceEvaluationWork.h``)
+--------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Renderer_PM_PPMRadianceEvaluationWork.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Common/primitive_type.h``
+
+- ``Core/Filmic/HdrRgbFilm.h``
+
+- ``Core/Renderer/PM/FullPhoton.h``
+
+- ``Core/Renderer/PM/FullViewpoint.h``
+
+- ``Core/Renderer/PM/TRadianceEvaluationWork.h``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Renderer_PM_PMRenderer.cpp`
+
+- :ref:`file_Source_Core_Renderer_PM_PPMRadianceEvaluationWork.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_p_p_m_radiance_evaluation_work`
+

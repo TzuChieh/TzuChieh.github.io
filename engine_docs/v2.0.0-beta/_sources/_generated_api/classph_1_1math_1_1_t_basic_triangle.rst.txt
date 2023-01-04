@@ -1,0 +1,28 @@
+.. _exhale_class_classph_1_1math_1_1_t_basic_triangle:
+
+Template Class TBasicTriangle
+=============================
+
+- Defined in :ref:`file_Source_Math_Geometry_TBasicTriangle.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Types
+*************
+
+- ``public ph::math::TWatertightTriangle< real >`` (:ref:`exhale_class_classph_1_1math_1_1_t_watertight_triangle`)
+- ``public ph::math::TTriangle< T >`` (:ref:`exhale_class_classph_1_1math_1_1_t_triangle`)
+- ``public ph::math::TWatertightTriangle< T >`` (:ref:`exhale_class_classph_1_1math_1_1_t_watertight_triangle`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::math::TBasicTriangle
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

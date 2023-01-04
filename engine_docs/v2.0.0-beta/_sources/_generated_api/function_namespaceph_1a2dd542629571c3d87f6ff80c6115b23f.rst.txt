@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a2dd542629571c3d87f6ff80c6115b23f:
+
+Function ph::PH_DEFINE_SDL_ENUM(TBasicSdlEnum<EInterfaceFresnel>)
+=================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_SDL_ENUM(TBasicSdlEnum<EInterfaceFresnel>)
+   :project: Photon

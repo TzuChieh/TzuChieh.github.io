@@ -1,0 +1,44 @@
+
+.. _file_Source_Actor_Geometry_GeometrySoup.cpp:
+
+File GeometrySoup.cpp
+=====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\Geometry\GeometrySoup.cpp``)
+-------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_Geometry_GeometrySoup.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/Geometry/GeometrySoup.h``
+
+- ``Math/Transform/TDecomposedTransform.h``
+
+- ``iostream``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

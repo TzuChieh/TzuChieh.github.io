@@ -1,0 +1,14 @@
+.. _exhale_define_config_8h_1aa433bc85ef9ec43c1a1abae14017d5e8:
+
+Define PH_SDL_MAX_FIELDS
+========================
+
+- Defined in :ref:`file_Source_Common_config.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: PH_SDL_MAX_FIELDS
+   :project: Photon

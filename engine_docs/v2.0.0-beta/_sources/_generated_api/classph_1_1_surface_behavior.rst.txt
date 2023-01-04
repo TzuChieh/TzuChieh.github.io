@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_surface_behavior:
+
+Class SurfaceBehavior
+=====================
+
+- Defined in :ref:`file_Source_Core_SurfaceBehavior_SurfaceBehavior.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::SurfaceBehavior
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

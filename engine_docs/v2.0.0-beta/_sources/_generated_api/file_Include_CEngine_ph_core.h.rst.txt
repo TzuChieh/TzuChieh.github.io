@@ -1,0 +1,199 @@
+
+.. _file_Include_CEngine_ph_core.h:
+
+File ph_core.h
+==============
+
+
+Contains main C APIs of the render engine. 
+
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Include\CEngine\ph_core.h``)
+------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Include_CEngine_ph_core.h.rst
+
+
+
+Detailed Description
+--------------------
+
+To correctly use Photon-v2 API, please read the following notes:
+
+
+
+- :ref:`exhale_function_ph__core_8h_1a3b28b2834fe95c79cd02a7a6dc2c1e5c` and :ref:`exhale_function_ph__core_8h_1ae9404ce7ff3099b91a1fb2763ac2fd79` must be called before and after the use of the API, and should be called on the same thread.
+
+- phCreate/Delete<X>() and phAsync<X>() functions can be used in a multithreaded environment, namely, they are thread-safe. An exception would be that create and delete should be called from the same thread.
+
+- Resources created by phCreate<X>() cannot be manipulated concurrently. Any function requiring some resource ID inputs (except phAsync<X>() functions) is considered a resource manipulating operation on those resources. 
+
+
+
+
+
+
+Includes
+--------
+
+
+- ``stddef.h``
+
+- ``stdint.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Api_ApiHelper.h`
+
+- :ref:`file_Source_Api_ph_core.cpp`
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_struct_p_h_observable_render_data`
+
+- :ref:`exhale_struct_struct_p_h_render_state`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_ph__core_8h_1aa1f79c905b4a3ed8205149685db8237c`
+
+- :ref:`exhale_enum_ph__core_8h_1a7a7d07a4f0d44c543ad9554571f4767e`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_ph__core_8h_1a0c73a0ce8240f7d422f628553e499e35`
+
+- :ref:`exhale_function_ph__core_8h_1a1d4d2bb917303d21109ba361db4b3637`
+
+- :ref:`exhale_function_ph__core_8h_1a7dc6babfa51bb0e753b5a80f9b6ecd77`
+
+- :ref:`exhale_function_ph__core_8h_1ad39393aa91b9a4942f85947d08d55c72`
+
+- :ref:`exhale_function_ph__core_8h_1a312add76d3d5daa162f02aeb2ffd97fd`
+
+- :ref:`exhale_function_ph__core_8h_1abe31488de0ebe6f9cf3faee2fd96407c`
+
+- :ref:`exhale_function_ph__core_8h_1a1ac7e56e294fd1f344b43aa737f4466c`
+
+- :ref:`exhale_function_ph__core_8h_1a22d23c387cbe280284737bcb51324424`
+
+- :ref:`exhale_function_ph__core_8h_1ae3e69c2b71bde4517b0ed257dcfcb7f4`
+
+- :ref:`exhale_function_ph__core_8h_1ad2902ca9de67459480f59fbe79b6b32f`
+
+- :ref:`exhale_function_ph__core_8h_1a561ae992f795a846ca4cde92a0fcc634`
+
+- :ref:`exhale_function_ph__core_8h_1a61d3e2834c58d57f2da14f92c7582481`
+
+- :ref:`exhale_function_ph__core_8h_1ab9988675871d617815b0c2e2b12c8639`
+
+- :ref:`exhale_function_ph__core_8h_1a4cc6f225263c34308b6dabf05b19cb0d`
+
+- :ref:`exhale_function_ph__core_8h_1aa92858c1c162390414663758a3216180`
+
+- :ref:`exhale_function_ph__core_8h_1ae9404ce7ff3099b91a1fb2763ac2fd79`
+
+- :ref:`exhale_function_ph__core_8h_1a964c21912d789d78d29bf362aec027d0`
+
+- :ref:`exhale_function_ph__core_8h_1ad8421cda37e2490df364e4dfd3d85142`
+
+- :ref:`exhale_function_ph__core_8h_1a4cdf11972a619014b13891c2e8ef4bcc`
+
+- :ref:`exhale_function_ph__core_8h_1a8e77a19ec96f8b4821a6ec11282edcd2`
+
+- :ref:`exhale_function_ph__core_8h_1ad90c4ee8da3e6e9c58e12c25a681ec83`
+
+- :ref:`exhale_function_ph__core_8h_1ab5cd6e03758e7ef24481f66e62502253`
+
+- :ref:`exhale_function_ph__core_8h_1ac8d5cafa6a6e9019d30e61d6c5763d59`
+
+- :ref:`exhale_function_ph__core_8h_1a3b28b2834fe95c79cd02a7a6dc2c1e5c`
+
+- :ref:`exhale_function_ph__core_8h_1ac13ef72088d9f5272f91503601478f06`
+
+- :ref:`exhale_function_ph__core_8h_1af17509e8684b62e611205062efc1cc6b`
+
+- :ref:`exhale_function_ph__core_8h_1ac1ec6340d8edbd665bcc1594705ca2b7`
+
+- :ref:`exhale_function_ph__core_8h_1a322ff66d396d407147e472609b4a22bc`
+
+- :ref:`exhale_function_ph__core_8h_1aab5fade4a2cb5dae8eea3a2786224661`
+
+- :ref:`exhale_function_ph__core_8h_1abbc0f9adc03f5157937e91cbf9e1f90e`
+
+- :ref:`exhale_function_ph__core_8h_1ac37a88e565f73868b60ca707b9d88a95`
+
+- :ref:`exhale_function_ph__core_8h_1a9775036deb4b6120cac1b8b49f296000`
+
+
+Defines
+-------
+
+
+- :ref:`exhale_define_ph__core_8h_1acd4c7607ab6cc12a3b82937dc17d4cb3`
+
+- :ref:`exhale_define_ph__core_8h_1a96c8cd34b5beb5b333b2d44eb534cc35`
+
+- :ref:`exhale_define_ph__core_8h_1a5a7b1da98cb8e58497ee42082d465460`
+
+- :ref:`exhale_define_ph__core_8h_1a15e807632f36da4a6862bff44ce3c4d1`
+
+- :ref:`exhale_define_ph__core_8h_1aa3c55c6fe53df71d8e54695e2b5341d3`
+
+- :ref:`exhale_define_ph__core_8h_1a10f8fba3909f84b22453093d1a68ab38`
+
+- :ref:`exhale_define_ph__core_8h_1a1237cc0c738ade4442390aff830162cb`
+
+- :ref:`exhale_define_ph__core_8h_1af0be71a7b39881aa1d1643b7075f6d21`
+
+- :ref:`exhale_define_ph__core_8h_1a29e3741d5b3295e5b93d789a0e1aea22`
+
+- :ref:`exhale_define_ph__core_8h_1a116f0adfc4506da1655ae04fdee5cb52`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_ph__core_8h_1a7288b9c7e1654fa7d9dbfda37fb5352e`
+
+- :ref:`exhale_typedef_ph__core_8h_1a1e739fa708c00ceeea0798414e2fda55`
+
+- :ref:`exhale_typedef_ph__core_8h_1a97ef5e01d6822c6d94ca397236f7fc16`
+
+- :ref:`exhale_typedef_ph__core_8h_1a3015b1b2cb959ffd53ae5c03279f8200`
+
+- :ref:`exhale_typedef_ph__core_8h_1a94dafb70df599f6bc524cffa138a95f0`
+
+- :ref:`exhale_typedef_ph__core_8h_1aa04eb2e9246b2ea84151df6b59d386c5`
+
+- :ref:`exhale_typedef_ph__core_8h_1a0fe7f26d26a7e16c10b6ab0c3cd148fe`
+
+- :ref:`exhale_typedef_ph__core_8h_1a8ceb31b8e14dacc34946b976d66c523b`
+
+- :ref:`exhale_typedef_ph__core_8h_1abd8c581ab4fe13ee8d3a63530f3de035`
+

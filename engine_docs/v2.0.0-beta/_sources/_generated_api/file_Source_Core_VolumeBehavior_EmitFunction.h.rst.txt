@@ -1,0 +1,53 @@
+
+.. _file_Source_Core_VolumeBehavior_EmitFunction.h:
+
+File EmitFunction.h
+===================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\VolumeBehavior\EmitFunction.h``)
+----------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_VolumeBehavior_EmitFunction.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/primitive_type.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_VolumeBehavior_EmitFunction.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_emit_function`
+

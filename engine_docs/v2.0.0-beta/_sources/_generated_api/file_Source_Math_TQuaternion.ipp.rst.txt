@@ -1,0 +1,52 @@
+
+.. _file_Source_Math_TQuaternion.ipp:
+
+File TQuaternion.ipp
+====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\TQuaternion.ipp``)
+--------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_TQuaternion.ipp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Math/TMatrix4.h``
+
+- ``Math/TQuaternion.h``
+
+- ``Math/TVector3.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Math_TQuaternion.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Class Actor &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class ActorCookException" href="classph_1_1_actor_cook_exception.html" />
+    <link rel="prev" title="Class AbradedTranslucent" href="classph_1_1_abraded_translucent.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="library_root.html">Library API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="library_root.html#photon-v2-renderer">Photon-v2 Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="library_root.html#page-hierarchy">Page Hierarchy</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="library_root.html#full-api">Full API</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#namespaces">Namespaces</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="library_root.html#classes-and-structs">Classes and Structs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#enums">Enums</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#unions">Unions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#functions">Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#variables">Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#defines">Defines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#typedefs">Typedefs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="library_root.html">Library API</a></li>
+      <li class="breadcrumb-item active">Class Actor</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/classph_1_1_actor.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="class-actor">
+<span id="exhale-class-classph-1-1-actor"></span><h1>Class Actor<a class="headerlink" href="#class-actor" title="Permalink to this headline"></a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_Source_Actor_Actor.h.html#file-source-actor-actor-h"><span class="std std-ref">File Actor.h</span></a></p></li>
+</ul>
+<section id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline"></a></h2>
+<section id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">ph::TSdlResourceBase&lt;</span> <span class="pre">ETypeCategory::Ref_Actor</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classph_1_1_t_sdl_resource_base.html#exhale-class-classph-1-1-t-sdl-resource-base"><span class="std std-ref">Template Class TSdlResourceBase</span></a>)</p></li>
+</ul>
+</section>
+<section id="derived-type">
+<h3>Derived Type<a class="headerlink" href="#derived-type" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">ph::PhysicalActor</span></code> (<a class="reference internal" href="classph_1_1_physical_actor.html#exhale-class-classph-1-1-physical-actor"><span class="std std-ref">Class PhysicalActor</span></a>)</p></li>
+</ul>
+</section>
+</section>
+<section id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline"></a></h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph5ActorE">
+<span id="_CPPv3N2ph5ActorE"></span><span id="_CPPv2N2ph5ActorE"></span><span id="ph::Actor"></span><span class="target" id="classph_1_1_actor"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Actor</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">ph</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classph_1_1_t_sdl_resource_base.html#_CPPv4I_13ETypeCategoryEN2ph16TSdlResourceBaseE" title="ph::TSdlResourceBase"><span class="n"><span class="pre">TSdlResourceBase</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="enum_namespaceph_1a3d9c2bbeed1de7921273b92decb06ed3.html#_CPPv4N2ph13ETypeCategoryE" title="ph::ETypeCategory"><span class="n"><span class="pre">ETypeCategory</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="enum_namespaceph_1a3d9c2bbeed1de7921273b92decb06ed3.html#_CPPv4N2ph13ETypeCategory9Ref_ActorE" title="ph::ETypeCategory::Ref_Actor"><span class="n"><span class="pre">Ref_Actor</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N2ph5ActorE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Subclassed by <a class="reference internal" href="classph_1_1_physical_actor.html#classph_1_1_physical_actor"><span class="std std-ref">ph::PhysicalActor</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph5Actor5ActorEv">
+<span id="_CPPv3N2ph5Actor5ActorEv"></span><span id="_CPPv2N2ph5Actor5ActorEv"></span><span id="ph::Actor::Actor"></span><span class="target" id="classph_1_1_actor_1af260265303f5395f55846eb2e8d63be9"></span><span class="sig-name descname"><span class="n"><span class="pre">Actor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph5Actor5ActorEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph5Actor5ActorERK5Actor">
+<span id="_CPPv3N2ph5Actor5ActorERK5Actor"></span><span id="_CPPv2N2ph5Actor5ActorERK5Actor"></span><span id="ph::Actor::Actor__ActorCR"></span><span class="target" id="classph_1_1_actor_1af43a37ccd55054812170eb289b5e9c1d"></span><span class="sig-name descname"><span class="n"><span class="pre">Actor</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N2ph5Actor5ActorERK5Actor" title="ph::Actor::Actor"><span class="n"><span class="pre">Actor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph5Actor5ActorERK5Actor" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph5Actor4cookER19ActorCookingContext">
+<span id="_CPPv3N2ph5Actor4cookER19ActorCookingContext"></span><span id="_CPPv2N2ph5Actor4cookER19ActorCookingContext"></span><span id="ph::Actor::cook__ActorCookingContextR"></span><span class="target" id="classph_1_1_actor_1a9b6c6bbfdb4567232ce96207cfda6919"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="classph_1_1_cooked_unit.html#_CPPv4N2ph10CookedUnitE" title="ph::CookedUnit"><span class="n"><span class="pre">CookedUnit</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cook</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="classph_1_1_actor_cooking_context.html#_CPPv4N2ph19ActorCookingContextE" title="ph::ActorCookingContext"><span class="n"><span class="pre">ActorCookingContext</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ctx</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N2ph5Actor4cookER19ActorCookingContext" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2ph5Actor12getCookOrderEv">
+<span id="_CPPv3NK2ph5Actor12getCookOrderEv"></span><span id="_CPPv2NK2ph5Actor12getCookOrderEv"></span><span id="ph::Actor::getCookOrderC"></span><span class="target" id="classph_1_1_actor_1ae588f941475efffdae007195c8e13adc"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="structph_1_1_cook_order.html#_CPPv4N2ph9CookOrderE" title="ph::CookOrder"><span class="n"><span class="pre">CookOrder</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getCookOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2ph5Actor12getCookOrderEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph5ActoraSERK5Actor">
+<span id="_CPPv3N2ph5ActoraSERK5Actor"></span><span id="_CPPv2N2ph5ActoraSERK5Actor"></span><span id="ph::Actor::assign-operator__ActorCR"></span><span class="target" id="classph_1_1_actor_1ae5f7b6683e77beba67dfd7733a7a91dc"></span><a class="reference internal" href="#_CPPv4N2ph5ActorE" title="ph::Actor"><span class="n"><span class="pre">Actor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N2ph5ActorE" title="ph::Actor"><span class="n"><span class="pre">Actor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">rhs</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph5ActoraSERK5Actor" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph5Actor19PH_DEFINE_SDL_CLASSE14TOwnerSdlClassI5ActorE">
+<span id="_CPPv3N2ph5Actor19PH_DEFINE_SDL_CLASSE14TOwnerSdlClassI5ActorE"></span><span id="_CPPv2N2ph5Actor19PH_DEFINE_SDL_CLASSE14TOwnerSdlClassI5ActorE"></span><span id="ph::Actor::PH_DEFINE_SDL_CLASS__TOwnerSdlClass:Actor:"></span><span class="target" id="classph_1_1_actor_1aa8772cdb6d9c4003644460fadfb5931b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PH_DEFINE_SDL_CLASS</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="classph_1_1_t_owner_sdl_class.html#_CPPv4I00EN2ph14TOwnerSdlClassE" title="ph::TOwnerSdlClass"><span class="n"><span class="pre">TOwnerSdlClass</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N2ph5ActorE" title="ph::Actor"><span class="n"><span class="pre">Actor</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph5Actor19PH_DEFINE_SDL_CLASSE14TOwnerSdlClassI5ActorE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-friends">Friends</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph5Actor4swapER5ActorR5Actor">
+<span id="_CPPv3N2ph5Actor4swapER5ActorR5Actor"></span><span id="_CPPv2N2ph5Actor4swapER5ActorR5Actor"></span><span id="ph::Actor::swap__ActorR.ActorR"></span><span class="target" id="classph_1_1_actor_1a8ebc2f3c159a448e6ce5831106d2931a"></span><span class="k"><span class="pre">friend</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">swap</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N2ph5ActorE" title="ph::Actor"><span class="n"><span class="pre">Actor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">first</span></span>, <a class="reference internal" href="#_CPPv4N2ph5ActorE" title="ph::Actor"><span class="n"><span class="pre">Actor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">second</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2ph5Actor4swapER5ActorR5Actor" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="classph_1_1_abraded_translucent.html" class="btn btn-neutral float-left" title="Class AbradedTranslucent" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="classph_1_1_actor_cook_exception.html" class="btn btn-neutral float-right" title="Class ActorCookException" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

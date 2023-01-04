@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File TAtomicQueue.h &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File TAtomicQueue.h</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Utility_Concurrent_TAtomicQueue.h.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-tatomicqueue-h">
+<span id="program-listing-file-source-utility-concurrent-tatomicqueue-h"></span><h1>Program Listing for File TAtomicQueue.h<a class="headerlink" href="#program-listing-for-file-tatomicqueue-h" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Utility_Concurrent_TAtomicQueue.h.html#file-source-utility-concurrent-tatomicqueue-h"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Utility\Concurrent\TAtomicQueue.h</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/config.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;moodycamel/concurrentqueue.h&gt;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstddef&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TAtomicQueue</span><span class="w"> </span><span class="k">final</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">TAtomicQueue</span><span class="p">();</span>
+<span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">TAtomicQueue</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">initialCapacity</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">enqueue</span><span class="p">(</span><span class="n">U</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">item</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">tryEnqueue</span><span class="p">(</span><span class="n">U</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">item</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">tryDequeue</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">out_item</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="nf">estimatedSize</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+
+<span class="k">private</span><span class="o">:</span>
+
+<span class="cp">#ifdef PH_ENSURE_LOCKFREE_ALGORITHMS_ARE_LOCKLESS</span>
+<span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="n">moodycamel</span><span class="o">::</span><span class="n">ConcurrentQueue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">is_lock_free</span><span class="p">());</span>
+<span class="cp">#endif</span>
+
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">    `moodycamel::ConcurrentQueue` is lock free and the queue itself is thread-safe, meaning that using</span>
+<span class="cm">    the queue under multiple producers and multiple consumers will not break the internal state of the</span>
+<span class="cm">    queue, and all operations generally will not block in any way. However, there are several implications</span>
+<span class="cm">    due to its design, the most important ones are:</span>
+
+<span class="cm">    * Items enqueued by each thread will come out in the same order as they were enqueued, however, there</span>
+<span class="cm">    is no defined item order between threads even with external synchronization. It is FIFO when viewed</span>
+<span class="cm">    from any single thread, but not FIFO when viewed across threads. Normally this is not an issue, as if</span>
+<span class="cm">    a total item order is desired, you need some sort of synchronization and might as well just queue into</span>
+<span class="cm">    a synchronized queue from a single thread.</span>
+<span class="cm">    See [1] ConcurrentQueue not a FIFO</span>
+<span class="cm">            https://github.com/cameron314/concurrentqueue/issues/52</span>
+<span class="cm">        [2] I can&#39;t understand how this queue ensure ordering between multiple producer...</span>
+<span class="cm">            https://github.com/cameron314/concurrentqueue/issues/262</span>
+<span class="cm">        [3] FIFO guarantees for SPMC usage?</span>
+<span class="cm">            https://github.com/cameron314/concurrentqueue/issues/309</span>
+
+<span class="cm">    * Items enqueued on one thread may not be successfully dequeued in another thread, unless there are</span>
+<span class="cm">    external means to ensure the enqueue operation is visible on the dequeue thread.</span>
+<span class="cm">    See [1] [SPMC] externally synchronized try_dequeue fails with items in queue</span>
+<span class="cm">            https://github.com/cameron314/concurrentqueue/issues/265</span>
+<span class="cm">        [2] try_enqueue() returns true but approx_size() is always 0 and try_dequeue() fails</span>
+<span class="cm">            https://github.com/cameron314/concurrentqueue/issues/285</span>
+
+<span class="cm">    * All the memory effects done by a thread before it enqueues an item will be visible on another</span>
+<span class="cm">    thread after it dequeues that item. Basic aquire-release semantics are guaranteed. This ensures</span>
+<span class="cm">    that all the effects of work done by a thread before it enqueues an element will be visible on</span>
+<span class="cm">    another thread after it dequeues that element.</span>
+<span class="cm">    See [1] sequential consistent</span>
+<span class="cm">            https://github.com/cameron314/concurrentqueue/issues/73</span>
+
+<span class="cm">    Most performant case: single-producer multi-consumer.</span>
+<span class="cm">    */</span>
+<span class="w">    </span><span class="n">moodycamel</span><span class="o">::</span><span class="n">ConcurrentQueue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">m_queue</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Utility/Concurrent/TAtomicQueue.ipp&quot;</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

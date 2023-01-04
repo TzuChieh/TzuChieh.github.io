@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1aa677c52575a936346cb47c539bdc492f:
+
+Function ph::PH_DEFINE_INTERNAL_LOG_GROUP(PrimitiveMetadata, Primitive)
+=======================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_INTERNAL_LOG_GROUP(PrimitiveMetadata, Primitive)
+   :project: Photon

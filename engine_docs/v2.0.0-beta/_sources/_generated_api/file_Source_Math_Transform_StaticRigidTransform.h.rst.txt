@@ -1,0 +1,73 @@
+
+.. _file_Source_Math_Transform_StaticRigidTransform.h:
+
+File StaticRigidTransform.h
+===========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\Transform\StaticRigidTransform.h``)
+-------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_Transform_StaticRigidTransform.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Common/logging.h``
+
+- ``Math/Transform/RigidTransform.h``
+
+- ``Math/Transform/StaticAffineTransform.h``
+
+- ``Math/Transform/TDecomposedTransform.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_ADome.cpp`
+
+- :ref:`file_Source_Actor_ALight.cpp`
+
+- :ref:`file_Source_Actor_LightSource_AreaSource.cpp`
+
+- :ref:`file_Source_Core_Intersectable_PLatLongEnvSphere.cpp`
+
+- :ref:`file_Source_EngineEnv_Observer_SingleLensObserver.cpp`
+
+- :ref:`file_Source_Math_Transform_StaticRigidTransform.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1math_1_1_static_rigid_transform`
+

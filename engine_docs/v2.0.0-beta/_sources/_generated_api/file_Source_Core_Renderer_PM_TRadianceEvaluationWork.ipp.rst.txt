@@ -1,0 +1,66 @@
+
+.. _file_Source_Core_Renderer_PM_TRadianceEvaluationWork.ipp:
+
+File TRadianceEvaluationWork.ipp
+================================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Renderer\PM\TRadianceEvaluationWork.ipp``)
+--------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Renderer_PM_TRadianceEvaluationWork.ipp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/Intersectable/Primitive.h``
+
+- ``Core/Intersectable/PrimitiveMetadata.h``
+
+- ``Core/Renderer/PM/TRadianceEvaluationWork.h``
+
+- ``Core/SurfaceBehavior/BsdfEvalQuery.h``
+
+- ``Core/SurfaceBehavior/BsdfPdfQuery.h``
+
+- ``Core/SurfaceBehavior/BsdfSampleQuery.h``
+
+- ``Core/SurfaceBehavior/SurfaceBehavior.h``
+
+- ``Core/SurfaceBehavior/SurfaceOptics.h``
+
+- ``Math/constant.h``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Renderer_PM_TRadianceEvaluationWork.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1detail_1a37a2a8314f5cabc13b9bfa2e2901848d:
+
+Function ph::detail::free_aligned_memory
+========================================
+
+- Defined in :ref:`file_Source_Common_memory.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::detail::free_aligned_memory(void *const)
+   :project: Photon

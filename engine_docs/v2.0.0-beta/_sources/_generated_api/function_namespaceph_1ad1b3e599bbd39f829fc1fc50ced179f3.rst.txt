@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1ad1b3e599bbd39f829fc1fc50ced179f3:
+
+Function ph::PH_DEFINE_INTERNAL_LOG_GROUP(MathImage, Image)
+===========================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_INTERNAL_LOG_GROUP(MathImage, Image)
+   :project: Photon

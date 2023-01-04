@@ -1,0 +1,61 @@
+
+.. _file_Source_DataIO_Data_IesFile.h:
+
+File IesFile.h
+==============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\Data\IesFile.h``)
+---------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_Data_IesFile.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/primitive_type.h``
+
+- ``DataIO/FileSystem/Path.h``
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_DataIO_Data_IesData.h`
+
+- :ref:`file_Source_DataIO_Data_IesFile.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_ies_file`
+

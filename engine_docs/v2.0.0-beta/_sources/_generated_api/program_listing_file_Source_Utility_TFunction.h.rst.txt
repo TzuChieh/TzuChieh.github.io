@@ -1,0 +1,319 @@
+
+.. _program_listing_file_Source_Utility_TFunction.h:
+
+Program Listing for File TFunction.h
+====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Utility_TFunction.h>` (``Source\Utility\TFunction.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Common/config.h"
+   #include "Common/assertion.h"
+   #include "Utility/exception.h"
+   
+   #include <cstddef>
+   #include <type_traits>
+   #include <utility>
+   #include <new>
+   #include <memory>
+   
+   namespace ph
+   {
+   
+   namespace function_detail
+   {
+   
+   template<typename T, std::size_t MIN_SIZE_HINT = 0>
+   class TFunction final
+   {
+       // Correct function signature will instantiate the specialized type. If this type is selected
+       // instead, notify the user about the ill-formed function signature
+       static_assert(std::is_function_v<T>,
+           "Invalid function signature.");
+   };
+   
+   template<auto Func, typename R, typename... Args>
+   concept CFreeFunctionForm = 
+       std::is_function_v<std::remove_pointer_t<decltype(Func)>> &&
+       std::is_invocable_r_v<R, decltype(Func), Args...>;
+   
+   template<auto Func, typename Class, typename R, typename... Args>
+   concept CConstCallableMethodForm = 
+       std::is_member_function_pointer_v<decltype(Func)> &&
+       std::is_invocable_r_v<R, decltype(Func), const Class*, Args...>;
+   
+   template<auto Func, typename Class, typename R, typename... Args>
+   concept CNonConstCallableMethodForm =
+       std::is_member_function_pointer_v<decltype(Func)> &&
+       std::is_invocable_r_v<R, decltype(Func), Class*, Args...>;
+   
+   template<typename Func, typename R, typename... Args>
+   concept CEmptyFunctorForm = 
+       std::is_empty_v<std::decay_t<Func>> &&// so we do not need to store its states
+       std::is_default_constructible_v<std::decay_t<Func>> &&// we construct it on every call
+       std::is_invocable_r_v<R, std::decay_t<Func>, Args...>;// we call from the newly constructed value, no matter the constness
+   
+   template<typename Func, typename R, typename... Args>
+   concept CNonEmptyTrivialFunctorForm = 
+       !std::is_empty_v<std::decay_t<Func>> &&// to disambiguate from the empty form
+       !std::is_function_v<std::remove_pointer_t<std::decay_t<Func>>> &&// to disambiguate from the free function form
+       std::is_constructible_v<std::decay_t<Func>, Func> &&// we placement new using existing instance
+       std::is_trivially_copyable_v<std::decay_t<Func>> &&// so copying the underlying buffer is legal
+       std::is_trivially_destructible_v<std::decay_t<Func>> &&// somewhat redundant as we have `is_trivially_copyable`, but nice to be explicit
+       std::is_invocable_r_v<R, const std::decay_t<Func>&, Args...>;// must be const as we store its states and `operator ()` is `const`
+   
+   template<typename R, typename... Args, std::size_t MIN_SIZE_HINT>
+   class TFunction<R(Args...), MIN_SIZE_HINT> final
+   {
+   private:
+       using UnifiedCaller = R(*)(const TFunction*, Args...);
+   
+       // Aligning to the pointer size should be sufficient in most cases. Currently we do not align the
+       // buffer to `std::max_align_t` or anything greater to save space.
+       constexpr static std::size_t BUFFER_ALIGNMENT = alignof(void*);
+   
+       constexpr static std::size_t BUFFER_SIZE = MIN_SIZE_HINT > sizeof(UnifiedCaller) + sizeof(void*)
+           ? MIN_SIZE_HINT - sizeof(UnifiedCaller)
+           : sizeof(void*);
+   
+   public:
+       template<typename Func>
+       using TCanFitBuffer = std::bool_constant<
+           sizeof(std::decay_t<Func>) <= BUFFER_SIZE &&
+           alignof(std::decay_t<Func>) <= BUFFER_ALIGNMENT>;
+   
+   
+       template<auto Func>
+       using TIsFreeFunction = std::bool_constant<CFreeFunctionForm<Func, R, Args...>>;
+   
+       template<auto Func, typename Class>
+       using TIsConstCallableMethod = std::bool_constant<CConstCallableMethodForm<Func, Class, R, Args...>>;
+   
+       template<auto Func, typename Class>
+       using TIsNonConstCallableMethod = std::bool_constant<CNonConstCallableMethodForm<Func, Class, R, Args...>>;
+   
+       template<typename Func>
+       using TIsEmptyFunctor = std::bool_constant<CEmptyFunctorForm<Func, R, Args...>>;
+   
+       template<typename Func>
+       using TIsNonEmptyTrivialFunctor = std::bool_constant<
+           CNonEmptyTrivialFunctorForm<Func, R, Args...> &&
+           TCanFitBuffer<Func>::value>;
+   
+   
+       template<typename Func>
+       using TIsStorableFunctor = std::bool_constant<
+           TIsEmptyFunctor<Func>::value ||
+           TIsNonEmptyTrivialFunctor<Func>::value>;
+   
+   public:
+       inline TFunction() = default;
+   
+       template<typename Func>
+       inline TFunction(Func&& func)
+           requires !std::is_same_v<std::decay_t<Func>, TFunction>// avoid ambiguity during copy init
+           : TFunction()
+       {
+           if constexpr(TIsEmptyFunctor<Func>::value)
+           {
+               set<Func>();
+           }
+           else
+           {
+               static_assert(TIsNonEmptyTrivialFunctor<Func>::value,
+                   "Cannot direct-init TFunction. Possible cause of errors: (1) sizeof functor exceeds current "
+                   "limit, reduce functor size or increase the limit; (2) Invalid/mismatched functor signature; "
+                   "(3) The direct-init ctor only works for functors. For other function types, please use setters.");
+   
+               set<Func>(std::forward<Func>(func));
+           }
+       }
+   
+       inline TFunction(const TFunction& other) = default;
+       inline TFunction(TFunction&& other) = default;
+       inline TFunction& operator = (const TFunction& rhs) = default;
+       inline TFunction& operator = (TFunction&& rhs) = default;
+       inline ~TFunction() = default;
+   
+       template<typename... DeducedArgs>
+       inline R operator () (DeducedArgs&&... args) const
+           requires std::is_invocable_v<R(Args...), DeducedArgs...>
+       {
+           return (*m_caller)(this, std::forward<DeducedArgs>(args)...);
+       }
+   
+       template<auto Func>
+       inline TFunction& set()
+           requires TIsFreeFunction<Func>::value
+       {
+           m_data.u_emptyStruct = EmptyStruct{};
+           m_caller = &freeFunctionCaller<Func>;
+   
+           return *this;
+       }
+   
+       template<auto Func, typename Class>
+       inline TFunction& set(const Class* const instancePtr)
+           requires TIsConstCallableMethod<Func, Class>::value
+       {
+           PH_ASSERT(instancePtr);
+   
+           m_data.u_constInstance = instancePtr;
+           m_caller = &constCallableMethodCaller<Func, Class>;
+   
+           return *this;
+       }
+   
+       template<auto Func, typename Class>
+       inline TFunction& set(Class* const instancePtr)
+           requires TIsNonConstCallableMethod<Func, Class>::value
+       {
+           PH_ASSERT(instancePtr);
+   
+           m_data.u_nonConstInstance = instancePtr;
+           m_caller = &nonConstCallableMethodCaller<Func, Class>;
+   
+           return *this;
+       }
+   
+       template<typename Func>
+       inline TFunction& set()
+           requires TIsEmptyFunctor<Func>::value
+       {
+           m_data.u_emptyStruct = EmptyStruct{};
+           m_caller = &emptyFunctorCaller<std::decay_t<Func>>;
+   
+           return *this;
+       }
+   
+       template<typename Func>
+       inline TFunction& set(const Func& /* unused */)
+           requires TIsEmptyFunctor<Func>::value
+       {
+           return set<Func>();
+       }
+   
+       template<typename Func>
+       inline TFunction& set(Func&& func)
+           requires TIsNonEmptyTrivialFunctor<Func>::value
+       {
+           std::construct_at(
+               reinterpret_cast<std::decay_t<Func>*>(m_data.u_buffer),
+               std::forward<Func>(func));
+   
+           m_caller = &nonEmptyTrivialFunctorCaller<std::decay_t<Func>>;
+           
+           return *this;
+       }
+   
+       inline bool isValid() const
+       {
+           return m_caller != &invalidFunctionCaller;
+       }
+   
+       inline operator bool () const
+       {
+           return isValid();
+       }
+   
+       inline void unset()
+       {
+           m_caller = &invalidFunctionCaller;
+       }
+   
+   private:
+       template<auto Func>
+       inline static R freeFunctionCaller(const TFunction* /* unused */, Args... args)
+           requires TIsFreeFunction<Func>::value
+       {
+           return (*Func)(std::forward<Args>(args)...);
+       }
+   
+       template<auto Func, typename Class>
+       inline static R constCallableMethodCaller(const TFunction* const self, Args... args)
+           requires TIsConstCallableMethod<Func, Class>::value
+       {
+           const auto* const instancePtr = static_cast<const Class*>(self->m_data.u_constInstance);
+           return (instancePtr->*Func)(std::forward<Args>(args)...);
+       }
+   
+       template<auto Func, typename Class>
+       inline static R nonConstCallableMethodCaller(const TFunction* const self, Args... args)
+           requires TIsNonConstCallableMethod<Func, Class>::value
+       {
+           auto* const instancePtr = static_cast<Class*>(self->m_data.u_nonConstInstance);
+           
+           return (instancePtr->*Func)(std::forward<Args>(args)...);
+       }
+   
+       template<typename Func>
+       inline static R emptyFunctorCaller(const TFunction* /* unused */, Args... args)
+           requires TIsEmptyFunctor<Func>::value
+       {
+           // Under the assumption that a stateless functor should be cheap to create (and without any
+           // side effects), we construct a new `Func` on every call to it
+           return Func{}(std::forward<Args>(args)...);
+       }
+   
+       template<typename Func>
+       inline static R nonEmptyTrivialFunctorCaller(const TFunction* const self, Args... args)
+       {
+           // We do not obtain the pointer to `Func` via placement new (or `std::construct_at`).
+           // Instead, we cast it from raw buffer and laundering it is required by the standard
+           const auto& func = *std::launder(reinterpret_cast<const Func*>(self->m_data.u_buffer));
+   
+           return func(std::forward<Args>(args)...);
+       }
+   
+       [[noreturn]]
+       inline static R invalidFunctionCaller(const TFunction* /* unused */, Args... args)
+       {
+           throw UninitializedObjectException("Invalid function call: function is not set");
+       }
+   
+   private:
+       struct EmptyStruct
+       {};
+   
+       union Data
+       {
+           // Intentionally provided so that default init of the union is a no-op.
+           EmptyStruct u_emptyStruct;
+   
+           // Pointer to const class instance. May be empty except for methods.
+           const void* u_constInstance;
+   
+           // Pointer to non-const class instance. May be empty except for methods.
+           void* u_nonConstInstance;
+   
+           // Buffer for non-empty functors.
+           alignas(BUFFER_ALIGNMENT) std::byte u_buffer[BUFFER_SIZE];
+       };
+   
+       // Ensure we are not wasting memory. Adjust buffer alignment if failed.
+       static_assert(alignof(Data) == BUFFER_ALIGNMENT);
+   
+       // Member variables: smallest possible size of `TFunction` is two pointers--one for `UnifiedCaller` 
+       // and another one in `Data`
+   
+       Data m_data = EmptyStruct{};
+   
+       // Wrapper function with unified signature for calling the actual function.
+       UnifiedCaller m_caller = &invalidFunctionCaller;
+   };
+   
+   }// end namespace function_detail
+   
+   template<typename Func, std::size_t MIN_SIZE_HINT = PH_TFUNCTION_DEFAULT_MIN_SIZE_IN_BYTES>
+   using TFunction = function_detail::TFunction<Func, MIN_SIZE_HINT>;
+   
+   // This is a stricter requirement than what TFunction guaranteed. However, if its code works 
+   // correctly the size should be exactly what be requested (providing the hint is >= 16 bytes).
+   static_assert(sizeof(TFunction<int(int, int)>) == PH_TFUNCTION_DEFAULT_MIN_SIZE_IN_BYTES);
+   
+   }// end namespace ph

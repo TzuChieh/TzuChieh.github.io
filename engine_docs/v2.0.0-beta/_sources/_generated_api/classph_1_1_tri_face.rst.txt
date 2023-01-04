@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_tri_face:
+
+Class TriFace
+=============
+
+- Defined in :ref:`file_Source_Core_Intersectable_DataStructure_TriFace.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TriFace
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

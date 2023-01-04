@@ -1,0 +1,23 @@
+.. _exhale_struct_structph_1_1_indexed_vertex_buffer_1_1_entry:
+
+Struct IndexedVertexBuffer::Entry
+=================================
+
+- Defined in :ref:`file_Source_Core_Intersectable_DataStructure_IndexedVertexBuffer.h`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_class_classph_1_1_indexed_vertex_buffer`.
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: ph::IndexedVertexBuffer::Entry
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

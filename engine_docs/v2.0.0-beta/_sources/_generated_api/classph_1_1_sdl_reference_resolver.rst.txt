@@ -1,0 +1,27 @@
+.. _exhale_class_classph_1_1_sdl_reference_resolver:
+
+Class SdlReferenceResolver
+==========================
+
+- Defined in :ref:`file_Source_DataIO_SDL_SdlReferenceResolver.h`
+
+
+Nested Relationships
+--------------------
+
+
+Nested Types
+************
+
+- :ref:`exhale_struct_structph_1_1_sdl_reference_resolver_1_1_resource_info`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::SdlReferenceResolver
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

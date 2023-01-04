@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1aa03b14932f04241690d5334aa09e1ed8:
+
+Function ph::swap(AImageDome&, AImageDome&)
+===========================================
+
+- Defined in :ref:`file_Source_Actor_Dome_AImageDome.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::swap(AImageDome&, AImageDome&)
+   :project: Photon

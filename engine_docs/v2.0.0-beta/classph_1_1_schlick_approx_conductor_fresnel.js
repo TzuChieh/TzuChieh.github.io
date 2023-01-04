@@ -1,6 +1,8 @@
 var classph_1_1_schlick_approx_conductor_fresnel =
 [
-    [ "SchlickApproxConductorFresnel", "classph_1_1_schlick_approx_conductor_fresnel.html#a3989f8a84c7d0d052a8771b54879463b", null ],
-    [ "SchlickApproxConductorFresnel", "classph_1_1_schlick_approx_conductor_fresnel.html#af422bc6bb9d4802cce0fea1acf4973df", null ],
-    [ "calcReflectance", "classph_1_1_schlick_approx_conductor_fresnel.html#a3bb2e3f4c370003727918d4f4f9cf820", null ]
+    [ "SchlickApproxConductorFresnel", "classph_1_1_schlick_approx_conductor_fresnel.html#a33de618dc4cee0c4e2a7b9c759c81afb", null ],
+    [ "SchlickApproxConductorFresnel", "classph_1_1_schlick_approx_conductor_fresnel.html#a38a93a293779febed78a5922f6f8a2fe", null ],
+    [ "calcReflectance", "classph_1_1_schlick_approx_conductor_fresnel.html#acb45d60cef073e37b5732be0efc5d38f", null ],
+    [ "m_f0", "classph_1_1_schlick_approx_conductor_fresnel.html#acd103bd5dc47b565080eab5540623f9c", null ],
+    [ "m_f0Complement", "classph_1_1_schlick_approx_conductor_fresnel.html#ac8b999657b024af91821847a40d641ac", null ]
 ];

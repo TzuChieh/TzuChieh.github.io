@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1af8b01b99e42b7dd15dca28359ac1bf9e:
+
+Template Function ph::sizeof_in_bits
+====================================
+
+- Defined in :ref:`file_Source_Utility_utility.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::sizeof_in_bits()
+   :project: Photon

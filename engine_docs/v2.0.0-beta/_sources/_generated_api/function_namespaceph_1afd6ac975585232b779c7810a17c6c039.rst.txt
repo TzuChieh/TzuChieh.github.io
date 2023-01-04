@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1afd6ac975585232b779c7810a17c6c039:
+
+Function ph::PH_DEFINE_INTERNAL_LOG_GROUP(Renderer, Renderer)
+=============================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_INTERNAL_LOG_GROUP(Renderer, Renderer)
+   :project: Photon

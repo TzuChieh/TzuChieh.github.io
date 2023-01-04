@@ -1,0 +1,14 @@
+.. _exhale_define_ph__core_8h_1acd4c7607ab6cc12a3b82937dc17d4cb3:
+
+Define PH_API
+=============
+
+- Defined in :ref:`file_Include_CEngine_ph_core.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: PH_API
+   :project: Photon

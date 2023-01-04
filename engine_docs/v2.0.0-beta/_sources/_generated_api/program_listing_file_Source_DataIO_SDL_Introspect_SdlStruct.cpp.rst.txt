@@ -1,0 +1,35 @@
+
+.. _program_listing_file_Source_DataIO_SDL_Introspect_SdlStruct.cpp:
+
+Program Listing for File SdlStruct.cpp
+======================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_DataIO_SDL_Introspect_SdlStruct.cpp>` (``Source\DataIO\SDL\Introspect\SdlStruct.cpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #include "DataIO/SDL/Introspect/SdlStruct.h"
+   #include "Common/assertion.h"
+   
+   #include <utility>
+   
+   namespace ph
+   {
+   
+   SdlStruct::SdlStruct(std::string typeName) :
+       m_typeName   (std::move(typeName)),
+       m_description()
+   {
+       PH_ASSERT(!m_typeName.empty());
+   }
+   
+   SdlStruct& SdlStruct::setDescription(std::string description)
+   {
+       m_description = std::move(description);
+   
+       return *this;
+   }
+   
+   }// end namespace ph

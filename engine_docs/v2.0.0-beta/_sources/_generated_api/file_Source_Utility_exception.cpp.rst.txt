@@ -1,0 +1,40 @@
+
+.. _file_Source_Utility_exception.cpp:
+
+File exception.cpp
+==================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Utility\exception.cpp``)
+---------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Utility_exception.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Utility/exception.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

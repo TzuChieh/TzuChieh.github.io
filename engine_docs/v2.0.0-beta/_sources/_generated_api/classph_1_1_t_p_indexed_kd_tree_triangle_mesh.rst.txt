@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_t_p_indexed_kd_tree_triangle_mesh:
+
+Template Class TPIndexedKdTreeTriangleMesh
+==========================================
+
+- Defined in :ref:`file_Source_Core_Intersectable_TPIndexedKdTreeTriangleMesh.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::Primitive`` (:ref:`exhale_class_classph_1_1_primitive`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TPIndexedKdTreeTriangleMesh
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

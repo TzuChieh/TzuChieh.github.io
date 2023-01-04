@@ -1,0 +1,57 @@
+
+.. _file_Source_Core_Intersectable_PEmpty.h:
+
+File PEmpty.h
+=============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Intersectable\PEmpty.h``)
+---------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Intersectable_PEmpty.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/Intersectable/Primitive.h``
+
+- ``Math/Geometry/TAABB3D.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_Geometry_GEmpty.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_p_empty`
+

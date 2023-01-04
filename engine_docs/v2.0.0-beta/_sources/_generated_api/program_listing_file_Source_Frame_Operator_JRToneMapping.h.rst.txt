@@ -1,0 +1,39 @@
+
+.. _program_listing_file_Source_Frame_Operator_JRToneMapping.h:
+
+Program Listing for File JRToneMapping.h
+========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Frame_Operator_JRToneMapping.h>` (``Source\Frame\Operator\JRToneMapping.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Frame/Operator/FrameOperator.h"
+   #include "Common/primitive_type.h"
+   #include "Math/Geometry/TAABB2D.h"
+   
+   namespace ph
+   {
+   
+   class JRToneMapping : public FrameOperator
+   {
+   public:
+       template<typename T>
+       using TAABB2D = math::TAABB2D<T>;
+   
+       JRToneMapping();
+   
+       void operate(const HdrRgbFrame& srcFrame, HdrRgbFrame* out_dstFrame) override;
+   
+       void operateLocal(HdrRgbFrame& frame, const TAABB2D<uint32>& region) const;
+       void setExposure(real exposure);
+   
+   private:
+       real m_exposure;
+   };
+   
+   }// end namespace ph

@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_b_n_e_e_p_t_estimator:
+
+Class BNEEPTEstimator
+=====================
+
+- Defined in :ref:`file_Source_Core_Estimator_BNEEPTEstimator.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::FullRayEnergyEstimator`` (:ref:`exhale_class_classph_1_1_full_ray_energy_estimator`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::BNEEPTEstimator
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

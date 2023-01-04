@@ -1,0 +1,74 @@
+
+.. _program_listing_file_Source_Utility_TSortedVector.h:
+
+Program Listing for File TSortedVector.h
+========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Utility_TSortedVector.h>` (``Source\Utility\TSortedVector.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include <vector>
+   #include <cstddef>
+   #include <optional>
+   #include <functional>
+   #include <concepts>
+   
+   namespace ph
+   {
+   
+   template<typename ValueType, typename IsLess = std::less<ValueType>>
+   class TSortedVector final
+   {
+   public:
+       inline TSortedVector() requires std::default_initializable<IsLess>
+           : TSortedVector(0, IsLess{})
+       {}
+   
+       inline explicit TSortedVector(const std::size_t initialCapacity) requires std::default_initializable<IsLess>
+           : TSortedVector(initialCapacity, IsLess{})
+       {}
+   
+       TSortedVector(std::size_t initialCapacity, IsLess isLess);
+   
+       std::size_t addValue(ValueType value);
+   
+       std::optional<std::size_t> addUniqueValue(ValueType value);
+   
+       std::optional<std::size_t> removeValue(const ValueType& value);
+   
+       std::optional<std::size_t> removeValues(const ValueType& value, std::size_t* out_numRemovedValues = nullptr);
+   
+       ValueType removeValueByIndex(std::size_t index);
+   
+       const ValueType& get(std::size_t index) const;
+   
+       std::optional<std::size_t> indexOfValue(const ValueType& value) const;
+   
+       bool hasValue(const ValueType& value) const;
+   
+       std::size_t numValues(const ValueType& value) const;
+   
+       std::size_t size() const;
+   
+       bool isEmpty() const;
+   
+       typename std::vector<ValueType>::const_iterator begin() const noexcept;
+       typename std::vector<ValueType>::const_iterator end() const noexcept;
+   
+   private:
+       std::vector<ValueType> m_sortedValues;
+       IsLess                 m_isLess;
+   
+       std::size_t binarySearchSmallestInsertionIndex(const ValueType& targetValue) const;
+   
+       std::size_t numIdenticalValuesFrom(std::size_t startingIndex, const ValueType& targetValue) const;
+   };
+   
+   }// end namespace ph
+   
+   #include "Utility/TSortedVector.ipp"

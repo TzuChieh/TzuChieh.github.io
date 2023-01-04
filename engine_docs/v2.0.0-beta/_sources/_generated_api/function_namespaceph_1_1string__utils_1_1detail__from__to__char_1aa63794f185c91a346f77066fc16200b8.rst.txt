@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1string__utils_1_1detail__from__to__char_1aa63794f185c91a346f77066fc16200b8:
+
+Function ph::string_utils::detail_from_to_char::throw_from_std_errc_if_has_error
+================================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::string_utils::detail_from_to_char::throw_from_std_errc_if_has_error(const std::errc)
+   :project: Photon

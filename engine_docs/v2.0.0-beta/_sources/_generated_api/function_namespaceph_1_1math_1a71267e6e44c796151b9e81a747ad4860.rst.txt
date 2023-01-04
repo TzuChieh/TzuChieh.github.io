@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1a71267e6e44c796151b9e81a747ad4860:
+
+Template Function ph::math::mean_solar_time_to_solar_time_24H
+=============================================================
+
+- Defined in :ref:`file_Source_Math_time.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::mean_solar_time_to_solar_time_24H(const T, const T, const T, const T)
+   :project: Photon

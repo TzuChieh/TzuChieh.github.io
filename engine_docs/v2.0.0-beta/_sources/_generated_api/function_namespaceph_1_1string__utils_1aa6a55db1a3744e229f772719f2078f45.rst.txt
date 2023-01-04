@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1string__utils_1aa6a55db1a3744e229f772719f2078f45:
+
+Function ph::string_utils::cut_tail
+===================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::string_utils::cut_tail(const std::string_view, const std::string_view)
+   :project: Photon

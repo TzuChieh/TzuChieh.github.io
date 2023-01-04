@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_gamma_correction:
+
+Class GammaCorrection
+=====================
+
+- Defined in :ref:`file_Source_Frame_Operator_GammaCorrection.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::FrameOperator`` (:ref:`exhale_class_classph_1_1_frame_operator`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::GammaCorrection
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

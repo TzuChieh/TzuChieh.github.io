@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1math_1_1_t_matrix2:
+
+Template Class TMatrix2
+=======================
+
+- Defined in :ref:`file_Source_Math_TMatrix2.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::math::TMatrix2
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

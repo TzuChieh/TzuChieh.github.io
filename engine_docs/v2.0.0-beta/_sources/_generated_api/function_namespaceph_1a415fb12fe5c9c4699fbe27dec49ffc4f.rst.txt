@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a415fb12fe5c9c4699fbe27dec49ffc4f:
+
+Function ph::PH_DEFINE_INTERNAL_LOG_GROUP(DielectricInterfaceInfo, BSDF)
+========================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_INTERNAL_LOG_GROUP(DielectricInterfaceInfo, BSDF)
+   :project: Photon

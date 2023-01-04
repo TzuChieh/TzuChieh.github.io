@@ -1,0 +1,123 @@
+
+.. _program_listing_file_Source_DataIO_SDL_Introspect_TSdlNestedField.h:
+
+Program Listing for File TSdlNestedField.h
+==========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_DataIO_SDL_Introspect_TSdlNestedField.h>` (``Source\DataIO\SDL\Introspect\TSdlNestedField.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "DataIO/SDL/Introspect/TOwnedSdlField.h"
+   #include "Common/primitive_type.h"
+   #include "Common/assertion.h"
+   #include "DataIO/SDL/Introspect/SdlInputContext.h"
+   
+   #include <type_traits>
+   #include <string>
+   #include <exception>
+   #include <vector>
+   
+   namespace ph
+   {
+   
+   template<typename OuterType, typename InnerType>
+   class TSdlNestedField : public TOwnedSdlField<OuterType>
+   {
+   public:
+       TSdlNestedField(
+           InnerType OuterType::*           innerObjPtr, 
+           const TOwnedSdlField<InnerType>* innerObjField);
+   
+       void setValueToDefault(OuterType& outerObj) const override;
+       std::string valueToString(const OuterType& outerObj) const override;
+       const ISdlResource* associatedResource(const OuterType& outerObj) const override;
+   
+   protected:
+       void loadFromSdl(
+           OuterType&             outerObj,
+           const SdlInputPayload& payload,
+           const SdlInputContext& ctx) const override;
+   
+       void saveToSdl(
+           const OuterType&        outerObj,
+           SdlOutputPayload&       out_payload,
+           const SdlOutputContext& ctx) const override;
+   
+   private:
+       InnerType OuterType::*           m_innerObjPtr;
+       const TOwnedSdlField<InnerType>* m_innerObjField;
+   };
+   
+   // In-header Implementations:
+   
+   template<typename OuterType, typename InnerType>
+   inline TSdlNestedField<OuterType, InnerType>::TSdlNestedField(
+       InnerType OuterType::* const           innerObjPtr,
+       const TOwnedSdlField<InnerType>* const innerObjField) :
+   
+       TOwnedSdlField<OuterType>(
+           innerObjField ? innerObjField->getTypeName()  : "unavailable",
+           innerObjField ? innerObjField->getFieldName() : "unavailable"),
+   
+       m_innerObjPtr  (innerObjPtr),
+       m_innerObjField(innerObjField)
+   {
+       PH_ASSERT(m_innerObjPtr);
+       PH_ASSERT(m_innerObjField);
+   
+       PH_ASSERT_MSG(static_cast<const SdlField*>(m_innerObjField) != this, 
+           "setting self as inner field is forbidden (will result in infinite recursive calls)");
+   
+       this->setDescription(m_innerObjField->getDescription());
+       this->setEnableFallback(m_innerObjField->isFallbackEnabled());
+       this->setImportance(m_innerObjField->getImportance());
+   }
+   
+   template<typename OuterType, typename InnerType>
+   inline void TSdlNestedField<OuterType, InnerType>::setValueToDefault(OuterType& outerObj) const
+   {
+       m_innerObjField->setValueToDefault(outerObj.*m_innerObjPtr);
+   }
+   
+   template<typename OuterType, typename InnerType>
+   inline std::string TSdlNestedField<OuterType, InnerType>::valueToString(const OuterType& outerObj) const
+   {
+       return m_innerObjField->valueToString(outerObj.*m_innerObjPtr);
+   }
+   
+   template<typename OuterType, typename InnerType>
+   inline const ISdlResource* TSdlNestedField<OuterType, InnerType>::associatedResource(const OuterType& outerObj) const
+   {
+       return m_innerObjField->associatedResource(outerObj.*m_innerObjPtr);
+   }
+   
+   template<typename OuterType, typename InnerType>
+   inline void TSdlNestedField<OuterType, InnerType>::loadFromSdl(
+       OuterType&             outerObj,
+       const SdlInputPayload& payload,
+       const SdlInputContext& ctx) const
+   {
+       m_innerObjField->loadFromSdl(
+           outerObj.*m_innerObjPtr,
+           payload,
+           ctx);
+   }
+   
+   template<typename OuterType, typename InnerType>
+   void TSdlNestedField<OuterType, InnerType>::saveToSdl(
+       const OuterType&        outerObj,
+       SdlOutputPayload&       out_payload,
+       const SdlOutputContext& ctx) const
+   {
+       m_innerObjField->saveToSdl(
+           outerObj.*m_innerObjPtr,
+           out_payload,
+           ctx);
+   }
+   
+   }// end namespace ph

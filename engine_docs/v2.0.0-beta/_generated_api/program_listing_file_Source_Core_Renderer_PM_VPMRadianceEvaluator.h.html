@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File VPMRadianceEvaluator.h &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File VPMRadianceEvaluator.h</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Core_Renderer_PM_VPMRadianceEvaluator.h.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-vpmradianceevaluator-h">
+<span id="program-listing-file-source-core-renderer-pm-vpmradianceevaluator-h"></span><h1>Program Listing for File VPMRadianceEvaluator.h<a class="headerlink" href="#program-listing-for-file-vpmradianceevaluator-h" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Core_Renderer_PM_VPMRadianceEvaluator.h.html#file-source-core-renderer-pm-vpmradianceevaluator-h"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Core\Renderer\PM\VPMRadianceEvaluator.h</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/primitive_type.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/assertion.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Renderer/PM/TViewPathHandler.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Renderer/PM/TPhotonMap.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Renderer/PM/FullPhoton.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Filmic/HdrRgbFilm.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Intersectable/Primitive.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Intersectable/PrimitiveMetadata.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/SurfaceBehavior/SurfaceBehavior.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/SurfaceBehavior/SurfaceOptics.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/SurfaceHit.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Emitter/Emitter.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Renderer/PM/PMRenderer.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/LTABuildingBlock/SurfaceTracer.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/LTABuildingBlock/lta.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/SurfaceBehavior/BsdfQueryContext.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/SurfaceBehavior/BsdfEvalQuery.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Scene</span><span class="p">;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SampleGenerator</span><span class="p">;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PMStatistics</span><span class="p">;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PMRenderer</span><span class="p">;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">VPMRadianceEvaluator</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">TViewPathHandler</span><span class="o">&lt;</span><span class="n">VPMRadianceEvaluator</span><span class="o">&gt;</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">VPMRadianceEvaluator</span><span class="p">(</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">TPhotonMap</span><span class="o">&lt;</span><span class="n">FullPhoton</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">photonMap</span><span class="p">,</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w">                   </span><span class="n">numPhotonPaths</span><span class="p">,</span>
+<span class="w">        </span><span class="n">HdrRgbFilm</span><span class="o">*</span><span class="w">                   </span><span class="n">film</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">Scene</span><span class="o">*</span><span class="w">                  </span><span class="n">scene</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">impl_onReceiverSampleStart</span><span class="p">(</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector2D</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rasterCoord</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Spectrum</span><span class="o">&amp;</span><span class="w"> </span><span class="n">pathThroughput</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">impl_onPathHitSurface</span><span class="p">(</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w">           </span><span class="n">pathLength</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">SurfaceHit</span><span class="o">&amp;</span><span class="w">     </span><span class="n">surfaceHit</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Spectrum</span><span class="o">&amp;</span><span class="w"> </span><span class="n">pathThroughput</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">ViewPathTracingPolicy</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">impl_onReceiverSampleEnd</span><span class="p">();</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">impl_onSampleBatchFinished</span><span class="p">();</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setPMStatistics</span><span class="p">(</span><span class="n">PMStatistics</span><span class="o">*</span><span class="w"> </span><span class="n">statistics</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setPMRenderer</span><span class="p">(</span><span class="n">PMRenderer</span><span class="o">*</span><span class="w"> </span><span class="n">renderer</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setKernelRadius</span><span class="p">(</span><span class="n">real</span><span class="w"> </span><span class="n">radius</span><span class="p">);</span>
+
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">TPhotonMap</span><span class="o">&lt;</span><span class="n">FullPhoton</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">m_photonMap</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w">                   </span><span class="n">m_numPhotonPaths</span><span class="p">;</span>
+<span class="w">    </span><span class="n">HdrRgbFilm</span><span class="o">*</span><span class="w">                   </span><span class="n">m_film</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Scene</span><span class="o">*</span><span class="w">                  </span><span class="n">m_scene</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">real</span><span class="w">                          </span><span class="n">m_kernelRadius</span><span class="p">;</span>
+<span class="w">    </span><span class="n">PMStatistics</span><span class="o">*</span><span class="w">                 </span><span class="n">m_statistics</span><span class="p">;</span>
+<span class="w">    </span><span class="n">PMRenderer</span><span class="o">*</span><span class="w">                   </span><span class="n">m_renderer</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">Vector2D</span><span class="w">                </span><span class="n">m_rasterCoord</span><span class="p">;</span>
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">Spectrum</span><span class="w">                </span><span class="n">m_sampledRadiance</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">FullPhoton</span><span class="o">&gt;</span><span class="w">       </span><span class="n">m_photonCache</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// In-header Implementations:</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">VPMRadianceEvaluator</span><span class="o">::</span><span class="n">VPMRadianceEvaluator</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">TPhotonMap</span><span class="o">&lt;</span><span class="n">FullPhoton</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">photonMap</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w">             </span><span class="n">numPhotonPaths</span><span class="p">,</span>
+<span class="w">    </span><span class="n">HdrRgbFilm</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w">             </span><span class="n">film</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Scene</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w">            </span><span class="n">scene</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
+
+<span class="w">    </span><span class="n">m_photonMap</span><span class="p">(</span><span class="n">photonMap</span><span class="p">),</span>
+<span class="w">    </span><span class="n">m_numPhotonPaths</span><span class="p">(</span><span class="n">numPhotonPaths</span><span class="p">),</span>
+<span class="w">    </span><span class="n">m_film</span><span class="p">(</span><span class="n">film</span><span class="p">),</span>
+<span class="w">    </span><span class="n">m_scene</span><span class="p">(</span><span class="n">scene</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">photonMap</span><span class="p">);</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">film</span><span class="p">);</span>
+<span class="w">    </span><span class="n">PH_ASSERT_GT</span><span class="p">(</span><span class="n">numPhotonPaths</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">setPMStatistics</span><span class="p">(</span><span class="k">nullptr</span><span class="p">);</span>
+<span class="w">    </span><span class="n">setPMRenderer</span><span class="p">(</span><span class="k">nullptr</span><span class="p">);</span>
+<span class="w">    </span><span class="n">setKernelRadius</span><span class="p">(</span><span class="mf">0.1</span><span class="n">_r</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">m_film</span><span class="o">-&gt;</span><span class="n">clear</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">VPMRadianceEvaluator</span><span class="o">::</span><span class="n">impl_onReceiverSampleStart</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector2D</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rasterCoord</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Spectrum</span><span class="o">&amp;</span><span class="w"> </span><span class="n">pathThroughput</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_rasterCoord</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rasterCoord</span><span class="p">;</span>
+<span class="w">    </span><span class="n">m_sampledRadiance</span><span class="p">.</span><span class="n">setColorValues</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">VPMRadianceEvaluator</span><span class="o">::</span><span class="n">impl_onPathHitSurface</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w">     </span><span class="n">pathLength</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">SurfaceHit</span><span class="o">&amp;</span><span class="w">     </span><span class="n">surfaceHit</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Spectrum</span><span class="o">&amp;</span><span class="w"> </span><span class="n">pathThroughput</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">ViewPathTracingPolicy</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// TODO: remove hardcoded max path length</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">MAX_PATH_LENGTH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">PH_ASSERT_GE</span><span class="p">(</span><span class="n">pathLength</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BsdfQueryContext</span><span class="w"> </span><span class="nf">bsdfContext</span><span class="p">(</span><span class="n">ALL_ELEMENTALS</span><span class="p">,</span><span class="w"> </span><span class="n">ETransport</span><span class="o">::</span><span class="n">IMPORTANCE</span><span class="p">,</span><span class="w"> </span><span class="n">ESidednessPolicy</span><span class="o">::</span><span class="n">STRICT</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">PrimitiveMetadata</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">metadata</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="n">surfaceHit</span><span class="p">.</span><span class="n">getDetail</span><span class="p">().</span><span class="n">getPrimitive</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">getMetadata</span><span class="p">();</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">SurfaceOptics</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w">     </span><span class="n">surfaceOptics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">metadata</span><span class="o">-&gt;</span><span class="n">getSurface</span><span class="p">().</span><span class="n">getOptics</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">metadata</span><span class="o">-&gt;</span><span class="n">getSurface</span><span class="p">().</span><span class="n">getEmitter</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">math</span><span class="o">::</span><span class="n">Spectrum</span><span class="w"> </span><span class="n">viewPathRadiance</span><span class="p">;</span>
+<span class="w">        </span><span class="n">metadata</span><span class="o">-&gt;</span><span class="n">getSurface</span><span class="p">().</span><span class="n">getEmitter</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">evalEmittedRadiance</span><span class="p">(</span><span class="n">surfaceHit</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">viewPathRadiance</span><span class="p">);</span>
+<span class="w">        </span><span class="n">m_sampledRadiance</span><span class="p">.</span><span class="n">addLocal</span><span class="p">(</span><span class="n">pathThroughput</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">viewPathRadiance</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// FIXME: properly handle delta optics (mixed case)</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">pathLength</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">MAX_PATH_LENGTH</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">surfaceOptics</span><span class="o">-&gt;</span><span class="n">getAllPhenomena</span><span class="p">().</span><span class="n">hasAny</span><span class="p">({</span>
+<span class="w">        </span><span class="n">ESurfacePhenomenon</span><span class="o">::</span><span class="n">DELTA_REFLECTION</span><span class="p">,</span>
+<span class="w">        </span><span class="n">ESurfacePhenomenon</span><span class="o">::</span><span class="n">DELTA_TRANSMISSION</span><span class="p">}))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ViewPathTracingPolicy</span><span class="p">().</span>
+<span class="w">            </span><span class="n">traceBranchedPathFor</span><span class="p">(</span><span class="n">SurfacePhenomena</span><span class="p">({</span>
+<span class="w">                </span><span class="n">ESurfacePhenomenon</span><span class="o">::</span><span class="n">DELTA_REFLECTION</span><span class="p">,</span>
+<span class="w">                </span><span class="n">ESurfacePhenomenon</span><span class="o">::</span><span class="n">DELTA_TRANSMISSION</span><span class="p">})).</span>
+<span class="w">            </span><span class="n">useRussianRoulette</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">PH_ASSERT_LE</span><span class="p">(</span><span class="n">pathLength</span><span class="p">,</span><span class="w"> </span><span class="n">MAX_PATH_LENGTH</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">m_photonCache</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">    </span><span class="n">m_photonMap</span><span class="o">-&gt;</span><span class="n">findWithinRange</span><span class="p">(</span><span class="n">surfaceHit</span><span class="p">.</span><span class="n">getPosition</span><span class="p">(),</span><span class="w"> </span><span class="n">m_kernelRadius</span><span class="p">,</span><span class="w"> </span><span class="n">m_photonCache</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">SurfaceTracer</span><span class="w"> </span><span class="nf">surfaceTracer</span><span class="p">(</span><span class="n">m_scene</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="n">L</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">surfaceHit</span><span class="p">.</span><span class="n">getIncidentRay</span><span class="p">().</span><span class="n">getDirection</span><span class="p">().</span><span class="n">mul</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="n">Ns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">surfaceHit</span><span class="p">.</span><span class="n">getShadingNormal</span><span class="p">();</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="n">Ng</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">surfaceHit</span><span class="p">.</span><span class="n">getGeometryNormal</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">BsdfEvalQuery</span><span class="w">  </span><span class="nf">bsdfEval</span><span class="p">(</span><span class="n">bsdfContext</span><span class="p">);</span>
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">Spectrum</span><span class="w"> </span><span class="nf">radiance</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">photon</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">m_photonCache</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">photon</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">EPhotonData</span><span class="o">::</span><span class="n">FROM_DIR</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">bsdfEval</span><span class="p">.</span><span class="n">inputs</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">surfaceHit</span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">surfaceTracer</span><span class="p">.</span><span class="n">doBsdfEvaluation</span><span class="p">(</span><span class="n">bsdfEval</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">math</span><span class="o">::</span><span class="n">Spectrum</span><span class="w"> </span><span class="n">throughput</span><span class="p">(</span><span class="n">pathThroughput</span><span class="p">);</span>
+<span class="w">        </span><span class="n">throughput</span><span class="p">.</span><span class="n">mulLocal</span><span class="p">(</span><span class="n">bsdfEval</span><span class="p">.</span><span class="n">outputs</span><span class="p">.</span><span class="n">bsdf</span><span class="p">);</span>
+<span class="w">        </span><span class="n">throughput</span><span class="p">.</span><span class="n">mulLocal</span><span class="p">(</span><span class="n">lta</span><span class="o">::</span><span class="n">importance_BSDF_Ns_corrector</span><span class="p">(</span><span class="n">Ns</span><span class="p">,</span><span class="w"> </span><span class="n">Ng</span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="p">));</span>
+
+<span class="w">        </span><span class="n">radiance</span><span class="p">.</span><span class="n">addLocal</span><span class="p">(</span><span class="n">throughput</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">photon</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">EPhotonData</span><span class="o">::</span><span class="n">THROUGHPUT_RADIANCE</span><span class="o">&gt;</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// OPT: cache</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">kernelArea</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_kernelRadius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m_kernelRadius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">constant</span><span class="o">::</span><span class="n">pi</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">radianceMultiplier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="n">_r</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">kernelArea</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_numPhotonPaths</span><span class="p">));</span>
+
+<span class="w">    </span><span class="n">radiance</span><span class="p">.</span><span class="n">mulLocal</span><span class="p">(</span><span class="n">radianceMultiplier</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">m_sampledRadiance</span><span class="p">.</span><span class="n">addLocal</span><span class="p">(</span><span class="n">radiance</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ViewPathTracingPolicy</span><span class="p">().</span><span class="n">kill</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">VPMRadianceEvaluator</span><span class="o">::</span><span class="n">impl_onReceiverSampleEnd</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_film</span><span class="o">-&gt;</span><span class="n">addSample</span><span class="p">(</span><span class="n">m_rasterCoord</span><span class="p">.</span><span class="n">x</span><span class="p">(),</span><span class="w"> </span><span class="n">m_rasterCoord</span><span class="p">.</span><span class="n">y</span><span class="p">(),</span><span class="w"> </span><span class="n">m_sampledRadiance</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">VPMRadianceEvaluator</span><span class="o">::</span><span class="n">impl_onSampleBatchFinished</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">m_statistics</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">m_statistics</span><span class="o">-&gt;</span><span class="n">asyncIncrementNumIterations</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">m_renderer</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">m_renderer</span><span class="o">-&gt;</span><span class="n">asyncMergeFilm</span><span class="p">(</span><span class="o">*</span><span class="n">m_film</span><span class="p">);</span>
+<span class="w">        </span><span class="n">m_film</span><span class="o">-&gt;</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">VPMRadianceEvaluator</span><span class="o">::</span><span class="n">setPMStatistics</span><span class="p">(</span><span class="n">PMStatistics</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">statistics</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_statistics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">statistics</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">VPMRadianceEvaluator</span><span class="o">::</span><span class="n">setPMRenderer</span><span class="p">(</span><span class="n">PMRenderer</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">renderer</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_renderer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">renderer</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">VPMRadianceEvaluator</span><span class="o">::</span><span class="n">setKernelRadius</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">radius</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT_GT</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="n">_r</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">m_kernelRadius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+
+.. _file_Source_Core_SurfaceBehavior_Property_SchlickApproxDielectricFresnel.h:
+
+File SchlickApproxDielectricFresnel.h
+=====================================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SurfaceBehavior\Property\SchlickApproxDielectricFresnel.h``)
+--------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SurfaceBehavior_Property_SchlickApproxDielectricFresnel.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/SurfaceBehavior/Property/DielectricFresnel.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_Material_Utility_DielectricInterfaceInfo.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_Property_SchlickApproxDielectricFresnel.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_schlick_approx_dielectric_fresnel`
+

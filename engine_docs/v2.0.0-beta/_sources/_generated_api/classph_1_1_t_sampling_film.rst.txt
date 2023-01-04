@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_t_sampling_film:
+
+Template Class TSamplingFilm
+============================
+
+- Defined in :ref:`file_Source_Core_Filmic_TSamplingFilm.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::Film`` (:ref:`exhale_class_classph_1_1_film`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TSamplingFilm
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a5b12f0fe4f68c0c012f1bace3a2970fd:
+
+Function ph::PH_DEFINE_INTERNAL_LOG_GROUP(RasterFileImage, Image)
+=================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_INTERNAL_LOG_GROUP(RasterFileImage, Image)
+   :project: Photon

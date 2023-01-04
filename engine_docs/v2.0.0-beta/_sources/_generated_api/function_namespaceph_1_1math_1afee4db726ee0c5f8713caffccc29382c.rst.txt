@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1afee4db726ee0c5f8713caffccc29382c:
+
+Template Function ph::math::CIEXYZ_of_custom_reference_white
+============================================================
+
+- Defined in :ref:`file_Source_Math_Color_color_basics.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::CIEXYZ_of_custom_reference_white(const TChromaticityValues<T>&)
+   :project: Photon

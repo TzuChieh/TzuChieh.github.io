@@ -1,0 +1,14 @@
+.. _exhale_variable_namespaceph_1ac633bf003c2bb8093a8564394ba23323:
+
+Variable ph::CIsSdlResource
+===========================
+
+- Defined in :ref:`file_Source_DataIO_SDL_sdl_traits.h`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: ph::CIsSdlResource
+   :project: Photon

@@ -1,0 +1,14 @@
+.. _exhale_define_config_8h_1a9ec9851e419e4354213f9654b6ecb169:
+
+Define PH_ENSURE_LOCKFREE_ALGORITHMS_ARE_LOCKLESS
+=================================================
+
+- Defined in :ref:`file_Source_Common_config.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: PH_ENSURE_LOCKFREE_ALGORITHMS_ARE_LOCKLESS
+   :project: Photon

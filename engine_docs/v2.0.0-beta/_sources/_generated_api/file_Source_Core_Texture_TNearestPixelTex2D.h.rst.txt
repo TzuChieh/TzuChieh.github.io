@@ -1,0 +1,59 @@
+
+.. _file_Source_Core_Texture_TNearestPixelTex2D.h:
+
+File TNearestPixelTex2D.h
+=========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Texture\TNearestPixelTex2D.h``)
+---------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Texture_TNearestPixelTex2D.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/Texture/SampleLocation.h``
+
+- ``Core/Texture/TPixelTex2D.h``
+
+- ``Math/math.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Texture_HdrRgbTexture2D.cpp`
+
+- :ref:`file_Source_Core_Texture_LdrRgbTexture2D.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_t_nearest_pixel_tex2_d`
+

@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_sample_stage:
+
+Class SampleStage
+=================
+
+- Defined in :ref:`file_Source_Core_SampleGenerator_SampleStage.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::SampleStage
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

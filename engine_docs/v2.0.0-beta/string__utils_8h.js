@@ -1,0 +1,36 @@
+var string__utils_8h =
+[
+    [ "PH_DEFINE_INLINE_TO_STRING_FORMATTER", "string__utils_8h.html#ae7822b2949903c0584c3ffba04b6e012", null ],
+    [ "PH_DEFINE_INLINE_TO_STRING_FORMATTER_SPECIALIZATION", "string__utils_8h.html#ab9038fe5a342f50895ef2bb732a76d46", null ],
+    [ "PH_DEFINE_INLINE_TO_STRING_FORMATTER_TEMPLATE", "string__utils_8h.html#ab15f9c6f07425eba03326f15f563c2bb", null ],
+    [ "EWhitespace", "string__utils_8h.html#abecf2f015d2c6a55dc646154fd3202e2", [
+      [ "COMMON", "string__utils_8h.html#abecf2f015d2c6a55dc646154fd3202e2adda4b7de10e14445366494f0a76e1435", null ],
+      [ "STANDARD", "string__utils_8h.html#abecf2f015d2c6a55dc646154fd3202e2a94e94133f4bdc1794c6b647b8ea134d0", null ]
+    ] ],
+    [ "az_to_AZ", "string__utils_8h.html#a68c9e51fd1033062e9faf966b9c53652", null ],
+    [ "AZ_to_az", "string__utils_8h.html#ac6bef9dbb52e0554447768013e06a933", null ],
+    [ "az_to_AZ", "string__utils_8h.html#a88ea6e2ebeb15650fed419c61634d69b", null ],
+    [ "AZ_to_az", "string__utils_8h.html#a5b3b7991c85e318065ef8589c4512a1c", null ],
+    [ "cut_ends", "string__utils_8h.html#acf3002d33a3e83703b6339c3f7498a84", null ],
+    [ "cut_head", "string__utils_8h.html#a9c2bcc67e48025ac25d858e2ab1dad9f", null ],
+    [ "cut_tail", "string__utils_8h.html#aa6a55db1a3744e229f772719f2078f45", null ],
+    [ "erase_all", "string__utils_8h.html#a98ecfa004222072b45147e8b6f3d55e8", null ],
+    [ "get_whitespaces", "string__utils_8h.html#ae22dfe44e4852e78f73df16355dfa253", null ],
+    [ "has_any_of", "string__utils_8h.html#a808bfe8034fa165f38105dc73a747b4c", null ],
+    [ "has_none_of", "string__utils_8h.html#ae7ebfa1cd54dc5a5419a4f76ea246b05", null ],
+    [ "is_whitespace", "string__utils_8h.html#aa8acc1dcdc0da08cb51a586b8f820859", null ],
+    [ "next_token", "string__utils_8h.html#adbc502a394e80e9aa8e38b7a790b52d1", null ],
+    [ "parse_float", "string__utils_8h.html#a95a59e119ab0ce9d85537cdf0918469e", null ],
+    [ "parse_int", "string__utils_8h.html#a614715b67772cc9cb45bd2173438fdd4", null ],
+    [ "parse_number", "string__utils_8h.html#aeb13d5b269ac1d2886fc568beaa61e07", null ],
+    [ "repeat", "string__utils_8h.html#ab03ec1c0ccc47aca32e7a01bff22bfb4", null ],
+    [ "stringify_float", "string__utils_8h.html#aeb3634aa5cb1ad866016d68ba8d2eac4", null ],
+    [ "stringify_int", "string__utils_8h.html#af84618adbed2b5966c311378ddfb188f", null ],
+    [ "stringify_number", "string__utils_8h.html#af639d1cc36d16379bf12ef68d74d2d76", null ],
+    [ "stringify_number", "string__utils_8h.html#a5b8830d56121e56d4717ab31f8374b92", null ],
+    [ "throw_from_std_errc_if_has_error", "string__utils_8h.html#aa63794f185c91a346f77066fc16200b8", null ],
+    [ "trim", "string__utils_8h.html#a83615f1191b1894d0835561f1b00114a", null ],
+    [ "trim_head", "string__utils_8h.html#a478905d7b7b8b2280da4f5826fcb9b8e", null ],
+    [ "trim_tail", "string__utils_8h.html#a5b56d343bb1503290badafa76ca49963", null ],
+    [ "CHasToString", "string__utils_8h.html#a4f626b07bb359a2c60c46c0358ee5ad4", null ]
+];

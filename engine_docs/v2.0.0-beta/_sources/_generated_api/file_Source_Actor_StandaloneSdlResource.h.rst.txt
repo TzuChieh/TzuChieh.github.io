@@ -1,0 +1,27 @@
+
+.. _file_Source_Actor_StandaloneSdlResource.h:
+
+File StandaloneSdlResource.h
+============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\StandaloneSdlResource.h``)
+-----------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_StandaloneSdlResource.h.rst
+
+
+
+
+
+
+
+
+

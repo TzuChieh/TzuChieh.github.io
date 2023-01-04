@@ -1,0 +1,28 @@
+
+.. _program_listing_file_Source_Core_Filmic_filmic_fwd.h:
+
+Program Listing for File filmic_fwd.h
+=====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Core_Filmic_filmic_fwd.h>` (``Source\Core\Filmic\filmic_fwd.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   namespace ph
+   {
+   
+   class Film;
+   
+   template<typename Sample>
+   class TSamplingFilm;
+   
+   template<typename Sample>
+   class TMergeableFilmProxy;
+   
+   class HdrRgbFilm;
+   
+   }// end namespace ph

@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_t_photon_mapping_work:
+
+Template Class TPhotonMappingWork
+=================================
+
+- Defined in :ref:`file_Source_Core_Renderer_PM_TPhotonMappingWork.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::RenderWork`` (:ref:`exhale_class_classph_1_1_render_work`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TPhotonMappingWork
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

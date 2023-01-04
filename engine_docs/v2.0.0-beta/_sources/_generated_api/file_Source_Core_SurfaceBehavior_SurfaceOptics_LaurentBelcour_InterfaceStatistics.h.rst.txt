@@ -1,0 +1,67 @@
+
+.. _file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_InterfaceStatistics.h:
+
+File InterfaceStatistics.h
+==========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SurfaceBehavior\SurfaceOptics\LaurentBelcour\InterfaceStatistics.h``)
+-----------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_InterfaceStatistics.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Common/primitive_type.h``
+
+- ``Core/SurfaceBehavior/SurfaceOptics/LaurentBelcour/LbLayer.h``
+
+- ``Core/SurfaceBehavior/SurfaceOptics/LaurentBelcour/TableFGD.h``
+
+- ``Core/SurfaceBehavior/SurfaceOptics/LaurentBelcour/TableTIR.h``
+
+- ``DataIO/FileSystem/CoreResource.h``
+
+- ``Math/Color/Spectrum.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_InterfaceStatistics.cpp`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics_LaurentBelcour_LbLayeredSurface.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_interface_statistics`
+

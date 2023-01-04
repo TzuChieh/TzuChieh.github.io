@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1ab63d72cba2e48d7df4a68307120a98b0:
+
+Typedef ph::TSdlInt8
+====================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::TSdlInt8
+   :project: Photon

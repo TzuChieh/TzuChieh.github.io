@@ -1,0 +1,73 @@
+
+.. _program_listing_file_Source_Math_Geometry_TSphere.h:
+
+Program Listing for File TSphere.h
+==================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Math_Geometry_TSphere.h>` (``Source\Math\Geometry\TSphere.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Math/Geometry/TLineSegment.h"
+   #include "Math/math.h"
+   
+   #include <array>
+   #include <utility>
+   
+   namespace ph::math
+   {
+   
+   template<typename T>
+   class TSphere final
+   {
+   public:
+       static TSphere makeUnit();
+   
+       TSphere() = default;
+       explicit TSphere(T radius);
+   
+       bool isIntersecting(
+           const TLineSegment<T>& segment,
+           real*                  out_hitT) const;
+   
+       T getArea() const;
+   
+       TVector3<T> sampleToSurfaceArchimedes(const std::array<T, 2>& sample) const;
+   
+       TVector3<T> sampleToSurfaceArchimedes(const std::array<T, 2>& sample, T* out_pdfA) const;
+   
+       T uniformSurfaceSamplePdfA() const;
+   
+       TVector2<T> surfaceToLatLong01(const TVector3<T>& surface) const;
+       TVector2<T> latLong01ToPhiTheta(const TVector2<T>& latLong01) const;
+       TVector3<T> latLong01ToSurface(const TVector2<T>& latLong01) const;
+   
+       TVector2<T> surfaceToPhiTheta(const TVector3<T>& surface) const;
+   
+       TVector3<T> phiThetaToSurface(const TVector2<T>& phiTheta) const;
+   
+       template<typename SurfaceToUv>
+       std::pair<TVector3<T>, TVector3<T>> surfaceDerivativesWrtUv(
+           const TVector3<T>& surface, 
+           SurfaceToUv        surfaceToUv, 
+           T                  hInRadians = to_radians<T>(1)) const;
+   
+   private:
+       bool isIntersectingNaive(
+           const TLineSegment<T>& segment,
+           real* out_hitT) const;
+   
+       bool isIntersectingHearnBaker(
+           const TLineSegment<T>& segment,
+           real* out_hitT) const;
+   
+       T m_radius;
+   };
+   
+   }// end namespace ph::math
+   
+   #include "Math/Geometry/TSphere.ipp"

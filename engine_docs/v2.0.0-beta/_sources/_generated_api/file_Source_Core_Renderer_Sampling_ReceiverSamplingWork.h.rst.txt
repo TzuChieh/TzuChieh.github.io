@@ -1,0 +1,77 @@
+
+.. _file_Source_Core_Renderer_Sampling_ReceiverSamplingWork.h:
+
+File ReceiverSamplingWork.h
+===========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Renderer\Sampling\ReceiverSamplingWork.h``)
+---------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Renderer_Sampling_ReceiverSamplingWork.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/Filmic/SamplingFilmDimensions.h``
+
+- ``Core/Renderer/RenderWork.h``
+
+- ``Core/Renderer/Sampling/IReceivedRayProcessor.h``
+
+- ``Core/Renderer/Sampling/SamplingStatistics.h``
+
+- ``Core/SampleGenerator/SampleGenerator.h``
+
+- ``Math/Geometry/TAABB2D.h``
+
+- ``Math/TVector2.h``
+
+- ``Utility/IMoveOnly.h``
+
+- ``atomic``
+
+- ``functional``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Renderer_Attribute_AttributeRenderer.h`
+
+- :ref:`file_Source_Core_Renderer_Sampling_AdaptiveSamplingRenderer.h`
+
+- :ref:`file_Source_Core_Renderer_Sampling_EqualSamplingRenderer.h`
+
+- :ref:`file_Source_Core_Renderer_Sampling_ReceiverSamplingWork.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_receiver_sampling_work`
+

@@ -1,0 +1,71 @@
+
+.. _file_Source_Core_SurfaceBehavior_BsdfQueryContext.h:
+
+File BsdfQueryContext.h
+=======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SurfaceBehavior\BsdfQueryContext.h``)
+---------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SurfaceBehavior_BsdfQueryContext.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/LTABuildingBlock/SidednessAgreement.h``
+
+- ``Core/SurfaceBehavior/surface_optics_fwd.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Estimator_BNEEPTEstimator.cpp`
+
+- :ref:`file_Source_Core_Estimator_BVPTEstimator.cpp`
+
+- :ref:`file_Source_Core_Renderer_PM_PPMRadianceEvaluationWork.cpp`
+
+- :ref:`file_Source_Core_Renderer_PM_TViewPathTracingWork.ipp`
+
+- :ref:`file_Source_Core_Renderer_PM_VPMRadianceEvaluator.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_BsdfEvalQuery.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_BsdfPdfQuery.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_BsdfSampleQuery.h`
+
+- :ref:`file_Source_Core_SurfaceBehavior_SurfaceOptics.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_bsdf_query_context`
+

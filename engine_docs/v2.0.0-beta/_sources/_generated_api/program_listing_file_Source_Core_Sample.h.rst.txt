@@ -1,0 +1,27 @@
+
+.. _program_listing_file_Source_Core_Sample.h:
+
+Program Listing for File Sample.h
+=================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Core_Sample.h>` (``Source\Core\Sample.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Common/primitive_type.h"
+   
+   namespace ph
+   {
+   
+   class Sample
+   {
+   public:
+       real m_cameraX;
+       real m_cameraY;
+   };
+   
+   }// end namespace ph

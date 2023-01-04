@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1a2b0482067dc614d1eeafbf75b8b10996:
+
+Template Function ph::math::estimate_color_energy
+=================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::estimate_color_energy(const auto&)
+   :project: Photon

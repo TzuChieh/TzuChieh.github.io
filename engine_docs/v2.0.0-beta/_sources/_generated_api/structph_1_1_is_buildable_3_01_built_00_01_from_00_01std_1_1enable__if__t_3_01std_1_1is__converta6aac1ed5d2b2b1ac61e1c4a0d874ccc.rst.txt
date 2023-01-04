@@ -1,0 +1,26 @@
+.. _exhale_struct_structph_1_1_is_buildable_3_01_built_00_01_from_00_01std_1_1enable__if__t_3_01std_1_1is__converta6aac1ed5d2b2b1ac61e1c4a0d874ccc:
+
+Template Struct IsBuildable< Built, From, std::enable_if_t< std::is_convertible_v< From, Built >, ||std::is_constructible_v< Built, From > > >
+==============================================================================================================================================
+
+- Defined in :ref:`file_Source_Utility_traits.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public std::true_type``
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: ph::IsBuildable< Built, From, std::enable_if_t< std::is_convertible_v< From, Built >||std::is_constructible_v< Built, From > >>
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

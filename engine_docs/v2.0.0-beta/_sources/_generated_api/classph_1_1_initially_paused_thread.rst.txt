@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_initially_paused_thread:
+
+Class InitiallyPausedThread
+===========================
+
+- Defined in :ref:`file_Source_Utility_Concurrent_InitiallyPausedThread.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``private ph::IMoveOnly`` (:ref:`exhale_class_classph_1_1_i_move_only`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::InitiallyPausedThread
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

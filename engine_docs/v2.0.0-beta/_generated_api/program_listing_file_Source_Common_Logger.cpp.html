@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File Logger.cpp &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File Logger.cpp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Common_Logger.cpp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-logger-cpp">
+<span id="program-listing-file-source-common-logger-cpp"></span><h1>Program Listing for File Logger.cpp<a class="headerlink" href="#program-listing-for-file-logger-cpp" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Common_Logger.cpp.html#file-source-common-logger-cpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Common\Logger.cpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/Logger.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Utility/Timestamp.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/config.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/os.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;utility&gt;</span>
+
+<span class="cp">#ifdef PH_OPERATING_SYSTEM_IS_WINDOWS</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Windows.h&gt;</span>
+
+<span class="cp">#endif</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="n">Logger</span><span class="o">::</span><span class="n">Logger</span><span class="p">()</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">m_logHandlers</span><span class="p">()</span>
+<span class="p">{}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">Logger</span><span class="o">::</span><span class="n">log</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">log</span><span class="p">(</span><span class="n">ELogLevel</span><span class="o">::</span><span class="n">Note</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">Logger</span><span class="o">::</span><span class="n">log</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">ELogLevel</span><span class="w"> </span><span class="n">logLevel</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">logLevel</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">Logger</span><span class="o">::</span><span class="n">log</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">ELogLevel</span><span class="w">        </span><span class="n">logLevel</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">logString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">makeLogString</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">logLevel</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">LogHandler</span><span class="o">&amp;</span><span class="w"> </span><span class="n">logHandler</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">m_logHandlers</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">logHandler</span><span class="p">(</span><span class="n">logLevel</span><span class="p">,</span><span class="w"> </span><span class="n">logString</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">Logger</span><span class="o">::</span><span class="n">addLogHandler</span><span class="p">(</span><span class="n">LogHandler</span><span class="w"> </span><span class="n">logHandler</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_logHandlers</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">logHandler</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">Logger</span><span class="o">::</span><span class="n">makeLogString</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">ELogLevel</span><span class="w">        </span><span class="n">logLevel</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">message</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Timestamp</span><span class="w"> </span><span class="n">timestamp</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">logMessage</span><span class="p">;</span>
+<span class="w">    </span><span class="n">logMessage</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="mi">256</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">logMessage</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;[&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">logMessage</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">timestamp</span><span class="p">.</span><span class="n">toYMDHMSMilliseconds</span><span class="p">();</span>
+<span class="w">    </span><span class="n">logMessage</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;] &quot;</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">name</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">logMessage</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;[&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="n">logMessage</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">        </span><span class="n">logMessage</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;] &quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">logLevel</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">ELogLevel</span><span class="o">::</span><span class="n">Note</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">switch</span><span class="p">(</span><span class="n">logLevel</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ELogLevel</span><span class="o">::</span><span class="no">Debug</span><span class="p">:</span><span class="w">   </span><span class="n">logMessage</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;[DEBUG] &quot;</span><span class="p">;</span><span class="w">   </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ELogLevel</span><span class="o">::</span><span class="no">Warning</span><span class="p">:</span><span class="w"> </span><span class="n">logMessage</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;[WARNING] &quot;</span><span class="p">;</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ELogLevel</span><span class="o">::</span><span class="no">Error</span><span class="p">:</span><span class="w">   </span><span class="n">logMessage</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;[ERROR] &quot;</span><span class="p">;</span><span class="w">   </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">default</span><span class="o">:</span><span class="w"> </span><span class="n">logMessage</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;[UNKNOWN] &quot;</span><span class="p">;</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">logMessage</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">message</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">logMessage</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">Logger</span><span class="o">::</span><span class="n">shouldStdOutPrintWithoutBuffering</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">ELogLevel</span><span class="w"> </span><span class="n">logLevel</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">logLevel</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ELogLevel</span><span class="o">::</span><span class="n">Error</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">logLevel</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ELogLevel</span><span class="o">::</span><span class="n">Debug</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">auto</span><span class="w"> </span><span class="n">Logger</span><span class="o">::</span><span class="n">makeStdOutLogPrinter</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">LogHandler</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">[](</span><span class="k">const</span><span class="w"> </span><span class="n">ELogLevel</span><span class="w"> </span><span class="n">logLevel</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">logString</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">shouldStdOutPrintWithoutBuffering</span><span class="p">(</span><span class="n">logLevel</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Note that printing to cerr will flush cout first, automatically</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">logString</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">logString</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="p">}</span>
+
+<span class="k">auto</span><span class="w"> </span><span class="n">Logger</span><span class="o">::</span><span class="n">makeColoredStdOutLogPrinter</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">LogHandler</span>
+<span class="p">{</span>
+<span class="cp">#ifdef PH_OPERATING_SYSTEM_IS_WINDOWS</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="n">stdOutLogPrinter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">makeStdOutLogPrinter</span><span class="p">()](</span><span class="k">const</span><span class="w"> </span><span class="n">ELogLevel</span><span class="w"> </span><span class="n">logLevel</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">logString</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/*</span>
+<span class="cm">            For a color 0xXY, X = background color, Y = foreground color,</span>
+<span class="cm">            available colors are:</span>
+
+<span class="cm">            0 = Black</span>
+<span class="cm">            8 = Gray</span>
+<span class="cm">            1 = Blue</span>
+<span class="cm">            9 = Light Blue</span>
+<span class="cm">            2 = Green</span>
+<span class="cm">            A = Light Green</span>
+<span class="cm">            3 = Aqua</span>
+<span class="cm">            B = Light Aqua</span>
+<span class="cm">            4 = Red</span>
+<span class="cm">            C = Light Red</span>
+<span class="cm">            5 = Purple</span>
+<span class="cm">            D = Light Purple</span>
+<span class="cm">            6 = Yellow</span>
+<span class="cm">            E = Light Yellow</span>
+<span class="cm">            7 = White</span>
+<span class="cm">            F = Bright White</span>
+<span class="cm">        */</span>
+
+<span class="w">        </span><span class="k">constexpr</span><span class="w"> </span><span class="n">WORD</span><span class="w"> </span><span class="n">WARNING_COLOR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x0E</span><span class="p">;</span><span class="c1">// light yellow</span>
+<span class="w">        </span><span class="k">constexpr</span><span class="w"> </span><span class="n">WORD</span><span class="w"> </span><span class="n">ERROR_COLOR</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mh">0x0C</span><span class="p">;</span><span class="c1">// light red</span>
+<span class="w">        </span><span class="k">constexpr</span><span class="w"> </span><span class="n">WORD</span><span class="w"> </span><span class="n">DEBUG_COLOR</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mh">0x09</span><span class="p">;</span><span class="c1">// light blue</span>
+
+<span class="w">        </span><span class="n">HANDLE</span><span class="w"> </span><span class="n">stdOutHandle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shouldStdOutPrintWithoutBuffering</span><span class="p">(</span><span class="n">logLevel</span><span class="p">)</span><span class="w"> </span><span class="o">?</span>
+<span class="w">            </span><span class="n">GetStdHandle</span><span class="p">(</span><span class="n">STD_ERROR_HANDLE</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">GetStdHandle</span><span class="p">(</span><span class="n">STD_OUTPUT_HANDLE</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Record console settings before modifying them so we can restore them later</span>
+<span class="w">        </span><span class="n">CONSOLE_SCREEN_BUFFER_INFO</span><span class="w"> </span><span class="n">consoleScreenBufInfo</span><span class="p">;</span>
+<span class="w">        </span><span class="n">GetConsoleScreenBufferInfo</span><span class="p">(</span><span class="n">stdOutHandle</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">consoleScreenBufInfo</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// We need to flush first so any buffered content will not get wrong color</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">flush</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1">// Set color &amp; print in console</span>
+<span class="w">        </span><span class="k">switch</span><span class="p">(</span><span class="n">logLevel</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ELogLevel</span><span class="o">::</span><span class="no">Warning</span><span class="p">:</span>
+<span class="w">            </span><span class="n">SetConsoleTextAttribute</span><span class="p">(</span><span class="n">stdOutHandle</span><span class="p">,</span><span class="w"> </span><span class="n">WARNING_COLOR</span><span class="p">);</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ELogLevel</span><span class="o">::</span><span class="no">Error</span><span class="p">:</span>
+<span class="w">            </span><span class="n">SetConsoleTextAttribute</span><span class="p">(</span><span class="n">stdOutHandle</span><span class="p">,</span><span class="w"> </span><span class="n">ERROR_COLOR</span><span class="p">);</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ELogLevel</span><span class="o">::</span><span class="no">Debug</span><span class="p">:</span>
+<span class="w">            </span><span class="n">SetConsoleTextAttribute</span><span class="p">(</span><span class="n">stdOutHandle</span><span class="p">,</span><span class="w"> </span><span class="n">DEBUG_COLOR</span><span class="p">);</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// Print by wrapped standard output stream printer</span>
+<span class="w">        </span><span class="n">stdOutLogPrinter</span><span class="p">(</span><span class="n">logLevel</span><span class="p">,</span><span class="w"> </span><span class="n">logString</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// We need to flush buffered output so they can use current color</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">shouldStdOutPrintWithoutBuffering</span><span class="p">(</span><span class="n">logLevel</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">flush</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// Restore console settings</span>
+<span class="w">        </span><span class="n">SetConsoleTextAttribute</span><span class="p">(</span><span class="n">stdOutHandle</span><span class="p">,</span><span class="w"> </span><span class="n">consoleScreenBufInfo</span><span class="p">.</span><span class="n">wAttributes</span><span class="p">);</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="cp">#else</span>
+<span class="w">    </span><span class="c1">// TODO: impl ANSI-based coloring; currently it is un-colored</span>
+<span class="w">    </span><span class="c1">// https://stackoverflow.com/questions/4053837/colorizing-text-in-the-console-with-c</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">makeStdOutLogPrinter</span><span class="p">();</span>
+<span class="cp">#endif</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

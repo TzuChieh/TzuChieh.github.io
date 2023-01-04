@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1sdl_1a23a65cdd095c97812573d3754f32a37d:
+
+Function ph::sdl::category_to_string
+====================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::sdl::category_to_string(const ETypeCategory)
+   :project: Photon

@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1string__utils_1a614715b67772cc9cb45bd2173438fdd4:
+
+Template Function ph::string_utils::parse_int
+=============================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::string_utils::parse_int(const std::string_view)
+   :project: Photon

@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1_1detail_1abf6809a5cff083800be2169f62137151:
+
+Template Function ph::math::detail::octahedron_diamond_mirror
+=============================================================
+
+- Defined in :ref:`file_Source_Math_Geometry_geometry.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::detail::octahedron_diamond_mirror(const TVector2<T>&)
+   :project: Photon

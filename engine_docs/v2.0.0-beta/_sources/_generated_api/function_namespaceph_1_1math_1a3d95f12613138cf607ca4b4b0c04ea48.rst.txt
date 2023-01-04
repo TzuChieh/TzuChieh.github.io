@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1a3d95f12613138cf607ca4b4b0c04ea48:
+
+Template Function ph::math::squared
+===================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::squared(const T)
+   :project: Photon

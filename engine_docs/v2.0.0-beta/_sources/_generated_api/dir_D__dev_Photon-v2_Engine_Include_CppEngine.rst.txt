@@ -1,0 +1,16 @@
+.. _dir_D__dev_Photon-v2_Engine_Include_CppEngine:
+
+
+Directory CppEngine
+===================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_Include>` (``Include``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``D:\dev\Photon-v2\Engine\Include\CppEngine``
+
+
+

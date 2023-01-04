@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_api_helper:
+
+Class ApiHelper
+===============
+
+- Defined in :ref:`file_Source_Api_ApiHelper.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::ApiHelper
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

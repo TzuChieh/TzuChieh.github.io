@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1sdl_1a488f65ff712235e874a110817ab69faa:
+
+Function ph::sdl::load_spectrum
+===============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::sdl::load_spectrum(const SdlInputPayload&, const math::EColorUsage)
+   :project: Photon

@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_ply_property_list_values:
+
+Class PlyPropertyListValues
+===========================
+
+- Defined in :ref:`file_Source_DataIO_PlyFile.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::PlyPropertyListValues
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File Engine.cpp &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File Engine.cpp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Core_Engine.cpp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-engine-cpp">
+<span id="program-listing-file-source-core-engine-cpp"></span><h1>Program Listing for File Engine.cpp<a class="headerlink" href="#program-listing-for-file-engine-cpp" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Core_Engine.cpp.html#file-source-core-engine-cpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Core\Engine.cpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Engine.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Frame/TFrame.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Frame/FrameProcessor.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Frame/Operator/JRToneMapping.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Filmic/TSamplingFilm.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/logging.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/config.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/Geometry/TAABB2D.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Utility/Timer.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;EngineEnv/Session/RenderSession.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;EngineEnv/CoreCookingContext.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Receiver/Receiver.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Renderer/Renderer.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/Transform/RigidTransform.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/stats.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fstream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="n">PH_DEFINE_INTERNAL_LOG_GROUP</span><span class="p">(</span><span class="n">Engine</span><span class="p">,</span><span class="w"> </span><span class="n">Core</span><span class="p">);</span>
+<span class="n">PH_DEFINE_INTERNAL_TIMER_STAT</span><span class="p">(</span><span class="n">Update</span><span class="p">,</span><span class="w"> </span><span class="n">Engine</span><span class="p">);</span>
+<span class="n">PH_DEFINE_INTERNAL_TIMER_STAT</span><span class="p">(</span><span class="n">Render</span><span class="p">,</span><span class="w"> </span><span class="n">Engine</span><span class="p">);</span>
+<span class="n">PH_DEFINE_INTERNAL_TIMER_STAT</span><span class="p">(</span><span class="n">LoadCommands</span><span class="p">,</span><span class="w"> </span><span class="n">Engine</span><span class="p">);</span>
+
+<span class="n">Engine</span><span class="o">::</span><span class="n">Engine</span><span class="p">()</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">m_cooked</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">m_visualWorld</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">setNumRenderThreads</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">Engine</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Photon version: {}, PSDL version: {}&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="n">PH_ENGINE_VERSION</span><span class="p">,</span><span class="w"> </span><span class="n">PH_PSDL_VERSION</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">Engine</span><span class="o">::</span><span class="n">enterCommand</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">commandFragment</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_parser</span><span class="p">.</span><span class="n">enter</span><span class="p">(</span><span class="n">commandFragment</span><span class="p">,</span><span class="w"> </span><span class="n">m_rawScene</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">Engine</span><span class="o">::</span><span class="n">loadCommands</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Path</span><span class="o">&amp;</span><span class="w"> </span><span class="n">filePath</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_SCOPED_TIMER</span><span class="p">(</span><span class="n">LoadCommands</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">ifstream</span><span class="w"> </span><span class="n">commandFile</span><span class="p">;</span>
+<span class="w">    </span><span class="n">commandFile</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">filePath</span><span class="p">.</span><span class="n">toAbsoluteString</span><span class="p">(),</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ios</span><span class="o">::</span><span class="n">in</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">commandFile</span><span class="p">.</span><span class="n">is_open</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_LOG_WARNING</span><span class="p">(</span><span class="n">Engine</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;command file &lt;{}&gt; opening failed&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">filePath</span><span class="p">.</span><span class="n">toAbsoluteString</span><span class="p">());</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">Engine</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;loading command file &lt;{}&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">filePath</span><span class="p">.</span><span class="n">toAbsoluteString</span><span class="p">());</span>
+
+<span class="w">        </span><span class="n">Timer</span><span class="w"> </span><span class="n">timer</span><span class="p">;</span>
+<span class="w">        </span><span class="n">timer</span><span class="p">.</span><span class="n">start</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">lineCommand</span><span class="p">;</span>
+<span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="n">commandFile</span><span class="p">.</span><span class="n">good</span><span class="p">())</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">getline</span><span class="p">(</span><span class="n">commandFile</span><span class="p">,</span><span class="w"> </span><span class="n">lineCommand</span><span class="p">);</span>
+<span class="w">            </span><span class="n">lineCommand</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+
+<span class="w">            </span><span class="n">enterCommand</span><span class="p">(</span><span class="n">lineCommand</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">timer</span><span class="p">.</span><span class="n">stop</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">Engine</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;command file PSDL version: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">m_parser</span><span class="p">.</span><span class="n">getCommandVersion</span><span class="p">().</span><span class="n">toString</span><span class="p">());</span>
+<span class="w">        </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">Engine</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;command file loaded, time elapsed = {} ms&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">timer</span><span class="p">.</span><span class="n">getDeltaMs</span><span class="p">());</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">Engine</span><span class="o">::</span><span class="n">update</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_SCOPED_TIMER</span><span class="p">(</span><span class="n">Update</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Wait all potentially unfinished commands</span>
+<span class="w">    </span><span class="n">m_parser</span><span class="p">.</span><span class="n">flush</span><span class="p">(</span><span class="n">m_rawScene</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">Engine</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;parsed {} commands, {} errors generated&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="n">m_parser</span><span class="p">.</span><span class="n">numParsedCommands</span><span class="p">(),</span><span class="w"> </span><span class="n">m_parser</span><span class="p">.</span><span class="n">numParseErrors</span><span class="p">());</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">RenderSession</span><span class="o">&gt;</span><span class="w"> </span><span class="n">renderSession</span><span class="p">;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// TODO: means to specify the requested session</span>
+
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">RenderSession</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">renderSessions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_rawScene</span><span class="p">.</span><span class="n">getResources</span><span class="o">&lt;</span><span class="n">RenderSession</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">renderSessions</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">PH_LOG_ERROR</span><span class="p">(</span><span class="n">Engine</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;require at least a render session; engine failed to update&quot;</span><span class="p">);</span>
+
+<span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">renderSessions</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">PH_LOG_WARNING</span><span class="p">(</span><span class="n">Engine</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;more than 1 render session specified, taking the last one&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">renderSession</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">renderSessions</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">renderSession</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">CoreCookingContext</span><span class="w"> </span><span class="n">coreCtx</span><span class="p">;</span>
+<span class="w">    </span><span class="n">renderSession</span><span class="o">-&gt;</span><span class="n">applyToContext</span><span class="p">(</span><span class="n">coreCtx</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">CoreSdlResource</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">coreResources</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">renderSession</span><span class="o">-&gt;</span><span class="n">gatherResources</span><span class="p">(</span><span class="n">m_rawScene</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">coreResource</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">coreResources</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">coreResource</span><span class="o">-&gt;</span><span class="n">cook</span><span class="p">(</span><span class="n">coreCtx</span><span class="p">,</span><span class="w"> </span><span class="n">m_cooked</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">Renderer</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">renderer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_cooked</span><span class="p">.</span><span class="n">getRenderer</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">renderer</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_LOG_ERROR</span><span class="p">(</span><span class="n">Engine</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;no renderer present&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// TODO: not using hacky way to get receiver position</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">m_cooked</span><span class="p">.</span><span class="n">getReceiver</span><span class="p">());</span>
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="n">receiverPos</span><span class="p">;</span>
+<span class="w">    </span><span class="n">m_cooked</span><span class="p">.</span><span class="n">getReceiver</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">getReceiverToWorld</span><span class="p">().</span><span class="n">transformP</span><span class="p">({</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span><span class="w"> </span><span class="o">&amp;</span><span class="n">receiverPos</span><span class="p">);</span>
+<span class="w">    </span><span class="n">m_visualWorld</span><span class="p">.</span><span class="n">setReceiverPosition</span><span class="p">(</span><span class="n">receiverPos</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">m_visualWorld</span><span class="p">.</span><span class="n">cook</span><span class="p">(</span><span class="n">m_rawScene</span><span class="p">,</span><span class="w"> </span><span class="n">coreCtx</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Update renderer</span>
+
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">renderer</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">m_numRenderThreads</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">renderer</span><span class="o">-&gt;</span><span class="n">numWorkers</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">Engine</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;overriding # render workers to {} (it was {})&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">m_numRenderThreads</span><span class="p">,</span><span class="w"> </span><span class="n">renderer</span><span class="o">-&gt;</span><span class="n">numWorkers</span><span class="p">());</span>
+
+<span class="w">        </span><span class="n">renderer</span><span class="o">-&gt;</span><span class="n">setNumWorkers</span><span class="p">(</span><span class="n">m_numRenderThreads</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">getRenderer</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">update</span><span class="p">(</span><span class="n">m_cooked</span><span class="p">,</span><span class="w"> </span><span class="n">m_visualWorld</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">Engine</span><span class="o">::</span><span class="n">render</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_SCOPED_TIMER</span><span class="p">(</span><span class="n">Render</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">Renderer</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">renderer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getRenderer</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">renderer</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_LOG_ERROR</span><span class="p">(</span><span class="n">Engine</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;no renderer present&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">renderer</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">renderer</span><span class="o">-&gt;</span><span class="n">render</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">Engine</span><span class="o">::</span><span class="n">retrieveFrame</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">layerIndex</span><span class="p">,</span>
+<span class="w">    </span><span class="n">HdrRgbFrame</span><span class="o">&amp;</span><span class="w">      </span><span class="n">out_frame</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w">        </span><span class="n">applyPostProcessing</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Renderer</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">renderer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getRenderer</span><span class="p">();</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">renderer</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">renderer</span><span class="o">-&gt;</span><span class="n">retrieveFrame</span><span class="p">(</span><span class="n">layerIndex</span><span class="p">,</span><span class="w"> </span><span class="n">out_frame</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">applyPostProcessing</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">//m_frameProcessor.process(out_frame, m_id);</span>
+<span class="w">        </span><span class="c1">// HACK</span>
+<span class="w">        </span><span class="n">JRToneMapping</span><span class="p">().</span><span class="n">operateLocal</span><span class="p">(</span><span class="n">out_frame</span><span class="p">,</span><span class="w"> </span><span class="p">{{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">renderer</span><span class="o">-&gt;</span><span class="n">getRenderWidthPx</span><span class="p">(),</span><span class="w"> </span><span class="n">renderer</span><span class="o">-&gt;</span><span class="n">getRenderHeightPx</span><span class="p">()}});</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">math</span><span class="o">::</span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">int64</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Engine</span><span class="o">::</span><span class="n">getFilmDimensionPx</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Renderer</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">renderer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getRenderer</span><span class="p">();</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">renderer</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="n">renderer</span><span class="o">-&gt;</span><span class="n">getRenderWidthPx</span><span class="p">(),</span><span class="w"> </span><span class="n">renderer</span><span class="o">-&gt;</span><span class="n">getRenderHeightPx</span><span class="p">()};</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">Engine</span><span class="o">::</span><span class="n">setNumRenderThreads</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">uint32</span><span class="w"> </span><span class="n">numThreads</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_numRenderThreads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numThreads</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">Engine</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;number of render threads set to {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">numThreads</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">ERegionStatus</span><span class="w"> </span><span class="n">Engine</span><span class="o">::</span><span class="n">asyncPollUpdatedRegion</span><span class="p">(</span><span class="n">Region</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">out_region</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">getRenderer</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">asyncPollUpdatedRegion</span><span class="p">(</span><span class="n">out_region</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">Engine</span><span class="o">::</span><span class="n">asyncPeekFrame</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">layerIndex</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Region</span><span class="o">&amp;</span><span class="w">     </span><span class="n">region</span><span class="p">,</span>
+<span class="w">    </span><span class="n">HdrRgbFrame</span><span class="o">&amp;</span><span class="w">      </span><span class="n">out_frame</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w">        </span><span class="n">applyPostProcessing</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">getRenderer</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">asyncPeekFrame</span><span class="p">(</span><span class="n">layerIndex</span><span class="p">,</span><span class="w"> </span><span class="n">region</span><span class="p">,</span><span class="w"> </span><span class="n">out_frame</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">applyPostProcessing</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">//m_frameProcessor.process(out_frame, m_id);</span>
+<span class="w">        </span><span class="c1">// HACK</span>
+<span class="w">        </span><span class="n">JRToneMapping</span><span class="p">().</span><span class="n">operateLocal</span><span class="p">(</span><span class="n">out_frame</span><span class="p">,</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">TAABB2D</span><span class="o">&lt;</span><span class="n">uint32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">region</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">Engine</span><span class="o">::</span><span class="n">asyncQueryStatistics</span><span class="p">(</span>
+<span class="w">    </span><span class="n">float32</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">out_percentageProgress</span><span class="p">,</span>
+<span class="w">    </span><span class="n">float32</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">out_samplesPerSecond</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Renderer</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">renderer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getRenderer</span><span class="p">();</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">renderer</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">RenderProgress</span><span class="w"> </span><span class="n">progress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">renderer</span><span class="o">-&gt;</span><span class="n">asyncQueryRenderProgress</span><span class="p">();</span>
+<span class="w">    </span><span class="n">RenderState</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">renderer</span><span class="o">-&gt;</span><span class="n">asyncQueryRenderState</span><span class="p">();</span>
+<span class="w">    </span><span class="o">*</span><span class="n">out_percentageProgress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">progress</span><span class="p">.</span><span class="n">getPercentageProgress</span><span class="p">();</span>
+<span class="w">    </span><span class="o">*</span><span class="n">out_samplesPerSecond</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state</span><span class="p">.</span><span class="n">getRealState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">Engine</span><span class="o">::</span><span class="n">setWorkingDirectory</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Path</span><span class="o">&amp;</span><span class="w"> </span><span class="n">path</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_parser</span><span class="p">.</span><span class="n">setWorkingDirectory</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

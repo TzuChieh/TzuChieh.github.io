@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1af11f191a13f32e5ff37ba539bb731029:
+
+Template Function ph::math::clear_bits_in_range
+===============================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::clear_bits_in_range(const UIntType, const RangeType, const RangeType)
+   :project: Photon

@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_unified_numeric_image:
+
+Class UnifiedNumericImage
+=========================
+
+- Defined in :ref:`file_Source_Actor_Image_UnifiedNumericImage.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::Image`` (:ref:`exhale_class_classph_1_1_image`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::UnifiedNumericImage
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

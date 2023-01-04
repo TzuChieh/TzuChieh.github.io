@@ -1,0 +1,43 @@
+
+.. _program_listing_file_Source_Actor_Image_BinaryMixedImage.cpp:
+
+Program Listing for File BinaryMixedImage.cpp
+=============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Actor_Image_BinaryMixedImage.cpp>` (``Source\Actor\Image\BinaryMixedImage.cpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #include "Actor/Image/BinaryMixedImage.h"
+   #include "Common/logging.h"
+   
+   namespace ph
+   {
+   
+   PH_DEFINE_INTERNAL_LOG_GROUP(BinaryMixedImage, Image);
+   
+   BinaryMixedImage::BinaryMixedImage() :
+   
+       Image(),
+   
+       m_imageA(),
+       m_imageB()
+   {}
+   
+   auto BinaryMixedImage::checkoutImages() const
+       -> std::pair<std::shared_ptr<Image>, std::shared_ptr<Image>>
+   {
+       auto imageA = m_imageA.lock();
+       auto imageB = m_imageB.lock();
+       if(!imageA || !imageB)
+       {
+           PH_LOG_WARNING(BinaryMixedImage,
+               "image pair is incomplete");
+       }
+   
+       return {std::move(imageA), std::move(imageB)};
+   }
+   
+   }// end namespace ph

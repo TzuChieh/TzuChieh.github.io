@@ -1,0 +1,70 @@
+
+.. _file_Source_Common_utility.h:
+
+File utility.h
+==============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Common\utility.h``)
+----------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Common_utility.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/config.h``
+
+- ``iostream``
+
+- ``type_traits``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Common_assertion.h`
+
+- :ref:`file_Source_Common_logging.h`
+
+- :ref:`file_Source_Core_Emitter_MultiDiffuseSurfaceEmitter.cpp`
+
+
+
+
+Defines
+-------
+
+
+- :ref:`exhale_define__common_2utility_8h_1ad91bac2ae774a87c0d9ea35f29fa9242`
+
+- :ref:`exhale_define__common_2utility_8h_1acd1d5fd7cd71234a78fff9f4bb1df453`
+
+- :ref:`exhale_define__common_2utility_8h_1afeeed7a6be5acdcb00d3f6f6d2fe9d6a`
+
+- :ref:`exhale_define__common_2utility_8h_1a9bee0a3c5d8740da6ba3ee8cd132bd92`
+
+- :ref:`exhale_define__common_2utility_8h_1acdd79b307e0e84985c82dcfadb5ae4b5`
+
+- :ref:`exhale_define__common_2utility_8h_1a0283f7de8e686f7a8dcf4890da7b932e`
+
+- :ref:`exhale_define__common_2utility_8h_1a06ea3b7082381378b14f8343853c1f8f`
+
+- :ref:`exhale_define__common_2utility_8h_1a58d6d0664e5c76c51ebd57905e76eca7`
+
+- :ref:`exhale_define__common_2utility_8h_1a9606a731ad538fc32118bbef00693bfb`
+

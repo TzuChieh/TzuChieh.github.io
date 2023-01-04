@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1a3b5aeb6bb0f2f3339e033d34fa70a894:
+
+Template Function ph::math::to_degrees
+======================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::to_degrees(const T)
+   :project: Photon

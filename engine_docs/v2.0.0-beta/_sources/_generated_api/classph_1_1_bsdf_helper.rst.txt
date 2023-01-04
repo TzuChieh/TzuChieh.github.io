@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_bsdf_helper:
+
+Class BsdfHelper
+================
+
+- Defined in :ref:`file_Source_Core_SurfaceBehavior_BsdfHelper.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::BsdfHelper
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

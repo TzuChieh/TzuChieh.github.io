@@ -1,0 +1,69 @@
+
+.. _file_Source_Core_Filmic_Film.h:
+
+File Film.h
+===========
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Filmic\Film.h``)
+------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Filmic_Film.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Common/primitive_type.h``
+
+- ``Frame/frame_fwd.h``
+
+- ``Math/Geometry/TAABB2D.h``
+
+- ``Math/TVector2.h``
+
+- ``Utility/IMoveOnly.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Filmic_Film.cpp`
+
+- :ref:`file_Source_Core_Filmic_TSamplingFilm.h`
+
+- :ref:`file_Source_Core_Renderer_Renderer.cpp`
+
+- :ref:`file_Source_Core_SampleGenerator_SGUniformRandom.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_film`
+

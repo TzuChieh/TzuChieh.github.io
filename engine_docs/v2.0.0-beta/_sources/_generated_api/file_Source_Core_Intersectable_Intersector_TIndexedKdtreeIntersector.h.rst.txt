@@ -1,0 +1,71 @@
+
+.. _file_Source_Core_Intersectable_Intersector_TIndexedKdtreeIntersector.h:
+
+File TIndexedKdtreeIntersector.h
+================================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Intersectable\Intersector\TIndexedKdtreeIntersector.h``)
+----------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Intersectable_Intersector_TIndexedKdtreeIntersector.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Common/primitive_type.h``
+
+- ``Core/Intersectable/Intersectable.h``
+
+- ``Core/Intersectable/Intersector.h``
+
+- ``Core/Intersectable/Intersector/TIndexedKdtreeIntersector.ipp``
+
+- ``Math/Algorithm/IndexedKdtree/TIndexedKdtree.h``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Intersectable_Intersector_TIndexedKdtreeIntersector.ipp`
+
+- :ref:`file_Source_World_VisualWorld.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structph_1_1_t_indexed_kdtree_intersector_1_1_indexed_intersectables`
+
+- :ref:`exhale_struct_structph_1_1_t_indexed_kdtree_intersector_1_1_intersectable_a_a_b_b_calculator`
+
+- :ref:`exhale_class_classph_1_1_t_indexed_kdtree_intersector`
+

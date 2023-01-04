@@ -1,0 +1,58 @@
+
+.. _file_Source_DataIO_SDL_Introspect_TOwnerSdlStruct.ipp:
+
+File TOwnerSdlStruct.ipp
+========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\SDL\Introspect\TOwnerSdlStruct.ipp``)
+-----------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_SDL_Introspect_TOwnerSdlStruct.ipp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``DataIO/SDL/Introspect/SdlStructFieldStump.h``
+
+- ``DataIO/SDL/Introspect/TOwnerSdlStruct.h``
+
+- ``DataIO/SDl/Introspect/SdlField.h``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+- ``type_traits``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TOwnerSdlStruct.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

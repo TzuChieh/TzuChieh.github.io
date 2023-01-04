@@ -1,0 +1,49 @@
+
+.. _file_Source_Utility_IUninstantiable.h:
+
+File IUninstantiable.h
+======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Utility\IUninstantiable.h``)
+-------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Utility_IUninstantiable.h.rst
+
+
+
+
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Math_Color_chromatic_adaptations.ipp`
+
+- :ref:`file_Source_Math_Color_color_spaces.ipp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_i_uninstantiable`
+

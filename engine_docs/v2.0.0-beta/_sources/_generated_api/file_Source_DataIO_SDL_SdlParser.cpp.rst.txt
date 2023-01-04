@@ -1,0 +1,64 @@
+
+.. _file_Source_DataIO_SDL_SdlParser.cpp:
+
+File SdlParser.cpp
+==================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\SDL\SdlParser.cpp``)
+------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_SDL_SdlParser.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/logging.h``
+
+- ``Common/stats.h``
+
+- ``DataIO/SDL/ETypeCategory.h``
+
+- ``DataIO/SDL/Introspect/SdlClass.h``
+
+- ``DataIO/SDL/Introspect/SdlInputContext.h``
+
+- ``DataIO/SDL/SceneDescription.h``
+
+- ``DataIO/SDL/SdlParser.h``
+
+- ``DataIO/SDL/Tokenizer.h``
+
+- ``DataIO/SDL/sdl_exceptions.h``
+
+- ``DataIO/SDL/sdl_helpers.h``
+
+- ``Utility/string_utils.h``
+
+- ``cstddef``
+
+- ``ph_cpp_core.h`` (:ref:`file_Include_CppEngine_ph_cpp_core.h`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

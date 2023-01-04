@@ -1,0 +1,14 @@
+.. _exhale_define_assertion_8h_1a780b17209b12feb2d9027071a5ec8936:
+
+Define PH_ASSERT_LE
+===================
+
+- Defined in :ref:`file_Source_Common_assertion.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: PH_ASSERT_LE
+   :project: Photon

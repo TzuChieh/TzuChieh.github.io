@@ -1,0 +1,83 @@
+
+.. _file_Source_Core_Receiver_Receiver.h:
+
+File Receiver.h
+===============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Receiver\Receiver.h``)
+------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Receiver_Receiver.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Common/primitive_type.h``
+
+- ``Math/Color/Spectrum.h``
+
+- ``Math/TVector2.h``
+
+- ``Math/TVector3.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Api_init_and_exit.cpp`
+
+- :ref:`file_Source_Api_ph_core.cpp`
+
+- :ref:`file_Source_Core_Engine.cpp`
+
+- :ref:`file_Source_Core_Receiver_Receiver.cpp`
+
+- :ref:`file_Source_Core_Receiver_RectangularSensorReceiver.h`
+
+- :ref:`file_Source_Core_Renderer_Attribute_AttributeRenderer.cpp`
+
+- :ref:`file_Source_Core_Renderer_PM_TPhotonMappingWork.ipp`
+
+- :ref:`file_Source_Core_Renderer_PM_TViewPathTracingWork.ipp`
+
+- :ref:`file_Source_Core_Renderer_Renderer.cpp`
+
+- :ref:`file_Source_Core_Renderer_Sampling_ReceiverSamplingWork.cpp`
+
+- :ref:`file_Source_EngineEnv_CoreCookedUnit.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_receiver`
+

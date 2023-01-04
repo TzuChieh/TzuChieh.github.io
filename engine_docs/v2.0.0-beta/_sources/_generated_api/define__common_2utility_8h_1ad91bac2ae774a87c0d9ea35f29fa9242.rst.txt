@@ -1,0 +1,14 @@
+.. _exhale_define__common_2utility_8h_1ad91bac2ae774a87c0d9ea35f29fa9242:
+
+Define PH_CONCAT_2
+==================
+
+- Defined in :ref:`file_Source_Common_utility.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: PH_CONCAT_2
+   :project: Photon

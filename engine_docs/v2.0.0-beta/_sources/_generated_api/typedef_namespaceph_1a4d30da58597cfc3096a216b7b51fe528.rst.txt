@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1a4d30da58597cfc3096a216b7b51fe528:
+
+Typedef ph::TSdlOptionalFloat64
+===============================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::TSdlOptionalFloat64
+   :project: Photon

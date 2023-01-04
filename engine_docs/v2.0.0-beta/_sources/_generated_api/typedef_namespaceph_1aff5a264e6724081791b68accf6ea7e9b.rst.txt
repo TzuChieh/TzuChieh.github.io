@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1aff5a264e6724081791b68accf6ea7e9b:
+
+Typedef ph::TSdlOptionalReal
+============================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::TSdlOptionalReal
+   :project: Photon

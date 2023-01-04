@@ -1,0 +1,23 @@
+.. _exhale_struct_structph_1_1_physical_actor_1_1_sdl_rotate:
+
+Struct PhysicalActor::SdlRotate
+===============================
+
+- Defined in :ref:`file_Source_Actor_PhysicalActor.h`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_class_classph_1_1_physical_actor`.
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: ph::PhysicalActor::SdlRotate
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

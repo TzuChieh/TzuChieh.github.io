@@ -1,0 +1,31 @@
+
+.. _program_listing_file_Source_Actor_StandaloneSdlResource.h:
+
+Program Listing for File StandaloneSdlResource.h
+================================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Actor_StandaloneSdlResource.h>` (``Source\Actor\StandaloneSdlResource.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   //#pragma once
+   //
+   //#include "DataIO/SDL/ISdlResource.h"
+   //
+   //namespace ph { class CoreCookingContext; }
+   //namespace ph { class CoreCookedUnit; }
+   //
+   //namespace ph
+   //{
+   //
+   //class StandaloneSdlResource : public ISdlResource
+   //{
+   //public:
+   //  ETypeCategory getDynamicCategory() const override = 0;
+   //
+   //  virtual void cook(const CoreCookingContext& ctx, CoreCookedUnit& cooked) = 0;
+   //};
+   //
+   //}// end namespace ph

@@ -9,5 +9,9 @@ var classph_1_1_statistics =
     [ "setNumMsElapsed", "classph_1_1_statistics.html#a7e071ff1c6a2f3dbc901a953b400d5e7", null ],
     [ "setNumSamplesTaken", "classph_1_1_statistics.html#a2735a11251a9951e13770b54800d5f95", null ],
     [ "setTotalWork", "classph_1_1_statistics.html#a43327cb6e234ddad4b8464590c3a8b16", null ],
-    [ "setWorkDone", "classph_1_1_statistics.html#a96e82226d41f9c0a2e5ff7c4a1e32a2c", null ]
+    [ "setWorkDone", "classph_1_1_statistics.html#a96e82226d41f9c0a2e5ff7c4a1e32a2c", null ],
+    [ "m_numMsElapsed", "classph_1_1_statistics.html#a1b9a2c0e3d09139c77c171aed37742f2", null ],
+    [ "m_numSamplesTaken", "classph_1_1_statistics.html#aacc0e5cf74f91ca1f3ffb82ea8c3d646", null ],
+    [ "m_totalWork", "classph_1_1_statistics.html#ac76cfbe784fa92a19314ec15985d487f", null ],
+    [ "m_workDone", "classph_1_1_statistics.html#a6210040e1279e343af683c81008450b0", null ]
 ];

@@ -1,6 +1,6 @@
 var structph_1_1_sampling_film_dimensions =
 [
-    [ "actualResPx", "structph_1_1_sampling_film_dimensions.html#aae78f2304d1b979c6783b58d2fab1e00", null ],
-    [ "effectiveWindowPx", "structph_1_1_sampling_film_dimensions.html#a27f91fafa1568c52896848156903e217", null ],
-    [ "sampleWindowPx", "structph_1_1_sampling_film_dimensions.html#a33d027fa1d1506387e1bc5af00ca0b6b", null ]
+    [ "actualResPx", "structph_1_1_sampling_film_dimensions.html#a8c37dd018b78ad49d9209252ce28468d", null ],
+    [ "effectiveWindowPx", "structph_1_1_sampling_film_dimensions.html#ae5fd955c81dcfe1b1f5d5c58c556793a", null ],
+    [ "sampleWindowPx", "structph_1_1_sampling_film_dimensions.html#af70294ed9719ccd94d8eae707af57683", null ]
 ];

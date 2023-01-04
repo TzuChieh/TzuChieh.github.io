@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_t_mergeable_film_proxy:
+
+Template Class TMergeableFilmProxy
+==================================
+
+.. did not find file this was defined in
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TMergeableFilmProxy
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_byte_buffer:
+
+Class ByteBuffer
+================
+
+- Defined in :ref:`file_Source_Utility_ByteBuffer.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::ByteBuffer
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

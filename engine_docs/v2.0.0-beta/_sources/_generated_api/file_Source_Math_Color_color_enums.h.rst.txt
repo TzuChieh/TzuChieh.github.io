@@ -1,0 +1,66 @@
+
+.. _file_Source_Math_Color_color_enums.h:
+
+File color_enums.h
+==================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\Color\color_enums.h``)
+------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_Color_color_enums.h.rst
+
+
+
+
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_Image_RasterFileImage.h`
+
+- :ref:`file_Source_Actor_Image_UnifiedColorImage.h`
+
+- :ref:`file_Source_Actor_SDLExtension_sdl_color_space_type.h`
+
+- :ref:`file_Source_Actor_SDLExtension_sdl_color_usage_type.h`
+
+- :ref:`file_Source_Core_Texture_constant_textures.h`
+
+- :ref:`file_Source_Core_Texture_Pixel_TColorPixelTexture2D.h`
+
+- :ref:`file_Source_Core_Texture_SampleLocation.h`
+
+- :ref:`file_Source_Core_Texture_TSampler.h`
+
+- :ref:`file_Source_Math_Color_chromatic_adaptations.h`
+
+- :ref:`file_Source_Math_Color_color_basics.h`
+
+- :ref:`file_Source_Math_Color_color_spaces.h`
+
+- :ref:`file_Source_Math_Color_spectral_samples.h`
+
+- :ref:`file_Source_Math_Color_TSpectrumBase.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+

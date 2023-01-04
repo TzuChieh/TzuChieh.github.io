@@ -1,0 +1,59 @@
+
+.. _file_Source_Core_Renderer_PM_PMStatistics.h:
+
+File PMStatistics.h
+===================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Renderer\PM\PMStatistics.h``)
+-------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Renderer_PM_PMStatistics.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``atomic``
+
+- ``cstddef``
+
+- ``cstdint``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Renderer_PM_PMRenderer.h`
+
+- :ref:`file_Source_Core_Renderer_PM_TPhotonMappingWork.ipp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_p_m_statistics`
+

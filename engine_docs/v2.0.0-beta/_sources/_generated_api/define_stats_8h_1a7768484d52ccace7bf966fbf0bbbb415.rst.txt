@@ -1,0 +1,14 @@
+.. _exhale_define_stats_8h_1a7768484d52ccace7bf966fbf0bbbb415:
+
+Define PH_DEFINE_INTERNAL_TIMER_STAT
+====================================
+
+- Defined in :ref:`file_Source_Common_stats.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: PH_DEFINE_INTERNAL_TIMER_STAT
+   :project: Photon

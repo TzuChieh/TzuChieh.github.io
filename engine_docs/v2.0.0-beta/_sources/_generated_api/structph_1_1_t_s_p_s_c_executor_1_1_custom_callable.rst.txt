@@ -1,0 +1,23 @@
+.. _exhale_struct_structph_1_1_t_s_p_s_c_executor_1_1_custom_callable:
+
+Struct TSPSCExecutor::CustomCallable
+====================================
+
+- Defined in :ref:`file_Source_Utility_Concurrent_TSPSCExecutor.h`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_class_classph_1_1_t_s_p_s_c_executor`.
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: ph::TSPSCExecutor::CustomCallable
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

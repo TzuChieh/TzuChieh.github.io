@@ -1,0 +1,115 @@
+
+.. _program_listing_file_Source_DataIO_SDL_SdlParser.h:
+
+Program Listing for File SdlParser.h
+====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_DataIO_SDL_SdlParser.h>` (``Source\DataIO\SDL\SdlParser.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "DataIO/SDL/ValueClauses.h"
+   #include "DataIO/FileSystem/Path.h"
+   #include "Utility/SemanticVersion.h"
+   
+   #include <vector>
+   #include <string>
+   #include <string_view>
+   #include <unordered_map>
+   
+   namespace ph
+   {
+   
+   class SceneDescription;
+   class SdlClass;
+   
+   enum class ESdlCommandType
+   {
+       UNKNOWN,
+       DIRECTIVE,
+       LOAD,
+       REMOVAL,
+       UPDATE,
+       EXECUTION,
+       COMMENT
+   };
+   
+   class SdlParser final
+   {
+   public:
+       SdlParser();
+   
+       // TODO: rename existing methods to enterAndWait() and flushAndWait() and add flush() and enter() once multithreading is added
+   
+       void enter(std::string_view commandSegment, SceneDescription& out_scene);
+   
+       void flush(SceneDescription& out_scene);
+   
+       void setWorkingDirectory(const Path& path);
+   
+       const SemanticVersion& getCommandVersion() const;
+       std::size_t numParsedCommands() const;
+       std::size_t numParseErrors() const;
+   
+   private:
+       SemanticVersion m_commandVersion;
+   
+       std::unordered_map<std::string, const SdlClass*> m_mangledNameToClass;
+   
+       Path        m_workingDirectory;
+       std::string m_commandCache;
+       std::size_t m_generatedNameCounter;
+       std::size_t m_numParsedCommands;
+       std::size_t m_numParseErrors;
+   
+       void parseCommand(const std::string& command, SceneDescription& out_scene);
+       void parseSingleCommand(ESdlCommandType type, const std::string& command, SceneDescription& out_scene);
+   
+       void parseLoadCommand( 
+           const std::string& command,
+           SceneDescription&  out_scene);
+   
+       void parseExecutionCommand(
+           const std::string& command,
+           SceneDescription&  out_scene);
+   
+       void parseDirectiveCommand(
+           const std::string& command,
+           SceneDescription&  out_scene);
+   
+       std::string getName(std::string_view resourceNameToken);
+       std::string genNameForAnonymity();
+   
+       const SdlClass* getSdlClass(const std::string& mangledClassName) const;
+       const SdlClass& getSdlClass(std::string_view categoryName, std::string_view typeName) const;
+   
+   private:
+       static std::string getMangledName(std::string_view categoryName, std::string_view typeName);
+       static void getMangledName(std::string_view categoryName, std::string_view typeName, std::string* out_mangledName);
+       static void getClauses(const std::vector<std::string>& clauseStrings, ValueClauses* out_clauses);
+       static void getClause(std::string_view clauseString, ValueClauses::Clause* out_clause);
+       static ESdlCommandType getCommandType(std::string_view commandSegment);
+   };
+   
+   // In-header Implementations:
+   
+   inline const SemanticVersion& SdlParser::getCommandVersion() const
+   {
+       return m_commandVersion;
+   }
+   
+   inline std::size_t SdlParser::numParsedCommands() const
+   {
+       return m_numParsedCommands;
+   }
+   
+   inline std::size_t SdlParser::numParseErrors() const
+   {
+       return m_numParseErrors;
+   }
+   
+   }// end namespace ph

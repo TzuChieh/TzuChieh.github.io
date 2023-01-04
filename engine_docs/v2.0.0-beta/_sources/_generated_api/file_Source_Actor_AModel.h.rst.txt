@@ -1,0 +1,83 @@
+
+.. _file_Source_Actor_AModel.h:
+
+File AModel.h
+=============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\AModel.h``)
+--------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_AModel.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/Geometry/Geometry.h``
+
+- ``Actor/Material/Material.h``
+
+- ``Actor/MotionSource/MotionSource.h``
+
+- ``Actor/PhysicalActor.h``
+
+- ``DataIO/SDL/sdl_interface.h``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_AModel.cpp`
+
+- :ref:`file_Source_Actor_APhantomModel.h`
+
+- :ref:`file_Source_Actor_Geometry_GCuboid.cpp`
+
+- :ref:`file_Source_Actor_Geometry_GSphere.cpp`
+
+- :ref:`file_Source_Actor_Geometry_GTriangle.cpp`
+
+- :ref:`file_Source_Actor_LightSource_ModelSource.cpp`
+
+- :ref:`file_Source_Api_init_and_exit.cpp`
+
+- :ref:`file_Source_Api_ph_cpp_core.cpp`
+
+- :ref:`file_Source_Api_test_scene.cpp`
+
+- :ref:`file_Source_Core_Emitter_Sampler_ESUniformRandom.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_a_model`
+

@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_g_triangle_mesh:
+
+Class GTriangleMesh
+===================
+
+- Defined in :ref:`file_Source_Actor_Geometry_GTriangleMesh.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::Geometry`` (:ref:`exhale_class_classph_1_1_geometry`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::GTriangleMesh
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

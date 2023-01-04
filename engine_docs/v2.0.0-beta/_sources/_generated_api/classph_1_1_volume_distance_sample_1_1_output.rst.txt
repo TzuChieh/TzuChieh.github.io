@@ -1,0 +1,23 @@
+.. _exhale_class_classph_1_1_volume_distance_sample_1_1_output:
+
+Class VolumeDistanceSample::Output
+==================================
+
+- Defined in :ref:`file_Source_Core_VolumeBehavior_VolumeDistanceSample.h`
+
+
+Nested Relationships
+--------------------
+
+This class is a nested type of :ref:`exhale_class_classph_1_1_volume_distance_sample`.
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::VolumeDistanceSample::Output
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1_1spectral__data_1a083e7fac120e1c15f32c059ebfdb3f2e:
+
+Function ph::math::spectral_data::smits_linear_sRGB_to_spectrum_E_blue
+======================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::spectral_data::smits_linear_sRGB_to_spectrum_E_blue()
+   :project: Photon

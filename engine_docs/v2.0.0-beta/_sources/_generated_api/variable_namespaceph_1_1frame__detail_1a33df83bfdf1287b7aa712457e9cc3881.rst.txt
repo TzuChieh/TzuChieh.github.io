@@ -1,0 +1,14 @@
+.. _exhale_variable_namespaceph_1_1frame__detail_1a33df83bfdf1287b7aa712457e9cc3881:
+
+Variable ph::frame_detail::CIsSetPixelOp
+========================================
+
+- Defined in :ref:`file_Source_Frame_TFrame.ipp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: ph::frame_detail::CIsSetPixelOp
+   :project: Photon

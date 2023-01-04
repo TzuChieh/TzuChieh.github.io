@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>File ph_core.cpp &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">File ph_core.cpp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/file_Source_Api_ph_core.cpp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="file-ph-core-cpp">
+<span id="file-source-api-ph-core-cpp"></span><h1>File ph_core.cpp<a class="headerlink" href="#file-ph-core-cpp" title="Permalink to this headline"></a></h1>
+<div class="contents local topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#definition-source-api-ph-core-cpp" id="id1">Definition (<code class="docutils literal notranslate"><span class="pre">Source\Api\ph_core.cpp</span></code>)</a></p></li>
+<li><p><a class="reference internal" href="#includes" id="id2">Includes</a></p></li>
+<li><p><a class="reference internal" href="#functions" id="id3">Functions</a></p></li>
+</ul>
+</div>
+<section id="definition-source-api-ph-core-cpp">
+<h2>Definition (<code class="docutils literal notranslate"><span class="pre">Source\Api\ph_core.cpp</span></code>)<a class="headerlink" href="#definition-source-api-ph-core-cpp" title="Permalink to this headline"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="program_listing_file_Source_Api_ph_core.cpp.html">Program Listing for File ph_core.cpp</a></li>
+</ul>
+</div>
+</section>
+<section id="includes">
+<h2>Includes<a class="headerlink" href="#includes" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Api/ApiDatabase.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Api/ApiHelper.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Api/init_and_exit.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Api/test_scene.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Common/assertion.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Common/config.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Common/logging.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Core/Engine.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Core/Receiver/Receiver.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Core/Renderer/Renderer.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Core/Scheduler/Region.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DataIO/FileSystem/Path.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DataIO/PictureSaver.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DataIO/io_utils.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Frame/TFrame.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Frame/frame_utils.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Math/TArithmeticArray.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Utility/ByteBuffer.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cstddef</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cstring</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iostream</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">memory</span></code> (<a class="reference internal" href="file_Source_Common_memory.cpp.html#file-source-common-memory-cpp"><span class="std std-ref">File memory.cpp</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ph_core.h</span></code> (<a class="reference internal" href="file_Include_CEngine_ph_core.h.html#file-include-cengine-ph-core-h"><span class="std std-ref">File ph_core.h</span></a>)</p></li>
+</ul>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1a03caa3b421539ef45cf5da0c53fc180a.html#exhale-function-ph-core-8cpp-1a03caa3b421539ef45cf5da0c53fc180a"><span class="std std-ref">Function PH_DEFINE_INTERNAL_LOG_GROUP</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1a88053cbcbfac1be399ca4c7907f5a0a3.html#exhale-function-ph-core-8cpp-1a88053cbcbfac1be399ca4c7907f5a0a3"><span class="std std-ref">Function phAquireFrame(const PHuint64, const PHuint64, const PHuint64)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1a54299ee86ee626fa8f0fea7cf7e280d5.html#exhale-function-ph-core-8cpp-1a54299ee86ee626fa8f0fea7cf7e280d5"><span class="std std-ref">Function phAquireFrameRaw(const PHuint64, const PHuint64, const PHuint64)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1a73e3980f2ffba97e9fc8c589e4fbbcaf.html#exhale-function-ph-core-8cpp-1a73e3980f2ffba97e9fc8c589e4fbbcaf"><span class="std std-ref">Function phAsyncGetRendererState(const PHuint64, struct PHRenderState *const)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1ad53c03a2af9caf96f0df2cf0f7718111.html#exhale-function-ph-core-8cpp-1ad53c03a2af9caf96f0df2cf0f7718111"><span class="std std-ref">Function phAsyncGetRendererStatistics(const PHuint64, PHfloat32 *const, PHfloat32 *const)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1a897b6511a5b04f34ba4e121647c6d100.html#exhale-function-ph-core-8cpp-1a897b6511a5b04f34ba4e121647c6d100"><span class="std std-ref">Function phAsyncPeekFrame(const PHuint64, const PHuint64, const PHuint32, const PHuint32, const PHuint32, const PHuint32, const PHuint64)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1ad4518b7bb54c76aafe496dff9988013a.html#exhale-function-ph-core-8cpp-1ad4518b7bb54c76aafe496dff9988013a"><span class="std std-ref">Function phAsyncPeekFrameRaw(const PHuint64, const PHuint64, const PHuint32, const PHuint32, const PHuint32, const PHuint32, const PHuint64)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1a5f725dad079d19db72f89229344bce51.html#exhale-function-ph-core-8cpp-1a5f725dad079d19db72f89229344bce51"><span class="std std-ref">Function phAsyncPollUpdatedFrameRegion(const PHuint64, PHuint32 *const, PHuint32 *const, PHuint32 *const, PHuint32 *const)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1a017bfd815c9a74f49bdf51419d0b5ef9.html#exhale-function-ph-core-8cpp-1a017bfd815c9a74f49bdf51419d0b5ef9"><span class="std std-ref">Function phConfigCoreResourceDirectory(const PHchar *const)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1ae0f17cf4cc68e4785e34ae11e091e39b.html#exhale-function-ph-core-8cpp-1ae0f17cf4cc68e4785e34ae11e091e39b"><span class="std std-ref">Function phCreateBuffer(PHuint64 *const)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1a44635b6826a2ad8717178e86a02e6e58.html#exhale-function-ph-core-8cpp-1a44635b6826a2ad8717178e86a02e6e58"><span class="std std-ref">Function phCreateEngine(PHuint64 *const, const PHuint32)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1aae05ffeeebf4c993d1fd874af4ce99bd.html#exhale-function-ph-core-8cpp-1aae05ffeeebf4c993d1fd874af4ce99bd"><span class="std std-ref">Function phCreateFrame(PHuint64 *const, const PHuint32, const PHuint32)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1ab78885758608210d51574cb754efdf5c.html#exhale-function-ph-core-8cpp-1ab78885758608210d51574cb754efdf5c"><span class="std std-ref">Function phDeleteBuffer(const PHuint64)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1a587d123fa94bdad97212e099017d62ed.html#exhale-function-ph-core-8cpp-1a587d123fa94bdad97212e099017d62ed"><span class="std std-ref">Function phDeleteEngine(const PHuint64)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1a4358a39d93d8c45b79928698b57a0083.html#exhale-function-ph-core-8cpp-1a4358a39d93d8c45b79928698b57a0083"><span class="std std-ref">Function phDeleteFrame(const PHuint64)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1ab5eacebbe02c1e5aee751e5ea8aa7d3e.html#exhale-function-ph-core-8cpp-1ab5eacebbe02c1e5aee751e5ea8aa7d3e"><span class="std std-ref">Function phEnterCommand(const PHuint64, const PHchar *const)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1ada125c0734bee416d7981c4309869dda.html#exhale-function-ph-core-8cpp-1ada125c0734bee416d7981c4309869dda"><span class="std std-ref">Function phExit()</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1a56b56e18ef5fd3f80178b0cc3e5406e8.html#exhale-function-ph-core-8cpp-1a56b56e18ef5fd3f80178b0cc3e5406e8"><span class="std std-ref">Function phFrameOpAbsDifference(const PHuint64, const PHuint64, const PHuint64)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1a35d5fdd0757551a63220732151a44347.html#exhale-function-ph-core-8cpp-1a35d5fdd0757551a63220732151a44347"><span class="std std-ref">Function phFrameOpMSE(const PHuint64, const PHuint64)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1a8f580776bd2d39717b2a9d7a9d511280.html#exhale-function-ph-core-8cpp-1a8f580776bd2d39717b2a9d7a9d511280"><span class="std std-ref">Function phGetBufferBytes(const PHuint64, const unsigned char **const, size_t *const)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1ac3940b405215b113f7673c5b47b4e5a1.html#exhale-function-ph-core-8cpp-1ac3940b405215b113f7673c5b47b4e5a1"><span class="std std-ref">Function phGetFrameDimension(const PHuint64, PHuint32 *const, PHuint32 *const)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1a064e9d7ebde4469485c559d87bbf965c.html#exhale-function-ph-core-8cpp-1a064e9d7ebde4469485c559d87bbf965c"><span class="std std-ref">Function phGetFrameRgbData(const PHuint64, const PHfloat32 **const)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1a47aecf58688ea7a657c52e13bff4ee36.html#exhale-function-ph-core-8cpp-1a47aecf58688ea7a657c52e13bff4ee36"><span class="std std-ref">Function phGetObservableRenderData(const PHuint64, struct PHObservableRenderData *const)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1ad850be4334198d8ccdb3d19a94b89ebc.html#exhale-function-ph-core-8cpp-1ad850be4334198d8ccdb3d19a94b89ebc"><span class="std std-ref">Function phGetRenderDimension(const PHuint64, PHuint32 *const, PHuint32 *const)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1a6e2e65456331de87508104e30d65ba87.html#exhale-function-ph-core-8cpp-1a6e2e65456331de87508104e30d65ba87"><span class="std std-ref">Function phInit()</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1a03c9a0ff838a7fc7d3f445d2ffd4bb29.html#exhale-function-ph-core-8cpp-1a03c9a0ff838a7fc7d3f445d2ffd4bb29"><span class="std std-ref">Function phLoadCommands(const PHuint64, const PHchar *const)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1ae8d8fb6d98a5ca12a6b98a74beb1f460.html#exhale-function-ph-core-8cpp-1ae8d8fb6d98a5ca12a6b98a74beb1f460"><span class="std std-ref">Function phLoadFrame(PHuint64, const PHchar *const)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1aba7ce2811a98af1f529e45939fbee6a3.html#exhale-function-ph-core-8cpp-1aba7ce2811a98af1f529e45939fbee6a3"><span class="std std-ref">Function phRender(const PHuint64)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1a968fc79b7dd3bf436fb0f9de1c1558e3.html#exhale-function-ph-core-8cpp-1a968fc79b7dd3bf436fb0f9de1c1558e3"><span class="std std-ref">Function phSaveFrame(const PHuint64, const PHchar *const)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1ab46c1ae61a616a2acf66954859202507.html#exhale-function-ph-core-8cpp-1ab46c1ae61a616a2acf66954859202507"><span class="std std-ref">Function phSaveFrameToBuffer(const PHuint64, const PHuint64)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1acd684abe215d974d1e39986117ad8fb2.html#exhale-function-ph-core-8cpp-1acd684abe215d974d1e39986117ad8fb2"><span class="std std-ref">Function phSetNumRenderThreads(const PHuint64, const PHuint32)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1af9c4501bacd8bc79f5abc4674b916918.html#exhale-function-ph-core-8cpp-1af9c4501bacd8bc79f5abc4674b916918"><span class="std std-ref">Function phSetWorkingDirectory(const PHuint64, const PHchar *const)</span></a></p></li>
+<li><p><a class="reference internal" href="function_ph__core_8cpp_1a3a7512510bc9590046f713616ee27069.html#exhale-function-ph-core-8cpp-1a3a7512510bc9590046f713616ee27069"><span class="std std-ref">Function phUpdate(const PHuint64)</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

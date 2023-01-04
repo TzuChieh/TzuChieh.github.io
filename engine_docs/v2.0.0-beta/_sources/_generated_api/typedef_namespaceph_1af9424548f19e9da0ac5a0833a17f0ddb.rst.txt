@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1af9424548f19e9da0ac5a0833a17f0ddb:
+
+Typedef ph::uint8
+=================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::uint8
+   :project: Photon

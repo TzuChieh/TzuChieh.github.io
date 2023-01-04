@@ -1,0 +1,69 @@
+
+.. _file_Source_Common_memory.h:
+
+File memory.h
+=============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Common\memory.h``)
+---------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Common_memory.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Common/math_basics.h``
+
+- ``Common/os.h``
+
+- ``bit``
+
+- ``cstddef``
+
+- ``cstdlib``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Common_memory.cpp`
+
+- :ref:`file_Source_Utility_MemoryArena.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__detail`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structph_1_1detail_1_1_aligned_memory_deleter`
+

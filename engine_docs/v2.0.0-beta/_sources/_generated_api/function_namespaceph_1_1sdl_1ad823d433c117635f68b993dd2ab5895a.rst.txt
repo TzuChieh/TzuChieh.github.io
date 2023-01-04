@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1sdl_1ad823d433c117635f68b993dd2ab5895a:
+
+Function ph::sdl::string_to_category
+====================================
+
+- Defined in :ref:`file_Source_DataIO_SDL_ETypeCategory.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::sdl::string_to_category(const std::string_view)
+   :project: Photon

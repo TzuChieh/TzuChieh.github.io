@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_bf_constant:
+
+Class BfConstant
+================
+
+- Defined in :ref:`file_Source_Core_VolumeBehavior_BlockFunction_BfConstant.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::BlockFunction`` (:ref:`exhale_class_classph_1_1_block_function`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::BfConstant
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

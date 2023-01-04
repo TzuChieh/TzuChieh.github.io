@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_t_sdl_bool:
+
+Template Class TSdlBool
+=======================
+
+- Defined in :ref:`file_Source_DataIO_SDL_Introspect_TSdlBool.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::TSdlValue< bool, Owner >`` (:ref:`exhale_class_classph_1_1_t_sdl_value`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TSdlBool
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

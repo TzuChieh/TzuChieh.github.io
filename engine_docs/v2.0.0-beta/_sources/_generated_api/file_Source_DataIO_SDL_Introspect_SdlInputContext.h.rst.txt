@@ -1,0 +1,83 @@
+
+.. _file_Source_DataIO_SDL_Introspect_SdlInputContext.h:
+
+File SdlInputContext.h
+======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\SDL\Introspect\SdlInputContext.h``)
+---------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_SDL_Introspect_SdlInputContext.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``DataIO/FileSystem/Path.h``
+
+- ``DataIO/SDL/Introspect/SdlIOContext.h``
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_SDLExtension_TSdlSpectrum.h`
+
+- :ref:`file_Source_Actor_SDLExtension_TSdlUnifiedColorImage.h`
+
+- :ref:`file_Source_Actor_SDLExtension_TSdlUnifiedNumericImage.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_field_set_op.ipp`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TOwnedSdlField.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlMethod.ipp`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlNestedField.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlPath.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlRealArray.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlReference.ipp`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlVector3Array.h`
+
+- :ref:`file_Source_DataIO_SDL_SdlParser.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_sdl_input_context`
+

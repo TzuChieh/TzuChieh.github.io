@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_abraded_surface:
+
+Class AbradedSurface
+====================
+
+- Defined in :ref:`file_Source_Actor_Material_AbradedSurface.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::SurfaceMaterial`` (:ref:`exhale_class_classph_1_1_surface_material`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::AbradedSurface
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

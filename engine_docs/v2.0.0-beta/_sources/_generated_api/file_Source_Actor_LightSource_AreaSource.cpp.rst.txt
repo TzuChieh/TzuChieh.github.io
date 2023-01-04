@@ -1,0 +1,74 @@
+
+.. _file_Source_Actor_LightSource_AreaSource.cpp:
+
+File AreaSource.cpp
+===================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\LightSource\AreaSource.cpp``)
+--------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_LightSource_AreaSource.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/ActorCookingContext.h``
+
+- ``Actor/Geometry/PrimitiveBuildingMaterial.h``
+
+- ``Actor/Image/ConstantImage.h``
+
+- ``Actor/LightSource/AreaSource.h``
+
+- ``Actor/LightSource/EmitterBuildingMaterial.h``
+
+- ``Common/assertion.h``
+
+- ``Core/Emitter/DiffuseSurfaceEmitter.h``
+
+- ``Core/Emitter/MultiDiffuseSurfaceEmitter.h``
+
+- ``Core/Intersectable/PrimitiveMetadata.h``
+
+- ``Core/Intersectable/TransformedPrimitive.h``
+
+- ``Core/SurfaceBehavior/SurfaceOptics/LambertianDiffuse.h``
+
+- ``Core/Texture/constant_textures.h``
+
+- ``Math/Color/color_spaces.h``
+
+- ``Math/Transform/RigidTransform.h``
+
+- ``Math/Transform/StaticRigidTransform.h``
+
+- ``Math/constant.h``
+
+- ``iostream``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

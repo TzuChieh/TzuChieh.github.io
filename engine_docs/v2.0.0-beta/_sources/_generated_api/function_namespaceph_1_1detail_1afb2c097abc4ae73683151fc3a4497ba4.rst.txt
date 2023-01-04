@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1detail_1afb2c097abc4ae73683151fc3a4497ba4:
+
+Function ph::detail::on_assertion_failed
+========================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::detail::on_assertion_failed()
+   :project: Photon

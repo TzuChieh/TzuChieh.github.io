@@ -1,0 +1,33 @@
+.. _exhale_class_classph_1_1_iso_trowbridge_reitz:
+
+Class IsoTrowbridgeReitz
+========================
+
+- Defined in :ref:`file_Source_Core_SurfaceBehavior_Property_IsoTrowbridgeReitz.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::Microfacet`` (:ref:`exhale_class_classph_1_1_microfacet`)
+
+
+Derived Types
+*************
+
+- ``public ph::IsoTrowbridgeReitzConstant`` (:ref:`exhale_class_classph_1_1_iso_trowbridge_reitz_constant`)
+- ``public ph::IsoTrowbridgeReitzTextured`` (:ref:`exhale_class_classph_1_1_iso_trowbridge_reitz_textured`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::IsoTrowbridgeReitz
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

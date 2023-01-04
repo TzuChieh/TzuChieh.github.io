@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_samples_n_d_stream:
+
+Class SamplesNDStream
+=====================
+
+- Defined in :ref:`file_Source_Core_SampleGenerator_SamplesNDStream.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::SamplesNDStream
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

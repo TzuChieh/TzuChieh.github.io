@@ -1,0 +1,73 @@
+
+.. _file_Source_Core_Renderer_PM_TRadianceEvaluationWork.h:
+
+File TRadianceEvaluationWork.h
+==============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Renderer\PM\TRadianceEvaluationWork.h``)
+------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Renderer_PM_TRadianceEvaluationWork.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/primitive_type.h``
+
+- ``Core/Filmic/HdrRgbFilm.h``
+
+- ``Core/Renderer/PM/TPhoton.h``
+
+- ``Core/Renderer/PM/TPhotonMap.h``
+
+- ``Core/Renderer/PM/TRadianceEvaluationWork.ipp``
+
+- ``Core/Renderer/PM/TViewpoint.h``
+
+- ``Core/Renderer/RenderWork.h``
+
+- ``Math/Color/Spectrum.h``
+
+- ``Math/math_fwd.h``
+
+- ``type_traits``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Renderer_PM_PPMRadianceEvaluationWork.h`
+
+- :ref:`file_Source_Core_Renderer_PM_TRadianceEvaluationWork.ipp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_t_radiance_evaluation_work`
+

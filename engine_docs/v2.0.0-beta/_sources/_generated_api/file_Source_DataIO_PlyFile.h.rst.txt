@@ -1,0 +1,92 @@
+
+.. _file_Source_DataIO_PlyFile.h:
+
+File PlyFile.h
+==============
+
+
+PLY (Polygon File Format) IO operations. 
+
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\PlyFile.h``)
+----------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_PlyFile.h.rst
+
+
+
+Detailed Description
+--------------------
+
+References: [1] PLY format specification: http://paulbourke.net/dataformats/ply/ 
+
+
+
+
+Includes
+--------
+
+
+- ``Common/primitive_type.h``
+
+- ``DataIO/FileSystem/Path.h``
+
+- ``Math/constant.h``
+
+- ``Utility/SemanticVersion.h``
+
+- ``climits``
+
+- ``cstddef``
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+- ``string_view``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_Geometry_GIndexedTriangleMesh.cpp`
+
+- :ref:`file_Source_DataIO_PlyFile.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structph_1_1_ply_element`
+
+- :ref:`exhale_struct_structph_1_1_ply_i_o_config`
+
+- :ref:`exhale_struct_structph_1_1_ply_property`
+
+- :ref:`exhale_class_classph_1_1_ply_file`
+
+- :ref:`exhale_class_classph_1_1_ply_property_list_values`
+
+- :ref:`exhale_class_classph_1_1_ply_property_values`
+

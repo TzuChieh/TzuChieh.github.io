@@ -1,0 +1,69 @@
+
+.. _file_Source_Actor_Geometry_GTriangleMesh.h:
+
+File GTriangleMesh.h
+====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\Geometry\GTriangleMesh.h``)
+------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_Geometry_GTriangleMesh.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/Geometry/GTriangle.h``
+
+- ``Actor/Geometry/Geometry.h``
+
+- ``DataIO/SDL/sdl_interface.h``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_Geometry_GCuboid.cpp`
+
+- :ref:`file_Source_Actor_Geometry_GRectangle.cpp`
+
+- :ref:`file_Source_Actor_Geometry_GSphere.cpp`
+
+- :ref:`file_Source_Actor_Geometry_GTriangleMesh.cpp`
+
+- :ref:`file_Source_Api_init_and_exit.cpp`
+
+- :ref:`file_Source_Api_ph_cpp_core.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_g_triangle_mesh`
+

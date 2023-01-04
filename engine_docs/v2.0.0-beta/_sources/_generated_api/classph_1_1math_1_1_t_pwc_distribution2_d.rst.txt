@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1math_1_1_t_pwc_distribution2_d:
+
+Template Class TPwcDistribution2D
+=================================
+
+- Defined in :ref:`file_Source_Math_Random_TPwcDistribution2D.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::math::TPwcDistribution2D
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

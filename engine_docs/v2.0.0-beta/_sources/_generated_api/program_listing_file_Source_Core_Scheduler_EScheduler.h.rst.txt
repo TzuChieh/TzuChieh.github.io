@@ -1,0 +1,30 @@
+
+.. _program_listing_file_Source_Core_Scheduler_EScheduler.h:
+
+Program Listing for File EScheduler.h
+=====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Core_Scheduler_EScheduler.h>` (``Source\Core\Scheduler\EScheduler.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   namespace ph
+   {
+   
+   enum class EScheduler
+   {
+       Unspecified = 0,
+   
+       BULK,
+       STRIPE,
+       GRID,
+       TILE,
+       SPIRAL,
+       SPIRAL_GRID
+   };
+   
+   }// end namespace ph

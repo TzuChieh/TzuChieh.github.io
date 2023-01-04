@@ -1,0 +1,54 @@
+
+.. _file_Source_Actor_Material_FullMaterial.cpp:
+
+File FullMaterial.cpp
+=====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\Material\FullMaterial.cpp``)
+-------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_Material_FullMaterial.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/Material/FullMaterial.h``
+
+- ``Actor/Material/SurfaceMaterial.h``
+
+- ``Actor/Material/VolumeMaterial.h``
+
+- ``Common/assertion.h``
+
+- ``Common/logging.h``
+
+- ``Core/Intersectable/PrimitiveMetadata.h``
+
+- ``Core/SurfaceBehavior/SurfaceBehavior.h``
+
+- ``iostream``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

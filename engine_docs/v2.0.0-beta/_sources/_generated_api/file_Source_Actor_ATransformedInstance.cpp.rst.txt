@@ -1,0 +1,72 @@
+
+.. _file_Source_Actor_ATransformedInstance.cpp:
+
+File ATransformedInstance.cpp
+=============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\ATransformedInstance.cpp``)
+------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_ATransformedInstance.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/ATransformedInstance.h``
+
+- ``Actor/ActorCookingContext.h``
+
+- ``Actor/CookedUnit.h``
+
+- ``Actor/Geometry/Geometry.h``
+
+- ``Actor/Geometry/PrimitiveBuildingMaterial.h``
+
+- ``Actor/Material/Material.h``
+
+- ``Actor/ModelBuilder.h``
+
+- ``Actor/MotionSource/MotionSource.h``
+
+- ``Common/assertion.h``
+
+- ``Common/logging.h``
+
+- ``Core/Intersectable/PrimitiveMetadata.h``
+
+- ``Core/Intersectable/TransformedIntersectable.h``
+
+- ``Core/Quantity/Time.h``
+
+- ``Core/SurfaceBehavior/SurfaceBehavior.h``
+
+- ``Math/math.h``
+
+- ``algorithm``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

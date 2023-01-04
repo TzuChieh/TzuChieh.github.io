@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1conversions_1aedf27d781104d866656a212a60d7d444:
+
+Function ph::conversions::alphaToVariance
+=========================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::conversions::alphaToVariance(const real)
+   :project: Photon

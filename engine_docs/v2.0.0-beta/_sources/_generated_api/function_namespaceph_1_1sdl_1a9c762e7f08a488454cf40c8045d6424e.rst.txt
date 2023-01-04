@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1sdl_1a9c762e7f08a488454cf40c8045d6424e:
+
+Function ph::sdl::load_vector3_array
+====================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::sdl::load_vector3_array(const std::string&)
+   :project: Photon

@@ -1,0 +1,50 @@
+
+.. _file_Source_Core_Emitter_OmniModulatedEmitter.cpp:
+
+File OmniModulatedEmitter.cpp
+=============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Emitter\OmniModulatedEmitter.cpp``)
+-------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Emitter_OmniModulatedEmitter.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/Emitter/OmniModulatedEmitter.h``
+
+- ``Core/Emitter/Query/DirectEnergySampleQuery.h``
+
+- ``Core/Intersectable/PrimitiveMetadata.h``
+
+- ``Core/SurfaceHit.h``
+
+- ``Core/Texture/TSampler.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

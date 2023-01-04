@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>File color_spaces.ipp &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">File color_spaces.ipp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/file_Source_Math_Color_color_spaces.ipp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="file-color-spaces-ipp">
+<span id="file-source-math-color-color-spaces-ipp"></span><h1>File color_spaces.ipp<a class="headerlink" href="#file-color-spaces-ipp" title="Permalink to this headline"></a></h1>
+<div class="contents local topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#definition-source-math-color-color-spaces-ipp" id="id1">Definition (<code class="docutils literal notranslate"><span class="pre">Source\Math\Color\color_spaces.ipp</span></code>)</a></p></li>
+<li><p><a class="reference internal" href="#includes" id="id2">Includes</a></p></li>
+<li><p><a class="reference internal" href="#included-by" id="id3">Included By</a></p></li>
+<li><p><a class="reference internal" href="#namespaces" id="id4">Namespaces</a></p></li>
+<li><p><a class="reference internal" href="#classes" id="id5">Classes</a></p></li>
+</ul>
+</div>
+<section id="definition-source-math-color-color-spaces-ipp">
+<h2>Definition (<code class="docutils literal notranslate"><span class="pre">Source\Math\Color\color_spaces.ipp</span></code>)<a class="headerlink" href="#definition-source-math-color-color-spaces-ipp" title="Permalink to this headline"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="program_listing_file_Source_Math_Color_color_spaces.ipp.html">Program Listing for File color_spaces.ipp</a></li>
+</ul>
+</div>
+</section>
+<section id="includes">
+<h2>Includes<a class="headerlink" href="#includes" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Common/assertion.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Math/Color/chromatic_adaptations.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Math/Color/color_spaces.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Math/Color/spectral_samples.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Math/TArithmeticArray.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Math/TMatrix3.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Math/math.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Math/math_exceptions.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Utility/IUninstantiable.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cmath</span></code></p></li>
+</ul>
+</section>
+<section id="included-by">
+<h2>Included By<a class="headerlink" href="#included-by" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="file_Source_Math_Color_color_spaces.h.html#file-source-math-color-color-spaces-h"><span class="std std-ref">File color_spaces.h</span></a></p></li>
+</ul>
+</section>
+<section id="namespaces">
+<h2>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="namespace_ph.html#namespace-ph"><span class="std std-ref">Namespace ph</span></a></p></li>
+<li><p><a class="reference internal" href="namespace_ph__math.html#namespace-ph-math"><span class="std std-ref">Namespace ph::math</span></a></p></li>
+<li><p><a class="reference internal" href="namespace_ph__math__detail.html#namespace-ph-math-detail"><span class="std std-ref">Namespace ph::math::detail</span></a></p></li>
+</ul>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="structph_1_1math_1_1detail_1_1_t_smits_s_p_d_basis.html#exhale-struct-structph-1-1math-1-1detail-1-1-t-smits-s-p-d-basis"><span class="std std-ref">Template Struct TSmitsSPDBasis</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_color_space_definition_3_01_e_color_space_1_1_a_c_e_scg_00_01_t_01_4.html#exhale-class-classph-1-1math-1-1-t-color-space-definition-3-01-e-color-space-1-1-a-c-e-scg-00-01-t-01-4"><span class="std std-ref">Template Class TColorSpaceDefinition&lt; EColorSpace::ACEScg, T &gt;</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_color_space_definition_3_01_e_color_space_1_1_c_i_e__xy_y_00_01_t_01_4.html#exhale-class-classph-1-1math-1-1-t-color-space-definition-3-01-e-color-space-1-1-c-i-e-xy-y-00-01-t-01-4"><span class="std std-ref">Template Class TColorSpaceDefinition&lt; EColorSpace::CIE_xyY, T &gt;</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_color_space_definition_3_01_e_color_space_1_1_c_i_e___x_y_z_00_01_t_01_4.html#exhale-class-classph-1-1math-1-1-t-color-space-definition-3-01-e-color-space-1-1-c-i-e-x-y-z-00-01-t-01-4"><span class="std std-ref">Template Class TColorSpaceDefinition&lt; EColorSpace::CIE_XYZ, T &gt;</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_color_space_definition_3_01_e_color_space_1_1_linear__s_r_g_b_00_01_t_01_4.html#exhale-class-classph-1-1math-1-1-t-color-space-definition-3-01-e-color-space-1-1-linear-s-r-g-b-00-01-t-01-4"><span class="std std-ref">Template Class TColorSpaceDefinition&lt; EColorSpace::Linear_sRGB, T &gt;</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_color_space_definition_3_01_e_color_space_1_1_spectral___smits_00_01_t_01_4.html#exhale-class-classph-1-1math-1-1-t-color-space-definition-3-01-e-color-space-1-1-spectral-smits-00-01-t-01-4"><span class="std std-ref">Template Class TColorSpaceDefinition&lt; EColorSpace::Spectral_Smits, T &gt;</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_color_space_definition_3_01_e_color_space_1_1s_r_g_b_00_01_t_01_4.html#exhale-class-classph-1-1math-1-1-t-color-space-definition-3-01-e-color-space-1-1s-r-g-b-00-01-t-01-4"><span class="std std-ref">Template Class TColorSpaceDefinition&lt; EColorSpace::sRGB, T &gt;</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_color_space_definition_helper.html#exhale-class-classph-1-1math-1-1-t-color-space-definition-helper"><span class="std std-ref">Template Class TColorSpaceDefinitionHelper</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_spectral_color_space_definition_helper.html#exhale-class-classph-1-1math-1-1-t-spectral-color-space-definition-helper"><span class="std std-ref">Template Class TSpectralColorSpaceDefinitionHelper</span></a></p></li>
+<li><p><a class="reference internal" href="classph_1_1math_1_1_t_tristimulus_color_space_definition_helper.html#exhale-class-classph-1-1math-1-1-t-tristimulus-color-space-definition-helper"><span class="std std-ref">Template Class TTristimulusColorSpaceDefinitionHelper</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

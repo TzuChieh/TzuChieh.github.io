@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a088f88ce0c13cb136e0578ba5e45627d:
+
+Template Function ph::regular_access
+====================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::regular_access(T&)
+   :project: Photon

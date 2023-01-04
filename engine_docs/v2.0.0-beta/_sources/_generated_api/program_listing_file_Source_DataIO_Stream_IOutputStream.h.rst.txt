@@ -1,0 +1,45 @@
+
+.. _program_listing_file_Source_DataIO_Stream_IOutputStream.h:
+
+Program Listing for File IOutputStream.h
+========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_DataIO_Stream_IOutputStream.h>` (``Source\DataIO\Stream\IOutputStream.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "DataIO/Stream/IDataStream.h"
+   
+   #include <cstddef>
+   #include <optional>
+   
+   namespace ph
+   {
+   
+   class IOutputStream : public IDataStream
+   {
+   public:
+       virtual void write(std::size_t numBytes, const std::byte* bytes) = 0;
+   
+       virtual void seekPut(std::size_t pos) = 0;
+   
+       virtual std::optional<std::size_t> tellPut() = 0;
+   
+       operator bool () const override = 0;
+   
+       virtual std::size_t writeSome(std::size_t numBytes, const std::byte* bytes);
+   };
+   
+   // In-header Implementations:
+   
+   inline std::size_t IOutputStream::writeSome(const std::size_t numBytes, const std::byte* out_bytes)
+   {
+       write(numBytes, out_bytes);
+       return numBytes;
+   }
+   
+   }// end namespace ph

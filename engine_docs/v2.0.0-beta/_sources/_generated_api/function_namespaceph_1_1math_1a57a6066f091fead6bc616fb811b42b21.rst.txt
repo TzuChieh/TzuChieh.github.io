@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1a57a6066f091fead6bc616fb811b42b21:
+
+Template Function ph::math::transform_color
+===========================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::transform_color(const auto&, EColorUsage)
+   :project: Photon

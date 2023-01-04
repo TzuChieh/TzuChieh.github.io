@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a882d4f58e6302cee015760770172cbff:
+
+Function ph::loadCornellBox
+===========================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::loadCornellBox(VisualWorld *const, const real)
+   :project: Photon

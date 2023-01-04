@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File UnifiedNumericImage.cpp &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File UnifiedNumericImage.cpp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Actor_Image_UnifiedNumericImage.cpp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-unifiednumericimage-cpp">
+<span id="program-listing-file-source-actor-image-unifiednumericimage-cpp"></span><h1>Program Listing for File UnifiedNumericImage.cpp<a class="headerlink" href="#program-listing-for-file-unifiednumericimage-cpp" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Actor_Image_UnifiedNumericImage.cpp.html#file-source-actor-image-unifiednumericimage-cpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Actor\Image\UnifiedNumericImage.cpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Image/UnifiedNumericImage.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/assertion.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/logging.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/TVector2.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/TVector3.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/TVector4.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/actor_exceptions.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Utility/string_utils.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Texture/TSwizzledTexture.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Texture/Function/unary_texture_operators.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Image/ConstantImage.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Texture/constant_textures.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;utility&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;format&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;limits&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;array&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string_view&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;algorithm&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="n">PH_DEFINE_INTERNAL_LOG_GROUP</span><span class="p">(</span><span class="n">UnifiedNumericImage</span><span class="p">,</span><span class="w"> </span><span class="n">Image</span><span class="p">);</span>
+
+<span class="n">UnifiedNumericImage</span><span class="o">::</span><span class="n">UnifiedNumericImage</span><span class="p">()</span><span class="w"> </span><span class="o">:</span>
+
+<span class="w">    </span><span class="n">Image</span><span class="p">(),</span>
+
+<span class="w">    </span><span class="n">m_image</span><span class="w">            </span><span class="p">(</span><span class="k">nullptr</span><span class="p">),</span>
+<span class="w">    </span><span class="n">m_swizzleSubscripts</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">m_constant</span><span class="w">         </span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="p">{}</span>
+
+<span class="k">namespace</span>
+<span class="p">{</span>
+
+<span class="c1">// Char set for different types of swizzle subscripts. Specified in full width, identity ordering.</span>
+<span class="c1">// Note: Currently all chars are unique; if not, the logics in make_char_to_index_table() need to be changed</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="o">&gt;</span><span class="w"> </span><span class="n">SWIZZLE_CHAR_SETS</span><span class="w"> </span><span class="o">=</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Cartesian coordinates</span>
+<span class="w">    </span><span class="s">&quot;xyzw&quot;</span><span class="p">,</span>
+
+<span class="w">    </span><span class="c1">// color</span>
+<span class="w">    </span><span class="s">&quot;rgba&quot;</span><span class="p">,</span>
+
+<span class="w">    </span><span class="c1">// image/texture coordinates</span>
+<span class="w">    </span><span class="s">&quot;stpq&quot;</span><span class="p">,</span>
+
+<span class="w">    </span><span class="c1">// hex-based subscripts for wide vector types</span>
+<span class="w">    </span><span class="s">&quot;0123456789ABCDEF&quot;</span>
+<span class="p">};</span>
+
+<span class="k">using</span><span class="w"> </span><span class="n">SwizzleTableType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">uint8</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">()</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="c1">// A table that maps swizzle subscript to array index</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">SwizzleTableType</span><span class="w"> </span><span class="nf">make_char_to_index_table</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">SwizzleTableType</span><span class="w"> </span><span class="n">table</span><span class="p">;</span>
+<span class="w">    </span><span class="n">table</span><span class="p">.</span><span class="n">fill</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">uint8</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">());</span>
+
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">setIdx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">setIdx</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">SWIZZLE_CHAR_SETS</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">setIdx</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">charSet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SWIZZLE_CHAR_SETS</span><span class="p">[</span><span class="n">setIdx</span><span class="p">];</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">charSet</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">table</span><span class="p">[</span><span class="n">charSet</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">table</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">uint8</span><span class="w"> </span><span class="nf">subscript_to_index</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">ch</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">CHAR_TO_INDEX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make_char_to_index_table</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">CHAR_TO_INDEX</span><span class="p">[</span><span class="n">ch</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="nf">used_swizzle_char_set</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">swizzleSubscripts</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// An empty subscript will always match and return true</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">isSubscriptsInCharSet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">swizzleSubscripts</span><span class="p">](</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">charSet</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">subscriptChar</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">swizzleSubscripts</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">charSet</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">subscriptChar</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="o">::</span><span class="n">npos</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">setIdx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">setIdx</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">SWIZZLE_CHAR_SETS</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">setIdx</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">charSet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SWIZZLE_CHAR_SETS</span><span class="p">[</span><span class="n">setIdx</span><span class="p">];</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">isSubscriptsInCharSet</span><span class="p">(</span><span class="n">charSet</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">setIdx</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Check if the swizzle subscripts do not actually swizzle anything</span>
+<span class="c1">// (empty subscript is also an identity swizzle)</span>
+<span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">is_identity_swizzle</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">swizzleSubscripts</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">charSet</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">setIdx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">used_swizzle_char_set</span><span class="p">(</span><span class="n">swizzleSubscripts</span><span class="p">);</span><span class="w"> </span><span class="n">setIdx</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">SWIZZLE_CHAR_SETS</span><span class="p">.</span><span class="n">size</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">charSet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SWIZZLE_CHAR_SETS</span><span class="p">[</span><span class="n">setIdx</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// If the subscripts is wider than the swizzle char set, it is not identity</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">swizzleSubscripts</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">charSet</span><span class="p">.</span><span class="n">size</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Subscripts must be a prefix of the swizzle char set to be identity</span>
+<span class="w">    </span><span class="n">PH_ASSERT_LE</span><span class="p">(</span><span class="n">swizzleSubscripts</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span><span class="w"> </span><span class="n">charSet</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">equal</span><span class="p">(</span><span class="n">swizzleSubscripts</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">swizzleSubscripts</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">charSet</span><span class="p">.</span><span class="n">begin</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="c1">// Create an index map by mapping input swizzle subscript to array index. If `N` is greater than the number</span>
+<span class="c1">// of subscripts, remaining indices are mapped identically.</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">uint8</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span><span class="w"> </span><span class="n">to_texture_swizzle_map</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">swizzleSubscripts</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">used_swizzle_char_set</span><span class="p">(</span><span class="n">swizzleSubscripts</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">-1</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">ActorCookException</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;Specified swizzle subscripts ({}) is invalid.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">swizzleSubscripts</span><span class="p">.</span><span class="n">size</span><span class="p">()));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Fill identitically first</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">uint8</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span><span class="w"> </span><span class="n">swizzleMap</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">swizzleMap</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">uint8</span><span class="o">&gt;</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">swizzleSubscripts</span><span class="p">.</span><span class="n">size</span><span class="p">());</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">swizzleMap</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">subscript_to_index</span><span class="p">(</span><span class="n">swizzleSubscripts</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+
+<span class="w">        </span><span class="c1">// Should not have mapped any unsupported subscript</span>
+<span class="w">        </span><span class="n">PH_ASSERT_NE</span><span class="p">(</span><span class="n">swizzleMap</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">uint8</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Check if the swizzle map will overflow the array size of numeric texture</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">idxOfInput</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">swizzleMap</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">idxOfInput</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">Image</span><span class="o">::</span><span class="n">ARRAY_SIZE</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="n">ActorCookException</span><span class="p">(</span><span class="s">&quot;Swizzle subscripts overflow input array.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">swizzleMap</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Create a fixed-size index map by mapping input swizzle subscript to array index. Number of subscripts</span>
+<span class="c1">// must be equal to `N`.</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">uint8</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span><span class="w"> </span><span class="n">to_exact_texture_swizzle_map</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">swizzleSubscripts</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">swizzleSubscripts</span><span class="p">.</span><span class="n">size</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">ActorCookException</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;Mismatched number of subscripts ({}) to specified number of components ({}).&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">swizzleSubscripts</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span><span class="w"> </span><span class="n">N</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">to_texture_swizzle_map</span><span class="o">&lt;</span><span class="n">N</span><span class="o">&gt;</span><span class="p">(</span><span class="n">swizzleSubscripts</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end anonymous namespace</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TTexture</span><span class="o">&lt;</span><span class="n">Image</span><span class="o">::</span><span class="n">Array</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">UnifiedNumericImage</span><span class="o">::</span><span class="n">genNumericTexture</span><span class="p">(</span>
+<span class="w">    </span><span class="n">ActorCookingContext</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ctx</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">m_swizzleSubscripts</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">Image</span><span class="o">::</span><span class="n">ARRAY_SIZE</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">ActorCookException</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;Input swizzle subscripts has more elements ({}) than the max number ({}) swizzler can handle.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">m_swizzleSubscripts</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span><span class="w"> </span><span class="n">Image</span><span class="o">::</span><span class="n">ARRAY_SIZE</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">m_image</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">is_identity_swizzle</span><span class="p">(</span><span class="n">m_swizzleSubscripts</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">m_image</span><span class="o">-&gt;</span><span class="n">genNumericTexture</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">swizzleMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">to_texture_swizzle_map</span><span class="o">&lt;</span><span class="n">Image</span><span class="o">::</span><span class="n">ARRAY_SIZE</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_swizzleSubscripts</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">TSwizzledTexture</span><span class="o">&lt;</span><span class="n">Image</span><span class="o">::</span><span class="n">Array</span><span class="p">,</span><span class="w"> </span><span class="n">Image</span><span class="o">::</span><span class="n">Array</span><span class="p">,</span><span class="w"> </span><span class="n">Image</span><span class="o">::</span><span class="n">ARRAY_SIZE</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+<span class="w">                </span><span class="n">m_image</span><span class="o">-&gt;</span><span class="n">genNumericTexture</span><span class="p">(</span><span class="n">ctx</span><span class="p">),</span><span class="w"> </span><span class="n">swizzleMap</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">TConstantTexture</span><span class="o">&lt;</span><span class="n">Image</span><span class="o">::</span><span class="n">Array</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">m_constant</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TTexture</span><span class="o">&lt;</span><span class="n">math</span><span class="o">::</span><span class="n">Spectrum</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">UnifiedNumericImage</span><span class="o">::</span><span class="n">genColorTexture</span><span class="p">(</span>
+<span class="w">    </span><span class="n">ActorCookingContext</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ctx</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">m_swizzleSubscripts</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// As spectrum can be any type from tristimulus to spectral distribution, their number of</span>
+<span class="w">        </span><span class="c1">// components can vary. Swizzling such a type would be inconsistent if the same scene file</span>
+<span class="w">        </span><span class="c1">// is used for different spectrum type configuration.</span>
+<span class="w">        </span><span class="c1">//</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">ActorCookException</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;Swizzling (subscript {}) is forbidden for color texture from unified numeric image.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">m_swizzleSubscripts</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">m_image</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">m_image</span><span class="o">-&gt;</span><span class="n">genColorTexture</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ConstantImage</span><span class="p">(</span>
+<span class="w">            </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_constant</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_constant</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_constant</span><span class="p">[</span><span class="mi">2</span><span class="p">])),</span>
+<span class="w">            </span><span class="n">math</span><span class="o">::</span><span class="n">EColorSpace</span><span class="o">::</span><span class="n">Linear_sRGB</span><span class="p">).</span><span class="n">genColorTexture</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TTexture</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">UnifiedNumericImage</span><span class="o">::</span><span class="n">genRealTexture</span><span class="p">(</span><span class="n">ActorCookingContext</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ctx</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">m_image</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">swizzleMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">to_exact_texture_swizzle_map</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_swizzleSubscripts</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">numericArrayToReal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">mappedIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">swizzleMap</span><span class="p">[</span><span class="mi">0</span><span class="p">]](</span><span class="k">const</span><span class="w"> </span><span class="n">Image</span><span class="o">::</span><span class="n">Array</span><span class="o">&amp;</span><span class="w"> </span><span class="n">inputValue</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">inputValue</span><span class="p">[</span><span class="n">mappedIndex</span><span class="p">]);</span>
+<span class="w">        </span><span class="p">};</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">TUnaryTextureOperator</span><span class="o">&lt;</span><span class="n">Image</span><span class="o">::</span><span class="n">Array</span><span class="p">,</span><span class="w"> </span><span class="n">real</span><span class="p">,</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">numericArrayToReal</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+<span class="w">            </span><span class="n">m_image</span><span class="o">-&gt;</span><span class="n">genNumericTexture</span><span class="p">(</span><span class="n">ctx</span><span class="p">),</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">numericArrayToReal</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">TConstantTexture</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_constant</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TTexture</span><span class="o">&lt;</span><span class="n">math</span><span class="o">::</span><span class="n">Vector2R</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">UnifiedNumericImage</span><span class="o">::</span><span class="n">genVector2RTexture</span><span class="p">(</span><span class="n">ActorCookingContext</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ctx</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">m_image</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">swizzleMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">to_exact_texture_swizzle_map</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_swizzleSubscripts</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">TSwizzledTexture</span><span class="o">&lt;</span><span class="n">Image</span><span class="o">::</span><span class="n">Array</span><span class="p">,</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector2R</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+<span class="w">            </span><span class="n">m_image</span><span class="o">-&gt;</span><span class="n">genNumericTexture</span><span class="p">(</span><span class="n">ctx</span><span class="p">),</span><span class="w"> </span><span class="n">swizzleMap</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">TConstantTexture</span><span class="o">&lt;</span><span class="n">math</span><span class="o">::</span><span class="n">Vector2R</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+<span class="w">            </span><span class="n">math</span><span class="o">::</span><span class="n">Vector2R</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_constant</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_constant</span><span class="p">[</span><span class="mi">1</span><span class="p">])));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TTexture</span><span class="o">&lt;</span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">UnifiedNumericImage</span><span class="o">::</span><span class="n">genVector3RTexture</span><span class="p">(</span><span class="n">ActorCookingContext</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ctx</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">m_image</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">swizzleMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">to_exact_texture_swizzle_map</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_swizzleSubscripts</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">TSwizzledTexture</span><span class="o">&lt;</span><span class="n">Image</span><span class="o">::</span><span class="n">Array</span><span class="p">,</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+<span class="w">            </span><span class="n">m_image</span><span class="o">-&gt;</span><span class="n">genNumericTexture</span><span class="p">(</span><span class="n">ctx</span><span class="p">),</span><span class="w"> </span><span class="n">swizzleMap</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">TConstantTexture</span><span class="o">&lt;</span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+<span class="w">            </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_constant</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_constant</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_constant</span><span class="p">[</span><span class="mi">2</span><span class="p">])));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TTexture</span><span class="o">&lt;</span><span class="n">math</span><span class="o">::</span><span class="n">Vector4R</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">UnifiedNumericImage</span><span class="o">::</span><span class="n">genVector4RTexture</span><span class="p">(</span><span class="n">ActorCookingContext</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ctx</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">m_image</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">swizzleMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">to_exact_texture_swizzle_map</span><span class="o">&lt;</span><span class="mi">4</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_swizzleSubscripts</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">TSwizzledTexture</span><span class="o">&lt;</span><span class="n">Image</span><span class="o">::</span><span class="n">Array</span><span class="p">,</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector4R</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+<span class="w">            </span><span class="n">m_image</span><span class="o">-&gt;</span><span class="n">genNumericTexture</span><span class="p">(</span><span class="n">ctx</span><span class="p">),</span><span class="w"> </span><span class="n">swizzleMap</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">TConstantTexture</span><span class="o">&lt;</span><span class="n">math</span><span class="o">::</span><span class="n">Vector4R</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+<span class="w">            </span><span class="n">math</span><span class="o">::</span><span class="n">Vector4R</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_constant</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_constant</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_constant</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_constant</span><span class="p">[</span><span class="mi">3</span><span class="p">])));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">UnifiedNumericImage</span><span class="o">&amp;</span><span class="w"> </span><span class="n">UnifiedNumericImage</span><span class="o">::</span><span class="n">setImage</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Image</span><span class="o">&gt;</span><span class="w"> </span><span class="n">image</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">image</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">UnifiedNumericImage</span><span class="o">&amp;</span><span class="w"> </span><span class="n">UnifiedNumericImage</span><span class="o">::</span><span class="n">setSwizzleSubscripts</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">swizzleSubscripts</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_swizzleSubscripts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">swizzleSubscripts</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">UnifiedNumericImage</span><span class="o">&amp;</span><span class="w"> </span><span class="n">UnifiedNumericImage</span><span class="o">::</span><span class="n">setConstant</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">float64</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">constantData</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">dataSize</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">constantData</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">dataSize</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">m_constant</span><span class="p">.</span><span class="n">size</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_LOG_WARNING</span><span class="p">(</span><span class="n">UnifiedNumericImage</span><span class="p">,</span>
+<span class="w">            </span><span class="s">&quot;Data loss detected: setting constant with {} elements while the max allowed number is {}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">dataSize</span><span class="p">,</span><span class="w"> </span><span class="n">m_constant</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">m_constant</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="mf">0.0</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="n">m_constant</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span><span class="w"> </span><span class="n">dataSize</span><span class="p">);</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">m_constant</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">constantData</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

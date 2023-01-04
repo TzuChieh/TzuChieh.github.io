@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_sdl_class:
+
+Class SdlClass
+==============
+
+- Defined in :ref:`file_Source_DataIO_SDL_Introspect_SdlClass.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Type
+************
+
+- ``public ph::TOwnerSdlClass< Owner, FieldSet >`` (:ref:`exhale_class_classph_1_1_t_owner_sdl_class`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::SdlClass
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,14 @@
+.. _exhale_define_kdtree__core_8h_1a46200bc8b907feaea9ebb2397d43912d:
+
+Define KDTREE_X_AXIS
+====================
+
+- Defined in :ref:`file_Source_Core_Intersectable_Kdtree_kdtree_core.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: KDTREE_X_AXIS
+   :project: Photon

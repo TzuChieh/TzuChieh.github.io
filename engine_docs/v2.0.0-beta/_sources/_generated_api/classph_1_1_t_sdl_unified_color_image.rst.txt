@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_t_sdl_unified_color_image:
+
+Template Class TSdlUnifiedColorImage
+====================================
+
+- Defined in :ref:`file_Source_Actor_SDLExtension_TSdlUnifiedColorImage.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::TSdlReference< UnifiedColorImage, Owner >`` (:ref:`exhale_class_classph_1_1_t_sdl_reference`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TSdlUnifiedColorImage
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

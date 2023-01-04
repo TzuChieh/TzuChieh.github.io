@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1sdl_1a1cacfe52c1318821af4dfa5d03157421:
+
+Function ph::sdl::load_picture_file
+===================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::sdl::load_picture_file(const Path&)
+   :project: Photon

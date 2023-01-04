@@ -1,0 +1,117 @@
+
+.. _program_listing_file_Source_Utility_Concurrent_TSPSCExecutor.h:
+
+Program Listing for File TSPSCExecutor.h
+========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Utility_Concurrent_TSPSCExecutor.h>` (``Source\Utility\Concurrent\TSPSCExecutor.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Utility/Concurrent/TBlockableAtomicQueue.h"
+   #include "Utility/Concurrent/InitiallyPausedThread.h"
+   #include "Common/primitive_type.h"
+   #include "Utility/TFunction.h"
+   
+   #include <type_traits>
+   #include <thread>
+   #include <utility>
+   #include <atomic>
+   #include <functional>
+   #include <variant>
+   
+   namespace ph
+   {
+   
+   template<typename Work>
+   class TSPSCExecutor final
+   {
+   public:
+       inline TSPSCExecutor()
+           : TSPSCExecutor(nullptr)
+       {}
+   
+       inline explicit TSPSCExecutor(std::function<void(const Work& work)> workProcessor)
+           : m_thread                ()
+           , m_workloadQueue         ()
+           , m_isTerminationRequested()
+           , m_isTerminated          ()
+           , m_producerThreadId      ()
+           , m_workProcessor         (std::move(workProcessor))
+           , m_onConsumerStart       ()
+           , m_onConsumerTerminate   ()
+       {
+           m_thread = InitiallyPausedThread(
+               [this]()
+               {
+                   asyncExecute();
+               });
+       }
+   
+       ~TSPSCExecutor();
+   
+       void setWorkProcessor(std::function<void(const Work& work)> workProcessor);
+       void setOnConsumerStart(std::function<void(void)> onConsumerStart);
+       void setOnConsumerTerminate(std::function<void(void)> onConsumerTerminate);
+   
+       void start();
+   
+       template<typename DeducedWork>
+       void addWork(DeducedWork&& work);
+   
+       void waitAllWorks();
+   
+       void requestTermination();
+   
+       void waitForTermination();
+   
+       std::thread::id getId() const;
+   
+       bool hasStarted() const;
+   
+   private:
+       void asyncExecute();
+   
+       void asyncProcessWorks();
+   
+       bool isConsumerThread() const;
+   
+       bool isProducerThread() const;
+   
+       void terminate();
+   
+   private:
+       // Callable type for internal usages. Warpping with a custom private type so we cannot mix 
+       // it with user types
+       struct CustomCallable
+       {
+           TFunction<void(void), 0> callable;
+       };
+   
+       // Possibly store both user-specified work and custom callables for internal usages
+       using Workload = std::variant<
+           std::monostate,
+           Work,
+           CustomCallable>;
+   
+       // NOTE: moodycamel has faster SPSC queue, consider using it
+   
+       InitiallyPausedThread                 m_thread;
+       TBlockableAtomicQueue<Workload>       m_workloadQueue;
+       std::atomic_flag                      m_isTerminationRequested;
+       std::atomic_flag                      m_isTerminated;
+       std::thread::id                       m_producerThreadId;
+   
+       // Worker-thread only fields
+       std::function<void(const Work& work)> m_workProcessor;
+       std::function<void(void)>             m_onConsumerStart;
+       std::function<void(void)>             m_onConsumerTerminate;
+   };
+   
+   }// end namespace ph
+   
+   #include "Utility/Concurrent/TSPSCExecutor.ipp"

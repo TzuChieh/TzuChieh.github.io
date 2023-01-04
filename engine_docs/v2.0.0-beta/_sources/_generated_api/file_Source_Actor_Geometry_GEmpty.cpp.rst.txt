@@ -1,0 +1,44 @@
+
+.. _file_Source_Actor_Geometry_GEmpty.cpp:
+
+File GEmpty.cpp
+===============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\Geometry\GEmpty.cpp``)
+-------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_Geometry_GEmpty.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/Geometry/GEmpty.h``
+
+- ``Actor/Geometry/PrimitiveBuildingMaterial.h``
+
+- ``Core/Intersectable/PEmpty.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

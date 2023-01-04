@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File IndexedVertexBuffer.cpp &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File IndexedVertexBuffer.cpp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Core_Intersectable_DataStructure_IndexedVertexBuffer.cpp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-indexedvertexbuffer-cpp">
+<span id="program-listing-file-source-core-intersectable-datastructure-indexedvertexbuffer-cpp"></span><h1>Program Listing for File IndexedVertexBuffer.cpp<a class="headerlink" href="#program-listing-for-file-indexedvertexbuffer-cpp" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Core_Intersectable_DataStructure_IndexedVertexBuffer.cpp.html#file-source-core-intersectable-datastructure-indexedvertexbuffer-cpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Core\Intersectable\DataStructure\IndexedVertexBuffer.cpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Intersectable/DataStructure/IndexedVertexBuffer.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/logging.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/math.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/Geometry/geometry.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/TVector2.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Utility/exception.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstring&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="n">PH_DEFINE_INTERNAL_LOG_GROUP</span><span class="p">(</span><span class="n">IndexedVertexBuffer</span><span class="p">,</span><span class="w"> </span><span class="n">Core</span><span class="p">);</span>
+
+
+<span class="n">IndexedVertexBuffer</span><span class="o">::</span><span class="n">Entry</span><span class="o">::</span><span class="n">Entry</span><span class="p">()</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">u_strideOffset</span><span class="p">(</span><span class="n">INVALID_STRIDE_VALUE</span><span class="p">)</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">strideSize</span><span class="p">(</span><span class="n">INVALID_STRIDE_VALUE</span><span class="p">)</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">element</span><span class="p">(</span><span class="n">EVertexElement</span><span class="o">::</span><span class="n">Float32</span><span class="p">)</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">numElements</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">shouldNormalize</span><span class="p">(</span><span class="nb">false</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">isEmpty</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="n">IndexedVertexBuffer</span><span class="o">::</span><span class="n">AttributeDeclaration</span><span class="o">::</span><span class="n">AttributeDeclaration</span><span class="p">()</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">strideOffset</span><span class="p">(</span><span class="n">Entry</span><span class="o">::</span><span class="n">INVALID_STRIDE_VALUE</span><span class="p">)</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">strideSize</span><span class="p">(</span><span class="n">Entry</span><span class="o">::</span><span class="n">INVALID_STRIDE_VALUE</span><span class="p">)</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">element</span><span class="p">(</span><span class="n">EVertexElement</span><span class="o">::</span><span class="n">Float32</span><span class="p">)</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">numElements</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">shouldNormalize</span><span class="p">(</span><span class="nb">false</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">isEmpty</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="n">IndexedVertexBuffer</span><span class="o">::</span><span class="n">IndexedVertexBuffer</span><span class="p">()</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">m_attributeTypeToEntryIndex</span><span class="p">()</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">m_entries</span><span class="p">()</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">m_numEntries</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">m_byteBuffer</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">m_byteBufferSize</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">m_vertexSize</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="o">!</span><span class="n">isAllocated</span><span class="p">());</span>
+
+<span class="w">    </span><span class="n">m_attributeTypeToEntryIndex</span><span class="p">.</span><span class="n">fill</span><span class="p">(</span><span class="n">MAX_ENTRIES</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">IndexedVertexBuffer</span><span class="o">::</span><span class="n">declareAttribute</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">EVertexAttribute</span><span class="w"> </span><span class="n">attribute</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">EVertexElement</span><span class="w">   </span><span class="n">element</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w">      </span><span class="n">numElements</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w">             </span><span class="n">shouldNormalize</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">declareAttribute</span><span class="p">(</span>
+<span class="w">        </span><span class="n">attribute</span><span class="p">,</span>
+<span class="w">        </span><span class="n">element</span><span class="p">,</span>
+<span class="w">        </span><span class="n">numElements</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Entry</span><span class="o">::</span><span class="n">INVALID_STRIDE_VALUE</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Entry</span><span class="o">::</span><span class="n">INVALID_STRIDE_VALUE</span><span class="p">,</span>
+<span class="w">        </span><span class="n">shouldNormalize</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">IndexedVertexBuffer</span><span class="o">::</span><span class="n">declareAttribute</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">EVertexAttribute</span><span class="w"> </span><span class="n">attribute</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">EVertexElement</span><span class="w"> </span><span class="n">element</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">numElements</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">strideOffset</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">strideSize</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">shouldNormalize</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">attribute</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">EVertexAttribute</span><span class="o">::</span><span class="n">SIZE</span><span class="w"> </span><span class="o">||</span>
+<span class="w">       </span><span class="n">element</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">EVertexElement</span><span class="o">::</span><span class="n">SIZE</span><span class="w"> </span><span class="o">||</span>
+<span class="w">       </span><span class="n">numElements</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">throw_formatted</span><span class="o">&lt;</span><span class="n">InvalidArgumentException</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;invalid input parameter detected: attribute = {}, element = {}, numElements = {}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">enum_to_value</span><span class="p">(</span><span class="n">attribute</span><span class="p">),</span><span class="w"> </span><span class="n">enum_to_value</span><span class="p">(</span><span class="n">element</span><span class="p">),</span><span class="w"> </span><span class="n">numElements</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">m_attributeTypeToEntryIndex</span><span class="p">[</span><span class="n">enum_to_value</span><span class="p">(</span><span class="n">attribute</span><span class="p">)]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">MAX_ENTRIES</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">throw_formatted</span><span class="o">&lt;</span><span class="n">InvalidArgumentException</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;redeclaring existing vertex attribute {}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">enum_to_value</span><span class="p">(</span><span class="n">attribute</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">entryIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_numEntries</span><span class="p">;</span>
+<span class="w">    </span><span class="n">PH_ASSERT_LT</span><span class="p">(</span><span class="n">entryIndex</span><span class="p">,</span><span class="w"> </span><span class="n">m_entries</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+
+<span class="w">    </span><span class="c1">// Start filling new entry information</span>
+
+<span class="w">    </span><span class="n">Entry</span><span class="w"> </span><span class="n">inputEntry</span><span class="p">;</span>
+<span class="w">    </span><span class="n">inputEntry</span><span class="p">.</span><span class="n">element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">element</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">numElements</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">element</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EVertexElement</span><span class="o">::</span><span class="n">OctahedralUnitVec3_32</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EVertexElement</span><span class="o">::</span><span class="n">OctahedralUnitVec3_24</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">numElements</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">numElements</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">IndexedVertexBuffer</span><span class="p">,</span>
+<span class="w">                    </span><span class="s">&quot;Octahedral unit vector is defined to have 3 elements. The specified number ({}) is ignored.&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">numElements</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="n">inputEntry</span><span class="p">.</span><span class="n">numElements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">inputEntry</span><span class="p">.</span><span class="n">numElements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lossless_integer_cast</span><span class="o">&lt;</span><span class="n">uint8</span><span class="o">&gt;</span><span class="p">(</span><span class="n">numElements</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">InvalidArgumentException</span><span class="p">(</span><span class="s">&quot;Cannot handle more than 3 elements in a single attribute.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">inputEntry</span><span class="p">.</span><span class="n">shouldNormalize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shouldNormalize</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="n">inputEntry</span><span class="p">.</span><span class="n">u_strideOffset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strideOffset</span><span class="p">;</span>
+<span class="w">    </span><span class="n">inputEntry</span><span class="p">.</span><span class="n">strideSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strideSize</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Writing new entry information</span>
+<span class="w">    </span><span class="c1">//</span>
+<span class="w">    </span><span class="c1">// Note: Some info such as vertex size are not set here since user may still declare new</span>
+<span class="w">    </span><span class="c1">// entries. They are set in `allocate()` instead when those info can be determined.</span>
+
+<span class="w">    </span><span class="n">m_entries</span><span class="p">[</span><span class="n">entryIndex</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inputEntry</span><span class="p">;</span>
+<span class="w">    </span><span class="n">m_attributeTypeToEntryIndex</span><span class="p">[</span><span class="n">enum_to_value</span><span class="p">(</span><span class="n">attribute</span><span class="p">)]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entryIndex</span><span class="p">;</span>
+<span class="w">    </span><span class="o">++</span><span class="n">m_numEntries</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">IndexedVertexBuffer</span><span class="o">::</span><span class="n">allocate</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">numVertices</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">ensureConsistentVertexLayout</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// Calculate vertex size (sum of size of each attribute) and byte offset for each attribute</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">,</span><span class="w"> </span><span class="n">MAX_ENTRIES</span><span class="o">&gt;</span><span class="w"> </span><span class="n">aosByteOffsetInVertex</span><span class="p">{};</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">currentVertexSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">entryIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">entryIndex</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m_numEntries</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">entryIndex</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Entry</span><span class="o">&amp;</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_entries</span><span class="p">[</span><span class="n">entryIndex</span><span class="p">];</span>
+<span class="w">        </span><span class="n">aosByteOffsetInVertex</span><span class="p">[</span><span class="n">entryIndex</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currentVertexSize</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">switch</span><span class="p">(</span><span class="n">entry</span><span class="p">.</span><span class="n">element</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">EVertexElement</span><span class="o">::</span><span class="no">Float32</span><span class="p">:</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">EVertexElement</span><span class="o">::</span><span class="no">Int32</span><span class="p">:</span>
+<span class="w">            </span><span class="n">currentVertexSize</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">numElements</span><span class="p">;</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">EVertexElement</span><span class="o">::</span><span class="no">Float16</span><span class="p">:</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">EVertexElement</span><span class="o">::</span><span class="no">Int16</span><span class="p">:</span>
+<span class="w">            </span><span class="n">currentVertexSize</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">numElements</span><span class="p">;</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">EVertexElement</span><span class="o">::</span><span class="no">OctahedralUnitVec3_32</span><span class="p">:</span>
+<span class="w">            </span><span class="n">currentVertexSize</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">EVertexElement</span><span class="o">::</span><span class="no">OctahedralUnitVec3_24</span><span class="p">:</span>
+<span class="w">            </span><span class="n">currentVertexSize</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">default</span><span class="o">:</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="n">InvalidArgumentException</span><span class="p">(</span><span class="s">&quot;Cannot allocate storage for invalid vertex element type.&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">m_vertexSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lossless_integer_cast</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">m_vertexSize</span><span class="p">)</span><span class="o">&gt;</span><span class="p">(</span><span class="n">currentVertexSize</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Allocate storage for the entries</span>
+
+<span class="w">    </span><span class="c1">// Possibly clear existing buffer first to reduce memory usage</span>
+<span class="w">    </span><span class="n">m_byteBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// TODO: aligned byte buffer</span>
+<span class="w">    </span><span class="n">m_byteBufferSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numVertices</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m_vertexSize</span><span class="p">;</span>
+<span class="w">    </span><span class="n">m_byteBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">byte</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_byteBufferSize</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Set buffer offset information for each entry</span>
+
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">entryIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">entryIndex</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m_numEntries</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">entryIndex</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Entry</span><span class="o">&amp;</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_entries</span><span class="p">[</span><span class="n">entryIndex</span><span class="p">];</span>
+
+<span class="w">        </span><span class="c1">// Use AoS if no existing stride size is provided</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">entry</span><span class="p">.</span><span class="n">hasStrideInfo</span><span class="p">())</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">entry</span><span class="p">.</span><span class="n">u_attributeBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_byteBuffer</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">aosByteOffsetInVertex</span><span class="p">[</span><span class="n">entryIndex</span><span class="p">];</span>
+<span class="w">            </span><span class="n">entry</span><span class="p">.</span><span class="n">strideSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_vertexSize</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="c1">// Use custom vertex layout</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">entry</span><span class="p">.</span><span class="n">u_attributeBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_byteBuffer</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">u_strideOffset</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">m_byteBufferSize</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_LOG_WARNING</span><span class="p">(</span><span class="n">IndexedVertexBuffer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Allocated buffer with 0 size.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="n">IndexedVertexBuffer</span><span class="o">::</span><span class="n">getAttribute</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">EVertexAttribute</span><span class="w"> </span><span class="n">attribute</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">isAllocated</span><span class="p">());</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">hasEntry</span><span class="p">(</span><span class="n">attribute</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Entry</span><span class="o">&amp;</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getEntry</span><span class="p">(</span><span class="n">attribute</span><span class="p">);</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="o">!</span><span class="n">entry</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">());</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">byte</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">bufferPtr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">u_attributeBuffer</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">strideSize</span><span class="p">;</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">bufferPtr</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="nf">value</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">entry</span><span class="p">.</span><span class="n">element</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">EVertexElement</span><span class="o">::</span><span class="no">Float32</span><span class="p">:</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">ei</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">ei</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">numElements</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">ei</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">float32</span><span class="w"> </span><span class="n">element</span><span class="p">;</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">memcpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">element</span><span class="p">,</span><span class="w"> </span><span class="n">bufferPtr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ei</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+<span class="w">            </span><span class="n">value</span><span class="p">[</span><span class="n">ei</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">element</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">EVertexElement</span><span class="o">::</span><span class="no">Float16</span><span class="p">:</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">ei</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">ei</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">numElements</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">ei</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">uint16</span><span class="w"> </span><span class="n">fp16Bits</span><span class="p">;</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">memcpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">fp16Bits</span><span class="p">,</span><span class="w"> </span><span class="n">bufferPtr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ei</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">            </span><span class="n">value</span><span class="p">[</span><span class="n">ei</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">fp16_bits_to_fp32</span><span class="p">(</span><span class="n">fp16Bits</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">EVertexElement</span><span class="o">::</span><span class="no">Int32</span><span class="p">:</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">ei</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">ei</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">numElements</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">ei</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">int32</span><span class="w"> </span><span class="n">element</span><span class="p">;</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">memcpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">element</span><span class="p">,</span><span class="w"> </span><span class="n">bufferPtr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ei</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+
+<span class="w">            </span><span class="n">value</span><span class="p">[</span><span class="n">ei</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">shouldNormalize</span>
+<span class="w">                </span><span class="o">?</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">normalize_integer</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+<span class="w">                </span><span class="o">:</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">element</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">EVertexElement</span><span class="o">::</span><span class="no">Int16</span><span class="p">:</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">ei</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">ei</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">numElements</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">ei</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">int16</span><span class="w"> </span><span class="n">element</span><span class="p">;</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">memcpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">element</span><span class="p">,</span><span class="w"> </span><span class="n">bufferPtr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ei</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+
+<span class="w">            </span><span class="n">value</span><span class="p">[</span><span class="n">ei</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">shouldNormalize</span>
+<span class="w">                </span><span class="o">?</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">normalize_integer</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+<span class="w">                </span><span class="o">:</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">element</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">EVertexElement</span><span class="o">::</span><span class="no">OctahedralUnitVec3_32</span><span class="p">:</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">math</span><span class="o">::</span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">uint16</span><span class="o">&gt;</span><span class="w"> </span><span class="n">encodedBits</span><span class="p">;</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">memcpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">encodedBits</span><span class="p">.</span><span class="n">x</span><span class="p">(),</span><span class="w"> </span><span class="n">bufferPtr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">memcpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">encodedBits</span><span class="p">.</span><span class="n">y</span><span class="p">(),</span><span class="w"> </span><span class="n">bufferPtr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector2R</span><span class="w"> </span><span class="nf">encodedVal</span><span class="p">(</span>
+<span class="w">                </span><span class="n">math</span><span class="o">::</span><span class="n">normalize_integer</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">encodedBits</span><span class="p">.</span><span class="n">x</span><span class="p">()),</span>
+<span class="w">                </span><span class="n">math</span><span class="o">::</span><span class="n">normalize_integer</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">encodedBits</span><span class="p">.</span><span class="n">y</span><span class="p">()));</span>
+
+<span class="w">            </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">octahedron_unit_vector_decode</span><span class="p">(</span><span class="n">encodedVal</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">EVertexElement</span><span class="o">::</span><span class="no">OctahedralUnitVec3_24</span><span class="p">:</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Read 3 bytes (we use only the first 3 bytes of the uint32)</span>
+<span class="w">            </span><span class="n">uint32</span><span class="w"> </span><span class="n">packedBits</span><span class="p">;</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">memcpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">packedBits</span><span class="p">,</span><span class="w"> </span><span class="n">bufferPtr</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">uint32</span><span class="o">&gt;</span><span class="w"> </span><span class="n">encodedBits</span><span class="p">(</span>
+<span class="w">                </span><span class="p">(</span><span class="n">packedBits</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x00000FFF</span><span class="p">),</span>
+<span class="w">                </span><span class="p">(</span><span class="n">packedBits</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x00FFF000</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">12</span><span class="p">);</span>
+
+<span class="w">            </span><span class="n">PH_ASSERT_LE</span><span class="p">(</span><span class="n">encodedBits</span><span class="p">.</span><span class="n">x</span><span class="p">(),</span><span class="w"> </span><span class="mi">4096</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">            </span><span class="n">PH_ASSERT_LE</span><span class="p">(</span><span class="n">encodedBits</span><span class="p">.</span><span class="n">y</span><span class="p">(),</span><span class="w"> </span><span class="mi">4096</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector2R</span><span class="w"> </span><span class="n">encodedVal</span><span class="p">(</span>
+<span class="w">                </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">encodedBits</span><span class="p">.</span><span class="n">x</span><span class="p">())</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">4095.0</span><span class="n">_r</span><span class="p">,</span>
+<span class="w">                </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">encodedBits</span><span class="p">.</span><span class="n">y</span><span class="p">())</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">4095.0</span><span class="n">_r</span><span class="p">);</span>
+
+<span class="w">            </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">octahedron_unit_vector_decode</span><span class="p">(</span><span class="n">encodedVal</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">        </span><span class="n">PH_ASSERT_UNREACHABLE_SECTION</span><span class="p">();</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">IndexedVertexBuffer</span><span class="o">::</span><span class="n">setAttribute</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">EVertexAttribute</span><span class="w"> </span><span class="n">attribute</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w">      </span><span class="n">index</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&amp;</span><span class="w">  </span><span class="n">value</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">isAllocated</span><span class="p">());</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">hasEntry</span><span class="p">(</span><span class="n">attribute</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">throw_formatted</span><span class="o">&lt;</span><span class="n">InvalidArgumentException</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;Setting value to an empty vertex atrribute {}.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">enum_to_value</span><span class="p">(</span><span class="n">attribute</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Entry</span><span class="o">&amp;</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getEntry</span><span class="p">(</span><span class="n">attribute</span><span class="p">);</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="o">!</span><span class="n">entry</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">());</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">byte</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">bufferPtr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">u_attributeBuffer</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">strideSize</span><span class="p">;</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">bufferPtr</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">entry</span><span class="p">.</span><span class="n">element</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">EVertexElement</span><span class="o">::</span><span class="no">Float32</span><span class="p">:</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">ei</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">ei</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">numElements</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">ei</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">float32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="n">ei</span><span class="p">]);</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">memcpy</span><span class="p">(</span><span class="n">bufferPtr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ei</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">element</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">EVertexElement</span><span class="o">::</span><span class="no">Float16</span><span class="p">:</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">ei</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">ei</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">numElements</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">ei</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">uint16</span><span class="w"> </span><span class="n">fp16Bits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">fp32_to_fp16_bits</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">float32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="n">ei</span><span class="p">]));</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">memcpy</span><span class="p">(</span><span class="n">bufferPtr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ei</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">fp16Bits</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">EVertexElement</span><span class="o">::</span><span class="no">Int32</span><span class="p">:</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">ei</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">ei</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">numElements</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">ei</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">entry</span><span class="p">.</span><span class="n">shouldNormalize</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="n">ei</span><span class="p">])</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">1.0</span><span class="n">_r</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="n">InvalidArgumentException</span><span class="p">(</span><span class="s">&quot;Cannot set un-normalized value to a normalized entry.&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">shouldNormalize</span>
+<span class="w">                </span><span class="o">?</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">quantize_normalized_float</span><span class="o">&lt;</span><span class="n">int32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="n">ei</span><span class="p">])</span>
+<span class="w">                </span><span class="o">:</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">int32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">round</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="n">ei</span><span class="p">]));</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">memcpy</span><span class="p">(</span><span class="n">bufferPtr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ei</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">element</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">EVertexElement</span><span class="o">::</span><span class="no">Int16</span><span class="p">:</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">ei</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">ei</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">numElements</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">ei</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">entry</span><span class="p">.</span><span class="n">shouldNormalize</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="n">ei</span><span class="p">])</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">1.0</span><span class="n">_r</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">throw</span><span class="w"> </span><span class="n">InvalidArgumentException</span><span class="p">(</span><span class="s">&quot;Cannot set un-normalized value to a normalized entry.&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">shouldNormalize</span>
+<span class="w">                </span><span class="o">?</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">quantize_normalized_float</span><span class="o">&lt;</span><span class="n">int16</span><span class="o">&gt;</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="n">ei</span><span class="p">])</span>
+<span class="w">                </span><span class="o">:</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">int16</span><span class="o">&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">round</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="n">ei</span><span class="p">]));</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">memcpy</span><span class="p">(</span><span class="n">bufferPtr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ei</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">element</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">EVertexElement</span><span class="o">::</span><span class="no">OctahedralUnitVec3_32</span><span class="p">:</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector2R</span><span class="w"> </span><span class="n">encodedVal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">octahedron_unit_vector_encode</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">uint16</span><span class="o">&gt;</span><span class="w"> </span><span class="n">encodedBits</span><span class="p">(</span>
+<span class="w">                </span><span class="n">math</span><span class="o">::</span><span class="n">quantize_normalized_float</span><span class="o">&lt;</span><span class="n">uint16</span><span class="o">&gt;</span><span class="p">(</span><span class="n">encodedVal</span><span class="p">.</span><span class="n">x</span><span class="p">()),</span>
+<span class="w">                </span><span class="n">math</span><span class="o">::</span><span class="n">quantize_normalized_float</span><span class="o">&lt;</span><span class="n">uint16</span><span class="o">&gt;</span><span class="p">(</span><span class="n">encodedVal</span><span class="p">.</span><span class="n">y</span><span class="p">()));</span>
+
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">memcpy</span><span class="p">(</span><span class="n">bufferPtr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">encodedBits</span><span class="p">.</span><span class="n">x</span><span class="p">(),</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">memcpy</span><span class="p">(</span><span class="n">bufferPtr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">encodedBits</span><span class="p">.</span><span class="n">y</span><span class="p">(),</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">EVertexElement</span><span class="o">::</span><span class="no">OctahedralUnitVec3_24</span><span class="p">:</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector2R</span><span class="w"> </span><span class="n">encodedVal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">octahedron_unit_vector_encode</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">TVector2</span><span class="o">&lt;</span><span class="n">uint32</span><span class="o">&gt;</span><span class="w"> </span><span class="n">encodedBits</span><span class="p">(</span>
+<span class="w">                </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">uint32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">round</span><span class="p">(</span><span class="n">encodedVal</span><span class="p">.</span><span class="n">x</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">4095.0</span><span class="n">_r</span><span class="p">)),</span>
+<span class="w">                </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">uint32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">round</span><span class="p">(</span><span class="n">encodedVal</span><span class="p">.</span><span class="n">y</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">4095.0</span><span class="n">_r</span><span class="p">)));</span>
+
+<span class="w">            </span><span class="n">PH_ASSERT_LE</span><span class="p">(</span><span class="n">encodedBits</span><span class="p">.</span><span class="n">x</span><span class="p">(),</span><span class="w"> </span><span class="mi">4096</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">            </span><span class="n">PH_ASSERT_LE</span><span class="p">(</span><span class="n">encodedBits</span><span class="p">.</span><span class="n">y</span><span class="p">(),</span><span class="w"> </span><span class="mi">4096</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">            </span><span class="c1">// Write 3 bytes (we use only the first 3 bytes of the uint32)</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">uint32</span><span class="w"> </span><span class="n">packedBits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">encodedBits</span><span class="p">.</span><span class="n">x</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x00000FFF</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">((</span><span class="n">encodedBits</span><span class="p">.</span><span class="n">y</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x00000FFF</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">12</span><span class="p">);</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">memcpy</span><span class="p">(</span><span class="n">bufferPtr</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">packedBits</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">        </span><span class="n">PH_ASSERT_UNREACHABLE_SECTION</span><span class="p">();</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">IndexedVertexBuffer</span><span class="o">::</span><span class="n">setVertices</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">byte</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">srcBytes</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">numBytes</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">dstOffset</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">srcBytes</span><span class="p">);</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">isAllocated</span><span class="p">());</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">dstOffset</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numBytes</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">m_byteBufferSize</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">throw_formatted</span><span class="o">&lt;</span><span class="n">InvalidArgumentException</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;Copying {} bytes will overflow the vertex buffer (buffer-size: {} bytes, buffer-offset: {}).&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">numBytes</span><span class="p">,</span><span class="w"> </span><span class="n">numBytes</span><span class="p">,</span><span class="w"> </span><span class="n">dstOffset</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">memcpy</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">m_byteBuffer</span><span class="p">[</span><span class="n">dstOffset</span><span class="p">]),</span><span class="w"> </span><span class="n">srcBytes</span><span class="p">,</span><span class="w"> </span><span class="n">numBytes</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">auto</span><span class="w"> </span><span class="n">IndexedVertexBuffer</span><span class="o">::</span><span class="n">getAttributeDeclaration</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">EVertexAttribute</span><span class="w"> </span><span class="n">attribute</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="o">-&gt;</span><span class="w"> </span><span class="n">AttributeDeclaration</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Can only be called after allocation</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">isAllocated</span><span class="p">());</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">hasEntry</span><span class="p">(</span><span class="n">attribute</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">AttributeDeclaration</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Entry</span><span class="o">&amp;</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getEntry</span><span class="p">(</span><span class="n">attribute</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">AttributeDeclaration</span><span class="w"> </span><span class="n">declaration</span><span class="p">;</span>
+<span class="w">    </span><span class="n">declaration</span><span class="p">.</span><span class="n">strideOffset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lossless_integer_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">entry</span><span class="p">.</span><span class="n">u_attributeBuffer</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">m_byteBuffer</span><span class="p">.</span><span class="n">get</span><span class="p">());</span>
+<span class="w">    </span><span class="n">declaration</span><span class="p">.</span><span class="n">strideSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">strideSize</span><span class="p">;</span>
+<span class="w">    </span><span class="n">declaration</span><span class="p">.</span><span class="n">element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">element</span><span class="p">;</span>
+<span class="w">    </span><span class="n">declaration</span><span class="p">.</span><span class="n">numElements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">numElements</span><span class="p">;</span>
+<span class="w">    </span><span class="n">declaration</span><span class="p">.</span><span class="n">shouldNormalize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">shouldNormalize</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">declaration</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">IndexedVertexBuffer</span><span class="o">::</span><span class="n">ensureConsistentVertexLayout</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">m_numEntries</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">shouldHaveStrideInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_entries</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">hasStrideInfo</span><span class="p">();</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">entryIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">entryIndex</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m_numEntries</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">entryIndex</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">m_entries</span><span class="p">[</span><span class="n">entryIndex</span><span class="p">].</span><span class="n">hasStrideInfo</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">shouldHaveStrideInfo</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="n">InvalidArgumentException</span><span class="p">(</span>
+<span class="w">                </span><span class="s">&quot;Inconsistent stride info detected. Attributes must all use automatic stride &quot;</span>
+<span class="w">                </span><span class="s">&quot;size/offset (AoS) or all with custom stride size/offset.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

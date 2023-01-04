@@ -1,0 +1,83 @@
+
+.. _program_listing_file_Source_Actor_ActorCookingContext.h:
+
+Program Listing for File ActorCookingContext.h
+==============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Actor_ActorCookingContext.h>` (``Source\Actor\ActorCookingContext.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Actor/Actor.h"
+   #include "Utility/IMoveOnly.h"
+   #include "Actor/CookedUnit.h"
+   #include "Common/assertion.h"
+   #include "Core/Intersectable/Primitive.h"
+   
+   #include <vector>
+   #include <memory>
+   #include <unordered_map>
+   #include <string>
+   #include <utility>
+   
+   namespace ph
+   {
+   
+   class VisualWorldInfo;
+   
+   class ActorCookingContext final : private IMoveOnly
+   {
+       friend class VisualWorld;
+   
+   public:
+       ActorCookingContext();
+   
+       // TODO: we can assign child actors special attributes such as
+       // deferred cooking, which opens the possibility of calculating
+       // full scene bound before cooking (or their parent actor)
+       void addChildActor(std::unique_ptr<Actor> actor);
+   
+       void addPhantom(const std::string& name, CookedUnit phantom);
+       const CookedUnit* getPhantom(const std::string& name) const;
+   
+       std::vector<std::unique_ptr<Actor>> claimChildActors();
+   
+       const VisualWorldInfo* getVisualWorldInfo() const;
+       void setBackgroundPrimitive(std::unique_ptr<Primitive> primitive);
+       std::unique_ptr<Primitive> claimBackgroundPrimitive();
+   
+   protected:
+       void setVisualWorldInfo(const VisualWorldInfo* info);
+   
+   private:
+       std::vector<std::unique_ptr<Actor>>         m_childActors;
+       std::unordered_map<std::string, CookedUnit> m_phantoms;
+       const VisualWorldInfo*                      m_visualWorldInfo;
+       std::unique_ptr<Primitive>                  m_backgroundPrimitive;
+   };
+   
+   // In-header Implementations:
+   
+   inline const VisualWorldInfo* ActorCookingContext::getVisualWorldInfo() const
+   {
+       return m_visualWorldInfo;
+   }
+   
+   inline void ActorCookingContext::setBackgroundPrimitive(std::unique_ptr<Primitive> primitive)
+   {
+       PH_ASSERT_MSG(!m_backgroundPrimitive, 
+           "Cannot overwrite existing background primitive");
+   
+       m_backgroundPrimitive = std::move(primitive);
+   }
+   
+   inline std::unique_ptr<Primitive> ActorCookingContext::claimBackgroundPrimitive()
+   {
+       return std::move(m_backgroundPrimitive);
+   }
+   
+   }// end namespace ph

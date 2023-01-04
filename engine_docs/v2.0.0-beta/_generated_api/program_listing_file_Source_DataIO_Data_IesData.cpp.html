@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File IesData.cpp &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File IesData.cpp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_DataIO_Data_IesData.cpp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-iesdata-cpp">
+<span id="program-listing-file-source-dataio-data-iesdata-cpp"></span><h1>Program Listing for File IesData.cpp<a class="headerlink" href="#program-listing-for-file-iesdata-cpp" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_DataIO_Data_IesData.cpp.html#file-source-dataio-data-iesdata-cpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\DataIO\Data\IesData.cpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;DataIO/Data/IesData.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/math.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/constant.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/logging.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;algorithm&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;limits&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="n">PH_DEFINE_INTERNAL_LOG_GROUP</span><span class="p">(</span><span class="n">IesData</span><span class="p">,</span><span class="w"> </span><span class="n">DataIO</span><span class="p">);</span>
+
+<span class="n">IesData</span><span class="o">::</span><span class="n">IesData</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Path</span><span class="o">&amp;</span><span class="w"> </span><span class="n">iesFilePath</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">m_file</span><span class="p">(</span><span class="n">iesFilePath</span><span class="p">),</span>
+<span class="w">    </span><span class="n">m_sphericalCandelas</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">m_sphericalAttenuationFactors</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">m_file</span><span class="p">.</span><span class="n">load</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_LOG_WARNING</span><span class="p">(</span><span class="n">IesData</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;failed on loading file &lt;{}&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">m_file</span><span class="p">.</span><span class="n">getFilename</span><span class="p">());</span>
+
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">processCandelaValues</span><span class="p">();</span>
+<span class="w">    </span><span class="n">processAttenuationFactors</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="n">real</span><span class="w"> </span><span class="n">IesData</span><span class="o">::</span><span class="n">sampleAttenuationFactor</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">theta</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">phi</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numThetaSamples</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">numAttenuationFactorThetaSamples</span><span class="p">());</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numPhiSamples</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">numAttenuationFactorPhiSamples</span><span class="p">());</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">numThetaSamples</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">numPhiSamples</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">0.0</span><span class="n">_r</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">dTheta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">constant</span><span class="o">::</span><span class="n">pi</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">numThetaSamples</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">dPhi</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">constant</span><span class="o">::</span><span class="n">two_pi</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">numPhiSamples</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">minTi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ceil</span><span class="p">(</span><span class="n">theta</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">dTheta</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">2.0</span><span class="n">_r</span><span class="p">));</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">minPi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ceil</span><span class="p">(</span><span class="n">phi</span><span class="w">   </span><span class="o">/</span><span class="w"> </span><span class="n">dPhi</span><span class="w">   </span><span class="o">-</span><span class="w"> </span><span class="mf">2.0</span><span class="n">_r</span><span class="p">));</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">maxTi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">floor</span><span class="p">(</span><span class="n">theta</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">dTheta</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">2.0</span><span class="n">_r</span><span class="p">));</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">maxPi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">floor</span><span class="p">(</span><span class="n">phi</span><span class="w">   </span><span class="o">/</span><span class="w"> </span><span class="n">dPhi</span><span class="w">   </span><span class="o">+</span><span class="w"> </span><span class="mf">2.0</span><span class="n">_r</span><span class="p">));</span>
+
+<span class="w">    </span><span class="n">real</span><span class="w"> </span><span class="n">factor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="n">_r</span><span class="p">,</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="n">_r</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">minPi</span><span class="p">;</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">maxPi</span><span class="p">;</span><span class="w"> </span><span class="n">pi</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">phi_i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dPhi</span><span class="p">;</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">wPhi</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">calcBicubicWeight</span><span class="p">((</span><span class="n">phi_i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">phi</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">dPhi</span><span class="p">);</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">ti</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">minTi</span><span class="p">;</span><span class="w"> </span><span class="n">ti</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">maxTi</span><span class="p">;</span><span class="w"> </span><span class="n">ti</span><span class="o">++</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">theta_i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ti</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dTheta</span><span class="p">;</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">wTheta</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">calcBicubicWeight</span><span class="p">((</span><span class="n">theta_i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">theta</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">dTheta</span><span class="p">);</span>
+
+<span class="w">            </span><span class="c1">// clamping theta index and wrapping phi index</span>
+<span class="w">            </span><span class="c1">//</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">thetaIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">clamp</span><span class="p">(</span><span class="n">ti</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">numThetaSamples</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">phiIndex</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">wrap</span><span class="p">(</span><span class="n">pi</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">numPhiSamples</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+
+<span class="w">            </span><span class="n">factor</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">wPhi</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">wTheta</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m_sphericalAttenuationFactors</span><span class="p">[</span><span class="n">phiIndex</span><span class="p">][</span><span class="n">thetaIndex</span><span class="p">];</span>
+<span class="w">            </span><span class="n">weight</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">wPhi</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">wTheta</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">factor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mf">0.0</span><span class="n">_r</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">factor</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">0.0</span><span class="n">_r</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// FIXME: Bicubic interpolation will cause overshoot in some places.</span>
+<span class="w">    </span><span class="c1">// It is subtle but can be physically incorrect for attenuation factors.</span>
+<span class="w">    </span><span class="c1">// Need a &quot;smoother&quot; solution here.</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">clamp</span><span class="p">(</span><span class="n">factor</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="n">_r</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="n">_r</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">IesData</span><span class="o">::</span><span class="n">processCandelaValues</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">m_file</span><span class="p">.</span><span class="n">getPhotometricWebType</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">IesFile</span><span class="o">::</span><span class="n">EPhotometricWebType</span><span class="o">::</span><span class="n">C</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_LOG_WARNING</span><span class="p">(</span><span class="n">IesData</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;web type is not C, not supported (file: {})&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">m_file</span><span class="p">.</span><span class="n">getFilename</span><span class="p">());</span>
+
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">vDegrees</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_file</span><span class="p">.</span><span class="n">getVerticalAngles</span><span class="p">();</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">hDegrees</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_file</span><span class="p">.</span><span class="n">getHorizontalAngles</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">hDegrees</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">hDegrees</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_LOG_WARNING</span><span class="p">(</span><span class="n">IesData</span><span class="p">,</span>
+<span class="w">            </span><span class="s">&quot;horizontal degrees does not start with 0, which is not supported (file: {})&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">m_file</span><span class="p">.</span><span class="n">getFilename</span><span class="p">());</span>
+
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Fill-in candela values and make it span the full spherical domain</span>
+<span class="w">    </span><span class="c1">// according to IES standard.</span>
+<span class="w">    </span><span class="c1">//</span>
+<span class="w">    </span><span class="c1">// NOTE: The following implementations assume uniform angle interval,</span>
+<span class="w">    </span><span class="c1">//       and does not handle multiplication factors specified in file.</span>
+
+<span class="w">    </span><span class="n">m_sphericalCandelas</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">    </span><span class="n">m_sphericalCandelas</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">hDegrees</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">vDegrees</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span><span class="w"> </span><span class="mf">0.0</span><span class="n">_r</span><span class="p">));</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">candelaValues</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_file</span><span class="p">.</span><span class="n">getCandelaValues</span><span class="p">();</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">hIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">hIndex</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">candelaValues</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">hIndex</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">vIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">vIndex</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">candelaValues</span><span class="p">[</span><span class="n">hIndex</span><span class="p">].</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">vIndex</span><span class="o">++</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">hIndex</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m_sphericalCandelas</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">                      </span><span class="n">vIndex</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m_sphericalCandelas</span><span class="p">[</span><span class="n">hIndex</span><span class="p">].</span><span class="n">size</span><span class="p">());</span>
+<span class="w">            </span><span class="n">m_sphericalCandelas</span><span class="p">[</span><span class="n">hIndex</span><span class="p">][</span><span class="n">vIndex</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">candelaValues</span><span class="p">[</span><span class="n">hIndex</span><span class="p">][</span><span class="n">vIndex</span><span class="p">];</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">hDegreesDiff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hDegrees</span><span class="p">.</span><span class="n">back</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">hDegrees</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">hDegreesDiff</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.0</span><span class="n">_r</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0001</span><span class="n">_r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// There is only one horizontal angle, implying that the luminaire</span>
+<span class="w">        </span><span class="c1">// is laterally symmetric in all photometric planes.</span>
+<span class="w">        </span><span class="c1">// Append a copy if 0-phi to make it span [0, 2 * pi]</span>
+<span class="w">        </span><span class="c1">//</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">zeroPhis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_sphericalCandelas</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+<span class="w">        </span><span class="n">m_sphericalCandelas</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">zeroPhis</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">hDegreesDiff</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">90.0</span><span class="n">_r</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0001</span><span class="n">_r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// The luminaire is assumed to be symmetric in each quadrant.</span>
+<span class="w">        </span><span class="c1">//</span>
+<span class="w">        </span><span class="n">reflectCandelaValues</span><span class="p">(</span><span class="n">EReflectFrom</span><span class="o">::</span><span class="n">PHI_TAIL</span><span class="p">);</span>
+<span class="w">        </span><span class="n">reflectCandelaValues</span><span class="p">(</span><span class="n">EReflectFrom</span><span class="o">::</span><span class="n">PHI_TAIL</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">hDegreesDiff</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">180.0</span><span class="n">_r</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0001</span><span class="n">_r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// The luminaire is assumed to be bilaterally symmetric about the</span>
+<span class="w">        </span><span class="c1">// 0 - 180 degree photometric plane.</span>
+<span class="w">        </span><span class="c1">//</span>
+<span class="w">        </span><span class="n">reflectCandelaValues</span><span class="p">(</span><span class="n">EReflectFrom</span><span class="o">::</span><span class="n">PHI_TAIL</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">hDegreesDiff</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">360.0</span><span class="n">_r</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0001</span><span class="n">_r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// The luminaire is assumed to exhibit no lateral symmetry.</span>
+<span class="w">        </span><span class="c1">//</span>
+<span class="w">        </span><span class="c1">// Do nothing.</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_LOG_WARNING</span><span class="p">(</span><span class="n">IesData</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;unsupported angle difference (file: {})&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">m_file</span><span class="p">.</span><span class="n">getFilename</span><span class="p">());</span>
+
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">vDegreesDiff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vDegrees</span><span class="p">.</span><span class="n">back</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">vDegrees</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">vDegreesDiff</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">90.0</span><span class="n">_r</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0001</span><span class="n">_r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">vDegrees</span><span class="p">.</span><span class="n">front</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.0</span><span class="n">_r</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0001</span><span class="n">_r</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">reflectCandelaValues</span><span class="p">(</span><span class="n">EReflectFrom</span><span class="o">::</span><span class="n">THETA_TAIL</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="n">_r</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">vDegrees</span><span class="p">.</span><span class="n">front</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">90.0</span><span class="n">_r</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0001</span><span class="n">_r</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">reflectCandelaValues</span><span class="p">(</span><span class="n">EReflectFrom</span><span class="o">::</span><span class="n">THETA_HEAD</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="n">_r</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">vDegreesDiff</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">180.0</span><span class="n">_r</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0001</span><span class="n">_r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Already spans full range of theta.</span>
+<span class="w">        </span><span class="c1">//</span>
+<span class="w">        </span><span class="c1">// Do nothing.</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_LOG_WARNING</span><span class="p">(</span><span class="n">IesData</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;unsupported vertical angle difference (file: {})&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">m_file</span><span class="p">.</span><span class="n">getFilename</span><span class="p">());</span>
+
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">IesData</span><span class="o">::</span><span class="n">processAttenuationFactors</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Assuming candela values has been processed.</span>
+
+<span class="w">    </span><span class="n">real</span><span class="w"> </span><span class="n">maxCandela</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;::</span><span class="n">lowest</span><span class="p">();</span>
+<span class="w">    </span><span class="n">real</span><span class="w"> </span><span class="n">minCandela</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">();</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">candelas</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">m_sphericalCandelas</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">candela</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">candelas</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">candela</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">maxCandela</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">maxCandela</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">candela</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">candela</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">minCandela</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">minCandela</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">candela</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">minCandela</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0</span><span class="n">_r</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">maxCandela</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">0.0</span><span class="n">_r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_LOG_WARNING</span><span class="p">(</span><span class="n">IesData</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bad candela value detected in file &lt;{}&gt;&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">m_file</span><span class="p">.</span><span class="n">getFilename</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">m_sphericalAttenuationFactors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_sphericalCandelas</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">factors</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">m_sphericalAttenuationFactors</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">factor</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">factors</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">factor</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">maxCandela</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">IesData</span><span class="o">::</span><span class="n">reflectCandelaValues</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">EReflectFrom</span><span class="w"> </span><span class="n">reflectFrom</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">reflectionMultiplier</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">reflectFrom</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EReflectFrom</span><span class="o">::</span><span class="n">THETA_HEAD</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">reflectFrom</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EReflectFrom</span><span class="o">::</span><span class="n">THETA_TAIL</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m_sphericalCandelas</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">pi</span><span class="o">++</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="w"> </span><span class="n">thetas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">m_sphericalCandelas</span><span class="p">[</span><span class="n">pi</span><span class="p">]);</span>
+<span class="w">            </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">thetas</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="w"> </span><span class="n">reflectedThetas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">thetas</span><span class="p">;</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">reverse</span><span class="p">(</span><span class="n">reflectedThetas</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">reflectedThetas</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">reflectedThetas</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">value</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">reflectionMultiplier</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">reflectFrom</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EReflectFrom</span><span class="o">::</span><span class="n">THETA_HEAD</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">reflectedThetas</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">reflectedThetas</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">thetas</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">thetas</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<span class="w">                </span><span class="n">m_sphericalCandelas</span><span class="p">[</span><span class="n">pi</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">reflectedThetas</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">else</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">thetas</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">thetas</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">reflectedThetas</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">reflectedThetas</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<span class="w">                </span><span class="n">m_sphericalCandelas</span><span class="p">[</span><span class="n">pi</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">thetas</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">reflectFrom</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EReflectFrom</span><span class="o">::</span><span class="n">PHI_HEAD</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">reflectFrom</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EReflectFrom</span><span class="o">::</span><span class="n">PHI_TAIL</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">phis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">m_sphericalCandelas</span><span class="p">);</span>
+<span class="w">        </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">phis</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">reflectedPhis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">phis</span><span class="p">;</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">reverse</span><span class="p">(</span><span class="n">reflectedPhis</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">reflectedPhis</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">reflectedPhis</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">values</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">value</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">reflectionMultiplier</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">reflectFrom</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EReflectFrom</span><span class="o">::</span><span class="n">PHI_HEAD</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">reflectedPhis</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">reflectedPhis</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">phis</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">phis</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<span class="w">            </span><span class="n">m_sphericalCandelas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">reflectedPhis</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">phis</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">phis</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">reflectedPhis</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">reflectedPhis</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<span class="w">            </span><span class="n">m_sphericalCandelas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">phis</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">IesData</span><span class="o">::</span><span class="n">numAttenuationFactorThetaSamples</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">m_sphericalAttenuationFactors</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">m_sphericalAttenuationFactors</span><span class="p">.</span><span class="n">front</span><span class="p">().</span><span class="n">size</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">IesData</span><span class="o">::</span><span class="n">numAttenuationFactorPhiSamples</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_sphericalAttenuationFactors</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// Reference: https://en.wikipedia.org/wiki/Bicubic_interpolation</span>
+<span class="c1">//</span>
+<span class="n">real</span><span class="w"> </span><span class="n">IesData</span><span class="o">::</span><span class="n">calcBicubicWeight</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// corresponds to cubic Hermite spline</span>
+<span class="w">    </span><span class="c1">//</span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">-0.5</span><span class="n">_r</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">absX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">absX</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">absX</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">absX</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">absX</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">absX</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">absX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">absX</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">absX</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">absX</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">absX</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">absX</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">absX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">absX</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

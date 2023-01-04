@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a9dc26f15ed5b02d504bdb55d98ef6538:
+
+Function ph::PH_DEFINE_INTERNAL_LOG_GROUP(Workflow, Concurrent)
+===============================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_INTERNAL_LOG_GROUP(Workflow, Concurrent)
+   :project: Photon

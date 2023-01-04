@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_t_iterator_proxy:
+
+Template Class TIteratorProxy
+=============================
+
+- Defined in :ref:`file_Source_Utility_TIteratorProxy.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::TIteratorProxy
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

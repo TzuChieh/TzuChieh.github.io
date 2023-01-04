@@ -1,0 +1,14 @@
+.. _exhale_enum_namespaceph_1a2f105bf7a6233cdb646a691b6055d71d:
+
+Enum EPhotonData
+================
+
+.. did not find file this was defined in
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: ph::EPhotonData
+   :project: Photon

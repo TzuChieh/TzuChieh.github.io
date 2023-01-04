@@ -1,0 +1,98 @@
+
+.. _file_Source_Core_Renderer_Sampling_EqualSamplingRenderer.cpp:
+
+File EqualSamplingRenderer.cpp
+==============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Renderer\Sampling\EqualSamplingRenderer.cpp``)
+------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Renderer_Sampling_EqualSamplingRenderer.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Common/logging.h``
+
+- ``Common/primitive_type.h``
+
+- ``Core/Estimator/Integrand.h``
+
+- ``Core/Filmic/HdrRgbFilm.h``
+
+- ``Core/Filmic/Vector3Film.h``
+
+- ``Core/Ray.h``
+
+- ``Core/Renderer/RenderWork.h``
+
+- ``Core/Renderer/RenderWorker.h``
+
+- ``Core/Renderer/RendererProxy.h``
+
+- ``Core/Renderer/Sampling/EqualSamplingRenderer.h``
+
+- ``Core/SampleGenerator/SampleGenerator.h``
+
+- ``Core/Scheduler/GridScheduler.h``
+
+- ``Core/Scheduler/PlateScheduler.h``
+
+- ``Core/Scheduler/SpiralGridScheduler.h``
+
+- ``Core/Scheduler/StripeScheduler.h``
+
+- ``Core/Scheduler/TileScheduler.h``
+
+- ``Core/Scheduler/WorkUnit.h``
+
+- ``EngineEnv/CoreCookedUnit.h``
+
+- ``Math/constant.h``
+
+- ``Utility/Concurrent/FixedSizeThreadPool.h``
+
+- ``Utility/utility.h``
+
+- ``World/VisualWorld.h``
+
+- ``chrono``
+
+- ``cmath``
+
+- ``functional``
+
+- ``iostream``
+
+- ``thread``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+- ``vector``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

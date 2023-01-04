@@ -1,0 +1,44 @@
+
+.. _program_listing_file_Source_DataIO_SDL_ISdlResource.h:
+
+Program Listing for File ISdlResource.h
+=======================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_DataIO_SDL_ISdlResource.h>` (``Source\DataIO\SDL\ISdlResource.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "DataIO/SDL/ETypeCategory.h"
+   #include "DataIO/SDL/SdlResourceId.h"
+   
+   namespace ph { class SdlClass; }
+   
+   namespace ph
+   {
+   
+   class ISdlResource
+   {
+   protected:
+       inline ISdlResource() = default;
+   
+   public:
+       inline virtual ~ISdlResource() = default;
+   
+       virtual ETypeCategory getDynamicCategory() const = 0;
+       virtual SdlResourceId getId() const = 0;
+   
+       virtual const SdlClass* getDynamicSdlClass() const;
+   };
+   
+   // In-header Implementation:
+   
+   inline const SdlClass* ISdlResource::getDynamicSdlClass() const
+   {
+       return nullptr;
+   }
+   
+   }// end namespace ph

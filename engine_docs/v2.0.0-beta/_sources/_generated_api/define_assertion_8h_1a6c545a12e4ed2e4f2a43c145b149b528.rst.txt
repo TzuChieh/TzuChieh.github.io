@@ -1,0 +1,14 @@
+.. _exhale_define_assertion_8h_1a6c545a12e4ed2e4f2a43c145b149b528:
+
+Define PH_ASSERT_IN_RANGE
+=========================
+
+- Defined in :ref:`file_Source_Common_assertion.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: PH_ASSERT_IN_RANGE
+   :project: Photon

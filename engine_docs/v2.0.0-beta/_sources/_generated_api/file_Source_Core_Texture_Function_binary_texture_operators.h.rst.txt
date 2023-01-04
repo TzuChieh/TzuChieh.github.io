@@ -1,0 +1,81 @@
+
+.. _file_Source_Core_Texture_Function_binary_texture_operators.h:
+
+File binary_texture_operators.h
+===============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Texture\Function\binary_texture_operators.h``)
+------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Texture_Function_binary_texture_operators.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/Texture/SampleLocation.h``
+
+- ``Core/Texture/TTexture.h``
+
+- ``Math/Color/Spectrum.h``
+
+- ``Math/TArithmeticArray.h``
+
+- ``Utility/traits.h``
+
+- ``array``
+
+- ``concepts``
+
+- ``cstddef``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+- ``type_traits``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_Image_MathImage.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__texfunc`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_t_binary_texture_operator`
+
+- :ref:`exhale_class_classph_1_1texfunc_1_1_t_add`
+
+- :ref:`exhale_class_classph_1_1texfunc_1_1_t_multiply`
+

@@ -1,0 +1,131 @@
+
+.. _file_Source_DataIO_SDL_sdl_helpers.h:
+
+File sdl_helpers.h
+==================
+
+
+Low-level helpers for SDL. Helpers are in an additional ``sdl`` namespace. 
+
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\SDL\sdl_helpers.h``)
+------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_SDL_sdl_helpers.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Common/primitive_type.h``
+
+- ``DataIO/SDL/ETypeCategory.h``
+
+- ``DataIO/SDL/sdl_exceptions.h``
+
+- ``DataIO/SDL/sdl_helpers.ipp``
+
+- ``Math/TQuaternion.h``
+
+- ``Math/TVector2.h``
+
+- ``Math/TVector3.h``
+
+- ``Utility/string_utils.h``
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+- ``string_view``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_SDLExtension_image_loaders.cpp`
+
+- :ref:`file_Source_Actor_SDLExtension_TSdlSpectrum.h`
+
+- :ref:`file_Source_Actor_SDLExtension_TSdlUnifiedColorImage.h`
+
+- :ref:`file_Source_Actor_SDLExtension_TSdlUnifiedNumericImage.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_field_set_op.ipp`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_SdlClass.cpp`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_SdlField.cpp`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_SdlFunction.cpp`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TOwnedSdlField.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TOwnerSdlClass.ipp`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlBool.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlEnumField.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlInteger.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlPath.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlQuaternion.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlReal.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlRealArray.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlReference.ipp`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlVector2.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlVector3.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlVector3Array.h`
+
+- :ref:`file_Source_DataIO_SDL_SceneDescription.h`
+
+- :ref:`file_Source_DataIO_SDL_sdl_helpers.cpp`
+
+- :ref:`file_Source_DataIO_SDL_sdl_helpers.ipp`
+
+- :ref:`file_Source_DataIO_SDL_SdlInputPayload.h`
+
+- :ref:`file_Source_DataIO_SDL_SdlOutputPayload.h`
+
+- :ref:`file_Source_DataIO_SDL_SdlParser.cpp`
+
+- :ref:`file_Source_DataIO_SDL_TSdl.ipp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__sdl`
+

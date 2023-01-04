@@ -1,0 +1,63 @@
+
+.. _file_Source_DataIO_SDL_Introspect_TAbstractSdlValue.h:
+
+File TAbstractSdlValue.h
+========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\SDL\Introspect\TAbstractSdlValue.h``)
+-----------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_SDL_Introspect_TAbstractSdlValue.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``DataIO/SDL/Introspect/TAbstractSdlValue.ipp``
+
+- ``DataIO/SDL/Introspect/TOwnedSdlField.h``
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TAbstractSdlValue.ipp`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlOptionalValue.h`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TSdlValue.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_t_abstract_sdl_value`
+

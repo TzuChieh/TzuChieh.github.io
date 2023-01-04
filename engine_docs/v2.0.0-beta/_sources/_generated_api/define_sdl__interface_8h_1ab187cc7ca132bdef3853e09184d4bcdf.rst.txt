@@ -1,0 +1,14 @@
+.. _exhale_define_sdl__interface_8h_1ab187cc7ca132bdef3853e09184d4bcdf:
+
+Define PH_DEFINE_SDL_ENUM
+=========================
+
+- Defined in :ref:`file_Source_DataIO_SDL_sdl_interface.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: PH_DEFINE_SDL_ENUM
+   :project: Photon

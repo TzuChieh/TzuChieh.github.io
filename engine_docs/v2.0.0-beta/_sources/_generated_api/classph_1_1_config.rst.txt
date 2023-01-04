@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_config:
+
+Class Config
+============
+
+- Defined in :ref:`file_Source_Common_config.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::Config
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

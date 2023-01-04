@@ -1,5 +1,5 @@
 var classph_1_1_sense_event =
 [
-    [ "SenseEvent", "classph_1_1_sense_event.html#a005b9c7d3007460203acebdb62998336", null ],
-    [ "radiance", "classph_1_1_sense_event.html#aeb1e31e48ab23abd25e6f66f74b20a8c", null ]
+    [ "SenseEvent", "classph_1_1_sense_event.html#a338b495fec8771028899efbe8ed29c16", null ],
+    [ "radiance", "classph_1_1_sense_event.html#a39022bb92afdfe61a4718731326fbe93", null ]
 ];

@@ -1,0 +1,28 @@
+.. _exhale_class_classph_1_1_microfacet:
+
+Class Microfacet
+================
+
+- Defined in :ref:`file_Source_Core_SurfaceBehavior_Property_Microfacet.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Types
+*************
+
+- ``public ph::AnisoTrowbridgeReitz`` (:ref:`exhale_class_classph_1_1_aniso_trowbridge_reitz`)
+- ``public ph::IsoBeckmann`` (:ref:`exhale_class_classph_1_1_iso_beckmann`)
+- ``public ph::IsoTrowbridgeReitz`` (:ref:`exhale_class_classph_1_1_iso_trowbridge_reitz`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::Microfacet
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

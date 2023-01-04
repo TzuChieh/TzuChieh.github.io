@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_sidedness_agreement:
+
+Class SidednessAgreement
+========================
+
+- Defined in :ref:`file_Source_Core_LTABuildingBlock_SidednessAgreement.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::SidednessAgreement
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

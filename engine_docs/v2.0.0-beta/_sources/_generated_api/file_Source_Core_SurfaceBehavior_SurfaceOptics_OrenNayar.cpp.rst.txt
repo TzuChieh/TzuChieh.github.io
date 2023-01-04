@@ -1,0 +1,66 @@
+
+.. _file_Source_Core_SurfaceBehavior_SurfaceOptics_OrenNayar.cpp:
+
+File OrenNayar.cpp
+==================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\SurfaceBehavior\SurfaceOptics\OrenNayar.cpp``)
+------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_SurfaceBehavior_SurfaceOptics_OrenNayar.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/LTABuildingBlock/SidednessAgreement.h``
+
+- ``Core/SampleGenerator/SampleFlow.h``
+
+- ``Core/SurfaceBehavior/BsdfEvalQuery.h``
+
+- ``Core/SurfaceBehavior/BsdfPdfQuery.h``
+
+- ``Core/SurfaceBehavior/BsdfSampleQuery.h``
+
+- ``Core/SurfaceBehavior/SurfaceOptics/OrenNayar.h``
+
+- ``Core/Texture/TSampler.h``
+
+- ``Core/Texture/constant_textures.h``
+
+- ``Math/Geometry/THemisphere.h``
+
+- ``Math/TOrthonormalBasis3.h``
+
+- ``Math/TVector3.h``
+
+- ``Math/constant.h``
+
+- ``Math/math.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

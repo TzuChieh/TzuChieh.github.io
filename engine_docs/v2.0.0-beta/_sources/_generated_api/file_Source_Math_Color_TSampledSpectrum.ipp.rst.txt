@@ -1,0 +1,56 @@
+
+.. _file_Source_Math_Color_TSampledSpectrum.ipp:
+
+File TSampledSpectrum.ipp
+=========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\Color\TSampledSpectrum.ipp``)
+-------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_Color_TSampledSpectrum.ipp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Common/config.h``
+
+- ``Math/Color/TSampledSpectrum.h``
+
+- ``Math/Color/spectral_samples.h``
+
+- ``type_traits``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Math_Color_TSampledSpectrum.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+

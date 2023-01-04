@@ -1,0 +1,182 @@
+
+.. _file_Source_Api_ph_cpp_core.cpp:
+
+File ph_cpp_core.cpp
+====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Api\ph_cpp_core.cpp``)
+-------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Api_ph_cpp_core.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/ADome.h``
+
+- ``Actor/ALight.h``
+
+- ``Actor/AModel.h``
+
+- ``Actor/APhantomModel.h``
+
+- ``Actor/ATransformedInstance.h``
+
+- ``Actor/Actor.h``
+
+- ``Actor/Dome/AImageDome.h``
+
+- ``Actor/Dome/APreethamDome.h``
+
+- ``Actor/Geometry/GCuboid.h``
+
+- ``Actor/Geometry/GEmpty.h``
+
+- ``Actor/Geometry/GMengerSponge.h``
+
+- ``Actor/Geometry/GRectangle.h``
+
+- ``Actor/Geometry/GSphere.h``
+
+- ``Actor/Geometry/GTriangle.h``
+
+- ``Actor/Geometry/GTriangleMesh.h``
+
+- ``Actor/Geometry/Geometry.h``
+
+- ``Actor/Geometry/GeometrySoup.h``
+
+- ``Actor/Image/CheckerboardImage.h``
+
+- ``Actor/Image/ConstantImage.h``
+
+- ``Actor/Image/GradientImage.h``
+
+- ``Actor/Image/Image.h``
+
+- ``Actor/Image/MathImage.h``
+
+- ``Actor/Image/RasterFileImage.h``
+
+- ``Actor/Image/RasterImageBase.h``
+
+- ``Actor/Image/sdl_image_enums.h``
+
+- ``Actor/LightSource/AreaSource.h``
+
+- ``Actor/LightSource/IesAttenuatedSource.h``
+
+- ``Actor/LightSource/LightSource.h``
+
+- ``Actor/LightSource/ModelSource.h``
+
+- ``Actor/LightSource/PointSource.h``
+
+- ``Actor/LightSource/RectangleSource.h``
+
+- ``Actor/LightSource/SphereSource.h``
+
+- ``Actor/Material/AbradedOpaque.h``
+
+- ``Actor/Material/AbradedTranslucent.h``
+
+- ``Actor/Material/BinaryMixedSurfaceMaterial.h``
+
+- ``Actor/Material/FullMaterial.h``
+
+- ``Actor/Material/IdealSubstance.h``
+
+- ``Actor/Material/LayeredSurface.h``
+
+- ``Actor/Material/Material.h``
+
+- ``Actor/Material/MatteOpaque.h``
+
+- ``Actor/Material/ThinFilm.h``
+
+- ``Actor/Material/Utility/EInterfaceFresnel.h``
+
+- ``Actor/Material/Utility/EInterfaceMicrosurface.h``
+
+- ``Actor/Material/Utility/ERoughnessToAlpha.h``
+
+- ``Actor/Material/Volume/VAbsorptionOnly.h``
+
+- ``Actor/MotionSource/ConstantVelocityMotion.h``
+
+- ``Actor/MotionSource/MotionSource.h``
+
+- ``Actor/PhysicalActor.h``
+
+- ``Actor/SDLExtension/sdl_color_space_type.h``
+
+- ``Actor/SDLExtension/sdl_color_usage_type.h``
+
+- ``Api/init_and_exit.h``
+
+- ``Common/config.h``
+
+- ``Common/logging.h``
+
+- ``DataIO/Option.h``
+
+- ``EngineEnv/Observer/Observer.h``
+
+- ``EngineEnv/Observer/OrientedRasterObserver.h``
+
+- ``EngineEnv/Observer/SingleLensObserver.h``
+
+- ``EngineEnv/SampleSource/HaltonSampleSource.h``
+
+- ``EngineEnv/SampleSource/RuntimeSampleSource.h``
+
+- ``EngineEnv/SampleSource/SampleSource.h``
+
+- ``EngineEnv/SampleSource/StratifiedSampleSource.h``
+
+- ``EngineEnv/SampleSource/UniformRandomSampleSource.h``
+
+- ``EngineEnv/Session/RenderSession.h``
+
+- ``EngineEnv/Session/SingleFrameRenderSession.h``
+
+- ``EngineEnv/Visualizer/FrameVisualizer.h``
+
+- ``EngineEnv/Visualizer/PathTracingVisualizer.h``
+
+- ``EngineEnv/Visualizer/Visualizer.h``
+
+- ``EngineEnv/Visualizer/sdl_ray_energy_estimator_type.h``
+
+- ``EngineEnv/Visualizer/sdl_sample_filter_type.h``
+
+- ``EngineEnv/Visualizer/sdl_scheduler_type.h``
+
+- ``EngineEnv/sdl_accelerator_type.h``
+
+- ``ph_cpp_core.h`` (:ref:`file_Include_CppEngine_ph_cpp_core.h`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

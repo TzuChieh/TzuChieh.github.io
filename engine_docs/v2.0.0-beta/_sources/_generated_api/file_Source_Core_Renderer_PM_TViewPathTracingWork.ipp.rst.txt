@@ -1,0 +1,82 @@
+
+.. _file_Source_Core_Renderer_PM_TViewPathTracingWork.ipp:
+
+File TViewPathTracingWork.ipp
+=============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Renderer\PM\TViewPathTracingWork.ipp``)
+-----------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Renderer_PM_TViewPathTracingWork.ipp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/HitDetail.h``
+
+- ``Core/HitProbe.h``
+
+- ``Core/Intersectable/Primitive.h``
+
+- ``Core/Intersectable/PrimitiveMetadata.h``
+
+- ``Core/LTABuildingBlock/RussianRoulette.h``
+
+- ``Core/LTABuildingBlock/SurfaceTracer.h``
+
+- ``Core/Ray.h``
+
+- ``Core/Receiver/Receiver.h``
+
+- ``Core/Renderer/PM/TViewPathTracingWork.h``
+
+- ``Core/SampleGenerator/SampleGenerator.h``
+
+- ``Core/SurfaceBehavior/BsdfQueryContext.h``
+
+- ``Core/SurfaceBehavior/BsdfSampleQuery.h``
+
+- ``Core/SurfaceBehavior/SurfaceBehavior.h``
+
+- ``Core/SurfaceBehavior/SurfaceOptics.h``
+
+- ``Core/SurfaceHit.h``
+
+- ``Math/Geometry/TAABB2D.h``
+
+- ``Math/Random/sample.h``
+
+- ``World/Scene.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Renderer_PM_TViewPathTracingWork.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

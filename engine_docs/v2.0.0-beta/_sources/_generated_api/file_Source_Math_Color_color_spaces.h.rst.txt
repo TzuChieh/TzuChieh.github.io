@@ -1,0 +1,75 @@
+
+.. _file_Source_Math_Color_color_spaces.h:
+
+File color_spaces.h
+===================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\Color\color_spaces.h``)
+-------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_Color_color_spaces.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Math/Color/color_basics.h``
+
+- ``Math/Color/color_enums.h``
+
+- ``Math/Color/color_spaces.ipp``
+
+- ``concepts``
+
+- ``type_traits``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_LightSource_AreaSource.cpp`
+
+- :ref:`file_Source_Actor_SDLExtension_image_loaders.cpp`
+
+- :ref:`file_Source_Core_Emitter_DiffuseSurfaceEmitter.cpp`
+
+- :ref:`file_Source_Core_Texture_Pixel_TColorPixelTexture2D.h`
+
+- :ref:`file_Source_Core_Texture_Sky_PreethamTexture.cpp`
+
+- :ref:`file_Source_Math_Color_color_spaces.ipp`
+
+- :ref:`file_Source_Math_Color_TSpectrumBase.ipp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_color_space_definition`
+

@@ -1,0 +1,33 @@
+
+.. _program_listing_file_Source_Actor_ModelParser_AiMeshParser.h:
+
+Program Listing for File AiMeshParser.h
+=======================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Actor_ModelParser_AiMeshParser.h>` (``Source\Actor\ModelParser\AiMeshParser.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   //#include <assimp/importer.hpp>
+   //#include <assimp/postprocess.h>
+   //#include <assimp/scene.h>
+   //#include <assimp/mesh.h>
+   //
+   //#include <memory>
+   //
+   //namespace ph
+   //{
+   //
+   //class Geometry;
+   //
+   //class AiMeshParser final
+   //{
+   //public:
+   //  static std::shared_ptr<Geometry> parse(const aiMesh* const mesh);
+   //};
+   //
+   //}// end namespace ph

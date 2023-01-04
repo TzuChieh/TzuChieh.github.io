@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_api_database:
+
+Class ApiDatabase
+=================
+
+- Defined in :ref:`file_Source_Api_ApiDatabase.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::ApiDatabase
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

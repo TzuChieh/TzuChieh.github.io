@@ -1,0 +1,14 @@
+.. _exhale_enum_namespaceph_1_1math_1ac8bbf5c13da6b60663011e0be1acb6c4:
+
+Enum EReferenceWhite
+====================
+
+.. did not find file this was defined in
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: ph::math::EReferenceWhite
+   :project: Photon

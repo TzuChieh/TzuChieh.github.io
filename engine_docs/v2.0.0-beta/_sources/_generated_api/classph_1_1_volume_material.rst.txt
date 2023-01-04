@@ -1,0 +1,32 @@
+.. _exhale_class_classph_1_1_volume_material:
+
+Class VolumeMaterial
+====================
+
+- Defined in :ref:`file_Source_Actor_Material_VolumeMaterial.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::Material`` (:ref:`exhale_class_classph_1_1_material`)
+
+
+Derived Type
+************
+
+- ``public ph::VAbsorptionOnly`` (:ref:`exhale_class_classph_1_1_v_absorption_only`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::VolumeMaterial
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

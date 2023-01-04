@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1a903770e143a072e53d987250e245def0:
+
+Typedef ph::uint32f
+===================
+
+- Defined in :ref:`file_Source_Common_primitive_type.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::uint32f
+   :project: Photon

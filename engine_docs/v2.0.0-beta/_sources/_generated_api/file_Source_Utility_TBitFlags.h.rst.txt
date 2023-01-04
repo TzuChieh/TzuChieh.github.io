@@ -1,0 +1,68 @@
+
+.. _file_Source_Utility_TBitFlags.h:
+
+File TBitFlags.h
+================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Utility\TBitFlags.h``)
+-------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Utility_TBitFlags.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Utility/TBitFlags.ipp``
+
+- ``Utility/traits.h``
+
+- ``initializer_list``
+
+- ``type_traits``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_SurfaceBehavior_surface_optics_fwd.h`
+
+- :ref:`file_Source_Utility_TBitFlags.ipp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_t_bit_flags`
+
+
+Defines
+-------
+
+
+- :ref:`exhale_define__t_bit_flags_8h_1a64590046e16e534159ae243ff6a5e90a`
+

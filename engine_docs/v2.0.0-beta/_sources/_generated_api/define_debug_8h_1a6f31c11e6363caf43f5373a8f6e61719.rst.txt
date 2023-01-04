@@ -1,0 +1,14 @@
+.. _exhale_define_debug_8h_1a6f31c11e6363caf43f5373a8f6e61719:
+
+Define PH_DEBUG_BREAK
+=====================
+
+- Defined in :ref:`file_Source_Common_debug.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: PH_DEBUG_BREAK
+   :project: Photon

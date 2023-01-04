@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File SurfaceAttributeEstimator.cpp &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File SurfaceAttributeEstimator.cpp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Core_Estimator_SurfaceAttributeEstimator.cpp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-surfaceattributeestimator-cpp">
+<span id="program-listing-file-source-core-estimator-surfaceattributeestimator-cpp"></span><h1>Program Listing for File SurfaceAttributeEstimator.cpp<a class="headerlink" href="#program-listing-for-file-surfaceattributeestimator-cpp" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Core_Estimator_SurfaceAttributeEstimator.cpp.html#file-source-core-estimator-surfaceattributeestimator-cpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Core\Estimator\SurfaceAttributeEstimator.cpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Estimator/SurfaceAttributeEstimator.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Ray.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Estimator/Integrand.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/SurfaceHit.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/HitProbe.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;World/Scene.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/assertion.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/Geometry/THemisphere.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/Random.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/constant.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;limits&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">SurfaceAttributeEstimator::update</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Integrand</span><span class="o">&amp;</span><span class="w"> </span><span class="n">integrand</span><span class="p">)</span>
+<span class="p">{}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">SurfaceAttributeEstimator::estimate</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Ray</span><span class="o">&amp;</span><span class="w">                        </span><span class="n">ray</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Integrand</span><span class="o">&amp;</span><span class="w">                  </span><span class="n">integrand</span><span class="p">,</span>
+<span class="w">    </span><span class="n">SampleFlow</span><span class="o">&amp;</span><span class="w">                       </span><span class="cm">/* sampleFlow */</span><span class="p">,</span>
+<span class="w">    </span><span class="n">TEstimationArray</span><span class="o">&lt;</span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">out_estimation</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Ray</span><span class="w"> </span><span class="n">probingRay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ray</span><span class="p">(</span><span class="n">ray</span><span class="p">).</span><span class="n">reverse</span><span class="p">();</span>
+<span class="w">    </span><span class="n">probingRay</span><span class="p">.</span><span class="n">setMaxT</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">());</span>
+
+<span class="w">    </span><span class="n">HitProbe</span><span class="w"> </span><span class="n">probe</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">integrand</span><span class="p">.</span><span class="n">getScene</span><span class="p">().</span><span class="n">isIntersecting</span><span class="p">(</span><span class="n">probingRay</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">probe</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">SurfaceHit</span><span class="w"> </span><span class="n">surfaceHit</span><span class="p">(</span><span class="n">probingRay</span><span class="p">,</span><span class="w"> </span><span class="n">probe</span><span class="p">);</span>
+
+<span class="w">        </span><span class="cm">/*if(out_estimation.numEstimations() &gt;= 1)</span>
+<span class="cm">        {</span>
+<span class="cm">            out_estimation[0] = surfaceHit.getShadingNormal();</span>
+<span class="cm">        }*/</span>
+
+<span class="w">        </span><span class="cm">/*if(out_estimation.numEstimations() &gt;= 2)</span>
+<span class="cm">        {</span>
+<span class="cm">            out_estimation[1] = surfaceHit.getGeometryNormal();</span>
+<span class="cm">        }*/</span>
+
+<span class="w">        </span><span class="c1">//if(out_estimation.numEstimations() &gt;= 3)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">//out_estimation[2] = surfaceHit.getPosition();</span>
+<span class="w">            </span><span class="n">out_estimation</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">surfaceHit</span><span class="p">.</span><span class="n">getPosition</span><span class="p">().</span><span class="n">sub</span><span class="p">({</span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">}).</span><span class="n">div</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="cm">/*if(out_estimation.numEstimations() &gt;= 4)</span>
+<span class="cm">        {</span>
+<span class="cm">            out_estimation[3] = surfaceHit.getDetail().getUVW();</span>
+<span class="cm">        }*/</span>
+
+<span class="w">        </span><span class="c1">//if(out_estimation.numEstimations() &gt;= 5)</span>
+<span class="w">        </span><span class="c1">//{</span>
+<span class="w">        </span><span class="c1">//  //out_estimation[4] = Vector3R(surfaceHit.getDetail().getRayT());</span>
+<span class="w">        </span><span class="c1">//  out_estimation[0] = Vector3R(std::pow(std::log2(surfaceHit.getDetail().getRayT() / 10.0_r + 1), 4));</span>
+<span class="w">        </span><span class="c1">//}</span>
+
+<span class="w">        </span><span class="c1">//if(out_estimation.numEstimations() &gt;= 6)</span>
+<span class="w">        </span><span class="c1">//{</span>
+<span class="w">        </span><span class="c1">//  constexpr std::size_t NUM_AO_SAMPLES = 16;</span>
+
+<span class="w">        </span><span class="c1">//  const Vector3R aoAlbedo(0.5_r);</span>
+
+<span class="w">        </span><span class="c1">//  real estimation = 0;</span>
+<span class="w">        </span><span class="c1">//  for(std::size_t i = 0; i &lt; NUM_AO_SAMPLES; ++i)</span>
+<span class="w">        </span><span class="c1">//  {</span>
+<span class="w">        </span><span class="c1">//      real pdfW;</span>
+<span class="w">        </span><span class="c1">//      Vector3R L = CosThetaWeightedUnitHemisphere::map(</span>
+<span class="w">        </span><span class="c1">//          {Random::genUniformReal_i0_e1(), Random::genUniformReal_i0_e1()},</span>
+<span class="w">        </span><span class="c1">//          &amp;pdfW);</span>
+<span class="w">        </span><span class="c1">//      L = surfaceHit.getDetail().getGeometryBasis().localToWorld(L);</span>
+<span class="w">        </span><span class="c1">//      if(L.dot(surfaceHit.getGeometryNormal()) &lt;= 0 || pdfW == 0)</span>
+<span class="w">        </span><span class="c1">//      {</span>
+<span class="w">        </span><span class="c1">//          continue;</span>
+<span class="w">        </span><span class="c1">//      }</span>
+
+<span class="w">        </span><span class="c1">//      const Ray aoRay(surfaceHit.getPosition(), L, 0.001_r, std::numeric_limits&lt;real&gt;::max());</span>
+<span class="w">        </span><span class="c1">//      if(!integrand.getScene().isOccluding(aoRay))</span>
+<span class="w">        </span><span class="c1">//      {</span>
+<span class="w">        </span><span class="c1">//          estimation += 1 / pdfW;</span>
+<span class="w">        </span><span class="c1">//      }</span>
+<span class="w">        </span><span class="c1">//  }</span>
+<span class="w">        </span><span class="c1">//  estimation /= static_cast&lt;real&gt;(NUM_AO_SAMPLES);</span>
+<span class="w">        </span><span class="c1">//  estimation /= constant::pi&lt;real&gt;;</span>
+
+<span class="w">        </span><span class="c1">//  //out_estimation[5] = aoAlbedo * estimation;</span>
+<span class="w">        </span><span class="c1">//  out_estimation[0] = aoAlbedo * estimation;</span>
+
+<span class="w">        </span><span class="c1">//  // HACK</span>
+<span class="w">        </span><span class="c1">//  //out_estimation[0] = (aoAlbedo * estimation).mul(aoAlbedo * estimation).mul(aoAlbedo * estimation).mul(aoAlbedo * estimation);</span>
+<span class="w">        </span><span class="c1">//}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">out_estimation</span><span class="p">.</span><span class="n">numEstimations</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">out_estimation</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

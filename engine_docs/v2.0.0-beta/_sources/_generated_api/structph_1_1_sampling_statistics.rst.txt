@@ -1,0 +1,17 @@
+.. _exhale_struct_structph_1_1_sampling_statistics:
+
+Struct SamplingStatistics
+=========================
+
+- Defined in :ref:`file_Source_Core_Renderer_Sampling_SamplingStatistics.h`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: ph::SamplingStatistics
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_direct_energy_sample_output:
+
+Class DirectEnergySampleOutput
+==============================
+
+- Defined in :ref:`file_Source_Core_Emitter_Query_DirectEnergySampleQuery.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::DirectEnergySampleOutput
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

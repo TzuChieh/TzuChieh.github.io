@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_core_resource:
+
+Class CoreResource
+==================
+
+- Defined in :ref:`file_Source_DataIO_FileSystem_CoreResource.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::CoreResource
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

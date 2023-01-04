@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1math_1_1_real:
+
+Class Real
+==========
+
+- Defined in :ref:`file_Source_Math_Real.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::math::Real
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

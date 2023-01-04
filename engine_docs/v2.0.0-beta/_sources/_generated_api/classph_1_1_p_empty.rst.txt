@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_p_empty:
+
+Class PEmpty
+============
+
+- Defined in :ref:`file_Source_Core_Intersectable_PEmpty.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::Primitive`` (:ref:`exhale_class_classph_1_1_primitive`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::PEmpty
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

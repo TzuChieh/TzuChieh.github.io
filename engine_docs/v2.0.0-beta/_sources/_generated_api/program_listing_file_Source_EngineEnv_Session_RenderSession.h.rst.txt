@@ -1,0 +1,77 @@
+
+.. _program_listing_file_Source_EngineEnv_Session_RenderSession.h:
+
+Program Listing for File RenderSession.h
+========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_EngineEnv_Session_RenderSession.h>` (``Source\EngineEnv\Session\RenderSession.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "DataIO/Option.h"
+   #include "EngineEnv/CoreSdlResource.h"
+   #include "Common/primitive_type.h"
+   #include "DataIO/SDL/sdl_interface.h"
+   
+   #include <string>
+   #include <memory>
+   #include <vector>
+   
+   namespace ph { class CoreCookingContext; }
+   namespace ph { class SceneDescription; }
+   
+   namespace ph
+   {
+   
+   class RenderSession : public Option
+   {
+   public:
+       inline RenderSession() = default;
+   
+       virtual void applyToContext(CoreCookingContext& ctx) const = 0;
+   
+       // TODO: should we take a context obj?
+       virtual std::vector<std::shared_ptr<CoreSdlResource>> gatherResources(const SceneDescription& scene) const = 0;
+   
+       uint32 numWorkers() const;
+   
+   private:
+       std::string m_sessionName;
+       uint32      m_numWorkers;
+   
+   public:
+       PH_DEFINE_SDL_CLASS(TOwnerSdlClass<RenderSession>)
+       {
+           ClassType clazz("render-session");
+           clazz.docName("Render Session");
+           clazz.description("Settings for how to perform a render operation.");
+           clazz.baseOn<Option>();
+   
+           TSdlString<OwnerType> sessionName("session-name", &OwnerType::m_sessionName);
+           sessionName.description("Name of this render session.");
+           sessionName.defaultTo("Render Session");
+           sessionName.optional();
+           clazz.addField(sessionName);
+   
+           TSdlUint32<OwnerType> numWorkers("num-workers", &OwnerType::m_numWorkers);
+           numWorkers.description("Number of worker threads for the rendering operation.");
+           numWorkers.defaultTo(1);
+           numWorkers.optional();
+           clazz.addField(numWorkers);
+   
+           return clazz;
+       }
+   };
+   
+   // In-header Implementation:
+   
+   inline uint32 RenderSession::numWorkers() const
+   {
+       return m_numWorkers;
+   }
+   
+   }// end namespace ph

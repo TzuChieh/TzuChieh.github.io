@@ -1,0 +1,23 @@
+.. _exhale_struct_structph_1_1_value_clauses_1_1_clause:
+
+Struct ValueClauses::Clause
+===========================
+
+- Defined in :ref:`file_Source_DataIO_SDL_ValueClauses.h`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_class_classph_1_1_value_clauses`.
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: ph::ValueClauses::Clause
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

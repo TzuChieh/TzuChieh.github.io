@@ -1,0 +1,36 @@
+
+.. _program_listing_file_Source_Actor_ModelParser_AssimpModelParser.h:
+
+Program Listing for File AssimpModelParser.h
+============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Actor_ModelParser_AssimpModelParser.h>` (``Source\Actor\ModelParser\AssimpModelParser.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   //#pragma once
+   //
+   //#include "Actor/ModelParser/ModelParser.h"
+   //
+   //#include <assimp/importer.hpp>
+   //
+   //#include <memory>
+   //#include <string>
+   //
+   //namespace ph
+   //{
+   //
+   //class AssimpModelParser final : public ModelParser
+   //{
+   //public:
+   //  virtual ~AssimpModelParser() override;
+   //
+   //  virtual bool parse(const std::string& fullFilename, std::vector<AModel>* const out_models) override;
+   //
+   //private:
+   //  Assimp::Importer m_assimpImporter;
+   //};
+   //
+   //}// end namespace ph

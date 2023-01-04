@@ -1,0 +1,17 @@
+.. _exhale_struct_structph_1_1_log_group:
+
+Struct LogGroup
+===============
+
+- Defined in :ref:`file_Source_Common_logging.h`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: ph::LogGroup
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

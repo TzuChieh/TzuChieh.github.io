@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1frame__utils_1afebdfa125f8a5f3c27c879de6ed230d6:
+
+Function ph::frame_utils::calc_MSE
+==================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::frame_utils::calc_MSE(const HdrRgbFrame&, const HdrRgbFrame&)
+   :project: Photon

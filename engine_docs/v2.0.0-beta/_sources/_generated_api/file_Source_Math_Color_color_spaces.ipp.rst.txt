@@ -1,0 +1,93 @@
+
+.. _file_Source_Math_Color_color_spaces.ipp:
+
+File color_spaces.ipp
+=====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\Color\color_spaces.ipp``)
+---------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_Color_color_spaces.ipp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Math/Color/chromatic_adaptations.h``
+
+- ``Math/Color/color_spaces.h``
+
+- ``Math/Color/spectral_samples.h``
+
+- ``Math/TArithmeticArray.h``
+
+- ``Math/TMatrix3.h``
+
+- ``Math/math.h``
+
+- ``Math/math_exceptions.h``
+
+- ``Utility/IUninstantiable.h``
+
+- ``cmath``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Math_Color_color_spaces.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+- :ref:`namespace_ph__math__detail`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structph_1_1math_1_1detail_1_1_t_smits_s_p_d_basis`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_color_space_definition_3_01_e_color_space_1_1_a_c_e_scg_00_01_t_01_4`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_color_space_definition_3_01_e_color_space_1_1_c_i_e__xy_y_00_01_t_01_4`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_color_space_definition_3_01_e_color_space_1_1_c_i_e___x_y_z_00_01_t_01_4`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_color_space_definition_3_01_e_color_space_1_1_linear__s_r_g_b_00_01_t_01_4`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_color_space_definition_3_01_e_color_space_1_1_spectral___smits_00_01_t_01_4`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_color_space_definition_3_01_e_color_space_1_1s_r_g_b_00_01_t_01_4`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_color_space_definition_helper`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_spectral_color_space_definition_helper`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_tristimulus_color_space_definition_helper`
+

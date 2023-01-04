@@ -1,0 +1,77 @@
+
+.. _file_Source_Math_Transform_TDecomposedTransform.h:
+
+File TDecomposedTransform.h
+===========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\Transform\TDecomposedTransform.h``)
+-------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_Transform_TDecomposedTransform.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Math/TMatrix4.h``
+
+- ``Math/TQuaternion.h``
+
+- ``Math/TVector3.h``
+
+- ``Math/math.h``
+
+- ``cstdlib``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_Geometry_GeometrySoup.cpp`
+
+- :ref:`file_Source_Actor_MotionSource_MotionSource.h`
+
+- :ref:`file_Source_Actor_PhysicalActor.h`
+
+- :ref:`file_Source_EngineEnv_Observer_OrientedRasterObserver.h`
+
+- :ref:`file_Source_EngineEnv_Observer_SingleLensObserver.h`
+
+- :ref:`file_Source_Math_Transform_StaticAffineTransform.h`
+
+- :ref:`file_Source_Math_Transform_StaticRigidTransform.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_decomposed_transform`
+

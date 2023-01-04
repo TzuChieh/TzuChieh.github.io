@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1af399a168798b1f20a09f6d5039b2bfc9:
+
+Function ph::PH_DEFINE_INTERNAL_TIMER_STAT(GetSDLClass, SDLParser)
+==================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_INTERNAL_TIMER_STAT(GetSDLClass, SDLParser)
+   :project: Photon

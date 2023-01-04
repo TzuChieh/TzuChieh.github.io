@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_dielectric_interface_info:
+
+Class DielectricInterfaceInfo
+=============================
+
+- Defined in :ref:`file_Source_Actor_Material_Utility_DielectricInterfaceInfo.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::DielectricInterfaceInfo
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

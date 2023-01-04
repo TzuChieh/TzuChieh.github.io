@@ -1,0 +1,14 @@
+.. _exhale_enum_ph__core_8h_1a7a7d07a4f0d44c543ad9554571f4767e:
+
+Enum PH_ERenderStateType
+========================
+
+- Defined in :ref:`file_Include_CEngine_ph_core.h`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: PH_ERenderStateType
+   :project: Photon

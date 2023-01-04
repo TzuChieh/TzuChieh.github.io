@@ -1,0 +1,14 @@
+.. _exhale_function_ph__core_8h_1a322ff66d396d407147e472609b4a22bc:
+
+Function phSaveFrame(PHuint64, const PHchar \*)
+===============================================
+
+- Defined in :ref:`file_Include_CEngine_ph_core.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: phSaveFrame(PHuint64, const PHchar *)
+   :project: Photon

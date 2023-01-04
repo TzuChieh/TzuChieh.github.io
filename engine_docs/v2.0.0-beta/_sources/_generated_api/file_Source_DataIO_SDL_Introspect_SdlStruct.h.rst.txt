@@ -1,0 +1,65 @@
+
+.. _file_Source_DataIO_SDL_Introspect_SdlStruct.h:
+
+File SdlStruct.h
+================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\SDL\Introspect\SdlStruct.h``)
+---------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_SDL_Introspect_SdlStruct.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/logging.h``
+
+- ``cstddef``
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_DataIO_SDL_Introspect_SdlStruct.cpp`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_SdlStructFieldStump.ipp`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TOwnerSdlClass.ipp`
+
+- :ref:`file_Source_DataIO_SDL_Introspect_TOwnerSdlStruct.h`
+
+- :ref:`file_Source_DataIO_SDL_sdl_interface.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_sdl_struct`
+

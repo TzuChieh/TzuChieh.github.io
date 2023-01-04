@@ -1,0 +1,64 @@
+
+.. _file_Source_DataIO_PictureSaver.cpp:
+
+File PictureSaver.cpp
+=====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\PictureSaver.cpp``)
+-----------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_PictureSaver.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/ThirdParty/lib_stb.h``
+
+- ``Common/assertion.h``
+
+- ``Common/logging.h``
+
+- ``DataIO/ExrFileWriter.h``
+
+- ``DataIO/PfmFileWriter.h``
+
+- ``DataIO/PictureSaver.h``
+
+- ``Frame/TFrame.h``
+
+- ``Frame/frame_utils.h``
+
+- ``climits``
+
+- ``limits``
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+- ``type_traits``
+
+- ``vector``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

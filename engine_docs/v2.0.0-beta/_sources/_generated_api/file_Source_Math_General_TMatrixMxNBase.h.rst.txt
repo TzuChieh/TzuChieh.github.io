@@ -1,0 +1,69 @@
+
+.. _file_Source_Math_General_TMatrixMxNBase.h:
+
+File TMatrixMxNBase.h
+=====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\General\TMatrixMxNBase.h``)
+-----------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_General_TMatrixMxNBase.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/primitive_type.h``
+
+- ``Math/General/TMatrixMxNBase.ipp``
+
+- ``Math/math_fwd.h``
+
+- ``array``
+
+- ``cstddef``
+
+- ``string`` (:ref:`file_Source_Utility_string_utils.h`)
+
+- ``type_traits``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Math_General_TMatrixMxNBase.ipp`
+
+- :ref:`file_Source_Math_General_TMatrixNBase.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_matrix_mx_n_base`
+

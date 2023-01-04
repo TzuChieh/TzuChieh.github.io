@@ -1,0 +1,46 @@
+
+.. _file_Source_Frame_Operator_JRToneMapping.cpp:
+
+File JRToneMapping.cpp
+======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Frame\Operator\JRToneMapping.cpp``)
+--------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Frame_Operator_JRToneMapping.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Frame/Operator/JRToneMapping.h``
+
+- ``iostream``
+
+- ``limits``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

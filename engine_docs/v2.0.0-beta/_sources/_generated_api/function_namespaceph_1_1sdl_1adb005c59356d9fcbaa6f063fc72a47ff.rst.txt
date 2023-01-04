@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1sdl_1adb005c59356d9fcbaa6f063fc72a47ff:
+
+Template Function ph::sdl::category_of
+======================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::sdl::category_of()
+   :project: Photon

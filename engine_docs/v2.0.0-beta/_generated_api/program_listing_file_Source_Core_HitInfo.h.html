@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File HitInfo.h &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File HitInfo.h</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Core_HitInfo.h.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-hitinfo-h">
+<span id="program-listing-file-source-core-hitinfo-h"></span><h1>Program Listing for File HitInfo.h<a class="headerlink" href="#program-listing-for-file-hitinfo-h" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Core_HitInfo.h.html#file-source-core-hitinfo-h"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Core\HitInfo.h</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/TVector3.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/TOrthonormalBasis3.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/math.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/ECoordSys.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/assertion.h&quot;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Primitive</span><span class="p">;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">HitInfo</span><span class="w"> </span><span class="k">final</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">HitInfo</span><span class="p">();</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setAttributes</span><span class="p">(</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">position</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">geometryNormal</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">shadingNormal</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setDerivatives</span><span class="p">(</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">dPdU</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">dPdV</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">dNdU</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">dNdV</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">computeBases</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="nf">getPosition</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="nf">getShadingNormal</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="nf">getGeometryNormal</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="nf">getdPdU</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="nf">getdPdV</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="nf">getdNdU</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="nf">getdNdV</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Basis3R</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">getGeometryBasis</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Basis3R</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">getShadingBasis</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="n">m_position</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="n">m_dPdU</span><span class="p">;</span>
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="n">m_dPdV</span><span class="p">;</span>
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="n">m_dNdU</span><span class="p">;</span>
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="n">m_dNdV</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// TODO: basis may be constructed on demand (will this be costly?)</span>
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">Basis3R</span><span class="w"> </span><span class="n">m_geometryBasis</span><span class="p">;</span>
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">Basis3R</span><span class="w"> </span><span class="n">m_shadingBasis</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// In-header Implementations:</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="nf">HitInfo::getPosition</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_position</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="nf">HitInfo::getShadingNormal</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_shadingBasis</span><span class="p">.</span><span class="n">getYAxis</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="nf">HitInfo::getGeometryNormal</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_geometryBasis</span><span class="p">.</span><span class="n">getYAxis</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="nf">HitInfo::getdPdU</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_dPdU</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="nf">HitInfo::getdPdV</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_dPdV</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="nf">HitInfo::getdNdU</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_dNdU</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="w"> </span><span class="nf">HitInfo::getdNdV</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_dNdV</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Basis3R</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">HitInfo::getGeometryBasis</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_geometryBasis</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Basis3R</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">HitInfo::getShadingBasis</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_shadingBasis</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">HitInfo::setAttributes</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">position</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">geometryNormal</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">shadingNormal</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">position</span><span class="p">;</span>
+<span class="w">    </span><span class="n">m_geometryBasis</span><span class="p">.</span><span class="n">setYAxis</span><span class="p">(</span><span class="n">geometryNormal</span><span class="p">);</span>
+<span class="w">    </span><span class="n">m_shadingBasis</span><span class="p">.</span><span class="n">setYAxis</span><span class="p">(</span><span class="n">shadingNormal</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">HitInfo::setDerivatives</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">dPdU</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">dPdV</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">dNdU</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Vector3R</span><span class="o">&amp;</span><span class="w"> </span><span class="n">dNdV</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_dPdU</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dPdU</span><span class="p">;</span>
+<span class="w">    </span><span class="n">m_dPdV</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dPdV</span><span class="p">;</span>
+<span class="w">    </span><span class="n">m_dNdU</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dNdU</span><span class="p">;</span>
+<span class="w">    </span><span class="n">m_dNdV</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dNdV</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">HitInfo::computeBases</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// FIXME: currently this is a hacky way to avoid crossing two parallel vectors</span>
+<span class="w">    </span><span class="c1">// (this condition can rarely happen)</span>
+<span class="w">    </span><span class="c1">// (which will result in 0-length vector and cause normalization to fail)</span>
+
+<span class="w">    </span><span class="n">m_geometryBasis</span><span class="p">.</span><span class="n">setXAxis</span><span class="p">(</span><span class="n">m_geometryBasis</span><span class="p">.</span><span class="n">getYAxis</span><span class="p">().</span><span class="n">cross</span><span class="p">(</span><span class="n">m_dPdU</span><span class="p">));</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">m_geometryBasis</span><span class="p">.</span><span class="n">getXAxis</span><span class="p">().</span><span class="n">lengthSquared</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.0</span><span class="n">_r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">m_geometryBasis</span><span class="p">.</span><span class="n">renormalizeXAxis</span><span class="p">();</span>
+<span class="w">        </span><span class="n">m_geometryBasis</span><span class="p">.</span><span class="n">setZAxis</span><span class="p">(</span><span class="n">m_geometryBasis</span><span class="p">.</span><span class="n">getXAxis</span><span class="p">().</span><span class="n">cross</span><span class="p">(</span><span class="n">m_geometryBasis</span><span class="p">.</span><span class="n">getYAxis</span><span class="p">()));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">m_geometryBasis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Basis3R</span><span class="o">::</span><span class="n">makeFromUnitY</span><span class="p">(</span><span class="n">m_geometryBasis</span><span class="p">.</span><span class="n">getYAxis</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">m_shadingBasis</span><span class="p">.</span><span class="n">setXAxis</span><span class="p">(</span><span class="n">m_shadingBasis</span><span class="p">.</span><span class="n">getYAxis</span><span class="p">().</span><span class="n">cross</span><span class="p">(</span><span class="n">m_dNdU</span><span class="p">));</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">m_shadingBasis</span><span class="p">.</span><span class="n">getXAxis</span><span class="p">().</span><span class="n">lengthSquared</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.0</span><span class="n">_r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">m_shadingBasis</span><span class="p">.</span><span class="n">renormalizeXAxis</span><span class="p">();</span>
+<span class="w">        </span><span class="n">m_shadingBasis</span><span class="p">.</span><span class="n">setZAxis</span><span class="p">(</span><span class="n">m_shadingBasis</span><span class="p">.</span><span class="n">getXAxis</span><span class="p">().</span><span class="n">cross</span><span class="p">(</span><span class="n">m_shadingBasis</span><span class="p">.</span><span class="n">getYAxis</span><span class="p">()));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">m_shadingBasis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">Basis3R</span><span class="o">::</span><span class="n">makeFromUnitY</span><span class="p">(</span><span class="n">m_shadingBasis</span><span class="p">.</span><span class="n">getYAxis</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">PH_ASSERT_MSG</span><span class="p">(</span><span class="n">m_geometryBasis</span><span class="p">.</span><span class="n">getYAxis</span><span class="p">().</span><span class="n">isFinite</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">m_shadingBasis</span><span class="p">.</span><span class="n">getYAxis</span><span class="p">().</span><span class="n">isFinite</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span>
+<span class="w">        </span><span class="s">&quot;geometry-y-axis = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m_geometryBasis</span><span class="p">.</span><span class="n">getYAxis</span><span class="p">().</span><span class="n">toString</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span>
+<span class="w">        </span><span class="s">&quot;shading-y-axis  = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m_shadingBasis</span><span class="p">.</span><span class="n">getYAxis</span><span class="p">().</span><span class="n">toString</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

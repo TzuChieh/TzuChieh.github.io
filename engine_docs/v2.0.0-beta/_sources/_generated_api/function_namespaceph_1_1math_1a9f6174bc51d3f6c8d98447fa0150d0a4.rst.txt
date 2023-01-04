@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1a9f6174bc51d3f6c8d98447fa0150d0a4:
+
+Template Function ph::math::resample_black_body_radiance
+========================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::resample_black_body_radiance(T)
+   :project: Photon

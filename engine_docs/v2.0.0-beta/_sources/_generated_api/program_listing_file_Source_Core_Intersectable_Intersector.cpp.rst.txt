@@ -1,0 +1,27 @@
+
+.. _program_listing_file_Source_Core_Intersectable_Intersector.cpp:
+
+Program Listing for File Intersector.cpp
+========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Core_Intersectable_Intersector.cpp>` (``Source\Core\Intersectable\Intersector.cpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #include "Core/Intersectable/Intersector.h"
+   #include "Core/HitProbe.h"
+   
+   namespace ph
+   {
+   
+   void Intersector::calcIntersectionDetail(
+       const Ray&       ray, 
+       HitProbe&        probe,
+       HitDetail* const out_detail) const
+   {
+       probe.getCurrentHit()->calcIntersectionDetail(ray, probe, out_detail);
+   }
+   
+   }// end namespace ph

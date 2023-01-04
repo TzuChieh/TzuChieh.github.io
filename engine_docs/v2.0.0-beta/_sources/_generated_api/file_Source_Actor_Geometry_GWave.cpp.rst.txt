@@ -1,0 +1,52 @@
+
+.. _file_Source_Actor_Geometry_GWave.cpp:
+
+File GWave.cpp
+==============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\Geometry\GWave.cpp``)
+------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_Geometry_GWave.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/Geometry/GWave.h``
+
+- ``Actor/Geometry/PrimitiveBuildingMaterial.h``
+
+- ``Core/Intersectable/PTriangle.h``
+
+- ``Core/Intersectable/PrimitiveMetadata.h``
+
+- ``Math/TVector3.h``
+
+- ``cmath``
+
+- ``iostream``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

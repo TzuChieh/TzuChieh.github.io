@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File TOrthonormalBasis3.ipp &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File TOrthonormalBasis3.ipp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_Math_TOrthonormalBasis3.ipp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-torthonormalbasis3-ipp">
+<span id="program-listing-file-source-math-torthonormalbasis3-ipp"></span><h1>Program Listing for File TOrthonormalBasis3.ipp<a class="headerlink" href="#program-listing-for-file-torthonormalbasis3-ipp" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_Math_TOrthonormalBasis3.ipp.html#file-source-math-torthonormalbasis3-ipp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\Math\TOrthonormalBasis3.ipp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/TOrthonormalBasis3.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Math/math.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/assertion.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;algorithm&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;limits&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span><span class="o">::</span><span class="nn">math</span>
+<span class="p">{</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">makeFromUnitY</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">unitYAxis</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT_MSG</span><span class="p">(</span><span class="n">unitYAxis</span><span class="p">.</span><span class="n">length</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="mf">0.9</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">unitYAxis</span><span class="p">.</span><span class="n">isFinite</span><span class="p">(),</span><span class="w"> </span><span class="n">unitYAxis</span><span class="p">.</span><span class="n">toString</span><span class="p">());</span>
+
+<span class="w">    </span><span class="c1">// choose an axis deviate enough to specified y-axis to perform cross product in order to avoid some</span>
+<span class="w">    </span><span class="c1">// numeric errors</span>
+<span class="w">    </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">unitXAxis</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">unitYAxis</span><span class="p">.</span><span class="n">y</span><span class="p">())</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">constant</span><span class="o">::</span><span class="n">rcp_sqrt_2</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">unitXAxis</span><span class="p">.</span><span class="n">set</span><span class="p">({</span><span class="o">-</span><span class="n">unitYAxis</span><span class="p">.</span><span class="n">z</span><span class="p">(),</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">unitYAxis</span><span class="p">.</span><span class="n">x</span><span class="p">()});</span><span class="c1">// yAxis cross (0, 1, 0)</span>
+<span class="w">        </span><span class="n">unitXAxis</span><span class="p">.</span><span class="n">mulLocal</span><span class="p">(</span><span class="n">T</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">sqrt</span><span class="p">(</span><span class="n">unitXAxis</span><span class="p">.</span><span class="n">x</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">unitXAxis</span><span class="p">.</span><span class="n">x</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">unitXAxis</span><span class="p">.</span><span class="n">z</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">unitXAxis</span><span class="p">.</span><span class="n">z</span><span class="p">()));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">unitXAxis</span><span class="p">.</span><span class="n">set</span><span class="p">({</span><span class="n">unitYAxis</span><span class="p">.</span><span class="n">y</span><span class="p">(),</span><span class="w"> </span><span class="o">-</span><span class="n">unitYAxis</span><span class="p">.</span><span class="n">x</span><span class="p">(),</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="mi">0</span><span class="p">)});</span><span class="c1">// yAxis cross (0, 0, 1)</span>
+<span class="w">        </span><span class="n">unitXAxis</span><span class="p">.</span><span class="n">mulLocal</span><span class="p">(</span><span class="n">T</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">sqrt</span><span class="p">(</span><span class="n">unitXAxis</span><span class="p">.</span><span class="n">x</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">unitXAxis</span><span class="p">.</span><span class="n">x</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">unitXAxis</span><span class="p">.</span><span class="n">y</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">unitXAxis</span><span class="p">.</span><span class="n">y</span><span class="p">()));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">unitZAxis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">unitXAxis</span><span class="p">.</span><span class="n">cross</span><span class="p">(</span><span class="n">unitYAxis</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">PH_ASSERT_MSG</span><span class="p">(</span><span class="n">unitXAxis</span><span class="p">.</span><span class="n">isFinite</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">unitZAxis</span><span class="p">.</span><span class="n">isFinite</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span>
+<span class="w">        </span><span class="s">&quot;unit-x-axis = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">unitXAxis</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span>
+<span class="w">        </span><span class="s">&quot;unit-z-axis = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">unitZAxis</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="p">(</span><span class="n">unitXAxis</span><span class="p">,</span><span class="w"> </span><span class="n">unitYAxis</span><span class="p">,</span><span class="w"> </span><span class="n">unitZAxis</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// TEST</span>
+<span class="w">    </span><span class="cm">/*std::cerr &lt;&lt; std::setprecision(20);</span>
+<span class="cm">    if(std::abs(out_unitXaxis-&gt;length() - 1.0_r) &gt; 0.000001_r)</span>
+<span class="cm">        std::cerr &lt;&lt; out_unitXaxis-&gt;length() &lt;&lt; std::endl;</span>
+<span class="cm">    if(std::abs(out_unitZaxis-&gt;length() - 1.0_r) &gt; 0.000001_r)</span>
+<span class="cm">        std::cerr &lt;&lt; out_unitZaxis-&gt;length() &lt;&lt; std::endl;</span>
+<span class="cm">    if(out_unitXaxis-&gt;dot(*out_unitZaxis) &gt; 0.000001_r)</span>
+<span class="cm">        std::cerr &lt;&lt; out_unitXaxis-&gt;dot(*out_unitZaxis) &lt;&lt; std::endl;</span>
+<span class="cm">    if(out_unitZaxis-&gt;dot(unitYaxis) &gt; 0.000001_r)</span>
+<span class="cm">        std::cerr &lt;&lt; out_unitZaxis-&gt;dot(unitYaxis) &lt;&lt; std::endl;</span>
+<span class="cm">    if(unitYaxis.dot(*out_unitXaxis) &gt; 0.000001_r)</span>
+<span class="cm">        std::cerr &lt;&lt; unitYaxis.dot(*out_unitXaxis) &lt;&lt; std::endl;*/</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">TOrthonormalBasis3</span><span class="p">()</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">m_xAxis</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span>
+<span class="w">    </span><span class="n">m_yAxis</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span>
+<span class="w">    </span><span class="n">m_zAxis</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="p">{}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">TOrthonormalBasis3</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">TOrthonormalBasis3</span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">m_xAxis</span><span class="p">,</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">m_yAxis</span><span class="p">,</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">m_zAxis</span><span class="p">)</span>
+<span class="p">{}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">TOrthonormalBasis3</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">xAxis</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">yAxis</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">zAxis</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">m_xAxis</span><span class="p">(</span><span class="n">xAxis</span><span class="p">),</span>
+<span class="w">    </span><span class="n">m_yAxis</span><span class="p">(</span><span class="n">yAxis</span><span class="p">),</span>
+<span class="w">    </span><span class="n">m_zAxis</span><span class="p">(</span><span class="n">zAxis</span><span class="p">)</span>
+<span class="p">{}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">worldToLocal</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">worldVec</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_xAxis</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">worldVec</span><span class="p">),</span>
+<span class="w">                       </span><span class="n">m_yAxis</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">worldVec</span><span class="p">),</span>
+<span class="w">                       </span><span class="n">m_zAxis</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">worldVec</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">localToWorld</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">localVec</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_xAxis</span><span class="p">.</span><span class="n">mul</span><span class="p">(</span><span class="n">localVec</span><span class="p">.</span><span class="n">x</span><span class="p">()).</span><span class="n">add</span><span class="p">(</span>
+<span class="w">           </span><span class="n">m_yAxis</span><span class="p">.</span><span class="n">mul</span><span class="p">(</span><span class="n">localVec</span><span class="p">.</span><span class="n">y</span><span class="p">())).</span><span class="n">add</span><span class="p">(</span>
+<span class="w">           </span><span class="n">m_zAxis</span><span class="p">.</span><span class="n">mul</span><span class="p">(</span><span class="n">localVec</span><span class="p">.</span><span class="n">z</span><span class="p">()));</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">cosPhi</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">unitVec</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">zProjection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">unitVec</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">m_zAxis</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">rProjection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sinTheta</span><span class="p">(</span><span class="n">unitVec</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">rProjection</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">clamp</span><span class="p">(</span><span class="n">zProjection</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">rProjection</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="mi">-1</span><span class="p">),</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// corresponds to phi = 0</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">sinPhi</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">unitVec</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">xProjection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">unitVec</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">m_xAxis</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">rProjection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sinTheta</span><span class="p">(</span><span class="n">unitVec</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">rProjection</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">clamp</span><span class="p">(</span><span class="n">xProjection</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">rProjection</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="mi">-1</span><span class="p">),</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// corresponds to phi = 0</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">tanPhi</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">unitVec</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">zProjection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">unitVec</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">m_zAxis</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">xProjection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">unitVec</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">m_xAxis</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">zProjection</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">clamp</span><span class="p">(</span>
+<span class="w">            </span><span class="n">xProjection</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">zProjection</span><span class="p">,</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">lowest</span><span class="p">(),</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">switch</span><span class="p">(</span><span class="n">math</span><span class="o">::</span><span class="n">sign</span><span class="p">(</span><span class="n">xProjection</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="mi">-1</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">lowest</span><span class="p">();</span>
+<span class="w">        </span><span class="k">case</span><span class="w">  </span><span class="mi">0</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="k">case</span><span class="w">  </span><span class="mi">1</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">PH_ASSERT_UNREACHABLE_SECTION</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">cos2Phi</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">unitVec</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">squared</span><span class="p">(</span><span class="n">cosPhi</span><span class="p">(</span><span class="n">unitVec</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">sin2Phi</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">unitVec</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">squared</span><span class="p">(</span><span class="n">sinPhi</span><span class="p">(</span><span class="n">unitVec</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">tan2Phi</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">unitVec</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">cos2P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cos2Phi</span><span class="p">(</span><span class="n">unitVec</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">sin2P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">cos2P</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">cos2P</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">clamp</span><span class="p">(</span>
+<span class="w">            </span><span class="n">sin2P</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">cos2P</span><span class="p">,</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">lowest</span><span class="p">(),</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">cosTheta</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">unitVec</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">clamp</span><span class="p">(</span><span class="n">m_yAxis</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">unitVec</span><span class="p">),</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="mi">-1</span><span class="p">),</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">sinTheta</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">unitVec</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sin2Theta</span><span class="p">(</span><span class="n">unitVec</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">tanTheta</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">unitVec</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">cosT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cosTheta</span><span class="p">(</span><span class="n">unitVec</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">cosT</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">clamp</span><span class="p">(</span>
+<span class="w">            </span><span class="n">sinTheta</span><span class="p">(</span><span class="n">unitVec</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">cosT</span><span class="p">,</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">lowest</span><span class="p">(),</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">switch</span><span class="p">(</span><span class="n">math</span><span class="o">::</span><span class="n">sign</span><span class="p">(</span><span class="n">sinTheta</span><span class="p">(</span><span class="n">unitVec</span><span class="p">)))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="mi">-1</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">lowest</span><span class="p">();</span>
+<span class="w">        </span><span class="k">case</span><span class="w">  </span><span class="mi">0</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="k">case</span><span class="w">  </span><span class="mi">1</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">PH_ASSERT_UNREACHABLE_SECTION</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">absCosTheta</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">unitVec</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">cosTheta</span><span class="p">(</span><span class="n">unitVec</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">absSinTheta</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">unitVec</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">sinTheta</span><span class="p">(</span><span class="n">unitVec</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">cos2Theta</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">unitVec</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">squared</span><span class="p">(</span><span class="n">cosTheta</span><span class="p">(</span><span class="n">unitVec</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">sin2Theta</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">unitVec</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">cos2Theta</span><span class="p">(</span><span class="n">unitVec</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">tan2Theta</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">unitVec</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">cos2T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cos2Theta</span><span class="p">(</span><span class="n">unitVec</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">sin2T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">cos2T</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">cos2T</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">clamp</span><span class="p">(</span>
+<span class="w">            </span><span class="n">sin2T</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">cos2T</span><span class="p">,</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">lowest</span><span class="p">(),</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">renormalize</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_xAxis</span><span class="p">.</span><span class="n">normalizeLocal</span><span class="p">();</span>
+<span class="w">    </span><span class="n">m_yAxis</span><span class="p">.</span><span class="n">normalizeLocal</span><span class="p">();</span>
+<span class="w">    </span><span class="n">m_zAxis</span><span class="p">.</span><span class="n">normalizeLocal</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">renormalizeXAxis</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_xAxis</span><span class="p">.</span><span class="n">normalizeLocal</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">renormalizeYAxis</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_yAxis</span><span class="p">.</span><span class="n">normalizeLocal</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">renormalizeZAxis</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_zAxis</span><span class="p">.</span><span class="n">normalizeLocal</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">setXAxis</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">axis</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_xAxis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">axis</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">setYAxis</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">axis</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_yAxis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">axis</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">setZAxis</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">axis</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_zAxis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">axis</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">set</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">xAxis</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">yAxis</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">zAxis</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">m_xAxis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xAxis</span><span class="p">;</span>
+<span class="w">    </span><span class="n">m_yAxis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yAxis</span><span class="p">;</span>
+<span class="w">    </span><span class="n">m_zAxis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zAxis</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">getXAxis</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_xAxis</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">getYAxis</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_yAxis</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TVector3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">getZAxis</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m_zAxis</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="k">operator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TOrthonormalBasis3</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">set</span><span class="p">(</span><span class="n">rhs</span><span class="p">.</span><span class="n">m_xAxis</span><span class="p">,</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">m_yAxis</span><span class="p">,</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">m_zAxis</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph::math</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

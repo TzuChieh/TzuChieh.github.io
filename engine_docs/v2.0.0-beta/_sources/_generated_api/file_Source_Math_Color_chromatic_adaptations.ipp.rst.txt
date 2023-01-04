@@ -1,0 +1,65 @@
+
+.. _file_Source_Math_Color_chromatic_adaptations.ipp:
+
+File chromatic_adaptations.ipp
+==============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\Color\chromatic_adaptations.ipp``)
+------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_Color_chromatic_adaptations.ipp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Math/Color/chromatic_adaptations.h``
+
+- ``Utility/IUninstantiable.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Math_Color_chromatic_adaptations.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_chromatic_adaptation_definition_3_01_e_chromatic_adaptation_1_1_bradford_00_01_t_01_4`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_chromatic_adaptation_definition_3_01_e_chromatic_adaptation_1_1_von_kries_00_01_t_01_4`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_chromatic_adaptation_definition_3_01_e_chromatic_adaptation_1_1_x_y_z_scaling_00_01_t_01_4`
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_chromatic_adaptation_definition_helper`
+

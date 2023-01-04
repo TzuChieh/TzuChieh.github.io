@@ -1,0 +1,46 @@
+
+.. _file_Source_DataIO_Stream_BinaryFileInputStream.cpp:
+
+File BinaryFileInputStream.cpp
+==============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\DataIO\Stream\BinaryFileInputStream.cpp``)
+---------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_DataIO_Stream_BinaryFileInputStream.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``DataIO/Stream/BinaryFileInputStream.h``
+
+- ``filesystem``
+
+- ``fstream``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

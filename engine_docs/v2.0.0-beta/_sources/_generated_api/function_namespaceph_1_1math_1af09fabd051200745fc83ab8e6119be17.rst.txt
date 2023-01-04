@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1math_1af09fabd051200745fc83ab8e6119be17:
+
+Template Function ph::math::matrix2x2
+=====================================
+
+- Defined in :ref:`file_Source_Math_math.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::math::matrix2x2(const T, const T, const T, const T)
+   :project: Photon

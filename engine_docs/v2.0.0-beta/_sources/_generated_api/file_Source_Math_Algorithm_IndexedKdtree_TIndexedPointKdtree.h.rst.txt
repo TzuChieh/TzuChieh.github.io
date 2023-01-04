@@ -1,0 +1,79 @@
+
+.. _file_Source_Math_Algorithm_IndexedKdtree_TIndexedPointKdtree.h:
+
+File TIndexedPointKdtree.h
+==========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\Algorithm\IndexedKdtree\TIndexedPointKdtree.h``)
+--------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_Algorithm_IndexedKdtree_TIndexedPointKdtree.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Math/Algorithm/IndexedKdtree/TIndexedKdtreeNode.h``
+
+- ``Math/Geometry/TAABB3D.h``
+
+- ``Math/TVector3.h``
+
+- ``Utility/utility.h``
+
+- ``algorithm``
+
+- ``array``
+
+- ``cstddef``
+
+- ``limits``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+- ``type_traits``
+
+- ``utility`` (:ref:`file_Source_Common_utility.h`)
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Core_Renderer_PM_TPhotonMap.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1math_1_1_t_indexed_point_kdtree`
+

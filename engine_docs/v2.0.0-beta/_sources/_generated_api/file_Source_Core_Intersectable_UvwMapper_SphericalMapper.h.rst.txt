@@ -1,0 +1,65 @@
+
+.. _file_Source_Core_Intersectable_UvwMapper_SphericalMapper.h:
+
+File SphericalMapper.h
+======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Intersectable\UvwMapper\SphericalMapper.h``)
+----------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Intersectable_UvwMapper_SphericalMapper.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Core/Intersectable/UvwMapper/UvwMapper.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Actor_Geometry_Geometry.cpp`
+
+- :ref:`file_Source_Actor_LightSource_IesAttenuatedSource.cpp`
+
+- :ref:`file_Source_Core_Emitter_LatLongEnvEmitter.cpp`
+
+- :ref:`file_Source_Core_Emitter_OmniModulatedEmitter.h`
+
+- :ref:`file_Source_Core_Intersectable_PrimitiveChannel.cpp`
+
+- :ref:`file_Source_Core_Intersectable_UvwMapper_SphericalMapper.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_spherical_mapper`
+

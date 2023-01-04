@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1pixel__texture_1abc5f13d575b092591865a60bba13e816:
+
+Function ph::pixel_texture::alpha_channel_index
+===============================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::pixel_texture::alpha_channel_index(const EPixelLayout)
+   :project: Photon

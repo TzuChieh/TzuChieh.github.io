@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1sdl_1a46c0a4b72c37725db37846b47557baca:
+
+Function ph::sdl::save_real
+===========================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::sdl::save_real(real, std::string *)
+   :project: Photon

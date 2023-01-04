@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File VisualWorld.cpp &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File VisualWorld.cpp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/program_listing_file_Source_World_VisualWorld.cpp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-visualworld-cpp">
+<span id="program-listing-file-source-world-visualworld-cpp"></span><h1>Program Listing for File VisualWorld.cpp<a class="headerlink" href="#program-listing-for-file-visualworld-cpp" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_Source_World_VisualWorld.cpp.html#file-source-world-visualworld-cpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">Source\World\VisualWorld.cpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;World/VisualWorld.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/primitive_type.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;DataIO/SDL/SceneDescription.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/CookedUnit.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/ActorCookingContext.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;EngineEnv/CoreCookingContext.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;EngineEnv/CoreCookedUnit.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/Actor.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Intersectable/BruteForceIntersector.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Intersectable/Kdtree/KdtreeIntersector.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Emitter/Sampler/ESUniformRandom.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Intersectable/Bvh/ClassicBvhIntersector.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;World/VisualWorldInfo.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Intersectable/Intersector/TIndexedKdtreeIntersector.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Core/Emitter/Sampler/ESPowerFavoring.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Actor/APhantomModel.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/logging.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Common/stats.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;limits&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;algorithm&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iterator&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">ph</span>
+<span class="p">{</span>
+
+<span class="n">PH_DEFINE_INTERNAL_LOG_GROUP</span><span class="p">(</span><span class="n">VisualWorld</span><span class="p">,</span><span class="w"> </span><span class="n">World</span><span class="p">);</span>
+<span class="n">PH_DEFINE_INTERNAL_TIMER_STAT</span><span class="p">(</span><span class="n">CookActorLevels</span><span class="p">,</span><span class="w"> </span><span class="n">VisualWorld</span><span class="p">);</span>
+<span class="n">PH_DEFINE_INTERNAL_TIMER_STAT</span><span class="p">(</span><span class="n">UpdateAccelerators</span><span class="p">,</span><span class="w"> </span><span class="n">VisualWorld</span><span class="p">);</span>
+<span class="n">PH_DEFINE_INTERNAL_TIMER_STAT</span><span class="p">(</span><span class="n">UpdateLightSamplers</span><span class="p">,</span><span class="w"> </span><span class="n">VisualWorld</span><span class="p">);</span>
+
+<span class="n">VisualWorld</span><span class="o">::</span><span class="n">VisualWorld</span><span class="p">()</span><span class="w"> </span><span class="o">:</span>
+<span class="w">    </span><span class="n">m_intersector</span><span class="p">(),</span>
+<span class="w">    </span><span class="c1">//m_emitterSampler(std::make_shared&lt;ESUniformRandom&gt;()),</span>
+<span class="w">    </span><span class="n">m_emitterSampler</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">ESPowerFavoring</span><span class="o">&gt;</span><span class="p">()),</span>
+<span class="w">    </span><span class="n">m_scene</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">m_receiverPos</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+<span class="w">    </span><span class="n">m_backgroundPrimitive</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span>
+<span class="p">{}</span>
+
+<span class="c1">//void VisualWorld::addActor(std::shared_ptr&lt;Actor&gt; actor)</span>
+<span class="c1">//{</span>
+<span class="c1">//  // TODO: allow duplicated actors?</span>
+<span class="c1">//</span>
+<span class="c1">//  if(actor != nullptr)</span>
+<span class="c1">//  {</span>
+<span class="c1">//      m_actors.push_back(actor);</span>
+<span class="c1">//  }</span>
+<span class="c1">//  else</span>
+<span class="c1">//  {</span>
+<span class="c1">//      std::cerr &lt;&lt; &quot;warning: at VisualWorld::addActor(), input is null&quot; &lt;&lt; std::endl;</span>
+<span class="c1">//  }</span>
+<span class="c1">//}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">VisualWorld</span><span class="o">::</span><span class="n">cook</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SceneDescription</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rawScene</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">CoreCookingContext</span><span class="o">&amp;</span><span class="w"> </span><span class="n">coreCtx</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">VisualWorld</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;cooking visual world&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Actor</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">actors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rawScene</span><span class="p">.</span><span class="n">getResources</span><span class="o">&lt;</span><span class="n">Actor</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// TODO: clear cooked data</span>
+
+<span class="w">    </span><span class="n">ActorCookingContext</span><span class="w"> </span><span class="n">cookingContext</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">VisualWorldInfo</span><span class="w"> </span><span class="n">visualWorldInfo</span><span class="p">;</span>
+<span class="w">    </span><span class="n">cookingContext</span><span class="p">.</span><span class="n">setVisualWorldInfo</span><span class="p">(</span><span class="o">&amp;</span><span class="n">visualWorldInfo</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// TODO: should union with receiver&#39;s bound instead</span>
+<span class="w">    </span><span class="n">visualWorldInfo</span><span class="p">.</span><span class="n">setRootActorsBound</span><span class="p">(</span><span class="n">math</span><span class="o">::</span><span class="n">AABB3D</span><span class="p">(</span><span class="n">m_receiverPos</span><span class="p">));</span>
+<span class="w">    </span><span class="n">visualWorldInfo</span><span class="p">.</span><span class="n">setLeafActorsBound</span><span class="p">(</span><span class="n">math</span><span class="o">::</span><span class="n">AABB3D</span><span class="p">(</span><span class="n">m_receiverPos</span><span class="p">));</span>
+
+<span class="w">    </span><span class="c1">// Cook actors level by level (from lowest to highest)</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">numCookedActors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">numCookedActors</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">actors</span><span class="p">.</span><span class="n">size</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_SCOPED_TIMER</span><span class="p">(</span><span class="n">CookActorLevels</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">actorCookBegin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">actors</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numCookedActors</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1">// Sort raw actors based on cook order</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">actorCookBegin</span><span class="p">,</span><span class="w"> </span><span class="n">actors</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span>
+<span class="w">            </span><span class="p">[](</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Actor</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Actor</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="o">-&gt;</span><span class="n">getCookOrder</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="o">-&gt;</span><span class="n">getCookOrder</span><span class="p">();</span>
+<span class="w">            </span><span class="p">});</span>
+
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">CookLevel</span><span class="w"> </span><span class="n">currentActorLevel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">actorCookBegin</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">getCookOrder</span><span class="p">().</span><span class="n">level</span><span class="p">;</span>
+<span class="w">        </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">VisualWorld</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;cooking actor level: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">currentActorLevel</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Find the transition point from current level to next level</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">actorCookEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">upper_bound</span><span class="p">(</span><span class="n">actorCookBegin</span><span class="p">,</span><span class="w"> </span><span class="n">actors</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">currentActorLevel</span><span class="p">,</span>
+<span class="w">            </span><span class="p">[](</span><span class="k">const</span><span class="w"> </span><span class="n">CookLevel</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Actor</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="o">-&gt;</span><span class="n">getCookOrder</span><span class="p">().</span><span class="n">level</span><span class="p">;</span>
+<span class="w">            </span><span class="p">});</span>
+
+<span class="w">        </span><span class="n">cookActors</span><span class="p">(</span><span class="o">&amp;</span><span class="n">actors</span><span class="p">[</span><span class="n">numCookedActors</span><span class="p">],</span><span class="w"> </span><span class="n">actorCookEnd</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">actorCookBegin</span><span class="p">,</span><span class="w"> </span><span class="n">cookingContext</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Prepare for next cooking iteration</span>
+
+<span class="w">        </span><span class="c1">// FIXME: calc bounds from newly cooked actors and union</span>
+<span class="w">        </span><span class="n">math</span><span class="o">::</span><span class="n">AABB3D</span><span class="w"> </span><span class="n">bound</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">calcIntersectableBound</span><span class="p">(</span><span class="n">m_cookedActorStorage</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// TODO: should union with receiver&#39;s bound instead</span>
+<span class="w">        </span><span class="n">bound</span><span class="p">.</span><span class="n">unionWith</span><span class="p">(</span><span class="n">m_receiverPos</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">VisualWorld</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;current iteration actor bound: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">bound</span><span class="p">.</span><span class="n">toString</span><span class="p">());</span>
+
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">currentActorLevel</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">CookLevel</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ECookLevel</span><span class="o">::</span><span class="n">FIRST</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">VisualWorld</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;root actors bound calculated to be: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">bound</span><span class="p">.</span><span class="n">toString</span><span class="p">());</span>
+
+<span class="w">            </span><span class="n">visualWorldInfo</span><span class="p">.</span><span class="n">setRootActorsBound</span><span class="p">(</span><span class="n">bound</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">visualWorldInfo</span><span class="p">.</span><span class="n">setLeafActorsBound</span><span class="p">(</span><span class="n">bound</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Add newly created actors</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">childActors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cookingContext</span><span class="p">.</span><span class="n">claimChildActors</span><span class="p">();</span>
+<span class="w">        </span><span class="n">actors</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">actors</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_move_iterator</span><span class="p">(</span><span class="n">childActors</span><span class="p">.</span><span class="n">begin</span><span class="p">()),</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_move_iterator</span><span class="p">(</span><span class="n">childActors</span><span class="p">.</span><span class="n">end</span><span class="p">()));</span>
+
+<span class="w">        </span><span class="n">numCookedActors</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">actorCookEnd</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">actorCookBegin</span><span class="p">;</span>
+
+<span class="w">        </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">VisualWorld</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;# cooked actors: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">numCookedActors</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="c1">// end while more raw actors</span>
+
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">phantom</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">cookingContext</span><span class="p">.</span><span class="n">m_phantoms</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">phantom</span><span class="p">.</span><span class="n">second</span><span class="p">.</span><span class="n">claimCookedData</span><span class="p">(</span><span class="n">m_phantomStorage</span><span class="p">);</span>
+<span class="w">        </span><span class="n">phantom</span><span class="p">.</span><span class="n">second</span><span class="p">.</span><span class="n">claimCookedBackend</span><span class="p">(</span><span class="n">m_phantomStorage</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">m_backgroundPrimitive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cookingContext</span><span class="p">.</span><span class="n">claimBackgroundPrimitive</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">VisualWorld</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;visual world discretized into {} intersectables&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="n">m_cookedActorStorage</span><span class="p">.</span><span class="n">numIntersectables</span><span class="p">());</span>
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">VisualWorld</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;number of emitters: {}&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="n">m_cookedActorStorage</span><span class="p">.</span><span class="n">numEmitters</span><span class="p">());</span>
+
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">VisualWorld</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;updating accelerator...&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_SCOPED_TIMER</span><span class="p">(</span><span class="n">UpdateAccelerators</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">createTopLevelAccelerator</span><span class="p">(</span><span class="n">coreCtx</span><span class="p">.</span><span class="n">getTopLevelAcceleratorType</span><span class="p">());</span>
+<span class="w">        </span><span class="n">m_intersector</span><span class="o">-&gt;</span><span class="n">update</span><span class="p">(</span><span class="n">m_cookedActorStorage</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">VisualWorld</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;updating light sampler...&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PH_SCOPED_TIMER</span><span class="p">(</span><span class="n">UpdateLightSamplers</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">m_emitterSampler</span><span class="o">-&gt;</span><span class="n">update</span><span class="p">(</span><span class="n">m_cookedActorStorage</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">m_scene</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">Scene</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_intersector</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span><span class="w"> </span><span class="n">m_emitterSampler</span><span class="p">.</span><span class="n">get</span><span class="p">());</span>
+<span class="w">    </span><span class="n">m_scene</span><span class="o">-&gt;</span><span class="n">setBackgroundPrimitive</span><span class="p">(</span><span class="n">m_backgroundPrimitive</span><span class="p">.</span><span class="n">get</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">VisualWorld</span><span class="o">::</span><span class="n">cookActors</span><span class="p">(</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Actor</span><span class="o">&gt;*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">actors</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w">             </span><span class="n">numActors</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ActorCookingContext</span><span class="o">&amp;</span><span class="w">          </span><span class="n">ctx</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PH_ASSERT</span><span class="p">(</span><span class="n">actors</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numActors</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">CookedUnit</span><span class="w"> </span><span class="n">cookedUnit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">actors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">cook</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span>
+<span class="w">        </span><span class="n">cookedUnit</span><span class="p">.</span><span class="n">claimCookedData</span><span class="p">(</span><span class="n">m_cookedActorStorage</span><span class="p">);</span>
+<span class="w">        </span><span class="n">cookedUnit</span><span class="p">.</span><span class="n">claimCookedBackend</span><span class="p">(</span><span class="n">m_cookedBackendStorage</span><span class="p">);</span><span class="c1">// TODO: make backend phantoms</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">VisualWorld</span><span class="o">::</span><span class="n">createTopLevelAccelerator</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">EAccelerator</span><span class="w"> </span><span class="n">acceleratorType</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">acceleratorType</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">EAccelerator</span><span class="o">::</span><span class="no">BruteForce</span><span class="p">:</span>
+<span class="w">        </span><span class="n">m_intersector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">BruteForceIntersector</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Brute-Force&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">EAccelerator</span><span class="o">::</span><span class="no">BVH</span><span class="p">:</span>
+<span class="w">        </span><span class="n">m_intersector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">ClassicBvhIntersector</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;BVH&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">EAccelerator</span><span class="o">::</span><span class="no">Kdtree</span><span class="p">:</span>
+<span class="w">        </span><span class="n">m_intersector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">KdtreeIntersector</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;kD-Tree&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// FIXME: need to ensure sufficient max value</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">EAccelerator</span><span class="o">::</span><span class="no">IndexedKdtree</span><span class="p">:</span>
+<span class="w">        </span><span class="n">m_intersector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">TIndexedKdtreeIntersector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Indexed kD-Tree&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">        </span><span class="n">m_intersector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">ClassicBvhIntersector</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;BVH&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">PH_LOG</span><span class="p">(</span><span class="n">VisualWorld</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;top level accelerator type: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">math</span><span class="o">::</span><span class="n">AABB3D</span><span class="w"> </span><span class="n">VisualWorld</span><span class="o">::</span><span class="n">calcIntersectableBound</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">CookedDataStorage</span><span class="o">&amp;</span><span class="w"> </span><span class="n">storage</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">storage</span><span class="p">.</span><span class="n">numIntersectables</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">math</span><span class="o">::</span><span class="n">AABB3D</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">math</span><span class="o">::</span><span class="n">AABB3D</span><span class="w"> </span><span class="n">fullBound</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">storage</span><span class="p">.</span><span class="n">intersectables</span><span class="p">().</span><span class="n">begin</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">get</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">calcAABB</span><span class="p">();</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">intersectable</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">storage</span><span class="p">.</span><span class="n">intersectables</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">fullBound</span><span class="p">.</span><span class="n">unionWith</span><span class="p">(</span><span class="n">intersectable</span><span class="o">-&gt;</span><span class="n">calcAABB</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">fullBound</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="c1">// end namespace ph</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

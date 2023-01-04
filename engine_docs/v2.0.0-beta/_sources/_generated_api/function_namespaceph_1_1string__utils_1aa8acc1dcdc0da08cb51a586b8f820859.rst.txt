@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1string__utils_1aa8acc1dcdc0da08cb51a586b8f820859:
+
+Template Function ph::string_utils::is_whitespace
+=================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::string_utils::is_whitespace(const char)
+   :project: Photon

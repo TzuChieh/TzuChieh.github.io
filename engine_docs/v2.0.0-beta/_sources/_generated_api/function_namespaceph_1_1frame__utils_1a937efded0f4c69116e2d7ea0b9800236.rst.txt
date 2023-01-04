@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1_1frame__utils_1a937efded0f4c69116e2d7ea0b9800236:
+
+Function ph::frame_utils::abs_diff
+==================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::frame_utils::abs_diff(const HdrRgbFrame&, const HdrRgbFrame&, HdrRgbFrame *const)
+   :project: Photon

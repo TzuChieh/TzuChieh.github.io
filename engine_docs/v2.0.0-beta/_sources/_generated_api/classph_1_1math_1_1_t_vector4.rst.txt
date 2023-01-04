@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1math_1_1_t_vector4:
+
+Template Class TVector4
+=======================
+
+- Defined in :ref:`file_Source_Math_TVector4.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::math::TVectorNBase< TVector4< T >, T, 4 >`` (:ref:`exhale_class_classph_1_1math_1_1_t_vector_n_base`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::math::TVector4
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

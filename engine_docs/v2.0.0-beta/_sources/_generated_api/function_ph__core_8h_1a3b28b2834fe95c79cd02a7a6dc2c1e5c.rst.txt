@@ -1,0 +1,14 @@
+.. _exhale_function_ph__core_8h_1a3b28b2834fe95c79cd02a7a6dc2c1e5c:
+
+Function phInit()
+=================
+
+- Defined in :ref:`file_Include_CEngine_ph_core.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: phInit()
+   :project: Photon

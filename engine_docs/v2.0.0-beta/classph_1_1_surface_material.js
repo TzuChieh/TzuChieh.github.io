@@ -1,7 +1,7 @@
 var classph_1_1_surface_material =
 [
     [ "SurfaceMaterial", "classph_1_1_surface_material.html#a7916785fad26559680786f1de44cdc81", null ],
-    [ "SurfaceMaterial", "classph_1_1_surface_material.html#a8cc0f4ffccff057392c60d24edaa965e", null ],
-    [ "genBehaviors", "classph_1_1_surface_material.html#ae78a0d4d08553364960d7ca13e6a2fc7", null ],
-    [ "genSurface", "classph_1_1_surface_material.html#accae72df9ee068f8b11a7284e9793a34", null ]
+    [ "genBehaviors", "classph_1_1_surface_material.html#ae2563d3a7fdba086bb3c1ce6ef2e796a", null ],
+    [ "genSurface", "classph_1_1_surface_material.html#a4499b4720ae0bd592cb5001476efdc5d", null ],
+    [ "PH_DEFINE_SDL_CLASS", "classph_1_1_surface_material.html#ab1e2ebcfefaa190ee3680d3f316cd6ca", null ]
 ];

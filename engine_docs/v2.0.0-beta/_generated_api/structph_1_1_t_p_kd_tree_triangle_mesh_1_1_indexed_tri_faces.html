@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Struct TPKdTreeTriangleMesh::IndexedTriFaces &mdash; Photon 2.0.0-beta documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists\css\tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists\js\CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists\js\apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Struct TPKdTreeTriangleMesh::TriFaceAABBCalculator" href="structph_1_1_t_p_kd_tree_triangle_mesh_1_1_tri_face_a_a_b_b_calculator.html" />
+    <link rel="prev" title="Template Struct TPhotonCenterCalculator" href="structph_1_1_t_photon_center_calculator.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Photon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="library_root.html">Library API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="library_root.html#photon-v2-renderer">Photon-v2 Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="library_root.html#page-hierarchy">Page Hierarchy</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="library_root.html#full-api">Full API</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#namespaces">Namespaces</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="library_root.html#classes-and-structs">Classes and Structs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#enums">Enums</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#unions">Unions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#functions">Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#variables">Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#defines">Defines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library_root.html#typedefs">Typedefs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Photon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="library_root.html">Library API</a></li>
+      <li class="breadcrumb-item active">Struct TPKdTreeTriangleMesh::IndexedTriFaces</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_generated_api/structph_1_1_t_p_kd_tree_triangle_mesh_1_1_indexed_tri_faces.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="struct-tpkdtreetrianglemesh-indexedtrifaces">
+<span id="exhale-struct-structph-1-1-t-p-kd-tree-triangle-mesh-1-1-indexed-tri-faces"></span><h1>Struct TPKdTreeTriangleMesh::IndexedTriFaces<a class="headerlink" href="#struct-tpkdtreetrianglemesh-indexedtrifaces" title="Permalink to this headline"></a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_Source_Core_Intersectable_TPKdTreeTriangleMesh.h.html#file-source-core-intersectable-tpkdtreetrianglemesh-h"><span class="std std-ref">File TPKdTreeTriangleMesh.h</span></a></p></li>
+</ul>
+<section id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline"></a></h2>
+<p>This struct is a nested type of <a class="reference internal" href="classph_1_1_t_p_kd_tree_triangle_mesh.html#exhale-class-classph-1-1-t-p-kd-tree-triangle-mesh"><span class="std std-ref">Template Class TPKdTreeTriangleMesh</span></a>.</p>
+</section>
+<section id="struct-documentation">
+<h2>Struct Documentation<a class="headerlink" href="#struct-documentation" title="Permalink to this headline"></a></h2>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph20TPKdTreeTriangleMesh15IndexedTriFacesE">
+<span id="_CPPv3N2ph20TPKdTreeTriangleMesh15IndexedTriFacesE"></span><span id="_CPPv2N2ph20TPKdTreeTriangleMesh15IndexedTriFacesE"></span><span id="ph::TPKdTreeTriangleMesh::IndexedTriFaces"></span><span class="target" id="structph_1_1_t_p_kd_tree_triangle_mesh_1_1_indexed_tri_faces"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IndexedTriFaces</span></span></span><a class="headerlink" href="#_CPPv4N2ph20TPKdTreeTriangleMesh15IndexedTriFacesE" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK2ph20TPKdTreeTriangleMesh15IndexedTriFacesclEKNSt6size_tE">
+<span id="_CPPv3NK2ph20TPKdTreeTriangleMesh15IndexedTriFacesclEKNSt6size_tE"></span><span id="_CPPv2NK2ph20TPKdTreeTriangleMesh15IndexedTriFacesclEKNSt6size_tE"></span><span id="ph::TPKdTreeTriangleMesh::IndexedTriFaces::call-operator__std::sCC"></span><span class="target" id="structph_1_1_t_p_kd_tree_triangle_mesh_1_1_indexed_tri_faces_1a3da2ac58031c79f7857153e9fab4bdd1"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="classph_1_1_tri_face.html#_CPPv4N2ph7TriFaceE" title="ph::TriFace"><span class="n"><span class="pre">TriFace</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">()</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">index</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK2ph20TPKdTreeTriangleMesh15IndexedTriFacesclEKNSt6size_tE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N2ph20TPKdTreeTriangleMesh15IndexedTriFaces7triMeshE">
+<span id="_CPPv3N2ph20TPKdTreeTriangleMesh15IndexedTriFaces7triMeshE"></span><span id="_CPPv2N2ph20TPKdTreeTriangleMesh15IndexedTriFaces7triMeshE"></span><span id="ph::TPKdTreeTriangleMesh::IndexedTriFaces::triMesh__std::shared_ptr:IndexedTriMesh:"></span><span class="target" id="structph_1_1_t_p_kd_tree_triangle_mesh_1_1_indexed_tri_faces_1ae4bfbec87e5db3d7c9b2ac53e4061c60"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="classph_1_1_indexed_tri_mesh.html#_CPPv4N2ph14IndexedTriMeshE" title="ph::IndexedTriMesh"><span class="n"><span class="pre">IndexedTriMesh</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">triMesh</span></span></span><a class="headerlink" href="#_CPPv4N2ph20TPKdTreeTriangleMesh15IndexedTriFaces7triMeshE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="structph_1_1_t_photon_center_calculator.html" class="btn btn-neutral float-left" title="Template Struct TPhotonCenterCalculator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="structph_1_1_t_p_kd_tree_triangle_mesh_1_1_tri_face_a_a_b_b_calculator.html" class="btn btn-neutral float-right" title="Struct TPKdTreeTriangleMesh::TriFaceAABBCalculator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, T.C. Chang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

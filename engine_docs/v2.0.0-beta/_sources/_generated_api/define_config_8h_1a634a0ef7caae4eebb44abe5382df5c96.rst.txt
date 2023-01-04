@@ -1,0 +1,14 @@
+.. _exhale_define_config_8h_1a634a0ef7caae4eebb44abe5382df5c96:
+
+Define PH_MEMORY_ARENA_DEFAULT_BLOCK_SIZE_IN_BYTES
+==================================================
+
+- Defined in :ref:`file_Source_Common_config.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: PH_MEMORY_ARENA_DEFAULT_BLOCK_SIZE_IN_BYTES
+   :project: Photon

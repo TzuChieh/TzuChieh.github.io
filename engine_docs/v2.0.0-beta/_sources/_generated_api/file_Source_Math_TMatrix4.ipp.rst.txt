@@ -1,0 +1,56 @@
+
+.. _file_Source_Math_TMatrix4.ipp:
+
+File TMatrix4.ipp
+=================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Math\TMatrix4.ipp``)
+-----------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Math_TMatrix4.ipp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Common/assertion.h``
+
+- ``Math/TMatrix4.h``
+
+- ``Math/TQuaternion.h``
+
+- ``Math/TVector3.h``
+
+- ``cmath``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Math_TMatrix4.h`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+- :ref:`namespace_ph__math`
+

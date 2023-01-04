@@ -1,0 +1,28 @@
+.. _exhale_class_classph_1_1_intersectable:
+
+Class Intersectable
+===================
+
+- Defined in :ref:`file_Source_Core_Intersectable_Intersectable.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Types
+*************
+
+- ``public ph::Intersector`` (:ref:`exhale_class_classph_1_1_intersector`)
+- ``public ph::Primitive`` (:ref:`exhale_class_classph_1_1_primitive`)
+- ``public ph::TransformedIntersectable`` (:ref:`exhale_class_classph_1_1_transformed_intersectable`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::Intersectable
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

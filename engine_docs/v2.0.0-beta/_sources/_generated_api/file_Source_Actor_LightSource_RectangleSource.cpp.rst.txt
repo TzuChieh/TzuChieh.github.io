@@ -1,0 +1,46 @@
+
+.. _file_Source_Actor_LightSource_RectangleSource.cpp:
+
+File RectangleSource.cpp
+========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Actor\LightSource\RectangleSource.cpp``)
+-------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Actor_LightSource_RectangleSource.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Actor/Geometry/GRectangle.h``
+
+- ``Actor/LightSource/RectangleSource.h``
+
+- ``Common/assertion.h``
+
+- ``memory`` (:ref:`file_Source_Common_memory.cpp`)
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+

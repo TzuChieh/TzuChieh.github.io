@@ -1,0 +1,42 @@
+
+.. _program_listing_file_Source_Actor_Geometry_GWave.h:
+
+Program Listing for File GWave.h
+================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Actor_Geometry_GWave.h>` (``Source\Actor\Geometry\GWave.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "Actor/Geometry/Geometry.h"
+   #include "Common/primitive_type.h"
+   #include "Math/math_fwd.h"
+   
+   #include <vector>
+   
+   namespace ph
+   {
+   
+   class GWave : public Geometry
+   {
+   public:
+       GWave(real xLen, real yLen, real zLen);
+   
+       void genPrimitive(
+           const PrimitiveBuildingMaterial& data,
+           std::vector<std::unique_ptr<Primitive>>& out_primitives) const override;
+   
+   private:
+       real m_xLen;
+       real m_yLen;
+       real m_zLen;
+   
+       static void genTessellatedRectangleXZ(const real xLen, const real zLen, const int32 numXdivs, const int32 numZdivs, std::vector<math::Vector3R>& positions);
+       static bool checkData(const PrimitiveBuildingMaterial& data, const real xLen, const real yLen, const real zLen);
+   };
+   
+   }// end namespace ph

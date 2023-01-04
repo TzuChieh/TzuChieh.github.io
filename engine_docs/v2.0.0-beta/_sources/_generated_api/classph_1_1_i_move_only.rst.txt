@@ -1,0 +1,44 @@
+.. _exhale_class_classph_1_1_i_move_only:
+
+Class IMoveOnly
+===============
+
+- Defined in :ref:`file_Source_Utility_IMoveOnly.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Types
+*************
+
+- ``private ph::TBasicSdlFieldSet< ph::TOwnedSdlField< MethodStruct > >`` (:ref:`exhale_class_classph_1_1_t_basic_sdl_field_set`)
+- ``private ph::TBasicSdlFieldSet< ph::TOwnedSdlField< StructType > >`` (:ref:`exhale_class_classph_1_1_t_basic_sdl_field_set`)
+- ``private ph::TUniquePtrVector< ph::PrimitiveMetadata >`` (:ref:`exhale_class_classph_1_1_t_unique_ptr_vector`)
+- ``private ph::TUniquePtrVector< ph::math::Transform >`` (:ref:`exhale_class_classph_1_1_t_unique_ptr_vector`)
+- ``private ph::ActorCookingContext`` (:ref:`exhale_class_classph_1_1_actor_cooking_context`)
+- ``private ph::CookedUnit`` (:ref:`exhale_class_classph_1_1_cooked_unit`)
+- ``private ph::CoreCookedUnit`` (:ref:`exhale_class_classph_1_1_core_cooked_unit`)
+- ``private ph::Film`` (:ref:`exhale_class_classph_1_1_film`)
+- ``private ph::FrameProcessingPipeline`` (:ref:`exhale_class_classph_1_1_frame_processing_pipeline`)
+- ``private ph::FrameProcessor`` (:ref:`exhale_class_classph_1_1_frame_processor`)
+- ``private ph::InitiallyPausedThread`` (:ref:`exhale_class_classph_1_1_initially_paused_thread`)
+- ``private ph::MemoryArena`` (:ref:`exhale_class_classph_1_1_memory_arena`)
+- ``private ph::ModelBuilder`` (:ref:`exhale_class_classph_1_1_model_builder`)
+- ``private ph::ReceiverSamplingWork`` (:ref:`exhale_class_classph_1_1_receiver_sampling_work`)
+- ``private ph::SurfaceTracer`` (:ref:`exhale_class_classph_1_1_surface_tracer`)
+- ``private ph::TBasicSdlFieldSet< BaseFieldType, MAX_FIELDS >`` (:ref:`exhale_class_classph_1_1_t_basic_sdl_field_set`)
+- ``private ph::TUniquePtrVector< BaseType >`` (:ref:`exhale_class_classph_1_1_t_unique_ptr_vector`)
+- ``private ph::VisualWorld`` (:ref:`exhale_class_classph_1_1_visual_world`)
+- ``private ph::mipmapgen`` (:ref:`exhale_class_classph_1_1mipmapgen`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::IMoveOnly
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

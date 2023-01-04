@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a522a8784c08cd02bd3088388d99733c2:
+
+Function ph::get_registered_sdl_enums
+=====================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::get_registered_sdl_enums()
+   :project: Photon

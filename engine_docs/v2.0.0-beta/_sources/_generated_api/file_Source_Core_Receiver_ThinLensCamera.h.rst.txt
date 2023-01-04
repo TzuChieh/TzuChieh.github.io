@@ -1,0 +1,57 @@
+
+.. _file_Source_Core_Receiver_ThinLensCamera.h:
+
+File ThinLensCamera.h
+=====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``Source\Core\Receiver\ThinLensCamera.h``)
+------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_Source_Core_Receiver_ThinLensCamera.h.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Core/Receiver/RectangularSensorReceiver.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_Source_Api_init_and_exit.cpp`
+
+- :ref:`file_Source_Core_Receiver_ThinLensCamera.cpp`
+
+- :ref:`file_Source_EngineEnv_Observer_SingleLensObserver.cpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_ph`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classph_1_1_thin_lens_camera`
+

@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a22de7fa53c3e037a2cc035ebf920a11a:
+
+Function ph::PH_DEFINE_INTERNAL_LOG_GROUP(DomeActor, Actor)
+===========================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_INTERNAL_LOG_GROUP(DomeActor, Actor)
+   :project: Photon

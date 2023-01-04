@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_frame_processor:
+
+Class FrameProcessor
+====================
+
+- Defined in :ref:`file_Source_Frame_FrameProcessor.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``private ph::IMoveOnly`` (:ref:`exhale_class_classph_1_1_i_move_only`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::FrameProcessor
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

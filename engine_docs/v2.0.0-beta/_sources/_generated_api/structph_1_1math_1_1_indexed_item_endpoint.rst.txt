@@ -1,0 +1,17 @@
+.. _exhale_struct_structph_1_1math_1_1_indexed_item_endpoint:
+
+Struct IndexedItemEndpoint
+==========================
+
+- Defined in :ref:`file_Source_Math_Algorithm_IndexedKdtree_IndexedItemEndpoint.h`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: ph::math::IndexedItemEndpoint
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

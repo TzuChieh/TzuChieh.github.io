@@ -1,0 +1,14 @@
+.. _exhale_typedef_namespaceph_1_1math_1ab6e489b4814390fb4f1a68257d8d432d:
+
+Typedef ph::math::TSpectralSampleValues
+=======================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: ph::math::TSpectralSampleValues
+   :project: Photon

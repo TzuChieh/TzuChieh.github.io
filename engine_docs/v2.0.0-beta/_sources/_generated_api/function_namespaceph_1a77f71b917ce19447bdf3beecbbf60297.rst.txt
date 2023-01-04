@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a77f71b917ce19447bdf3beecbbf60297:
+
+Function ph::get_config_directory
+=================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::get_config_directory(EEngineProject)
+   :project: Photon

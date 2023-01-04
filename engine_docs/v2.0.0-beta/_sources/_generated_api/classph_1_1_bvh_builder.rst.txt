@@ -1,0 +1,17 @@
+.. _exhale_class_classph_1_1_bvh_builder:
+
+Class BvhBuilder
+================
+
+- Defined in :ref:`file_Source_Core_Intersectable_Bvh_BvhBuilder.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::BvhBuilder
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

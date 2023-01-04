@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1aaf42658161ddfd7a005842289eaeb829:
+
+Function ph::PH_DEFINE_INTERNAL_LOG_GROUP(SdlWriter, SDL)
+=========================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_INTERNAL_LOG_GROUP(SdlWriter, SDL)
+   :project: Photon

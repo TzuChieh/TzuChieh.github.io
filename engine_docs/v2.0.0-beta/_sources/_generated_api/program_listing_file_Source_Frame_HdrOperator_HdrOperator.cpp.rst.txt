@@ -1,0 +1,20 @@
+
+.. _program_listing_file_Source_Frame_HdrOperator_HdrOperator.cpp:
+
+Program Listing for File HdrOperator.cpp
+========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_Source_Frame_HdrOperator_HdrOperator.cpp>` (``Source\Frame\HdrOperator\HdrOperator.cpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #include "Frame/HdrOperator/HdrOperator.h"
+   
+   namespace ph
+   {
+   
+   HdrOperator::~HdrOperator() = default;
+   
+   }// end namespace ph

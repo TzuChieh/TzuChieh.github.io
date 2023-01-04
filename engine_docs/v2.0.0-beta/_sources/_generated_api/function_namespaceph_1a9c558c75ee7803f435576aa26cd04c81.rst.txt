@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a9c558c75ee7803f435576aa26cd04c81:
+
+Function ph::PH_DEFINE_INTERNAL_TIMER_STAT(UpdateLightSamplers, VisualWorld)
+============================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_INTERNAL_TIMER_STAT(UpdateLightSamplers, VisualWorld)
+   :project: Photon

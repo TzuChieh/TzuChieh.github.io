@@ -1,0 +1,14 @@
+.. _exhale_enum_namespaceph_1a048faf1b37d3a8ea674213e6a7f9cae4:
+
+Enum EInterfaceFresnel
+======================
+
+.. did not find file this was defined in
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: ph::EInterfaceFresnel
+   :project: Photon

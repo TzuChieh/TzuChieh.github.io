@@ -1,0 +1,21 @@
+.. _dir_D__dev_Photon-v2_Engine_Source_World:
+
+
+Directory World
+===============
+
+
+|exhale_lsh| :ref:`Parent directory <dir_Source>` (``Source``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``D:\dev\Photon-v2\Engine\Source\World``
+
+Subdirectories
+--------------
+
+- :ref:`dir_D__dev_Photon-v2_Engine_Source_World_Foundation`
+
+
+

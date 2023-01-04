@@ -1,0 +1,26 @@
+.. _exhale_class_classph_1_1_henyey_greenstein:
+
+Class HenyeyGreenstein
+======================
+
+- Defined in :ref:`file_Source_Core_VolumeBehavior_ScatterFunction_HenyeyGreenstein.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ph::ScatterFunction`` (:ref:`exhale_class_classph_1_1_scatter_function`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: ph::HenyeyGreenstein
+   :project: Photon
+   :members:
+   :protected-members:
+   :undoc-members:

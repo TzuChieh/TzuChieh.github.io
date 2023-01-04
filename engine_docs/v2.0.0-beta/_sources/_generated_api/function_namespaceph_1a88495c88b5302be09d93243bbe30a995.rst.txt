@@ -1,0 +1,14 @@
+.. _exhale_function_namespaceph_1a88495c88b5302be09d93243bbe30a995:
+
+Function ph::PH_DEFINE_INTERNAL_LOG_GROUP(PPMRadianceEvaluationWork, PhotonMap)
+===============================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: ph::PH_DEFINE_INTERNAL_LOG_GROUP(PPMRadianceEvaluationWork, PhotonMap)
+   :project: Photon
