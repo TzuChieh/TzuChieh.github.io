@@ -15,7 +15,7 @@ var searchData=
   ['binarymixedimage_6797',['BinaryMixedImage',['../classph_1_1_binary_mixed_image.html#a238effa4ca88ba6728552544cb8ae2bf',1,'ph::BinaryMixedImage']]],
   ['binarymixedsurfacematerial_6798',['BinaryMixedSurfaceMaterial',['../classph_1_1_binary_mixed_surface_material.html#aef65eaf0c76b83c5cdef0b337c11ee31',1,'ph::BinaryMixedSurfaceMaterial']]],
   ['binarysearchsmallestinsertionindex_6799',['binarySearchSmallestInsertionIndex',['../classph_1_1_t_sorted_vector.html#a595f0be33fad96a80575674ed48e22a6',1,'ph::TSortedVector']]],
-  ['bitwise_5fcast_6800',['bitwise_cast',['../namespaceph.html#af655fa739beef3089a512b34fe868588',1,'ph']]],
+  ['bitwise_5fcast_6800',['bitwise_cast',['../namespaceph.html#a74286ca8596f0e37fdc3650c3e72c691',1,'ph']]],
   ['black_5fbody_5fradiance_5fat_6801',['black_body_radiance_at',['../namespaceph_1_1math.html#a9fa31ad274d843ea3ad9020490b82c11',1,'ph::math']]],
   ['black_5fbody_5fradiance_5fcurve_6802',['black_body_radiance_curve',['../namespaceph_1_1math.html#adbcb1d6dfceda00baebe908358d4121a',1,'ph::math']]],
   ['blackmanharris1d_6803',['blackmanHarris1D',['../classph_1_1math_1_1_t_blackman_harris2_d.html#a8c8b192c2a2c5d3ad8374db81c85d0f4',1,'ph::math::TBlackmanHarris2D']]],

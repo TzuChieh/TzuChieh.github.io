@@ -1,4 +1,4 @@
-.. _exhale_function_namespaceph_1af655fa739beef3089a512b34fe868588:
+.. _exhale_function_namespaceph_1a74286ca8596f0e37fdc3650c3e72c691:
 
 Template Function ph::bitwise_cast
 ==================================
@@ -10,5 +10,5 @@ Function Documentation
 ----------------------
 
 
-.. doxygenfunction:: ph::bitwise_cast(const Source)
+.. doxygenfunction:: ph::bitwise_cast(const Source&)
    :project: Photon

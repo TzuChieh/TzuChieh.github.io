@@ -3,7 +3,7 @@ var _utility_2utility_8h =
     [ "HeterogeneousStringHash", "structph_1_1detail_1_1_heterogeneous_string_hash.html", "structph_1_1detail_1_1_heterogeneous_string_hash" ],
     [ "TNonTypeTemplateArgDummy", "structph_1_1_t_non_type_template_arg_dummy.html", null ],
     [ "TStdUnorderedStringMap", "_utility_2utility_8h.html#ac837148000ded601032a44ed7ae37761", null ],
-    [ "bitwise_cast", "_utility_2utility_8h.html#af655fa739beef3089a512b34fe868588", null ],
+    [ "bitwise_cast", "_utility_2utility_8h.html#a74286ca8596f0e37fdc3650c3e72c691", null ],
     [ "enum_size", "_utility_2utility_8h.html#a0d3e015dc9f7674dbf795a75385cda0a", null ],
     [ "enum_to_string", "_utility_2utility_8h.html#a2e8e601f93efff74360a027ba59d4232", null ],
     [ "enum_to_value", "_utility_2utility_8h.html#ae490c9f4fa11ad921cdb383d4c84445c", null ],

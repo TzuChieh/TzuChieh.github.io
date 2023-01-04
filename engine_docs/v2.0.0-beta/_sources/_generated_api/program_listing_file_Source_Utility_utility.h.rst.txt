@@ -26,6 +26,7 @@ Program Listing for File utility.h
    #include <concepts>
    #include <unordered_map>
    #include <functional>
+   #include <bit>
    
    namespace ph
    {
@@ -99,13 +100,20 @@ Program Listing for File utility.h
    
    // TODO: replace this with C++20 std::bit_cast
    template<typename Source, typename Target>
-   inline Target bitwise_cast(const Source source)
+   inline Target bitwise_cast(const Source& source)
    {
-       static_assert(std::is_arithmetic_v<Source> && std::is_arithmetic_v<Target>);
+       static_assert(std::is_trivially_copyable_v<Source>);
+       static_assert(std::is_trivially_copyable_v<Target>);
    
        static_assert(sizeof(Source) == sizeof(Target),
-           "Source and Target should have same size");
+           "Source and Target should have the same size");
    
+   #ifdef __cpp_lib_bit_cast
+   #else
+       Target target;
+       std::memcpy(&target, &source, sizeof(Source));
+       return target;
+   #endif
        Target target;
        std::memcpy(&target, &source, sizeof(Source));
        return target;

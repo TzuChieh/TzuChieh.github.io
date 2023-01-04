@@ -889,7 +889,7 @@ var namespaceph =
       [ "VIEW_DIR", "namespaceph.html#a7d646adaf4c44ccfcbbe787120a7cb1faca0c94661502fdbb4fe524086ce66ea1", null ],
       [ "VIEW_RADIANCE", "namespaceph.html#a7d646adaf4c44ccfcbbe787120a7cb1fabc643b76f8014cc75f42b15b72338fd3", null ]
     ] ],
-    [ "bitwise_cast", "namespaceph.html#af655fa739beef3089a512b34fe868588", null ],
+    [ "bitwise_cast", "namespaceph.html#a74286ca8596f0e37fdc3650c3e72c691", null ],
     [ "debug_break", "namespaceph.html#a99b3031077d09c67c83a3a39001ed00c", null ],
     [ "enum_size", "namespaceph.html#a0d3e015dc9f7674dbf795a75385cda0a", null ],
     [ "enum_to_string", "namespaceph.html#a2e8e601f93efff74360a027ba59d4232", null ],

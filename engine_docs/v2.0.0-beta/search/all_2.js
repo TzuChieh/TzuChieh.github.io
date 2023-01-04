@@ -45,7 +45,7 @@ var searchData=
   ['binarymixedsurfacematerial_2eh_247',['BinaryMixedSurfaceMaterial.h',['../_binary_mixed_surface_material_8h.html',1,'']]],
   ['binarysearchsmallestinsertionindex_248',['binarySearchSmallestInsertionIndex',['../classph_1_1_t_sorted_vector.html#a595f0be33fad96a80575674ed48e22a6',1,'ph::TSortedVector']]],
   ['bits8_5freverse_5ftable_249',['BITS8_REVERSE_TABLE',['../namespaceph_1_1math_1_1detail.html#a8b1da491334c7a82b2312b3fce5c1278',1,'ph::math::detail']]],
-  ['bitwise_5fcast_250',['bitwise_cast',['../namespaceph.html#af655fa739beef3089a512b34fe868588',1,'ph']]],
+  ['bitwise_5fcast_250',['bitwise_cast',['../namespaceph.html#a74286ca8596f0e37fdc3650c3e72c691',1,'ph']]],
   ['black_5fbody_2eh_251',['black_body.h',['../black__body_8h.html',1,'']]],
   ['black_5fbody_5fradiance_5fat_252',['black_body_radiance_at',['../namespaceph_1_1math.html#a9fa31ad274d843ea3ad9020490b82c11',1,'ph::math']]],
   ['black_5fbody_5fradiance_5fcurve_253',['black_body_radiance_curve',['../namespaceph_1_1math.html#adbcb1d6dfceda00baebe908358d4121a',1,'ph::math']]],
