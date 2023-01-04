@@ -26,7 +26,7 @@ entries:
       url: /photon_v2_coding_standard.html
       output: web
     - title: Engine Documentation
-      external_url: https://tzuchieh.github.io/photon-v2-site/engine_docs/v2.0.0-beta/index.html
+      external_url: https://tzuchieh.github.io/Photon-v2-site/engine_docs/v2.0.0-beta/index.html
       output: web
     - title: Roadmap
       url: /photon_v2_roadmap.html
