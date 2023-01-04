@@ -1,4 +1,0 @@
-var classph_1_1math_1_1_t_color_space_definition_3_01_e_color_space_1_1_spectral___smits_00_01_t_01_4 =
-[
-    [ "LinearSrgbDef", "classph_1_1math_1_1_t_color_space_definition_3_01_e_color_space_1_1_spectral___smits_00_01_t_01_4.html#a9f042a6fc77721aa579b1b662544dbc1", null ]
-];

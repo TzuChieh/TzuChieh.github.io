@@ -1,7 +1,0 @@
-.. _page_directories:
-
-Directories
-===========
-
-.. doxygenpage:: directories
-   :project: Photon
