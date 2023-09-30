@@ -12,6 +12,12 @@ Photon-v2 is a rendering engine made out of my love for computer graphics. A ren
 
 Full [source code](https://github.com/TzuChieh/Photon-v2) available.
 
+## Technical Showreel
+
+Please click the following image to watch the [technical showreel for Photon Renderer](https://www.youtube.com/watch?v=yieawWJ31pw) on YouTube:
+
+[![showreel thumbnail](https://tzuchieh.github.io/images/gallery/showreel_thumbnail.jpg)](https://www.youtube.com/watch?v=yieawWJ31pw)
+
 ## Research
 
 It is recommended to use the **master** branch for your research, as **master** is guaranteed to have critical bugs fixed and is not as volatile as **develop**. For bleeding-edge features or bugfixes **develop** can be a good choice.
@@ -21,7 +27,7 @@ If you use Photon in your research project, you are hightly encouraged to cite i
 ```latex.bib
 @misc{Photon,
 	Author = {Tzu-Chieh Chang},
-	Year   = {2016--2020},
+	Year   = {2016--2023},
 	Title  = {Photon renderer},
 	Note   = {https://github.com/TzuChieh/Photon-v2}
 }
@@ -29,6 +35,6 @@ If you use Photon in your research project, you are hightly encouraged to cite i
 
 ## Releases
 
-* [Photon 2.0.0-beta]() (TBD)
+* [Photon 2.0.0-alpha]() (TBD)
 
 If you spot any error or see some room for improvements, please send me an email (r05922176@ntu.edu.tw).

@@ -13,13 +13,15 @@ Building Photon is super easy since the renderer is coded from scratch (almost) 
 
 Photon uses CMake as its main build system, and the toolkits you need are as follows:
 
-* CMake 3.5.2+ (recommended)
-* Python 3 (recommended)
-* C++17 compliant compiler (necessary)
+* CMake 3.10+ (3.20+ recommended)
+* Python 3 (3.9 recommended)
+* C++20 compliant compiler (necessary)
 
-If you want to build editor, you will also need:
+If you want to build the editor in previous version, you will also need:
 
 * JDK 1.8+ and Maven
+
+This is not required for building the new C++ based editor.
 
 *Note that the working directory is assumed to be the project root (in the folder that you cloned) if not stated , and please use `./build/` as build folder for now since build scripts are more or less hard-coded to use this path, currently.*
 
@@ -54,8 +56,11 @@ and substitute `SOME_OPTION` and `SOME_VALUE` with the options listed below.
 
 | Options          | Values        | Effects  |
 | -------------    | ------------- | ----- |
-| CMAKE_BUILD_TYPE | release | When set, build binaries with optimizations enabled; otherwise no optimization is done. |
-| BUILD_ENGINE_TEST | ON (default: OFF)     | Build unit tests. They should be executed from the build folder. |
-| BUILD_EDITOR_JNI | ON (default: OFF)     | Build JNI for Photon Studio. |
+| CMAKE_BUILD_TYPE | release, debug | When set, build binaries with optimizations enabled; otherwise no optimization is done. |
+| PH_BUILD_TESTS | ON (default), OFF | Build unit tests. They should be executed from the build folder. |
+| PH_BUILD_EDITOR_JNI | ON, OFF (default) | Build JNI for Photon Studio (previous editor). |
+| PH_BUILD_EDITOR | ON (default), OFF | Build editor application. |
+| PH_BUILD_SDL_GEN | ON (default), OFF | Build SDL automation tool. |
+| PH_BUILD_PHOTON_CLI | ON (default), OFF | Build command-line application. |
 
 You can also obtain a complete list of options with descriptions by running `cmake -LAH ../` in the build folder.
