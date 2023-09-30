@@ -42,6 +42,10 @@ entries:
     - title: Documentation
       url: /photon_v2_sdl_documentation.html
       output: web
+    - title: Introduction (alpha)
+      url: /photon_v2_sdl_introduction_alpha.html
+    - title: Documentation (alpha)
+      url: /photon_v2_sdl_documentation_alpha.html
 
   - title: Camera
     output: web

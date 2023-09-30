@@ -19,7 +19,7 @@ This guideline is for coding in C++ since most of the code for engine is written
 
 ## Language and Naming
 
-* Follow C++17 standard, try to use standard features only.
+* Follow C++20 standard, try to use standard features only.
 * Class names are in capitalized camel case, e.g., `SomeClassName`.
 * Namespaces and function names are in lower case and underscore separated, e,g., `some_name`.
 * Member variables should have `m_` prefix.
@@ -49,6 +49,9 @@ This guideline is for coding in C++ since most of the code for engine is written
   4. Standard Headers
 * Include engine headers with quotes (`""`) and absolute path, relative to `Engine/Source/`.
 * Include non-engine headers with angle brackets (`<>`).
+* Favor forward declaration over inclusion.
+  * This can help to reduce compile time over time.
+  * Helps to break cyclic dependency.
 
 ## Formatting
 
