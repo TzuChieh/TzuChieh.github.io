@@ -87,6 +87,9 @@ entries:
     output: web
     folderitems:
 
+    - title: Introduction
+      url: /photon_v2_material_introduction.html
+      output: web
     - title: Matte Opaque
       url: /wip.html
       output: web
