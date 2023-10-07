@@ -43,8 +43,8 @@ An IES light profile stores the distribution of emitted energy of a light fixtur
 
 {% include image_gallery.html file="photon_v2/light_IES_style1.png" alt="" caption="A wide spread angle described by an IES data file." width="70%" %}
 
-{% include image_gallery.html file="photon_v2/light_IES_style2.png" alt="" caption="A pretty narrow spread angle described by an IES data file." width="70%" %}
+{% include image_gallery.html file="photon_v2/light_IES_style4.png" alt="" caption="A pretty narrow spread angle described by an IES data file." width="70%" %}
 
-{% include image_gallery.html file="photon_v2/light_IES_style3.png" alt="" caption="An interesting IES light profile." width="70%" %}
+{% include image_gallery.html file="photon_v2/light_IES_style2.png" alt="" caption="An interesting IES light profile." width="70%" %}
 
-{% include image_gallery.html file="photon_v2/light_IES_style4.png" alt="" caption="Another interesting IES light profile." width="70%" %}
+{% include image_gallery.html file="photon_v2/light_IES_style3.png" alt="" caption="Another interesting IES light profile." width="70%" %}
