@@ -118,6 +118,9 @@ entries:
     output: web
     folderitems:
 
+    - title: Introduction
+      url: /photon_v2_light_introduction.html
+      output: web
     - title: Point
       url: /wip.html
       output: web
