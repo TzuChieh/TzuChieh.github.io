@@ -29,7 +29,7 @@ permalink: resume_index.html
 * [**National Taiwan University**](https://www.ntu.edu.tw/english/) \| **Taipei, Taiwan** \| **Feb. 2017 - Aug. 2019**
   * M.S., [Dept. of Computer Science and Information Engineering](https://www.csie.ntu.edu.tw/)
   * Thesis: Density Estimation Techniques for Robust Light Transport Simulation, advisor: [Ming Ouhyoung](https://www.csie.ntu.edu.tw/~ming/), Ph.D.
-  * Proposed a new light transport algorithm that is able to capture all possible light transport paths.
+  * Proposed a new global illumination algorithm that is able to capture all possible light transport paths.
   * [Thesis, PDF (9.4 MB)](resources/thesis_20190818_protected.pdf). Note that colleborations are welcomed to further push the performance of the proposed method.
 
 * [**National Taiwan University**](https://www.ntu.edu.tw/english/) \| **Taipei, Taiwan** \| **Sep. 2012 - Feb. 2017**
