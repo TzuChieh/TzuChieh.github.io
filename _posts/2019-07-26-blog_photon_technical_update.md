@@ -1,6 +1,7 @@
 ---
 title:  "Technical Update on Photon"
 published: true
+toc: true
 permalink: blog_photon_technical_update.html
 summary: "An update (technical aspect) to Photon renderer."
 tags: [sharing]
@@ -16,7 +17,7 @@ Initially, it was a side project where I experiment with some global illuminatio
 
 Photon is written with C++17 and provides a C API for other applications. It also comes with a CLI and a JavaFX based GUI capable of rendering static images as well as image sequences (CLI only). Another unique aspect of Photon is its scene description language (photon scene description language, PSDL), as it is not only a data-storing medium but also a command-line system, which means it is possible to create procedurally generated assets in PSDL entirely. A Blender add-on is also provided for ease of content creation, such as modeling a scene and export it as PSDL for rendering. Below is an image of the JavaFX GUI in action:
 
-{% include image_custom.html file="blog/2019-07-26-blog_photon_technical_update/adaptive_in_action.png" alt="photon's gui" caption="Photon's GUI in action, the central display is currently previewing an image rendering in adaptive sampling mode. The boxes are indicating regions for variance estimation." width="90%" %}
+{% include image_custom.html file="blog/2019-07-26-blog_photon_technical_update/adaptive_in_action.png" alt="photon's gui" caption="Photon's GUI in action, the central display is currently previewing an image rendering in adaptive sampling mode. The boxes are indicating regions for variance estimation." width="100%" %}
 
 Photon-v2 comes with an application called PhotonCLI, which is a command-line interface of the render engine. Command-line interface can come in handy if you are batch rendering or using it on a remote server. It also, in theory, offers slightly better performance in terms of render time.
 
@@ -26,7 +27,7 @@ Photon-v2 comes with an application called PhotonCLI, which is a command-line in
 
 A program is essentially a function mapping input and output data. When a user feed a program with some input data, it will be transformed by a series of components in the program, much like an assembly line, and the output data is obtained as a product in the end. To understand its architecture and design principals, the best way is to have a clear picture of its dataflow in my opinion. Shown below is a vastly simplified version of the dataflow within Photon renderer:
 
-{% include image_custom.html file="blog/2019-07-26-blog_photon_technical_update/dataflow.png" alt="photon's dataflow" caption="" width="80%" %}
+{% include image_custom.html file="blog/2019-07-26-blog_photon_technical_update/dataflow.png" alt="photon's dataflow" caption="" width="75%" %}
 
 As you can see, the dataflow can be divided into 3 phases: loading, cooking, and rendering. In the loading phase, SDL is being parsed command after command, and each command can either create a data container or perform actions. Data containers are named resources, thus each command is not an independent unit and can reference each other where applicable. In the end of the phase, data containers such as geometries, materials and light sources are extracted from the SDL and is ready for entering the next processing phase.
 
@@ -38,7 +39,7 @@ The last phase in the dataflow is rendering. Although it may look simple in the 
 
 As its name suggests, each type of standalone data container represents a specific block of data and is responsible for producing cooked version of itself. They serve as the building blocks of the more complex composite data containers.
 
-{% include image_custom.html file="blog/2019-07-26-blog_photon_technical_update/data_containers.png" alt="photon's data containers" caption="Simplified class diagram of standalone data containers." width="80%" %}
+{% include image_custom.html file="blog/2019-07-26-blog_photon_technical_update/data_containers.png" alt="photon's data containers" caption="Simplified class diagram of standalone data containers." width="75%" %}
 
 We briefly introduce some of the major container types:
 
@@ -52,7 +53,7 @@ We briefly introduce some of the major container types:
 
 Little can be achieved if we have only standalone data containers at hand. The purpose of composite containers is to achieve aggregate behaviors on data blocks. In Photon, composite containers are often called actors since they usually contribute to the final image directly, in a sense similar to film actors. It is straightforward to see that actors are a higher level concept than standalone data containers in the class diagram that follows.
 
-{% include image_custom.html file="blog/2019-07-26-blog_photon_technical_update/composite_containers.png" alt="photon's composite containers" caption="Class diagram of composite data containers of the modeling category." width="70%" %}
+{% include image_custom.html file="blog/2019-07-26-blog_photon_technical_update/composite_containers.png" alt="photon's composite containers" caption="Class diagram of composite data containers of the modeling category." width="65%" %}
 
 * Model Actor: Models are one of the core elements that comprise a scene. To define a model, we need a geometry, a material, and (optionally) a motion source. These data blocks, when combined, realizes a virtual object in the scene.
 * Light and Dome Actor: Lights are another core element in a scene, no image can be formed without them. It takes a light source to define a light. In case of a dome, a specialized actor type is needed since lighting from the environment is special in many ways. For instance, sometimes we need a bounding box/sphere for the whole scene to properly construct a dome model large enough to encompass the scene. This made them unable to be cooked in the order just like normal light actors, they need to be cooked last.
@@ -63,6 +64,9 @@ We now give an overview of features implemented in Photon. For brevity, we will 
 ## What's Next?
 
 The above sections mainly talk about the technical aspect (design and architecture) of the renderer. I would also like to talk about the internal workings of the renderer, especially the rendering part. However, it is not my taste to have a post super long. So, see you next time!
+
+
+### Footnotes
 
 [^1]: For compiled languages, I mean C/C++, Rust, Go, Fortran, etc. Although languages like Java and Python can be compiled into bytecode, I call them interpreted languages since they require a VM to execute the code.
 [^2]: A scene modeled by Frank Meinl at Crytek.
