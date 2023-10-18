@@ -21,7 +21,7 @@ Photon is written with C++17 and provides a C API for other applications. It als
 
 Photon-v2 comes with an application called PhotonCLI, which is a command-line interface of the render engine. Command-line interface can come in handy if you are batch rendering or using it on a remote server. It also, in theory, offers slightly better performance in terms of render time.
 
-{% include image_custom.html file="blog/2019-07-26-blog_photon_technical_update/cli_demo.png" alt="photon's cli" caption="Photon's CLI is handy in a wide variety of environments." width="70%" %}
+{% include image_custom.html file="blog/2019-07-26-blog_photon_technical_update/cli_demo.png" alt="photon's cli" caption="Photon's CLI is handy in a wide variety of environments." width="65%" %}
 
 ## Dataflow
 
@@ -53,7 +53,7 @@ We briefly introduce some of the major container types:
 
 Little can be achieved if we have only standalone data containers at hand. The purpose of composite containers is to achieve aggregate behaviors on data blocks. In Photon, composite containers are often called actors since they usually contribute to the final image directly, in a sense similar to film actors. It is straightforward to see that actors are a higher level concept than standalone data containers in the class diagram that follows.
 
-{% include image_custom.html file="blog/2019-07-26-blog_photon_technical_update/composite_containers.png" alt="photon's composite containers" caption="Class diagram of composite data containers of the modeling category." width="65%" %}
+{% include image_custom.html file="blog/2019-07-26-blog_photon_technical_update/composite_containers.png" alt="photon's composite containers" caption="Class diagram of composite data containers of the modeling category." width="60%" %}
 
 * Model Actor: Models are one of the core elements that comprise a scene. To define a model, we need a geometry, a material, and (optionally) a motion source. These data blocks, when combined, realizes a virtual object in the scene.
 * Light and Dome Actor: Lights are another core element in a scene, no image can be formed without them. It takes a light source to define a light. In case of a dome, a specialized actor type is needed since lighting from the environment is special in many ways. For instance, sometimes we need a bounding box/sphere for the whole scene to properly construct a dome model large enough to encompass the scene. This made them unable to be cooked in the order just like normal light actors, they need to be cooked last.
