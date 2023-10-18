@@ -7,6 +7,8 @@ summary: "Understanding path tracing from equations."
 tags: [sharing]
 ---
 
+{% include mathjax.html %}
+
 ## Introduction
 
 Rendering is a broad term describing a collection of image synthesis techniques that takes geometrical descriptions and material properties of a 3-D scene as input, and outputs a 2-D image of that scene from a specific point of view. In layman's terms, it is like taking a photograph, except the scene and the camera are both computer simulated. The rendering equation (or light transport equation, LTE) proposed by Kajiya[^1] is as follows:
