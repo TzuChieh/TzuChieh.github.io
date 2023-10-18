@@ -6,6 +6,8 @@ summary: "An update (technical aspect) to Photon renderer."
 tags: [sharing]
 ---
 
+{% include mathjax.html %}
+
 The majority of this post is from an old document that has never been released. Before starting, I would like to talk a bit more about why the [first version of Photon renderer](https://github.com/TzuChieh/Photon) is not developed anymore. 
 
 Initially, it was a side project where I experiment with some global illumination techniques for my game engine (called Tokzin), and both of them were written in Java. It had occurred to me that Java, although easy to code and sometimes outperforms compiled languages[^1] thanks to its JIT system, the restricted accessibilities to system memory makes it hard to implement some of the low level optimizations. In 2016, I decided to rewrite the rendering engine in C++ for better performance, and ported most of the code from the original Java codebase. It is worth noting that the C++ version was more than 20% faster rendering the Crytek Sponza[^2] scene than its Java counterpart out of the box. At that time, I bumped Photon’s version number into 2.0 and has been adding features here and there since then.
