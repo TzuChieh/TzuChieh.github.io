@@ -85,12 +85,12 @@ Substituting back into the LTE, we have
 $$
 \begin{split}
     L_{o} \left(p_{1} \rightarrow p_{0}\right) \\
-    & = L_{e} \left(p_{1} \rightarrow p_{0}\right) \\
+    = & L_{e} \left(p_{1} \rightarrow p_{0}\right) \\
     & + \int \Big[ L_{e} \left(p_{2} \rightarrow p_{1}\right) + L_{r} \left(p_{2} \rightarrow p_{1}\right)\Big] f\left(p_{2} \rightarrow p_{1} \rightarrow p_{0}\right) \cos \left(\theta_{1}\right) d \omega_1 \\
-    & = L_{e} \left(p_{1} \rightarrow p_{0}\right) \\
+    = & L_{e} \left(p_{1} \rightarrow p_{0}\right) \\
     & + \int L_{e} \left(p_{2} \rightarrow p_{1}\right) f\left(p_{2} \rightarrow p_{1} \rightarrow p_{0}\right) \cos \left(\theta_{1}\right) d \omega_1 \\
     & + \int L_{r} \left(p_{2} \rightarrow p_{1}\right) f\left(p_{2} \rightarrow p_{1} \rightarrow p_{0}\right) \cos \left(\theta_{1}\right) d \omega_1 \\
-    & = L_{e} \left(p_{1} \rightarrow p_{0}\right) + L_{d} \left(p_{2} \rightarrow p_{1} \rightarrow p_{0}\right) + L_{i} \left(p_{2} \rightarrow p_{1} \rightarrow p_{0}\right),
+    = & L_{e} \left(p_{1} \rightarrow p_{0}\right) + L_{d} \left(p_{2} \rightarrow p_{1} \rightarrow p_{0}\right) + L_{i} \left(p_{2} \rightarrow p_{1} \rightarrow p_{0}\right),
 \end{split}
 $$
 
@@ -143,7 +143,7 @@ where $$ W_e $$ is a quantity that transform the measured power into radiance, w
 
 $$
 \begin{split}
-    I = \sum_{k=1}^{\infty} \int_{A^{k+1}}  L_{e} \left(p_{1} \rightarrow p_{0}\right)  G \left(p_{1} \leftrightarrow p_{0}\right) \\
+    I = & \sum_{k=1}^{\infty} \int_{A^{k+1}}  L_{e} \left(p_{1} \rightarrow p_{0}\right)  G \left(p_{1} \leftrightarrow p_{0}\right) \\
     & \cdot \prod_{i=1}^{n} \left[ f \left(p_{i-1} \rightarrow p_{i} \rightarrow p_{i+1}\right) G \left(p_{i} \rightarrow p_{i+1} \right) \right] W_e\left( p_{k-1} \rightarrow p_{k} \right) dA_0 dA_1 \cdots dA_k.
 \end{split}
 $$
