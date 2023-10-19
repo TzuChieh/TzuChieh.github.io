@@ -40,7 +40,7 @@ permalink: resume_index.html
 ## Publications & Projects
 
 * [**Photon: A Modular, Research-Oriented Rendering System**](portfolio_sig2019_photon.html) \| [**ACM SIGGRAPH 2019**](https://s2019.siggraph.org/) \| **Aug. 2019**
-  * Indroducing the design of my renderer and comparing it to existing solutions.
+  * Introducing the design of my renderer and comparing it to existing solutions.
   * [Link to ACM Digital Library](https://dl.acm.org/doi/10.1145/3306214.3338586); authors: [Tzu-Chieh Chang](index.html), [Ming Ouhyoung](https://www.csie.ntu.edu.tw/~ming/)
 
 * [**Photon Renderer**](portfolio_photon_v2.html) \| **2016 - present**
