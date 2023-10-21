@@ -134,6 +134,6 @@ Advanced color space management has been integrated into Photon. Inspired by `st
 
 We also added better logging, profiling (by integrating [Tracy](https://github.com/wolfpld/tracy)), [concurrency helpers](https://github.com/TzuChieh/Photon-v2/tree/3d8e39c2b22113574089ffdb6e8a325e18af7324/Engine/Source/Utility/Concurrent), filesystem utilities, etc. Most new features are code based and cannot be easily showed here. Nevertheless, the whole project is build on top of them and new modules can be added easily and with better quality then before.
 
-## What to expect?
+## What to expect in the future?
 
-
+Being a renderer for photorealistic image synthesis, any physically correct features that caught my eye will have a chance to be implemented. That means I do not have any schedule planned out yet. If you are interested in what could come out next or what is being implemented right now, you can visit the [Engine-Dev](https://github.com/users/TzuChieh/projects/1) project page where I keep self-notes and development progress. [Papers](https://github.com/users/TzuChieh/projects/2/views/1) is another project page for personal memo on interesting new papers. Maintaining this project can take a good chunk of available free time from me, of course. Even so, rendering is fun and I will keep working on it for the foreseeable future. See you next time.

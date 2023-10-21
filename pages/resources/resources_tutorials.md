@@ -7,6 +7,8 @@ sidebar: resources_sidebar
 permalink: resources_tutorials.html
 ---
 
+* [Ray Tracing In One Weekend Series](https://raytracing.github.io/)
+  * Nice small book series by Peter Shirley et al. Highly recommended for people who want to get started on the graphics field.
 * [thebennybox](https://www.youtube.com/user/thebennybox)
   * Extraordinary video tutorials for real-time rendering and game engine development.
 * [Scratchapixel 2.0](https://www.scratchapixel.com/)
