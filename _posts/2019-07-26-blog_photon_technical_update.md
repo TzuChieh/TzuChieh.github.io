@@ -1,5 +1,5 @@
 ---
-title:  "Technical Update on Photon"
+title: "Technical Update on Photon"
 published: true
 toc: true
 permalink: blog_photon_technical_update.html

@@ -1,5 +1,5 @@
 ---
-title:  "Introducing Photon - A Simple Renderer "
+title: "Introducing Photon - A Simple Renderer "
 published: true
 permalink: blog_intro_photon.html
 summary: "Introducing my first offline renderer."

@@ -126,7 +126,14 @@ We now have a new C++ based GUI program for rendering. This time it is much more
 
 {% include image_custom.html file="blog/2023-10-10-blog_current_state_of_photon/photon_editor.png" alt="editor teaser" caption="A sneak peek at the new editor program." width="100%" %}
 
-Currently, it has all the functionalities Photon Studio had. As you can already guess from the above image, we are going to support basic scene manipulation tools directly within the editor program. Asset creation (e.g., material, geometry, animation, etc.) can be done in Blender; however, some novel material models or rendering algorithms cannot be easily managed from any DCC tools. By building our own editor, we can reduce one more level of indirection and aid data visualization in a more straightforward way. One example is the sampling tool we have, which let you visualize random number and sample generation from the engine
+Currently, it has all the functionalities Photon Studio had. As you can already guess from the above image, we are going to support basic scene manipulation tools directly within the editor program. Asset creation (e.g., material, geometry, animation, etc.) can be done in Blender; however, some novel material models or rendering algorithms cannot be easily managed from any DCC tools. By building our own editor, we can reduce one more level of indirection and aid data visualization in a more straightforward way. One example is the sampling tool we have, which let you visualize random number and sample generation from the engine:
 
+{% include image_custom.html file="blog/2023-10-10-blog_current_state_of_photon/photon_editor_tool.png" alt="editor tool" caption="Showing first two dimensions of Halton samples with PCG64-DXSM generator." width="100%" %}
+
+Advanced color space management has been integrated into Photon. Inspired by `std::chrono`, a set of color utilities are implemented and new color space can be added by providing a couple of basic definitions (and color space casting is automatic supported). Different spectral representations can also be added as a generalized "color space", with automatic spectral up-sampling and down-sampling from/to tristimulus color spaces. These infrastructure allow us to take input data and render in any color space or spectral representation. Much of this changes are motivated by seeing the post written by Simon: [sRGB/ACEScg Luminance Comparison](http://simonstechblog.blogspot.com/2020/09/srgbacescg-luminance-comparison.html), as I like the "color bleeding" effect of ACEScg more.
+
+We also added better logging, profiling (by integrating [Tracy](https://github.com/wolfpld/tracy)), [concurrency helpers](https://github.com/TzuChieh/Photon-v2/tree/3d8e39c2b22113574089ffdb6e8a325e18af7324/Engine/Source/Utility/Concurrent), filesystem utilities, etc. Most new features are code based and cannot be easily showed here. Nevertheless, the whole project is build on top of them and new modules can be added easily and with better quality then before.
+
+## What to expect?
 
 

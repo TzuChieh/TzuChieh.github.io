@@ -1,10 +1,10 @@
 ---
-title:  "Path Tracing Foundations: A Mathematical Overview"
+title: "Path Tracing Foundations: A Mathematical Overview"
 published: true
 toc: true
 permalink: blog_pt_foundations.html
 summary: "Understanding path tracing from equations."
-tags: [graphics][math]
+tags: [graphics, math]
 ---
 
 {% include mathjax.html %}
