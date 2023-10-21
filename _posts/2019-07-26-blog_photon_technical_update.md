@@ -4,7 +4,7 @@ published: true
 toc: true
 permalink: blog_photon_technical_update.html
 summary: "An update (technical aspect) to Photon renderer."
-tags: [sharing]
+tags: [graphics]
 ---
 
 ## Background

@@ -4,7 +4,7 @@ published: true
 toc: true
 permalink: blog_pt_foundations.html
 summary: "Understanding path tracing from equations."
-tags: [sharing]
+tags: [graphics][math]
 ---
 
 {% include mathjax.html %}
@@ -50,7 +50,7 @@ The following paragraphs will describe how each technique is implemented.
 
 ## Pre-requirements
 
-Since I'm implementing these rendering techniques from scratch, the architecture of the renderer must be carefully designed. Inspired by PBRT version 2 and 3[^3], Mitsuba[^4], LuxRender[^5], and Tungsten[^6], I chose the powerful C++ as the main programming language for this project. I later combined the cosine term in the LTE with BSDF into an abstract base class called BSDFcos, each implementation must provide an evaluation, an importance sampling and a method for PDF querying. I implemented the classic Lambertian diffuse BRDF, and microfacet based BSDF materials. Unfortunately the paper by Walter et al.[^7] contains several errata and the most deadly one to me is that he forgot to provide a suitable mapping function from roughness to GGX alpha (luckily PBRT-v3 provided such mapping equation but did not mention how it was derived). My choice of acceleration structure is k-D tree with SAH based subdivision strategy. In the system I designed, camera and emitter implementations must provide several sampling methods which are essential for the integration techniques I have implemented.
+Since I am implementing these rendering techniques from scratch, the architecture of the renderer must be carefully designed. Inspired by PBRT version 2 and 3[^3], Mitsuba[^4], LuxRender[^5], and Tungsten[^6] (along with some previous experience on the Java based Photon-v1), I chose the powerful C++ as the main programming language for Photon-v2. I later combined the cosine term in the LTE with BSDF into an abstract base class called `BSDFcos`, each implementation must provide an evaluation, an importance sampling and a method for PDF querying. For evaluating the effectiveness of different rendering methods, the classic Lambertian diffuse BRDF and microfacet based BSDF materials are also implemented. Unfortunately, the paper by Walter et al.[^7] contains several errata and some of them got "lucky" enough to confuse me quite a bit. A suitable mapping function from roughness to GGX alpha is not provided in the paper either (luckily PBRT-v3 provided such mapping equation but did not mention how it was derived). My choice of acceleration structure is k-D tree with SAH based subdivision strategy (for testing these rendering methods). In the system I designed, camera and emitter implementations must provide several sampling methods which are essential for the following integration techniques.
 
 ## Vanilla Path Tracing
 

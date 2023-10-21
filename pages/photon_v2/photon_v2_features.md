@@ -83,7 +83,7 @@ permalink: photon_v2_features.html
 
 * **Misc.**
   * **Blender Addon for Scene Creation**  
-  With scene manupulation, material construction (node graph), and render preview.
+  With scene manipulation, material construction (node graph), and render preview.
   * **Easy-to-write Custom Scene Description Language**  
   Modular and extensible grammar.
   * **Studio Program for Rendering and Scene Management**  
