@@ -35,7 +35,7 @@ permalink: resume_index.html
 * [**National Taiwan University**](https://www.ntu.edu.tw/english/) \| **Taipei, Taiwan** \| **Sep. 2012 - Feb. 2017**
   * B.S., [Dept. of Mechanical Engineering](http://www.me.ntu.edu.tw/main.php?site_id=1)
   * Awarded twice for Academic Excellence
-  * Research on computational fluid dynamics (vortex method), advisor: [Mei-Jiau Huang](http://www.me.ntu.edu.tw/main.php?mod=adv_custom_page&func=show_page&site_id=0&page_id=193), Ph.D., and finite element analysis (microfluidic device), adivisor: [Han-Ming Chen](http://www.me.ntu.edu.tw/main.php?mod=adv_custom_page&func=show_page&site_id=0&page_id=172), Ph.D.
+  * Research on computational fluid dynamics (vortex method), advisor: [Mei-Jiau Huang](http://www.me.ntu.edu.tw/main.php?mod=adv_custom_page&func=show_page&site_id=0&page_id=193), Ph.D., and finite element analysis (microfluidic device), advisor: [Han-Ming Chen](http://www.me.ntu.edu.tw/main.php?mod=adv_custom_page&func=show_page&site_id=0&page_id=172), Ph.D.
 
 ## Publications & Projects
 
