@@ -60,7 +60,7 @@ permalink: resume_index.html
 
 ## Computer Skills
 
-* Profecient in: C++, Java, Python
+* Proficient in: C++, Java, Python
 * Some experience in: C, GLSL, CUDA, FORTRAN
 * Tools: Visual Studio, Eclipse, git, PyCharm, Blender
 
