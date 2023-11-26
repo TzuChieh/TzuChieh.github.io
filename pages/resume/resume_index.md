@@ -14,10 +14,12 @@ permalink: resume_index.html
   * Game Engine Software Engineer
   * Integrated NVIDIA RTX technologies for our upcoming action RPG [Faith of Danschant: Hereafter](https://www.youtube.com/watch?v=YvQjamB9IFI).
   * Engine-level customizations (on [Unreal](https://www.unrealengine.com/en-US)) for the team, including physically based material, special effect, and tooling.
+  * Worked closely with technical artists and applied my knowledge of 3D graphics to identify optimization opportunities for base assets.
 
 * [**Taiwan ICDF**](https://www.icdf.org.tw/mp.asp?mp=2) \| **St. Kitts and Nevis** \| **Sep. 2019 - Jul. 2020**
   * Assistant Technician
   * Worked on land administration information system project; handled aid from Taiwan for COVID-19 in cooperation with the Embassy of Taiwan and local government.
+  * Maintained and troubleshot IT systems situated in multiple offices nationwide.
   * Research: Generalized Radiant Energy Estimation from Geographic Information
 
 * [**National Taiwan University**](https://www.ntu.edu.tw/english/) \| **Taipei, Taiwan** \| **Sep. 2017 - Feb. 2018**
@@ -60,11 +62,11 @@ permalink: resume_index.html
 
 ## Computer Skills
 
-* Proficient in: C++, Java, Python
-* Some experience in: C, GLSL, CUDA, FORTRAN
-* Tools: Visual Studio, Eclipse, git, PyCharm, Blender
+* Programming: C, C++, C#, CUDA, FORTRAN, Graphics APIs, Java, Python, Shading Languages
+* Software: Blender, CMake, Git, Perforce, Unreal Engine
+* Misc: CI/CD, Computer Graphics, Game/Engine Development, Global Illumination Algorithms, OOP, UI, Unit Testing
 
 ## Languages
 
 * Mandarin: native speaker
-* English: Golden Certificate of TOEIC (2010)
+* English: GEPT High-Intermediate Level (2018), Golden Certificate of TOEIC (2010)
