@@ -7,6 +7,8 @@ sidebar: photon_v2_sidebar
 permalink: photon_v2_geometry_introduction.html
 ---
 
+{% include warning.html content="Documentation deprecated. Please visit the [project website](https://tzuchieh.github.io/Photon-v2-site/engine_docs/v2.0.0-beta/Photon/html/index.html) for up-to-date content." %}
+
 If there is a ball in the scene, we can create a sphere geometry to represent it; if there is a piece of paper on the table, we can use a rectangle geometry to model it. Geometries are the barebone of a scene: materials, lights, physical motions... are all built on top of geometries, they are basically the heart of a virtual world. We show some common types of geometries in the following sections to give you a rough idea how geometries are like in Photon renderer.
 
 ## Rectangle, Triangle, and Sphere

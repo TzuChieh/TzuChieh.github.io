@@ -7,6 +7,8 @@ sidebar: photon_v2_sidebar
 permalink: photon_v2_build_from_source.html
 ---
 
+{% include warning.html content="Documentation deprecated. Please visit the [project website](https://tzuchieh.github.io/Photon-v2-site/engine_docs/v2.0.0-beta/Photon/html/index.html) for up-to-date content." %}
+
 Building Photon is super easy since the renderer is coded from scratch (almost) using standard C++. Each of the required third-party libraries is either header only or pre-compiled, and can be handled automatically with the setup script.
 
 ## Prerequisites

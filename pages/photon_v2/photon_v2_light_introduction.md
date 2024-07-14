@@ -7,6 +7,8 @@ sidebar: photon_v2_sidebar
 permalink: photon_v2_light_introduction.html
 ---
 
+{% include warning.html content="Documentation deprecated. Please visit the [project website](https://tzuchieh.github.io/Photon-v2-site/engine_docs/v2.0.0-beta/Photon/html/index.html) for up-to-date content." %}
+
 Photon provides several kinds of light sources, and insists on using physically based units for input arguments. The reason is three-fold:
 
 * Photon is physically based, using physically based inputs is natural and more accurate.

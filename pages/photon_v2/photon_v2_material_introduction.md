@@ -7,6 +7,8 @@ sidebar: photon_v2_sidebar
 permalink: photon_v2_material_introduction.html
 ---
 
+{% include warning.html content="Documentation deprecated. Please visit the [project website](https://tzuchieh.github.io/Photon-v2-site/engine_docs/v2.0.0-beta/Photon/html/index.html) for up-to-date content." %}
+
 We present material implementations with a fairly professional test scene (we are using *CGTrace's Material Ball* made by *victorborges*. Some part of the model is modified for Photon to use). It is a scene that facilitates observation and comparison of material appearances. There is an inset object within the main model that has a 50% albedo, which serves as a neutral color comparator. The smaller objects at the front is for inspecting basic characteristics (annotated directly on the ground plane) of the material. Two color legends are placed on the sides as a simple color checker. A standard 24-color checker may be better for this purpose (this is left for future work). This scene is lit by a 7-watt white (standard illuminant-E, constant spectrum) rectangular area light on the right.
 
 {% include image_gallery.html file="photon_v2/material_texture_only.png" alt="" caption="Scene with no material applied. It looks dull and lack contrast due to inability to react to lighting." width="70%" %}

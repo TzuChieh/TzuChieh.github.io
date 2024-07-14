@@ -7,6 +7,8 @@ sidebar: photon_v2_sidebar
 permalink: photon_v2_coding_standard.html
 ---
 
+{% include warning.html content="Documentation deprecated. Please visit the [project website](https://tzuchieh.github.io/Photon-v2-site/engine_docs/v2.0.0-beta/Photon/html/index.html) for up-to-date content." %}
+
 ## Why
 
 It is benefitial to have a common coding style to follow with, the reasons are:

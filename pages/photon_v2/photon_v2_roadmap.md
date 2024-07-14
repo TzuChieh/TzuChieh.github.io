@@ -7,6 +7,8 @@ sidebar: photon_v2_sidebar
 permalink: photon_v2_roadmap.html
 ---
 
+{% include warning.html content="Documentation deprecated. Please visit the [project website](https://tzuchieh.github.io/Photon-v2-site/engine_docs/v2.0.0-beta/Photon/html/index.html) for up-to-date content." %}
+
 * **Near Future (in 1 ~ 3 months)**
   * stabilize core engine structure
   * advanced addon for Blender (with render preview)
@@ -15,7 +17,7 @@ permalink: photon_v2_roadmap.html
   * full-featured volumetric light transport
   * separated material description format
   * adaptive sampling
-  * concurrent SDL parsing and vooking
+  * concurrent SDL parsing and cooking
 
 * **Mid-term (in 3 ~ 6 months)**
   * better material node editor & parser

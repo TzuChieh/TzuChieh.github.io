@@ -6,6 +6,9 @@ summary: "Full documentation of PSDL."
 sidebar: photon_v2_sidebar
 permalink: photon_v2_sdl_documentation.html
 ---
+
+{% include warning.html content="Documentation deprecated. Please visit the [project website](https://tzuchieh.github.io/Photon-v2-site/engine_docs/v2.0.0-beta/Photon/html/index.html) for up-to-date content." %}
+
 # Photon Scene Description Language
 
 ## Geometry

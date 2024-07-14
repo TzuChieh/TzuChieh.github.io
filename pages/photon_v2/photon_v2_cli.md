@@ -8,6 +8,8 @@ permalink: photon_v2_cli.html
 summary: Using PhotonCLI.
 ---
 
+{% include warning.html content="Documentation deprecated. Please visit the [project website](https://tzuchieh.github.io/Photon-v2-site/engine_docs/v2.0.0-beta/Photon/html/index.html) for up-to-date content." %}
+
 Photon-v2 comes with an application called `PhotonCLI`, which is a command-line interface of the render engine. Command-line interface can come in handy if you are batch rendering or using it on a remote server. It also, in theory, offers slightly better performance in terms of render time. This is a documentation of available options and some examples. Check out `PhotonStudio` if you are more interested in using a GUI.
 
 ## Available Options
