@@ -10,7 +10,8 @@ summary:
 
 Photon-v2 is a rendering engine made out of my love for computer graphics. A rendering engine is what takes geometrical descriptions and material properties of a 3-D scene as input, and outputs a 2-D image of that scene from a specific point of view. In layman's terms, it is like taking a photograph, except the scene and the camera are both computer simulated. This project is still actively being developed, and more features are expected to come.
 
-* Visit the [project website](https://tzuchieh.github.io/Photon-v2-site/engine_docs/v2.0.0-beta/Photon/html/index.html) for more information.
+* Visit the [documentation website](https://tzuchieh.github.io/Photon-v2-site/engine_docs/v2.0.0-beta/Photon/html/index.html) for more information.
+* We also have a [feature overview page](https://tzuchieh.github.io/Photon-v2-site/engine_docs/v2.0.0-beta/Photon/html/main_feature_overview.html) that is more thorough and up-to-date than this site.
 * Full [source code](https://github.com/TzuChieh/Photon-v2) available.
 
 ## Technical Showreel
